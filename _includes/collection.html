@@ -1,0 +1,9 @@
+{%- assign location = include.location %}
+{%- assign location_id = include.id %}
+{%- assign collection = site.data[location][location_id] %}
+<h2>{%- if include.link -%}<a href="{{ include.link }}">{%- endif -%}{{ include.title | default: "Collection" }}{%- if include.link -%}</a>{%- endif -%}</h2>
+<ul>
+{%- for object in collection %}
+    <li><a href="{{ object.link }}">{{ object.titles }}</a></li>
+{%- endfor %}
+</ul>
