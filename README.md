@@ -1,3 +1,4 @@
-# Welcome
+# Argument Aloud
 
-Stay tuned...
+#### An assortment of U.S. Supreme Court data.
+
