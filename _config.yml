@@ -8,3 +8,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/default.jpg
