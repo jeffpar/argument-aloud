@@ -2,6 +2,7 @@
 {%- assign location_id = include.id %}
 {%- assign collection = site.data[location][location_id] %}
 <h2>{%- if include.link -%}<a href="{{ include.link }}">{%- endif -%}{{ include.title | default: "Collection" }}{%- if include.link -%}</a>{%- endif -%}</h2>
+<p><a href="/data/{{ location }}/{{ location_id }}.json">[Raw Data]</a></p>
 <ul>
 {%- for object in collection %}
     {%- unless object.events -%}
@@ -18,8 +19,8 @@
             <li>{{ event }}</li>
             {%- endfor %}
             {%- assign i = 0 %}
-            {%- for source in object.sources %}
-            <li><a href="{{ source }}">{{ object.destinations[i] }}</a></li>
+            {%- for destination in object.destinations %}
+            <li><a href="{{ object.sources[i] }}">{{ destination }}</a></li>
                 {%- assign i = i | plus: 1 %}
             {%- endfor %}
         </ul>
