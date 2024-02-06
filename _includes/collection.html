@@ -4,6 +4,26 @@
 <h2>{%- if include.link -%}<a href="{{ include.link }}">{%- endif -%}{{ include.title | default: "Collection" }}{%- if include.link -%}</a>{%- endif -%}</h2>
 <ul>
 {%- for object in collection %}
+    {%- unless object.events -%}
     <li><a href="{{ object.link }}">{{ object.titles }}</a></li>
+    {%- else %}
+    {%- assign words = object.titles | split: ", " %}
+    {%- assign length = words.size %}
+    {%- assign month_index = length | minus: 2 %}
+    {%- assign year_index = length | minus: 1 %}
+    {%- assign date = words[month_index] | append: ", " | append: words[year_index] %}
+    <li>{{ date }}
+        <ul>
+            {%- for event in object.events %}
+            <li>{{ event }}</li>
+            {%- endfor %}
+            {%- assign i = 0 %}
+            {%- for source in object.sources %}
+            <li><a href="{{ source }}">{{ object.destinations[i] }}</a></li>
+                {%- assign i = i | plus: 1 %}
+            {%- endfor %}
+        </ul>
+    </li>
+    {%- endunless %}
 {%- endfor %}
 </ul>
