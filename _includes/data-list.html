@@ -1,0 +1,7 @@
+{%- assign idCol = include.collection %}
+{%- assign collection = site.data.nara[idCol] %}
+<ul>
+{%- for object in collection %}
+    <li><a href="{{ object.link }}">{{ object.titles }}</a></li>
+{%- endfor %}
+</ul>
