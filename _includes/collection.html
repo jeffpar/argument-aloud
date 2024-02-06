@@ -5,7 +5,7 @@
 <p><a href="/data/{{ location }}/{{ location_id }}.json">[Raw Data]</a></p>
 <ul>
 {%- for object in collection %}
-    {%- unless object.events -%}
+    {%- unless object.events %}
     <li><a href="{{ object.link }}">{{ object.titles }}</a></li>
     {%- else %}
     {%- assign words = object.titles | split: ", " %}
