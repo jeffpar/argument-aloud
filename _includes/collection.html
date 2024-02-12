@@ -20,7 +20,9 @@
             {%- endfor %}
             {%- assign i = 0 %}
             {%- for destination in object.destinations %}
-            <li><a href="{{ object.sources[i] }}">{{ destination }}</a></li>
+            <li>{{ destination }}
+                <audio controls><source src="{{ object.sources[i] }}" type="audio/mp3"/></audio>
+            </li>
                 {%- assign i = i | plus: 1 %}
             {%- endfor %}
         </ul>
