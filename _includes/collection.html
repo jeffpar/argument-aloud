@@ -5,28 +5,47 @@
 <p><a href="/data/{{ location }}/{{ location_id }}.json">[Raw Data]</a></p>
 <ul>
 {%- for object in collection %}
-    {%- unless object.events %}
-    <li><a href="{{ object.link }}">{{ object.titles }}</a></li>
-    {%- else %}
+  {%- unless object.events %}
+  <li><a href="{{ object.link }}">{{ object.titles }}</a></li>
+  {%- else %}
     {%- assign words = object.titles | split: ", " %}
     {%- assign length = words.size %}
     {%- assign month_index = length | minus: 2 %}
     {%- assign year_index = length | minus: 1 %}
     {%- assign date = words[month_index] | append: ", " | append: words[year_index] %}
-    <li>{{ date }}
-        <ul>
-            {%- for event in object.events %}
-            <li>{{ event }}</li>
-            {%- endfor %}
-            {%- assign i = 0 %}
-            {%- for destination in object.destinations %}
-            <li>{{ destination }}
-                <audio controls><source src="{{ object.sources[i] }}" type="audio/mp3"/></audio>
-            </li>
-                {%- assign i = i | plus: 1 %}
-            {%- endfor %}
-        </ul>
-    </li>
-    {%- endunless %}
+  <li>{{ date }}
+    <ul>
+    {%- for event in object.events %}
+      <li>{{ event }}</li>
+    {%- endfor %}
+    {%- assign i = 0 %}
+    {%- for destination in object.destinations %}
+      <li><a href="#" onclick="toggleAudio(this)">{{ destination }}</a>
+        <audio><source src="{{ object.sources[i] }}" type="audio/mp3"/></audio>
+      </li>
+      {%- assign i = i | plus: 1 %}
+    {%- endfor %}
+    </ul>
+  </li>
+  {%- endunless %}
 {%- endfor %}
 </ul>
+<script type="text/javascript">
+  function toggleAudio(e) {
+    let audio = e.nextElementSibling;
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+      e.blur();
+    }
+  }
+  document.addEventListener("play", function(e) {
+    let audios = document.getElementsByTagName("audio");
+    for (let i = 0; i < audios.length; i++) {
+      if (audios[i] != e.target) {
+        audios[i].pause();
+      }
+    }
+  }, true);
+</script>
