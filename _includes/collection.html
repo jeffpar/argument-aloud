@@ -35,7 +35,10 @@
   var audioElements = [];
   function toggleAudio(span, src) {
     let audio = span.previousElementSibling;
-    if (!audio.src) audio.src = src;
+    if (!audio.src) {
+      audio.src = src;
+      audioElements.push(audio);
+    }
     if (audio.paused) {
       audio.play();
       span.innerText = "⏸";
@@ -46,9 +49,6 @@
     }
     return false;
   }
-  window.addEventListener("load", function() {
-    audioElements = document.getElementsByTagName("audio");
-  });
   document.addEventListener("play", function(event) {
     for (let i = 0; i < audioElements.length; i++) {
       let audio = audioElements[i];
