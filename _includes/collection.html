@@ -21,8 +21,8 @@
     {%- assign i = 0 %}
     {%- for destination in object.destinations %}
       <li><a href="{{ object.sources[i] }}">{{ destination }}</a>
-        <audio preload="none"><source src="{{ object.sources[i] }}" type="audio/mp3"/></audio>
-        <span class="clickable" onclick="toggleAudio(this)">▶️</span>
+        <audio preload="none"><source src="" type="audio/mp3"/></audio>
+        <span class="clickable" onclick="toggleAudio(this, '{{ object.sources[i] }}')">▶️</span>
       </li>
       {%- assign i = i | plus: 1 %}
     {%- endfor %}
@@ -33,8 +33,9 @@
 </ul>
 <script type="text/javascript">
   var audioElements = [];
-  function toggleAudio(span) {
+  function toggleAudio(span, src) {
     let audio = span.previousElementSibling;
+    if (!audio.src) audio.src = src;
     if (audio.paused) {
       audio.play();
       span.innerText = "⏸";
