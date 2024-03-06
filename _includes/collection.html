@@ -20,8 +20,9 @@
     {%- endfor %}
     {%- assign i = 0 %}
     {%- for destination in object.destinations %}
-      <li><a href="#" onclick="toggleAudio(this)">{{ destination }}</a>
+      <li><a href="{{ object.sources[i] }}">{{ destination }}</a>
         <audio preload="none"><source src="{{ object.sources[i] }}" type="audio/mp3"/></audio>
+        <span class="clickable" onclick="toggleAudio(this)">▶️</span>
       </li>
       {%- assign i = i | plus: 1 %}
     {%- endfor %}
@@ -31,25 +32,31 @@
 {%- endfor %}
 </ul>
 <script type="text/javascript">
-  var audios = [];
-  function toggleAudio(e) {
-    let audio = e.nextElementSibling;
+  var audioElements = [];
+  function toggleAudio(span) {
+    let audio = span.previousElementSibling;
     if (audio.paused) {
       audio.play();
+      span.innerText = "⏸";
     } else {
       audio.pause();
-      e.blur();
+      span.innerText = "▶️";
+      span.blur();
     }
     return false;
   }
   window.addEventListener("load", function() {
-    audios = document.getElementsByTagName("audio");
+    audioElements = document.getElementsByTagName("audio");
   });
-  document.addEventListener("play", function(e) {
-    for (let i = 0; i < audios.length; i++) {
-      if (audios[i] != e.target) {
-        if (audios[i].duration > 0 && !audios[i].paused) {
-          audios[i].pause();
+  document.addEventListener("play", function(event) {
+    for (let i = 0; i < audioElements.length; i++) {
+      let audio = audioElements[i];
+      let target = event.target;
+      if (audio != target) {
+        if (audio.duration > 0 && !audio.paused) {
+          audio.pause();
+          let span = audio.nextElementSibling;
+          span.innerText = "▶️";
         }
       }
     }
