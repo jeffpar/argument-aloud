@@ -13,7 +13,7 @@
     {%- assign month_index = length | minus: 2 %}
     {%- assign year_index = length | minus: 1 %}
     {%- assign date = words[month_index] | append: ", " | append: words[year_index] %}
-  <li>{{ date }}
+  <li id="{{ object.date }}">{{ date }}
     <ul>
     {%- for event in object.events %}
       <li>{{ event }}</li>
