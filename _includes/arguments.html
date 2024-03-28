@@ -1,0 +1,37 @@
+{%- assign source = "arguments" %}
+{%- assign arguments = site.data[source] %}
+<h2>All Processed Terms (October Term 1955 through October Term 1962)</h2>
+<ul>
+{%- assign prev_date = "" %}
+{%- for event in arguments %}
+  {%- assign first_date = event.dates[0] | split: ":" %}
+  {%- if first_date[1] != prev_date %}
+    {%- if prev_date != "" %}
+    </ul>
+  </li>
+  {%- endif %}
+  <li>{{ first_date[1] }}
+    <ul>
+  {%- endif %}
+  {%- for docket in event.dockets %}
+    {%- assign i = forloop.index0 %}
+      <li>No. {{ docket }}, {{ event.titles[i] }}{% unless forloop.last %}</li>{% endunless %}
+  {%- endfor %}
+        <ul>
+  {%- for link in event.oyez %}
+          <li><a href="{{ link }}">{{ link }}</a></li>
+  {%- endfor %}
+  {%- for link in event.nara %}
+    {%- assign link_parts = link | split: "/" %}
+    {%- assign link_index = link_parts | size | minus: 1 %}
+          <li><a href="{{ link }}">{{ link_parts[link_index] }}</a></li>
+  {%- endfor %}
+        </ul>
+      </li>
+  {%- assign prev_date = first_date[1] %}
+{%- endfor %}
+{%- if prev_date != "" %}
+    </ul>
+  </li>
+{%- endif %}
+</ul>
