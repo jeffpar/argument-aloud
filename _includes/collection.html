@@ -1,0 +1,65 @@
+{%- assign location = include.location %}
+{%- assign location_id = include.id %}
+{%- assign collection = site.data[location][location_id] %}
+<h2>{%- if include.link -%}<a href="{{ include.link }}">{%- endif -%}{{ include.title | default: "Collection" }}{%- if include.link -%}</a>{%- endif -%}</h2>
+<p><a href="/data/{{ location }}/{{ location_id }}.json">[Raw Data]</a></p>
+<ul>
+{%- for object in collection %}
+  {%- unless object.events %}
+  <li><a href="{{ object.link }}">{{ object.titles }}</a></li>
+  {%- else %}
+    {%- assign words = object.titles | split: ", " %}
+    {%- assign length = words.size %}
+    {%- assign month_index = length | minus: 2 %}
+    {%- assign year_index = length | minus: 1 %}
+    {%- assign date = words[month_index] | append: ", " | append: words[year_index] %}
+  <li id="{{ object.date }}">{{ date }}
+    <ul>
+    {%- for event in object.events %}
+      <li>{{ event }}</li>
+    {%- endfor %}
+    {%- assign i = 0 %}
+    {%- for destination in object.destinations %}
+      <li><a href="{{ object.sources[i] }}">{{ destination }}</a>
+        <audio preload="none"><source src="" type="audio/mp3"/></audio>
+        <span class="clickable" onclick="toggleAudio(this, '{{ object.sources[i] }}')">▶️</span>
+      </li>
+      {%- assign i = i | plus: 1 %}
+    {%- endfor %}
+    </ul>
+  </li>
+  {%- endunless %}
+{%- endfor %}
+</ul>
+<script type="text/javascript">
+  var audioElements = [];
+  function toggleAudio(span, src) {
+    let audio = span.previousElementSibling;
+    if (!audio.src) {
+      audio.src = src;
+      audioElements.push(audio);
+    }
+    if (audio.paused) {
+      audio.play();
+      span.innerText = "⏸";
+    } else {
+      audio.pause();
+      span.innerText = "▶️";
+      span.blur();
+    }
+    return false;
+  }
+  document.addEventListener("play", function(event) {
+    for (let i = 0; i < audioElements.length; i++) {
+      let audio = audioElements[i];
+      let target = event.target;
+      if (audio != target) {
+        if (audio.duration > 0 && !audio.paused) {
+          audio.pause();
+          let span = audio.nextElementSibling;
+          span.innerText = "▶️";
+        }
+      }
+    }
+  }, true);
+</script>
