@@ -10,9 +10,16 @@ Below are the results of an audit that correlated three sources of U.S. Supreme 
   - U.S. Supreme Court Records at the [National Archives](https://www.archives.gov/research/guide-fed-records/groups/267.html)
   - U.S. Supreme Court Audio Recordings at [The Oyez Project](https://www.oyez.org)
 
-The goal of this initial audit of 8 terms was to identify issues and work out kinks in the auditing process.  Ultimately, all terms from 1889 (the earliest year for which Journals are available electronically) through the present will be audited.
+The goal of this initial audit of 8 terms was to identify issues and work out kinks in the auditing process, and ultimately generate comprehensive lists of relevant data, including:
 
-Oyez omissions discovered in the audit:
+  - Audio present in the NARA collection but missing from the Oyez collection
+  - Audio present in the Oyez collection but missing from the NARA collection
+  - Other (non-argument) U.S. Supreme Court audio present in the NARA collection
+  - Advocates who argued in all cases, extracted from the Journals and cross-referenced with Oyez
+
+Ultimately, all terms from 1889 (the earliest year for which Journals are available electronically) through the present will be audited.
+
+Oyez omissions discovered in this initial audit:
 
   - [Nilva v. United States](https://www.oyez.org/cases/1956/37) (No. 37) was argued on November 8 and 13, 1956.  Oyez appears to have combined the audio files and inadvertently dropped the November 8 date.
 
@@ -22,7 +29,7 @@ Oyez omissions discovered in the audit:
 
   - Creek Nation v. United States (No. 124) was argued in the 1961 term on April 24, 1962, but it does not appear in Oyez.  It was affirmed by an equally divided Court on June 4, 1962, so the lack of a decision may have contributed to its omission.
 
-Other idiosyncrasies observed in Oyez:
+Other idiosyncrasies observed in Oyez during the initial audit:
 
   - Oyez filed a large number of reargued cases in the terms that they were first argued, but with the docket numbers assigned on reargument.  For example, [International Association of Machinists v. Street](https://www.oyez.org/cases/1959/4) was argued in the 1959 term as No. 258, and then redocketed and reargued in the 1960 term as No. 4, but Oyez filed it under the older term (1959) with the newer docket number (4).
 
@@ -49,6 +56,11 @@ Another anomaly arises when the Court invites *amicus* parties to argue on behal
 
 On the third day, the Solicitor General and others then argued as *amici*, and while the Solicitor General argued with respect to *all* the cases, other attorneys (e.g., Joseph Kaufman) argued only with respect to specific cases (e.g., No. 26).  Unfortunately, Oyez didn't have an easy way to attach *amicus* arguments to multiple cases, so it simply tacked all the *amicus* arguments onto [Shuttlesworth v. City of Birmingham](https://www.oyez.org/cases/1962/67), November 7, 1962.  Since there are no notations to explain this, anyone looking for the complete set of arguments in another case (e.g., Griffin v. Maryland) will not know where to find the *amicus* arguments, or even that they exist.
 
-These exceptions are what consume 90% of the time required to audit a single term.  90% of all argued cases match up perfectly between Journals, NARA records, and Oyez records -- quickly and automatically.  It's figuring out what's wrong with the remaining 10% that can take many hours of sleuthing.  As the process moves forward in time, past the 1962 term, the process should improve and the number of exceptions shrink.  Which will be good, because when we start working backwards, the only data we have are the Journals.  There aren't any Oyez or NARA audio records we can cross-reference in pre-1955 terms, so we will lose the benefit of automatic error-checking.
+These exceptions are what consume 90% of the time required to audit a single term.  90% of all argued cases matched up perfectly between Journals, NARA records, and Oyez records -- quickly and automatically.  It's figuring out what's wrong with the remaining 10% that can take many hours of sleuthing.  As the process moves forward in time, past the 1962 term, the process should improve and the number of exceptions shrink.
+
+As we start working backwards before 1955, we will lose the benefit of any Oyez or NARA audio records that we can cross-reference.  This is why the auditing process will also need to incorporate other sources of data as well:
+
+  - [Library of Congress: United States Reports](https://www.loc.gov/collections/united-states-reports/)
+  - [The Supreme Court Database](http://scdb.wustl.edu)
 
 {% include arguments.html %}
