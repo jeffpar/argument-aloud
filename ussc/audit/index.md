@@ -14,25 +14,25 @@ The goal of the initial audit of 8 terms was to identify issues and work out kin
 
   - Audio present in the NARA collection but missing from the Oyez collection (and vice versa)
   - Other (non-argument) U.S. Supreme Court audio present in the NARA collection
-  - Advocates who argued in all cases, extracted from the Journals and cross-referenced with Oyez
+  - Names of advocates who argued in all cases, extracted from the Journals and cross-referenced with Oyez
 
-Ultimately, all terms from 1889 (the earliest year for which Journals are available electronically) through the present will be audited.
+Ultimately, all terms from 1889 (the earliest year for which Journals are available digitally) through the present need to be audited.
 
 Oyez omissions discovered in the initial audit:
 
   - [Nilva v. United States](https://www.oyez.org/cases/1956/37) (No. 37) was argued on November 8 and 13, 1956.  Oyez appears to have combined the audio recordings and inadvertently dropped the November 8 date in the process.
 
-  - Stanton v. United States (No. 546) was argued on March 24, 1960, following a related case, Commissioner of Internal Revenue v. Duberstein  (No. 376) that was argued on March 23.  However, the argument for Stanton is missing from Oyez; only the argument for [Commissioner v. Duberstein](https://www.oyez.org/cases/1959/376) is available.  Both cases were decided in 363 U.S. 278 (1960).  
+  - Stanton v. United States (No. 546) was argued on March 24, 1960, following a related case, Commissioner of Internal Revenue v. Duberstein  (No. 376) that was argued on March 23.  However, the argument for Stanton appears to be missing from Oyez; only the argument for [Commissioner v. Duberstein](https://www.oyez.org/cases/1959/376) is available.  The cases were decided together and reported in [363 U.S. 278](https://tile.loc.gov/storage-services/service/ll/usrep/usrep363/usrep363278/usrep363278.pdf).
 
-  - [Presser v. United States](https://www.oyez.org/cases/1961/278) (No. 278) was argued in the 1961 term, affirmed by an equally divided Court, consequently restored to the Court's 1962 calendar (as No. 25), and reargued and decided in the 1962 term.  However, Oyez provides only the 1961 argument.
+  - [Presser v. United States](https://www.oyez.org/cases/1961/278) (No. 278) was argued in the 1961 term, affirmed by an equally divided Court, subsequently restored to the Court's 1962 calendar (as No. 25), and reargued and decided in the 1962 term.  However, Oyez appears to provide only the 1961 argument.
 
-  - Creek Nation v. United States (No. 124) was argued in the 1961 term on April 24, 1962, but it does not appear in Oyez.  It was affirmed by an equally divided Court on June 4, 1962, so the lack of a decision may have contributed to it being overlooked.
+  - Creek Nation v. United States (No. 124) was argued in the 1961 term on April 24, 1962, but it does not appear in Oyez.  It was affirmed by an equally divided Court on June 4, 1962, so the lack of an opinion may have contributed to it being overlooked.
 
 Other issues uncovered in Oyez during the initial audit:
 
   - Oyez filed a large number of reargued cases in the terms in which they were first argued, but with docket numbers from the terms in which they were reargued.  For example, [International Association of Machinists v. Street](https://www.oyez.org/cases/1959/4) was argued in the 1959 term as No. 258, and then redocketed and reargued in the 1960 term as No. 4, but Oyez filed it under the older term (1959) with the newer docket number (4).
 
-  - That filing practice, in turn, resulted in terms containing multiple cases with the same docket number.  For example, [Kennedy v. Mendoza-Martinez](https://www.oyez.org/cases/1961/2) was argued in the 1961 term, reargued in the 1962 term, and filed under 1961 with its 1962 docket number (No. 2).  Unfortunately, in the 1961 term, [Metlakatla Indians v. Egan](https://www.oyez.org/cases/1961/2_0) is also No. 2.  In that case, Oyez had to resolve the filing conflict with a special suffix (e.g., "2_0").
+  - That filing practice, in turn, resulted in terms containing multiple cases with the same docket number.  For example, [Kennedy v. Mendoza-Martinez](https://www.oyez.org/cases/1961/2) was argued in the 1961 term, reargued in the 1962 term, and filed under 1961 with its 1962 docket number (No. 2).  Unfortunately, in the 1961 term, [Metlakatla Indians v. Egan](https://www.oyez.org/cases/1961/2_0) is also No. 2.  In that case, Oyez had to resolve the filing conflict with a special suffix in the URL ("2_0").
   
   - Oyez did not consistently follow that filing practice.  For example, [Bartkus v. Illinois](https://www.oyez.org/cases/1958/1) was originally argued in the 1957 as No. 39, and then redocketed and reargued in the 1958 term as No. 1.  In this case, Oyez filed both arguments under the newer term *and* newer docket number.
 
@@ -62,13 +62,12 @@ Working backwards before 1955, we will lose the benefit of any Oyez or NARA audi
   - [Library of Congress: United States Reports](https://www.loc.gov/collections/united-states-reports/)
   - [The Supreme Court Database](http://scdb.wustl.edu)
 
-## The Supreme Court Database: Revisited
+## The Supreme Court Database Revisited
 
-The very FIRST case in the 1955 term audit (Texas v. New Mexico, No. 9 Orig), was missing from the SCDB, because even though
-it was argued on October 10, 1955, it was dismissed the following term, on February 25, 1957, "because of the absence of the United States as an indispensable party" (see p.166 of the 1956 Journal, and 352 U.S. 991).
+As luck would have it, the very first case in this initial audit, [Texas v. New Mexico (No. 9 Orig.)](https://www.oyez.org/cases/1955/9-orig), was missing from SCDB, because even though it was argued on October 10, 1955, it was dismissed the following term, on February 25, 1957, "because of the absence of the United States as an indispensable party" (as reported on p.166 of the 1956 Journal and in the decision at [352 U.S. 991](https://tile.loc.gov/storage-services/service/ll/usrep/usrep352/usrep352decisions/usrep352decisions.pdf#page=191)).
 
-So, here again is one of those frustrating issues with SCDB: it records only cases that resulted in a decision.  I would argue that once a case has been granted, it needs to be recorded, no matter the outcome, so that researchers can identify how often cases are dismissed after being granted, why they were dismissed, and whether (and when) they were argued before being dismissed.
+This is another of those [frustrating issues](https://lonedissent.org/blog/2019/02/18/) with SCDB.  Here, we see that it apparently records only cases that resulted in an opinion.  However, once a case has been granted, it needs to be recorded, regardless of outcome, so that researchers can identify how often cases are dismissed after being granted, why they were dismissed, and whether (and when) they were argued before being dismissed.
 
-This situation is akin to a case being "affirmed" by an equally divided (deadlocked) Court, which SCDB *does* record.  In both instances, no opinion is issued, the case is closed, and the lower court ruling remains in effect.  The only difference is the process by which those identical results occurred -- a process that should be documented.  As for why SCDB thinks there's a difference (ie, a difference so significant that one is worth recording but the other is not), well, only SCDB knows.
+This situation is akin to a case being "affirmed" by an equally divided (deadlocked) Court, which SCDB *does* record.  In both instances, no opinion is issued, the case is closed, and the lower court ruling remains in effect.  The only difference is the process by which those identical results occurred.  As for why SCDB thinks there's a difference (a difference so significant that one is worth recording but the other is not), well, only SCDB knows.
 
 {% include arguments.html %}
