@@ -70,4 +70,4 @@ This is another of those [frustrating issues](https://lonedissent.org/blog/2019/
 
 This situation is akin to a case being "affirmed" by an equally divided (deadlocked) Court, which SCDB *does* record.  In both instances, no opinion is issued, the case is closed, and the lower court ruling remains in effect.  The only difference is the process by which those identical results occurred.  As for why SCDB thinks there's a difference (i.e., a difference so significant that one is worth recording but the other is not), well, only SCDB knows.
 
-{% include arguments.html %}
+{% include arguments.html term="1955" termEnd="1964" %}
