@@ -4,7 +4,7 @@ layout: default
 
 ## U.S. Supreme Court Arguments: Auditing and Oddities
 
-Below are the results of an audit that correlated three sources of U.S. Supreme Court for 10 terms, 1955 through 1964:
+Below are the results of an audit that correlated three sources of U.S. Supreme Court data for 10 terms, 1955 through 1964:
 
   - U.S. Supreme Court [Journals](https://www.supremecourt.gov/orders/journal.aspx)
   - U.S. Supreme Court Records at the [National Archives](https://www.archives.gov/research/guide-fed-records/groups/267.html)
@@ -28,7 +28,7 @@ Oyez omissions discovered in the initial audit:
 
   - Creek Nation v. United States (No. 124) was argued in the 1961 term on April 24, 1962, but it does not appear in Oyez.  It was affirmed by an equally divided Court on June 4, 1962, so the lack of an opinion may have contributed to it being overlooked.
 
-Other issues uncovered in Oyez during the initial audit:
+Examples of anomalies uncovered in Oyez during the initial audit:
 
   - Oyez filed a large number of reargued cases in the terms in which they were first argued, but with docket numbers from the terms in which they were reargued.  For example, [International Association of Machinists v. Street](https://www.oyez.org/cases/1959/4) was argued in the 1959 term as No. 258, and then redocketed and reargued in the 1960 term as No. 4, but Oyez filed it under the older term (1959) with the newer docket number (4).
 
@@ -36,7 +36,11 @@ Other issues uncovered in Oyez during the initial audit:
   
   - Oyez did not consistently follow that filing practice.  For example, [Bartkus v. Illinois](https://www.oyez.org/cases/1958/1) was originally argued in the 1957 as No. 39, and then redocketed and reargued in the 1958 term as No. 1.  In this case, Oyez filed both arguments under the newer term *and* newer docket number.
 
-  - Oyez's advocate data (ie, the names of the attorneys who argued the cases) has quite a few omissions and errors.  In many cases, names were assigned in the Oyez-generated transcripts, but for some reason, those names were not always extracted and presented on the Oyez case pages.  The Journals are a much more reliable and consistent source of advocate information, so extracting that information should result in a much more accurate and comprehensive set of advocate data, as these audits continue.
+  - [Garrison v. Louisiana](https://www.oyez.org/cases/1964/4) is a redocketed and reargued case in which Oyez accidentally swapped the audio for the arguments.  The case was originally docketed as No. 400 and redocketed as No. 4, but Oyez's original argument transcript begins with "Number 4, Garrison -- Jim Garrison, Appellant, versus Louisiana" and its reargument transcript begins with "Number 400, Jim Garrison, Appellant, versus Louisiana."  This type of mistake isn't something my audit looks for (my initial focus is missing or misfiled cases); I just happened to notice while looking at those particular transcripts.
+
+  - [Hamm v. City of Rock Hill](https://www.oyez.org/cases/1964/2) combines two cases: the Hamm case (No. 2) and Lupper v. Arkansas (No. 5).  They were argued separately and decided together, which is not uncommon, but what *is* uncommon is that Oyez combined both arguments into a single audio recording.  The better (and more typical) approach is the one taken in cases like [Miranda v. Arizona](https://www.oyez.org/cases/1965/759), where multiple cases with similar facts and issues were argued together, but each case can be listened to separately.  And again, this isn't something I'm looking for, it simply caught my eye while tracking down Lupper v. Arkansas (No. 5).
+
+  - Oyez's advocate data (ie, the names of the attorneys who argued the cases) has quite a few omissions and errors.  In many cases, names were assigned in the Oyez-generated transcripts, but for some reason, those names were not always extracted and presented on the Oyez case pages.  The Journals are a much more reliable and consistent source of advocate information, so extracting that information should result in a more accurate and comprehensive set of advocate data, as these audits continue.
 
 With regard to docket numbers, it's worth noting that not even the Supreme Court was perfectly consistent.  For example, [Reid v. Covert](https://www.oyez.org/cases/1955/701) was assigned docket number 701 in the 1955 term, but when it was redocketed for reargument in the 1956 term, the same docket number was used.  This required the Supreme Court to add a qualifier to the docket number every time the case was mentioned in the 1956 Journal (e.g., "No. 701, October Term, 1955").  Fortunately, that was a rare occurrence, at least among argued cases, and the Court had a method for dealing with it.
 
