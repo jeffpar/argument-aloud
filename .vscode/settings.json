@@ -1,53 +1,57 @@
 {
-    "editor.detectIndentation": false,
-    "[javascript]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 4,
-        "files.trimTrailingWhitespace": true,
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true
-    },
-    "[html]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2,
-        "files.trimTrailingWhitespace": true,
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true
-    },
-    "[json,jsonc]": {
-        "editor.insertSpaces": true,
-        "editor.tabSize": 2,
-        "files.trimTrailingWhitespace": true,
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true
-    },
-    "[markdown]": {
-        "editor.insertSpaces": false,
-        "editor.tabSize": 4,
-        "files.trimTrailingWhitespace": false,
-        "files.insertFinalNewline": true,
-        "files.trimFinalNewlines": true
-    },
-    "cSpell.words": [
-        "Avent",
-        "Bartkus",
-        "Duberstein",
-        "Egan",
-        "endunless",
-        "endwhile",
-        "forloop",
-        "Gober",
-        "Justia",
-        "Kirkham",
-        "Metlakatla",
-        "NAID",
-        "Nilva",
-        "orderedlist",
-        "reargument",
-        "redocketed",
-        "roadmaps",
-        "SCDB",
-        "Shuttlesworth",
-        "Undocketed"
-    ]
+  "css.lint.emptyRules": "ignore",
+  "css.validate": false,
+  "editor.detectIndentation": false,
+  "files.autoGuessEncoding": true,
+  "scss.validate": false,
+  "[javascript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  "[html]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  "[json][jsonc][css][scss]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  "[markdown]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4,
+    "files.trimTrailingWhitespace": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true
+  },
+  "cSpell.words": [
+    "Avent",
+    "Bartkus",
+    "Duberstein",
+    "Egan",
+    "endunless",
+    "endwhile",
+    "forloop",
+    "Gober",
+    "Justia",
+    "Kirkham",
+    "Metlakatla",
+    "NAID",
+    "Nilva",
+    "orderedlist",
+    "reargument",
+    "redocketed",
+    "roadmaps",
+    "SCDB",
+    "Shuttlesworth",
+    "Undocketed"
+  ]
 }

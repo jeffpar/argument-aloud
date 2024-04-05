@@ -1,7 +1,11 @@
 {%- assign source = "arguments" %}
 {%- assign arguments = site.data[source] %}
 <h2>All Audited Terms (October Term 1955 through October Term 1962)</h2>
-<ul>
+<ul class="menu">
+  <li><a href="#" onclick="aaExpand(this, event, true)">Expand All</a></li>
+  <li><a href="#" onclick="aaExpand(this, event, false)">Collapse All</a></li>
+</ul>
+<ul class="top">
 {%- assign prev_date = "" %}
 {%- for event in arguments %}
   {%- assign first_date = event.dates[0] | split: ":" %}
@@ -10,21 +14,21 @@
     </ul>
   </li>
   {%- endif %}
-  <li>{{ first_date[1] }}
+  <li class="closed" onclick="aaClick(this, event)">{{ first_date[1] }}
     <ul>
   {%- endif %}
   {%- for docket in event.dockets %}
     {%- assign i = forloop.index0 %}
-      <li>No. {{ docket }}, {{ event.titles[i] }}{% unless forloop.last %}</li>{% endunless %}
+      <li class="closed" onclick="aaClick(this, event)">No. {{ docket }}, {{ event.titles[i] }}{% unless forloop.last %}</li>{% endunless %}
   {%- endfor %}
         <ul>
   {%- for link in event.oyez %}
-          <li><a href="{{ link }}">{{ link }}</a></li>
+          <li class="item"><a href="{{ link }}">{{ link }}</a></li>
   {%- endfor %}
   {%- for link in event.nara %}
     {%- assign link_parts = link | split: "/" %}
     {%- assign link_index = link_parts | size | minus: 1 %}
-          <li><a href="{{ link }}">{{ link_parts[link_index] }}</a></li>
+          <li class="item"><a href="{{ link }}">{{ link_parts[link_index] }}</a></li>
   {%- endfor %}
         </ul>
       </li>
@@ -35,3 +39,28 @@
   </li>
 {%- endif %}
 </ul>
+<script>
+function aaClick(element, event)
+{
+    if (event) event.stopPropagation();
+    if (element.classList.contains("open")) {
+        element.classList.add("closed");
+        element.classList.remove("open");
+    } else if (element.classList.contains("closed")) {
+        element.classList.add("open");
+        element.classList.remove("closed");
+    }
+}
+function aaExpand(element, event, fExpand)
+{
+    if (event) event.preventDefault();
+    let elements = document.querySelectorAll(fExpand ? ".closed" : ".open");
+    elements.forEach((element) => { aaClick(element); });
+}
+function aaSurprise()
+{
+    let elements = document.querySelectorAll(".item");
+    let element = elements && elements[Math.random() * elements.length | 0];
+    if (element && element.children) window.location.href = element.children[0].href;
+}
+</script>
