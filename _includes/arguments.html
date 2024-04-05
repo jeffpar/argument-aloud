@@ -1,6 +1,8 @@
 {%- assign source = "arguments" %}
+{%- assign term = include.term | default: "1955" %}
+{%- assign termEnd = include.termEnd | default: term %}
 {%- assign arguments = site.data[source] %}
-<h2>All Audited Terms (October Term 1955 through October Term 1962)</h2>
+<h2>Audit Results for October Term {{ term }}{% if term != termEnd %} through October Term {{ termEnd }}{% endif %}</h2>
 <p>
   <span><a href="/data/arguments.json">[Raw Argument Data]</a></span>
   <span><a href="/data/advocates.json">[Raw Advocate Data]</a></span>
@@ -12,6 +14,9 @@
 <ul class="top">
 {%- assign prev_date = "" %}
 {%- for event in arguments %}
+  {%- if event.term < term or event.term > termEnd %}
+    {%- continue %}
+  {%- endif %}
   {%- assign first_date = event.dates[0] | split: ":" %}
   {%- if first_date[1] != prev_date %}
     {%- if prev_date != "" %}
