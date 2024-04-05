@@ -1,0 +1,45 @@
+ul.menu {
+  padding: 0;
+  li {
+    display: inline;
+    list-style: none;
+  }
+  li.optional {
+    display: none;
+  }
+  li:after {
+    content: " | ";
+  }
+  li:last-child:after {
+    content: none;
+  }
+}
+.top {
+  padding-inline-start: 0 !important;
+}
+.top, .top ul {
+  list-style: none;
+  padding-inline-start: 8px;
+  margin: 0;
+  user-select: none;
+}
+.item {
+  font-weight: normal;
+}
+.open ul {
+  padding-left: 32px;
+}
+.closed ul {
+  display: none;
+  margin: 0;
+  padding-left: 32px;
+}
+li.open:before {
+  content: "\2212\0020";
+}
+li.closed:before {
+  content: "\002B\0020";
+}
+li.item:before {
+  content: "\2192\0020";
+}

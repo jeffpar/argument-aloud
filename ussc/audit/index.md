@@ -4,13 +4,13 @@ layout: default
 
 ## U.S. Supreme Court Arguments: Auditing and Oddities
 
-Below are the results of an audit that correlated three sources of U.S. Supreme Court for terms 1955 through 1962:
+Below are the results of an audit that correlated three sources of U.S. Supreme Court for 10 terms, 1955 through 1964:
 
   - U.S. Supreme Court [Journals](https://www.supremecourt.gov/orders/journal.aspx)
   - U.S. Supreme Court Records at the [National Archives](https://www.archives.gov/research/guide-fed-records/groups/267.html)
   - U.S. Supreme Court Audio Recordings at [The Oyez Project](https://www.oyez.org)
 
-The goal of the initial audit of 8 terms was to identify issues and work out kinks in the auditing process, and ultimately generate comprehensive lists of relevant data, including:
+The goal of this initial audit was to identify issues and work out kinks in the auditing process, and ultimately generate comprehensive lists of relevant data, including:
 
   - Audio present in the NARA collection but missing from the Oyez collection (and vice versa)
   - Other (non-argument) U.S. Supreme Court audio present in the NARA collection
@@ -68,6 +68,6 @@ As luck would have it, the very first case in this initial audit, [Texas v. New 
 
 This is another of those [frustrating issues](https://lonedissent.org/blog/2019/02/18/) with SCDB.  Here, we see that it apparently records only cases that resulted in an opinion.  However, once a case has been granted, it needs to be recorded, regardless of outcome, so that researchers can identify how often cases are dismissed after being granted, why they were dismissed, and whether (and when) they were argued before being dismissed.
 
-This situation is akin to a case being "affirmed" by an equally divided (deadlocked) Court, which SCDB *does* record.  In both instances, no opinion is issued, the case is closed, and the lower court ruling remains in effect.  The only difference is the process by which those identical results occurred.  As for why SCDB thinks there's a difference (a difference so significant that one is worth recording but the other is not), well, only SCDB knows.
+This situation is akin to a case being "affirmed" by an equally divided (deadlocked) Court, which SCDB *does* record.  In both instances, no opinion is issued, the case is closed, and the lower court ruling remains in effect.  The only difference is the process by which those identical results occurred.  As for why SCDB thinks there's a difference (i.e., a difference so significant that one is worth recording but the other is not), well, only SCDB knows.
 
 {% include arguments.html %}
