@@ -76,6 +76,6 @@ Once a case has been granted, and *particularly* once a case has been argued, it
 
 Cases "affirmed by an equally divided Court" are perhaps the *least* interesting cases to record, even though SCDB seems to make the *most* effort to record them, because the Court said absolutely nothing about them.  In all other dismissals, the Court provides some reasoning for why it decided to dismiss, and sometimes one or more Justices will dissent, explaining why they would *not* have dismissed the case.
 
-As an aside, I dislike the semantics of the phrase "affirmed by an equally divided Court."  Affirmance implies intention, but when the Court is deadlocked, there is no intention to affirm or reverse at all.  Using the word "affirmed" only makes sense (to me) when a case is dismissed for some stated reason (e.g., "the case dismissed as improvidently granted and the lower Court ruling is affirmed.")
+As an aside, I dislike the semantics of the phrase "affirmed by an equally divided Court."  Affirmance implies intention, but when the Court is deadlocked, there is no intention to affirm or reverse at all.  Using the word "affirmed" only makes sense (to me) when a case is dismissed for some stated reason (e.g., "the case dismissed as improvidently granted and the lower court ruling is affirmed.")
 
 {% include arguments.html term="1955" termEnd="1964" %}
