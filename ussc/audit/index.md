@@ -4,7 +4,7 @@ layout: default
 
 ## U.S. Supreme Court Arguments: Auditing and Oddities
 
-Below are the results of an audit that correlated three sources of U.S. Supreme Court data for 10 terms, 1955 through 1964:
+Below are the results of an audit that correlated three sources of U.S. Supreme Court data for 12 terms, 1955 through 1966:
 
   - U.S. Supreme Court [Journals](https://www.supremecourt.gov/orders/journal.aspx)
   - U.S. Supreme Court Records at the [National Archives](https://www.archives.gov/research/guide-fed-records/groups/267.html)
@@ -26,7 +26,9 @@ Oyez omissions discovered in the initial audit:
 
   - [Presser v. United States](https://www.oyez.org/cases/1961/278) (No. 278) was argued in the 1961 term, affirmed by an equally divided Court, subsequently restored to the Court's 1962 calendar (as No. 25), and reargued and decided in the 1962 term.  However, Oyez appears to provide only the 1961 argument.
 
-  - Creek Nation v. United States (No. 124) was argued in the 1961 term on April 24, 1962, but it does not appear in Oyez.  It was affirmed by an equally divided Court on June 4, 1962, so the lack of an opinion may have contributed to it being overlooked.
+  - **Creek Nation v. United States** (No. 124) was argued in the 1961 term on April 24, 1962, but it does not appear in Oyez.  It was affirmed by an equally divided Court on June 4, 1962, so the lack of an opinion may have contributed to it being overlooked.
+
+  - **Chicago and North Western Railway Company v. The Atchison, Topeka and Santa Fe Railway Company** (No. 8) and **United States v. The Atchison, Topeka & Santa Fe Railway Company** (No. 23) were argued in the 1966 term on April 19, 1967, but all that appears in Oyez is "A Quantity of Copies of Books v. Kansas" (No. 8) with no argument.
 
 Examples of anomalies uncovered in Oyez during the initial audit:
 
@@ -92,4 +94,4 @@ His concurrence refers to "several reasons", only one of which he mentions (lack
 
 "DIG'ed" cases rarely provide that much detail, and they never provide a vote, so we can't know if the decisions were unanimous or whether there were any Justices with reservations who nevertheless didn't feel strongly enough to say so.  And those decisions are typically buried in the back of U.S. Reports, along with all the other cases that were not even granted, much less briefed and argued.  **Hicks**, however, was briefed, argued, and the decision -- including the concurrence and dissent -- was prominently recorded in U.S. Reports.
 
-{% include arguments.html term="1955" termEnd="1964" %}
+{% include arguments.html term="1955" termEnd="1966" %}
