@@ -72,9 +72,13 @@ As luck would have it, the very first case in this initial audit, [Texas v. New 
 
 This is another example of [frustrating inconsistencies](https://lonedissent.org/blog/2019/02/18/) with SCDB.  It does not consistently include cases that were 1) dismissed as improvidently granted ("DIG'ed"), 2) dismissed by virtue of the Court being deadlocked ("affirmed by an equally divided Court"), or 3) dismissed for any other reason, as in the case above.
 
+[Texas v. New Mexico](https://www.oyez.org/cases/1955/9-orig) is a particularly unfortunate omission, because as The National Archives [noted](https://unwritten-record.blogs.archives.gov/2024/03/15/behind-the-scenes-providing-access-to-supreme-court-oral-arguments/):
+
+> NARA’s holdings of Supreme Court audio recordings date to the start of the 1955 court session. The earliest recording in the collection is from the October 10, 1955 argument in the case of **Texas v. New Mexico**, an interstate water dispute which persists to modern cases and arguments before the Court.
+
 Once a case has been granted, and *particularly* once a case has been argued, it needs to be recorded, regardless of outcome, so that researchers can identify how often cases are dismissed after being granted, why they were dismissed, and whether (and when) they were argued before being dismissed.
 
-Cases "affirmed by an equally divided Court" are perhaps the *least* interesting cases to record, even though SCDB seems to make the *most* effort to record them, because the Court said absolutely nothing about them.  In all other dismissals, the Court provides some reasoning for why it decided to dismiss, and sometimes one or more Justices will dissent, explaining why they would *not* have dismissed the case.
+Cases "affirmed by an equally divided Court" are perhaps the *least* interesting cases to record, even though SCDB seems to make the *most* effort to record them, because the Court said absolutely nothing about them.  In all other dismissals, the Court provides some rationale for why it decided to dismiss, and sometimes one or more Justices will dissent, explaining why they would *not* have dismissed the case.
 
 As an aside, I dislike the semantics of the phrase "affirmed by an equally divided Court."  Affirmance implies intention, but when the Court is deadlocked, there is no intention to affirm or reverse at all.  Using the word "affirmed" only makes sense (to me) when a case is dismissed for some stated reason (e.g., "the case dismissed as improvidently granted and the lower court ruling is affirmed.")
 
