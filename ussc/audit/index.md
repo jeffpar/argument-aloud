@@ -88,8 +88,8 @@ To start, we have a brief concurrence from Justice Harlan:
 
 > "Among the several reasons which support the action of the Court in dismissing the writ in this case as improvidently granted, I rest my decision to join in this disposition on the lack of a record, without which I do not believe the constitutional issues tendered can properly be decided."
 
-His concurrence refers to "several reasons", only one of which he mentions ("lack of a record").  Fortunately, we have a dissent from Justice Douglas that makes the reasons clear: a potentially inadequate record, and a time bar that the Court refused to waive.
+His concurrence refers to "several reasons", only one of which he mentions (lack of a record).  Fortunately, we have a dissent from Justice Douglas that makes the Court's reasons clear: an incomplete record, and a time bar that the Court refused to waive.
 
-"DIG'ed" cases rarely provide that much detail, and they never provide a vote, so we can't know if the decisions were unanimous or whether there were any Justices with reservations who nevertheless didn't feel strongly enough to say so.  And those decisions are typically buried in the back of U.S. Reports, along with all the other cases that were not even granted, much less briefed and argued.  In a case like **Hicks**, however, we know that the decision was definitely something less than unanimous and it was prominently recorded in U.S. Reports.
+"DIG'ed" cases rarely provide that much detail, and they never provide a vote, so we can't know if the decisions were unanimous or whether there were any Justices with reservations who nevertheless didn't feel strongly enough to say so.  And those decisions are typically buried in the back of U.S. Reports, along with all the other cases that were not even granted, much less briefed and argued.  **Hicks**, however, was briefed, argued, and the decision -- including the concurrence and dissent -- was prominently recorded in U.S. Reports.
 
 {% include arguments.html term="1955" termEnd="1964" %}
