@@ -22,13 +22,13 @@ Oyez omissions discovered in the initial audit:
 
   - [Nilva v. United States](https://www.oyez.org/cases/1956/37) (No. 37) was argued on November 8 and 13, 1956.  Oyez appears to have combined the audio recordings and inadvertently dropped the November 8 date in the process.
 
-  - Stanton v. United States (No. 546) was argued on March 24, 1960, following a related case, Commissioner of Internal Revenue v. Duberstein  (No. 376) that was argued on March 23.  However, the argument for Stanton appears to be missing from Oyez; only the argument for [Commissioner v. Duberstein](https://www.oyez.org/cases/1959/376) is available.  The cases were decided together and reported in [363 U.S. 278](https://tile.loc.gov/storage-services/service/ll/usrep/usrep363/usrep363278/usrep363278.pdf).
+  - **Stanton v. United States** (No. 546) was argued on March 24, 1960, following a related case, Commissioner of Internal Revenue v. Duberstein  (No. 376) that was argued on March 23.  However, the argument for Stanton appears to be missing from Oyez; only the argument for [Commissioner v. Duberstein](https://www.oyez.org/cases/1959/376) is available.  The cases were decided together and reported in [363 U.S. 278](https://tile.loc.gov/storage-services/service/ll/usrep/usrep363/usrep363278/usrep363278.pdf).
 
   - [Presser v. United States](https://www.oyez.org/cases/1961/278) (No. 278) was argued in the 1961 term, affirmed by an equally divided Court, subsequently restored to the Court's 1962 calendar (as No. 25), and reargued and decided in the 1962 term.  However, Oyez appears to provide only the 1961 argument.
 
   - **Creek Nation v. United States** (No. 124) was argued in the 1961 term on April 24, 1962, but it does not appear in Oyez.  It was affirmed by an equally divided Court on June 4, 1962, so the lack of an opinion may have contributed to it being overlooked.
 
-  - **Chicago and North Western Railway Company v. The Atchison, Topeka and Santa Fe Railway Company** (No. 8) and **United States v. The Atchison, Topeka & Santa Fe Railway Company** (No. 23) were argued in the 1966 term on April 19, 1967, but all that appears in Oyez is "A Quantity of Copies of Books v. Kansas" (No. 8) with no argument.
+  - **Chicago and North Western Railway Company v. The Atchison, Topeka and Santa Fe Railway Company** (No. 8) and **United States v. The Atchison, Topeka & Santa Fe Railway Company** (No. 23) were argued together in the 1966 term on April 19, 1967, but all that appears in Oyez is [A Quantity of Copies of Books v. Kansas](https://www.oyez.org/cases/1966/8) (No. 8), which contains an incorrect title but *does* link to the correct [opinion](https://supreme.justia.com/cases/federal/us/387/326/).
 
 Examples of anomalies uncovered in Oyez during the initial audit:
 
@@ -84,14 +84,16 @@ Cases "affirmed by an equally divided Court" are perhaps the *least* interesting
 
 As an aside, I dislike the semantics of the phrase "affirmed by an equally divided Court."  Affirmance implies intention, but when the Court is deadlocked, there is no intention to affirm or reverse at all.  Using the word "affirmed" only makes sense (to me) when a case is dismissed for some stated reason (e.g., "the case dismissed as improvidently granted and the lower court ruling is affirmed.")
 
-Here's a perfect example of a dismissed case that SCDB does not include and absolutely should have: [Hicks v. District of Columbia](https://www.oyez.org/cases/1965/51).  The decision to dismiss the case "as improvidently granted" was reported at [383 U.S. 252](https://tile.loc.gov/storage-services/service/ll/usrep/usrep383/usrep383252/usrep383252.pdf), and while the Court -- as usual in such cases -- did not bother to provide any reasons, we have the benefit of several Justices writing separately to shed some light on its reasoning.
+[Hicks v. District of Columbia](https://www.oyez.org/cases/1965/51) is another example of a dismissed case that SCDB unfortunately does not include.  The case was "dismissed as improvidently granted", and while (as usual) the Court said nothing more about it, several Justices wrote separately, shedding more light on the Court's reasoning.
 
-To start, we have a brief concurrence from Justice Harlan:
+First, there was a brief concurrence from Justice Harlan:
 
 > "Among the several reasons which support the action of the Court in dismissing the writ in this case as improvidently granted, I rest my decision to join in this disposition on the lack of a record, without which I do not believe the constitutional issues tendered can properly be decided."
 
-His concurrence refers to "several reasons", only one of which he mentions (lack of a record).  Fortunately, we have a dissent from Justice Douglas that makes the Court's reasons clear: an incomplete record, and a time bar that the Court refused to waive.
+His concurrence referred to "several reasons", only one of which he mentioned (lack of a record).  But there was also a dissent from Justice Douglas that made those reasons clear: an incomplete record *and* a time bar that the Court refused to waive.
 
-"DIG'ed" cases rarely provide that much detail, and they never provide a vote, so we can't know if the decisions were unanimous or whether there were any Justices with reservations who nevertheless didn't feel strongly enough to say so.  And those decisions are typically buried in the back of U.S. Reports, along with all the other cases that were not even granted, much less briefed and argued.  **Hicks**, however, was briefed, argued, and the decision -- including the concurrence and dissent -- was prominently recorded in U.S. Reports.
+"DIG'ed" cases rarely provide that much detail, and they never provide a vote, so we can't know if such decisions were unanimous or whether there were any Justices with reservations who nevertheless didn't feel strongly enough to say so.  And those decisions are typically buried in the back of U.S. Reports, along with all the other cases that were not even granted, much less briefed and argued.
+
+However, **Hicks v. District of Columbia**, was briefed and argued, and the decision -- including the concurrence and dissent -- is on full display in U.S. Reports, at [383 U.S. 252](https://tile.loc.gov/storage-services/service/ll/usrep/usrep383/usrep383252/usrep383252.pdf).
 
 {% include arguments.html term="1955" termEnd="1966" %}
