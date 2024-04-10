@@ -4,7 +4,7 @@ layout: default
 
 ## U.S. Supreme Court Arguments: Auditing and Oddities
 
-Below are the results of an audit that correlated three sources of U.S. Supreme Court data for 12 terms, 1955 through 1966:
+Below are the results of an audit that correlated three sources of U.S. Supreme Court data for 14 terms, 1953 through 1966:
 
   - U.S. Supreme Court [Journals](https://www.supremecourt.gov/orders/journal.aspx)
   - U.S. Supreme Court Records at the [National Archives](https://www.archives.gov/research/guide-fed-records/groups/267.html)
@@ -98,4 +98,4 @@ His concurrence referred to "several reasons", only one of which he mentioned (l
 
 However, [Hicks v. District of Columbia (No. 51)](https://www.oyez.org/cases/1965/51) was briefed and argued, and the decision -- including the concurrence and dissent -- is on full display in U.S. Reports, at [383 U.S. 252](https://tile.loc.gov/storage-services/service/ll/usrep/usrep383/usrep383252/usrep383252.pdf).
 
-{% include arguments.html term="1955" termEnd="1966" %}
+{% include arguments.html term="1953" termEnd="1966" %}
