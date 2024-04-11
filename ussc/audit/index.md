@@ -4,7 +4,7 @@ layout: default
 
 ## U.S. Supreme Court Arguments: Auditing and Oddities
 
-Below are the results of an audit that correlated three sources of U.S. Supreme Court data for 14 terms, 1953 through 1966:
+Below are the results of an audit that correlated three sources of U.S. Supreme Court data for 14 terms, 1952 through 1966:
 
   - U.S. Supreme Court [Journals](https://www.supremecourt.gov/orders/journal.aspx)
   - U.S. Supreme Court Records at the [National Archives](https://www.archives.gov/research/guide-fed-records/groups/267.html)
@@ -74,7 +74,7 @@ Working backwards before 1955, we will lose the benefit of any Oyez or NARA audi
 
 As luck would have it, the very first case in this initial audit, [Texas v. New Mexico (No. 9 Orig.)](https://www.oyez.org/cases/1955/9-orig), was missing from SCDB, because even though it was argued on October 10, 1955, it was dismissed the following term, on February 25, 1957, "because of the absence of the United States as an indispensable party."  This was reported on p.166 of the 1956 Journal and in the decision at [352 U.S. 991](https://tile.loc.gov/storage-services/service/ll/usrep/usrep352/usrep352decisions/usrep352decisions.pdf#page=191).
 
-This is another example of [frustrating inconsistencies](https://lonedissent.org/blog/2019/02/18/) with SCDB.  It does not consistently include cases that were 1) dismissed as improvidently granted ("DIG'ed"), 2) dismissed by virtue of the Court being deadlocked ("affirmed by an equally divided Court"), or 3) dismissed for any other reason, as in the case above.
+This is another example of [frustrating inconsistencies](https://lonedissent.org/blog/2019/02/18/) with SCDB.  It does not consistently include cases that were 1) dismissed as improvidently granted ("DIG'ed"), 2) dismissed for want of a substantial federal question, 3) dismissed by virtue of the Court being deadlocked ("affirmed by an equally divided Court"), or 4) dismissed for any other reason, as in the case above.
 
 [Texas v. New Mexico](https://www.oyez.org/cases/1955/9-orig) is a particularly unfortunate omission, because as The National Archives [noted](https://unwritten-record.blogs.archives.gov/2024/03/15/behind-the-scenes-providing-access-to-supreme-court-oral-arguments/):
 
@@ -82,11 +82,24 @@ This is another example of [frustrating inconsistencies](https://lonedissent.org
 
 Once a case has been granted, and *particularly* once a case has been argued, it needs to be recorded, regardless of outcome, so that researchers can identify how often cases are dismissed after being granted, why they were dismissed, and whether (and when) they were argued before being dismissed.
 
-Cases "affirmed by an equally divided Court" are perhaps the *least* interesting cases to record, even though SCDB does sporadically record them, because the Court said absolutely nothing about them.  In all other dismissals, the Court provides some rationale for why it decided to dismiss, and sometimes one or more Justices will dissent, explaining why they would *not* have dismissed the case.
+Cases "affirmed by an equally divided Court" are perhaps the *least* interesting cases to record, even though SCDB takes some pains to record them, because the Court said absolutely nothing about them.  In all other dismissals, the Court invariably provides a reason for its action, and yet SCDB does *not* always record them.
 
-As an aside, I dislike the semantics of the phrase "affirmed by an equally divided Court."  Affirmance implies intention, but when the Court is deadlocked, there is no intention to affirm or reverse at all.  Using the word "affirmed" only makes sense (to me) when a case is dismissed for some stated reason (e.g., "the case dismissed as improvidently granted and the lower court ruling is affirmed.")
+As an aside, I dislike the semantics of the phrase "affirmed by an equally divided Court."  Affirmance implies intention, but when the Court is deadlocked, there is no intention to affirm.  Words like "affirm" or "reverse" only make sense when accompanied by some conclusion, which can take the form of a full opinion, a brief *per curiam* opinion, or an even briefer dismissal (as when improvidently granted).  In all those instances, a majority of the Court reached some conclusion, whereas in the case of a deadlock, there is no conclusion.
 
-[Hicks v. District of Columbia (No. 51)](https://www.oyez.org/cases/1965/51) is another example of a dismissed case that SCDB unfortunately does not include.  The case was "dismissed as improvidently granted", and while (as usual) the Court said nothing more about it, several Justices wrote separately, shedding more light on the Court's reasoning.
+The 1952 term is illustrative.  Looking through [U.S. Reports Volume 344](https://tile.loc.gov/storage-services/service/ll/usrep/usrep344/usrep344decisionspercuriam/usrep344decisionspercuriam.pdf), you can easily spot three deadlocked cases from that term, all "affirmed by an equally divided Court":
+
+  - No. 13 at 344 U.S. 860 (SCDB ID 1952-160)
+  - No. 24 at 344 U.S. 861 (SCDB ID 1952-159)
+  - No. 218 at 344 U.S. 916 (SCDB ID 1952-143)
+
+all of which SCDB dutifully records.  And yet a number of other cases that were decided by a brief *per curiam* opinion were not recorded by SCDB:
+
+  - Nos. 197 and 198 at 344 U.S. 923
+  - No. 390 at 344 U.S. 924
+
+Those are significant omissions, because all three cases (Nos. 197, 198 and 390) were fully briefed *and* argued *and* decided, the lack of a detailed opinion notwithstanding.
+
+[Hicks v. District of Columbia (No. 51)](https://www.oyez.org/cases/1965/51) from the 1965 term is another example of an unfortunate omission in SCDB.  The case was "dismissed as improvidently granted", and while (as usual) the Court said nothing more about it, several Justices wrote separately, shedding more light on the Court's reasoning.
 
 First, there was a brief concurrence from Justice Harlan:
 
@@ -98,4 +111,4 @@ His concurrence referred to "several reasons", only one of which he mentioned (l
 
 However, [Hicks v. District of Columbia (No. 51)](https://www.oyez.org/cases/1965/51) was briefed and argued, and the decision -- including the concurrence and dissent -- is on full display in U.S. Reports, at [383 U.S. 252](https://tile.loc.gov/storage-services/service/ll/usrep/usrep383/usrep383252/usrep383252.pdf).
 
-{% include arguments.html term="1953" termEnd="1966" %}
+{% include arguments.html term="1952" termEnd="1966" %}
