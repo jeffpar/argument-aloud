@@ -99,7 +99,7 @@ Those are significant omissions, because all three cases (Nos. 197, 198 and 390)
 
 As an aside, I dislike the semantics of the phrase "affirmed by an equally divided Court."  Affirmance implies intention, but when the Court is deadlocked, there is no intention to affirm.  Words like "affirm" or "reverse" only make sense when accompanied by some conclusion, which can take the form of a full opinion, a brief *per curiam* opinion, or an even briefer dismissal (as when improvidently granted).  In all those instances, a majority of the Court reached some decision -- even deciding not to decide *is* a decision -- whereas a deadlock is the complete absence of a decision.
 
-That said, I'm not arguing that such cases are somehow less important.  Every case, once granted, should be treated with equal importance.
+That said, I'm not arguing that deadlocked cases are somehow less important.  Every case, once granted, should be treated with equal importance.
 
 [Hicks v. District of Columbia (No. 51)](https://www.oyez.org/cases/1965/51) from the 1965 term is another example of an unfortunate omission in SCDB.  The case was "dismissed as improvidently granted", and while (as usual) the Court said nothing more about it, several Justices wrote separately, shedding more light on the Court's reasoning.
 
