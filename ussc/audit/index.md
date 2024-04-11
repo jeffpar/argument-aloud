@@ -4,7 +4,7 @@ layout: default
 
 ## U.S. Supreme Court Arguments: Auditing and Oddities
 
-Below are the results of an audit that correlated three sources of U.S. Supreme Court data for 14 terms, 1952 through 1966:
+Below are the results of an on-going audit that correlates three sources of U.S. Supreme Court data:
 
   - U.S. Supreme Court [Journals](https://www.supremecourt.gov/orders/journal.aspx)
   - U.S. Supreme Court Records at the [National Archives](https://www.archives.gov/research/guide-fed-records/groups/267.html)
