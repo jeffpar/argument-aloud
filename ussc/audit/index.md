@@ -82,9 +82,7 @@ This is another example of [frustrating inconsistencies](https://lonedissent.org
 
 Once a case has been granted, and *particularly* once a case has been argued, it needs to be recorded, regardless of outcome, so that researchers can identify how often cases are dismissed after being granted, why they were dismissed, and whether (and when) they were argued before being dismissed.
 
-Cases "affirmed by an equally divided Court" are perhaps the *least* interesting cases to record, even though SCDB takes some pains to record them, because the Court said absolutely nothing about them.  In all other dismissals, the Court invariably provides a reason for its action, and yet SCDB does *not* always record them.
-
-As an aside, I dislike the semantics of the phrase "affirmed by an equally divided Court."  Affirmance implies intention, but when the Court is deadlocked, there is no intention to affirm.  Words like "affirm" or "reverse" only make sense when accompanied by some conclusion, which can take the form of a full opinion, a brief *per curiam* opinion, or an even briefer dismissal (as when improvidently granted).  In all those instances, a majority of the Court reached some conclusion, whereas in the case of a deadlock, there is no conclusion.
+Cases "affirmed by an equally divided Court" are perhaps the *least* interesting cases to record, even though SCDB makes some effort to record them, because the Court said absolutely nothing about them.  In all other dismissals, the Court invariably provides a reason for its action, and yet SCDB does *not* always record them.
 
 The 1952 term is illustrative.  Looking through [U.S. Reports Volume 344](https://tile.loc.gov/storage-services/service/ll/usrep/usrep344/usrep344decisionspercuriam/usrep344decisionspercuriam.pdf), you can easily spot three deadlocked cases from that term, all "affirmed by an equally divided Court":
 
@@ -98,6 +96,10 @@ all of which SCDB dutifully records.  And yet a number of other cases that were 
   - No. 390 at 344 U.S. 924
 
 Those are significant omissions, because all three cases (Nos. 197, 198 and 390) were fully briefed *and* argued *and* decided, the lack of a detailed opinion notwithstanding.
+
+As an aside, I dislike the semantics of the phrase "affirmed by an equally divided Court."  Affirmance implies intention, but when the Court is deadlocked, there is no intention to affirm.  Words like "affirm" or "reverse" only make sense when accompanied by some conclusion, which can take the form of a full opinion, a brief *per curiam* opinion, or an even briefer dismissal (as when improvidently granted).  In all those instances, a majority of the Court reached some decision -- even deciding not to decide *is* a decision -- whereas a deadlock is the complete absence of a decision.
+
+That said, I'm not arguing that such cases are somehow less important.  Every case, once granted, should be treated with equal importance.
 
 [Hicks v. District of Columbia (No. 51)](https://www.oyez.org/cases/1965/51) from the 1965 term is another example of an unfortunate omission in SCDB.  The case was "dismissed as improvidently granted", and while (as usual) the Court said nothing more about it, several Justices wrote separately, shedding more light on the Court's reasoning.
 
