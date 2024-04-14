@@ -74,7 +74,7 @@ Working backwards before 1955, we will lose the benefit of any Oyez or NARA audi
 
 As luck would have it, the very first case in this initial audit, [Texas v. New Mexico (No. 9 Orig.)](https://www.oyez.org/cases/1955/9-orig), was missing from SCDB, because even though it was argued on October 10, 1955, it was dismissed the following term, on February 25, 1957, "because of the absence of the United States as an indispensable party."  This was reported on p.166 of the 1956 Journal and in the decision at [352 U.S. 991](https://tile.loc.gov/storage-services/service/ll/usrep/usrep352/usrep352decisions/usrep352decisions.pdf#page=191).
 
-This is another example of [frustrating inconsistencies](https://lonedissent.org/blog/2019/02/18/) with SCDB.  It does not consistently include cases that were 1) dismissed as improvidently granted ("DIG'ed"), 2) dismissed for want of a substantial federal question, 3) dismissed by virtue of the Court being deadlocked ("affirmed by an equally divided Court"), or 4) dismissed for any other reason, as in the case above.
+This is another example of [frustrating inconsistencies](https://lonedissent.org/blog/2019/02/18/) with SCDB.  It does not consistently include cases that were 1) dismissed as improvidently granted ("DIG'ed"), 2) dismissed for want of a substantial federal question, 3) dismissed ("affirmed") by an equally divided Court, 4) dismissed pursuant to Rule 60 due to some mistake or omission in the lower court, or 5) dismissed for any other reason, as in the case above.
 
 [Texas v. New Mexico](https://www.oyez.org/cases/1955/9-orig) is a particularly unfortunate omission, because as The National Archives [noted](https://unwritten-record.blogs.archives.gov/2024/03/15/behind-the-scenes-providing-access-to-supreme-court-oral-arguments/):
 
@@ -113,4 +113,4 @@ His concurrence referred to "several reasons", only one of which he mentioned (l
 
 However, [Hicks v. District of Columbia (No. 51)](https://www.oyez.org/cases/1965/51) was briefed and argued, and the decision -- including the concurrence and dissent -- is on full display in U.S. Reports, at [383 U.S. 252](https://tile.loc.gov/storage-services/service/ll/usrep/usrep383/usrep383252/usrep383252.pdf).
 
-{% include arguments.html term="1952" termEnd="1968" %}
+{% include arguments.html term="1952" termEnd="1969" %}
