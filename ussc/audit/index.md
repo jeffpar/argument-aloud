@@ -28,7 +28,7 @@ Oyez omissions discovered in the initial audit:
 
   - **Creek Nation v. United States** (No. 124) was argued in the 1961 term on April 24, 1962, but it does not appear in Oyez.  It was affirmed by an equally divided Court on June 4, 1962, so the lack of an opinion may have contributed to it being overlooked.
 
-  - **Chicago and North Western Railway Company v. The Atchison, Topeka and Santa Fe Railway Company** (No. 8) and **United States v. The Atchison, Topeka & Santa Fe Railway Company** (No. 23) were argued together in the 1966 term on April 19, 1967, but all that appears in Oyez is [A Quantity of Copies of Books v. Kansas](https://www.oyez.org/cases/1966/8) (No. 8), which contains an incorrect title but *does* link to the correct [opinion](https://supreme.justia.com/cases/federal/us/387/326/).
+  - **Chicago and North Western Railway Company v. The Atchison, Topeka and Santa Fe Railway Company** (No. 8) and **United States v. The Atchison, Topeka & Santa Fe Railway Company** (No. 23) were argued together in the 1966 term on April 19, 1967, but all that appears in Oyez is an [incomplete page](https://www.oyez.org/cases/1966/8) which links to the correct [opinion](https://supreme.justia.com/cases/federal/us/387/326/). [NOTE: For those interested, [Quantity of Books v. Kansas](https://www.oyez.org/cases/1963/449) *does* exist in Oyez as well.]
 
 Examples of anomalies uncovered in Oyez during the initial audit:
 
@@ -113,4 +113,4 @@ His concurrence referred to "several reasons", only one of which he mentioned (l
 
 However, [Hicks v. District of Columbia (No. 51)](https://www.oyez.org/cases/1965/51) was briefed and argued, and the decision -- including the concurrence and dissent -- is on full display in U.S. Reports, at [383 U.S. 252](https://tile.loc.gov/storage-services/service/ll/usrep/usrep383/usrep383252/usrep383252.pdf).
 
-{% include arguments.html term="1952" termEnd="1971" %}
+{% include arguments.html term="1952" termEnd="1972" %}
