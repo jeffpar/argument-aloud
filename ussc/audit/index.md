@@ -113,4 +113,4 @@ His concurrence referred to "several reasons", only one of which he mentioned (l
 
 However, [Hicks v. District of Columbia (No. 51)](https://www.oyez.org/cases/1965/51) was briefed and argued, and the decision -- including the concurrence and dissent -- is on full display in U.S. Reports, at [383 U.S. 252](https://tile.loc.gov/storage-services/service/ll/usrep/usrep383/usrep383252/usrep383252.pdf).
 
-{% include arguments.html term="1952" termEnd="1973" %}
+{% include arguments.html term="1952" termEnd="1974" %}
