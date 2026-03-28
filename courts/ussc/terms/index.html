@@ -1,0 +1,462 @@
+---
+layout: argument
+title: Oral Arguments
+---
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    background: #fff;
+  }
+
+  /* ── Top bar ─────────────────────────────────────────────── */
+  #topbar {
+    height: 44px;
+    background: #1a1a2e;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    gap: 0;
+    flex-shrink: 0;
+  }
+
+  #site-link {
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+  }
+
+  #site-link:hover { color: #7bc8f0; }
+
+  #topbar-sep { color: #555; margin: 0 10px; font-size: 18px; }
+
+  #page-title { color: #aaa; font-size: 13px; }
+
+  /* ── Two-panel browser ───────────────────────────────────── */
+  #browser {
+    display: flex;
+    height: calc(100vh - 44px);
+  }
+
+  /* ── Left nav ────────────────────────────────────────────── */
+  #nav-panel {
+    width: 220px;
+    flex-shrink: 0;
+    border-right: 1px solid #ddd;
+    background: #f7f8fa;
+    overflow-y: auto;
+    padding: 16px 12px;
+  }
+
+  #nav-panel h3 {
+    margin: 0 0 14px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+  }
+
+  #term-list, .case-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .term-group { margin-bottom: 18px; }
+
+  .term-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 5px;
+    padding-left: 2px;
+  }
+
+  .case-list { padding-left: 8px; }
+
+  .case-item {
+    padding: 6px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12.5px;
+    color: #2672b4;
+    transition: background 0.12s;
+  }
+
+  .case-item:hover { background: #e4eef8; }
+
+  .case-item.active { background: #2672b4; color: #fff; }
+
+  /* ── Right main panel ────────────────────────────────────── */
+  #main-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  /* ── Audio player header ─────────────────────────────────── */
+  #player-section {
+    flex-shrink: 0;
+    border-bottom: 1px solid #e0e0e0;
+    background: #fafafa;
+    padding: 12px 20px 10px;
+  }
+
+  #player-section[hidden] { display: none; }
+
+  #case-info {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  #case-num-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  #case-title-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+  }
+
+  #audio-player { width: 100%; display: block; }
+
+  /* ── Transcript area ─────────────────────────────────────── */
+  #transcript-panel {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 20px 20px;
+  }
+
+  #empty-state {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bbb;
+    font-size: 15px;
+    user-select: none;
+  }
+
+  #loading-msg {
+    padding: 24px 0;
+    color: #999;
+    font-style: italic;
+    display: none;
+  }
+
+  #turn-list { display: none; }
+
+  /* ── Individual turns ────────────────────────────────────── */
+  .turn {
+    display: flex;
+    gap: 14px;
+    padding: 7px 8px;
+    border-left: 3px solid #e0e0e0;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 3px;
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+
+  .turn:hover { background: #f5f7fa; }
+
+  .turn.active {
+    background: #fffbdb;
+    border-left-color: #e6a817 !important;
+  }
+
+  /* Role color coding */
+  .turn.chief-justice { border-left-color: #7c3aed; }
+  .turn.justice       { border-left-color: #2563eb; }
+  .turn.counsel       { border-left-color: #059669; }
+
+  .speaker {
+    width: 120px;
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 700;
+    padding-top: 2px;
+    line-height: 1.3;
+    user-select: none;
+  }
+
+  .turn.chief-justice .speaker { color: #7c3aed; }
+  .turn.justice       .speaker { color: #2563eb; }
+  .turn.counsel       .speaker { color: #059669; }
+
+  .turn-text {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #333;
+  }
+</style>
+
+<div id="topbar">
+  <a id="site-link" href="/">Argument Aloud</a>
+  <span id="topbar-sep">&rsaquo;</span>
+  <span id="page-title">Oral Arguments</span>
+</div>
+
+<div id="browser">
+  <nav id="nav-panel">
+    <h3>U.S. Supreme Court</h3>
+    <ul id="term-list"></ul>
+  </nav>
+
+  <div id="main-panel">
+    <div id="player-section" hidden>
+      <div id="case-info">
+        <span id="case-num-label"></span>
+        <span id="case-title-label"></span>
+      </div>
+      <audio id="audio-player" controls preload="metadata"></audio>
+    </div>
+
+    <div id="transcript-panel">
+      <div id="empty-state">Select a case from the left to begin.</div>
+      <div id="loading-msg">Loading transcript&hellip;</div>
+      <div id="turn-list" role="list"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Case list: auto-discovered by Jekyll from static files ──────────────────
+const CASES = [
+  {%- for file in site.static_files -%}
+    {%- assign p = file.path | split: '/' -%}
+    {%- if p.size == 7 and p[1] == 'courts' and p[2] == 'ussc' and p[3] == 'terms' and p[6] contains '--transcript.json' -%}
+      {%- assign audio_path = '/courts/ussc/terms/' | append: p[4] | append: '/' | append: p[5] | append: '/' | append: p[5] | append: '--argument.mp3' -%}
+      {"term":"{{ p[4] }}","caseNum":"{{ p[5] }}","transcriptUrl":"{{ file.path | relative_url }}","audioUrl":"{{ audio_path | relative_url }}"},
+    {%- endif -%}
+  {%- endfor %}
+];
+
+// ── State ───────────────────────────────────────────────────────────────────
+let turns = [];
+let turnTimes = [];   // each turn's start time in seconds
+let activeTurnIdx = -1;
+
+const audio       = document.getElementById('audio-player');
+const turnList    = document.getElementById('turn-list');
+const emptyState  = document.getElementById('empty-state');
+const loadingMsg  = document.getElementById('loading-msg');
+const playerSection = document.getElementById('player-section');
+
+// ── Utilities ───────────────────────────────────────────────────────────────
+
+function parseTime(s) {
+  const [h, m, sec] = s.split(':');
+  return parseInt(h, 10) * 3600 + parseInt(m, 10) * 60 + parseFloat(sec);
+}
+
+function termDisplayName(term) {
+  const [year, month] = term.split('-');
+  const months = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December'];
+  return (months[parseInt(month, 10) - 1] || month) + '\u00a0Term\u00a0' + year;
+}
+
+function formatSpeaker(name) {
+  if (name.startsWith('CHIEF JUSTICE ')) {
+    return 'C.J.\u00a0' + toTitleCase(name.split(' ').pop());
+  }
+  if (name.startsWith('JUSTICE ')) {
+    return 'J.\u00a0' + toTitleCase(name.split(' ').pop());
+  }
+  return name.split(' ').map(toTitleCase).join(' ').replace('General ', 'Gen. ');
+}
+
+function toTitleCase(s) {
+  return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+}
+
+function speakerClass(name) {
+  if (name.startsWith('CHIEF JUSTICE')) return 'chief-justice';
+  if (name.startsWith('JUSTICE'))       return 'justice';
+  return 'counsel';
+}
+
+// Extract case title from first turn text (e.g. "...Case 24-1260, Foo v. Bar.")
+function extractTitle(turns) {
+  if (!turns.length) return '';
+  const m = turns[0].text.match(/Case \d+-\d+,\s+([^.]+)/);
+  if (!m) return '';
+  return m[1].trim().replace(/\bversus\b/gi, 'v.');
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Seek to time and play; waits for seek to complete before calling play()
+// to prevent browsers from resetting currentTime on a rejected play() call.
+function seekAndPlay(time) {
+  const doSeek = () => {
+    audio.currentTime = time;
+    audio.addEventListener('seeked', () => { audio.play().catch(() => {}); }, { once: true });
+  };
+  if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) {
+    doSeek();
+  } else {
+    audio.addEventListener('loadedmetadata', doSeek, { once: true });
+  }
+}
+
+// Binary search: index of last turn whose time <= t; -1 if none
+function findCurrentTurn(t) {
+  let lo = 0, hi = turnTimes.length - 1, result = -1;
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    if (turnTimes[mid] <= t) { result = mid; lo = mid + 1; }
+    else { hi = mid - 1; }
+  }
+  return result;
+}
+
+// ── Build nav ───────────────────────────────────────────────────────────────
+
+function buildNav() {
+  const termMap = {};
+  CASES.forEach(c => {
+    if (!termMap[c.term]) termMap[c.term] = [];
+    termMap[c.term].push(c);
+  });
+
+  const termListEl = document.getElementById('term-list');
+  termListEl.innerHTML = '';
+
+  Object.keys(termMap).sort().reverse().forEach(term => {
+    const li = document.createElement('li');
+    li.className = 'term-group';
+
+    const label = document.createElement('span');
+    label.className = 'term-label';
+    label.textContent = termDisplayName(term);
+    li.appendChild(label);
+
+    const ul = document.createElement('ul');
+    ul.className = 'case-list';
+
+    termMap[term].forEach(c => {
+      const ci = document.createElement('li');
+      ci.className = 'case-item';
+      ci.textContent = 'No.\u00a0' + c.caseNum;
+      ci.dataset.caseNum = c.caseNum;
+      ci.addEventListener('click', () => loadCase(c));
+      ul.appendChild(ci);
+    });
+
+    li.appendChild(ul);
+    termListEl.appendChild(li);
+  });
+}
+
+// ── Load a case ─────────────────────────────────────────────────────────────
+
+async function loadCase(caseData) {
+  // Update nav
+  document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
+  const nav = document.querySelector(`.case-item[data-case-num="${CSS.escape(caseData.caseNum)}"]`);
+  if (nav) nav.classList.add('active');
+
+  // Reset transcript area
+  playerSection.hidden = true;
+  emptyState.style.display = 'none';
+  turnList.style.display = 'none';
+  turnList.innerHTML = '';
+  loadingMsg.style.display = 'block';
+  activeTurnIdx = -1;
+
+  try {
+    const res = await fetch(caseData.transcriptUrl);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    turns = await res.json();
+    turnTimes = turns.map(t => parseTime(t.time));
+
+    document.getElementById('case-num-label').textContent = 'No.\u00a0' + caseData.caseNum;
+    document.getElementById('case-title-label').textContent = extractTitle(turns);
+
+    audio.src = caseData.audioUrl;
+    audio.load();
+
+    renderTranscript();
+
+    loadingMsg.style.display = 'none';
+    playerSection.hidden = false;
+    turnList.style.display = 'block';
+  } catch (err) {
+    loadingMsg.textContent = 'Error loading transcript.';
+    console.error(err);
+  }
+}
+
+// ── Render transcript ───────────────────────────────────────────────────────
+
+function renderTranscript() {
+  const frag = document.createDocumentFragment();
+  turns.forEach((turn, idx) => {
+    const div = document.createElement('div');
+    div.className = 'turn ' + speakerClass(turn.name);
+    div.id = 'turn-' + idx;
+    div.setAttribute('role', 'listitem');
+
+    const sp = document.createElement('span');
+    sp.className = 'speaker';
+    sp.textContent = formatSpeaker(turn.name);
+
+    const tx = document.createElement('span');
+    tx.className = 'turn-text';
+    tx.textContent = turn.text;
+
+    div.appendChild(sp);
+    div.appendChild(tx);
+    div.addEventListener('click', () => seekAndPlay(turnTimes[idx]));
+    frag.appendChild(div);
+  });
+  turnList.appendChild(frag);
+}
+
+// ── Sync highlight on playback ──────────────────────────────────────────────
+
+audio.addEventListener('timeupdate', () => {
+  const idx = findCurrentTurn(audio.currentTime);
+  if (idx === activeTurnIdx) return;
+
+  if (activeTurnIdx >= 0) {
+    document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
+  }
+  if (idx >= 0) {
+    const el = document.getElementById('turn-' + idx);
+    if (el) {
+      el.classList.add('active');
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+  activeTurnIdx = idx;
+});
+
+// ── Init ────────────────────────────────────────────────────────────────────
+buildNav();
+</script>

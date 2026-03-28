@@ -1,11 +1,11 @@
 {%- assign source = "arguments" %}
 {%- assign term = include.term | default: "1955" %}
 {%- assign termEnd = include.termEnd | default: term %}
-{%- assign arguments = site.data[source] %}
+{%- assign arguments = site.data.courts.ussc[source] %}
 <h2>Audit Results for October Term {{ term }}{% if term != termEnd %} through October Term {{ termEnd }}{% endif %}</h2>
 <p>
-  <span><a href="/data/arguments.json">[Raw Argument Data]</a></span>
-  <span><a href="/data/advocates.json">[Raw Advocate Data]</a></span>
+  <span><a href="/data/courts/ussc/arguments.json">[Raw USSC Argument Data]</a></span>
+  <span><a href="/data/courts/ussc/advocates.json">[Raw USSC Advocate Data]</a></span>
 </p>
 <ul class="menu">
   <li><a href="#" onclick="aaExpand(this, event, true)">Expand All</a></li>
