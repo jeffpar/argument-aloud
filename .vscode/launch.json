@@ -8,14 +8,21 @@
       "type": "chrome",
       "request": "launch",
       "name": "Home",
-      "url": "http://localhost:4000",
+      "url": "http://localhost:4008",
       "webRoot": "${workspaceFolder}"
     },
     {
       "type": "chrome",
       "request": "launch",
       "name": "USSC Audit",
-      "url": "http://localhost:4000/ussc/audit/",
+      "url": "http://localhost:4008/courts/ussc/audit/",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "USSC Terms",
+      "url": "http://localhost:4008/courts/ussc/terms/",
       "webRoot": "${workspaceFolder}"
     }
   ]

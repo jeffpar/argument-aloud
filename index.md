@@ -8,9 +8,9 @@ With the [National Archives](https://www.archives.gov), [Library of Congress](ht
 
 In 2023, NARA finally made the fully digitized collection of [U.S. Supreme Court audio recordings](https://unwritten-record.blogs.archives.gov/2023/05/30/oyez-oyez-oyez-sound-recordings-of-the-supreme-court-of-the-united-states-now-fully-digitized/) available -- a long-overdue development, considering that most of the digitization work had been completed over the two previous decades, thanks to the efforts of [Oyez](https://www.oyez.org/about) and its many contributors, which NARA finally acknowledged publicly in [March 2024](https://unwritten-record.blogs.archives.gov/2024/03/15/behind-the-scenes-providing-access-to-supreme-court-oral-arguments/).
 
-No detailed mappings across all these rich data sets exist yet, but hopefully they will materialize over time.  To help kick things off, I've started working on an [audit](/ussc/audit/).
+No detailed mappings across all these rich data sets exist yet, but hopefully they will materialize over time.  To help kick things off, I've started working on an [audit](/courts/ussc/audit/).
 
-This [audit](/ussc/audit/) relies in part on the audio materials (and associated metadata) sitting in [NARA's SCOTUS Collection](https://catalog.archives.gov/id/594):
+This [audit](/courts/ussc/audit/) relies in part on the audio materials (and associated metadata) sitting in [NARA's SCOTUS Collection](https://catalog.archives.gov/id/594):
 
   - [Sound Recordings of Oral Arguments - Black Series, October 1955-December 1972](nara/audio/black/)
   - [Sound Recordings of Oral Arguments - Red Series, December 1972-June 27, 2005](nara/audio/red/)
