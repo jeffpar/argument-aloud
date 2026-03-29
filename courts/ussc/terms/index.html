@@ -837,8 +837,8 @@ async function loadCase(term, caseEntry) {
   const arg = caseEntry.arguments[0];
   const caseKey = term + '/' + caseEntry.number;
   const basePath = '/courts/ussc/terms/' + term + '/' + caseEntry.number + '/';
-  const transcriptUrl = basePath + 'arguments/' + arg.aligned_text;
-  const audioUrl      = basePath + 'arguments/' + arg.audio;
+  const transcriptUrl = /^https?:\/\//i.test(arg.text_href) ? arg.text_href : (basePath + arg.text_href);
+  const audioUrl      = arg.audio_href || (basePath + arg.audio);
   const filesUrl      = basePath + 'files.json';
 
   // Update nav
