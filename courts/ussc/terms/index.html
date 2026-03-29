@@ -45,8 +45,8 @@ title: Oral Arguments
     height: calc(100vh - 44px);
   }
 
-  /* ── Left nav ────────────────────────────────────────────── */
-  #nav-panel {
+  /* ── Document Browser ───────────────────────────────────── */
+  #doc-browser {
     width: 280px;
     flex-shrink: 0;
     background: #f7f8fa;
@@ -54,7 +54,7 @@ title: Oral Arguments
     padding: 16px 12px;
   }
 
-  #nav-panel h3 {
+  #doc-browser h3 {
     margin: 0 0 14px;
     font-size: 10px;
     font-weight: 700;
@@ -69,19 +69,19 @@ title: Oral Arguments
     padding: 0;
   }
 
-  /* Kill any theme bullet/hyphen on every li inside the nav */
-  #nav-panel li {
+  /* Kill any theme bullet/hyphen on every li inside the doc browser */
+  #doc-browser li {
     list-style: none !important;
     margin: 0;
   }
 
   /* Neutralize theme's li.open:before / li.closed:before pseudo-elements */
-  #nav-panel li::before {
+  #doc-browser li::before {
     content: none !important;
   }
 
   /* Override theme's .open ul { padding-left: 32px } */
-  #nav-panel .open ul {
+  #doc-browser .open ul {
     padding-left: 16px;
   }
 
@@ -249,10 +249,119 @@ title: Oral Arguments
     color: #222;
   }
 
-  #audio-player { width: 100%; display: block; }
+  #audio-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-  /* ── Transcript area ─────────────────────────────────────── */
-  #transcript-panel {
+  #audio-player { flex: 1; display: block; }
+
+  #search-btn {
+    flex-shrink: 0;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 4px 7px;
+    font-size: 15px;
+    line-height: 1;
+    color: #666;
+    transition: background 0.1s, color 0.1s;
+  }
+
+  #search-btn:hover { background: #e4eef8; color: #2672b4; border-color: #a8c8e8; }
+
+  /* ── Transcript search modal ─────────────────────────────── */
+  #search-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 200;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 80px;
+  }
+
+  #search-overlay.open { display: flex; }
+
+  #search-box {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+    padding: 16px 18px 14px;
+    width: min(420px, 92vw);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #search-box-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #search-input {
+    flex: 1;
+    font-size: 14px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  #search-input:focus { border-color: #2672b4; box-shadow: 0 0 0 2px rgba(38,114,180,0.18); }
+
+  #search-prev, #search-next {
+    background: #f0f7fd;
+    border: 1px solid #b8d4ec;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    padding: 5px 9px;
+    color: #2672b4;
+    flex-shrink: 0;
+    transition: background 0.1s;
+  }
+
+  #search-prev:hover, #search-next:hover { background: #daeaf8; }
+  #search-prev:disabled, #search-next:disabled { opacity: 0.4; cursor: default; }
+
+  #search-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #999;
+    line-height: 1;
+    padding: 0 2px;
+    flex-shrink: 0;
+  }
+
+  #search-close:hover { color: #333; }
+
+  #search-status {
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+    min-height: 16px;
+  }
+
+  .turn-highlight {
+    background: #fff3cd;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+
+  .turn-highlight.current {
+    background: #ffc107;
+    color: #000;
+  }
+
+  /* ── Transcript Viewer ───────────────────────────────────── */
+  #transcript-viewer {
     flex: 1;
     overflow-y: auto;
     padding: 10px 20px 20px;
@@ -348,6 +457,19 @@ title: Oral Arguments
     padding: 0 1px;
   }
 
+  /* ── Ref annotations in transcript ─────────────────────── */
+  .ref-mark {
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 2px;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 0 1px;
+    transition: background 0.1s;
+  }
+
+  .ref-mark:hover { background: #e4eef8; color: #1a5276; }
+
   /* ── Resize handles ─────────────────────────────────────── */
   .resize-handle--v {
     width: 5px;
@@ -375,17 +497,17 @@ title: Oral Arguments
     background: #8ab4d4;
   }
 
-  /* ── Bottom reference panel (iframe) ────────────────────── */
-  #bottom-panel {
+  /* ── Document Viewer ─────────────────────────────────────── */
+  #doc-viewer {
     flex-shrink: 0;
     height: 45vh;
     display: flex;
     flex-direction: column;
   }
 
-  #bottom-panel[hidden] { display: none; }
+  #doc-viewer[hidden] { display: none; }
 
-  #bottom-panel-header {
+  #doc-viewer-header {
     flex-shrink: 0;
     height: 30px;
     background: #eef3f7;
@@ -401,7 +523,7 @@ title: Oral Arguments
     color: #555;
   }
 
-  #bottom-panel-url {
+  #doc-viewer-url {
     font-weight: 400;
     font-size: 11px;
     color: #888;
@@ -413,7 +535,7 @@ title: Oral Arguments
     letter-spacing: 0;
   }
 
-  #bottom-panel-close {
+  #doc-viewer-close {
     background: none;
     border: none;
     cursor: pointer;
@@ -424,9 +546,9 @@ title: Oral Arguments
     flex-shrink: 0;
   }
 
-  #bottom-panel-close:hover { color: #333; }
+  #doc-viewer-close:hover { color: #333; }
 
-  #bottom-card {
+  #doc-viewer-card {
     flex: 1;
     overflow-y: auto;
     padding: 18px 24px 20px;
@@ -436,7 +558,7 @@ title: Oral Arguments
     gap: 8px;
   }
 
-  #bottom-card-title {
+  #doc-viewer-card-title {
     font-size: 13.5px;
     font-weight: 600;
     color: #555;
@@ -444,14 +566,14 @@ title: Oral Arguments
     margin: 0;
   }
 
-  #bottom-card-desc {
+  #doc-viewer-card-desc {
     font-size: 13px;
     line-height: 1.65;
     color: #444;
     margin: 0;
   }
 
-  #bottom-card-link {
+  #doc-viewer-card-link {
     display: inline-flex;
     align-items: center;
     gap: 5px;
@@ -467,14 +589,88 @@ title: Oral Arguments
     transition: background 0.12s;
   }
 
-  #bottom-card-link:hover { background: #daeaf8; }
+  #doc-viewer-card-link:hover { background: #daeaf8; }
 
-  #bottom-pdf {
+  #doc-viewer-pdf {
     flex: 1;
     border: none;
     width: 100%;
     background: #525659;
     display: none;
+  }
+
+  /* ── Mobile layout (≤ 768px) ────────────────────────────── */
+  @media (max-width: 768px) {
+    body {
+      overflow: auto;
+    }
+
+    #topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    #browser {
+      flex-direction: column;
+      height: auto;
+    }
+
+    #doc-browser {
+      width: 100%;
+      max-height: 45vh;
+    }
+
+    #v-resize {
+      display: none;
+    }
+
+    #main-panel {
+      overflow: visible;
+      height: auto;
+    }
+
+    #player-section {
+      position: sticky;
+      top: 44px;
+      z-index: 50;
+    }
+
+    #transcript-viewer {
+      overflow-y: visible;
+      height: auto;
+      padding-bottom: 32px;
+    }
+
+    #doc-viewer {
+      height: auto;
+    }
+
+    #doc-viewer-card {
+      flex: 0 0 auto;
+      overflow-y: visible;
+    }
+
+    #doc-viewer-pdf {
+      flex: 0 0 auto;
+      min-height: 70vh;
+    }
+
+    #h-resize {
+      display: none;
+    }
+
+    #case-info {
+      cursor: pointer;
+    }
+
+    #case-info::after {
+      content: ' ▲';
+      font-size: 9px;
+      color: #aaa;
+      vertical-align: middle;
+      margin-left: 4px;
+    }
   }
 </style>
 
@@ -485,7 +681,7 @@ title: Oral Arguments
 </div>
 
 <div id="browser">
-  <nav id="nav-panel">
+  <nav id="doc-browser">
     <h3>U.S. Supreme Court</h3>
     <ul id="term-list"></ul>
   </nav>
@@ -498,28 +694,44 @@ title: Oral Arguments
         <span id="case-num-label"></span>
         <span id="case-title-label"></span>
       </div>
-      <audio id="audio-player" controls preload="metadata"></audio>
+      <div id="audio-row">
+        <audio id="audio-player" controls preload="metadata"></audio>
+        <button id="search-btn" title="Search transcript" aria-label="Search transcript">&#128269;</button>
+      </div>
     </div>
 
-    <div id="transcript-panel">
-      <div id="empty-state">Select a case from the left to begin.</div>
+    <!-- Transcript search modal -->
+    <div id="search-overlay" role="dialog" aria-modal="true" aria-label="Search transcript">
+      <div id="search-box">
+        <div id="search-box-header">
+          <input id="search-input" type="search" placeholder="Search transcript…" autocomplete="off" spellcheck="false">
+          <button id="search-prev" title="Previous match" aria-label="Previous match">&#8593;</button>
+          <button id="search-next" title="Next match" aria-label="Next match">&#8595;</button>
+          <button id="search-close" title="Close" aria-label="Close search">&times;</button>
+        </div>
+        <div id="search-status"></div>
+      </div>
+    </div>
+
+    <div id="transcript-viewer">
+      <div id="empty-state">Select a case above to begin.</div>
       <div id="loading-msg">Loading transcript&hellip;</div>
       <div id="turn-list" role="list"></div>
     </div>
 
-    <div id="bottom-panel" hidden>
-      <div id="h-resize" class="resize-handle resize-handle--h" title="Drag to resize reference panel"></div>
-      <div id="bottom-panel-header">
-        <span>Reference</span>
-        <span id="bottom-panel-url"></span>
-        <button id="bottom-panel-close" title="Close reference panel" aria-label="Close reference panel">&times;</button>
+    <div id="doc-viewer" hidden>
+      <div id="h-resize" class="resize-handle resize-handle--h" title="Drag to resize document viewer"></div>
+      <div id="doc-viewer-header">
+        <span>Document Viewer</span>
+        <span id="doc-viewer-url"></span>
+        <button id="doc-viewer-close" title="Close document viewer" aria-label="Close document viewer">&times;</button>
       </div>
-      <div id="bottom-card">
-        <p id="bottom-card-title"></p>
-        <p id="bottom-card-desc"></p>
-        <a id="bottom-card-link" href="#" target="_blank" rel="noopener noreferrer">Open document &#8599;</a>
+      <div id="doc-viewer-card">
+        <p id="doc-viewer-card-title"></p>
+        <p id="doc-viewer-card-desc"></p>
+        <a id="doc-viewer-card-link" href="#" target="_blank" rel="noopener noreferrer">Open document &#8599;</a>
       </div>
-      <iframe id="bottom-pdf" title="PDF document"
+      <iframe id="doc-viewer-pdf" title="PDF document"
               allow="fullscreen"></iframe>
     </div>
   </div>
@@ -634,56 +846,117 @@ async function loadFiles(url) {
   }
 }
 
-// Wrap each occurrence of a link's text in <strong> within a turn's text.
-function annotateText(text, linkDefs) {
-  const matches = [];
-  linkDefs.forEach(link => {
-    const needleLower = link.text.toLowerCase();
-    const haystack = text.toLowerCase();
-    let idx = 0;
-    while (idx < haystack.length) {
-      const pos = haystack.indexOf(needleLower, idx);
-      if (pos === -1) break;
-      matches.push({ start: pos, end: pos + link.text.length });
-      idx = pos + link.text.length;
-    }
+// Normalise link.refs (string or array) to an array of strings.
+function getRefs(link) {
+  if (!link.refs) return [];
+  return Array.isArray(link.refs) ? link.refs : [link.refs];
+}
+
+// True if `needle` occurs at a word boundary inside `haystack` (both lowercase).
+function matchesWholeWord(haystack, needle) {
+  try {
+    return new RegExp('\\b' + needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i').test(haystack);
+  } catch { return haystack.includes(needle); }
+}
+
+// Return all whole-word match positions of `needle` in `rawText`.
+function findWholeWordMatches(rawText, needle) {
+  const positions = [];
+  const escaped = needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  let re;
+  try { re = new RegExp('\\b' + escaped + '\\b', 'gi'); }
+  catch { re = new RegExp(escaped, 'gi'); }
+  let m;
+  while ((m = re.exec(rawText)) !== null) {
+    positions.push({ start: m.index, end: m.index + m[0].length });
+  }
+  return positions;
+}
+
+// Render a turn's text into textEl, applying ref-mark annotations from `links`
+// and optionally overlaying search marks for `searchQuery`.
+// When isCurrent is true, the search match gets the 'current' highlight class.
+function renderTurnText(textEl, rawText, searchQuery, isCurrent) {
+  const marks = [];
+
+  // Ref mark positions (whole-word only)
+  links.forEach(link => {
+    getRefs(link).forEach(ref => {
+      findWholeWordMatches(rawText, ref).forEach(({ start, end }) => {
+        marks.push({ start, end, kind: 'ref', link });
+      });
+    });
   });
-  matches.sort((a, b) => a.start - b.start);
+
+  // Search mark positions (win over refs at same start position)
+  if (searchQuery) {
+    const qLower = searchQuery.toLowerCase();
+    const hayLower = rawText.toLowerCase();
+    let i = 0;
+    while (i < hayLower.length) {
+      const pos = hayLower.indexOf(qLower, i);
+      if (pos === -1) break;
+      marks.push({ start: pos, end: pos + searchQuery.length, kind: 'search' });
+      i = pos + searchQuery.length;
+    }
+  }
+
+  // Sort by start; search beats ref on ties so it renders on top
+  marks.sort((a, b) => a.start - b.start || (a.kind === 'search' ? -1 : 1));
 
   const frag = document.createDocumentFragment();
   let cursor = 0;
-  matches.forEach(({ start, end }) => {
-    if (start < cursor) return;
-    if (start > cursor) frag.appendChild(document.createTextNode(text.slice(cursor, start)));
-    const strong = document.createElement('strong');
-    strong.textContent = text.slice(start, end);
-    frag.appendChild(strong);
+  marks.forEach(({ start, end, kind, link }) => {
+    if (start < cursor) return; // skip overlapping
+    if (start > cursor) frag.appendChild(document.createTextNode(rawText.slice(cursor, start)));
+    if (kind === 'ref') {
+      const span = document.createElement('span');
+      span.className = 'ref-mark';
+      span.textContent = rawText.slice(start, end);
+      span.addEventListener('click', e => {
+        e.stopPropagation();
+        showDocViewer(link, { autoScroll: true });
+      });
+      frag.appendChild(span);
+    } else {
+      const mark = document.createElement('mark');
+      mark.className = 'turn-highlight' + (isCurrent ? ' current' : '');
+      mark.textContent = rawText.slice(start, end);
+      frag.appendChild(mark);
+    }
     cursor = end;
   });
-  if (cursor < text.length) frag.appendChild(document.createTextNode(text.slice(cursor)));
-  return frag;
+  if (cursor < rawText.length) frag.appendChild(document.createTextNode(rawText.slice(cursor)));
+  textEl.innerHTML = '';
+  textEl.appendChild(frag);
 }
 
 // When a turn becomes active, show any bottom-view linked content whose
 // text appears anywhere in that turn's text. Leave panel visible if no
 // match — only update it when a new match is found.
+function isMobile() {
+  return window.innerWidth <= 768;
+}
+
 function checkLinksForActiveTurn(idx) {
   if (!links.length || idx < 0 || idx >= turns.length) return;
-  const turnText = turns[idx].text.toLowerCase();
-  const match = links.find(l => l.view === 'bottom' && turnText.includes(l.text.toLowerCase()));
-  if (match && match.text !== activeBottomLinkText) {
-    showBottomFrame(match);
+  const turnText = turns[idx].text;
+  const match = links.find(l => l.view === 'bottom' && getRefs(l).some(r => matchesWholeWord(turnText, r)));
+  if (match && match.href !== activeBottomLinkText) {
+    showDocViewer(match);
   }
 }
 
-function showBottomFrame(link) {
-  const panel  = document.getElementById('bottom-panel');
-  const card   = document.getElementById('bottom-card');
-  const pdfEl  = document.getElementById('bottom-pdf');
+// autoScroll: when true, scrolls the document viewer into view on mobile
+// (used for explicit user clicks; omitted for auto-sync during playback).
+function showDocViewer(link, { autoScroll = false } = {}) {
+  const panel  = document.getElementById('doc-viewer');
+  const card   = document.getElementById('doc-viewer-card');
+  const pdfEl  = document.getElementById('doc-viewer-pdf');
   const isPdf  = /\.pdf(\?|$)/i.test(link.href);
 
-  document.getElementById('bottom-panel-url').textContent = link.href;
-  activeBottomLinkText = link.text || null;
+  document.getElementById('doc-viewer-url').textContent = link.href;
+  activeBottomLinkText = link.href || null;
 
   if (isPdf) {
     card.style.display = 'none';
@@ -694,13 +967,16 @@ function showBottomFrame(link) {
     pdfEl.style.display = 'none';
     pdfEl.src = '';
     card.style.display = '';
-    document.getElementById('bottom-card-title').textContent = link.title || link.text || '';
-    document.getElementById('bottom-card-desc').textContent = link.description || '';
-    const anchor = document.getElementById('bottom-card-link');
+    document.getElementById('doc-viewer-card-title').textContent = link.title || getRefs(link)[0] || '';
+    document.getElementById('doc-viewer-card-desc').textContent = link.description || '';
+    const anchor = document.getElementById('doc-viewer-card-link');
     anchor.href = link.href;
   }
 
   panel.hidden = false;
+  if (autoScroll && isMobile()) {
+    panel.scrollIntoView({ behavior: 'instant', block: 'start' });
+  }
 }
 
 // ── Build nav ───────────────────────────────────────────────────────────────
@@ -806,7 +1082,7 @@ function buildNav(termData) {
                 e.stopPropagation();
                 document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
                 fi.classList.add('active');
-                showBottomFrame(f);
+                showDocViewer(f, { autoScroll: true });
               });
               itemsUl.appendChild(fi);
             });
@@ -867,15 +1143,19 @@ async function loadCase(term, caseEntry) {
     audio.load();
 
     const rawFiles = await loadFiles(filesUrl);
-    links = rawFiles.filter(f => f.text);
+    links = rawFiles.filter(f => f.refs);
 
     renderTranscript();
-    document.getElementById('bottom-panel').hidden = true;
+    document.getElementById('doc-viewer').hidden = true;
     activeBottomLinkText = null;
 
     loadingMsg.style.display = 'none';
     playerSection.hidden = false;
     turnList.style.display = 'block';
+    document.dispatchEvent(new Event('transcriptloaded'));
+    if (isMobile()) {
+      playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }
   } catch (err) {
     loadingMsg.textContent = 'Error loading transcript.';
     console.error(err);
@@ -898,11 +1178,7 @@ function renderTranscript() {
 
     const tx = document.createElement('span');
     tx.className = 'turn-text';
-    if (links.length) {
-      tx.appendChild(annotateText(turn.text, links));
-    } else {
-      tx.textContent = turn.text;
-    }
+    renderTurnText(tx, turn.text, null, false);
 
     div.appendChild(sp);
     div.appendChild(tx);
@@ -942,23 +1218,30 @@ audio.addEventListener('timeupdate', () => {
   checkLinksForActiveTurn(idx);
 });
 
-// ── Bottom panel close button ──────────────────────────────────────────────
-document.getElementById('bottom-panel-close').addEventListener('click', () => {
-  document.getElementById('bottom-panel').hidden = true;
+// ── Case info: tap to scroll back to document browser on mobile ──────────
+document.getElementById('case-info').addEventListener('click', () => {
+  if (isMobile()) {
+    document.getElementById('doc-browser').scrollIntoView({ behavior: 'instant', block: 'start' });
+  }
+});
+
+// ── Document Viewer close button ──────────────────────────────────────────
+document.getElementById('doc-viewer-close').addEventListener('click', () => {
+  document.getElementById('doc-viewer').hidden = true;
   activeBottomLinkText = null;
 });
 
-// ── Resize handles ───────────────────────────────────────────────────────────
+// ── Resize handles ────────────────────────────────────────────────────────────
 (function() {
-  // Vertical: sidebar ↔ main panel
-  const vHandle  = document.getElementById('v-resize');
-  const navPanel = document.getElementById('nav-panel');
+  // Vertical: document browser ↔ main panel
+  const vHandle         = document.getElementById('v-resize');
+  const docBrowserPanel = document.getElementById('doc-browser');
   let vDragging = false, vStartX = 0, vStartW = 0;
 
   vHandle.addEventListener('mousedown', e => {
     vDragging = true;
     vStartX = e.clientX;
-    vStartW = navPanel.offsetWidth;
+    vStartW = docBrowserPanel.offsetWidth;
     vHandle.classList.add('dragging');
     document.body.style.cursor = 'col-resize';
     document.body.style.userSelect = 'none';
@@ -968,7 +1251,7 @@ document.getElementById('bottom-panel-close').addEventListener('click', () => {
   document.addEventListener('mousemove', e => {
     if (!vDragging) return;
     const w = Math.max(140, Math.min(520, vStartW + (e.clientX - vStartX)));
-    navPanel.style.width = w + 'px';
+    docBrowserPanel.style.width = w + 'px';
   });
 
   document.addEventListener('mouseup', () => {
@@ -979,15 +1262,15 @@ document.getElementById('bottom-panel-close').addEventListener('click', () => {
     document.body.style.userSelect = '';
   });
 
-  // Horizontal: transcript ↔ bottom reference panel
-  const hHandle     = document.getElementById('h-resize');
-  const bottomPanel = document.getElementById('bottom-panel');
+  // Horizontal: transcript viewer ↔ document viewer
+  const hHandle        = document.getElementById('h-resize');
+  const docViewerPanel = document.getElementById('doc-viewer');
   let hDragging = false, hStartY = 0, hStartH = 0;
 
   hHandle.addEventListener('mousedown', e => {
     hDragging = true;
     hStartY = e.clientY;
-    hStartH = bottomPanel.offsetHeight;
+    hStartH = docViewerPanel.offsetHeight;
     hHandle.classList.add('dragging');
     document.body.style.cursor = 'row-resize';
     document.body.style.userSelect = 'none';
@@ -998,7 +1281,7 @@ document.getElementById('bottom-panel-close').addEventListener('click', () => {
     if (!hDragging) return;
     // Dragging up (negative delta) grows the panel
     const h = Math.max(60, Math.min(window.innerHeight * 0.85, hStartH - (e.clientY - hStartY)));
-    bottomPanel.style.height = h + 'px';
+    docViewerPanel.style.height = h + 'px';
   });
 
   document.addEventListener('mouseup', () => {
@@ -1007,6 +1290,136 @@ document.getElementById('bottom-panel-close').addEventListener('click', () => {
     hHandle.classList.remove('dragging');
     document.body.style.cursor = '';
     document.body.style.userSelect = '';
+  });
+})();
+
+// ── Transcript search ────────────────────────────────────────────────────────
+(function () {
+  const overlay     = document.getElementById('search-overlay');
+  const input       = document.getElementById('search-input');
+  const prevBtn     = document.getElementById('search-prev');
+  const nextBtn     = document.getElementById('search-next');
+  const closeBtn    = document.getElementById('search-close');
+  const statusEl    = document.getElementById('search-status');
+  const searchTrigger = document.getElementById('search-btn');
+
+  let matchIndices = [];   // indices into turns[] that contain the query
+  let matchCursor  = -1;   // which match is currently highlighted
+
+  function openSearch() {
+    overlay.classList.add('open');
+    input.focus();
+    input.select();
+  }
+
+  function closeSearch() {
+    overlay.classList.remove('open');
+    clearHighlights();
+    matchIndices = [];
+    matchCursor  = -1;
+    statusEl.textContent = '';
+  }
+
+  function clearHighlights() {
+    const visited = new Set();
+    document.querySelectorAll('.turn-highlight').forEach(el => {
+      const turnEl = el.closest('[id^="turn-"]');
+      if (!turnEl || visited.has(turnEl.id)) return;
+      visited.add(turnEl.id);
+      const idx = parseInt(turnEl.id.slice(5), 10);
+      const textEl = turnEl.querySelector('.turn-text');
+      if (textEl && turns[idx]) renderTurnText(textEl, turns[idx].text, null, false);
+    });
+  }
+
+  function highlightMatches(query) {
+    clearHighlights();
+    matchIndices = [];
+    if (!query) { updateStatus(); return; }
+
+    const queryLower = query.toLowerCase();
+    turns.forEach((turn, idx) => {
+      if (turn.text.toLowerCase().includes(queryLower)) matchIndices.push(idx);
+    });
+    updateStatus();
+    // Re-render all matching turns with highlighted spans
+    matchIndices.forEach(idx => {
+      applyHighlight(idx, query, false);
+    });
+  }
+
+  function applyHighlight(turnIdx, query, isCurrent) {
+    const el = document.getElementById('turn-' + turnIdx);
+    if (!el) return;
+    const textEl = el.querySelector('.turn-text');
+    if (!textEl) return;
+    renderTurnText(textEl, turns[turnIdx].text, query, isCurrent);
+  }
+
+  function scrollToMatch(idx) {
+    const el = document.getElementById('turn-' + idx);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function updateStatus() {
+    if (!matchIndices.length) {
+      statusEl.textContent = input.value ? 'No matches found.' : '';
+    } else {
+      statusEl.textContent = (matchCursor >= 0 ? (matchCursor + 1) + ' of ' : '') + matchIndices.length + ' match' + (matchIndices.length === 1 ? '' : 'es');
+    }
+    prevBtn.disabled = matchIndices.length === 0;
+    nextBtn.disabled = matchIndices.length === 0;
+  }
+
+  function goToMatch(delta) {
+    if (!matchIndices.length) return;
+    const query = input.value;
+    // Remove 'current' from previous
+    if (matchCursor >= 0) applyHighlight(matchIndices[matchCursor], query, false);
+    matchCursor = (matchCursor + delta + matchIndices.length) % matchIndices.length;
+    applyHighlight(matchIndices[matchCursor], query, true);
+    scrollToMatch(matchIndices[matchCursor]);
+    updateStatus();
+  }
+
+  // Open
+  searchTrigger.addEventListener('click', openSearch);
+
+  // Close on overlay backdrop click
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeSearch(); });
+
+  // Close button
+  closeBtn.addEventListener('click', closeSearch);
+
+  // Escape closes
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeSearch();
+  });
+
+  // Live search as user types; pressing Enter advances to next match
+  input.addEventListener('input', () => {
+    matchCursor = -1;
+    highlightMatches(input.value.trim());
+    if (matchIndices.length) goToMatch(0);
+  });
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (e.shiftKey) goToMatch(-1); else goToMatch(1);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => goToMatch(1));
+  prevBtn.addEventListener('click', () => goToMatch(-1));
+
+  // Clear highlights whenever a new transcript is loaded
+  const origRenderTranscript = window._renderTranscriptHook;
+  document.addEventListener('transcriptloaded', () => {
+    matchIndices = [];
+    matchCursor  = -1;
+    input.value  = '';
+    statusEl.textContent = '';
   });
 })();
 
