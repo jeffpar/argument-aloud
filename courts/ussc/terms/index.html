@@ -47,9 +47,8 @@ title: Oral Arguments
 
   /* ── Left nav ────────────────────────────────────────────── */
   #nav-panel {
-    width: 220px;
+    width: 280px;
     flex-shrink: 0;
-    border-right: 1px solid #ddd;
     background: #f7f8fa;
     overflow-y: auto;
     padding: 16px 12px;
@@ -70,6 +69,22 @@ title: Oral Arguments
     padding: 0;
   }
 
+  /* Kill any theme bullet/hyphen on every li inside the nav */
+  #nav-panel li {
+    list-style: none !important;
+    margin: 0;
+  }
+
+  /* Neutralize theme's li.open:before / li.closed:before pseudo-elements */
+  #nav-panel li::before {
+    content: none !important;
+  }
+
+  /* Override theme's .open ul { padding-left: 32px } */
+  #nav-panel .open ul {
+    padding-left: 16px;
+  }
+
   .term-group { margin-bottom: 18px; }
 
   .term-label {
@@ -81,20 +96,116 @@ title: Oral Arguments
     padding-left: 2px;
   }
 
-  .case-list { padding-left: 8px; }
+  .case-list { padding-left: 4px; }
 
+  /* ── Case row ──────────────────────────────────────────── */
   .case-item {
-    padding: 6px 10px;
+    border-radius: 5px;
+    transition: background 0.12s;
+    margin-bottom: 2px;
+  }
+
+  .case-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 6px 6px 6px 10px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 12.5px;
-    color: #2672b4;
     transition: background 0.12s;
   }
 
-  .case-item:hover { background: #e4eef8; }
+  .case-header:hover { background: #e4eef8; }
 
-  .case-item.active { background: #2672b4; color: #fff; }
+  .case-item.active > .case-header { background: #2672b4; }
+
+  .case-toggle {
+    flex-shrink: 0;
+    font-size: 10px;
+    color: #999;
+    margin-top: 3px;
+    transition: transform 0.15s;
+    user-select: none;
+    line-height: 1;
+  }
+
+  .case-item.open > .case-header .case-toggle { transform: rotate(90deg); }
+
+  .case-item.active > .case-header .case-toggle { color: rgba(255,255,255,0.6); }
+
+  .case-title-nav {
+    font-size: 12px;
+    color: #2672b4;
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .case-item.active > .case-header .case-title-nav { color: #fff; }
+
+  /* ── File sub-list ──────────────────────────────────────── */
+  .file-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 4px 0;
+    display: none;
+  }
+
+  .case-item.open .file-list { display: block; }
+
+  .file-type-group {
+    list-style: none;
+    margin-bottom: 2px;
+  }
+
+  .file-type-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px 4px 6px;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #888;
+    border-radius: 4px;
+    transition: background 0.1s;
+    user-select: none;
+  }
+
+  .file-type-header:hover { background: #eaeff5; }
+
+  .file-type-toggle {
+    font-size: 8px;
+    transition: transform 0.15s;
+    flex-shrink: 0;
+  }
+
+  .file-type-group.open .file-type-toggle { transform: rotate(90deg); }
+
+  .file-type-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+  }
+
+  .file-type-group.open .file-type-items { display: block; }
+
+  .file-item {
+    list-style: none;
+    font-size: 11.5px;
+    color: #2672b4;
+    padding: 4px 8px 4px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    line-height: 1.35;
+    transition: background 0.1s;
+  }
+
+  .file-item:hover { background: #e4eef8; }
+
+  .file-item.active { background: #ddeeff; font-weight: 600; }
 
   /* ── Right main panel ────────────────────────────────────── */
   #main-panel {
@@ -237,13 +348,39 @@ title: Oral Arguments
     padding: 0 1px;
   }
 
+  /* ── Resize handles ─────────────────────────────────────── */
+  .resize-handle--v {
+    width: 5px;
+    cursor: col-resize;
+    flex-shrink: 0;
+    background: #ddd;
+    transition: background 0.1s;
+  }
+
+  .resize-handle--h {
+    height: 5px;
+    cursor: row-resize;
+    flex-shrink: 0;
+    background: #c8d6e0;
+    transition: background 0.1s;
+  }
+
+  .resize-handle--v:hover,
+  .resize-handle--v.dragging {
+    background: #8ab4d4;
+  }
+
+  .resize-handle--h:hover,
+  .resize-handle--h.dragging {
+    background: #8ab4d4;
+  }
+
   /* ── Bottom reference panel (iframe) ────────────────────── */
   #bottom-panel {
     flex-shrink: 0;
     height: 45vh;
     display: flex;
     flex-direction: column;
-    border-top: 2px solid #c8d6e0;
   }
 
   #bottom-panel[hidden] { display: none; }
@@ -299,14 +436,6 @@ title: Oral Arguments
     gap: 8px;
   }
 
-  #bottom-card-heading {
-    font-size: 17px;
-    font-weight: 700;
-    color: #1a1a2e;
-    line-height: 1.3;
-    margin: 0;
-  }
-
   #bottom-card-title {
     font-size: 13.5px;
     font-weight: 600;
@@ -339,6 +468,14 @@ title: Oral Arguments
   }
 
   #bottom-card-link:hover { background: #daeaf8; }
+
+  #bottom-pdf {
+    flex: 1;
+    border: none;
+    width: 100%;
+    background: #525659;
+    display: none;
+  }
 </style>
 
 <div id="topbar">
@@ -352,6 +489,8 @@ title: Oral Arguments
     <h3>U.S. Supreme Court</h3>
     <ul id="term-list"></ul>
   </nav>
+
+  <div id="v-resize" class="resize-handle resize-handle--v" title="Drag to resize sidebar"></div>
 
   <div id="main-panel">
     <div id="player-section" hidden>
@@ -369,29 +508,30 @@ title: Oral Arguments
     </div>
 
     <div id="bottom-panel" hidden>
+      <div id="h-resize" class="resize-handle resize-handle--h" title="Drag to resize reference panel"></div>
       <div id="bottom-panel-header">
         <span>Reference</span>
         <span id="bottom-panel-url"></span>
         <button id="bottom-panel-close" title="Close reference panel" aria-label="Close reference panel">&times;</button>
       </div>
       <div id="bottom-card">
-        <p id="bottom-card-heading"></p>
         <p id="bottom-card-title"></p>
         <p id="bottom-card-desc"></p>
         <a id="bottom-card-link" href="#" target="_blank" rel="noopener noreferrer">Open document &#8599;</a>
       </div>
+      <iframe id="bottom-pdf" title="PDF document"
+              allow="fullscreen"></iframe>
     </div>
   </div>
 </div>
 
 <script>
-// ── Case list: auto-discovered by Jekyll from static files ──────────────────
-const CASES = [
+// ── Term list: auto-discovered by Jekyll from cases.json files ────────────
+const TERMS = [
   {%- for file in site.static_files -%}
     {%- assign p = file.path | split: '/' -%}
-    {%- if p.size == 7 and p[1] == 'courts' and p[2] == 'ussc' and p[3] == 'terms' and p[6] contains '--transcript.json' -%}
-      {%- assign audio_path = '/courts/ussc/terms/' | append: p[4] | append: '/' | append: p[5] | append: '/' | append: p[5] | append: '--argument.mp3' -%}
-      {"term":"{{ p[4] }}","caseNum":"{{ p[5] }}","transcriptUrl":"{{ file.path | relative_url }}","audioUrl":"{{ audio_path | relative_url }}"},
+    {%- if p.size == 6 and p[1] == 'courts' and p[2] == 'ussc' and p[3] == 'terms' and p[5] == 'cases.json' -%}
+      {"term":"{{ p[4] }}","casesUrl":"{{ file.path | relative_url }}"},
     {%- endif -%}
   {%- endfor %}
 ];
@@ -444,6 +584,7 @@ function speakerClass(name) {
 }
 
 // Extract case title from first turn text (e.g. "...Case 24-1260, Foo v. Bar.")
+// Kept as fallback if cases.json title is absent.
 function extractTitle(turns) {
   if (!turns.length) return '';
   const m = turns[0].text.match(/Case \d+-\d+,\s+([^.]+)/);
@@ -482,13 +623,13 @@ function findCurrentTurn(t) {
 
 // ── Links helpers ──────────────────────────────────────────────────────────
 
-async function loadLinks(url) {
+async function loadFiles(url) {
   try {
     const res = await fetch(url, { cache: 'reload' });
     if (!res.ok) return [];
     return await res.json();
   } catch (e) {
-    console.warn('[links] fetch failed:', e);
+    console.warn('[files] fetch failed:', e);
     return [];
   }
 }
@@ -536,30 +677,41 @@ function checkLinksForActiveTurn(idx) {
 }
 
 function showBottomFrame(link) {
-  const panel = document.getElementById('bottom-panel');
+  const panel  = document.getElementById('bottom-panel');
+  const card   = document.getElementById('bottom-card');
+  const pdfEl  = document.getElementById('bottom-pdf');
+  const isPdf  = /\.pdf(\?|$)/i.test(link.href);
+
   document.getElementById('bottom-panel-url').textContent = link.href;
-  document.getElementById('bottom-card-heading').textContent = link.text;
-  document.getElementById('bottom-card-title').textContent = link.title || '';
-  document.getElementById('bottom-card-desc').textContent = link.description || '';
-  const anchor = document.getElementById('bottom-card-link');
-  anchor.href = link.href;
-  activeBottomLinkText = link.text;
+  activeBottomLinkText = link.text || null;
+
+  if (isPdf) {
+    card.style.display = 'none';
+    pdfEl.style.display = 'block';
+    const pdfSrc = link.href.includes('#') ? link.href : link.href + '#pagemode=none';
+    if (pdfEl.src !== pdfSrc) pdfEl.src = pdfSrc;
+  } else {
+    pdfEl.style.display = 'none';
+    pdfEl.src = '';
+    card.style.display = '';
+    document.getElementById('bottom-card-title').textContent = link.title || link.text || '';
+    document.getElementById('bottom-card-desc').textContent = link.description || '';
+    const anchor = document.getElementById('bottom-card-link');
+    anchor.href = link.href;
+  }
+
   panel.hidden = false;
 }
 
 // ── Build nav ───────────────────────────────────────────────────────────────
 
-function buildNav() {
-  const termMap = {};
-  CASES.forEach(c => {
-    if (!termMap[c.term]) termMap[c.term] = [];
-    termMap[c.term].push(c);
-  });
-
+function buildNav(termData) {
   const termListEl = document.getElementById('term-list');
   termListEl.innerHTML = '';
 
-  Object.keys(termMap).sort().reverse().forEach(term => {
+  termData.sort((a, b) => (a.term < b.term ? 1 : -1)); // newest term first
+
+  termData.forEach(({ term, cases }) => {
     const li = document.createElement('li');
     li.className = 'term-group';
 
@@ -571,12 +723,105 @@ function buildNav() {
     const ul = document.createElement('ul');
     ul.className = 'case-list';
 
-    termMap[term].forEach(c => {
+    cases.forEach(caseEntry => {
+      const caseKey = term + '/' + caseEntry.number;
+      const basePath = '/courts/ussc/terms/' + term + '/' + caseEntry.number + '/';
+
       const ci = document.createElement('li');
       ci.className = 'case-item';
-      ci.textContent = 'No.\u00a0' + c.caseNum;
-      ci.dataset.caseNum = c.caseNum;
-      ci.addEventListener('click', () => loadCase(c));
+      ci.dataset.caseKey = caseKey;
+
+      // ── Header row (toggle + title) ────────────────────────
+      const header = document.createElement('div');
+      header.className = 'case-header';
+
+      const toggle = document.createElement('span');
+      toggle.className = 'case-toggle';
+      toggle.textContent = '\u25b6'; // ▶
+
+      const titleSpan = document.createElement('span');
+      titleSpan.className = 'case-title-nav';
+      titleSpan.textContent = caseEntry.title + ' (No.\u00a0' + caseEntry.number + ')';
+
+      header.appendChild(toggle);
+      header.appendChild(titleSpan);
+
+      // ── File sub-list (populated lazily) ──────────────────
+      const fileUl = document.createElement('ul');
+      fileUl.className = 'file-list';
+      let filesLoaded = false;
+
+      header.addEventListener('click', async () => {
+        const isOpen = ci.classList.toggle('open');
+        if (isOpen && !filesLoaded) {
+          filesLoaded = true;
+          const rawFiles = await loadFiles(basePath + 'files.json');
+
+          const TYPE_LABELS = {
+            petitioner: 'Petitioner',
+            respondent: 'Respondent',
+            reference:  'References',
+          };
+          const ORDER = ['petitioner', 'respondent', 'reference'];
+
+          // Group files by type
+          const groups = {};
+          rawFiles.forEach(f => {
+            const key = (f.type || 'reference').toLowerCase();
+            if (!groups[key]) groups[key] = [];
+            groups[key].push(f);
+          });
+
+          ORDER.forEach(typeKey => {
+            if (!groups[typeKey] || !groups[typeKey].length) return;
+
+            const groupLi = document.createElement('li');
+            groupLi.className = 'file-type-group';
+
+            const typeHeader = document.createElement('div');
+            typeHeader.className = 'file-type-header';
+
+            const typeTog = document.createElement('span');
+            typeTog.className = 'file-type-toggle';
+            typeTog.textContent = '\u25b6';
+
+            const typeLabel = document.createElement('span');
+            typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
+
+            typeHeader.appendChild(typeTog);
+            typeHeader.appendChild(typeLabel);
+            typeHeader.addEventListener('click', e => {
+              e.stopPropagation();
+              groupLi.classList.toggle('open');
+            });
+
+            const itemsUl = document.createElement('ul');
+            itemsUl.className = 'file-type-items';
+
+            groups[typeKey].forEach(f => {
+              const fi = document.createElement('li');
+              fi.className = 'file-item';
+              fi.textContent = f.title;
+              fi.addEventListener('click', e => {
+                e.stopPropagation();
+                document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
+                fi.classList.add('active');
+                showBottomFrame(f);
+              });
+              itemsUl.appendChild(fi);
+            });
+
+            groupLi.appendChild(typeHeader);
+            groupLi.appendChild(itemsUl);
+            fileUl.appendChild(groupLi);
+          });
+        }
+        // Also load the transcript when opening
+        if (isOpen) loadCase(term, caseEntry);
+      });
+
+      ci.appendChild(header);
+      ci.appendChild(fileUl);
       ul.appendChild(ci);
     });
 
@@ -587,10 +832,18 @@ function buildNav() {
 
 // ── Load a case ─────────────────────────────────────────────────────────────
 
-async function loadCase(caseData) {
+async function loadCase(term, caseEntry) {
+  if (!caseEntry.arguments || !caseEntry.arguments.length) return;
+  const arg = caseEntry.arguments[0];
+  const caseKey = term + '/' + caseEntry.number;
+  const basePath = '/courts/ussc/terms/' + term + '/' + caseEntry.number + '/';
+  const transcriptUrl = basePath + 'arguments/' + arg.aligned_text;
+  const audioUrl      = basePath + 'arguments/' + arg.audio;
+  const filesUrl      = basePath + 'files.json';
+
   // Update nav
   document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
-  const nav = document.querySelector(`.case-item[data-case-num="${CSS.escape(caseData.caseNum)}"]`);
+  const nav = document.querySelector(`.case-item[data-case-key="${CSS.escape(caseKey)}"]`);
   if (nav) nav.classList.add('active');
 
   // Reset transcript area
@@ -602,19 +855,19 @@ async function loadCase(caseData) {
   activeTurnIdx = -1;
 
   try {
-    const res = await fetch(caseData.transcriptUrl);
+    const res = await fetch(transcriptUrl);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     turns = await res.json();
     turnTimes = turns.map(t => parseTime(t.time));
 
-    document.getElementById('case-num-label').textContent = 'No.\u00a0' + caseData.caseNum;
-    document.getElementById('case-title-label').textContent = extractTitle(turns);
+    document.getElementById('case-num-label').textContent = 'No.\u00a0' + caseEntry.number;
+    document.getElementById('case-title-label').textContent = caseEntry.title || extractTitle(turns);
 
-    audio.src = caseData.audioUrl;
+    audio.src = audioUrl;
     audio.load();
 
-    const linksUrl = caseData.transcriptUrl.replace('--transcript.json', '--links.json');
-    links = await loadLinks(linksUrl);
+    const rawFiles = await loadFiles(filesUrl);
+    links = rawFiles.filter(f => f.text);
 
     renderTranscript();
     document.getElementById('bottom-panel').hidden = true;
@@ -654,8 +907,8 @@ function renderTranscript() {
     div.appendChild(sp);
     div.appendChild(tx);
     div.addEventListener('click', () => {
-      // Seek audio to this turn's position but don't auto-play
-      audio.currentTime = turnTimes[idx];
+      // Seek and play from this turn's position
+      seekAndPlay(turnTimes[idx]);
       // Update the active highlight manually
       if (activeTurnIdx >= 0) {
         document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
@@ -695,6 +948,84 @@ document.getElementById('bottom-panel-close').addEventListener('click', () => {
   activeBottomLinkText = null;
 });
 
+// ── Resize handles ───────────────────────────────────────────────────────────
+(function() {
+  // Vertical: sidebar ↔ main panel
+  const vHandle  = document.getElementById('v-resize');
+  const navPanel = document.getElementById('nav-panel');
+  let vDragging = false, vStartX = 0, vStartW = 0;
+
+  vHandle.addEventListener('mousedown', e => {
+    vDragging = true;
+    vStartX = e.clientX;
+    vStartW = navPanel.offsetWidth;
+    vHandle.classList.add('dragging');
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!vDragging) return;
+    const w = Math.max(140, Math.min(520, vStartW + (e.clientX - vStartX)));
+    navPanel.style.width = w + 'px';
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!vDragging) return;
+    vDragging = false;
+    vHandle.classList.remove('dragging');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  });
+
+  // Horizontal: transcript ↔ bottom reference panel
+  const hHandle     = document.getElementById('h-resize');
+  const bottomPanel = document.getElementById('bottom-panel');
+  let hDragging = false, hStartY = 0, hStartH = 0;
+
+  hHandle.addEventListener('mousedown', e => {
+    hDragging = true;
+    hStartY = e.clientY;
+    hStartH = bottomPanel.offsetHeight;
+    hHandle.classList.add('dragging');
+    document.body.style.cursor = 'row-resize';
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!hDragging) return;
+    // Dragging up (negative delta) grows the panel
+    const h = Math.max(60, Math.min(window.innerHeight * 0.85, hStartH - (e.clientY - hStartY)));
+    bottomPanel.style.height = h + 'px';
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!hDragging) return;
+    hDragging = false;
+    hHandle.classList.remove('dragging');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  });
+})();
+
 // ── Init ────────────────────────────────────────────────────────────────────
-buildNav();
+async function init() {
+  const termResults = await Promise.all(
+    TERMS.map(async ({ term, casesUrl }) => {
+      try {
+        const res = await fetch(casesUrl, { cache: 'reload' });
+        if (!res.ok) return null;
+        const cases = await res.json();
+        return { term, cases };
+      } catch (e) {
+        console.warn('[cases] fetch failed for term', term, e);
+        return null;
+      }
+    })
+  );
+  buildNav(termResults.filter(Boolean));
+}
+init();
 </script>
