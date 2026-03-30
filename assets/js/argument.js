@@ -331,7 +331,18 @@ function buildNav(termData) {
 
         header.addEventListener('click', async (e) => {
           const fromRestore = !!e.fromRestore;
-          const isOpen = ci.classList.toggle('open');
+          const isActive = ci.classList.contains('active');
+          const wasOpen  = ci.classList.contains('open');
+          // Collapse only when clicking the already-selected, already-open case.
+          // In all other cases force-open so clicking always selects.
+          let isOpen;
+          if (isActive && wasOpen) {
+            ci.classList.remove('open');
+            isOpen = false;
+          } else {
+            ci.classList.add('open');
+            isOpen = true;
+          }
           if (isOpen && !filesLoaded) {
             filesLoaded = true;
             const rawFiles = await loadFiles(basePath + 'files.json');
@@ -569,15 +580,18 @@ function renderTranscript() {
     div.appendChild(sp);
     div.appendChild(tx);
     div.addEventListener('click', () => {
-      // Seek and play from this turn's position
-      seekAndPlay(turnTimes[idx]);
-      // Update the active highlight manually
       if (activeTurnIdx >= 0) {
         document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
       }
       div.classList.add('active');
       activeTurnIdx = idx;
       checkLinksForActiveTurn(idx);
+      // Only seek/play if this turn has a real timestamp
+      if (turn.time != null) {
+        seekAndPlay(turnTimes[idx]);
+      } else {
+        div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
       // Update URL with turn number
       const turnId = turn.turn ?? (idx + 1);
       const url = new URL(location.href);
@@ -592,6 +606,7 @@ function renderTranscript() {
 // ── Sync highlight on playback ──────────────────────────────────────────────
 
 audio.addEventListener('timeupdate', () => {
+  if (!turns.some(t => t.time != null)) return;
   const idx = findCurrentTurn(audio.currentTime);
   if (idx === activeTurnIdx) return;
 
@@ -856,7 +871,7 @@ async function init() {
               if (el) {
                 el.classList.add('active');
                 activeTurnIdx = turnIdx;
-                seekOnly(turnTimes[turnIdx]);
+                if (turns[turnIdx].time != null) seekOnly(turnTimes[turnIdx]);
                 requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'center' }));
                 const url = new URL(location.href);
                 url.searchParams.set('turn', turnParam);
