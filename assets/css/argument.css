@@ -94,7 +94,33 @@ body {
 }
 
 .term-group {
-  margin-bottom: 18px;
+  margin-bottom: 4px;
+}
+
+.term-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 6px;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.term-header:hover {
+  background: #eef3f8;
+}
+
+.term-toggle {
+  flex-shrink: 0;
+  font-size: 9px;
+  color: #999;
+  transition: transform 0.15s;
+  line-height: 1;
+}
+
+.term-group.open > .term-header > .term-toggle {
+  transform: rotate(90deg);
 }
 
 .term-label {
@@ -102,12 +128,16 @@ body {
   font-size: 12px;
   font-weight: 700;
   color: #444;
-  margin-bottom: 5px;
   padding-left: 2px;
 }
 
 .case-list {
+  display: none;
   padding-left: 4px;
+}
+
+.term-group.open > .case-list {
+  display: block;
 }
 
 /* ── Month groups ──────────────────────────────────────── */

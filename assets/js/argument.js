@@ -247,16 +247,27 @@ function buildNav(termData) {
   const termListEl = document.getElementById('term-list');
   termListEl.innerHTML = '';
 
-  termData.sort((a, b) => (a.term < b.term ? 1 : -1)); // newest term first
+  termData.sort((a, b) => (a.term < b.term ? -1 : 1)); // oldest term first
 
   termData.forEach(({ term, cases }) => {
     const li = document.createElement('li');
     li.className = 'term-group';
 
+    const termHeader = document.createElement('div');
+    termHeader.className = 'term-header';
+
+    const termTog = document.createElement('span');
+    termTog.className = 'term-toggle';
+    termTog.textContent = '\u25b6';
+
     const label = document.createElement('span');
     label.className = 'term-label';
     label.textContent = termDisplayName(term);
-    li.appendChild(label);
+
+    termHeader.appendChild(termTog);
+    termHeader.appendChild(label);
+    termHeader.addEventListener('click', () => li.classList.toggle('open'));
+    li.appendChild(termHeader);
 
     const ul = document.createElement('ul');
     ul.className = 'case-list';
@@ -858,7 +869,8 @@ async function init() {
     const key = termParam + '/' + caseParam;
     const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`);
     if (caseEl) {
-      // Expand the month group that contains this case
+      // Expand the term group and month group that contain this case
+      caseEl.closest('.term-group')?.classList.add('open');
       caseEl.closest('.month-group')?.classList.add('open');
 
       if (fileParam != null || turnParam != null) {
