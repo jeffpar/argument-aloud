@@ -165,6 +165,9 @@ def extract_transcript_pdf(pdf_path: Path, output_path: Path) -> list:
         if text:
             turns.append({'name': current_speaker, 'text': text})
 
+    # Assign 1-based "turn" IDs (key placed first for readability)
+    turns = [{'turn': i + 1, **turn} for i, turn in enumerate(turns)]
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
         json.dumps(turns, indent=2, ensure_ascii=False) + '\n',
@@ -478,14 +481,16 @@ def update_docket_info(cases_path: Path) -> None:
                 files = []
 
             existing_hrefs = {f['href'] for f in files if 'href' in f}
+            next_file_id = max((f.get('file', 0) for f in files), default=0) + 1
             added = 0
             for p in proceedings:
                 if p['href'] not in existing_hrefs:
-                    entry = {'title': p['title'], 'date': p['date'], 'href': p['href']}
+                    entry = {'file': next_file_id, 'title': p['title'], 'date': p['date'], 'href': p['href']}
                     if p.get('type'):
                         entry['type'] = p['type']
                     files.append(entry)
                     existing_hrefs.add(p['href'])
+                    next_file_id += 1
                     added += 1
 
             if added:

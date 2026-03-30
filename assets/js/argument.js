@@ -49,6 +49,15 @@ function escapeHtml(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// Seek to a time without playing (used for URL-based turn restore).
+function seekOnly(time) {
+  if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) {
+    audio.currentTime = time;
+  } else {
+    audio.addEventListener('loadedmetadata', () => { audio.currentTime = time; }, { once: true });
+  }
+}
+
 // Seek to time and play; waits for seek to complete before calling play()
 // to prevent browsers from resetting currentTime on a rejected play() call.
 function seekAndPlay(time) {
@@ -272,7 +281,7 @@ function buildNav(termData) {
 
     monthMap.forEach(({ label: monthLabel, cases: mCases }) => {
       const monthLi = document.createElement('li');
-      monthLi.className = 'month-group open';
+      monthLi.className = 'month-group';
 
       const monthHeader = document.createElement('div');
       monthHeader.className = 'month-header';
@@ -320,7 +329,8 @@ function buildNav(termData) {
         fileUl.className = 'file-list';
         let filesLoaded = false;
 
-        header.addEventListener('click', async () => {
+        header.addEventListener('click', async (e) => {
+          const fromRestore = !!e.fromRestore;
           const isOpen = ci.classList.toggle('open');
           if (isOpen && !filesLoaded) {
             filesLoaded = true;
@@ -375,11 +385,17 @@ function buildNav(termData) {
               groups[typeKey].forEach(f => {
                 const fi = document.createElement('li');
                 fi.className = 'file-item';
+                if (f.file != null) fi.dataset.fileId = f.file;
                 fi.textContent = f.title;
                 fi.addEventListener('click', e => {
                   e.stopPropagation();
                   document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
                   fi.classList.add('active');
+                  if (f.file != null) {
+                    const url = new URL(location.href);
+                    url.searchParams.set('file', f.file);
+                    history.replaceState(null, '', url);
+                  }
                   showDocViewer(f, { autoScroll: true });
                 });
                 itemsUl.appendChild(fi);
@@ -391,7 +407,17 @@ function buildNav(termData) {
             });
           }
           // Also load the transcript when opening
-          if (isOpen) loadCase(term, caseEntry);
+          if (isOpen) {
+            if (!fromRestore) {
+              const url = new URL(location.href);
+              url.searchParams.set('term', term);
+              url.searchParams.set('case', caseEntry.number);
+              url.searchParams.delete('file');
+              url.searchParams.delete('turn');
+              history.replaceState(null, '', url);
+            }
+            loadCase(term, caseEntry);
+          }
         });
 
         ci.appendChild(header);
@@ -552,6 +578,11 @@ function renderTranscript() {
       div.classList.add('active');
       activeTurnIdx = idx;
       checkLinksForActiveTurn(idx);
+      // Update URL with turn number
+      const turnId = turn.turn ?? (idx + 1);
+      const url = new URL(location.href);
+      url.searchParams.set('turn', turnId);
+      history.replaceState(null, '', url);
     });
     frag.appendChild(div);
   });
@@ -589,6 +620,9 @@ document.getElementById('case-info').addEventListener('click', () => {
 document.getElementById('doc-viewer-close').addEventListener('click', () => {
   document.getElementById('doc-viewer').hidden = true;
   activeBottomLinkText = null;
+  const url = new URL(location.href);
+  url.searchParams.delete('file');
+  history.replaceState(null, '', url);
 });
 
 // ── Resize handles ────────────────────────────────────────────────────────────
@@ -798,5 +832,53 @@ async function init() {
     })
   );
   buildNav(termResults.filter(Boolean));
+
+  // Restore state from URL params
+  const params = new URLSearchParams(location.search);
+  const termParam = params.get('term');
+  const caseParam = params.get('case');
+  const fileParam = params.get('file') != null ? parseInt(params.get('file'), 10) : null;
+  const turnParam = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
+  if (termParam && caseParam) {
+    const key = termParam + '/' + caseParam;
+    const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`);
+    if (caseEl) {
+      // Expand the month group that contains this case
+      caseEl.closest('.month-group')?.classList.add('open');
+
+      if (fileParam != null || turnParam != null) {
+        document.addEventListener('transcriptloaded', () => {
+          if (turnParam != null) {
+            const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
+            if (turnIdx >= 0) {
+              if (activeTurnIdx >= 0) document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
+              const el = document.getElementById('turn-' + turnIdx);
+              if (el) {
+                el.classList.add('active');
+                activeTurnIdx = turnIdx;
+                seekOnly(turnTimes[turnIdx]);
+                requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'center' }));
+                const url = new URL(location.href);
+                url.searchParams.set('turn', turnParam);
+                history.replaceState(null, '', url);
+              }
+            }
+          }
+          if (fileParam != null) {
+            const fileEl = document.querySelector(`.file-item[data-file-id="${fileParam}"]`);
+            if (fileEl) {
+              fileEl.closest('.file-type-group')?.classList.add('open');
+              requestAnimationFrame(() => fileEl.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
+              fileEl.click();
+            }
+          }
+        }, { once: true });
+      }
+      // Use dispatchEvent so the fromRestore flag is passed via the event handler signature trick
+      const headerEl = caseEl.querySelector('.case-header');
+      if (headerEl) headerEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true }));
+      requestAnimationFrame(() => caseEl.scrollIntoView({ behavior: 'instant', block: 'center' }));
+    }
+  }
 }
 init();
