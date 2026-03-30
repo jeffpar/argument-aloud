@@ -287,17 +287,21 @@ function buildNav(termData) {
           const TYPE_LABELS = {
             petitioner: 'Petitioner',
             respondent: 'Respondent',
+            amicus:     'Amicus',
             reference:  'References',
             other:      'Other',
           };
-          const ORDER = ['petitioner', 'respondent', 'reference', 'other'];
+          const ORDER = ['petitioner', 'respondent', 'amicus', 'reference', 'other'];
 
-          // Group files by type
+          // Group files by type, then sort each group by date ascending
           const groups = {};
           rawFiles.forEach(f => {
             const key = (f.type || 'other').toLowerCase();
             if (!groups[key]) groups[key] = [];
             groups[key].push(f);
+          });
+          ORDER.forEach(k => {
+            if (groups[k]) groups[k].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
           });
 
           ORDER.forEach(typeKey => {
