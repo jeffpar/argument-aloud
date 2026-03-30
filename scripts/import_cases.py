@@ -16,11 +16,12 @@ Steps performed:
      YYYY-MM-DD.json file yet in courts/ussc/terms/TERM/NUMBER/, download the
      PDF, extract speaker turns with pdftotext, and write the JSON file.
      If text_href was absent it is also added to the argument entry in cases.json.
-  4. For every case in cases.json without a questions_href, fetch the SCOTUS
-     docket page and extract:
-       - The Questions Presented PDF URL → saved as questions_href in cases.json
-       - All Proceedings and Orders entries with a Main Document link → appended
-         to courts/ussc/terms/TERM/NUMBER/files.json (deduped by href).
+  6. For every case in cases.json that has questions_href but no questions property,
+     download the PDF, extract the question(s) presented as a plain-text string,
+     and save it as questions in cases.json.
+  6. For every case in cases.json that has questions_href but no questions property,
+     download the PDF, extract the question(s) presented as a plain-text string,
+     and save it as questions in cases.json.
 
 Requires pdftotext (poppler-utils) to be installed.
 """
@@ -31,6 +32,7 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.parse
 import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
@@ -254,8 +256,9 @@ class DocketParser(HTMLParser):
                       with type='petitioner'.
     """
 
-    def __init__(self):
+    def __init__(self, page_url: str = ''):
         super().__init__(convert_charrefs=True)
+        self._page_url      = page_url
         self.questions_href = None
         self.proceedings    = []
 
@@ -290,7 +293,7 @@ class DocketParser(HTMLParser):
             text = self._link_text.strip()
             href = self._link_href
             if href and not href.startswith('http'):
-                href = BASE_URL + href
+                href = urllib.parse.urljoin(self._page_url, href)
             if text == 'Questions Presented' and self.questions_href is None:
                 self.questions_href = href
             if text:
@@ -364,7 +367,7 @@ def fetch_docket_info(number: str) -> dict:
     url = f'{BASE_URL}/docket/docketfiles/html/public/{number}.html'
     try:
         html   = fetch_html(url)
-        parser = DocketParser()
+        parser = DocketParser(page_url=url)
         parser.feed(html)
     except Exception as exc:
         print(f'    Warning: could not fetch docket for {number}: {exc}')
@@ -618,6 +621,89 @@ def clean_files_json(cases_path: Path) -> None:
         print('  Nothing to clean.')
 
 
+# ── Step 6: Extract questions presented ──────────────────────────────────────
+
+# Marks the start of the questions block.
+_QP_START_RE = re.compile(
+    r'(?:QUESTIONS?\s+PRESENTED\s*:?|[Tt]he\s+questions?\s+presented\s+(?:is|are)\s*:?)',
+    re.IGNORECASE,
+)
+
+# Trailing boilerplate to strip (CERT. GRANTED … or ORDER OF …).
+_QP_END_RE = re.compile(
+    r'\n\s*(?:CERT\.\s+GRANTED|ORDER\s+OF\s+\w).*$',
+    re.IGNORECASE | re.DOTALL,
+)
+
+
+def _extract_questions_from_text(text: str) -> str | None:
+    """Return the questions-presented block from pdftotext output, or None."""
+    m = _QP_START_RE.search(text)
+    if not m:
+        return None
+
+    # Everything after the header marker.
+    body = text[m.end():]
+
+    # Strip trailing cert-granted / order lines.
+    body = _QP_END_RE.sub('', body)
+
+    # Normalise whitespace: collapse runs of spaces/tabs; keep paragraph breaks
+    # (two+ newlines) as single newlines; trim.
+    body = re.sub(r'[ \t]+', ' ', body)
+    body = re.sub(r'\n{2,}', '\n', body)
+    return body.strip() or None
+
+
+def extract_questions(cases_path: Path) -> None:
+    """For each case with questions_href but no questions, download the PDF and
+    extract the questions presented text, saving it to cases.json."""
+    existing = json.loads(cases_path.read_text(encoding='utf-8'))
+    modified = False
+
+    for case in existing:
+        if case.get('questions') or not case.get('questions_href'):
+            continue
+
+        number = case['number']
+        pdf_url = case['questions_href']
+        print(f'  Extracting questions for {number} ...', end=' ', flush=True)
+
+        tmp_path = None
+        try:
+            with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+                tmp_path = Path(tmp.name)
+            download_file(pdf_url, tmp_path)
+            result = subprocess.run(
+                ['pdftotext', '-layout', str(tmp_path), '-'],
+                capture_output=True, text=True, check=True,
+            )
+            questions = _extract_questions_from_text(result.stdout)
+            if questions:
+                case['questions'] = questions
+                modified = True
+                print(f'{len(questions)} chars')
+            else:
+                print('not found')
+            time.sleep(0.3)
+        except subprocess.CalledProcessError as exc:
+            print(f'ERROR (pdftotext): {exc.stderr.strip()}')
+        except Exception as exc:
+            print(f'ERROR: {exc}')
+        finally:
+            if tmp_path and tmp_path.exists():
+                tmp_path.unlink()
+
+    if modified:
+        cases_path.write_text(
+            json.dumps(existing, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print('Updated cases.json with questions.')
+    else:
+        print('  Nothing to extract.')
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
@@ -657,6 +743,11 @@ def main():
     print()
     print('Cleaning up files.json entries ...')
     clean_files_json(cases_path)
+
+    # Step 6: extract questions presented from PDF
+    print()
+    print('Extracting questions presented ...')
+    extract_questions(cases_path)
 
 
 if __name__ == '__main__':
