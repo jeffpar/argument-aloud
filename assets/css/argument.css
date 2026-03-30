@@ -1,0 +1,765 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  background: #fff;
+}
+
+/* ── Top bar ─────────────────────────────────────────────── */
+#topbar {
+  height: 44px;
+  background: #1a1a2e;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+#site-link {
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+#site-link:hover {
+  color: #7bc8f0;
+}
+
+#topbar-sep {
+  color: #555;
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+#page-title {
+  color: #aaa;
+  font-size: 13px;
+}
+
+/* ── Two-panel browser ───────────────────────────────────── */
+#browser {
+  display: flex;
+  height: calc(100vh - 44px);
+}
+
+/* ── Document Browser ───────────────────────────────────── */
+#doc-browser {
+  width: 280px;
+  flex-shrink: 0;
+  background: #f7f8fa;
+  overflow-y: auto;
+  padding: 16px 12px;
+}
+
+#doc-browser h3 {
+  margin: 0 0 14px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #999;
+}
+
+#term-list,
+.case-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Kill any theme bullet/hyphen on every li inside the doc browser */
+#doc-browser li {
+  list-style: none !important;
+  margin: 0;
+}
+
+/* Neutralize theme's li.open:before / li.closed:before pseudo-elements */
+#doc-browser li::before {
+  content: none !important;
+}
+
+/* Override theme's .open ul { padding-left: 32px } */
+#doc-browser .open ul {
+  padding-left: 16px;
+}
+
+.term-group {
+  margin-bottom: 18px;
+}
+
+.term-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #444;
+  margin-bottom: 5px;
+  padding-left: 2px;
+}
+
+.case-list {
+  padding-left: 4px;
+}
+
+/* ── Case row ──────────────────────────────────────────── */
+.case-item {
+  border-radius: 5px;
+  transition: background 0.12s;
+  margin-bottom: 2px;
+}
+
+.case-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 6px 6px 6px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.12s;
+}
+
+.case-header:hover {
+  background: #e4eef8;
+}
+
+.case-item.active>.case-header {
+  background: #2672b4;
+}
+
+.case-toggle {
+  flex-shrink: 0;
+  font-size: 10px;
+  color: #999;
+  margin-top: 3px;
+  transition: transform 0.15s;
+  user-select: none;
+  line-height: 1;
+}
+
+.case-item.open>.case-header .case-toggle {
+  transform: rotate(90deg);
+}
+
+.case-item.active>.case-header .case-toggle {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.case-title-nav {
+  font-size: 12px;
+  color: #2672b4;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.case-item.active>.case-header .case-title-nav {
+  color: #fff;
+}
+
+/* ── File sub-list ──────────────────────────────────────── */
+.file-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 4px 0;
+  display: none;
+}
+
+.case-item.open .file-list {
+  display: block;
+}
+
+.file-type-group {
+  list-style: none;
+  margin-bottom: 2px;
+}
+
+.file-type-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px 4px 6px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #888;
+  border-radius: 4px;
+  transition: background 0.1s;
+  user-select: none;
+}
+
+.file-type-header:hover {
+  background: #eaeff5;
+}
+
+.file-type-toggle {
+  font-size: 8px;
+  transition: transform 0.15s;
+  flex-shrink: 0;
+}
+
+.file-type-group.open .file-type-toggle {
+  transform: rotate(90deg);
+}
+
+.file-type-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.file-type-group.open .file-type-items {
+  display: block;
+}
+
+.file-item {
+  list-style: none;
+  font-size: 11.5px;
+  color: #2672b4;
+  padding: 4px 8px 4px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  line-height: 1.35;
+  transition: background 0.1s;
+}
+
+.file-item:hover {
+  background: #e4eef8;
+}
+
+.file-item.active {
+  background: #ddeeff;
+  font-weight: 600;
+}
+
+/* ── Right main panel ────────────────────────────────────── */
+#main-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* ── Audio player header ─────────────────────────────────── */
+#player-section {
+  flex-shrink: 0;
+  border-bottom: 1px solid #e0e0e0;
+  background: #fafafa;
+  padding: 12px 20px 10px;
+}
+
+#player-section[hidden] {
+  display: none;
+}
+
+#case-info {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+#case-num-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+#case-title-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+#audio-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#audio-player {
+  flex: 1;
+  display: block;
+}
+
+#search-btn {
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 4px 7px;
+  font-size: 15px;
+  line-height: 1;
+  color: #666;
+  transition: background 0.1s, color 0.1s;
+}
+
+#search-btn:hover {
+  background: #e4eef8;
+  color: #2672b4;
+  border-color: #a8c8e8;
+}
+
+/* ── Transcript search modal ─────────────────────────────── */
+#search-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 200;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+#search-overlay.open {
+  display: flex;
+}
+
+#search-box {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+  padding: 16px 18px 14px;
+  width: min(420px, 92vw);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#search-box-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#search-input {
+  flex: 1;
+  font-size: 14px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+#search-input:focus {
+  border-color: #2672b4;
+  box-shadow: 0 0 0 2px rgba(38, 114, 180, 0.18);
+}
+
+#search-prev,
+#search-next {
+  background: #f0f7fd;
+  border: 1px solid #b8d4ec;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 5px 9px;
+  color: #2672b4;
+  flex-shrink: 0;
+  transition: background 0.1s;
+}
+
+#search-prev:hover,
+#search-next:hover {
+  background: #daeaf8;
+}
+
+#search-prev:disabled,
+#search-next:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+#search-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #999;
+  line-height: 1;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+#search-close:hover {
+  color: #333;
+}
+
+#search-status {
+  font-size: 12px;
+  color: #888;
+  text-align: right;
+  min-height: 16px;
+}
+
+.turn-highlight {
+  background: #fff3cd;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.turn-highlight.current {
+  background: #ffc107;
+  color: #000;
+}
+
+/* ── Transcript Viewer ───────────────────────────────────── */
+#transcript-viewer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px 20px 20px;
+}
+
+#empty-state {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 15px;
+  user-select: none;
+}
+
+#loading-msg {
+  padding: 24px 0;
+  color: #999;
+  font-style: italic;
+  display: none;
+}
+
+#turn-list {
+  display: none;
+}
+
+/* ── Individual turns ────────────────────────────────────── */
+.turn {
+  display: flex;
+  gap: 14px;
+  padding: 7px 8px;
+  border-left: 3px solid #e0e0e0;
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 3px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.turn:hover {
+  background: #f5f7fa;
+}
+
+.turn.active {
+  background: #fffbdb;
+  border-left-color: #e6a817 !important;
+}
+
+/* Role color coding */
+.turn.chief-justice {
+  border-left-color: #7c3aed;
+}
+
+.turn.justice {
+  border-left-color: #2563eb;
+}
+
+.turn.counsel {
+  border-left-color: #059669;
+}
+
+.speaker {
+  width: 120px;
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 700;
+  padding-top: 2px;
+  line-height: 1.3;
+  user-select: none;
+}
+
+.turn.chief-justice .speaker {
+  color: #7c3aed;
+}
+
+.turn.justice .speaker {
+  color: #2563eb;
+}
+
+.turn.counsel .speaker {
+  color: #059669;
+}
+
+.turn-text {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* ── Annotated link spans ────────────────────────────────── */
+.link-mark {
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.link-mark--bottom {
+  background: #fef9e7;
+  color: #7d6608;
+  border-bottom: 1px dotted #b7950b;
+  padding: 0 1px;
+}
+
+.link-mark--bottom:hover {
+  background: #fdebd0;
+}
+
+.link-mark--tooltip {
+  border-bottom: 1px dotted #999;
+}
+
+.link-mark--right {
+  background: #eaf4fb;
+  color: #1a5276;
+  border-bottom: 1px dotted #2e86c1;
+  padding: 0 1px;
+}
+
+/* ── Ref annotations in transcript ─────────────────────── */
+.ref-mark {
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 0 1px;
+  transition: background 0.1s;
+}
+
+.ref-mark:hover {
+  background: #e4eef8;
+  color: #1a5276;
+}
+
+/* ── Resize handles ─────────────────────────────────────── */
+.resize-handle--v {
+  width: 5px;
+  cursor: col-resize;
+  flex-shrink: 0;
+  background: #ddd;
+  transition: background 0.1s;
+}
+
+.resize-handle--h {
+  height: 5px;
+  cursor: row-resize;
+  flex-shrink: 0;
+  background: #c8d6e0;
+  transition: background 0.1s;
+}
+
+.resize-handle--v:hover,
+.resize-handle--v.dragging {
+  background: #8ab4d4;
+}
+
+.resize-handle--h:hover,
+.resize-handle--h.dragging {
+  background: #8ab4d4;
+}
+
+/* ── Document Viewer ─────────────────────────────────────── */
+#doc-viewer {
+  flex-shrink: 0;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#doc-viewer[hidden] {
+  display: none;
+}
+
+#doc-viewer-header {
+  flex-shrink: 0;
+  height: 30px;
+  background: #eef3f7;
+  border-bottom: 1px solid #d0dce6;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+}
+
+#doc-viewer-url {
+  font-weight: 400;
+  font-size: 11px;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+#doc-viewer-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #999;
+  line-height: 1;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+#doc-viewer-close:hover {
+  color: #333;
+}
+
+#doc-viewer-card {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 24px 20px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#doc-viewer-card-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #555;
+  line-height: 1.4;
+  margin: 0;
+}
+
+#doc-viewer-card-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #444;
+  margin: 0;
+}
+
+#doc-viewer-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #2672b4;
+  text-decoration: none;
+  border: 1px solid #b8d4ec;
+  background: #f0f7fd;
+  border-radius: 4px;
+  padding: 5px 11px;
+  align-self: flex-start;
+  transition: background 0.12s;
+}
+
+#doc-viewer-card-link:hover {
+  background: #daeaf8;
+}
+
+#doc-viewer-pdf {
+  flex: 1;
+  border: none;
+  width: 100%;
+  background: #525659;
+  display: none;
+}
+
+/* ── Mobile layout (≤ 768px) ────────────────────────────── */
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+  }
+
+  #topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  #browser {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #doc-browser {
+    width: 100%;
+    max-height: 45vh;
+  }
+
+  #v-resize {
+    display: none;
+  }
+
+  #main-panel {
+    overflow: visible;
+    height: auto;
+  }
+
+  #player-section {
+    position: sticky;
+    top: 44px;
+    z-index: 50;
+  }
+
+  #transcript-viewer {
+    overflow-y: visible;
+    height: auto;
+    padding-bottom: 32px;
+  }
+
+  #doc-viewer {
+    height: auto;
+  }
+
+  #doc-viewer-card {
+    flex: 0 0 auto;
+    overflow-y: visible;
+  }
+
+  #doc-viewer-pdf {
+    flex: 0 0 auto;
+    min-height: 70vh;
+  }
+
+  #h-resize {
+    display: none;
+  }
+
+  #case-info {
+    cursor: pointer;
+  }
+
+  #case-info::after {
+    content: ' ▲';
+    font-size: 9px;
+    color: #aaa;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+}
