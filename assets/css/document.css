@@ -138,6 +138,11 @@ p {
   border-left: 3px solid var(--line);
 }
 
+.doc-content section[id],
+.doc-content p[id] {
+  scroll-margin-top: 24px;
+}
+
 @media (max-width: 720px) {
   html, body {
     overflow: auto;
