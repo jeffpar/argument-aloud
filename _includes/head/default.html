@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
   {%- if include.style == "argument" %}
   <link rel="stylesheet" href="{{ '/assets/css/argument.css' | relative_url }}">
+  {%- elsif include.style == "document" %}
+  <link rel="stylesheet" href="{{ '/assets/css/document.css' | relative_url }}">
   {%- endif %}
   <!--[if lt IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>

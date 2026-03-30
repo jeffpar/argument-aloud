@@ -195,15 +195,27 @@ function showDocViewer(link, { autoScroll = false } = {}) {
   const card   = document.getElementById('doc-viewer-card');
   const pdfEl  = document.getElementById('doc-viewer-pdf');
   const isPdf  = /\.pdf(\?|$)/i.test(link.href);
+  const inPane = isPdf || link.view === 'pane';
 
-  document.getElementById('doc-viewer-url').textContent = link.href;
+  const urlEl = document.getElementById('doc-viewer-url');
+  const absHref = new URL(link.href, location.href).href;
+  urlEl.href = absHref;
+  urlEl.replaceChildren(
+    document.createTextNode(absHref),
+    Object.assign(document.createElement('img'), {
+      src: '/assets/img/open-external-link-icon.webp',
+      alt: '',
+      width: 12,
+      height: 12,
+    })
+  );
   activeBottomLinkText = link.href || null;
 
-  if (isPdf) {
+  if (inPane) {
     card.style.display = 'none';
     pdfEl.style.display = 'block';
-    const pdfSrc = link.href.includes('#') ? link.href : link.href + '#pagemode=none';
-    if (pdfEl.src !== pdfSrc) pdfEl.src = pdfSrc;
+    const src = (isPdf && !link.href.includes('#')) ? link.href + '#pagemode=none' : link.href;
+    if (pdfEl.src !== src) pdfEl.src = src;
   } else {
     pdfEl.style.display = 'none';
     pdfEl.src = '';
@@ -246,115 +258,150 @@ function buildNav(termData) {
       return da < db ? -1 : da > db ? 1 : 0;
     });
 
+    // Group cases by argument month
+    const MONTH_NAMES = ['January','February','March','April','May','June',
+                         'July','August','September','October','November','December'];
+    const monthMap = new Map();
     sortedCases.forEach(caseEntry => {
-      const caseKey = term + '/' + caseEntry.number;
-      const basePath = '/courts/ussc/terms/' + term + '/' + caseEntry.number + '/';
-
-      const ci = document.createElement('li');
-      ci.className = 'case-item';
-      ci.dataset.caseKey = caseKey;
-
-      // ── Header row (toggle + title) ────────────────────────
-      const header = document.createElement('div');
-      header.className = 'case-header';
-
-      const toggle = document.createElement('span');
-      toggle.className = 'case-toggle';
-      toggle.textContent = '\u25b6'; // ▶
-
-      const titleSpan = document.createElement('span');
-      titleSpan.className = 'case-title-nav';
       const argDate = caseEntry.arguments?.[0]?.date;
-      const dateSuffix = argDate
-        ? ' (' + new Date(argDate + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ')'
-        : '';
-      titleSpan.textContent = caseEntry.title + dateSuffix;
+      const mk = argDate ? argDate.slice(0, 7) : 'unknown';
+      const ml = argDate ? MONTH_NAMES[parseInt(argDate.slice(5, 7), 10) - 1] : 'Unknown';
+      if (!monthMap.has(mk)) monthMap.set(mk, { label: ml, cases: [] });
+      monthMap.get(mk).cases.push(caseEntry);
+    });
 
-      header.appendChild(toggle);
-      header.appendChild(titleSpan);
+    monthMap.forEach(({ label: monthLabel, cases: mCases }) => {
+      const monthLi = document.createElement('li');
+      monthLi.className = 'month-group open';
 
-      // ── File sub-list (populated lazily) ──────────────────
-      const fileUl = document.createElement('ul');
-      fileUl.className = 'file-list';
-      let filesLoaded = false;
+      const monthHeader = document.createElement('div');
+      monthHeader.className = 'month-header';
 
-      header.addEventListener('click', async () => {
-        const isOpen = ci.classList.toggle('open');
-        if (isOpen && !filesLoaded) {
-          filesLoaded = true;
-          const rawFiles = await loadFiles(basePath + 'files.json');
+      const monthTog = document.createElement('span');
+      monthTog.className = 'month-toggle';
+      monthTog.textContent = '\u25b6';
 
-          const TYPE_LABELS = {
-            petitioner: 'Petitioner',
-            respondent: 'Respondent',
-            amicus:     'Amicus',
-            reference:  'References',
-            other:      'Other',
-          };
-          const ORDER = ['petitioner', 'respondent', 'amicus', 'reference', 'other'];
+      const monthName = document.createElement('span');
+      monthName.className = 'month-name';
+      monthName.textContent = monthLabel;
 
-          // Group files by type, then sort each group by date ascending
-          const groups = {};
-          rawFiles.forEach(f => {
-            const key = (f.type || 'other').toLowerCase();
-            if (!groups[key]) groups[key] = [];
-            groups[key].push(f);
-          });
-          ORDER.forEach(k => {
-            if (groups[k]) groups[k].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
-          });
+      monthHeader.appendChild(monthTog);
+      monthHeader.appendChild(monthName);
+      monthHeader.addEventListener('click', () => monthLi.classList.toggle('open'));
 
-          ORDER.forEach(typeKey => {
-            if (!groups[typeKey] || !groups[typeKey].length) return;
+      const monthUl = document.createElement('ul');
+      monthUl.className = 'month-case-list';
 
-            const groupLi = document.createElement('li');
-            groupLi.className = 'file-type-group';
+      mCases.forEach(caseEntry => {
+        const caseKey = term + '/' + caseEntry.number;
+        const basePath = '/courts/ussc/terms/' + term + '/' + caseEntry.number + '/';
 
-            const typeHeader = document.createElement('div');
-            typeHeader.className = 'file-type-header';
+        const ci = document.createElement('li');
+        ci.className = 'case-item';
+        ci.dataset.caseKey = caseKey;
 
-            const typeTog = document.createElement('span');
-            typeTog.className = 'file-type-toggle';
-            typeTog.textContent = '\u25b6';
+        // ── Header row (toggle + title) ────────────────────────
+        const header = document.createElement('div');
+        header.className = 'case-header';
 
-            const typeLabel = document.createElement('span');
-            typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
+        const toggle = document.createElement('span');
+        toggle.className = 'case-toggle';
+        toggle.textContent = '\u25b6'; // ▶
 
-            typeHeader.appendChild(typeTog);
-            typeHeader.appendChild(typeLabel);
-            typeHeader.addEventListener('click', e => {
-              e.stopPropagation();
-              groupLi.classList.toggle('open');
+        const titleSpan = document.createElement('span');
+        titleSpan.className = 'case-title-nav';
+        titleSpan.textContent = caseEntry.title;
+
+        header.appendChild(toggle);
+        header.appendChild(titleSpan);
+
+        // ── File sub-list (populated lazily) ──────────────────
+        const fileUl = document.createElement('ul');
+        fileUl.className = 'file-list';
+        let filesLoaded = false;
+
+        header.addEventListener('click', async () => {
+          const isOpen = ci.classList.toggle('open');
+          if (isOpen && !filesLoaded) {
+            filesLoaded = true;
+            const rawFiles = await loadFiles(basePath + 'files.json');
+
+            const TYPE_LABELS = {
+              petitioner: 'Petitioner',
+              respondent: 'Respondent',
+              amicus:     'Amicus',
+              reference:  'References',
+              other:      'Other',
+            };
+            const ORDER = ['petitioner', 'respondent', 'amicus', 'reference', 'other'];
+
+            // Group files by type, then sort each group by date ascending
+            const groups = {};
+            rawFiles.forEach(f => {
+              const key = (f.type || 'other').toLowerCase();
+              if (!groups[key]) groups[key] = [];
+              groups[key].push(f);
+            });
+            ORDER.forEach(k => {
+              if (groups[k]) groups[k].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
             });
 
-            const itemsUl = document.createElement('ul');
-            itemsUl.className = 'file-type-items';
+            ORDER.forEach(typeKey => {
+              if (!groups[typeKey] || !groups[typeKey].length) return;
 
-            groups[typeKey].forEach(f => {
-              const fi = document.createElement('li');
-              fi.className = 'file-item';
-              fi.textContent = f.title;
-              fi.addEventListener('click', e => {
+              const groupLi = document.createElement('li');
+              groupLi.className = 'file-type-group';
+
+              const typeHeader = document.createElement('div');
+              typeHeader.className = 'file-type-header';
+
+              const typeTog = document.createElement('span');
+              typeTog.className = 'file-type-toggle';
+              typeTog.textContent = '\u25b6';
+
+              const typeLabel = document.createElement('span');
+              typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
+
+              typeHeader.appendChild(typeTog);
+              typeHeader.appendChild(typeLabel);
+              typeHeader.addEventListener('click', e => {
                 e.stopPropagation();
-                document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
-                fi.classList.add('active');
-                showDocViewer(f, { autoScroll: true });
+                groupLi.classList.toggle('open');
               });
-              itemsUl.appendChild(fi);
-            });
 
-            groupLi.appendChild(typeHeader);
-            groupLi.appendChild(itemsUl);
-            fileUl.appendChild(groupLi);
-          });
-        }
-        // Also load the transcript when opening
-        if (isOpen) loadCase(term, caseEntry);
+              const itemsUl = document.createElement('ul');
+              itemsUl.className = 'file-type-items';
+
+              groups[typeKey].forEach(f => {
+                const fi = document.createElement('li');
+                fi.className = 'file-item';
+                fi.textContent = f.title;
+                fi.addEventListener('click', e => {
+                  e.stopPropagation();
+                  document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
+                  fi.classList.add('active');
+                  showDocViewer(f, { autoScroll: true });
+                });
+                itemsUl.appendChild(fi);
+              });
+
+              groupLi.appendChild(typeHeader);
+              groupLi.appendChild(itemsUl);
+              fileUl.appendChild(groupLi);
+            });
+          }
+          // Also load the transcript when opening
+          if (isOpen) loadCase(term, caseEntry);
+        });
+
+        ci.appendChild(header);
+        ci.appendChild(fileUl);
+        monthUl.appendChild(ci);
       });
 
-      ci.appendChild(header);
-      ci.appendChild(fileUl);
-      ul.appendChild(ci);
+      monthLi.appendChild(monthHeader);
+      monthLi.appendChild(monthUl);
+      ul.appendChild(monthLi);
     });
 
     li.appendChild(ul);
