@@ -264,26 +264,49 @@ body {
 }
 
 #case-info {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
   margin-bottom: 8px;
-  flex-wrap: wrap;
 }
 
-#case-num-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  white-space: nowrap;
+#case-info-row1 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 #case-title-label {
   font-size: 15px;
   font-weight: 600;
   color: #222;
+  flex: 1 1 auto;
+}
+
+#case-date-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#case-questions {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #444;
+}
+
+#case-questions p {
+  margin: 0 0 6px;
+}
+
+.questions-more {
+  margin-left: 4px;
+  font-size: 11px;
+  color: #0066cc;
+  font-style: italic;
+  white-space: nowrap;
 }
 
 #audio-row {

@@ -392,8 +392,65 @@ async function loadCase(term, caseEntry) {
     turns = await res.json();
     turnTimes = turns.map(t => parseTime(t.time ?? '00:00:00.00'));
 
-    document.getElementById('case-num-label').textContent = 'No.\u00a0' + caseEntry.number;
-    document.getElementById('case-title-label').textContent = caseEntry.title;
+    document.getElementById('case-title-label').textContent =
+      caseEntry.title + '\u00a0(No.\u00a0' + caseEntry.number + ')';
+
+    const argDate = caseEntry.arguments?.[0]?.date;
+    document.getElementById('case-date-label').textContent = argDate
+      ? new Date(argDate + 'T00:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+      : '';
+
+    const qEl = document.getElementById('case-questions');
+    if (caseEntry.questions) {
+      const raw = caseEntry.questions;
+      const full = raw.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+      const sentenceEnd = full.search(/(?<=[.?!]) +[A-Z\u201c\u2018"']/);
+      const hasMore = sentenceEnd !== -1;
+      const firstSentence = hasMore ? full.slice(0, sentenceEnd + 1) : full;
+
+      qEl.title = raw;
+      qEl.hidden = false;
+      qEl.dataset.expanded = 'false';
+
+      const showSummary = () => {
+        qEl.textContent = firstSentence + (hasMore ? '\u00a0' : '');
+        if (hasMore) {
+          const more = document.createElement('span');
+          more.className = 'questions-more';
+          more.textContent = '[More]';
+          qEl.appendChild(more);
+        }
+        qEl.dataset.expanded = 'false';
+      };
+
+      showSummary();
+
+      if (hasMore) {
+        qEl.style.cursor = 'pointer';
+        qEl.onclick = () => {
+          if (qEl.dataset.expanded === 'true') {
+            showSummary();
+          } else {
+            qEl.innerHTML = '';
+            // split on newline+spaces (paragraph boundary); bare newlines become spaces
+            raw.split(/\n(?=[ \t])/).forEach(chunk => {
+              const p = document.createElement('p');
+              p.textContent = chunk.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+              qEl.appendChild(p);
+            });
+            qEl.dataset.expanded = 'true';
+          }
+        };
+      } else {
+        qEl.style.cursor = '';
+        qEl.onclick = null;
+      }
+    } else {
+      qEl.textContent = '';
+      qEl.hidden = true;
+      qEl.onclick = null;
+      qEl.style.cursor = '';
+    }
 
     audio.src = audioUrl;
     audio.load();
