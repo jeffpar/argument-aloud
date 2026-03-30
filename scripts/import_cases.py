@@ -16,6 +16,11 @@ Steps performed:
      YYYY-MM-DD.json file yet in courts/ussc/terms/TERM/NUMBER/, download the
      PDF, extract speaker turns with pdftotext, and write the JSON file.
      If text_href was absent it is also added to the argument entry in cases.json.
+  4. For every case in cases.json without a questions_href, fetch the SCOTUS
+     docket page and extract:
+       - The Questions Presented PDF URL → saved as questions_href in cases.json
+       - All Proceedings and Orders entries with a Main Document link → appended
+         to courts/ussc/terms/TERM/NUMBER/files.json (deduped by href).
 
 Requires pdftotext (poppler-utils) to be installed.
 """
@@ -61,6 +66,26 @@ def parse_date(date_str: str) -> str | None:
         return None
     month, day, year2 = m.group(1), m.group(2), m.group(3)
     return f'20{year2}-{month}-{day}'
+
+
+DOCKET_DATE_RE = re.compile(r'^([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4})$')
+
+MONTH_MAP = {
+    'Jan': '01', 'Feb': '02', 'Mar': '03', 'Apr': '04',
+    'May': '05', 'Jun': '06', 'Jul': '07', 'Aug': '08',
+    'Sep': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12',
+}
+
+
+def parse_docket_date(s: str) -> str | None:
+    """Convert 'Jun 06 2025' to '2025-06-06'."""
+    m = DOCKET_DATE_RE.match(s.strip())
+    if not m:
+        return None
+    month = MONTH_MAP.get(m.group(1).capitalize())
+    if not month:
+        return None
+    return f'{m.group(3)}-{month}-{m.group(2).zfill(2)}'
 
 
 # ── Transcript extraction ────────────────────────────────────────────────────
@@ -216,6 +241,92 @@ class DetailParser(HTMLParser):
             self.pdf_url = href if href.startswith('http') else BASE_URL + href
 
 
+# ── Docket page parser ─────────────────────────────────────────────────────
+
+class DocketParser(HTMLParser):
+    """Parse a SCOTUS docket HTML page.
+
+    Extracts:
+      questions_href: URL of the Questions Presented PDF (if present)
+      proceedings:    list of {date, title, href[, type]} for entries that have a
+                      'Main Document' and/or 'Petition' link in Proceedings and
+                      Orders.  Rows with a 'Petition' link produce an extra entry
+                      with type='petitioner'.
+    """
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.questions_href = None
+        self.proceedings    = []
+
+        self._td_depth  = 0
+        self._td_count  = 0   # 0-based cell index within current row
+        self._body_text = ''  # non-link text accumulated for current td
+        self._in_link   = False
+        self._link_text = ''
+        self._link_href = ''
+        self._row_date  = None
+        self._row_title = ''
+        self._row_links = {}  # link_text -> href accumulated across the row
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'tr':
+            self._td_count  = 0
+            self._row_date  = None
+            self._row_title = ''
+            self._row_links = {}
+        elif tag == 'td':
+            if self._td_depth == 0:
+                self._body_text = ''
+            self._td_depth += 1
+        elif tag == 'a':
+            self._in_link   = True
+            self._link_text = ''
+            self._link_href = dict(attrs).get('href', '')
+
+    def handle_endtag(self, tag):
+        if tag == 'a' and self._in_link:
+            self._in_link = False
+            text = self._link_text.strip()
+            href = self._link_href
+            if href and not href.startswith('http'):
+                href = BASE_URL + href
+            if text == 'Questions Presented' and self.questions_href is None:
+                self.questions_href = href
+            if text:
+                self._row_links[text] = href
+        elif tag == 'td' and self._td_depth > 0:
+            self._td_depth -= 1
+            if self._td_depth == 0:
+                cell_text = ' '.join(self._body_text.split())
+                if self._td_count == 0:
+                    self._row_date = parse_docket_date(cell_text)
+                elif self._td_count == 1:
+                    self._row_title = cell_text
+                self._td_count += 1
+        elif tag == 'tr':
+            if self._row_date and self._row_title:
+                if 'Main Document' in self._row_links:
+                    self.proceedings.append({
+                        'date':  self._row_date,
+                        'title': self._row_title,
+                        'href':  self._row_links['Main Document'],
+                    })
+                if 'Petition' in self._row_links:
+                    self.proceedings.append({
+                        'date':  self._row_date,
+                        'title': self._row_title,
+                        'href':  self._row_links['Petition'],
+                        'type':  'petitioner',
+                    })
+
+    def handle_data(self, data):
+        if self._in_link:
+            self._link_text += data
+        elif self._td_depth > 0:
+            self._body_text += data
+
+
 # ── Scrape listing page ───────────────────────────────────────────────────────
 
 def fetch_cases_from_url(url: str) -> list[dict]:
@@ -246,6 +357,22 @@ def fetch_argument_urls(year: str, number: str) -> dict:
     if parser.pdf_url:
         result['transcript_href'] = parser.pdf_url
     return result
+
+
+def fetch_docket_info(number: str) -> dict:
+    """Fetch the docket page and return {questions_href, proceedings}."""
+    url = f'{BASE_URL}/docket/docketfiles/html/public/{number}.html'
+    try:
+        html   = fetch_html(url)
+        parser = DocketParser()
+        parser.feed(html)
+    except Exception as exc:
+        print(f'    Warning: could not fetch docket for {number}: {exc}')
+        return {}
+    return {
+        'questions_href': parser.questions_href,
+        'proceedings':    parser.proceedings,
+    }
 
 
 # ── Update cases.json ─────────────────────────────────────────────────────────
@@ -294,7 +421,89 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> Non
         print(f'No new cases to add to {cases_path}')
 
 
+# ── Step 4: Fetch docket info ────────────────────────────────────────────────────────
+
+def update_docket_info(cases_path: Path) -> None:
+    """For each case without questions_href, or whose files.json has no petitioner
+    entry, fetch the SCOTUS docket page and:
+      - Set questions_href in cases.json
+      - Append new Proceedings entries to files.json (deduped by href),
+        including Petition links marked with type='petitioner'
+    """
+    existing = json.loads(cases_path.read_text(encoding='utf-8'))
+    cases_modified = False
+
+    for case in existing:
+        number     = case['number']
+        files_path = cases_path.parent / number / 'files.json'
+
+        has_petitioner = False
+        if files_path.exists():
+            try:
+                fdata = json.loads(files_path.read_text(encoding='utf-8'))
+                has_petitioner = any(f.get('type') == 'petitioner' for f in fdata)
+            except Exception:
+                pass
+
+        if case.get('questions_href') and has_petitioner:
+            continue   # already fully processed
+
+        print(f'  Fetching docket for {number} ...', end=' ', flush=True)
+        info = fetch_docket_info(number)
+        time.sleep(0.3)
+
+        if not info:
+            print('skipped')
+            continue
+
+        changed = []
+
+        if info.get('questions_href'):
+            case['questions_href'] = info['questions_href']
+            cases_modified = True
+            changed.append('questions_href')
+
+        proceedings = info.get('proceedings', [])
+        if proceedings:
+            case_dir   = cases_path.parent / number
+            files_path = case_dir / 'files.json'
+            case_dir.mkdir(parents=True, exist_ok=True)
+
+            if files_path.exists():
+                files = json.loads(files_path.read_text(encoding='utf-8'))
+            else:
+                files = []
+
+            existing_hrefs = {f['href'] for f in files if 'href' in f}
+            added = 0
+            for p in proceedings:
+                if p['href'] not in existing_hrefs:
+                    entry = {'title': p['title'], 'date': p['date'], 'href': p['href']}
+                    if p.get('type'):
+                        entry['type'] = p['type']
+                    files.append(entry)
+                    existing_hrefs.add(p['href'])
+                    added += 1
+
+            if added:
+                files_path.write_text(
+                    json.dumps(files, indent=2, ensure_ascii=False) + '\n',
+                    encoding='utf-8',
+                )
+                changed.append(f'{added} filings -> files.json')
+
+        print(', '.join(changed) if changed else 'nothing new')
+
+    if cases_modified:
+        cases_path.write_text(
+            json.dumps(existing, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print('Updated cases.json with questions_href entries.')
+
+
 # ── Step 3: Generate missing transcripts ─────────────────────────────────────
+
 
 def generate_missing_transcripts(cases_path: Path) -> None:
     """For each argument with a transcript_href and no YYYY-MM-DD.json yet,
@@ -347,6 +556,68 @@ def generate_missing_transcripts(cases_path: Path) -> None:
         print('Updated cases.json with new text_href entries.')
 
 
+# ── Step 5: Clean up files.json ───────────────────────────────────────────────
+
+_FILED_RE = re.compile(r'\s+filed\..*$', re.IGNORECASE | re.DOTALL)
+
+_TYPE_PREFIXES = [
+    ('amicus',     ('Brief amicus ', 'Brief amici ')),
+    ('respondent', ('Brief of respondent',)),
+    ('petitioner', ('Brief of petitioner',)),
+]
+
+
+def _clean_title(title: str) -> str:
+    title = _FILED_RE.sub('', title).strip()
+    return title.rstrip('.')
+
+
+def _infer_type(title: str) -> str | None:
+    lower = title.lower()
+    for type_val, prefixes in _TYPE_PREFIXES:
+        if any(lower.startswith(p.lower()) for p in prefixes):
+            return type_val
+    return None
+
+
+def clean_files_json(cases_path: Path) -> None:
+    """Clean titles and infer types in every files.json under the term directory."""
+    term_dir = cases_path.parent
+    total_changed = 0
+
+    for files_path in sorted(term_dir.glob('*/files.json')):
+        files = json.loads(files_path.read_text(encoding='utf-8'))
+        changed = False
+
+        for entry in files:
+            title = entry.get('title', '')
+
+            # Strip " filed." and trailing text
+            clean = _clean_title(title)
+            if clean != title:
+                entry['title'] = clean
+                title = clean
+                changed = True
+
+            # Infer type if not already set
+            if not entry.get('type'):
+                inferred = _infer_type(title)
+                if inferred:
+                    entry['type'] = inferred
+                    changed = True
+
+        if changed:
+            files_path.write_text(
+                json.dumps(files, indent=2, ensure_ascii=False) + '\n',
+                encoding='utf-8',
+            )
+            total_changed += 1
+            print(f'  Cleaned {files_path.relative_to(REPO_ROOT)}')
+
+    if not total_changed:
+        print('  Nothing to clean.')
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
@@ -376,6 +647,16 @@ def main():
     print()
     print('Checking for missing transcripts ...')
     generate_missing_transcripts(cases_path)
+
+    # Step 4: fetch docket info (questions_href + files.json proceedings)
+    print()
+    print('Fetching docket info for cases without questions_href ...')
+    update_docket_info(cases_path)
+
+    # Step 5: clean up files.json titles and infer missing types
+    print()
+    print('Cleaning up files.json entries ...')
+    clean_files_json(cases_path)
 
 
 if __name__ == '__main__':
