@@ -22,7 +22,14 @@
       "type": "chrome",
       "request": "launch",
       "name": "USSC Terms",
-      "url": "http://localhost:4008/courts/ussc/terms/",
+      "url": "http://localhost:4008/courts/ussc/",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "2025 Term: Watson v. RNC",
+      "url": "http://localhost:4008/courts/ussc/?term=2025-10&case=24-1260",
       "webRoot": "${workspaceFolder}"
     },
     {

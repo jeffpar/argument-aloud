@@ -46,3 +46,15 @@ li.item:before {
 span.clickable {
   cursor: pointer;
 }
+
+section ul,
+section ol,
+header ul.nav-list {
+  padding-left: 1.2em;
+}
+
+@media screen and (max-width: 960px) {
+  header ul.nav-list {
+    position: static;
+  }
+}

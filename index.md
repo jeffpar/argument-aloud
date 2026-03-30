@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Mapping U.S. Supreme Court Data Across the Internet
+# U.S. Supreme Court Media
 
 With the [National Archives](https://www.archives.gov), [Library of Congress](https://www.loc.gov), and even (*gasp*) the [U.S. Supreme Court](https://www.supremecourt.gov) itself making more of the Court's current and historical information available online, having some roadmaps to -- and mappings between -- all that data is becoming increasingly important.  Add private collections to the mix, such as [The Oyez Project](https://www.oyez.org), [Justia](https://supreme.justia.com), and [The Supreme Court Database](http://scdb.wustl.edu), and the wealth of information becomes both a blessing and a curse.
 
