@@ -3,6 +3,20 @@
   {%- include head/default.html style="document" %}
   <body>
     {{ content }}
+    <script>
+    (function () {
+      var toc = document.querySelector('.toc');
+      if (!toc) return;
+      toc.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        var target = document.getElementById(a.getAttribute('href').slice(1));
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }());
+    </script>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
   </body>
 </html>
