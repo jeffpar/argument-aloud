@@ -240,7 +240,13 @@ function buildNav(termData) {
     const ul = document.createElement('ul');
     ul.className = 'case-list';
 
-    cases.forEach(caseEntry => {
+    const sortedCases = [...cases].sort((a, b) => {
+      const da = a.arguments?.[0]?.date ?? '';
+      const db = b.arguments?.[0]?.date ?? '';
+      return da < db ? -1 : da > db ? 1 : 0;
+    });
+
+    sortedCases.forEach(caseEntry => {
       const caseKey = term + '/' + caseEntry.number;
       const basePath = '/courts/ussc/terms/' + term + '/' + caseEntry.number + '/';
 
@@ -258,7 +264,11 @@ function buildNav(termData) {
 
       const titleSpan = document.createElement('span');
       titleSpan.className = 'case-title-nav';
-      titleSpan.textContent = caseEntry.title + ' (No.\u00a0' + caseEntry.number + ')';
+      const argDate = caseEntry.arguments?.[0]?.date;
+      const dateSuffix = argDate
+        ? ' (' + new Date(argDate + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) + ')'
+        : '';
+      titleSpan.textContent = caseEntry.title + dateSuffix;
 
       header.appendChild(toggle);
       header.appendChild(titleSpan);
@@ -278,13 +288,14 @@ function buildNav(termData) {
             petitioner: 'Petitioner',
             respondent: 'Respondent',
             reference:  'References',
+            other:      'Other',
           };
-          const ORDER = ['petitioner', 'respondent', 'reference'];
+          const ORDER = ['petitioner', 'respondent', 'reference', 'other'];
 
           // Group files by type
           const groups = {};
           rawFiles.forEach(f => {
-            const key = (f.type || 'reference').toLowerCase();
+            const key = (f.type || 'other').toLowerCase();
             if (!groups[key]) groups[key] = [];
             groups[key].push(f);
           });
