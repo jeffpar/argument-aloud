@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Fetch oral argument listings from supremecourt.gov, update cases.json, and
-generate missing transcript JSON files from the PDF transcripts.
+"""Fetches oral argument listings from supremecourt.gov for an entire term,
+producing a cases.json, and generating transcript JSON files from the PDF
+transcripts.
 
 Usage:
     python3 scripts/import_cases.py https://www.supremecourt.gov/oral_arguments/argument_audio/2025
@@ -570,8 +571,8 @@ _FILED_RE = re.compile(r'\s+filed\..*$', re.IGNORECASE | re.DOTALL)
 
 _TYPE_PREFIXES = [
     ('amicus',     ('Brief amicus ', 'Brief amici ')),
-    ('respondent', ('Brief of respondent',)),
-    ('petitioner', ('Brief of petitioner',)),
+    ('respondent', ('Brief of respondent', 'Reply of respondent')),
+    ('petitioner', ('Brief of petitioner', 'Reply of petitioner')),
 ]
 
 
