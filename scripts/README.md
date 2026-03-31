@@ -11,7 +11,13 @@ and they almost certainly will, because it is unclear whether even an entity lik
 which relies so heavily on legal citations, also appreciates the importance of permanent,
 citable *online* links.
 
-### Updating Cases
+Here's what we have so far:
+
+- [Adding/Updating Cases](#addingupdating-cases)
+- [Aligning Transcripts](#aligning-transcripts)
+- [Validating Cases](#validating-cases)
+
+### Adding/Updating Cases
 
 [import_cases](import_cases.py) has the following usage:
 
@@ -45,7 +51,7 @@ Steps performed:
 Requires pdftotext (poppler-utils) to be installed.
 ```
 
-### Updating Transcripts
+### Aligning Transcripts
 
 [align_transcript](align_transcript.py) has the following usage:
 
@@ -73,4 +79,26 @@ so re-runs skip re-transcription (which can take several minutes).
 
 An argument is skipped when every turn already has a "time" value.
 Use --purge to clear all existing timestamps before aligning.
+```
+
+### Validating Cases
+
+[validate_cases](validate_cases.py) has the following usage:
+
+```
+Validate file entries for SCOTUS cases.
+
+Usage:
+    python3 scripts/validate_cases.py TERM [CASE]
+
+Examples:
+    python3 scripts/validate_cases.py 2025-10 24-1260
+    python3 scripts/validate_cases.py 2025-10
+
+For each file entry in files.json:
+  1. Checks that the href URL is reachable (HTTP HEAD request, with GET fallback).
+  2. Checks whether the URL can be embedded in an iframe by inspecting
+     Content-Security-Policy (frame-ancestors) and X-Frame-Options response headers.
+     If framing is blocked, downloads the file to the case directory,
+     saves the original URL as "source", and updates "href" to the local filename.
 ```

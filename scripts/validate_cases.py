@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Validate files.json entries for SCOTUS cases.
+"""Validate file entries for SCOTUS cases.
 
 Usage:
-    python3 scripts/validate_case.py TERM [CASE]
+    python3 scripts/validate_cases.py TERM [CASE]
 
 Examples:
-    python3 scripts/validate_case.py 2025-10 24-1260
-    python3 scripts/validate_case.py 2025-10
+    python3 scripts/validate_cases.py 2025-10 24-1260
+    python3 scripts/validate_cases.py 2025-10
 
 For each file entry in files.json:
   1. Checks that the href URL is reachable (HTTP HEAD request, with GET fallback).
@@ -149,7 +149,7 @@ def validate_files_json(files_path: Path, case_dir: Path) -> None:
             try:
                 download_file(href, dest)
                 entry['source'] = entry['href']
-                entry['href'] = dest.name
+                entry['href'] = '/' + dest.relative_to(REPO_ROOT).as_posix()
                 modified = True
                 print('✓ downloaded')
             except Exception as exc:
