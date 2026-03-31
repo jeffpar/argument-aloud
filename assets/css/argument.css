@@ -274,7 +274,7 @@ body {
 }
 
 .case-item.active>.case-header {
-  background: #2672b4;
+  /* No full-header highlight — only the title span is highlighted. */
 }
 
 .case-toggle {
@@ -291,19 +291,20 @@ body {
   transform: rotate(90deg);
 }
 
-.case-item.active>.case-header .case-toggle {
-  color: rgba(255, 255, 255, 0.6);
-}
-
 .case-title-nav {
   font-size: 12px;
   color: #2672b4;
   line-height: 1.4;
   flex: 1;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .case-item.active>.case-header .case-title-nav {
+  background: #2672b4;
   color: #fff;
+  padding: 1px 5px;
+  margin: -1px -1px;
 }
 
 .case-decided-icon {
@@ -317,7 +318,7 @@ body {
 }
 
 .case-item.active > .case-header .case-decided-icon {
-  color: rgba(255, 255, 255, 0.7);
+  color: #aaa;
 }
 
 /* ── File sub-list ──────────────────────────────────────── */
