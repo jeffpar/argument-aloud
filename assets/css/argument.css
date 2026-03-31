@@ -306,6 +306,20 @@ body {
   color: #fff;
 }
 
+.case-decided-icon {
+  flex-shrink: 0;
+  font-size: 14px;
+  color: #999;
+  margin-left: 2px;
+  align-self: flex-start;
+  margin-top: 2px;
+  line-height: 1;
+}
+
+.case-item.active > .case-header .case-decided-icon {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 /* ── File sub-list ──────────────────────────────────────── */
 .file-list {
   list-style: none;

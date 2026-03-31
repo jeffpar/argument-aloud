@@ -443,6 +443,21 @@ function buildNav(termData) {
         header.appendChild(toggle);
         header.appendChild(titleSpan);
 
+        // ── Gavel icon: shown if this case has an opinion (background check) ──
+        fetch(basePath + 'files.json')
+          .then(r => r.ok ? r.json() : [])
+          .then(files => {
+            if (Array.isArray(files) && files.some(f => f.type === 'opinion')) {
+              const icon = document.createElement('span');
+              icon.className = 'case-decided-icon';
+              icon.textContent = '\u2696';
+              icon.title = 'Opinion issued';
+              header.appendChild(icon);
+              ci.classList.add('decided');
+            }
+          })
+          .catch(() => {});
+
         // ── File sub-list (populated lazily) ──────────────────
         const fileUl = document.createElement('ul');
         fileUl.className = 'file-list';
@@ -470,10 +485,16 @@ function buildNav(termData) {
               petitioner: 'Petitioner',
               respondent: 'Respondent',
               amicus:     'Amicus',
-              reference:  'References',
               other:      'Other',
+              reference:  'References',
+              opinion:    'Opinion',
             };
-            const ORDER = ['petitioner', 'respondent', 'amicus', 'reference', 'other'];
+            const ORDER = ['petitioner', 'respondent', 'amicus', 'other', 'reference', 'opinion'];
+
+            // When true, amicus + other are merged into a single "Other" group
+            // (amicus entries first, then other, each sub-sorted by date).
+            // Set to false to restore separate Amicus / Other headings.
+            const MERGE_AMICUS_OTHER = true;
 
             // Group files by type, then sort each group by date ascending
             const groups = {};
@@ -486,7 +507,17 @@ function buildNav(termData) {
               if (groups[k]) groups[k].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
             });
 
-            ORDER.forEach(typeKey => {
+            // Merge amicus into other (amicus first) when the flag is set
+            if (MERGE_AMICUS_OTHER && (groups.amicus?.length || groups.other?.length)) {
+              groups.other = [...(groups.amicus || []), ...(groups.other || [])];
+              delete groups.amicus;
+            }
+
+            const effectiveOrder = MERGE_AMICUS_OTHER
+              ? ORDER.filter(k => k !== 'amicus')
+              : ORDER;
+
+            effectiveOrder.forEach(typeKey => {
               if (!groups[typeKey] || !groups[typeKey].length) return;
 
               const groupLi = document.createElement('li');

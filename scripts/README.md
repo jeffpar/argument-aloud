@@ -13,11 +13,11 @@ citable *online* links.
 
 Here's what we have so far:
 
-- [Adding/Updating Cases](#addingupdating-cases)
+- [Importing Cases](#importing-cases)
 - [Aligning Transcripts](#aligning-transcripts)
 - [Validating Cases](#validating-cases)
 
-### Adding/Updating Cases
+### Importing Cases
 
 [import_cases](import_cases.py) has the following usage:
 
@@ -89,16 +89,20 @@ Use --purge to clear all existing timestamps before aligning.
 Validate file entries for SCOTUS cases.
 
 Usage:
-    python3 scripts/validate_cases.py TERM [CASE]
+    python3 scripts/validate_cases.py TERM [CASE] [--checkurls]
 
 Examples:
     python3 scripts/validate_cases.py 2025-10 24-1260
     python3 scripts/validate_cases.py 2025-10
+    python3 scripts/validate_cases.py 2025-10 --checkurls
+    python3 scripts/validate_cases.py 2025-10 24-1260 --checkurls
 
-For each file entry in files.json:
-  1. Checks that the href URL is reachable (HTTP HEAD request, with GET fallback).
-  2. Checks whether the URL can be embedded in an iframe by inspecting
-     Content-Security-Policy (frame-ancestors) and X-Frame-Options response headers.
-     If framing is blocked, downloads the file to the case directory,
-     saves the original URL as "source", and updates "href" to the local filename.
+For each case's files.json:
+  1. Checks supremecourt.gov for a slip opinion matching the case's docket number;
+     if found and not already recorded, adds it to files.json as type "opinion".
+  2. With --checkurls: also verifies that every href URL is reachable (HTTP HEAD
+     request with GET fallback) and checks whether it can be embedded in an iframe
+     by inspecting Content-Security-Policy and X-Frame-Options response headers.
+     If framing is blocked, the file is downloaded locally, the original URL is saved
+     as "source", and "href" is updated to the local path.
 ```

@@ -2,21 +2,27 @@
 """Validate file entries for SCOTUS cases.
 
 Usage:
-    python3 scripts/validate_cases.py TERM [CASE]
+    python3 scripts/validate_cases.py TERM [CASE] [--checkurls]
 
 Examples:
     python3 scripts/validate_cases.py 2025-10 24-1260
     python3 scripts/validate_cases.py 2025-10
+    python3 scripts/validate_cases.py 2025-10 --checkurls
+    python3 scripts/validate_cases.py 2025-10 24-1260 --checkurls
 
-For each file entry in files.json:
-  1. Checks that the href URL is reachable (HTTP HEAD request, with GET fallback).
-  2. Checks whether the URL can be embedded in an iframe by inspecting
-     Content-Security-Policy (frame-ancestors) and X-Frame-Options response headers.
-     If framing is blocked, downloads the file to the case directory,
-     saves the original URL as "source", and updates "href" to the local filename.
+For each case's files.json:
+  1. Checks supremecourt.gov for a slip opinion matching the case's docket number;
+     if found and not already recorded, adds it to files.json as type "opinion".
+  2. With --checkurls: also verifies that every href URL is reachable (HTTP HEAD
+     request with GET fallback) and checks whether it can be embedded in an iframe
+     by inspecting Content-Security-Policy and X-Frame-Options response headers.
+     If framing is blocked, the file is downloaded locally, the original URL is saved
+     as "source", and "href" is updated to the local path.
 """
 
+import datetime
 import json
+import re
 import sys
 import time
 import urllib.error
@@ -24,7 +30,10 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT    = Path(__file__).resolve().parent.parent
+SCOTUS_BASE  = 'https://www.supremecourt.gov'
+
+_OPINIONS_CACHE: dict = {}  # year_2digit -> {docket_lower: {date, name, author, href}}
 
 
 # ── HTTP helpers ──────────────────────────────────────────────────────────────
@@ -112,11 +121,101 @@ def download_file(url: str, dest: Path) -> None:
         dest.write_bytes(resp.read())
 
 
+# ── Opinions index ────────────────────────────────────────────────────────────
+
+def _fetch_opinions(year_2digit: str) -> dict:
+    """Fetch and parse the SCOTUS slip-opinions index for a 2-digit term year.
+
+    Returns a dict keyed by lowercase docket number, e.g.
+        {'24-539': {'date': '2026-03-31', 'name': 'Chiles v. Salazar',
+                    'author': 'NG', 'href': 'https://…/24-539_xxx.pdf'}}
+    """
+    if year_2digit in _OPINIONS_CACHE:
+        return _OPINIONS_CACHE[year_2digit]
+
+    url = f'{SCOTUS_BASE}/opinions/slipopinion/{year_2digit}'
+    print(f'  Fetching opinions index: {url}')
+    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            html = resp.read().decode('utf-8', errors='replace')
+    except Exception as exc:
+        print(f'    Warning: could not fetch opinions index: {exc}')
+        _OPINIONS_CACHE[year_2digit] = {}
+        return {}
+
+    # Each opinion row: date | docket (white-space:nowrap) | name<a>…</a> | J.
+    pattern = re.compile(
+        r'<td[^>]*>(\d{1,2}/\d{1,2}/\d{2})</td>\s*'
+        r'<td[^>]*white-space[^>]*>([^<]+)</td>\s*'
+        r'<td[^>]*><a href=.(/opinions/\S+?\.pdf)[^>]*>([^<]+)</a>'
+        r'.*?<td[^>]*>(\w+)</td>',
+        re.DOTALL,
+    )
+
+    opinions: dict = {}
+    for m in pattern.finditer(html):
+        date_raw, docket, href, name, author = (g.strip() for g in m.groups())
+        try:
+            date_iso = datetime.datetime.strptime(date_raw, '%m/%d/%y').strftime('%Y-%m-%d')
+        except ValueError:
+            date_iso = date_raw
+        opinions[docket.lower()] = {
+            'date':   date_iso,
+            'name':   name,
+            'author': author,
+            'href':   SCOTUS_BASE + href,
+        }
+
+    _OPINIONS_CACHE[year_2digit] = opinions
+    print(f'    Found {len(opinions)} opinion(s) for term year {year_2digit}.')
+    return opinions
+
+
+def check_opinion_for_case(files_path: Path, case_number: str, term: str) -> None:
+    """If a slip opinion exists for this case, add it to files.json."""
+    year_2 = term.split('-')[0][-2:]  # '2025-10' -> '25'
+    opinions = _fetch_opinions(year_2)
+    opinion = opinions.get(case_number.lower())
+    if not opinion:
+        return
+
+    data: list = json.loads(files_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    if any(e.get('type') == 'opinion' for e in data):
+        print(f'    Opinion: already present — skipped.')
+        return
+
+    max_id = max(
+        (e['file'] for e in data if isinstance(e.get('file'), int)),
+        default=0,
+    )
+    new_entry = {
+        'file':   max_id + 1,
+        'type':   'opinion',
+        'title':  'Opinion in ' + opinion['name'],
+        'date':   opinion['date'],
+        'author': opinion['author'],
+        'href':   opinion['href'],
+    }
+    data.append(new_entry)
+    files_path.write_text(
+        json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+        encoding='utf-8',
+    )
+    print(f'    Opinion: added "{new_entry["title"]}" ({opinion["date"]}, J. {opinion["author"]})')
+
+
 # ── Core validation ───────────────────────────────────────────────────────────
 
-def validate_files_json(files_path: Path, case_dir: Path) -> None:
+def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = False) -> None:
     data = json.loads(files_path.read_text(encoding='utf-8'))
     if not isinstance(data, list):
+        return
+
+    if not check_urls:
         return
 
     modified = False
@@ -165,37 +264,41 @@ def validate_files_json(files_path: Path, case_dir: Path) -> None:
         )
 
 
-def validate_case(term_dir: Path, case_number: str) -> None:
+def validate_case(term_dir: Path, case_number: str, check_urls: bool = False) -> None:
     files_path = term_dir / case_number / 'files.json'
     if not files_path.exists():
         print(f'{case_number}: no files.json — skipped.')
         return
     print(f'{case_number}:')
-    validate_files_json(files_path, files_path.parent)
+    validate_files_json(files_path, files_path.parent, check_urls)
+    check_opinion_for_case(files_path, case_number, term_dir.name)
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    if len(sys.argv) not in (2, 3):
+    args = [a for a in sys.argv[1:] if a != '--checkurls']
+    check_urls = '--checkurls' in sys.argv
+
+    if len(args) not in (1, 2):
         print(__doc__)
         sys.exit(1)
 
-    term     = sys.argv[1]
+    term     = args[0]
     term_dir = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term
 
     if not term_dir.is_dir():
         sys.exit(f'Error: directory not found: {term_dir}')
 
-    if len(sys.argv) == 3:
-        validate_case(term_dir, sys.argv[2])
+    if len(args) == 2:
+        validate_case(term_dir, args[1], check_urls)
     else:
         case_dirs = sorted(d for d in term_dir.iterdir() if d.is_dir())
         if not case_dirs:
             print('No case directories found.')
             return
         for d in case_dirs:
-            validate_case(term_dir, d.name)
+            validate_case(term_dir, d.name, check_urls)
 
 
 if __name__ == '__main__':
