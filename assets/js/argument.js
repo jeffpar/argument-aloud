@@ -264,6 +264,17 @@ function expandDocViewer() {
   panel.style.height = h + 'px';
 }
 
+// Smoothly scroll the transcript pane so the active turn sits at its top.
+function scrollActiveTurnToTranscriptTop() {
+  if (activeTurnIdx < 0) return;
+  const transcriptViewer = document.getElementById('transcript-viewer');
+  const turnEl = document.getElementById('turn-' + activeTurnIdx);
+  if (!turnEl || !transcriptViewer) return;
+  const targetScrollTop = transcriptViewer.scrollTop +
+    (turnEl.getBoundingClientRect().top - transcriptViewer.getBoundingClientRect().top);
+  transcriptViewer.scrollTo({ top: targetScrollTop, behavior: 'smooth' });
+}
+
 // autoScroll: when true, scrolls the document viewer into view on mobile
 // (used for explicit user clicks; omitted for auto-sync during playback).
 function showDocViewer(link, { autoScroll = false, matchedRef = null, page = null } = {}) {
@@ -325,8 +336,13 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
     panel.hidden = false;
     panel.offsetHeight; // force reflow so transition plays
     panel.style.height = h + 'px';
+    // When opened automatically (not by a user click), scroll the active turn
+    // to the top of the transcript pane so the doc viewer doesn't obscure it.
+    if (!autoScroll) requestAnimationFrame(scrollActiveTurnToTranscriptTop);
   } else if (panel.classList.contains('collapsed')) {
     expandDocViewer();
+    // Same scroll when un-minimized automatically during playback.
+    if (!autoScroll) requestAnimationFrame(scrollActiveTurnToTranscriptTop);
   }
   if (autoScroll && isMobile()) {
     panel.scrollIntoView({ behavior: 'instant', block: 'start' });
