@@ -463,122 +463,126 @@ function buildNav(termData) {
         fileUl.className = 'file-list';
         let filesLoaded = false;
 
-        header.addEventListener('click', async (e) => {
-          const fromRestore = !!e.fromRestore;
-          const isActive = ci.classList.contains('active');
-          const wasOpen  = ci.classList.contains('open');
-          // Collapse only when clicking the already-selected, already-open case.
-          // In all other cases force-open so clicking always selects.
-          let isOpen;
-          if (isActive && wasOpen) {
-            ci.classList.remove('open');
-            isOpen = false;
-          } else {
-            ci.classList.add('open');
-            isOpen = true;
-          }
-          if (isOpen && !filesLoaded) {
-            filesLoaded = true;
-            const rawFiles = await loadFiles(basePath + 'files.json');
+        // Lazily populate the file sub-list; shared by both click handlers below.
+        async function ensureFilesLoaded() {
+          if (filesLoaded) return;
+          filesLoaded = true;
+          const rawFiles = await loadFiles(basePath + 'files.json');
 
-            const TYPE_LABELS = {
-              petitioner: 'Petitioner',
-              respondent: 'Respondent',
-              amicus:     'Amicus',
-              other:      'Other',
-              reference:  'References',
-              opinion:    'Opinion',
-            };
-            const ORDER = ['petitioner', 'respondent', 'amicus', 'other', 'reference', 'opinion'];
+          const TYPE_LABELS = {
+            petitioner: 'Petitioner',
+            respondent: 'Respondent',
+            amicus:     'Amicus',
+            other:      'Other',
+            reference:  'References',
+            opinion:    'Opinion',
+          };
+          const ORDER = ['petitioner', 'respondent', 'amicus', 'other', 'reference', 'opinion'];
 
-            // When true, amicus + other are merged into a single "Other" group
-            // (amicus entries first, then other, each sub-sorted by date).
-            // Set to false to restore separate Amicus / Other headings.
-            const MERGE_AMICUS_OTHER = true;
+          // When true, amicus + other are merged into a single "Other" group
+          // (amicus entries first, then other, each sub-sorted by date).
+          // Set to false to restore separate Amicus / Other headings.
+          const MERGE_AMICUS_OTHER = true;
 
-            // Group files by type, then sort each group by date ascending
-            const groups = {};
-            rawFiles.forEach(f => {
-              const key = (f.type || 'other').toLowerCase();
-              if (!groups[key]) groups[key] = [];
-              groups[key].push(f);
-            });
-            ORDER.forEach(k => {
-              if (groups[k]) groups[k].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
-            });
-
-            // Merge amicus into other (amicus first) when the flag is set
-            if (MERGE_AMICUS_OTHER && (groups.amicus?.length || groups.other?.length)) {
-              groups.other = [...(groups.amicus || []), ...(groups.other || [])];
-              delete groups.amicus;
+          // Group files by type, then sort each group by date ascending
+          const groups = {};
+          rawFiles.forEach(f => {
+            const key = (f.type || 'other').toLowerCase();
+            if (!groups[key]) groups[key] = [];
+            groups[key].push(f);
+          });
+          ORDER.forEach(k => {
+            if (!groups[k]) return;
+            if (k === 'reference') {
+              groups[k].sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+            } else {
+              groups[k].sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
             }
+          });
 
-            const effectiveOrder = MERGE_AMICUS_OTHER
-              ? ORDER.filter(k => k !== 'amicus')
-              : ORDER;
+          // Merge amicus into other (amicus first) when the flag is set
+          if (MERGE_AMICUS_OTHER && (groups.amicus?.length || groups.other?.length)) {
+            groups.other = [...(groups.amicus || []), ...(groups.other || [])];
+            delete groups.amicus;
+          }
 
-            effectiveOrder.forEach(typeKey => {
-              if (!groups[typeKey] || !groups[typeKey].length) return;
+          const effectiveOrder = MERGE_AMICUS_OTHER
+            ? ORDER.filter(k => k !== 'amicus')
+            : ORDER;
 
-              const groupLi = document.createElement('li');
-              groupLi.className = 'file-type-group';
+          effectiveOrder.forEach(typeKey => {
+            if (!groups[typeKey] || !groups[typeKey].length) return;
 
-              const typeHeader = document.createElement('div');
-              typeHeader.className = 'file-type-header';
+            const groupLi = document.createElement('li');
+            groupLi.className = 'file-type-group';
 
-              const typeTog = document.createElement('span');
-              typeTog.className = 'file-type-toggle';
-              typeTog.textContent = '\u25b6';
+            const typeHeader = document.createElement('div');
+            typeHeader.className = 'file-type-header';
 
-              const typeLabel = document.createElement('span');
-              typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
+            const typeTog = document.createElement('span');
+            typeTog.className = 'file-type-toggle';
+            typeTog.textContent = '\u25b6';
 
-              typeHeader.appendChild(typeTog);
-              typeHeader.appendChild(typeLabel);
-              typeHeader.addEventListener('click', e => {
+            const typeLabel = document.createElement('span');
+            typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
+
+            typeHeader.appendChild(typeTog);
+            typeHeader.appendChild(typeLabel);
+            typeHeader.addEventListener('click', e => {
+              e.stopPropagation();
+              groupLi.classList.toggle('open');
+            });
+
+            const itemsUl = document.createElement('ul');
+            itemsUl.className = 'file-type-items';
+
+            groups[typeKey].forEach(f => {
+              const fi = document.createElement('li');
+              fi.className = 'file-item';
+              if (f.file != null) fi.dataset.fileId = f.file;
+              fi.textContent = f.title;
+              fi.addEventListener('click', e => {
                 e.stopPropagation();
-                groupLi.classList.toggle('open');
+                document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
+                fi.classList.add('active');
+                if (f.file != null) {
+                  const url = new URL(location.href);
+                  url.searchParams.set('file', f.file);
+                  history.replaceState(null, '', url);
+                }
+                showDocViewer(f, { autoScroll: true });
               });
-
-              const itemsUl = document.createElement('ul');
-              itemsUl.className = 'file-type-items';
-
-              groups[typeKey].forEach(f => {
-                const fi = document.createElement('li');
-                fi.className = 'file-item';
-                if (f.file != null) fi.dataset.fileId = f.file;
-                fi.textContent = f.title;
-                fi.addEventListener('click', e => {
-                  e.stopPropagation();
-                  document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
-                  fi.classList.add('active');
-                  if (f.file != null) {
-                    const url = new URL(location.href);
-                    url.searchParams.set('file', f.file);
-                    history.replaceState(null, '', url);
-                  }
-                  showDocViewer(f, { autoScroll: true });
-                });
-                itemsUl.appendChild(fi);
-              });
-
-              groupLi.appendChild(typeHeader);
-              groupLi.appendChild(itemsUl);
-              fileUl.appendChild(groupLi);
+              itemsUl.appendChild(fi);
             });
+
+            groupLi.appendChild(typeHeader);
+            groupLi.appendChild(itemsUl);
+            fileUl.appendChild(groupLi);
+          });
+        }
+
+        // Toggle (▶): expand or collapse the case — no selection, no transcript load.
+        toggle.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          if (ci.classList.toggle('open')) {
+            await ensureFilesLoaded();
           }
-          // Also load the transcript when opening
-          if (isOpen) {
-            if (!fromRestore) {
-              const url = new URL(location.href);
-              url.searchParams.set('term', term);
-              url.searchParams.set('case', caseEntry.number);
-              url.searchParams.delete('file');
-              url.searchParams.delete('turn');
-              history.replaceState(null, '', url);
-            }
-            loadCase(term, caseEntry);
+        });
+
+        // Title: select the case, open it, and load the transcript.
+        titleSpan.addEventListener('click', async (e) => {
+          const fromRestore = !!e.fromRestore;
+          ci.classList.add('open');
+          await ensureFilesLoaded();
+          if (!fromRestore) {
+            const url = new URL(location.href);
+            url.searchParams.set('term', term);
+            url.searchParams.set('case', caseEntry.number);
+            url.searchParams.delete('file');
+            url.searchParams.delete('turn');
+            history.replaceState(null, '', url);
           }
+          loadCase(term, caseEntry);
         });
 
         ci.appendChild(header);
@@ -1214,9 +1218,9 @@ async function init() {
           }
         }, { once: true });
       }
-      // Use dispatchEvent so the fromRestore flag is passed via the event handler signature trick
-      const headerEl = caseEl.querySelector('.case-header');
-      if (headerEl) headerEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true }));
+      // Use dispatchEvent so the fromRestore flag is passed to the title click handler.
+      const titleEl = caseEl.querySelector('.case-title-nav');
+      if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true }));
       requestAnimationFrame(() => caseEl.scrollIntoView({ behavior: 'instant', block: 'center' }));
     }
   }
