@@ -512,6 +512,29 @@ body {
   min-height: 16px;
 }
 
+#search-refs-row {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+#search-refs-row.has-refs {
+  display: flex;
+}
+
+#search-refs {
+  flex: 1;
+  font-size: 12.5px;
+  padding: 4px 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f8f8f8;
+  color: #333;
+  cursor: pointer;
+}
+
 .turn-highlight {
   background: #fff3cd;
   border-radius: 2px;
@@ -704,6 +727,26 @@ body {
   display: none;
 }
 
+#doc-viewer.collapsed {
+  height: 30px;
+}
+
+#doc-viewer.collapsed #h-resize {
+  display: none;
+}
+
+#doc-viewer.collapsed #doc-viewer-header {
+  cursor: pointer;
+}
+
+#doc-viewer.collapsed #doc-viewer-minimize {
+  display: none;
+}
+
+#doc-viewer.collapsed #doc-viewer-expand {
+  display: block;
+}
+
 #doc-viewer-header {
   flex-shrink: 0;
   height: 30px;
@@ -772,6 +815,37 @@ body {
 
 #doc-viewer-close:hover {
   color: #333;
+}
+
+#doc-viewer-expand {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  color: #999;
+  line-height: 1;
+  padding: 0 2px;
+  flex-shrink: 0;
+  display: none;
+}
+
+#doc-viewer-expand:hover {
+  color: #3a6ea5;
+}
+
+#doc-viewer-minimize {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  color: #999;
+  line-height: 1;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+#doc-viewer-minimize:hover {
+  color: #3a6ea5;
 }
 
 #doc-viewer-card {

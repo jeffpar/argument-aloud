@@ -220,18 +220,48 @@ function checkLinksForActiveTurn(idx, autoScroll = false) {
   return !!match;
 }
 
-function hideDocViewerAnimated() {
+function collapseDocViewer() {
   const panel = document.getElementById('doc-viewer');
-  if (panel.hidden) return;
+  if (panel.hidden || panel.classList.contains('collapsed')) return;
   docViewerOpenHeight = panel.offsetHeight;
-  panel.style.height = docViewerOpenHeight + 'px';
+  panel.classList.add('collapsed');
   panel.offsetHeight; // force reflow
-  panel.style.height = '0px';
+  panel.style.height = '30px';
   panel.addEventListener('transitionend', () => {
-    panel.hidden = true;
     panel.style.height = '';
   }, { once: true });
   activeBottomLinkText = null;
+}
+
+function hideDocViewerFully() {
+  const panel = document.getElementById('doc-viewer');
+  if (panel.hidden) return;
+  if (panel.classList.contains('collapsed')) {
+    // Already at header height — just hide instantly
+    panel.classList.remove('collapsed');
+    panel.style.height = '';
+    panel.hidden = true;
+  } else {
+    docViewerOpenHeight = panel.offsetHeight;
+    panel.style.height = panel.offsetHeight + 'px';
+    panel.offsetHeight; // force reflow
+    panel.style.height = '0px';
+    panel.addEventListener('transitionend', () => {
+      panel.hidden = true;
+      panel.style.height = '';
+    }, { once: true });
+  }
+  activeBottomLinkText = null;
+}
+
+function expandDocViewer() {
+  const panel = document.getElementById('doc-viewer');
+  if (!panel.classList.contains('collapsed')) return;
+  const h = docViewerOpenHeight ?? Math.round(window.innerHeight * 0.45);
+  panel.style.height = '30px'; // match CSS class value so transition starts from here
+  panel.classList.remove('collapsed');
+  panel.offsetHeight; // force reflow
+  panel.style.height = h + 'px';
 }
 
 // autoScroll: when true, scrolls the document viewer into view on mobile
@@ -295,6 +325,8 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
     panel.hidden = false;
     panel.offsetHeight; // force reflow so transition plays
     panel.style.height = h + 'px';
+  } else if (panel.classList.contains('collapsed')) {
+    expandDocViewer();
   }
   if (autoScroll && isMobile()) {
     panel.scrollIntoView({ behavior: 'instant', block: 'start' });
@@ -614,7 +646,10 @@ async function loadCase(term, caseEntry) {
     links = rawFiles.filter(f => f.refs);
 
     renderTranscript();
-    document.getElementById('doc-viewer').hidden = true;
+    const docPanel = document.getElementById('doc-viewer');
+    docPanel.classList.remove('collapsed');
+    docPanel.style.height = '';
+    docPanel.hidden = true;
     activeBottomLinkText = null;
 
     loadingMsg.style.display = 'none';
@@ -662,7 +697,7 @@ function renderTranscript() {
       div.classList.add('active');
       activeTurnIdx = idx;
       const hadRef = checkLinksForActiveTurn(idx, true);
-      if (!hadRef) hideDocViewerAnimated();
+      if (!hadRef) collapseDocViewer();
       // Only seek/play if this turn has a real timestamp
       if (turn.time != null) {
         seekAndPlay(turnTimes[idx]);
@@ -709,14 +744,27 @@ document.getElementById('case-info').addEventListener('click', () => {
 });
 
 // ── Document Viewer close button ──────────────────────────────────────────
-document.getElementById('doc-viewer-close').addEventListener('click', () => {
-  const panel = document.getElementById('doc-viewer');
-  docViewerOpenHeight = panel.offsetHeight;
-  panel.hidden = true;
-  activeBottomLinkText = null;
+document.getElementById('doc-viewer-close').addEventListener('click', (e) => {
+  e.stopPropagation();
+  hideDocViewerFully();
   const url = new URL(location.href);
   url.searchParams.delete('file');
   history.replaceState(null, '', url);
+});
+
+document.getElementById('doc-viewer-minimize').addEventListener('click', (e) => {
+  e.stopPropagation();
+  collapseDocViewer();
+});
+
+document.getElementById('doc-viewer-expand').addEventListener('click', (e) => {
+  e.stopPropagation();
+  expandDocViewer();
+});
+
+document.getElementById('doc-viewer-header').addEventListener('click', () => {
+  const panel = document.getElementById('doc-viewer');
+  if (panel.classList.contains('collapsed')) expandDocViewer();
 });
 
 // ── Resize handles ────────────────────────────────────────────────────────────
@@ -755,12 +803,19 @@ document.getElementById('doc-viewer-close').addEventListener('click', () => {
   const docViewerPanel = document.getElementById('doc-viewer');
   let hDragging = false, hStartY = 0, hStartH = 0;
 
+  // Transparent overlay placed over iframes during drag to prevent them
+  // from swallowing mouse events when the cursor moves over them quickly.
+  const dragShield = document.createElement('div');
+  dragShield.style.cssText = 'position:fixed;inset:0;z-index:9999;display:none;cursor:row-resize';
+  document.body.appendChild(dragShield);
+
   hHandle.addEventListener('mousedown', e => {
     hDragging = true;
     hStartY = e.clientY;
     hStartH = docViewerPanel.offsetHeight;
     hHandle.classList.add('dragging');
-    document.body.style.cursor = 'row-resize';
+    docViewerPanel.style.transition = 'none'; // disable animation while dragging
+    dragShield.style.display = 'block';
     document.body.style.userSelect = 'none';
     e.preventDefault();
   });
@@ -777,7 +832,8 @@ document.getElementById('doc-viewer-close').addEventListener('click', () => {
     if (!hDragging) return;
     hDragging = false;
     hHandle.classList.remove('dragging');
-    document.body.style.cursor = '';
+    docViewerPanel.style.transition = ''; // restore CSS transition
+    dragShield.style.display = 'none';
     document.body.style.userSelect = '';
   });
 })();
@@ -791,6 +847,8 @@ document.getElementById('doc-viewer-close').addEventListener('click', () => {
   const closeBtn    = document.getElementById('search-close');
   const statusEl    = document.getElementById('search-status');
   const searchTrigger = document.getElementById('search-btn');
+  const refsRow     = document.getElementById('search-refs-row');
+  const refsSelect  = document.getElementById('search-refs');
 
   let matchIndices = [];   // indices into turns[] that contain the query
   let matchCursor  = -1;   // which match is currently highlighted
@@ -885,22 +943,49 @@ document.getElementById('doc-viewer-close').addEventListener('click', () => {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeSearch();
   });
 
-  // Live search as user types; pressing Enter advances to next match
-  input.addEventListener('input', () => {
-    matchCursor = -1;
-    highlightMatches(input.value.trim());
-    if (matchIndices.length) goToMatch(0);
-  });
-
+  // Search on Enter; Shift+Enter goes backwards
   input.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      if (e.shiftKey) goToMatch(-1); else goToMatch(1);
+      const query = input.value.trim();
+      if (!query) return;
+      // If query changed since last search, re-run highlights first
+      if (!matchIndices.length || query.toLowerCase() !== (turns[matchIndices[0]]?.text.toLowerCase(), input.dataset.lastQuery ?? '')) {
+        highlightMatches(query);
+        input.dataset.lastQuery = query.toLowerCase();
+        if (matchIndices.length) { matchCursor = -1; goToMatch(1); }
+      } else {
+        if (e.shiftKey) goToMatch(-1); else goToMatch(1);
+      }
     }
   });
 
-  nextBtn.addEventListener('click', () => goToMatch(1));
-  prevBtn.addEventListener('click', () => goToMatch(-1));
+  // Clear stale results as user edits the query
+  input.addEventListener('input', () => {
+    refsSelect.value = '';
+    if (matchIndices.length) {
+      clearHighlights();
+      matchIndices = [];
+      matchCursor = -1;
+      delete input.dataset.lastQuery;
+      updateStatus();
+    }
+  });
+
+  function runSearchAndGo(delta) {
+    const query = input.value.trim();
+    if (!query) return;
+    if (!matchIndices.length) {
+      highlightMatches(query);
+      input.dataset.lastQuery = query.toLowerCase();
+      if (matchIndices.length) { matchCursor = -1; goToMatch(delta > 0 ? 1 : -1); }
+    } else {
+      goToMatch(delta);
+    }
+  }
+
+  nextBtn.addEventListener('click', () => runSearchAndGo(1));
+  prevBtn.addEventListener('click', () => runSearchAndGo(-1));
 
   // Clear highlights whenever a new transcript is loaded
   document.addEventListener('transcriptloaded', () => {
@@ -908,6 +993,37 @@ document.getElementById('doc-viewer-close').addEventListener('click', () => {
     matchCursor  = -1;
     input.value  = '';
     statusEl.textContent = '';
+    delete input.dataset.lastQuery;
+    // Populate refs dropdown from current links
+    const refTexts = links.flatMap(l => getRefTexts(l));
+    const unique = [...new Set(refTexts)].sort((a, b) => a.localeCompare(b));
+    refsSelect.innerHTML = `<option value=""></option>`;
+    if (unique.length) {
+      unique.forEach(ref => {
+        const opt = document.createElement('option');
+        opt.value = ref;
+        opt.textContent = ref;
+        refsSelect.appendChild(opt);
+      });
+      refsRow.classList.add('has-refs');
+    } else {
+      refsRow.classList.remove('has-refs');
+    }
+  });
+
+  refsSelect.addEventListener('change', () => {
+    const ref = refsSelect.value;
+    if (!ref) return;
+    input.value = ref;
+    // Clear stale state and run search immediately
+    clearHighlights();
+    matchIndices = [];
+    matchCursor = -1;
+    delete input.dataset.lastQuery;
+    highlightMatches(ref);
+    input.dataset.lastQuery = ref.toLowerCase();
+    if (matchIndices.length) { matchCursor = -1; goToMatch(1); }
+    input.focus();
   });
 })();
 
