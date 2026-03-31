@@ -4,6 +4,7 @@ let turnTimes = [];   // each turn's start time in seconds
 let activeTurnIdx = -1;
 let links = [];        // annotation links for the current case
 let activeBottomLinkText = null; // text key of the currently shown bottom link
+let docViewerOpenHeight = null;  // px height for next animated open (null = use 45vh default)
 
 const audio       = document.getElementById('audio-player');
 const turnList    = document.getElementById('turn-list');
@@ -102,6 +103,24 @@ function getRefs(link) {
   return Array.isArray(link.refs) ? link.refs : [link.refs];
 }
 
+// Parse a ref string: "Text:123" → { text: "Text", page: 123 }
+// "Text" (no colon+digits) → { text: "Text", page: null }
+function parseRef(refStr) {
+  const m = refStr.match(/^(.+?):(\d+)$/);
+  return m ? { text: m[1], page: parseInt(m[2], 10) } : { text: refStr, page: null };
+}
+
+// Return the ref text strings (stripped of any :page suffix) for a link.
+function getRefTexts(link) {
+  return getRefs(link).map(r => parseRef(r).text);
+}
+
+// Return the page number for a matched ref text on a link, or null.
+function getRefPage(link, matchedText) {
+  const raw = getRefs(link).find(r => parseRef(r).text.toLowerCase() === matchedText.toLowerCase());
+  return raw ? parseRef(raw).page : null;
+}
+
 // True if `needle` occurs at a word boundary inside `haystack` (both lowercase).
 function matchesWholeWord(haystack, needle) {
   try {
@@ -131,9 +150,9 @@ function renderTurnText(textEl, rawText, searchQuery, isCurrent) {
 
   // Ref mark positions (whole-word only)
   links.forEach(link => {
-    getRefs(link).forEach(ref => {
-      findWholeWordMatches(rawText, ref).forEach(({ start, end }) => {
-        marks.push({ start, end, kind: 'ref', link });
+    getRefTexts(link).forEach(refText => {
+      findWholeWordMatches(rawText, refText).forEach(({ start, end }) => {
+        marks.push({ start, end, kind: 'ref', link, refText });
       });
     });
   });
@@ -156,7 +175,7 @@ function renderTurnText(textEl, rawText, searchQuery, isCurrent) {
 
   const frag = document.createDocumentFragment();
   let cursor = 0;
-  marks.forEach(({ start, end, kind, link }) => {
+  marks.forEach(({ start, end, kind, link, refText }) => {
     if (start < cursor) return; // skip overlapping
     if (start > cursor) frag.appendChild(document.createTextNode(rawText.slice(cursor, start)));
     if (kind === 'ref') {
@@ -165,7 +184,8 @@ function renderTurnText(textEl, rawText, searchQuery, isCurrent) {
       span.textContent = rawText.slice(start, end);
       span.addEventListener('click', e => {
         e.stopPropagation();
-        showDocViewer(link, { autoScroll: true });
+        const page = getRefPage(link, refText);
+        showDocViewer(link, { autoScroll: true, matchedRef: refText, page });
       });
       frag.appendChild(span);
     } else {
@@ -188,34 +208,68 @@ function isMobile() {
   return window.innerWidth <= 768;
 }
 
-function checkLinksForActiveTurn(idx) {
-  if (!links.length || idx < 0 || idx >= turns.length) return;
+function checkLinksForActiveTurn(idx, autoScroll = false) {
+  if (!links.length || idx < 0 || idx >= turns.length) return false;
   const turnText = turns[idx].text;
-  const match = links.find(l => l.view === 'bottom' && getRefs(l).some(r => matchesWholeWord(turnText, r)));
+  const match = links.find(l => getRefTexts(l).some(r => matchesWholeWord(turnText, r)));
   if (match && match.href !== activeBottomLinkText) {
-    showDocViewer(match);
+    const matchedRef = getRefTexts(match).find(r => matchesWholeWord(turnText, r)) || null;
+    const page = matchedRef ? getRefPage(match, matchedRef) : null;
+    showDocViewer(match, { autoScroll, matchedRef, page });
   }
+  return !!match;
+}
+
+function hideDocViewerAnimated() {
+  const panel = document.getElementById('doc-viewer');
+  if (panel.hidden) return;
+  docViewerOpenHeight = panel.offsetHeight;
+  panel.style.height = docViewerOpenHeight + 'px';
+  panel.offsetHeight; // force reflow
+  panel.style.height = '0px';
+  panel.addEventListener('transitionend', () => {
+    panel.hidden = true;
+    panel.style.height = '';
+  }, { once: true });
+  activeBottomLinkText = null;
 }
 
 // autoScroll: when true, scrolls the document viewer into view on mobile
 // (used for explicit user clicks; omitted for auto-sync during playback).
-function showDocViewer(link, { autoScroll = false } = {}) {
+function showDocViewer(link, { autoScroll = false, matchedRef = null, page = null } = {}) {
   const panel  = document.getElementById('doc-viewer');
   const card   = document.getElementById('doc-viewer-card');
   const pdfEl  = document.getElementById('doc-viewer-pdf');
   const isPdf  = /\.pdf(\?|$)/i.test(link.href);
   const inPane = isPdf || link.view === 'pane';
 
+  // Build the effective href, appending #page=N if applicable
+  const effectiveHref = (() => {
+    if (page == null || link.href.includes('#')) return link.href;
+    return isPdf ? link.href + '#page=' + page + '&pagemode=none'
+                 : link.href + '#page=' + page;
+  })();
+
+  const refEl = document.getElementById('doc-viewer-ref');
+  if (matchedRef) {
+    refEl.replaceChildren(
+      document.createTextNode('In reference to: '),
+      Object.assign(document.createElement('strong'), { textContent: matchedRef })
+    );
+  } else {
+    refEl.textContent = '';
+  }
+
   const urlEl = document.getElementById('doc-viewer-url');
-  const absHref = new URL(link.href, location.href).href;
+  const absHref = new URL(effectiveHref, location.href).href;
   urlEl.href = absHref;
+  urlEl.title = absHref;
   urlEl.replaceChildren(
-    document.createTextNode(absHref),
     Object.assign(document.createElement('img'), {
       src: '/assets/img/open-external-link-icon.webp',
-      alt: '',
-      width: 12,
-      height: 12,
+      alt: 'Open in new tab',
+      width: 13,
+      height: 13,
     })
   );
   activeBottomLinkText = link.href || null;
@@ -223,19 +277,25 @@ function showDocViewer(link, { autoScroll = false } = {}) {
   if (inPane) {
     card.style.display = 'none';
     pdfEl.style.display = 'block';
-    const src = (isPdf && !link.href.includes('#')) ? link.href + '#pagemode=none' : link.href;
+    const src = effectiveHref.includes('#') ? effectiveHref : effectiveHref + '#pagemode=none';
     if (pdfEl.src !== src) pdfEl.src = src;
   } else {
     pdfEl.style.display = 'none';
     pdfEl.src = '';
     card.style.display = '';
-    document.getElementById('doc-viewer-card-title').textContent = link.title || getRefs(link)[0] || '';
+    document.getElementById('doc-viewer-card-title').textContent = link.title || getRefTexts(link)[0] || '';
     document.getElementById('doc-viewer-card-desc').textContent = link.description || '';
     const anchor = document.getElementById('doc-viewer-card-link');
-    anchor.href = link.href;
+    anchor.href = effectiveHref;
   }
 
-  panel.hidden = false;
+  if (panel.hidden) {
+    const h = docViewerOpenHeight ?? Math.round(window.innerHeight * 0.45);
+    panel.style.height = '0px';
+    panel.hidden = false;
+    panel.offsetHeight; // force reflow so transition plays
+    panel.style.height = h + 'px';
+  }
   if (autoScroll && isMobile()) {
     panel.scrollIntoView({ behavior: 'instant', block: 'start' });
   }
@@ -591,12 +651,18 @@ function renderTranscript() {
     div.appendChild(sp);
     div.appendChild(tx);
     div.addEventListener('click', () => {
+      const alreadyActive = idx === activeTurnIdx;
+      if (alreadyActive && !audio.paused) {
+        audio.pause();
+        return;
+      }
       if (activeTurnIdx >= 0) {
         document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
       }
       div.classList.add('active');
       activeTurnIdx = idx;
-      checkLinksForActiveTurn(idx);
+      const hadRef = checkLinksForActiveTurn(idx, true);
+      if (!hadRef) hideDocViewerAnimated();
       // Only seek/play if this turn has a real timestamp
       if (turn.time != null) {
         seekAndPlay(turnTimes[idx]);
@@ -644,7 +710,9 @@ document.getElementById('case-info').addEventListener('click', () => {
 
 // ── Document Viewer close button ──────────────────────────────────────────
 document.getElementById('doc-viewer-close').addEventListener('click', () => {
-  document.getElementById('doc-viewer').hidden = true;
+  const panel = document.getElementById('doc-viewer');
+  docViewerOpenHeight = panel.offsetHeight;
+  panel.hidden = true;
   activeBottomLinkText = null;
   const url = new URL(location.href);
   url.searchParams.delete('file');
@@ -702,6 +770,7 @@ document.getElementById('doc-viewer-close').addEventListener('click', () => {
     // Dragging up (negative delta) grows the panel
     const h = Math.max(60, Math.min(window.innerHeight * 0.85, hStartH - (e.clientY - hStartY)));
     docViewerPanel.style.height = h + 'px';
+    docViewerOpenHeight = h;
   });
 
   document.addEventListener('mouseup', () => {
