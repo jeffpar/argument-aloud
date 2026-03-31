@@ -1043,6 +1043,87 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   });
 })();
 
+// ── Nav case search ───────────────────────────────────────────────────────────
+(function () {
+  const navSearchBtn   = document.getElementById('nav-search-btn');
+  const navSearchRow   = document.getElementById('nav-search-row');
+  const navSearchInput = document.getElementById('nav-search-input');
+
+  function openNavSearch() {
+    navSearchRow.hidden = false;
+    navSearchBtn.classList.add('active');
+    navSearchInput.focus();
+    navSearchInput.select();
+  }
+
+  function closeNavSearch() {
+    navSearchRow.hidden = true;
+    navSearchBtn.classList.remove('active');
+    navSearchInput.value = '';
+    runNavSearch('');
+  }
+
+  function runNavSearch(query) {
+    const q = query.trim().toLowerCase();
+
+    if (!q) {
+      document.querySelectorAll('.case-item').forEach(ci => {
+        ci.classList.remove('nav-search-match');
+        ci.style.display = '';
+      });
+      document.querySelectorAll('.month-group, .term-group').forEach(g => {
+        g.style.display = '';
+        g.classList.remove('open');
+      });
+      // Expand only the groups containing the currently active case
+      const activeCase = document.querySelector('.case-item.active');
+      if (activeCase) {
+        activeCase.closest('.month-group')?.classList.add('open');
+        activeCase.closest('.term-group')?.classList.add('open');
+        requestAnimationFrame(() => activeCase.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
+      }
+      return;
+    }
+
+    document.querySelectorAll('.case-item').forEach(ci => {
+      const title      = ci.querySelector('.case-title-nav')?.textContent.toLowerCase() || '';
+      const caseNumber = (ci.dataset.caseKey || '').split('/').pop().toLowerCase();
+      const matches    = title.includes(q) || caseNumber.includes(q);
+
+      ci.classList.toggle('nav-search-match', matches);
+      ci.style.display = matches ? '' : 'none';
+      if (matches) {
+        ci.closest('.month-group')?.classList.add('open');
+        ci.closest('.term-group')?.classList.add('open');
+      }
+    });
+
+    // Hide month-groups whose cases all got filtered out
+    document.querySelectorAll('.month-group').forEach(mg => {
+      mg.style.display = mg.querySelector('.nav-search-match') ? '' : 'none';
+    });
+
+    // Hide term-groups whose month-groups all got filtered out
+    document.querySelectorAll('.term-group').forEach(tg => {
+      tg.style.display = tg.querySelector('.nav-search-match') ? '' : 'none';
+    });
+
+    // Scroll first match into view
+    const firstMatch = document.querySelector('.nav-search-match');
+    if (firstMatch) firstMatch.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  navSearchBtn.addEventListener('click', () => {
+    if (navSearchRow.hidden) openNavSearch(); else closeNavSearch();
+  });
+
+  navSearchInput.addEventListener('input', () => runNavSearch(navSearchInput.value));
+
+  navSearchInput.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeNavSearch();
+  });
+})();
+
 // ── Init ────────────────────────────────────────────────────────────────────
 async function init() {
   const termResults = await Promise.all(

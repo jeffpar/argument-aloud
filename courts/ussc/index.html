@@ -11,7 +11,13 @@ title: Oral Arguments
 
 <div id="browser">
   <nav id="doc-browser">
-    <h3>U.S. Supreme Court</h3>
+    <div id="nav-header">
+      <h3>U.S. Supreme Court</h3>
+      <button id="nav-search-btn" title="Search cases" aria-label="Search cases">&#128269;</button>
+    </div>
+    <div id="nav-search-row" hidden>
+      <input id="nav-search-input" type="search" placeholder="Case name or number…" autocomplete="off" spellcheck="false">
+    </div>
     <ul id="term-list"></ul>
   </nav>
 

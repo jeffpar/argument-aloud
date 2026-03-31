@@ -61,13 +61,75 @@ body {
   padding: 16px 12px;
 }
 
+#nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
 #doc-browser h3 {
-  margin: 0 0 14px;
+  margin: 0;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #999;
+}
+
+#nav-search-btn {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 13px;
+  line-height: 1;
+  color: #bbb;
+  border-radius: 4px;
+  transition: background 0.1s, color 0.1s;
+}
+
+#nav-search-btn:hover,
+#nav-search-btn.active {
+  background: #eef3f8;
+  color: #2672b4;
+}
+
+#nav-search-row {
+  margin-bottom: 10px;
+}
+
+#nav-search-row[hidden] {
+  display: none;
+}
+
+#nav-search-input {
+  width: 100%;
+  padding: 5px 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font: 12px/1.4 inherit;
+  outline: none;
+  background: #fff;
+  color: #333;
+}
+
+#nav-search-input:focus {
+  border-color: #2672b4;
+  box-shadow: 0 0 0 2px rgba(38, 114, 180, 0.15);
+}
+
+.nav-search-match > .case-header {
+  background: #fff8c5;
+}
+
+.nav-search-match > .case-header:hover {
+  background: #fef0a0;
+}
+
+.nav-search-match.active > .case-header {
+  background: #2672b4;
 }
 
 #term-list,
