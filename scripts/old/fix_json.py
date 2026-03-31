@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Backfill unique IDs in case JSON files for a given SCOTUS term.
+"""Backfill unique IDs and fix metadata in case JSON files for a given SCOTUS term.
 
 Usage:
     python3 scripts/fix_json.py 2025-10
@@ -11,6 +11,10 @@ For each case directory under courts/ussc/terms/TERM/:
     Numbering starts at 1, or at max(existing "file" values) + 1 so no
     existing IDs are ever reused.  The "file" key is placed first in each
     object for readability.
+
+    Also ensures that entries whose title begins with "Reply of petitioner"
+    have type "petitioner", and entries whose title begins with
+    "Reply of respondent" have type "respondent".
 
   YYYY-MM-DD.json  (transcript files)
     Adds a "turn" property (1-based integer) to every turn that is missing
@@ -52,6 +56,18 @@ def fix_files_json(path: Path) -> bool:
             data[i] = _reorder(entry, 'file')
             next_id += 1
             changed = True
+
+        # Ensure "Reply of petitioner…" entries are typed "petitioner"
+        # and "Reply of respondent…" entries are typed "respondent".
+        title = entry.get('title', '')
+        if title.lower().startswith('reply of petitioner'):
+            if entry.get('type') != 'petitioner':
+                entry['type'] = 'petitioner'
+                changed = True
+        elif title.lower().startswith('reply of respondent'):
+            if entry.get('type') != 'respondent':
+                entry['type'] = 'respondent'
+                changed = True
 
     if changed:
         path.write_text(

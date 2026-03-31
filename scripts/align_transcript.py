@@ -1,26 +1,35 @@
 #!/usr/bin/env python3
-"""Align a SCOTUS oral argument transcript JSON with its audio file,
-adding a "time" field (hh:mm:ss.nn) to each speaker turn.
+"""Aligns SCOTUS oral argument transcript(s) with their audio, adding a
+"time" field (hh:mm:ss.nn) to each speaker turn.
 
 Dependencies:
     pip install faster-whisper rapidfuzz
     brew install ffmpeg          # required by faster-whisper for MP3 input
 
 Usage:
-    python3 align_transcript.py transcript.json audio.mp3
-    python3 align_transcript.py transcript.json audio.mp3 --model large-v2
+    python3 align_transcript.py TERM CASE [--model MODEL] [--purge]
 
-The Whisper word-level transcription is cached alongside the audio as
-    <audio-stem>--whisper.json
-so re-runs skip re-transcription (which may take several minutes).
+Example:
+    python3 align_transcript.py 2025-10 24-1238
 
-On re-run, any turn that already has a "time" value is left unchanged.
+The script reads courts/ussc/terms/TERM/cases.json, finds the matching
+case, then for each argument that has a transcript (text_href) and audio
+(audio_href), downloads the audio to a temporary file and runs alignment.
+
+The Whisper word-level transcription is cached in the case directory as
+    <case-dir>/<audio-stem>--whisper-<model>.json
+so re-runs skip re-transcription (which can take several minutes).
+
+An argument is skipped when every turn already has a "time" value.
+Use --purge to clear all existing timestamps before aligning.
 """
 
 import argparse
 import json
 import re
 import sys
+import tempfile
+import urllib.request
 from pathlib import Path
 
 try:
@@ -63,11 +72,14 @@ def parse_time(time_str: str) -> float:
 
 # ── Whisper transcription / cache ─────────────────────────────────────────────
 
-def transcribe(audio_path: Path, model_name: str) -> list[dict]:
+def transcribe(audio_path: Path, model_name: str,
+               cache_path: Path | None = None) -> list[dict]:
     """Return word dicts: [{"word": str, "start": float, "end": float}, ...]
-    Uses a cache file alongside the audio when available."""
+    Uses *cache_path* when provided; otherwise caches alongside the audio."""
     safe_model = model_name.replace("/", "-")
-    cache = audio_path.with_name(f"{audio_path.stem}--whisper-{safe_model}.json")
+    cache = cache_path or audio_path.with_name(
+        f"{audio_path.stem}--whisper-{safe_model}.json"
+    )
 
     if cache.exists():
         print(f"[align] Loading cached transcription: {cache}", file=sys.stderr)
@@ -90,6 +102,7 @@ def transcribe(audio_path: Path, model_name: str) -> list[dict]:
         for w in seg.words or []:
             words.append({"word": w.word, "start": round(w.start, 3), "end": round(w.end, 3)})
 
+    cache.parent.mkdir(parents=True, exist_ok=True)
     with cache.open("w", encoding="utf-8") as f:
         json.dump(words, f, indent=2)
 
@@ -199,38 +212,65 @@ def find_turn_start(
     return ts, idx
 
 
-# ── Main ──────────────────────────────────────────────────────────────────────
+# ── Per-argument alignment ────────────────────────────────────────────────────
 
-def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("transcript", help="Path to transcript .json")
-    ap.add_argument("audio",      help="Path to audio file (.mp3, .wav, etc.)")
-    ap.add_argument("--model",    default="medium.en",
-                    help="Whisper model size (default: medium.en). "
-                         "Options: tiny.en small.en medium.en large-v2 large-v3")
-    ap.add_argument("--purge", action="store_true",
-                    help="Remove all existing 'time' values before aligning.")
-    args = ap.parse_args()
+REPO_ROOT = Path(__file__).resolve().parent.parent
 
-    transcript_path = Path(args.transcript)
-    audio_path = Path(args.audio)
 
-    with transcript_path.open(encoding="utf-8") as f:
-        turns = json.load(f)
+def _fetch_words(audio_href: str, cache_path: Path, model_name: str) -> list[dict]:
+    """Return Whisper words, loading from cache or downloading + transcribing."""
+    if cache_path.exists():
+        return transcribe(cache_path, model_name, cache_path=cache_path)  # cache hit
 
-    if args.purge:
+    suffix = Path(audio_href.split("?")[0]).suffix or ".mp3"
+    print(f"[align] Downloading audio: {audio_href}", file=sys.stderr)
+    with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
+        tmp_path = Path(tmp.name)
+    try:
+        urllib.request.urlretrieve(audio_href, tmp_path)
+        return transcribe(tmp_path, model_name, cache_path=cache_path)
+    finally:
+        tmp_path.unlink(missing_ok=True)
+
+
+def _align_argument(arg: dict, case_dir: Path, model_name: str, purge: bool) -> None:
+    """Align a single argument's transcript file in-place."""
+    text_href  = arg.get("text_href")
+    audio_href = arg.get("audio_href")
+    date_label = arg.get("date", "?")
+
+    if not text_href or not audio_href:
+        print(f"[align] {date_label}: missing text_href or audio_href — skipped.",
+              file=sys.stderr)
+        return
+
+    transcript_path = case_dir / text_href
+    if not transcript_path.exists():
+        print(f"[align] {transcript_path} not found — skipped.", file=sys.stderr)
+        return
+
+    turns = json.loads(transcript_path.read_text(encoding="utf-8"))
+
+    if purge:
         removed = sum(1 for t in turns if t.pop("time", None) is not None)
-        print(f"[align] Purged {removed} existing timestamps.", file=sys.stderr)
+        print(f"[align] {transcript_path.name}: purged {removed} existing timestamps.",
+              file=sys.stderr)
 
     unaligned = [i for i, t in enumerate(turns) if not t.get("time")]
     if not unaligned:
-        print("[align] All turns already have timestamps — nothing to do.", file=sys.stderr)
+        print(f"[align] {transcript_path.name}: all turns already have timestamps — skipped.",
+              file=sys.stderr)
         return
 
-    print(f"[align] {len(unaligned)} of {len(turns)} turns need alignment.", file=sys.stderr)
+    print(f"[align] {transcript_path.name}: "
+          f"{len(unaligned)} of {len(turns)} turns need alignment.", file=sys.stderr)
 
-    words = transcribe(audio_path, args.model)
+    # Cache whisper output in the case dir, keyed by audio stem + model.
+    audio_stem = Path(audio_href.split("?")[0]).stem
+    safe_model = model_name.replace("/", "-")
+    cache_path = case_dir / f"{audio_stem}--whisper-{safe_model}.json"
+
+    words      = _fetch_words(audio_href, cache_path, model_name)
     word_norms = build_word_norms(words)
     total_words = len(words)
 
@@ -330,6 +370,43 @@ def main() -> None:
         f"= {total_direct + interpolated}/{nturn} → {transcript_path}",
         file=sys.stderr,
     )
+
+
+# ── Main ──────────────────────────────────────────────────────────────────────
+
+def main() -> None:
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("term", help="Term identifier, e.g. 2025-10")
+    ap.add_argument("case", help="Case number, e.g. 24-1238")
+    ap.add_argument("--model", default="medium.en",
+                    help="Whisper model size (default: medium.en). "
+                         "Options: tiny.en small.en medium.en large-v2 large-v3")
+    ap.add_argument("--purge", action="store_true",
+                    help="Remove all existing 'time' values before aligning.")
+    args = ap.parse_args()
+
+    term_dir   = REPO_ROOT / "courts" / "ussc" / "terms" / args.term
+    cases_json = term_dir / "cases.json"
+
+    if not cases_json.exists():
+        sys.exit(f"Error: {cases_json} not found")
+
+    cases = json.loads(cases_json.read_text(encoding="utf-8"))
+    case  = next((c for c in cases if c.get("number") == args.case), None)
+    if case is None:
+        sys.exit(f"Error: case {args.case!r} not found in {cases_json}")
+
+    arguments = case.get("arguments", [])
+    if not arguments:
+        sys.exit(f"Error: case {args.case!r} has no arguments listed.")
+
+    case_dir = term_dir / args.case
+    if not case_dir.is_dir():
+        sys.exit(f"Error: case directory not found: {case_dir}")
+
+    for arg in arguments:
+        _align_argument(arg, case_dir, args.model, args.purge)
 
 
 if __name__ == "__main__":
