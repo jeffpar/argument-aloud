@@ -37,9 +37,15 @@ title: Oral Arguments
       <div id="search-box">
         <div id="search-box-header">
           <input id="search-input" type="search" placeholder="Search transcript…" autocomplete="off" spellcheck="false">
-          <button id="search-prev" title="Previous match" aria-label="Previous match">&#8593;</button>
           <button id="search-next" title="Next match" aria-label="Next match">&#8595;</button>
+          <button id="search-prev" title="Previous match" aria-label="Previous match">&#8593;</button>
           <button id="search-close" title="Close" aria-label="Close search">&times;</button>
+        </div>
+        <div id="search-refs-row">
+          <label for="search-refs">References:</label>
+          <select id="search-refs">
+            <option value=""></option>
+          </select>
         </div>
         <div id="search-status"></div>
       </div>
@@ -57,6 +63,8 @@ title: Oral Arguments
         <span>Document Viewer</span>
         <a id="doc-viewer-url" target="_blank" rel="noopener noreferrer" title="Open in new tab"></a>
         <span id="doc-viewer-ref"></span>
+        <button id="doc-viewer-minimize" title="Minimize document viewer" aria-label="Minimize document viewer">&#9660;</button>
+        <button id="doc-viewer-expand" title="Expand document viewer" aria-label="Expand document viewer">&#9650;</button>
         <button id="doc-viewer-close" title="Close document viewer" aria-label="Close document viewer">&times;</button>
       </div>
       <div id="doc-viewer-card">
