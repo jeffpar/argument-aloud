@@ -54,6 +54,10 @@ from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
 
+# Import opinion helpers from validate_cases (same scripts/ directory).
+sys.path.insert(0, str(Path(__file__).parent))
+from validate_cases import _fetch_opinions, check_opinion_for_case
+
 
 CASE_RE  = re.compile(r'^(\d+(?:-\d+|-Orig|A\d+))\s+(.+)$', re.IGNORECASE)
 DATE_RE  = re.compile(r'^(\d{2})/(\d{2})/(\d{2})$')
@@ -981,6 +985,15 @@ def main():
     print()
     print('Extracting questions presented ...')
     extract_questions(cases_path)
+
+    # Step 7: add slip opinions to files.json
+    print()
+    print('Checking for slip opinions ...')
+    existing = json.loads(cases_path.read_text(encoding='utf-8'))
+    for case in existing:
+        files_path = cases_path.parent / case['number'] / 'files.json'
+        if files_path.exists():
+            check_opinion_for_case(files_path, case['number'], term)
 
 
 if __name__ == '__main__':
