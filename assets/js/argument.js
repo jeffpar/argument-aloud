@@ -628,6 +628,7 @@ async function loadCase(term, caseEntry) {
   emptyState.style.display = 'none';
   turnList.style.display = 'none';
   turnList.innerHTML = '';
+  loadingMsg.textContent = 'Loading…';
   loadingMsg.style.display = 'block';
   activeTurnIdx = -1;
 

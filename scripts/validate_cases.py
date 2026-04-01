@@ -274,6 +274,23 @@ def validate_case(term_dir: Path, case_number: str, check_urls: bool = False) ->
     check_opinion_for_case(files_path, case_number, term_dir.name)
 
 
+def check_duplicate_case_numbers(term_dir: Path) -> None:
+    """Warn if any case number appears more than once in cases.json."""
+    cases_path = term_dir / 'cases.json'
+    if not cases_path.exists():
+        return
+    cases = json.loads(cases_path.read_text(encoding='utf-8'))
+    seen: dict[str, str] = {}   # lower -> original
+    for case in cases:
+        number = case.get('number', '')
+        key = number.lower()
+        if key in seen:
+            print(f'WARNING: duplicate case number in cases.json: '
+                  f'{seen[key]!r} and {number!r}')
+        else:
+            seen[key] = number
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -289,6 +306,8 @@ def main() -> None:
 
     if not term_dir.is_dir():
         sys.exit(f'Error: directory not found: {term_dir}')
+
+    check_duplicate_case_numbers(term_dir)
 
     if len(args) == 2:
         validate_case(term_dir, args[1], check_urls)
