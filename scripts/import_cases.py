@@ -644,8 +644,7 @@ _TYPE_PREFIXES = [
 
 
 def _clean_title(title: str) -> str:
-    title = _FILED_RE.sub('', title).strip()
-    return title.rstrip('.')
+    return _FILED_RE.sub('', title).strip()
 
 
 def _infer_type(title: str) -> str | None:
@@ -668,8 +667,10 @@ def clean_files_json(cases_path: Path) -> None:
         for entry in files:
             title = entry.get('title', '')
 
-            # Strip " filed." and trailing text
+            # Strip " filed." and trailing text; skip trailing-period removal for opinions.
             clean = _clean_title(title)
+            if entry.get('type') != 'opinion':
+                clean = clean.rstrip('.')
             if clean != title:
                 entry['title'] = clean
                 title = clean
