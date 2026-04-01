@@ -654,10 +654,13 @@ async function loadCase(term, caseEntry) {
     const qEl = document.getElementById('case-questions');
     if (caseEntry.questions) {
       const raw = caseEntry.questions;
-      const full = raw.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
-      const sentenceEnd = full.search(/(?<=[.?!]) +[A-Z\u201c\u2018"']/);
-      const hasMore = sentenceEnd !== -1;
-      const firstSentence = hasMore ? full.slice(0, sentenceEnd + 1) : full;
+      // Find the first period immediately followed by a newline to use as the
+      // summary cut point. Fall back to no truncation if none exists.
+      const breakPos = raw.search(/\.\n/);
+      const hasMore = breakPos !== -1;
+      const firstPart = hasMore ? raw.slice(0, breakPos + 1) : raw;
+      // Flatten newlines for the single-line summary display.
+      const firstSentence = firstPart.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
 
       qEl.title = raw;
       qEl.hidden = false;
@@ -705,6 +708,10 @@ async function loadCase(term, caseEntry) {
 
     audio.src = resolvedAudioUrl;
     audio.load();
+
+    // Show a notice if no turns have been time-aligned.
+    const unalignedNote = document.getElementById('unaligned-note');
+    unalignedNote.hidden = turns.some(t => t.time != null);
 
     // Store speakers for the search dropdown (populated on 'transcriptloaded').
     caseSpeakers = (isEnvelope && transcriptData.media?.speakers?.length)
