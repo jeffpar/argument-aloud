@@ -1,0 +1,12 @@
+# Docket number overrides for cases whose internal SCOTUS docket number differs
+# from the default derivation rule.
+#
+# Format:  TERM:CASE_NUMBER -> DOCKET_NUMBER
+#   TERM         - the 4-digit term year (e.g. 2023)
+#   CASE_NUMBER  - the case number as stored in cases.json (e.g. 141-Orig)
+#   DOCKET_NUMBER - the internal SCOTUS docket number used for URL lookups
+#
+# This is needed when an original-jurisdiction case was first argued in an
+# earlier term than the one it appears in.
+
+2023:141-Orig -> 22O141

@@ -186,7 +186,13 @@ def main():
     print(f'  {len(oyez_cases)} case(s) from Oyez')
     print(f'  {len(our_by_num)} case(s) in local cases.json')
 
-    oyez_by_num = {c['docket_number'].strip(): c for c in oyez_cases}
+    def _normalize_oyez_num(raw: str) -> str:
+        """Convert Oyez original-jurisdiction numbers (e.g. '22O141') to the
+        supremecourt.gov format used in cases.json (e.g. '141-Orig')."""
+        m = re.fullmatch(r'\d+O(\d+)', raw.strip())
+        return f'{m.group(1)}-Orig' if m else raw.strip()
+
+    oyez_by_num = {_normalize_oyez_num(c['docket_number']): c for c in oyez_cases}
 
     # Compute comparison against the initial local state for the report.
     in_both   = [n for n in our_by_num if n in oyez_by_num]
@@ -207,42 +213,34 @@ def main():
         oyez_case = oyez_by_num[number]
         case_dir  = cases_path.parent / number
 
-        # Ensure a local case entry exists.
+        # For cases already in our local data, backfill from any existing
+        # -oyez.json files (cheap local reads — no API call needed).
         local_case = our_by_num.get(number)
-        if local_case is None:
-            local_case = {
-                'title':     oyez_case['name'],
-                'number':    number,
-                'arguments': [],
-            }
-            our_cases.append(local_case)
-            our_by_num[number] = local_case
-            cases_modified = True
-
-        # Backfill audio_href / text_href from any already-downloaded -oyez.json files
-        # (cheap local reads — no API call needed).
-        args_by_date = {a.get('date'): a for a in local_case.get('arguments', [])}
-        for oyez_path in sorted(case_dir.glob('*-oyez.json')):
-            date_str = oyez_path.stem[:-5]   # strip '-oyez'
-            existing_arg = args_by_date.get(date_str)
-            if existing_arg and existing_arg.get('audio_href') and existing_arg.get('text_href'):
-                continue   # already complete
-            try:
-                data = json.loads(oyez_path.read_text(encoding='utf-8'))
-                audio_href = (data.get('media') or {}).get('url', '')
-            except Exception:
-                audio_href = ''
-            text_href = oyez_path.name
-            if existing_arg is None:
-                new_arg = {'date': date_str, 'audio_href': audio_href, 'text_href': text_href}
-                local_case.setdefault('arguments', []).append(new_arg)
-                args_by_date[date_str] = new_arg
-            else:
-                if not existing_arg.get('audio_href'):
-                    existing_arg['audio_href'] = audio_href
-                if not existing_arg.get('text_href'):
-                    existing_arg['text_href'] = text_href
-            cases_modified = True
+        if local_case is not None:
+            args_by_date = {a.get('date'): a for a in local_case.get('arguments', [])}
+            for oyez_path in sorted(case_dir.glob('*-oyez.json')):
+                date_str = oyez_path.stem[:-5]   # strip '-oyez'
+                existing_arg = args_by_date.get(date_str)
+                if existing_arg and existing_arg.get('audio_href') and existing_arg.get('text_href'):
+                    continue   # already complete
+                try:
+                    data = json.loads(oyez_path.read_text(encoding='utf-8'))
+                    audio_href = (data.get('media') or {}).get('url', '')
+                except Exception:
+                    audio_href = ''
+                text_href = oyez_path.name
+                if existing_arg is None:
+                    new_arg = {'date': date_str, 'audio_href': audio_href, 'text_href': text_href}
+                    local_case.setdefault('arguments', []).append(new_arg)
+                    args_by_date[date_str] = new_arg
+                else:
+                    if not existing_arg.get('audio_href'):
+                        existing_arg['audio_href'] = audio_href
+                    if not existing_arg.get('text_href'):
+                        existing_arg['text_href'] = text_href
+                cases_modified = True
+        else:
+            args_by_date = {}
 
         # Skip the API call if all oyez files are already present.
         if any(case_dir.glob('*-oyez.json')):
@@ -260,7 +258,18 @@ def main():
 
         args_list = detail.get('oral_argument_audio') or []
         if not args_list:
-            continue
+            continue   # no arguments — don't create an entry or folder
+
+        # Now that we know there are arguments, ensure a local case entry exists.
+        if local_case is None:
+            local_case = {
+                'title':     oyez_case['name'],
+                'number':    number,
+                'arguments': [],
+            }
+            our_cases.append(local_case)
+            our_by_num[number] = local_case
+            cases_modified = True
 
         for oyez_arg in args_list:
             if oyez_arg.get('unavailable'):
