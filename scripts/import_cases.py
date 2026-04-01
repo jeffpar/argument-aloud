@@ -15,8 +15,15 @@ Steps performed:
      audio (MP3) and transcript (PDF) URLs, then append it to cases.json.
   3. For every case in cases.json whose argument has a transcript_href but no
      YYYY-MM-DD.json file yet in courts/ussc/terms/TERM/NUMBER/, download the
-     PDF, extract speaker turns with pdftotext, and write the JSON file.
+     PDF, extract speaker turns with pdftotext, and write the JSON file in the
+     new transcript-envelope format (see below).
      If text_href was absent it is also added to the argument entry in cases.json.
+  3b.Migrate any existing transcript JSON files that are in the old bare-array
+     format to the new envelope format:
+       {
+         "media": { "url": "<audio_href>", "speakers": [{"name": "…"}, …] },
+         "turns": [ … ]
+       }
   6. For every case in cases.json that has questions_href but no questions property,
      download the PDF, extract the question(s) presented as a plain-text string,
      and save it as questions in cases.json.
@@ -119,7 +126,19 @@ SPEAKER_RE = re.compile(
 )
 
 
-def extract_transcript_pdf(pdf_path: Path, output_path: Path) -> list:
+def _build_transcript_envelope(turns: list, audio_href: str = '') -> dict:
+    """Wrap a list of turn dicts in the transcript envelope format."""
+    speaker_names = list(dict.fromkeys(t['name'] for t in turns))  # stable-unique
+    return {
+        'media': {
+            'url':      audio_href,
+            'speakers': [{'name': n} for n in speaker_names],
+        },
+        'turns': turns,
+    }
+
+
+def extract_transcript_pdf(pdf_path: Path, output_path: Path, audio_href: str = '') -> list:
     """Run pdftotext on pdf_path, parse speaker turns, write output_path as JSON."""
     result = subprocess.run(
         ['pdftotext', '-layout', str(pdf_path), '-'],
@@ -169,9 +188,10 @@ def extract_transcript_pdf(pdf_path: Path, output_path: Path) -> list:
     # Assign 1-based "turn" IDs (key placed first for readability)
     turns = [{'turn': i + 1, **turn} for i, turn in enumerate(turns)]
 
+    envelope = _build_transcript_envelope(turns, audio_href)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
-        json.dumps(turns, indent=2, ensure_ascii=False) + '\n',
+        json.dumps(envelope, indent=2, ensure_ascii=False) + '\n',
         encoding='utf-8',
     )
     return turns
@@ -541,7 +561,8 @@ def generate_missing_transcripts(cases_path: Path) -> None:
                     tmp_path = Path(tmp.name)
 
                 download_file(pdf_url, tmp_path)
-                turns = extract_transcript_pdf(tmp_path, transcript_out)
+                audio_href = arg.get('audio_href', '')
+                turns = extract_transcript_pdf(tmp_path, transcript_out, audio_href)
                 print(f'{len(turns)} turns -> {transcript_out.relative_to(REPO_ROOT)}')
 
                 if not arg.get('text_href'):
@@ -563,6 +584,52 @@ def generate_missing_transcripts(cases_path: Path) -> None:
             encoding='utf-8',
         )
         print('Updated cases.json with new text_href entries.')
+
+
+# ── Step 3b: Migrate old-format transcripts ──────────────────────────────────
+
+
+def migrate_transcripts(cases_path: Path) -> None:
+    """Convert any transcript JSON that is a bare array (old format) to the
+    new envelope format {media: {url, speakers}, turns: […]}."""
+    existing = json.loads(cases_path.read_text(encoding='utf-8'))
+
+    # Build a lookup of audio_href by (number, date) so we can populate media.url.
+    audio_map: dict[tuple, str] = {}
+    for case in existing:
+        for arg in case.get('arguments', []):
+            key = (case['number'], arg.get('date', ''))
+            audio_map[key] = arg.get('audio_href', '')
+
+    total = 0
+    for case in existing:
+        number = case['number']
+        case_dir = cases_path.parent / number
+        for arg in case.get('arguments', []):
+            date = arg.get('date', '')
+            transcript_path = case_dir / f'{date}.json'
+            if not transcript_path.exists():
+                continue
+            data = json.loads(transcript_path.read_text(encoding='utf-8'))
+            if isinstance(data, list):
+                # Old format — wrap it.
+                audio_href = audio_map.get((number, date), '')
+                envelope = _build_transcript_envelope(data, audio_href)
+                transcript_path.write_text(
+                    json.dumps(envelope, indent=2, ensure_ascii=False) + '\n',
+                    encoding='utf-8',
+                )
+                try:
+                    rel = transcript_path.relative_to(REPO_ROOT)
+                except ValueError:
+                    rel = transcript_path
+                print(f'  Migrated {rel}')
+                total += 1
+
+    if not total:
+        print('  All transcripts already in new format.')
+    else:
+        print(f'  Migrated {total} transcript(s).')
 
 
 # ── Step 5: Clean up files.json ───────────────────────────────────────────────
@@ -739,6 +806,11 @@ def main():
     print()
     print('Checking for missing transcripts ...')
     generate_missing_transcripts(cases_path)
+
+    # Step 3b: migrate old-format transcripts to envelope format
+    print()
+    print('Migrating old-format transcripts ...')
+    migrate_transcripts(cases_path)
 
     # Step 4: fetch docket info (questions_href + files.json proceedings)
     print()

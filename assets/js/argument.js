@@ -3,6 +3,7 @@ let turns = [];
 let turnTimes = [];   // each turn's start time in seconds
 let activeTurnIdx = -1;
 let links = [];        // annotation links for the current case
+let caseSpeakers = []; // ordered speaker list for the current transcript
 let activeBottomLinkText = null; // text key of the currently shown bottom link
 let docViewerOpenHeight = null;  // px height for next animated open (null = use 45vh default)
 
@@ -627,8 +628,14 @@ async function loadCase(term, caseEntry) {
   try {
     const res = await fetch(transcriptUrl);
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    turns = await res.json();
+    const transcriptData = await res.json();
+    // Support both the new envelope format {media, turns} and the old bare array.
+    const isEnvelope = !Array.isArray(transcriptData);
+    turns = isEnvelope ? (transcriptData.turns ?? []) : transcriptData;
     turnTimes = turns.map(t => parseTime(t.time ?? '00:00:00.00'));
+
+    // Prefer the audio URL embedded in the transcript; fall back to cases.json / path.
+    const resolvedAudioUrl = (isEnvelope && transcriptData.media?.url) || audioUrl;
 
     document.getElementById('case-title-label').textContent =
       caseEntry.title + '\u00a0(No.\u00a0' + caseEntry.number + ')';
@@ -690,8 +697,13 @@ async function loadCase(term, caseEntry) {
       qEl.style.cursor = '';
     }
 
-    audio.src = audioUrl;
+    audio.src = resolvedAudioUrl;
     audio.load();
+
+    // Store speakers for the search dropdown (populated on 'transcriptloaded').
+    caseSpeakers = (isEnvelope && transcriptData.media?.speakers?.length)
+      ? transcriptData.media.speakers
+      : [...new Map(turns.map(t => [t.name, { name: t.name }])).values()];
 
     const rawFiles = await loadFiles(filesUrl);
     links = rawFiles.filter(f => f.refs);
@@ -900,6 +912,8 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   const searchTrigger = document.getElementById('search-btn');
   const refsRow     = document.getElementById('search-refs-row');
   const refsSelect  = document.getElementById('search-refs');
+  const speakersRow   = document.getElementById('search-speakers-row');
+  const speakerSelect = document.getElementById('search-speakers');
 
   let matchIndices = [];   // indices into turns[] that contain the query
   let matchCursor  = -1;   // which match is currently highlighted
@@ -919,6 +933,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   }
 
   function clearHighlights() {
+    document.querySelectorAll('.search-current').forEach(el => el.classList.remove('search-current'));
     const visited = new Set();
     document.querySelectorAll('.turn-highlight').forEach(el => {
       const turnEl = el.closest('[id^="turn-"]');
@@ -930,20 +945,22 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     });
   }
 
-  function highlightMatches(query) {
+  // Unified match computation: filters by selected speaker and/or text query.
+  function computeMatches() {
     clearHighlights();
     matchIndices = [];
-    if (!query) { updateStatus(); return; }
-
-    const queryLower = query.toLowerCase();
+    const query   = input.value.trim();
+    const speaker = speakerSelect.value;
+    if (!query && !speaker) { updateStatus(); return; }
+    const queryLower = query ? query.toLowerCase() : null;
     turns.forEach((turn, idx) => {
-      if (turn.text.toLowerCase().includes(queryLower)) matchIndices.push(idx);
+      if (speaker && turn.name !== speaker) return;
+      if (queryLower && !turn.text.toLowerCase().includes(queryLower)) return;
+      matchIndices.push(idx);
     });
     updateStatus();
-    // Re-render all matching turns with highlighted spans
-    matchIndices.forEach(idx => {
-      applyHighlight(idx, query, false);
-    });
+    // Re-render matching turns with highlighted spans only when text is entered.
+    if (query) matchIndices.forEach(idx => applyHighlight(idx, query, false));
   }
 
   function applyHighlight(turnIdx, query, isCurrent) {
@@ -961,7 +978,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
 
   function updateStatus() {
     if (!matchIndices.length) {
-      statusEl.textContent = input.value ? 'No matches found.' : '';
+      statusEl.textContent = (input.value.trim() || speakerSelect.value) ? 'No matches found.' : '';
     } else {
       statusEl.textContent = (matchCursor >= 0 ? (matchCursor + 1) + ' of ' : '') + matchIndices.length + ' match' + (matchIndices.length === 1 ? '' : 'es');
     }
@@ -971,11 +988,15 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
 
   function goToMatch(delta) {
     if (!matchIndices.length) return;
-    const query = input.value;
-    // Remove 'current' from previous
-    if (matchCursor >= 0) applyHighlight(matchIndices[matchCursor], query, false);
+    const query = input.value.trim();
+    // Remove 'current' styling from previous match
+    if (matchCursor >= 0) {
+      applyHighlight(matchIndices[matchCursor], query, false);
+      document.getElementById('turn-' + matchIndices[matchCursor])?.classList.remove('search-current');
+    }
     matchCursor = (matchCursor + delta + matchIndices.length) % matchIndices.length;
     applyHighlight(matchIndices[matchCursor], query, true);
+    document.getElementById('turn-' + matchIndices[matchCursor])?.classList.add('search-current');
     scrollToMatch(matchIndices[matchCursor]);
     updateStatus();
   }
@@ -998,37 +1019,39 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   input.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
       e.preventDefault();
-      const query = input.value.trim();
-      if (!query) return;
-      // If query changed since last search, re-run highlights first
-      if (!matchIndices.length || query.toLowerCase() !== (turns[matchIndices[0]]?.text.toLowerCase(), input.dataset.lastQuery ?? '')) {
-        highlightMatches(query);
-        input.dataset.lastQuery = query.toLowerCase();
-        if (matchIndices.length) { matchCursor = -1; goToMatch(1); }
+      const query   = input.value.trim();
+      const speaker = speakerSelect.value;
+      if (!query && !speaker) return;
+      const key = query.toLowerCase() + '|' + speaker;
+      if (!matchIndices.length || key !== (input.dataset.lastSearchKey ?? '')) {
+        computeMatches();
+        input.dataset.lastSearchKey = key;
+        if (matchIndices.length) { matchCursor = -1; goToMatch(e.shiftKey ? -1 : 1); }
       } else {
         if (e.shiftKey) goToMatch(-1); else goToMatch(1);
       }
     }
   });
 
-  // Clear stale results as user edits the query
+  // Clear stale results as user edits the query (speaker selection is preserved).
   input.addEventListener('input', () => {
     refsSelect.value = '';
-    if (matchIndices.length) {
+    if (matchIndices.length || input.dataset.lastSearchKey) {
       clearHighlights();
       matchIndices = [];
       matchCursor = -1;
-      delete input.dataset.lastQuery;
+      delete input.dataset.lastSearchKey;
       updateStatus();
     }
   });
 
   function runSearchAndGo(delta) {
-    const query = input.value.trim();
-    if (!query) return;
+    const query   = input.value.trim();
+    const speaker = speakerSelect.value;
+    if (!query && !speaker) return;
     if (!matchIndices.length) {
-      highlightMatches(query);
-      input.dataset.lastQuery = query.toLowerCase();
+      computeMatches();
+      input.dataset.lastSearchKey = query.toLowerCase() + '|' + speaker;
       if (matchIndices.length) { matchCursor = -1; goToMatch(delta > 0 ? 1 : -1); }
     } else {
       goToMatch(delta);
@@ -1044,7 +1067,21 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     matchCursor  = -1;
     input.value  = '';
     statusEl.textContent = '';
-    delete input.dataset.lastQuery;
+    delete input.dataset.lastSearchKey;
+    // Populate speaker dropdown
+    speakerSelect.innerHTML = '<option value="">All Speakers</option>';
+    if (caseSpeakers.length) {
+      caseSpeakers.forEach(({ name }) => {
+        const opt = document.createElement('option');
+        opt.value = name;
+        opt.textContent = formatSpeaker(name);
+        opt.title = name;
+        speakerSelect.appendChild(opt);
+      });
+      speakersRow.classList.add('has-speakers');
+    } else {
+      speakersRow.classList.remove('has-speakers');
+    }
     // Populate refs dropdown from current links
     const refTexts = links.flatMap(l => getRefTexts(l));
     const unique = [...new Set(refTexts)].sort((a, b) => a.localeCompare(b));
@@ -1070,11 +1107,28 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     clearHighlights();
     matchIndices = [];
     matchCursor = -1;
-    delete input.dataset.lastQuery;
-    highlightMatches(ref);
-    input.dataset.lastQuery = ref.toLowerCase();
+    delete input.dataset.lastSearchKey;
+    computeMatches();
+    input.dataset.lastSearchKey = ref.toLowerCase() + '|' + speakerSelect.value;
     if (matchIndices.length) { matchCursor = -1; goToMatch(1); }
     input.focus();
+  });
+
+  speakerSelect.addEventListener('change', () => {
+    // Re-run search with updated speaker filter.
+    clearHighlights();
+    matchIndices = [];
+    matchCursor = -1;
+    delete input.dataset.lastSearchKey;
+    const query   = input.value.trim();
+    const speaker = speakerSelect.value;
+    if (query || speaker) {
+      computeMatches();
+      input.dataset.lastSearchKey = query.toLowerCase() + '|' + speaker;
+      if (matchIndices.length) { matchCursor = -1; goToMatch(1); }
+    } else {
+      updateStatus();
+    }
   });
 })();
 
