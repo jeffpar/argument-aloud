@@ -55,23 +55,70 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 
-CASE_RE  = re.compile(r'^(\d+(?:-\d+|A\d+))\s+(.+)$')
+CASE_RE  = re.compile(r'^(\d+(?:-\d+|-Orig|A\d+))\s+(.+)$', re.IGNORECASE)
 DATE_RE  = re.compile(r'^(\d{2})/(\d{2})/(\d{2})$')
+ORIG_RE  = re.compile(r'^(\d+)[\s-]Orig\.?$', re.IGNORECASE)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 BASE_URL  = 'https://www.supremecourt.gov'
 
+# ── Docket number map ─────────────────────────────────────────────────────────
+
+def _load_docket_map() -> dict[tuple[str, str], str]:
+    """Load scripts/docketmap.txt and return {(term_year, case_number): docket_number}."""
+    path = Path(__file__).parent / 'docketmap.txt'
+    result: dict[tuple[str, str], str] = {}
+    if not path.exists():
+        return result
+    for line in path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        try:
+            left, docket = line.split('->', 1)
+            term, case = left.split(':', 1)
+            result[(term.strip(), case.strip())] = docket.strip()
+        except ValueError:
+            continue
+    return result
+
+
+_DOCKET_MAP = _load_docket_map()
+
+
+def _docket_number(case_number: str, term_year: str) -> str:
+    """Return the internal SCOTUS docket number for a given case number and term.
+
+    For standard cases (24-123, 24A884) this is just the case number itself.
+    For original-jurisdiction cases (141-Orig) the default rule is YYOxxx
+    where YY is the 2-digit term year, but docketmap.txt can override this.
+    """
+    m = ORIG_RE.match(case_number)
+    if m:
+        override = _DOCKET_MAP.get((term_year, case_number))
+        if override:
+            return override
+        yy = term_year[-2:]
+        return f'{yy}O{m.group(1)}'
+    return case_number
+
 
 # ── HTTP helpers ──────────────────────────────────────────────────────────────
 
+def _safe_url(url: str) -> str:
+    """Percent-encode any characters in a URL that are not valid, while
+    leaving already-encoded %XX sequences untouched."""
+    return urllib.parse.quote(url, safe=':/?#[]@!$&\'()*+,;=%')
+
+
 def fetch_html(url: str) -> str:
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    req = urllib.request.Request(_safe_url(url), headers={'User-Agent': 'Mozilla/5.0'})
     with urllib.request.urlopen(req, timeout=30) as resp:
         return resp.read().decode('utf-8', errors='replace')
 
 
 def download_file(url: str, dest: Path) -> None:
-    req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    req = urllib.request.Request(_safe_url(url), headers={'User-Agent': 'Mozilla/5.0'})
     with urllib.request.urlopen(req, timeout=60) as resp:
         dest.write_bytes(resp.read())
 
@@ -409,9 +456,10 @@ def fetch_argument_urls(detail_url: str) -> dict:
     return result
 
 
-def fetch_docket_info(number: str) -> dict:
+def fetch_docket_info(number: str, term_year: str = '') -> dict:
     """Fetch the docket page and return {questions_href, proceedings}."""
-    url = f'{BASE_URL}/docket/docketfiles/html/public/{number}.html'
+    internal = _docket_number(number, term_year)
+    url = f'{BASE_URL}/docket/docketfiles/html/public/{internal}.html'
     try:
         html   = fetch_html(url)
         parser = DocketParser(page_url=url)
@@ -497,7 +545,7 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> Non
 
 # ── Step 4: Fetch docket info ────────────────────────────────────────────────────────
 
-def update_docket_info(cases_path: Path) -> None:
+def update_docket_info(cases_path: Path, term_year: str = '') -> None:
     """For each case without questions_href, or whose files.json has no petitioner
     entry, fetch the SCOTUS docket page and:
       - Set questions_href in cases.json
@@ -511,19 +559,22 @@ def update_docket_info(cases_path: Path) -> None:
         number     = case['number']
         files_path = cases_path.parent / number / 'files.json'
 
-        has_petitioner = False
-        if files_path.exists():
-            try:
-                fdata = json.loads(files_path.read_text(encoding='utf-8'))
-                has_petitioner = any(f.get('type') == 'petitioner' for f in fdata)
-            except Exception:
-                pass
-
-        if case.get('questions_href') and has_petitioner:
-            continue   # already fully processed
+        if case.get('questions_href'):
+            # Docket was already fetched (questions_href proves it). Only re-fetch
+            # if files.json exists but has no petitioner entry yet — meaning the
+            # docket was fetched before petitioner detection was added.
+            has_petitioner = False
+            if files_path.exists():
+                try:
+                    fdata = json.loads(files_path.read_text(encoding='utf-8'))
+                    has_petitioner = any(f.get('type') == 'petitioner' for f in fdata)
+                except Exception:
+                    pass
+            if has_petitioner or not files_path.exists():
+                continue   # already fully processed
 
         print(f'  Fetching docket for {number} ...', end=' ', flush=True)
-        info = fetch_docket_info(number)
+        info = fetch_docket_info(number, term_year)
         time.sleep(0.3)
 
         if not info:
@@ -532,7 +583,7 @@ def update_docket_info(cases_path: Path) -> None:
 
         changed = []
 
-        if info.get('questions_href'):
+        if info.get('questions_href') and not case.get('questions_href'):
             case['questions_href'] = info['questions_href']
             cases_modified = True
             changed.append('questions_href')
@@ -914,7 +965,7 @@ def main():
     # Step 4: fetch docket info (questions_href + files.json proceedings)
     print()
     print('Fetching docket info for cases without questions_href ...')
-    update_docket_info(cases_path)
+    update_docket_info(cases_path, year_str)
 
     # Step 5: clean up files.json titles and infer missing types
     print()
