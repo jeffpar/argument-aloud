@@ -4,10 +4,18 @@ producing a cases.json, and generating transcript JSON files from the PDF
 transcripts.
 
 Usage:
-    python3 scripts/import_cases.py https://www.supremecourt.gov/oral_arguments/argument_audio/2025
+    python3 scripts/import_cases.py TERM
 
-The year in the URL maps to the October term folder:
-    courts/ussc/terms/2025-10/cases.json
+Examples:
+    python3 scripts/import_cases.py 2025-10
+    python3 scripts/import_cases.py 2024-10
+
+The term must be in YYYY-10 format. The corresponding supremecourt.gov listing
+page (https://www.supremecourt.gov/oral_arguments/argument_audio/YYYY) is
+fetched automatically.
+
+Output:
+    courts/ussc/terms/YYYY-10/cases.json
 
 Steps performed:
   1. Scrape the listing page for all case numbers, titles, and argument dates.
@@ -42,6 +50,7 @@ import tempfile
 import time
 import urllib.parse
 import urllib.request
+from datetime import datetime
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -695,6 +704,57 @@ def clean_files_json(cases_path: Path) -> None:
         print('  Nothing to clean.')
 
 
+# ── Step 5b: Add transcript PDF entries to files.json ───────────────────────
+
+
+def add_transcript_entries(cases_path: Path) -> None:
+    """For each argument that has a transcript_href, ensure files.json contains
+    an entry with type='transcript' linking to the PDF transcript."""
+    existing = json.loads(cases_path.read_text(encoding='utf-8'))
+    total_added = 0
+
+    for case in existing:
+        number = case['number']
+        for arg in case.get('arguments', []):
+            pdf_url = arg.get('transcript_href')
+            date    = arg.get('date')
+            if not pdf_url or not date:
+                continue
+
+            case_dir   = cases_path.parent / number
+            files_path = case_dir / 'files.json'
+            case_dir.mkdir(parents=True, exist_ok=True)
+
+            files = []
+            if files_path.exists():
+                files = json.loads(files_path.read_text(encoding='utf-8'))
+
+            # Skip if a transcript entry for this PDF already exists.
+            if any(f.get('type') == 'transcript' and f.get('href') == pdf_url for f in files):
+                continue
+
+            dt = datetime.fromisoformat(date)
+            title = f'Transcript of Oral Argument on {dt.strftime("%B")} {dt.day}, {dt.year}'
+            next_file_id = max((f.get('file', 0) for f in files), default=0) + 1
+            files.append({
+                'file':  next_file_id,
+                'type':  'transcript',
+                'title': title,
+                'date':  date,
+                'href':  pdf_url,
+            })
+            files_path.write_text(
+                json.dumps(files, indent=2, ensure_ascii=False) + '\n',
+                encoding='utf-8',
+            )
+            total_added += 1
+
+    if total_added:
+        print(f'  Added transcript entries to {total_added} files.json file(s).')
+    else:
+        print('  All transcript entries already present.')
+
+
 # ── Step 6: Extract questions presented ──────────────────────────────────────
 
 # Marks the start of the questions block.
@@ -785,14 +845,14 @@ def main():
         print(__doc__)
         sys.exit(1)
 
-    url = sys.argv[1].rstrip('/')
-
-    year_str = url.split('/')[-1]
-    if not re.fullmatch(r'\d{4}', year_str):
-        print(f'Error: expected a 4-digit year at the end of the URL, got {year_str!r}')
+    term = sys.argv[1].strip()
+    m = re.fullmatch(r'(\d{4})-10', term)
+    if not m:
+        print(f'Error: expected a term in YYYY-10 format (e.g. 2025-10), got {term!r}')
         sys.exit(1)
 
-    term       = f'{year_str}-10'
+    year_str   = m.group(1)
+    url        = f'https://www.supremecourt.gov/oral_arguments/argument_audio/{year_str}'
     cases_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term / 'cases.json'
 
     scraped = fetch_cases_from_url(url)
@@ -822,6 +882,11 @@ def main():
     print()
     print('Cleaning up files.json entries ...')
     clean_files_json(cases_path)
+
+    # Step 5b: add transcript PDF entries to files.json
+    print()
+    print('Adding transcript entries to files.json ...')
+    add_transcript_entries(cases_path)
 
     # Step 6: extract questions presented from PDF
     print()

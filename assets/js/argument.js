@@ -507,6 +507,12 @@ function buildNav(termData) {
             delete groups.amicus;
           }
 
+          // Always append transcript entries at the end of Other.
+          if (groups.transcript?.length) {
+            groups.other = [...(groups.other || []), ...groups.transcript];
+            delete groups.transcript;
+          }
+
           const effectiveOrder = MERGE_AMICUS_OTHER
             ? ORDER.filter(k => k !== 'amicus')
             : ORDER;

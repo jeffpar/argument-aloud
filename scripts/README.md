@@ -27,11 +27,18 @@ producing a cases.json, and generating transcript JSON files from the PDF
 transcripts.
 
 Usage:
-    python3 scripts/import_cases.py https://www.supremecourt.gov/oral_arguments/argument_audio/2025
+    python3 scripts/import_cases.py TERM
 
-The year in the URL maps to the October term folder:
+Examples:
+    python3 scripts/import_cases.py 2025-10
+    python3 scripts/import_cases.py 2024-10
 
-    courts/ussc/terms/2025-10/cases.json
+The term must be in YYYY-10 format. The corresponding supremecourt.gov listing
+page (https://www.supremecourt.gov/oral_arguments/argument_audio/YYYY) is
+fetched automatically.
+
+Output:
+    courts/ussc/terms/YYYY-10/cases.json
 
 Steps performed:
   1. Scrape the listing page for all case numbers, titles, and argument dates.
@@ -39,8 +46,15 @@ Steps performed:
      audio (MP3) and transcript (PDF) URLs, then append it to cases.json.
   3. For every case in cases.json whose argument has a transcript_href but no
      YYYY-MM-DD.json file yet in courts/ussc/terms/TERM/NUMBER/, download the
-     PDF, extract speaker turns with pdftotext, and write the JSON file.
+     PDF, extract speaker turns with pdftotext, and write the JSON file in the
+     new transcript-envelope format (see below).
      If text_href was absent it is also added to the argument entry in cases.json.
+  3b.Migrate any existing transcript JSON files that are in the old bare-array
+     format to the new envelope format:
+       {
+         "media": { "url": "<audio_href>", "speakers": [{"name": "…"}, …] },
+         "turns": [ … ]
+       }
   6. For every case in cases.json that has questions_href but no questions property,
      download the PDF, extract the question(s) presented as a plain-text string,
      and save it as questions in cases.json.
