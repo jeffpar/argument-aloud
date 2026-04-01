@@ -55,7 +55,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 
-CASE_RE  = re.compile(r'^(\d+-\d+)\s+(.+)$')
+CASE_RE  = re.compile(r'^(\d+(?:-\d+|A\d+))\s+(.+)$')
 DATE_RE  = re.compile(r'^(\d{2})/(\d{2})/(\d{2})$')
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -471,13 +471,13 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> Non
         if not scraped or not scraped.get('detail_url'):
             continue
         for arg in case.get('arguments', []):
-            if arg.get('audio_href'):
-                continue   # already have it
+            if arg.get('transcript_href'):
+                continue   # already have supremecourt.gov URLs
             print(f'  Backfilling URLs for {case["number"]} ({arg.get("date", "?")}) ...', end=' ', flush=True)
             arg_urls = fetch_argument_urls(scraped['detail_url'])
             time.sleep(0.3)
             if arg_urls:
-                arg.update(arg_urls)
+                arg.update(arg_urls)   # overwrites audio_href with SCOTUS copy if present
                 modified = True
                 status = 'audio+transcript' if 'transcript_href' in arg_urls else 'audio only'
             else:
