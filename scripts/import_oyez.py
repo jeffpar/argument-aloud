@@ -171,11 +171,14 @@ def main():
         sys.exit(1)
 
     cases_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term / 'cases.json'
-    if not cases_path.exists():
-        print(f'Error: {cases_path} not found.')
-        sys.exit(1)
 
-    our_cases  = json.loads(cases_path.read_text(encoding='utf-8'))
+    if cases_path.exists():
+        our_cases = json.loads(cases_path.read_text(encoding='utf-8'))
+    else:
+        cases_path.parent.mkdir(parents=True, exist_ok=True)
+        our_cases = []
+        print(f'Creating new {cases_path.relative_to(REPO_ROOT)}')
+
     our_by_num = {c['number']: c for c in our_cases}
 
     print(f'Fetching Oyez case list for {year_str} term ...')
@@ -184,6 +187,8 @@ def main():
     print(f'  {len(our_by_num)} case(s) in local cases.json')
 
     oyez_by_num = {c['docket_number'].strip(): c for c in oyez_cases}
+
+    # Compute comparison against the initial local state for the report.
     in_both   = [n for n in our_by_num if n in oyez_by_num]
     oyez_only = [n for n in oyez_by_num if n not in our_by_num]
     our_only  = [n for n in our_by_num if n not in oyez_by_num]
@@ -196,17 +201,55 @@ def main():
 
     print()
     downloaded = skipped = errors = 0
+    cases_modified = False
 
-    for number in sorted(in_both):
+    for number in sorted(oyez_by_num):
         oyez_case = oyez_by_num[number]
         case_dir  = cases_path.parent / number
 
-        # Skip without any API call if all arguments have already been downloaded.
+        # Ensure a local case entry exists.
+        local_case = our_by_num.get(number)
+        if local_case is None:
+            local_case = {
+                'title':     oyez_case['name'],
+                'number':    number,
+                'arguments': [],
+            }
+            our_cases.append(local_case)
+            our_by_num[number] = local_case
+            cases_modified = True
+
+        # Backfill audio_href / text_href from any already-downloaded -oyez.json files
+        # (cheap local reads — no API call needed).
+        args_by_date = {a.get('date'): a for a in local_case.get('arguments', [])}
+        for oyez_path in sorted(case_dir.glob('*-oyez.json')):
+            date_str = oyez_path.stem[:-5]   # strip '-oyez'
+            existing_arg = args_by_date.get(date_str)
+            if existing_arg and existing_arg.get('audio_href') and existing_arg.get('text_href'):
+                continue   # already complete
+            try:
+                data = json.loads(oyez_path.read_text(encoding='utf-8'))
+                audio_href = (data.get('media') or {}).get('url', '')
+            except Exception:
+                audio_href = ''
+            text_href = oyez_path.name
+            if existing_arg is None:
+                new_arg = {'date': date_str, 'audio_href': audio_href, 'text_href': text_href}
+                local_case.setdefault('arguments', []).append(new_arg)
+                args_by_date[date_str] = new_arg
+            else:
+                if not existing_arg.get('audio_href'):
+                    existing_arg['audio_href'] = audio_href
+                if not existing_arg.get('text_href'):
+                    existing_arg['text_href'] = text_href
+            cases_modified = True
+
+        # Skip the API call if all oyez files are already present.
         if any(case_dir.glob('*-oyez.json')):
             skipped += 1
             continue
 
-        # Fetch case detail to get oral_argument_audio list
+        # Fetch case detail to get oral_argument_audio list.
         try:
             detail = fetch_json(oyez_case['href'])
             time.sleep(0.2)
@@ -251,10 +294,33 @@ def main():
                     rel = out_path
                 print(f'{len(envelope["turns"])} turns -> {rel}')
                 downloaded += 1
+
+                # Update cases.json with audio_href and text_href.
+                audio_href = (envelope.get('media') or {}).get('url', '')
+                text_href  = out_path.name
+                existing_arg = args_by_date.get(date_str)
+                if existing_arg is None:
+                    new_arg = {'date': date_str, 'audio_href': audio_href, 'text_href': text_href}
+                    local_case.setdefault('arguments', []).append(new_arg)
+                    args_by_date[date_str] = new_arg
+                else:
+                    if not existing_arg.get('audio_href'):
+                        existing_arg['audio_href'] = audio_href
+                    if not existing_arg.get('text_href'):
+                        existing_arg['text_href'] = text_href
+                cases_modified = True
+
                 time.sleep(0.3)
             except Exception as exc:
                 print(f'ERROR: {exc}')
                 errors += 1
+
+    if cases_modified:
+        cases_path.write_text(
+            json.dumps(our_cases, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print(f'Updated {cases_path.relative_to(REPO_ROOT)}')
 
     print()
     print(f'Done.  Downloaded: {downloaded}  |  Already existed: {skipped}  |  Errors: {errors}')
