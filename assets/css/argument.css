@@ -589,6 +589,29 @@ body {
   min-height: 16px;
 }
 
+#search-speakers-row {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+#search-speakers-row.has-speakers {
+  display: flex;
+}
+
+#search-speakers {
+  flex: 1;
+  font-size: 12.5px;
+  padding: 4px 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #f8f8f8;
+  color: #333;
+  cursor: pointer;
+}
+
 #search-refs-row {
   display: none;
   align-items: center;
@@ -675,6 +698,10 @@ body {
 .turn.active {
   background: #fffbdb;
   border-left-color: #e6a817 !important;
+}
+
+.turn.search-current {
+  background: #e8f3fb;
 }
 
 /* Role color coding */
