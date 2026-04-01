@@ -211,24 +211,35 @@ def extract_transcript_pdf(pdf_path: Path, output_path: Path, audio_href: str = 
 class ListingParser(HTMLParser):
     """Parse the argument_audio listing page into a list of case dicts.
 
-    Each dict has: number, title, date (ISO).
+    Each dict has: number, title, date (ISO), detail_url.
     Only rows with a docket-number cell AND a parseable date cell are kept.
     """
 
-    def __init__(self):
+    def __init__(self, base_url: str = ''):
         super().__init__(convert_charrefs=True)
+        self._base_url  = base_url
         self._td_depth  = 0
         self._td_buf    = []
         self._row_cells = []   # accumulated text values for current <tr>
+        self._row_hrefs = []   # first href seen in each <td>
+        self._cur_href  = None
         self.cases      = []
 
     def handle_starttag(self, tag, attrs):
         if tag == 'tr':
             self._row_cells = []
+            self._row_hrefs = []
         elif tag == 'td':
             if self._td_depth == 0:
-                self._td_buf = []
+                self._td_buf  = []
+                self._cur_href = None
             self._td_depth += 1
+        elif tag == 'a' and self._td_depth == 1 and self._cur_href is None:
+            href = dict(attrs).get('href', '')
+            if href:
+                # Resolve relative hrefs against the listing page URL.
+                import urllib.parse as _up
+                self._cur_href = _up.urljoin(self._base_url, href)
 
     def handle_endtag(self, tag):
         if tag == 'td' and self._td_depth > 0:
@@ -236,6 +247,7 @@ class ListingParser(HTMLParser):
             if self._td_depth == 0:
                 text = ' '.join(''.join(self._td_buf).split())
                 self._row_cells.append(text)
+                self._row_hrefs.append(self._cur_href)
         elif tag == 'tr':
             if len(self._row_cells) == 2:
                 case_text, date_text = self._row_cells
@@ -243,9 +255,10 @@ class ListingParser(HTMLParser):
                 date_iso = parse_date(date_text)
                 if m and date_iso:
                     self.cases.append({
-                        'number': m.group(1),
-                        'title':  m.group(2).strip(),
-                        'date':   date_iso,
+                        'number':     m.group(1),
+                        'title':      m.group(2).strip(),
+                        'date':       date_iso,
+                        'detail_url': self._row_hrefs[0] if self._row_hrefs else None,
                     })
 
     def handle_data(self, data):
@@ -366,25 +379,26 @@ class DocketParser(HTMLParser):
 # ── Scrape listing page ───────────────────────────────────────────────────────
 
 def fetch_cases_from_url(url: str) -> list[dict]:
-    """Return a list of {number, title, date} dicts scraped from the listing page."""
+    """Return a list of {number, title, date, detail_url} dicts scraped from the listing page."""
     print(f'Fetching {url} ...')
     html   = fetch_html(url)
-    parser = ListingParser()
+    parser = ListingParser(base_url=url)
     parser.feed(html)
     return parser.cases
 
 
 # ── Scrape case detail page ───────────────────────────────────────────────────
 
-def fetch_argument_urls(year: str, number: str) -> dict:
+def fetch_argument_urls(detail_url: str) -> dict:
     """Fetch the case detail page and return audio_href / transcript_href if found."""
-    detail_url = f'{BASE_URL}/oral_arguments/audio/{year}/{number}'
+    if not detail_url:
+        return {}
     try:
         html   = fetch_html(detail_url)
         parser = DetailParser()
         parser.feed(html)
     except Exception as exc:
-        print(f'    Warning: could not fetch detail page for {number}: {exc}')
+        print(f'    Warning: could not fetch detail page {detail_url}: {exc}')
         return {}
 
     result = {}
@@ -420,15 +434,18 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> Non
         cases_path.parent.mkdir(parents=True, exist_ok=True)
         existing = []
 
+    # Build a lookup from case number → scraped case (with detail_url).
+    scraped_by_num = {c['number']: c for c in new_cases}
     existing_numbers = {c['number'] for c in existing}
 
+    modified = False
     added = []
     for case in new_cases:
         if case['number'] in existing_numbers:
             continue
 
         print(f'  Adding {case["number"]} ({case["date"]}) ...', end=' ', flush=True)
-        arg_urls = fetch_argument_urls(year, case['number'])
+        arg_urls = fetch_argument_urls(case['detail_url'])
         time.sleep(0.3)   # be polite
 
         argument = {'date': case['date']}
@@ -447,12 +464,33 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> Non
         })
         added.append(case['number'])
 
-    if added:
+    # Backfill audio_href / transcript_href for existing cases whose arguments
+    # are missing them (e.g. the detail URL had a suffix like _2 on first import).
+    for case in existing:
+        scraped = scraped_by_num.get(case['number'])
+        if not scraped or not scraped.get('detail_url'):
+            continue
+        for arg in case.get('arguments', []):
+            if arg.get('audio_href'):
+                continue   # already have it
+            print(f'  Backfilling URLs for {case["number"]} ({arg.get("date", "?")}) ...', end=' ', flush=True)
+            arg_urls = fetch_argument_urls(scraped['detail_url'])
+            time.sleep(0.3)
+            if arg_urls:
+                arg.update(arg_urls)
+                modified = True
+                status = 'audio+transcript' if 'transcript_href' in arg_urls else 'audio only'
+            else:
+                status = 'no media URLs found'
+            print(status)
+
+    if added or modified:
         cases_path.write_text(
             json.dumps(existing, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
-        print(f'\nAdded {len(added)} case(s) to {cases_path}.')
+        if added:
+            print(f'\nAdded {len(added)} case(s) to {cases_path}.')
     else:
         print(f'No new cases to add to {cases_path}')
 

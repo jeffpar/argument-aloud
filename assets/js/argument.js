@@ -634,13 +634,33 @@ async function loadCase(term, caseEntry) {
   try {
     const res = await fetch(transcriptUrl);
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    const transcriptData = await res.json();
+    let transcriptData = await res.json();
+
     // Support both the new envelope format {media, turns} and the old bare array.
-    const isEnvelope = !Array.isArray(transcriptData);
+    let isEnvelope = !Array.isArray(transcriptData);
     turns = isEnvelope ? (transcriptData.turns ?? []) : transcriptData;
+
+    // If the primary transcript has no time-aligned turns, try the Oyez fallback file.
+    if (!turns.some(t => t.time != null) && arg.date) {
+      const oyezUrl = basePath + arg.date + '-oyez.json';
+      try {
+        const oyezRes = await fetch(oyezUrl);
+        if (oyezRes.ok) {
+          const oyezData = await oyezRes.json();
+          const oyezIsEnvelope = !Array.isArray(oyezData);
+          const oyezTurns = oyezIsEnvelope ? (oyezData.turns ?? []) : oyezData;
+          if (oyezTurns.length) {
+            transcriptData = oyezData;
+            isEnvelope = oyezIsEnvelope;
+            turns = oyezTurns;
+          }
+        }
+      } catch (_) { /* ignore — fall through with empty turns */ }
+    }
+
     turnTimes = turns.map(t => parseTime(t.time ?? '00:00:00.00'));
 
-    // Prefer the audio URL embedded in the transcript; fall back to cases.json / path.
+    // Prefer the audio URL embedded in the transcript envelope; fall back to cases.json.
     const resolvedAudioUrl = (isEnvelope && transcriptData.media?.url) || audioUrl;
 
     document.getElementById('case-title-label').textContent =
