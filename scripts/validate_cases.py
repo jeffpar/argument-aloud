@@ -208,6 +208,67 @@ def check_opinion_for_case(files_path: Path, case_number: str, term: str) -> Non
     print(f'    Opinion: added "{new_entry["title"]}" ({opinion["date"]}, J. {opinion["author"]})')
 
 
+# ── Source/type detection ─────────────────────────────────────────────────────
+
+def _detect_source_type(audio_href: str) -> tuple[str, str]:
+    """Return (source, type) derived from an audio_href URL.
+
+    source:
+      'ussc'  — hosted on supremecourt.gov
+      'nara'  — hosted on NARA infrastructure (NARAprodstorage, archives.gov, …)
+      'oyez'  — hosted on Oyez S3 bucket
+    type:
+      'reargument' — Oyez URL explicitly contains 'reargument'
+      'argument'   — everything else (default)
+    """
+    href_lower = audio_href.lower()
+    if 'supremecourt.gov' in href_lower:
+        source = 'ussc'
+    elif 'nara' in href_lower:
+        source = 'nara'
+    elif 'oyez' in href_lower:
+        source = 'oyez'
+    else:
+        source = 'unknown'
+
+    type_val = 'reargument' if (source == 'oyez' and 'reargument' in href_lower) else 'argument'
+    return source, type_val
+
+
+def validate_cases_json_arguments(cases_path: Path) -> None:
+    """Add/update 'source' and 'type' at the top of each argument object in cases.json."""
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    modified = False
+    for case in data:
+        for i, arg in enumerate(case.get('arguments', [])):
+            audio_href = arg.get('audio_href', '')
+            if not audio_href:
+                continue
+
+            source, type_val = _detect_source_type(audio_href)
+
+            if arg.get('source') == source and arg.get('type') == type_val:
+                continue  # already correct, leave untouched
+
+            # Rebuild with source + type first, preserving all other keys in order.
+            new_arg: dict = {'source': source, 'type': type_val}
+            new_arg.update({k: v for k, v in arg.items() if k not in ('source', 'type')})
+            case['arguments'][i] = new_arg
+            modified = True
+
+    if modified:
+        cases_path.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print('Updated cases.json: set source/type on argument objects.')
+    else:
+        print('cases.json argument source/type fields already up to date.')
+
+
 # ── Core validation ───────────────────────────────────────────────────────────
 
 def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = False) -> None:
@@ -308,6 +369,10 @@ def main() -> None:
         sys.exit(f'Error: directory not found: {term_dir}')
 
     check_duplicate_case_numbers(term_dir)
+
+    cases_path = term_dir / 'cases.json'
+    if cases_path.exists():
+        validate_cases_json_arguments(cases_path)
 
     if len(args) == 2:
         validate_case(term_dir, args[1], check_urls)

@@ -500,7 +500,7 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> Non
         arg_urls = fetch_argument_urls(case['detail_url'])
         time.sleep(0.3)   # be polite
 
-        argument = {'date': case['date']}
+        argument = {'source': 'ussc', 'type': 'argument', 'date': case['date']}
         argument.update(arg_urls)
 
         if arg_urls:
@@ -523,6 +523,8 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> Non
         if not scraped or not scraped.get('detail_url'):
             continue
         for arg in case.get('arguments', []):
+            if arg.get('source', 'ussc') != 'ussc':
+                continue   # only backfill USSC arguments
             if arg.get('transcript_href'):
                 continue   # already have supremecourt.gov URLs
             print(f'  Backfilling URLs for {case["number"]} ({arg.get("date", "?")}) ...', end=' ', flush=True)

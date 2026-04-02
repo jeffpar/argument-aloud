@@ -59,6 +59,8 @@ def speaker_name(speaker: dict) -> str:
     last = (speaker.get('last_name') or '').upper()
     roles = speaker.get('roles') or []
     for role in roles:
+        if not role:
+            continue
         if role.get('date_end') != 0:
             continue  # no longer serving
         title = role.get('role_title', '')
@@ -90,6 +92,13 @@ def parse_oyez_date(title: str) -> str | None:
         return None
 
 
+def _oyez_arg_type(title: str) -> str:
+    """Return 'reargument' or 'argument' from an Oyez oral_argument_audio title."""
+    if 'reargument' in title.lower():
+        return 'reargument'
+    return 'argument'
+
+
 def fetch_oyez_transcript(arg_href: str) -> dict | None:
     """Fetch an Oyez oral argument detail and convert to our envelope format.
 
@@ -114,7 +123,11 @@ def fetch_oyez_transcript(arg_href: str) -> dict | None:
     turn_num = 0
 
     for section in sections:
+        if not section:
+            continue
         for turn in section.get('turns') or []:
+            if not turn:
+                continue
             sp = turn.get('speaker') or {}
             sp_id = sp.get('ID', 0)
             if sp_id not in speaker_cache:
@@ -122,7 +135,7 @@ def fetch_oyez_transcript(arg_href: str) -> dict | None:
             name = speaker_cache[sp_id]
 
             blocks = turn.get('text_blocks') or []
-            text = ' '.join(b['text'].strip() for b in blocks if b.get('text'))
+            text = ' '.join(b['text'].strip() for b in blocks if b and b.get('text'))
             if not text:
                 continue
 
@@ -217,30 +230,44 @@ def main():
         # -oyez.json files (cheap local reads — no API call needed).
         local_case = our_by_num.get(number)
         if local_case is not None:
-            args_by_date = {a.get('date'): a for a in local_case.get('arguments', [])}
+            # Build a set of (date, source) tuples for dedup; infer source from
+            # audio_href for older entries that pre-date the source field.
+            existing_date_sources: set[tuple[str, str]] = set()
+            for a in local_case.get('arguments', []):
+                src = a.get('source')
+                if not src:
+                    href = a.get('audio_href', '').lower()
+                    if 'supremecourt.gov' in href:
+                        src = 'ussc'
+                    elif 'nara' in href:
+                        src = 'nara'
+                    elif 'oyez' in href:
+                        src = 'oyez'
+                if src:
+                    existing_date_sources.add((a.get('date'), src))
+
             for oyez_path in sorted(case_dir.glob('*-oyez.json')):
                 date_str = oyez_path.stem[:-5]   # strip '-oyez'
-                existing_arg = args_by_date.get(date_str)
-                if existing_arg and existing_arg.get('audio_href') and existing_arg.get('text_href'):
-                    continue   # already complete
+                if (date_str, 'oyez') in existing_date_sources:
+                    continue   # oyez entry for this date already present
                 try:
                     data = json.loads(oyez_path.read_text(encoding='utf-8'))
                     audio_href = (data.get('media') or {}).get('url', '')
                 except Exception:
                     audio_href = ''
-                text_href = oyez_path.name
-                if existing_arg is None:
-                    new_arg = {'date': date_str, 'audio_href': audio_href, 'text_href': text_href}
-                    local_case.setdefault('arguments', []).append(new_arg)
-                    args_by_date[date_str] = new_arg
-                else:
-                    if not existing_arg.get('audio_href'):
-                        existing_arg['audio_href'] = audio_href
-                    if not existing_arg.get('text_href'):
-                        existing_arg['text_href'] = text_href
+                type_val = 'reargument' if 'reargument' in audio_href.lower() else 'argument'
+                new_arg = {
+                    'source':     'oyez',
+                    'type':       type_val,
+                    'date':       date_str,
+                    'audio_href': audio_href,
+                    'text_href':  oyez_path.name,
+                }
+                local_case.setdefault('arguments', []).append(new_arg)
+                existing_date_sources.add((date_str, 'oyez'))
                 cases_modified = True
         else:
-            args_by_date = {}
+            existing_date_sources = set()
 
         # Skip the API call if all oyez files are already present.
         if any(case_dir.glob('*-oyez.json')):
@@ -304,20 +331,21 @@ def main():
                 print(f'{len(envelope["turns"])} turns -> {rel}')
                 downloaded += 1
 
-                # Update cases.json with audio_href and text_href.
+                # Update cases.json with source, type, audio_href and text_href.
                 audio_href = (envelope.get('media') or {}).get('url', '')
                 text_href  = out_path.name
-                existing_arg = args_by_date.get(date_str)
-                if existing_arg is None:
-                    new_arg = {'date': date_str, 'audio_href': audio_href, 'text_href': text_href}
+                if (date_str, 'oyez') not in existing_date_sources:
+                    type_val = _oyez_arg_type(oyez_arg.get('title', ''))
+                    new_arg = {
+                        'source':     'oyez',
+                        'type':       type_val,
+                        'date':       date_str,
+                        'audio_href': audio_href,
+                        'text_href':  text_href,
+                    }
                     local_case.setdefault('arguments', []).append(new_arg)
-                    args_by_date[date_str] = new_arg
-                else:
-                    if not existing_arg.get('audio_href'):
-                        existing_arg['audio_href'] = audio_href
-                    if not existing_arg.get('text_href'):
-                        existing_arg['text_href'] = text_href
-                cases_modified = True
+                    existing_date_sources.add((date_str, 'oyez'))
+                    cases_modified = True
 
                 time.sleep(0.3)
             except Exception as exc:
