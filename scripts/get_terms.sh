@@ -26,8 +26,8 @@ for (( year = START; year >= END; year-- )); do
     echo "  Term: $term"
     echo "========================================"
 
-    echo "--- import_cases.py $term ---"
-    python3 scripts/import_cases.py "$term" 2>&1 | tee -a "$LOG"
+#   echo "--- import_cases.py $term ---"
+#   python3 scripts/import_cases.py "$term" 2>&1 | tee -a "$LOG"
 
     echo ""
     echo "--- import_oyez.py $term ---"
