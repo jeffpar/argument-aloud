@@ -6,6 +6,8 @@ let links = [];        // annotation links for the current case
 let caseSpeakers = []; // ordered speaker list for the current transcript
 let activeBottomLinkText = null; // text key of the currently shown bottom link
 let docViewerOpenHeight = null;  // px height for next animated open (null = use 45vh default)
+let _currentAudioList = [];    // sorted audio entries for the active case
+let _currentBasePath  = '';    // base URL path for the active case
 
 const audio       = document.getElementById('audio-player');
 const turnList    = document.getElementById('turn-list');
@@ -49,6 +51,17 @@ function speakerClass(name) {
 
 function escapeHtml(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function audioEntryLabel(a) {
+  if (a.title) return a.title;
+  const dateFormatted = a.date
+    ? new Date(a.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+    : '';
+  const type = a.type || 'argument';
+  if (type === 'reargument') return 'Oral Reargument on ' + dateFormatted;
+  if (type === 'opinion')    return 'Opinion Announcement on ' + dateFormatted;
+  return 'Oral Argument on ' + dateFormatted;
 }
 
 // Seek to a time without playing (used for URL-based turn restore).
@@ -693,26 +706,15 @@ function buildNav() {
 
 // ── Load a case ─────────────────────────────────────────────────────────────
 
-async function loadCase(term, caseEntry) {
-  if (!caseEntry.audio || !caseEntry.audio.length) return;
-  const arg = caseEntry.audio[0];
-  const caseKey = term + '/' + caseEntry.number;
-  const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseEntry.number + '/';
+// Load (or switch to) a specific audio entry within the already-set-up case.
+async function loadAudioEntry(arg, basePath) {
   const transcriptUrl = /^https?:\/\//i.test(arg.text_href) ? arg.text_href : (basePath + arg.text_href);
   const audioUrl      = arg.audio_href || (basePath + arg.audio);
-  const filesUrl      = basePath + 'files.json';
-
-  // Update nav
-  document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
-  const nav = document.querySelector(`.case-item[data-case-key="${CSS.escape(caseKey)}"]`);
-  if (nav) nav.classList.add('active');
 
   // Reset transcript area
-  playerSection.hidden = true;
-  emptyState.style.display = 'none';
   turnList.style.display = 'none';
   turnList.innerHTML = '';
-  loadingMsg.textContent = 'Loading…';
+  loadingMsg.textContent = 'Loading\u2026';
   loadingMsg.style.display = 'block';
   activeTurnIdx = -1;
 
@@ -721,7 +723,6 @@ async function loadCase(term, caseEntry) {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     let transcriptData = await res.json();
 
-    // Support both the new envelope format {media, turns} and the old bare array.
     let isEnvelope = !Array.isArray(transcriptData);
     turns = isEnvelope ? (transcriptData.turns ?? []) : transcriptData;
 
@@ -745,86 +746,16 @@ async function loadCase(term, caseEntry) {
 
     turnTimes = turns.map(t => parseTime(t.time ?? '00:00:00.00'));
 
-    // Prefer the audio URL embedded in the transcript envelope; fall back to cases.json.
     const resolvedAudioUrl = (isEnvelope && transcriptData.media?.url) || audioUrl;
-
-    document.getElementById('case-title-label').textContent =
-      caseEntry.title + '\u00a0(No.\u00a0' + caseEntry.number + ')';
-
-    const argDate = caseEntry.audio?.[0]?.date;
-    document.getElementById('case-date-label').textContent = argDate
-      ? new Date(argDate + 'T00:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-      : '';
-
-    const qEl = document.getElementById('case-questions');
-    if (caseEntry.questions) {
-      const raw = caseEntry.questions;
-      // Find the first period immediately followed by a newline to use as the
-      // summary cut point. Fall back to no truncation if none exists.
-      const breakPos = raw.search(/\.\n/);
-      const hasMore = breakPos !== -1;
-      const firstPart = hasMore ? raw.slice(0, breakPos + 1) : raw;
-      // Flatten newlines for the single-line summary display.
-      const firstSentence = firstPart.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
-
-      qEl.title = raw;
-      qEl.hidden = false;
-      qEl.dataset.expanded = 'false';
-
-      const showSummary = () => {
-        qEl.textContent = firstSentence + (hasMore ? '\u00a0' : '');
-        if (hasMore) {
-          const more = document.createElement('span');
-          more.className = 'questions-more';
-          more.textContent = '[More]';
-          qEl.appendChild(more);
-        }
-        qEl.dataset.expanded = 'false';
-      };
-
-      showSummary();
-
-      if (hasMore) {
-        qEl.style.cursor = 'pointer';
-        qEl.onclick = () => {
-          if (qEl.dataset.expanded === 'true') {
-            showSummary();
-          } else {
-            qEl.innerHTML = '';
-            // split on newline+spaces (paragraph boundary); bare newlines become spaces
-            raw.split(/\n(?=[ \t])/).forEach(chunk => {
-              const p = document.createElement('p');
-              p.textContent = chunk.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
-              qEl.appendChild(p);
-            });
-            qEl.dataset.expanded = 'true';
-          }
-        };
-      } else {
-        qEl.style.cursor = '';
-        qEl.onclick = null;
-      }
-    } else {
-      qEl.textContent = '';
-      qEl.hidden = true;
-      qEl.onclick = null;
-      qEl.style.cursor = '';
-    }
-
     audio.src = resolvedAudioUrl;
     audio.load();
 
-    // Show a notice if no turns have been time-aligned.
     const unalignedNote = document.getElementById('unaligned-note');
     unalignedNote.hidden = turns.some(t => t.time != null);
 
-    // Store speakers for the search dropdown (populated on 'transcriptloaded').
     caseSpeakers = (isEnvelope && transcriptData.media?.speakers?.length)
       ? transcriptData.media.speakers
       : [...new Map(turns.map(t => [t.name, { name: t.name }])).values()];
-
-    const rawFiles = await loadFiles(filesUrl);
-    links = rawFiles.filter(f => f.refs);
 
     renderTranscript();
     const docPanel = document.getElementById('doc-viewer');
@@ -834,15 +765,132 @@ async function loadCase(term, caseEntry) {
     activeBottomLinkText = null;
 
     loadingMsg.style.display = 'none';
-    playerSection.hidden = false;
     turnList.style.display = 'block';
     document.dispatchEvent(new Event('transcriptloaded'));
-    if (isMobile()) {
-      playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
-    }
   } catch (err) {
     loadingMsg.textContent = 'Error loading transcript.';
     console.error(err);
+  }
+}
+
+async function loadCase(term, caseEntry) {
+  if (!caseEntry.audio || !caseEntry.audio.length) return;
+  const caseKey = term + '/' + caseEntry.number;
+  const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseEntry.number + '/';
+
+  // Pick the best single source: prefer the source with the most aligned entries,
+  // breaking ties by preferring 'oyez' > 'ussc' > others.
+  const SOURCE_PREF = ['oyez', 'ussc', 'nara'];
+  const sourceGroups = new Map(); // source -> {alignedCount, entries[]}
+  for (const a of caseEntry.audio) {
+    const src = a.source || 'unknown';
+    if (!sourceGroups.has(src)) sourceGroups.set(src, { alignedCount: 0, entries: [] });
+    const g = sourceGroups.get(src);
+    g.entries.push(a);
+    if (a.aligned) g.alignedCount++;
+  }
+  // Choose the source with the highest aligned count; use SOURCE_PREF to break ties.
+  let bestSource = null, bestAligned = -1;
+  for (const [src, { alignedCount }] of sourceGroups) {
+    const pref = SOURCE_PREF.indexOf(src);
+    const prefScore = pref === -1 ? SOURCE_PREF.length : pref;
+    if (alignedCount > bestAligned ||
+        (alignedCount === bestAligned && prefScore < SOURCE_PREF.indexOf(bestSource))) {
+      bestAligned = alignedCount;
+      bestSource  = src;
+    }
+  }
+  const sortedAudio = (sourceGroups.get(bestSource)?.entries ?? [])
+    .sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
+
+  // Update nav
+  document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
+  const nav = document.querySelector(`.case-item[data-case-key="${CSS.escape(caseKey)}"]`);
+  if (nav) nav.classList.add('active');
+
+  // Reset transcript area
+  playerSection.hidden = true;
+  emptyState.style.display = 'none';
+  activeTurnIdx = -1;
+
+  // Build audio select dropdown
+  const audioSelect = document.getElementById('audio-select');
+  audioSelect.innerHTML = '';
+  sortedAudio.forEach((a, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = audioEntryLabel(a);
+    audioSelect.appendChild(opt);
+  });
+  audioSelect.value = '0';
+
+  // Store context for dropdown change events
+  _currentAudioList = sortedAudio;
+  _currentBasePath  = basePath;
+
+  // Update case title
+  document.getElementById('case-title-label').textContent =
+    caseEntry.title + '\u00a0(No.\u00a0' + caseEntry.number + ')';
+
+  const qEl = document.getElementById('case-questions');
+  if (caseEntry.questions) {
+    const raw = caseEntry.questions;
+    const breakPos = raw.search(/\.\n/);
+    const hasMore = breakPos !== -1;
+    const firstPart = hasMore ? raw.slice(0, breakPos + 1) : raw;
+    const firstSentence = firstPart.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+
+    qEl.title = raw;
+    qEl.hidden = false;
+    qEl.dataset.expanded = 'false';
+
+    const showSummary = () => {
+      qEl.textContent = firstSentence + (hasMore ? '\u00a0' : '');
+      if (hasMore) {
+        const more = document.createElement('span');
+        more.className = 'questions-more';
+        more.textContent = '[More]';
+        qEl.appendChild(more);
+      }
+      qEl.dataset.expanded = 'false';
+    };
+
+    showSummary();
+
+    if (hasMore) {
+      qEl.style.cursor = 'pointer';
+      qEl.onclick = () => {
+        if (qEl.dataset.expanded === 'true') {
+          showSummary();
+        } else {
+          qEl.innerHTML = '';
+          raw.split(/\n(?=[ \t])/).forEach(chunk => {
+            const p = document.createElement('p');
+            p.textContent = chunk.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+            qEl.appendChild(p);
+          });
+          qEl.dataset.expanded = 'true';
+        }
+      };
+    } else {
+      qEl.style.cursor = '';
+      qEl.onclick = null;
+    }
+  } else {
+    qEl.textContent = '';
+    qEl.hidden = true;
+    qEl.onclick = null;
+    qEl.style.cursor = '';
+  }
+
+  const rawFiles = await loadFiles(basePath + 'files.json');
+  links = rawFiles.filter(f => f.refs);
+
+  playerSection.hidden = false;
+  await loadAudioEntry(sortedAudio[0], basePath);
+
+  if (isMobile()) {
+    playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
   }
 }
 
@@ -915,6 +963,14 @@ audio.addEventListener('timeupdate', () => {
   }
   activeTurnIdx = idx;
   checkLinksForActiveTurn(idx);
+});
+
+// ── Audio entry dropdown ──────────────────────────────────────────────────
+document.getElementById('audio-select').addEventListener('change', async (e) => {
+  const idx = parseInt(e.target.value, 10);
+  if (_currentAudioList[idx] && _currentBasePath) {
+    await loadAudioEntry(_currentAudioList[idx], _currentBasePath);
+  }
 });
 
 // ── Case info: tap to scroll back to document browser on mobile ──────────

@@ -233,8 +233,12 @@ def _fetch_words(audio_href: str, cache_path: Path, model_name: str) -> list[dic
         tmp_path.unlink(missing_ok=True)
 
 
-def _align_argument(arg: dict, case_dir: Path, model_name: str, purge: bool) -> None:
-    """Align a single argument's transcript file in-place."""
+def _align_argument(arg: dict, case_dir: Path, model_name: str, purge: bool) -> bool:
+    """Align a single argument's transcript file in-place.
+
+    Returns True if the transcript has complete timestamps (either already
+    present or just added), False if the entry was skipped entirely.
+    """
     text_href  = arg.get("text_href")
     audio_href = arg.get("audio_href")
     date_label = arg.get("date", "?")
@@ -242,12 +246,12 @@ def _align_argument(arg: dict, case_dir: Path, model_name: str, purge: bool) -> 
     if not text_href or not audio_href:
         print(f"[align] {date_label}: missing text_href or audio_href — skipped.",
               file=sys.stderr)
-        return
+        return False
 
     transcript_path = case_dir / text_href
     if not transcript_path.exists():
         print(f"[align] {transcript_path} not found — skipped.", file=sys.stderr)
-        return
+        return False
 
     turns = json.loads(transcript_path.read_text(encoding="utf-8"))
 
@@ -260,7 +264,7 @@ def _align_argument(arg: dict, case_dir: Path, model_name: str, purge: bool) -> 
     if not unaligned:
         print(f"[align] {transcript_path.name}: all turns already have timestamps — skipped.",
               file=sys.stderr)
-        return
+        return True
 
     print(f"[align] {transcript_path.name}: "
           f"{len(unaligned)} of {len(turns)} turns need alignment.", file=sys.stderr)
@@ -370,6 +374,7 @@ def _align_argument(arg: dict, case_dir: Path, model_name: str, purge: bool) -> 
         f"= {total_direct + interpolated}/{nturn} → {transcript_path}",
         file=sys.stderr,
     )
+    return True
 
 
 # ── Main ──────────────────────────────────────────────────────────────────────
@@ -405,8 +410,20 @@ def main() -> None:
     if not case_dir.is_dir():
         sys.exit(f"Error: case directory not found: {case_dir}")
 
+    cases_modified = False
     for arg in audio:
-        _align_argument(arg, case_dir, args.model, args.purge)
+        was_aligned = _align_argument(arg, case_dir, args.model, args.purge)
+        if was_aligned and not arg.get('aligned'):
+            arg['aligned'] = True
+            cases_modified = True
+
+    if cases_modified:
+        cases_json.write_text(
+            json.dumps(cases, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print(f"[align] Updated {cases_json.relative_to(REPO_ROOT)}: set aligned=true.",
+              file=sys.stderr)
 
 
 if __name__ == "__main__":

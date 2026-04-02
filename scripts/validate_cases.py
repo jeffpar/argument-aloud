@@ -172,7 +172,8 @@ def _fetch_opinions(year_2digit: str) -> dict:
     return opinions
 
 
-def check_opinion_for_case(files_path: Path, case_number: str, term: str) -> None:
+def check_opinion_for_case(files_path: Path, case_number: str, term: str,
+                           print_header=None) -> None:
     """If a slip opinion exists for this case, add it to files.json."""
     year_2 = term.split('-')[0][-2:]  # '2025-10' -> '25'
     opinions = _fetch_opinions(year_2)
@@ -185,7 +186,6 @@ def check_opinion_for_case(files_path: Path, case_number: str, term: str) -> Non
         return
 
     if any(e.get('type') == 'opinion' for e in data):
-        print(f'    Opinion: already present — skipped.')
         return
 
     max_id = max(
@@ -205,6 +205,7 @@ def check_opinion_for_case(files_path: Path, case_number: str, term: str) -> Non
         json.dumps(data, indent=2, ensure_ascii=False) + '\n',
         encoding='utf-8',
     )
+    if print_header: print_header()
     print(f'    Opinion: added "{new_entry["title"]}" ({opinion["date"]}, J. {opinion["author"]})')
 
 
@@ -231,7 +232,12 @@ def _detect_source_type(audio_href: str) -> tuple[str, str]:
     else:
         source = 'unknown'
 
-    type_val = 'reargument' if (source == 'oyez' and 'reargument' in href_lower) else 'argument'
+    if source == 'oyez' and 'opinion' in href_lower:
+        type_val = 'opinion'
+    elif source == 'oyez' and 'reargument' in href_lower:
+        type_val = 'reargument'
+    else:
+        type_val = 'argument'
     return source, type_val
 
 
@@ -255,14 +261,28 @@ def migrate_arguments_to_audio(cases_path: Path) -> None:
         print('Migrated cases.json: renamed "arguments" → "audio".')
 
 
+def _is_transcript_aligned(transcript_path: Path) -> bool:
+    """Return True if the transcript file exists and has at least one turn with a 'time' value."""
+    if not transcript_path.exists():
+        return False
+    try:
+        data = json.loads(transcript_path.read_text(encoding='utf-8'))
+        turns = data if isinstance(data, list) else data.get('turns', [])
+        return any(t.get('time') for t in turns)
+    except Exception:
+        return False
+
+
 def validate_cases_json_arguments(cases_path: Path) -> None:
-    """Add/update 'source' and 'type' at the top of each audio object in cases.json."""
+    """Add/update 'source', 'type', and 'aligned' at the top of each audio object in cases.json."""
     data = json.loads(cases_path.read_text(encoding='utf-8'))
     if not isinstance(data, list):
         return
 
+    term_dir = cases_path.parent
     modified = False
     for case in data:
+        case_dir = term_dir / 'cases' / case.get('number', '')
         for i, arg in enumerate(case.get('audio', [])):
             audio_href = arg.get('audio_href', '')
             if not audio_href:
@@ -270,12 +290,24 @@ def validate_cases_json_arguments(cases_path: Path) -> None:
 
             source, type_val = _detect_source_type(audio_href)
 
-            if arg.get('source') == source and arg.get('type') == type_val:
+            text_href = arg.get('text_href', '')
+            is_aligned = bool(
+                text_href and _is_transcript_aligned(case_dir / text_href)
+            )
+
+            current_aligned = arg.get('aligned')  # True, False, or absent (None)
+            desired_aligned  = True if is_aligned else None  # None → remove key
+
+            if (arg.get('source') == source and arg.get('type') == type_val
+                    and current_aligned == desired_aligned):
                 continue  # already correct, leave untouched
 
-            # Rebuild with source + type first, preserving all other keys in order.
+            # Rebuild with source + type (+ aligned) first, preserving all other keys.
             new_arg: dict = {'source': source, 'type': type_val}
-            new_arg.update({k: v for k, v in arg.items() if k not in ('source', 'type')})
+            if is_aligned:
+                new_arg['aligned'] = True
+            new_arg.update({k: v for k, v in arg.items()
+                            if k not in ('source', 'type', 'aligned')})
             case['audio'][i] = new_arg
             modified = True
 
@@ -284,14 +316,15 @@ def validate_cases_json_arguments(cases_path: Path) -> None:
             json.dumps(data, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
-        print('Updated cases.json: set source/type on audio objects.')
+        print('Updated cases.json: set source/type/aligned on audio objects.')
     else:
-        print('cases.json audio source/type fields already up to date.')
+        print('cases.json audio source/type/aligned fields already up to date.')
 
 
 # ── Core validation ───────────────────────────────────────────────────────────
 
-def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = False) -> None:
+def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = False,
+                        print_header=None) -> None:
     data = json.loads(files_path.read_text(encoding='utf-8'))
     if not isinstance(data, list):
         return
@@ -309,9 +342,11 @@ def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = Fal
         if not href.startswith(('http://', 'https://')):
             continue
         if entry.get('source'):
+            if print_header: print_header()
             print(f'  [{file_num}] already localized — skipped.')
             continue
 
+        if print_header: print_header()
         label = href if len(href) <= 80 else href[:77] + '…'
         print(f'  [{file_num}] {label}', end=' ', flush=True)
 
@@ -350,9 +385,13 @@ def validate_case(term_dir: Path, case_number: str, check_urls: bool = False) ->
     if not files_path.exists():
         print(f'{case_number}: no files.json — skipped.')
         return
-    print(f'{case_number}:')
-    validate_files_json(files_path, files_path.parent, check_urls)
-    check_opinion_for_case(files_path, case_number, term_dir.name)
+    _printed = [False]
+    def _print_header():
+        if not _printed[0]:
+            print(f'{case_number}:')
+            _printed[0] = True
+    validate_files_json(files_path, files_path.parent, check_urls, _print_header)
+    check_opinion_for_case(files_path, case_number, term_dir.name, _print_header)
 
 
 def check_duplicate_case_numbers(term_dir: Path) -> None:
