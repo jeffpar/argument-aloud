@@ -512,7 +512,7 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> Non
         existing.append({
             'title':     case['title'],
             'number':    case['number'],
-            'arguments': [argument],
+            'audio': [argument],
         })
         added.append(case['number'])
 
@@ -522,7 +522,7 @@ def update_cases_json(cases_path: Path, new_cases: list[dict], year: str) -> Non
         scraped = scraped_by_num.get(case['number'])
         if not scraped or not scraped.get('detail_url'):
             continue
-        for arg in case.get('arguments', []):
+        for arg in case.get('audio', []):
             if arg.get('source', 'ussc') != 'ussc':
                 continue   # only backfill USSC arguments
             if arg.get('transcript_href'):
@@ -645,7 +645,7 @@ def generate_missing_transcripts(cases_path: Path) -> None:
     modified = False
 
     for case in existing:
-        for arg in case.get('arguments', []):
+        for arg in case.get('audio', []):
             pdf_url = arg.get('transcript_href')
             date    = arg.get('date')
             if not pdf_url or not date:
@@ -701,7 +701,7 @@ def migrate_transcripts(cases_path: Path) -> None:
     # Build a lookup of audio_href by (number, date) so we can populate media.url.
     audio_map: dict[tuple, str] = {}
     for case in existing:
-        for arg in case.get('arguments', []):
+        for arg in case.get('audio', []):
             key = (case['number'], arg.get('date', ''))
             audio_map[key] = arg.get('audio_href', '')
 
@@ -709,7 +709,7 @@ def migrate_transcripts(cases_path: Path) -> None:
     for case in existing:
         number = case['number']
         case_dir = cases_path.parent / 'cases' / number
-        for arg in case.get('arguments', []):
+        for arg in case.get('audio', []):
             date = arg.get('date', '')
             transcript_path = case_dir / f'{date}.json'
             if not transcript_path.exists():
@@ -810,7 +810,7 @@ def add_transcript_entries(cases_path: Path) -> None:
 
     for case in existing:
         number = case['number']
-        for arg in case.get('arguments', []):
+        for arg in case.get('audio', []):
             pdf_url = arg.get('transcript_href')
             date    = arg.get('date')
             if not pdf_url or not date:

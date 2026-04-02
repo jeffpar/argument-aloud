@@ -233,7 +233,7 @@ def main():
             # Build a set of (date, source) tuples for dedup; infer source from
             # audio_href for older entries that pre-date the source field.
             existing_date_sources: set[tuple[str, str]] = set()
-            for a in local_case.get('arguments', []):
+            for a in local_case.get('audio', []):
                 src = a.get('source')
                 if not src:
                     href = a.get('audio_href', '').lower()
@@ -263,7 +263,7 @@ def main():
                     'audio_href': audio_href,
                     'text_href':  oyez_path.name,
                 }
-                local_case.setdefault('arguments', []).append(new_arg)
+                local_case.setdefault('audio', []).append(new_arg)
                 existing_date_sources.add((date_str, 'oyez'))
                 cases_modified = True
         else:
@@ -292,7 +292,7 @@ def main():
             local_case = {
                 'title':     oyez_case['name'],
                 'number':    number,
-                'arguments': [],
+                'audio': [],
             }
             our_cases.append(local_case)
             our_by_num[number] = local_case
@@ -343,7 +343,7 @@ def main():
                         'audio_href': audio_href,
                         'text_href':  text_href,
                     }
-                    local_case.setdefault('arguments', []).append(new_arg)
+                    local_case.setdefault('audio', []).append(new_arg)
                     existing_date_sources.add((date_str, 'oyez'))
                     cases_modified = True
 

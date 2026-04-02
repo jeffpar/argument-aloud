@@ -397,15 +397,15 @@ def main() -> None:
     if case is None:
         sys.exit(f"Error: case {args.case!r} not found in {cases_json}")
 
-    arguments = case.get("arguments", [])
-    if not arguments:
-        sys.exit(f"Error: case {args.case!r} has no arguments listed.")
+    audio = case.get("audio", [])
+    if not audio:
+        sys.exit(f"Error: case {args.case!r} has no audio listed.")
 
     case_dir = term_dir / 'cases' / args.case
     if not case_dir.is_dir():
         sys.exit(f"Error: case directory not found: {case_dir}")
 
-    for arg in arguments:
+    for arg in audio:
         _align_argument(arg, case_dir, args.model, args.purge)
 
 

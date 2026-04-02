@@ -235,15 +235,35 @@ def _detect_source_type(audio_href: str) -> tuple[str, str]:
     return source, type_val
 
 
-def validate_cases_json_arguments(cases_path: Path) -> None:
-    """Add/update 'source' and 'type' at the top of each argument object in cases.json."""
+def migrate_arguments_to_audio(cases_path: Path) -> None:
+    """One-time migration: rename the 'arguments' key to 'audio' in cases.json."""
     data = json.loads(cases_path.read_text(encoding='utf-8'))
     if not isinstance(data, list):
         return
 
     modified = False
     for case in data:
-        for i, arg in enumerate(case.get('arguments', [])):
+        if 'arguments' in case and 'audio' not in case:
+            case['audio'] = case.pop('arguments')
+            modified = True
+
+    if modified:
+        cases_path.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print('Migrated cases.json: renamed "arguments" → "audio".')
+
+
+def validate_cases_json_arguments(cases_path: Path) -> None:
+    """Add/update 'source' and 'type' at the top of each audio object in cases.json."""
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    modified = False
+    for case in data:
+        for i, arg in enumerate(case.get('audio', [])):
             audio_href = arg.get('audio_href', '')
             if not audio_href:
                 continue
@@ -256,7 +276,7 @@ def validate_cases_json_arguments(cases_path: Path) -> None:
             # Rebuild with source + type first, preserving all other keys in order.
             new_arg: dict = {'source': source, 'type': type_val}
             new_arg.update({k: v for k, v in arg.items() if k not in ('source', 'type')})
-            case['arguments'][i] = new_arg
+            case['audio'][i] = new_arg
             modified = True
 
     if modified:
@@ -264,9 +284,9 @@ def validate_cases_json_arguments(cases_path: Path) -> None:
             json.dumps(data, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
-        print('Updated cases.json: set source/type on argument objects.')
+        print('Updated cases.json: set source/type on audio objects.')
     else:
-        print('cases.json argument source/type fields already up to date.')
+        print('cases.json audio source/type fields already up to date.')
 
 
 # ── Core validation ───────────────────────────────────────────────────────────
@@ -372,6 +392,7 @@ def main() -> None:
 
     cases_path = term_dir / 'cases.json'
     if cases_path.exists():
+        migrate_arguments_to_audio(cases_path)
         validate_cases_json_arguments(cases_path)
 
     if len(args) == 2:
