@@ -10,9 +10,7 @@ Examples:
 
 For each case that exists in both Oyez and the local term folder, the script
 fetches the Oyez oral argument and opinion announcement transcripts and saves
-them as YYYY-MM-DD-oyez.json in the case directory.  If a date collision occurs
-(argument and opinion share the same date), the opinion file gets the suffix
-YYYY-MM-DD-opinion-oyez.json instead.
+them as YYYY-MM-DD-oyez.json in the case directory.
 
 An entry with source='oyez' is added to the audio array in cases.json for each
 new file.  Opinion entries additionally carry type='opinion'.
@@ -40,6 +38,36 @@ def fetch_json(url: str) -> object:
     req = urllib.request.Request(url, headers={'User-Agent': 'import_oyez/1.0'})
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.loads(r.read())
+
+
+def load_speaker_map() -> dict[str, str]:
+    """Load scripts/speakermap.txt → {old_name: new_name}."""
+    path = Path(__file__).resolve().parent / 'speakermap.txt'
+    if not path.exists():
+        return {}
+    result: dict[str, str] = {}
+    for line in path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        parts = line.split('->', 1)
+        if len(parts) == 2:
+            old, new = parts[0].strip(), parts[1].strip()
+            if old and new:
+                result[old] = new
+    return result
+
+
+def apply_speaker_map(envelope: dict, speaker_map: dict[str, str]) -> None:
+    """Apply speaker name remappings in-place to a transcript envelope."""
+    if not speaker_map:
+        return
+    for sp in (envelope.get('media') or {}).get('speakers') or []:
+        if sp.get('name') in speaker_map:
+            sp['name'] = speaker_map[sp['name']]
+    for turn in envelope.get('turns') or []:
+        if turn.get('name') in speaker_map:
+            turn['name'] = speaker_map[turn['name']]
 
 
 def fetch_oyez_cases(year: str) -> list[dict]:
@@ -77,6 +105,14 @@ def speaker_name(speaker: dict) -> str:
     return (speaker.get('name') or last or 'UNKNOWN').upper()
 
 
+def _is_justice(speaker: dict) -> bool:
+    """Return True if the Oyez speaker object has a scotus_justice role."""
+    for role in speaker.get('roles') or []:
+        if role and role.get('type') == 'scotus_justice':
+            return True
+    return False
+
+
 def format_time(seconds: float) -> str:
     """Format seconds as HH:MM:SS.ss (hundredths of a second)."""
     h = int(seconds // 3600)
@@ -104,30 +140,57 @@ def _oyez_arg_type(title: str) -> str:
     return 'argument'
 
 
+def _needs_role_refresh(path: Path) -> bool:
+    """Return True if the file has no speakers with a 'role' attribute.
+
+    Used to trigger a re-download for transcripts imported before role
+    tagging was added.
+    """
+    try:
+        data = json.loads(path.read_text(encoding='utf-8'))
+        speakers = (data.get('media') or {}).get('speakers') or []
+        return not any(s.get('role') for s in speakers)
+    except Exception:
+        return False
+
+
 def _turns_are_aligned(data: dict | list) -> bool:
     """Return True if any turn in the transcript data has a 'time' value."""
     turns = data if isinstance(data, list) else (data.get('turns') or [])
     return any(t.get('time') for t in turns)
 
 
-def _audio_title(type_val: str, date_str: str) -> str:
+def _audio_title(type_val: str, date_str: str, part: int = 0) -> str:
     """Return a display title for an audio entry.
+
+    When part > 0, inserts 'Part N' before 'on'.
 
     Examples:
         'Oral Argument on January 12, 2025'
-        'Oral Reargument on March 5, 2025'
-        'Opinion Announcement on June 27, 2025'
+        'Oral Argument Part 1 on January 12, 2025'
+        'Opinion Announcement Part 2 on June 27, 2025'
     """
     try:
         dt = datetime.strptime(date_str, '%Y-%m-%d')
         date_label = f'{dt.strftime("%B")} {dt.day}, {dt.year}'
     except (ValueError, TypeError):
         date_label = date_str or '?'
+    part_str = f' Part {part}' if part else ''
     if type_val == 'reargument':
-        return f'Oral Reargument on {date_label}'
+        return f'Oral Reargument{part_str} on {date_label}'
     if type_val == 'opinion':
-        return f'Opinion Announcement on {date_label}'
-    return f'Oral Argument on {date_label}'
+        return f'Opinion Announcement{part_str} on {date_label}'
+    return f'Oral Argument{part_str} on {date_label}'
+
+
+def _oyez_filename(date_str: str, part: int = 0) -> str:
+    """Return the transcript filename for an Oyez audio entry.
+
+    Single-part: 'YYYY-MM-DD-oyez.json'
+    Multi-part:  'YYYY-MM-DD-oyez-N.json'
+    """
+    suffix = f'-{part}' if part else ''
+    return f'{date_str}-oyez{suffix}.json'
 
 
 def fetch_oyez_transcript(arg_href: str) -> dict | None:
@@ -150,6 +213,7 @@ def fetch_oyez_transcript(arg_href: str) -> dict | None:
 
     sections = transcript.get('sections') or []
     speaker_cache: dict[int, str] = {}  # Oyez ID → formatted name
+    justice_cache: dict[int, bool] = {}  # Oyez ID → is scotus_justice
     turns_out: list[dict] = []
     turn_num = 0
 
@@ -163,6 +227,7 @@ def fetch_oyez_transcript(arg_href: str) -> dict | None:
             sp_id = sp.get('ID', 0)
             if sp_id not in speaker_cache:
                 speaker_cache[sp_id] = speaker_name(sp)
+                justice_cache[sp_id] = _is_justice(sp)
             name = speaker_cache[sp_id]
 
             blocks = turn.get('text_blocks') or []
@@ -182,12 +247,20 @@ def fetch_oyez_transcript(arg_href: str) -> dict | None:
         return None
 
     # Ordered speaker list by first appearance
+    # Build a reverse map from name → sp_id for role lookup
+    name_to_id: dict[str, int] = {v: k for k, v in speaker_cache.items()}
     seen_names: set[str] = set()
     speakers: list[dict] = []
     for t in turns_out:
         if t['name'] not in seen_names:
             seen_names.add(t['name'])
-            speakers.append({'name': t['name']})
+            sp_id = name_to_id.get(t['name'])
+            entry: dict = {'name': t['name']}
+            if sp_id is not None and justice_cache.get(sp_id):
+                entry['role'] = 'justice'
+            else:
+                entry['role'] = 'advocate'
+            speakers.append(entry)
 
     return {
         'media': {
@@ -265,17 +338,18 @@ def main():
     print()
     downloaded = skipped = errors = 0
     cases_modified = False
+    speaker_map = load_speaker_map()
 
     for number in sorted(oyez_by_num):
         oyez_case = oyez_by_num[number]
         case_dir  = cases_path.parent / 'cases' / number
 
-        # For cases already in our local data, backfill from any existing
-        # -oyez.json files (cheap local reads — no API call needed).
+        # For cases already in our local data, build the set of oyez text_hrefs
+        # already tracked in cases.json, and backfill any on-disk files that
+        # aren't yet recorded.
         local_case = our_by_num.get(number)
         if local_case is not None:
-            # Track all oyez audio dates already in cases.json (any type).
-            existing_oyez_dates: set[str] = set()
+            existing_oyez_filenames: set[str] = set()
             for a in local_case.get('audio', []):
                 src = a.get('source')
                 if not src:
@@ -287,9 +361,9 @@ def main():
                     elif 'oyez' in href:
                         src = 'oyez'
                 if src == 'oyez':
-                    date = a.get('date')
-                    if date:
-                        existing_oyez_dates.add(date)
+                    th = a.get('text_href')
+                    if th:
+                        existing_oyez_filenames.add(th)
                     # Backfill title on oyez entries that lack one.
                     if not a.get('title'):
                         a['title'] = _audio_title(a.get('type', 'argument'), a.get('date', ''))
@@ -298,9 +372,12 @@ def main():
             # Backfill any *-oyez.json files on disk not yet tracked in cases.json.
             if case_dir.is_dir():
                 for oyez_path in sorted(case_dir.glob('*-oyez.json')):
-                    date_str = oyez_path.stem[:-5]   # strip '-oyez'
-                    if date_str in existing_oyez_dates:
+                    if oyez_path.name in existing_oyez_filenames:
                         continue
+                    m = re.match(r'^(\d{4}-\d{2}-\d{2})-oyez\.json$', oyez_path.name)
+                    if not m:
+                        continue
+                    date_str = m.group(1)
                     try:
                         data = json.loads(oyez_path.read_text(encoding='utf-8'))
                         audio_href = (data.get('media') or {}).get('url', '')
@@ -321,27 +398,13 @@ def main():
                     if _turns_are_aligned(data):
                         new_arg['aligned'] = True
                     local_case.setdefault('audio', []).append(new_arg)
-                    existing_oyez_dates.add(date_str)
+                    existing_oyez_filenames.add(oyez_path.name)
                     cases_modified = True
         else:
-            existing_oyez_dates = set()
+            existing_oyez_filenames = set()
 
-        # Skip the API call if argument and opinion audio are both already present.
-        if local_case is not None:
-            arg_entries      = [a for a in local_case.get('audio', [])
-                                if a.get('source') == 'oyez'
-                                and a.get('type') in ('argument', 'reargument')]
-            has_arg_oyez     = bool(arg_entries)
-            # More oyez dates than argument entries implies opinions are also present.
-            has_opinion_oyez = len(existing_oyez_dates) > len(arg_entries)
-        else:
-            has_arg_oyez     = case_dir.is_dir() and any(case_dir.glob('*-oyez.json'))
-            has_opinion_oyez = False
-        if has_arg_oyez and has_opinion_oyez:
-            skipped += 1
-            continue
-
-        # Fetch case detail to get oral_argument_audio list.
+        # Fetch case detail to get oral_argument_audio and opinion_announcement lists.
+        # (We always fetch — we need the list to know if multi-part audio exists.)
         try:
             detail = fetch_json(oyez_case['href'])
             time.sleep(0.2)
@@ -367,97 +430,57 @@ def main():
             our_by_num[number] = local_case
             cases_modified = True
 
+        # ── Oral arguments ────────────────────────────────────────────────────
+        # Group by date to detect multi-part arguments on the same day.
+        args_by_date: dict[str, list] = {}
         for oyez_arg in args_list:
             if oyez_arg.get('unavailable'):
                 continue
-
             date_str = parse_oyez_date(oyez_arg.get('title', ''))
             if not date_str:
                 print(f'  {number}: cannot parse date from {oyez_arg.get("title")!r} — skipped')
                 continue
+            args_by_date.setdefault(date_str, []).append(oyez_arg)
 
-            out_path = case_dir / f'{date_str}-oyez.json'
-            if date_str in existing_oyez_dates or out_path.exists():
-                skipped += 1
-                continue
+        for date_str, parts in args_by_date.items():
+            use_parts = len(parts) > 1
 
-            print(f'  {number} ({date_str}) ...', end=' ', flush=True)
-            try:
-                envelope = fetch_oyez_transcript(oyez_arg['href'])
-                if envelope is None:
-                    print('no transcript data')
-                    continue
+            # If this date now has multiple parts, rename any existing unnumbered
+            # file to the '-1' variant and update cases.json accordingly.
+            if use_parts:
+                unnumbered = case_dir / _oyez_filename(date_str)
+                part1_path = case_dir / _oyez_filename(date_str, 1)
+                if unnumbered.exists() and not part1_path.exists():
+                    unnumbered.rename(part1_path)
+                    print(f'  {number}: renamed {unnumbered.name} → {part1_path.name}')
+                    for a in local_case.get('audio', []):
+                        if (a.get('source') == 'oyez' and a.get('date') == date_str
+                                and a.get('text_href') == unnumbered.name):
+                            a['text_href'] = part1_path.name
+                            a['title'] = _audio_title(a.get('type', 'argument'), date_str, 1)
+                            existing_oyez_filenames.discard(unnumbered.name)
+                            existing_oyez_filenames.add(part1_path.name)
+                            cases_modified = True
+                            break
 
-                case_dir.mkdir(parents=True, exist_ok=True)
-                out_path.write_text(
-                    json.dumps(envelope, indent=2, ensure_ascii=False) + '\n',
-                    encoding='utf-8',
-                )
-                try:
-                    rel = out_path.relative_to(REPO_ROOT)
-                except ValueError:
-                    rel = out_path
-                print(f'{len(envelope["turns"])} turns -> {rel}')
-                downloaded += 1
+            for part_idx, oyez_arg in enumerate(parts, start=1):
+                part_num = part_idx if use_parts else 0
+                out_name = _oyez_filename(date_str, part_num)
+                out_path = case_dir / out_name
 
-                # Update cases.json with source, type, audio_href and text_href.
-                audio_href = (envelope.get('media') or {}).get('url', '')
-                text_href  = out_path.name
-                if date_str not in existing_oyez_dates:
-                    type_val = _oyez_arg_type(oyez_arg.get('title', ''))
-                    new_arg = {
-                        'source':     'oyez',
-                        'type':       type_val,
-                        'title':      _audio_title(type_val, date_str),
-                        'date':       date_str,
-                        'audio_href': audio_href,
-                        'text_href':  text_href,
-                    }
-                    if _turns_are_aligned(envelope):
-                        new_arg['aligned'] = True
-                    local_case.setdefault('audio', []).append(new_arg)
-                    existing_oyez_dates.add(date_str)
-                    cases_modified = True
-
-                time.sleep(0.3)
-            except Exception as exc:
-                print(f'ERROR: {exc}')
-                errors += 1
-
-        # ── Opinion announcements ─────────────────────────────────────────────
-        if local_case is not None:
-            for oyez_opinion in detail.get('opinion_announcement') or []:
-                if not oyez_opinion or oyez_opinion.get('unavailable'):
-                    continue
-
-                date_str = parse_oyez_date(oyez_opinion.get('title', ''))
-                if not date_str:
-                    print(f'  {number}: cannot parse opinion date from '
-                          f'{oyez_opinion.get("title")!r} — skipped')
-                    continue
-
-                # Default filename is YYYY-MM-DD-oyez.json.
-                # Skip if already tracked (any type) — covers renamed opinion files.
-                # Fall back to YYYY-MM-DD-opinion-oyez.json only on a date collision
-                # with a different audio file that already occupies the default name.
-                out_path = case_dir / f'{date_str}-oyez.json'
-                if date_str in existing_oyez_dates:
-                    skipped += 1
-                    continue
-                if out_path.exists():
-                    # Collision: YYYY-MM-DD-oyez.json is an argument file — use opinion suffix.
-                    out_path = case_dir / f'{date_str}-opinion-oyez.json'
-                if out_path.exists():
+                if out_name in existing_oyez_filenames and not _needs_role_refresh(out_path):
                     skipped += 1
                     continue
 
-                print(f'  {number} opinion ({date_str}) ...', end=' ', flush=True)
+                label = f'Part {part_num} ' if use_parts else ''
+                print(f'  {number} ({date_str}) {label}...', end=' ', flush=True)
                 try:
-                    envelope = fetch_oyez_transcript(oyez_opinion['href'])
+                    envelope = fetch_oyez_transcript(oyez_arg['href'])
                     if envelope is None:
                         print('no transcript data')
                         continue
 
+                    apply_speaker_map(envelope, speaker_map)
                     case_dir.mkdir(parents=True, exist_ok=True)
                     out_path.write_text(
                         json.dumps(envelope, indent=2, ensure_ascii=False) + '\n',
@@ -470,26 +493,115 @@ def main():
                     print(f'{len(envelope["turns"])} turns -> {rel}')
                     downloaded += 1
 
-                    if date_str not in existing_oyez_dates:
+                    if out_name not in existing_oyez_filenames:
                         audio_href = (envelope.get('media') or {}).get('url', '')
-                        new_entry = {
+                        type_val = _oyez_arg_type(oyez_arg.get('title', ''))
+                        new_arg = {
                             'source':     'oyez',
-                            'type':       'opinion',
-                            'title':      _audio_title('opinion', date_str),
+                            'type':       type_val,
+                            'title':      _audio_title(type_val, date_str, part_num),
                             'date':       date_str,
                             'audio_href': audio_href,
-                            'text_href':  out_path.name,
+                            'text_href':  out_name,
                         }
                         if _turns_are_aligned(envelope):
-                            new_entry['aligned'] = True
-                        local_case.setdefault('audio', []).append(new_entry)
-                        existing_oyez_dates.add(date_str)
+                            new_arg['aligned'] = True
+                        local_case.setdefault('audio', []).append(new_arg)
+                        existing_oyez_filenames.add(out_name)
                         cases_modified = True
 
                     time.sleep(0.3)
                 except Exception as exc:
                     print(f'ERROR: {exc}')
                     errors += 1
+
+        # ── Opinion announcements ─────────────────────────────────────────────
+        if local_case is not None:
+            # Group by date to detect multi-part opinions on the same day.
+            opinions_by_date: dict[str, list] = {}
+            for oyez_opinion in (detail.get('opinion_announcement') or []):
+                if not oyez_opinion or oyez_opinion.get('unavailable'):
+                    continue
+                date_str = parse_oyez_date(oyez_opinion.get('title', ''))
+                if not date_str:
+                    print(f'  {number}: cannot parse opinion date from '
+                          f'{oyez_opinion.get("title")!r} — skipped')
+                    continue
+                opinions_by_date.setdefault(date_str, []).append(oyez_opinion)
+
+            for date_str, parts in opinions_by_date.items():
+                use_parts = len(parts) > 1
+
+                # Rename existing unnumbered file to '-1' when multi-part detected.
+                if use_parts:
+                    unnumbered = case_dir / _oyez_filename(date_str)
+                    part1_path = case_dir / _oyez_filename(date_str, 1)
+                    if unnumbered.exists() and not part1_path.exists():
+                        unnumbered.rename(part1_path)
+                        print(f'  {number}: renamed {unnumbered.name} → {part1_path.name}')
+                        for a in local_case.get('audio', []):
+                            if (a.get('source') == 'oyez' and a.get('date') == date_str
+                                    and a.get('text_href') == unnumbered.name):
+                                a['text_href'] = part1_path.name
+                                a['title'] = _audio_title('opinion', date_str, 1)
+                                existing_oyez_filenames.discard(unnumbered.name)
+                                existing_oyez_filenames.add(part1_path.name)
+                                cases_modified = True
+                                break
+
+                for part_idx, oyez_opinion in enumerate(parts, start=1):
+                    part_num = part_idx if use_parts else 0
+                    out_name = _oyez_filename(date_str, part_num)
+                    out_path = case_dir / out_name
+
+                    if out_name in existing_oyez_filenames and not _needs_role_refresh(out_path):
+                        skipped += 1
+                        continue
+                    if out_path.exists() and not _needs_role_refresh(out_path):
+                        skipped += 1
+                        continue
+
+                    label = f'Part {part_num} ' if use_parts else ''
+                    print(f'  {number} opinion ({date_str}) {label}...', end=' ', flush=True)
+                    try:
+                        envelope = fetch_oyez_transcript(oyez_opinion['href'])
+                        if envelope is None:
+                            print('no transcript data')
+                            continue
+
+                        apply_speaker_map(envelope, speaker_map)
+                        case_dir.mkdir(parents=True, exist_ok=True)
+                        out_path.write_text(
+                            json.dumps(envelope, indent=2, ensure_ascii=False) + '\n',
+                            encoding='utf-8',
+                        )
+                        try:
+                            rel = out_path.relative_to(REPO_ROOT)
+                        except ValueError:
+                            rel = out_path
+                        print(f'{len(envelope["turns"])} turns -> {rel}')
+                        downloaded += 1
+
+                        if out_name not in existing_oyez_filenames:
+                            audio_href = (envelope.get('media') or {}).get('url', '')
+                            new_entry = {
+                                'source':     'oyez',
+                                'type':       'opinion',
+                                'title':      _audio_title('opinion', date_str, part_num),
+                                'date':       date_str,
+                                'audio_href': audio_href,
+                                'text_href':  out_name,
+                            }
+                            if _turns_are_aligned(envelope):
+                                new_entry['aligned'] = True
+                            local_case.setdefault('audio', []).append(new_entry)
+                            existing_oyez_filenames.add(out_name)
+                            cases_modified = True
+
+                        time.sleep(0.3)
+                    except Exception as exc:
+                        print(f'ERROR: {exc}')
+                        errors += 1
 
     if cases_modified:
         cases_path.write_text(

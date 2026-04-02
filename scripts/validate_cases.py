@@ -321,6 +321,56 @@ def validate_cases_json_arguments(cases_path: Path) -> None:
         print('cases.json audio source/type/aligned fields already up to date.')
 
 
+# ── Speaker map cleanup ───────────────────────────────────────────────────────
+
+def load_speaker_map() -> dict[str, str]:
+    """Load scripts/speakermap.txt -> {old_name: new_name}."""
+    path = Path(__file__).resolve().parent / 'speakermap.txt'
+    if not path.exists():
+        return {}
+    result: dict[str, str] = {}
+    for line in path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        parts = line.split('->', 1)
+        if len(parts) == 2:
+            old, new = parts[0].strip(), parts[1].strip()
+            if old and new:
+                result[old] = new
+    return result
+
+
+def apply_speaker_map_to_case(case_dir: Path, speaker_map: dict[str, str]) -> None:
+    """Apply speaker name mappings to all transcript JSON files in a case directory."""
+    if not speaker_map or not case_dir.is_dir():
+        return
+    for json_path in sorted(case_dir.glob('*.json')):
+        if json_path.name == 'files.json':
+            continue
+        try:
+            data = json.loads(json_path.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        if not isinstance(data, dict):
+            continue
+        modified = False
+        for sp in (data.get('media') or {}).get('speakers') or []:
+            if sp.get('name') in speaker_map:
+                sp['name'] = speaker_map[sp['name']]
+                modified = True
+        for turn in data.get('turns') or []:
+            if turn.get('name') in speaker_map:
+                turn['name'] = speaker_map[turn['name']]
+                modified = True
+        if modified:
+            json_path.write_text(
+                json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+                encoding='utf-8',
+            )
+            print(f'  {case_dir.name}: applied speaker map to {json_path.name}')
+
+
 # ── Core validation ───────────────────────────────────────────────────────────
 
 def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = False,
@@ -434,8 +484,11 @@ def main() -> None:
         migrate_arguments_to_audio(cases_path)
         validate_cases_json_arguments(cases_path)
 
+    speaker_map = load_speaker_map()
+
     if len(args) == 2:
         validate_case(term_dir, args[1], check_urls)
+        apply_speaker_map_to_case(term_dir / 'cases' / args[1], speaker_map)
     else:
         cases_dir = term_dir / 'cases'
         case_dirs = sorted(d for d in cases_dir.iterdir() if d.is_dir()) if cases_dir.is_dir() else []
@@ -444,6 +497,7 @@ def main() -> None:
             return
         for d in case_dirs:
             validate_case(term_dir, d.name, check_urls)
+            apply_speaker_map_to_case(d, speaker_map)
 
 
 if __name__ == '__main__':
