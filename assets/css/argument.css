@@ -488,12 +488,17 @@ body {
   flex: 1 1 auto;
 }
 
-#case-date-label {
+#audio-select {
   font-size: 12px;
   font-weight: 500;
-  color: #888;
-  white-space: nowrap;
+  color: #555;
   flex-shrink: 0;
+  max-width: 280px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px 5px;
+  background: #fff;
+  cursor: pointer;
 }
 
 #case-questions {

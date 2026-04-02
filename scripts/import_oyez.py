@@ -104,6 +104,32 @@ def _oyez_arg_type(title: str) -> str:
     return 'argument'
 
 
+def _turns_are_aligned(data: dict | list) -> bool:
+    """Return True if any turn in the transcript data has a 'time' value."""
+    turns = data if isinstance(data, list) else (data.get('turns') or [])
+    return any(t.get('time') for t in turns)
+
+
+def _audio_title(type_val: str, date_str: str) -> str:
+    """Return a display title for an audio entry.
+
+    Examples:
+        'Oral Argument on January 12, 2025'
+        'Oral Reargument on March 5, 2025'
+        'Opinion Announcement on June 27, 2025'
+    """
+    try:
+        dt = datetime.strptime(date_str, '%Y-%m-%d')
+        date_label = f'{dt.strftime("%B")} {dt.day}, {dt.year}'
+    except (ValueError, TypeError):
+        date_label = date_str or '?'
+    if type_val == 'reargument':
+        return f'Oral Reargument on {date_label}'
+    if type_val == 'opinion':
+        return f'Opinion Announcement on {date_label}'
+    return f'Oral Argument on {date_label}'
+
+
 def fetch_oyez_transcript(arg_href: str) -> dict | None:
     """Fetch an Oyez oral argument detail and convert to our envelope format.
 
@@ -197,20 +223,33 @@ def main():
         our_cases = []
         print(f'Creating new {cases_path.relative_to(REPO_ROOT)}')
 
-    our_by_num = {c['number']: c for c in our_cases}
+    def _normalize_case_num(raw: str) -> str:
+        """Normalise a docket number to canonical form.
+
+        Handles two Oyez quirks:
+          1. Compact original-jurisdiction format: '22O141' → '141-Orig'
+          2. Loose original-jurisdiction suffixes:
+             '156-orig', '156-original', '156 orig', '156 Original' → '156-Orig'
+        """
+        s = raw.strip()
+        # Oyez compact form: digits + 'O' + digits (e.g. '22O141')
+        m = re.fullmatch(r'\d+O(\d+)', s)
+        if m:
+            return f'{m.group(1)}-Orig'
+        # Loose suffix form: anything followed by optional separator + orig[inal]
+        m = re.fullmatch(r'(.+?)[\s-]+(orig(?:inal)?)', s, re.IGNORECASE)
+        if m:
+            return f'{m.group(1)}-Orig'
+        return s
+
+    our_by_num = {_normalize_case_num(c['number']): c for c in our_cases}
 
     print(f'Fetching Oyez case list for {year_str} term ...')
     oyez_cases = fetch_oyez_cases(year_str)
     print(f'  {len(oyez_cases)} case(s) from Oyez')
     print(f'  {len(our_by_num)} case(s) in local cases.json')
 
-    def _normalize_oyez_num(raw: str) -> str:
-        """Convert Oyez original-jurisdiction numbers (e.g. '22O141') to the
-        supremecourt.gov format used in cases.json (e.g. '141-Orig')."""
-        m = re.fullmatch(r'\d+O(\d+)', raw.strip())
-        return f'{m.group(1)}-Orig' if m else raw.strip()
-
-    oyez_by_num = {_normalize_oyez_num(c['docket_number']): c for c in oyez_cases}
+    oyez_by_num = {_normalize_case_num(c['docket_number']): c for c in oyez_cases}
 
     # Compute comparison against the initial local state for the report.
     in_both   = [n for n in our_by_num if n in oyez_by_num]
@@ -235,13 +274,9 @@ def main():
         # -oyez.json files (cheap local reads — no API call needed).
         local_case = our_by_num.get(number)
         if local_case is not None:
-            # Build sets of existing entries for dedup.
-            existing_date_sources: set[tuple[str, str]] = set()
-            existing_opinion_dates_oyez: set[str] = set()
+            # Track all oyez audio dates already in cases.json (any type).
+            existing_oyez_dates: set[str] = set()
             for a in local_case.get('audio', []):
-                if a.get('type') == 'opinion' and a.get('source') == 'oyez':
-                    existing_opinion_dates_oyez.add(a.get('date'))
-                    continue
                 src = a.get('source')
                 if not src:
                     href = a.get('audio_href', '').lower()
@@ -251,71 +286,57 @@ def main():
                         src = 'nara'
                     elif 'oyez' in href:
                         src = 'oyez'
-                if src:
-                    existing_date_sources.add((a.get('date'), src))
+                if src == 'oyez':
+                    date = a.get('date')
+                    if date:
+                        existing_oyez_dates.add(date)
+                    # Backfill title on oyez entries that lack one.
+                    if not a.get('title'):
+                        a['title'] = _audio_title(a.get('type', 'argument'), a.get('date', ''))
+                        cases_modified = True
 
-            # Backfill argument oyez files (exclude opinion-oyez files).
-            for oyez_path in sorted(
-                p for p in case_dir.glob('*-oyez.json')
-                if not p.name.endswith('-opinion-oyez.json')
-            ):
-                date_str = oyez_path.stem[:-5]   # strip '-oyez'
-                if (date_str, 'oyez') in existing_date_sources or date_str in existing_opinion_dates_oyez:
-                    continue   # oyez entry for this date already present
-                try:
-                    data = json.loads(oyez_path.read_text(encoding='utf-8'))
-                    audio_href = (data.get('media') or {}).get('url', '')
-                except Exception:
-                    audio_href = ''
-                type_val = 'reargument' if 'reargument' in audio_href.lower() else 'argument'
-                new_arg = {
-                    'source':     'oyez',
-                    'type':       type_val,
-                    'date':       date_str,
-                    'audio_href': audio_href,
-                    'text_href':  oyez_path.name,
-                }
-                local_case.setdefault('audio', []).append(new_arg)
-                existing_date_sources.add((date_str, 'oyez'))
-                cases_modified = True
-
-            # Backfill opinion-oyez files already on disk into cases.json.
-            for oyez_path in sorted(case_dir.glob('*-opinion-oyez.json')):
-                date_str = oyez_path.stem.removesuffix('-opinion-oyez')
-                if date_str in existing_opinion_dates_oyez:
-                    continue
-                try:
-                    data = json.loads(oyez_path.read_text(encoding='utf-8'))
-                    audio_href = (data.get('media') or {}).get('url', '')
-                except Exception:
-                    audio_href = ''
-                new_entry = {
-                    'source':     'oyez',
-                    'type':       'opinion',
-                    'date':       date_str,
-                    'audio_href': audio_href,
-                    'text_href':  oyez_path.name,
-                }
-                local_case.setdefault('audio', []).append(new_entry)
-                existing_opinion_dates_oyez.add(date_str)
-                cases_modified = True
+            # Backfill any *-oyez.json files on disk not yet tracked in cases.json.
+            if case_dir.is_dir():
+                for oyez_path in sorted(case_dir.glob('*-oyez.json')):
+                    date_str = oyez_path.stem[:-5]   # strip '-oyez'
+                    if date_str in existing_oyez_dates:
+                        continue
+                    try:
+                        data = json.loads(oyez_path.read_text(encoding='utf-8'))
+                        audio_href = (data.get('media') or {}).get('url', '')
+                    except Exception:
+                        audio_href = ''
+                        data = {}
+                    type_val = ('opinion'    if 'opinion'    in audio_href.lower()
+                                else 'reargument' if 'reargument' in audio_href.lower()
+                                else 'argument')
+                    new_arg = {
+                        'source':     'oyez',
+                        'type':       type_val,
+                        'title':      _audio_title(type_val, date_str),
+                        'date':       date_str,
+                        'audio_href': audio_href,
+                        'text_href':  oyez_path.name,
+                    }
+                    if _turns_are_aligned(data):
+                        new_arg['aligned'] = True
+                    local_case.setdefault('audio', []).append(new_arg)
+                    existing_oyez_dates.add(date_str)
+                    cases_modified = True
         else:
-            existing_date_sources = set()
-            existing_opinion_dates_oyez = set()
+            existing_oyez_dates = set()
 
-        # Skip the API call if nothing new is needed.
+        # Skip the API call if argument and opinion audio are both already present.
         if local_case is not None:
-            has_arg_oyez = any(
-                a for a in local_case.get('audio', [])
-                if a.get('source') == 'oyez' and a.get('type') in ('argument', 'reargument')
-            )
-            has_opinion_oyez = bool(existing_opinion_dates_oyez)
+            arg_entries      = [a for a in local_case.get('audio', [])
+                                if a.get('source') == 'oyez'
+                                and a.get('type') in ('argument', 'reargument')]
+            has_arg_oyez     = bool(arg_entries)
+            # More oyez dates than argument entries implies opinions are also present.
+            has_opinion_oyez = len(existing_oyez_dates) > len(arg_entries)
         else:
-            has_arg_oyez = any(
-                p for p in case_dir.glob('*-oyez.json')
-                if not p.name.endswith('-opinion-oyez.json')
-            )
-            has_opinion_oyez = any(case_dir.glob('*-opinion-oyez.json'))
+            has_arg_oyez     = case_dir.is_dir() and any(case_dir.glob('*-oyez.json'))
+            has_opinion_oyez = False
         if has_arg_oyez and has_opinion_oyez:
             skipped += 1
             continue
@@ -356,7 +377,7 @@ def main():
                 continue
 
             out_path = case_dir / f'{date_str}-oyez.json'
-            if out_path.exists():
+            if date_str in existing_oyez_dates or out_path.exists():
                 skipped += 1
                 continue
 
@@ -382,17 +403,20 @@ def main():
                 # Update cases.json with source, type, audio_href and text_href.
                 audio_href = (envelope.get('media') or {}).get('url', '')
                 text_href  = out_path.name
-                if (date_str, 'oyez') not in existing_date_sources:
+                if date_str not in existing_oyez_dates:
                     type_val = _oyez_arg_type(oyez_arg.get('title', ''))
                     new_arg = {
                         'source':     'oyez',
                         'type':       type_val,
+                        'title':      _audio_title(type_val, date_str),
                         'date':       date_str,
                         'audio_href': audio_href,
                         'text_href':  text_href,
                     }
+                    if _turns_are_aligned(envelope):
+                        new_arg['aligned'] = True
                     local_case.setdefault('audio', []).append(new_arg)
-                    existing_date_sources.add((date_str, 'oyez'))
+                    existing_oyez_dates.add(date_str)
                     cases_modified = True
 
                 time.sleep(0.3)
@@ -412,10 +436,16 @@ def main():
                           f'{oyez_opinion.get("title")!r} — skipped')
                     continue
 
-                # Default filename; add -opinion- suffix only on a date collision
-                # with an existing argument file.
+                # Default filename is YYYY-MM-DD-oyez.json.
+                # Skip if already tracked (any type) — covers renamed opinion files.
+                # Fall back to YYYY-MM-DD-opinion-oyez.json only on a date collision
+                # with a different audio file that already occupies the default name.
                 out_path = case_dir / f'{date_str}-oyez.json'
-                if out_path.exists() and date_str not in existing_opinion_dates_oyez:
+                if date_str in existing_oyez_dates:
+                    skipped += 1
+                    continue
+                if out_path.exists():
+                    # Collision: YYYY-MM-DD-oyez.json is an argument file — use opinion suffix.
                     out_path = case_dir / f'{date_str}-opinion-oyez.json'
                 if out_path.exists():
                     skipped += 1
@@ -440,17 +470,20 @@ def main():
                     print(f'{len(envelope["turns"])} turns -> {rel}')
                     downloaded += 1
 
-                    if date_str not in existing_opinion_dates_oyez:
+                    if date_str not in existing_oyez_dates:
                         audio_href = (envelope.get('media') or {}).get('url', '')
                         new_entry = {
                             'source':     'oyez',
                             'type':       'opinion',
+                            'title':      _audio_title('opinion', date_str),
                             'date':       date_str,
                             'audio_href': audio_href,
                             'text_href':  out_path.name,
                         }
+                        if _turns_are_aligned(envelope):
+                            new_entry['aligned'] = True
                         local_case.setdefault('audio', []).append(new_entry)
-                        existing_opinion_dates_oyez.add(date_str)
+                        existing_oyez_dates.add(date_str)
                         cases_modified = True
 
                     time.sleep(0.3)
