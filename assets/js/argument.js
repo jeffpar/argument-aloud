@@ -1245,7 +1245,10 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     // Populate speaker dropdown
     speakerSelect.innerHTML = '<option value="">All Speakers</option>';
     if (caseSpeakers.length) {
-      caseSpeakers.forEach(({ name }) => {
+      const roleOrder = r => r === 'justice' ? 0 : 1;
+      [...caseSpeakers]
+        .sort((a, b) => roleOrder(a.role) - roleOrder(b.role) || a.name.localeCompare(b.name))
+        .forEach(({ name }) => {
         const opt = document.createElement('option');
         opt.value = name;
         opt.textContent = formatSpeaker(name);
