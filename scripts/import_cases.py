@@ -563,7 +563,7 @@ def update_docket_info(cases_path: Path, term_year: str = '') -> None:
 
     for case in existing:
         number     = case['number']
-        files_path = cases_path.parent / number / 'files.json'
+        files_path = cases_path.parent / 'cases' / number / 'files.json'
 
         if case.get('questions_href'):
             # Docket was already fetched (questions_href proves it). Only re-fetch
@@ -596,7 +596,7 @@ def update_docket_info(cases_path: Path, term_year: str = '') -> None:
 
         proceedings = info.get('proceedings', [])
         if proceedings:
-            case_dir   = cases_path.parent / number
+            case_dir   = cases_path.parent / 'cases' / number
             files_path = case_dir / 'files.json'
             case_dir.mkdir(parents=True, exist_ok=True)
 
@@ -651,7 +651,7 @@ def generate_missing_transcripts(cases_path: Path) -> None:
             if not pdf_url or not date:
                 continue
 
-            case_dir       = cases_path.parent / case['number']
+            case_dir       = cases_path.parent / 'cases' / case['number']
             transcript_out = case_dir / f'{date}.json'
 
             if transcript_out.exists():
@@ -708,7 +708,7 @@ def migrate_transcripts(cases_path: Path) -> None:
     total = 0
     for case in existing:
         number = case['number']
-        case_dir = cases_path.parent / number
+        case_dir = cases_path.parent / 'cases' / number
         for arg in case.get('arguments', []):
             date = arg.get('date', '')
             transcript_path = case_dir / f'{date}.json'
@@ -764,7 +764,7 @@ def clean_files_json(cases_path: Path) -> None:
     term_dir = cases_path.parent
     total_changed = 0
 
-    for files_path in sorted(term_dir.glob('*/files.json')):
+    for files_path in sorted(term_dir.glob('cases/*/files.json')):
         files = json.loads(files_path.read_text(encoding='utf-8'))
         changed = False
 
@@ -816,7 +816,7 @@ def add_transcript_entries(cases_path: Path) -> None:
             if not pdf_url or not date:
                 continue
 
-            case_dir   = cases_path.parent / number
+            case_dir   = cases_path.parent / 'cases' / number
             files_path = case_dir / 'files.json'
             case_dir.mkdir(parents=True, exist_ok=True)
 
@@ -993,7 +993,7 @@ def main():
     print('Checking for slip opinions ...')
     existing = json.loads(cases_path.read_text(encoding='utf-8'))
     for case in existing:
-        files_path = cases_path.parent / case['number'] / 'files.json'
+        files_path = cases_path.parent / 'cases' / case['number'] / 'files.json'
         if files_path.exists():
             check_opinion_for_case(files_path, case['number'], term)
 

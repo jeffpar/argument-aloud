@@ -401,7 +401,7 @@ def main() -> None:
     if not arguments:
         sys.exit(f"Error: case {args.case!r} has no arguments listed.")
 
-    case_dir = term_dir / args.case
+    case_dir = term_dir / 'cases' / args.case
     if not case_dir.is_dir():
         sys.exit(f"Error: case directory not found: {case_dir}")
 

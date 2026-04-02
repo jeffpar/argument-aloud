@@ -326,7 +326,7 @@ def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = Fal
 
 
 def validate_case(term_dir: Path, case_number: str, check_urls: bool = False) -> None:
-    files_path = term_dir / case_number / 'files.json'
+    files_path = term_dir / 'cases' / case_number / 'files.json'
     if not files_path.exists():
         print(f'{case_number}: no files.json — skipped.')
         return
@@ -377,7 +377,8 @@ def main() -> None:
     if len(args) == 2:
         validate_case(term_dir, args[1], check_urls)
     else:
-        case_dirs = sorted(d for d in term_dir.iterdir() if d.is_dir())
+        cases_dir = term_dir / 'cases'
+        case_dirs = sorted(d for d in cases_dir.iterdir() if d.is_dir()) if cases_dir.is_dir() else []
         if not case_dirs:
             print('No case directories found.')
             return
