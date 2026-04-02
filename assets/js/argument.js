@@ -98,6 +98,33 @@ async function loadFiles(url) {
   }
 }
 
+// ── Lazy term loading ────────────────────────────────────────────────────────
+const _termFetchPromises = new Map(); // term → inflight Promise or resolved cases[]
+
+async function fetchTermCases(term) {
+  if (_termFetchPromises.has(term)) return _termFetchPromises.get(term);
+  const entry = TERMS.find(t => t.term === term);
+  if (!entry) return [];
+  const p = fetch(entry.casesUrl, { cache: 'reload' })
+    .then(r => r.ok ? r.json() : [])
+    .catch(e => { console.warn('[cases] fetch failed for term', term, e); return []; });
+  _termFetchPromises.set(term, p);
+  const cases = await p;
+  _termFetchPromises.set(term, cases);
+  return cases;
+}
+
+// Called when nav search opens: loads all not-yet-built term case lists.
+async function loadAllTermsForSearch() {
+  const termEls = document.querySelectorAll('.term-group[data-term]');
+  await Promise.all([...termEls].map(el => el._ensureBuilt?.()));
+  // Re-run any active query now that all cases are in the DOM.
+  const navSearchInput = document.getElementById('nav-search-input');
+  if (navSearchInput?.value.trim()) {
+    navSearchInput.dispatchEvent(new Event('input'));
+  }
+}
+
 // Normalise link.refs (string or array) to an array of strings.
 function getRefs(link) {
   if (!link.refs) return [];
@@ -352,59 +379,32 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
 
 // ── Build nav ───────────────────────────────────────────────────────────────
 
-function buildNav(termData) {
-  const termListEl = document.getElementById('term-list');
-  termListEl.innerHTML = '';
+// Populate the case list for a term — called the first time a term is expanded.
+function buildTermCases(term, cases, ul) {
+  const sortedCases = [...cases].sort((a, b) => {
+    const da = a.audio?.[0]?.date ?? '';
+    const db = b.audio?.[0]?.date ?? '';
+    return da < db ? -1 : da > db ? 1 : 0;
+  });
 
-  termData.sort((a, b) => (a.term < b.term ? -1 : 1)); // oldest term first
+  // Group cases by argument month
+  const MONTH_NAMES = ['January','February','March','April','May','June',
+                       'July','August','September','October','November','December'];
+  const monthMap = new Map();
+  sortedCases.forEach(caseEntry => {
+    const argDate = caseEntry.audio?.[0]?.date;
+    const mk = argDate ? argDate.slice(0, 7) : 'unknown';
+    const ml = argDate ? MONTH_NAMES[parseInt(argDate.slice(5, 7), 10) - 1] : 'Unknown';
+    if (!monthMap.has(mk)) monthMap.set(mk, { label: ml, cases: [] });
+    monthMap.get(mk).cases.push(caseEntry);
+  });
 
-  termData.forEach(({ term, cases }) => {
-    const li = document.createElement('li');
-    li.className = 'term-group';
+  monthMap.forEach(({ label: monthLabel, cases: mCases }) => {
+    const monthLi = document.createElement('li');
+    monthLi.className = 'month-group';
 
-    const termHeader = document.createElement('div');
-    termHeader.className = 'term-header';
-
-    const termTog = document.createElement('span');
-    termTog.className = 'term-toggle';
-    termTog.textContent = '\u25b6';
-
-    const label = document.createElement('span');
-    label.className = 'term-label';
-    label.textContent = termDisplayName(term);
-
-    termHeader.appendChild(termTog);
-    termHeader.appendChild(label);
-    termHeader.addEventListener('click', () => li.classList.toggle('open'));
-    li.appendChild(termHeader);
-
-    const ul = document.createElement('ul');
-    ul.className = 'case-list';
-
-    const sortedCases = [...cases].sort((a, b) => {
-      const da = a.audio?.[0]?.date ?? '';
-      const db = b.audio?.[0]?.date ?? '';
-      return da < db ? -1 : da > db ? 1 : 0;
-    });
-
-    // Group cases by argument month
-    const MONTH_NAMES = ['January','February','March','April','May','June',
-                         'July','August','September','October','November','December'];
-    const monthMap = new Map();
-    sortedCases.forEach(caseEntry => {
-      const argDate = caseEntry.audio?.[0]?.date;
-      const mk = argDate ? argDate.slice(0, 7) : 'unknown';
-      const ml = argDate ? MONTH_NAMES[parseInt(argDate.slice(5, 7), 10) - 1] : 'Unknown';
-      if (!monthMap.has(mk)) monthMap.set(mk, { label: ml, cases: [] });
-      monthMap.get(mk).cases.push(caseEntry);
-    });
-
-    monthMap.forEach(({ label: monthLabel, cases: mCases }) => {
-      const monthLi = document.createElement('li');
-      monthLi.className = 'month-group';
-
-      const monthHeader = document.createElement('div');
-      monthHeader.className = 'month-header';
+    const monthHeader = document.createElement('div');
+    monthHeader.className = 'month-header';
 
       const monthTog = document.createElement('span');
       monthTog.className = 'month-toggle';
@@ -601,9 +601,93 @@ function buildNav(termData) {
       monthLi.appendChild(monthUl);
       ul.appendChild(monthLi);
     });
+}
 
-    li.appendChild(ul);
-    termListEl.appendChild(li);
+function buildNav() {
+  const termListEl = document.getElementById('term-list');
+  termListEl.innerHTML = '';
+
+  // Sort terms oldest first, then group by decade.
+  const sortedTerms = [...TERMS].sort((a, b) => (a.term < b.term ? -1 : 1));
+  const decadeMap = new Map();
+  sortedTerms.forEach(({ term }) => {
+    const year = parseInt(term.slice(0, 4), 10);
+    const decade = Math.floor(year / 10) * 10;
+    if (!decadeMap.has(decade)) decadeMap.set(decade, []);
+    decadeMap.get(decade).push(term);
+  });
+
+  const currentYear = new Date().getFullYear();
+  decadeMap.forEach((termList, decade) => {
+    const decLi = document.createElement('li');
+    decLi.className = 'decade-group';
+
+    const decHeader = document.createElement('div');
+    decHeader.className = 'decade-header';
+
+    const decTog = document.createElement('span');
+    decTog.className = 'decade-toggle';
+    decTog.textContent = '\u25b6';
+
+    const decLabel = document.createElement('span');
+    decLabel.className = 'decade-label';
+    const endYear = decade + 9;
+    decLabel.textContent = endYear < currentYear
+      ? `${decade}\u2013${endYear}`
+      : `${decade}\u2013Present`;
+
+    decHeader.appendChild(decTog);
+    decHeader.appendChild(decLabel);
+    decHeader.addEventListener('click', () => decLi.classList.toggle('open'));
+    decLi.appendChild(decHeader);
+
+    const decUl = document.createElement('ul');
+    decUl.className = 'term-list-inner';
+
+    termList.forEach(term => {
+      const termLi = document.createElement('li');
+      termLi.className = 'term-group';
+      termLi.dataset.term = term;
+
+      const termHeader = document.createElement('div');
+      termHeader.className = 'term-header';
+
+      const termTog = document.createElement('span');
+      termTog.className = 'term-toggle';
+      termTog.textContent = '\u25b6';
+
+      const label = document.createElement('span');
+      label.className = 'term-label';
+      label.textContent = termDisplayName(term);
+
+      termHeader.appendChild(termTog);
+      termHeader.appendChild(label);
+      termLi.appendChild(termHeader);
+
+      const ul = document.createElement('ul');
+      ul.className = 'case-list';
+
+      let built = false;
+      const ensureBuilt = async () => {
+        if (built) return;
+        built = true;
+        const cases = await fetchTermCases(term);
+        buildTermCases(term, cases, ul);
+      };
+      termLi._ensureBuilt = ensureBuilt;
+
+      termHeader.addEventListener('click', async () => {
+        if (termLi.classList.toggle('open')) {
+          await ensureBuilt();
+        }
+      });
+
+      termLi.appendChild(ul);
+      decUl.appendChild(termLi);
+    });
+
+    decLi.appendChild(decUl);
+    termListEl.appendChild(decLi);
   });
 }
 
@@ -1177,6 +1261,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     navSearchBtn.classList.add('active');
     navSearchInput.focus();
     navSearchInput.select();
+    loadAllTermsForSearch();
   }
 
   function closeNavSearch() {
@@ -1194,7 +1279,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
         ci.classList.remove('nav-search-match');
         ci.style.display = '';
       });
-      document.querySelectorAll('.month-group, .term-group').forEach(g => {
+      document.querySelectorAll('.month-group, .term-group, .decade-group').forEach(g => {
         g.style.display = '';
         g.classList.remove('open');
       });
@@ -1203,6 +1288,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
       if (activeCase) {
         activeCase.closest('.month-group')?.classList.add('open');
         activeCase.closest('.term-group')?.classList.add('open');
+        activeCase.closest('.decade-group')?.classList.add('open');
         requestAnimationFrame(() => activeCase.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
       }
       return;
@@ -1218,6 +1304,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
       if (matches) {
         ci.closest('.month-group')?.classList.add('open');
         ci.closest('.term-group')?.classList.add('open');
+        ci.closest('.decade-group')?.classList.add('open');
       }
     });
 
@@ -1229,6 +1316,11 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     // Hide term-groups whose month-groups all got filtered out
     document.querySelectorAll('.term-group').forEach(tg => {
       tg.style.display = tg.querySelector('.nav-search-match') ? '' : 'none';
+    });
+
+    // Hide decade-groups whose term-groups all got filtered out
+    document.querySelectorAll('.decade-group').forEach(dg => {
+      dg.style.display = dg.querySelector('.nav-search-match') ? '' : 'none';
     });
 
     // Scroll first match into view
@@ -1249,20 +1341,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
 
 // ── Init ────────────────────────────────────────────────────────────────────
 async function init() {
-  const termResults = await Promise.all(
-    TERMS.map(async ({ term, casesUrl }) => {
-      try {
-        const res = await fetch(casesUrl, { cache: 'reload' });
-        if (!res.ok) return null;
-        const cases = await res.json();
-        return { term, cases };
-      } catch (e) {
-        console.warn('[cases] fetch failed for term', term, e);
-        return null;
-      }
-    })
-  );
-  buildNav(termResults.filter(Boolean));
+  buildNav();
 
   // Restore state from URL params
   const params = new URLSearchParams(location.search);
@@ -1271,45 +1350,51 @@ async function init() {
   const fileParam = params.get('file') != null ? parseInt(params.get('file'), 10) : null;
   const turnParam = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
   if (termParam && caseParam) {
-    const key = termParam + '/' + caseParam;
-    const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`);
-    if (caseEl) {
-      // Expand the term group and month group that contain this case
-      caseEl.closest('.term-group')?.classList.add('open');
-      caseEl.closest('.month-group')?.classList.add('open');
+    // Expand the decade and term shells, then wait for the term's cases to load.
+    const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);
+    if (termLi) {
+      termLi.closest('.decade-group')?.classList.add('open');
+      termLi.classList.add('open');
+      await termLi._ensureBuilt?.();
 
-      if (fileParam != null || turnParam != null) {
-        document.addEventListener('transcriptloaded', () => {
-          if (turnParam != null) {
-            const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
-            if (turnIdx >= 0) {
-              if (activeTurnIdx >= 0) document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
-              const el = document.getElementById('turn-' + turnIdx);
-              if (el) {
-                el.classList.add('active');
-                activeTurnIdx = turnIdx;
-                if (turns[turnIdx].time != null) seekOnly(turnTimes[turnIdx]);
-                requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'center' }));
-                const url = new URL(location.href);
-                url.searchParams.set('turn', turnParam);
-                history.replaceState(null, '', url);
+      const key = termParam + '/' + caseParam;
+      const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`);
+      if (caseEl) {
+        caseEl.closest('.month-group')?.classList.add('open');
+
+        if (fileParam != null || turnParam != null) {
+          document.addEventListener('transcriptloaded', () => {
+            if (turnParam != null) {
+              const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
+              if (turnIdx >= 0) {
+                if (activeTurnIdx >= 0) document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
+                const el = document.getElementById('turn-' + turnIdx);
+                if (el) {
+                  el.classList.add('active');
+                  activeTurnIdx = turnIdx;
+                  if (turns[turnIdx].time != null) seekOnly(turnTimes[turnIdx]);
+                  requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'center' }));
+                  const url = new URL(location.href);
+                  url.searchParams.set('turn', turnParam);
+                  history.replaceState(null, '', url);
+                }
               }
             }
-          }
-          if (fileParam != null) {
-            const fileEl = document.querySelector(`.file-item[data-file-id="${fileParam}"]`);
-            if (fileEl) {
-              fileEl.closest('.file-type-group')?.classList.add('open');
-              requestAnimationFrame(() => fileEl.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
-              fileEl.click();
+            if (fileParam != null) {
+              const fileEl = document.querySelector(`.file-item[data-file-id="${fileParam}"]`);
+              if (fileEl) {
+                fileEl.closest('.file-type-group')?.classList.add('open');
+                requestAnimationFrame(() => fileEl.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
+                fileEl.click();
+              }
             }
-          }
-        }, { once: true });
+          }, { once: true });
+        }
+        // Use dispatchEvent so the fromRestore flag is passed to the title click handler.
+        const titleEl = caseEl.querySelector('.case-title-nav');
+        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true }));
+        requestAnimationFrame(() => caseEl.scrollIntoView({ behavior: 'instant', block: 'center' }));
       }
-      // Use dispatchEvent so the fromRestore flag is passed to the title click handler.
-      const titleEl = caseEl.querySelector('.case-title-nav');
-      if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true }));
-      requestAnimationFrame(() => caseEl.scrollIntoView({ behavior: 'instant', block: 'center' }));
     }
   }
 }

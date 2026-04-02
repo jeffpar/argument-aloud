@@ -155,6 +155,55 @@ body {
   padding-left: 16px;
 }
 
+/* ── Decade groups ─────────────────────────────────────── */
+.decade-group {
+  margin-bottom: 6px;
+}
+
+.decade-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 6px;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.decade-header:hover {
+  background: #dde8f2;
+}
+
+.decade-toggle {
+  flex-shrink: 0;
+  font-size: 9px;
+  color: #888;
+  transition: transform 0.15s;
+  line-height: 1;
+}
+
+.decade-group.open > .decade-header > .decade-toggle {
+  transform: rotate(90deg);
+}
+
+.decade-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #222;
+}
+
+.term-list-inner {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: none;
+}
+
+.decade-group.open > .term-list-inner {
+  display: block;
+}
+
+/* ── Term groups ───────────────────────────────────────── */
 .term-group {
   margin-bottom: 4px;
 }
