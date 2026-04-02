@@ -382,8 +382,8 @@ function buildNav(termData) {
     ul.className = 'case-list';
 
     const sortedCases = [...cases].sort((a, b) => {
-      const da = a.arguments?.[0]?.date ?? '';
-      const db = b.arguments?.[0]?.date ?? '';
+      const da = a.audio?.[0]?.date ?? '';
+      const db = b.audio?.[0]?.date ?? '';
       return da < db ? -1 : da > db ? 1 : 0;
     });
 
@@ -392,7 +392,7 @@ function buildNav(termData) {
                          'July','August','September','October','November','December'];
     const monthMap = new Map();
     sortedCases.forEach(caseEntry => {
-      const argDate = caseEntry.arguments?.[0]?.date;
+      const argDate = caseEntry.audio?.[0]?.date;
       const mk = argDate ? argDate.slice(0, 7) : 'unknown';
       const ml = argDate ? MONTH_NAMES[parseInt(argDate.slice(5, 7), 10) - 1] : 'Unknown';
       if (!monthMap.has(mk)) monthMap.set(mk, { label: ml, cases: [] });
@@ -610,8 +610,8 @@ function buildNav(termData) {
 // ── Load a case ─────────────────────────────────────────────────────────────
 
 async function loadCase(term, caseEntry) {
-  if (!caseEntry.arguments || !caseEntry.arguments.length) return;
-  const arg = caseEntry.arguments[0];
+  if (!caseEntry.audio || !caseEntry.audio.length) return;
+  const arg = caseEntry.audio[0];
   const caseKey = term + '/' + caseEntry.number;
   const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseEntry.number + '/';
   const transcriptUrl = /^https?:\/\//i.test(arg.text_href) ? arg.text_href : (basePath + arg.text_href);
@@ -667,7 +667,7 @@ async function loadCase(term, caseEntry) {
     document.getElementById('case-title-label').textContent =
       caseEntry.title + '\u00a0(No.\u00a0' + caseEntry.number + ')';
 
-    const argDate = caseEntry.arguments?.[0]?.date;
+    const argDate = caseEntry.audio?.[0]?.date;
     document.getElementById('case-date-label').textContent = argDate
       ? new Date(argDate + 'T00:00:00').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
       : '';
