@@ -423,7 +423,7 @@ function buildNav(termData) {
 
       mCases.forEach(caseEntry => {
         const caseKey = term + '/' + caseEntry.number;
-        const basePath = '/courts/ussc/terms/' + term + '/' + caseEntry.number + '/';
+        const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseEntry.number + '/';
 
         const ci = document.createElement('li');
         ci.className = 'case-item';
@@ -613,7 +613,7 @@ async function loadCase(term, caseEntry) {
   if (!caseEntry.arguments || !caseEntry.arguments.length) return;
   const arg = caseEntry.arguments[0];
   const caseKey = term + '/' + caseEntry.number;
-  const basePath = '/courts/ussc/terms/' + term + '/' + caseEntry.number + '/';
+  const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseEntry.number + '/';
   const transcriptUrl = /^https?:\/\//i.test(arg.text_href) ? arg.text_href : (basePath + arg.text_href);
   const audioUrl      = arg.audio_href || (basePath + arg.audio);
   const filesUrl      = basePath + 'files.json';

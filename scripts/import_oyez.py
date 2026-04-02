@@ -224,7 +224,7 @@ def main():
 
     for number in sorted(oyez_by_num):
         oyez_case = oyez_by_num[number]
-        case_dir  = cases_path.parent / number
+        case_dir  = cases_path.parent / 'cases' / number
 
         # For cases already in our local data, backfill from any existing
         # -oyez.json files (cheap local reads — no API call needed).
