@@ -1273,6 +1273,24 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
 
   function closeSearch() {
     overlay.classList.remove('open');
+    // If a search match was navigated to, make it the selected (active) turn
+    // without changing play/pause state.
+    if (matchCursor >= 0) {
+      const targetIdx = matchIndices[matchCursor];
+      if (targetIdx !== activeTurnIdx) {
+        if (activeTurnIdx >= 0) {
+          document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
+        }
+        document.getElementById('turn-' + targetIdx)?.classList.add('active');
+        activeTurnIdx = targetIdx;
+        checkLinksForActiveTurn(targetIdx);
+        if (turns[targetIdx]?.time != null) {
+          const wasPlaying = !audio.paused;
+          audio.currentTime = turnTimes[targetIdx];
+          if (wasPlaying) audio.play().catch(() => {});
+        }
+      }
+    }
     clearHighlights();
     matchIndices = [];
     matchCursor  = -1;
