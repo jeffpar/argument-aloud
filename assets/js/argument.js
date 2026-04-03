@@ -394,7 +394,10 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
 
 // Populate the case list for a term — called the first time a term is expanded.
 function buildTermCases(term, cases, ul) {
-  const sortedCases = [...cases].sort((a, b) => {
+  // Skip cases that have no audio entries at all (e.g. dismissed before argument).
+  const sortedCases = [...cases]
+    .filter(c => c.audio?.length)
+    .sort((a, b) => {
     const da = a.audio?.[0]?.date ?? '';
     const db = b.audio?.[0]?.date ?? '';
     return da < db ? -1 : da > db ? 1 : 0;
