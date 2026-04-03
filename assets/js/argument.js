@@ -1,6 +1,7 @@
 // ── State ───────────────────────────────────────────────────────────────────
 let turns = [];
 let turnTimes = [];   // each turn's start time in seconds
+let hasTimes = false; // whether current transcript has real time values
 let activeTurnIdx = -1;
 let links = [];        // annotation links for the current case
 let caseSpeakers = []; // ordered speaker list for the current transcript
@@ -13,7 +14,8 @@ const audio       = document.getElementById('audio-player');
 const turnList    = document.getElementById('turn-list');
 const emptyState  = document.getElementById('empty-state');
 const loadingMsg  = document.getElementById('loading-msg');
-const playerSection = document.getElementById('player-section');
+const playerSection   = document.getElementById('player-section');
+const audioControls   = document.getElementById('audio-controls');
 
 // ── Utilities ───────────────────────────────────────────────────────────────
 
@@ -820,7 +822,10 @@ async function loadAudioEntry(arg, basePath) {
     }
 
     const unalignedNote = document.getElementById('unaligned-note');
-    unalignedNote.hidden = turns.some(t => t.time != null);
+    hasTimes = turns.some(t => t.time != null);
+    unalignedNote.hidden = hasTimes;
+    document.getElementById('prev-turn-btn').disabled = !turns.length;
+    document.getElementById('next-turn-btn').disabled = !turns.length;
 
     caseSpeakers = (isEnvelope && transcriptData.media?.speakers?.length)
       ? transcriptData.media.speakers
@@ -911,6 +916,7 @@ async function loadCase(term, caseEntry) {
 
   // Reset transcript area
   playerSection.hidden = true;
+  audioControls.hidden = true;
   emptyState.style.display = 'none';
   activeTurnIdx = -1;
 
@@ -946,34 +952,48 @@ async function loadCase(term, caseEntry) {
     qEl.dataset.expanded = 'false';
 
     const showSummary = () => {
-      qEl.textContent = firstSentence + (hasMore ? '\u00a0' : '');
-      if (hasMore) {
-        const more = document.createElement('span');
-        more.className = 'questions-more';
-        more.textContent = '[More]';
-        qEl.appendChild(more);
-      }
+      qEl.innerHTML = '';
       qEl.dataset.expanded = 'false';
+
+      const textEl = document.createElement('div');
+      textEl.className = 'questions-text clamped';
+      textEl.textContent = firstSentence;
+      qEl.appendChild(textEl);
+
+      // [More] is a sibling outside the clamped div so it isn't hidden by overflow.
+      requestAnimationFrame(() => {
+        const isClamped = textEl.scrollHeight > textEl.clientHeight;
+        if (isClamped || hasMore) {
+          const more = document.createElement('span');
+          more.className = 'questions-more';
+          more.textContent = '[More]';
+          qEl.appendChild(more);
+          qEl.style.cursor = 'pointer';
+          qEl.onclick = expandFn;
+        }
+      });
+    };
+
+    const expandFn = () => {
+      if (qEl.dataset.expanded === 'true') {
+        showSummary();
+      } else {
+        qEl.innerHTML = '';
+        qEl.classList.remove('clamped');
+        raw.split(/\n(?=[ \t])/).forEach(chunk => {
+          const p = document.createElement('p');
+          p.textContent = chunk.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
+          qEl.appendChild(p);
+        });
+        qEl.dataset.expanded = 'true';
+      }
     };
 
     showSummary();
 
-    if (hasMore) {
-      qEl.style.cursor = 'pointer';
-      qEl.onclick = () => {
-        if (qEl.dataset.expanded === 'true') {
-          showSummary();
-        } else {
-          qEl.innerHTML = '';
-          raw.split(/\n(?=[ \t])/).forEach(chunk => {
-            const p = document.createElement('p');
-            p.textContent = chunk.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim();
-            qEl.appendChild(p);
-          });
-          qEl.dataset.expanded = 'true';
-        }
-      };
-    } else {
+    // cursor/onclick for hasMore is set via rAF inside showSummary;
+    // for no-more single-sentence cases, clear them here (rAF will re-add if actually clamped).
+    if (!hasMore) {
       qEl.style.cursor = '';
       qEl.onclick = null;
     }
@@ -988,10 +1008,12 @@ async function loadCase(term, caseEntry) {
   links = rawFiles.filter(f => f.refs);
 
   playerSection.hidden = false;
+  audioControls.hidden = false;
   await loadAudioEntry(sortedAudio[0], basePath);
 
   if (isMobile()) {
     playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+    setMobileNavVisible(false);
   }
 }
 
@@ -1074,10 +1096,53 @@ document.getElementById('audio-select').addEventListener('change', async (e) => 
   }
 });
 
+// ── Prev / Next turn buttons ──────────────────────────────────────────────
+function jumpToTurn(target) {
+  if (activeTurnIdx >= 0) {
+    document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
+  }
+  const el = document.getElementById('turn-' + target);
+  if (el) {
+    el.classList.add('active');
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  activeTurnIdx = target;
+  checkLinksForActiveTurn(target);
+  if (turns[target]?.time != null) {
+    seekAndPlay(turnTimes[target]);
+  }
+}
+
+document.getElementById('prev-turn-btn').addEventListener('click', () => {
+  if (!turns.length) return;
+  const current = activeTurnIdx >= 0 ? activeTurnIdx : (hasTimes ? findCurrentTurn(audio.currentTime) : 0);
+  jumpToTurn(Math.max(0, current > 0 ? current - 1 : 0));
+});
+
+document.getElementById('next-turn-btn').addEventListener('click', () => {
+  if (!turns.length) return;
+  const current = activeTurnIdx >= 0 ? activeTurnIdx : (hasTimes ? findCurrentTurn(audio.currentTime) : -1);
+  jumpToTurn(Math.min(turns.length - 1, current + 1));
+});
+
 // ── Case info: tap to scroll back to document browser on mobile ──────────
-document.getElementById('case-info').addEventListener('click', () => {
-  if (isMobile()) {
-    document.getElementById('doc-browser').scrollIntoView({ behavior: 'instant', block: 'start' });
+const mobileBackBtn = document.getElementById('mobile-back-btn');
+let _mobileNavVisible = false;
+
+function setMobileNavVisible(visible) {
+  _mobileNavVisible = visible;
+  mobileBackBtn.textContent = visible ? '\u25bc' : '\u25b2';
+  mobileBackBtn.title = visible ? 'Back to transcript' : 'Back to case list';
+  mobileBackBtn.setAttribute('aria-label', visible ? 'Back to transcript' : 'Back to case list');
+}
+
+mobileBackBtn.addEventListener('click', () => {
+  if (_mobileNavVisible) {
+    playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+    setMobileNavVisible(false);
+  } else {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    setMobileNavVisible(true);
   }
 });
 
@@ -1560,10 +1625,19 @@ async function init() {
             }
           }, { once: true });
         }
+        // On mobile, scroll to playerSection once the transcript is loaded.
+        if (isMobile()) {
+          document.addEventListener('transcriptloaded', () => {
+            playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+            setMobileNavVisible(false);
+          }, { once: true });
+        }
         // Use dispatchEvent so the fromRestore flag is passed to the title click handler.
         const titleEl = caseEl.querySelector('.case-title-nav');
         if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true }));
-        requestAnimationFrame(() => caseEl.scrollIntoView({ behavior: 'instant', block: 'center' }));
+        if (!isMobile()) {
+          requestAnimationFrame(() => caseEl.scrollIntoView({ behavior: 'instant', block: 'center' }));
+        }
       }
     }
   }

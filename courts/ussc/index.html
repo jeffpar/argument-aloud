@@ -28,15 +28,11 @@ title: Oral Arguments
       <div id="case-info">
         <div id="case-info-row1">
           <span id="case-title-label"></span>
+          <button id="mobile-back-btn" title="Back to case list" aria-label="Back to case list">&#9650;</button>
           <select id="audio-select"></select>
         </div>
         <div id="case-questions"></div>
       </div>
-      <div id="audio-row">
-        <audio id="audio-player" controls preload="metadata"></audio>
-        <button id="search-btn" title="Search transcript" aria-label="Search transcript">&#128269;</button>
-      </div>
-      <div id="unaligned-note" hidden>NOTE: The audio for this case has not yet been aligned with the transcript, so selecting turns below will not affect playback.</div>
     </div>
 
     <!-- Transcript search modal -->
@@ -68,6 +64,16 @@ title: Oral Arguments
       <div id="empty-state"><span>Select a case to begin<br/>(such as <a href="?term=2025-10&case=24-1260&turn=369">Watson v. RNC</a>)</span></div>
       <div id="loading-msg">Loading transcript&hellip;</div>
       <div id="turn-list" role="list"></div>
+    </div>
+
+    <div id="audio-controls" hidden>
+      <div id="audio-row">
+        <audio id="audio-player" controls preload="metadata"></audio>
+        <button id="prev-turn-btn" title="Previous turn" aria-label="Previous turn" disabled>&#8249;</button>
+        <button id="next-turn-btn" title="Next turn" aria-label="Next turn" disabled>&#8250;</button>
+        <button id="search-btn" title="Search transcript" aria-label="Search transcript">&#128269;</button>
+      </div>
+      <div id="unaligned-note" hidden>NOTE: The audio for this case has not yet been aligned with the transcript, so selecting turns will not affect playback.</div>
     </div>
 
     <div id="doc-viewer" hidden>
