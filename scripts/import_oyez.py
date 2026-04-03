@@ -29,6 +29,7 @@ import time
 import urllib.request
 from datetime import datetime
 from pathlib import Path
+from validate_cases import sync_files_count
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 OYEZ_API  = 'https://api.oyez.org'
@@ -650,6 +651,8 @@ def main():
             encoding='utf-8',
         )
         print(f'Updated {cases_path.relative_to(REPO_ROOT)}')
+
+    sync_files_count(cases_path)
 
     print()
     print(f'Done.  Downloaded: {downloaded}  |  Already existed: {skipped}  |  Errors: {errors}')
