@@ -352,29 +352,120 @@ def normalize_audio_aligned_position(cases_path: Path) -> None:
         print('Updated cases.json: moved "aligned" to last position in audio objects.')
 
 
+def sync_files_count(cases_path: Path) -> None:
+    """Set a 'files' count at the end of each case object in cases.json,
+    reflecting the current number of entries in that case's files.json
+    (or 0 if the file does not exist yet)."""
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    term_dir = cases_path.parent
+    modified = False
+    for case in data:
+        files_path = term_dir / 'cases' / case.get('number', '') / 'files.json'
+        count = 0
+        if files_path.exists():
+            try:
+                files = json.loads(files_path.read_text(encoding='utf-8'))
+                count = len(files) if isinstance(files, list) else 0
+            except Exception:
+                pass
+
+        keys = list(case.keys())
+        if keys[-1] == 'files' and case['files'] == count:
+            continue  # already correct and already last
+
+        case.pop('files', None)
+        case['files'] = count
+        modified = True
+
+    if modified:
+        cases_path.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print('Updated cases.json: synced "files" counts.')
+
+
 # ── Speaker map cleanup ───────────────────────────────────────────────────────
 
-def load_speaker_map() -> dict[str, str]:
-    """Load scripts/speakermap.txt -> {old_name: new_name}."""
+_SPEAKERMAP_CONSTRAINT_RE = re.compile(r'^(.*?)\s+(>=|<)\s+(\d{4}-\d{2})$')
+
+
+def load_speaker_map() -> list[tuple[str, str | None, str | None, str, str | None]]:
+    """Load scripts/speakermap.txt -> list of (base_name, op, constraint_term, new_name, role_filter).
+
+    LHS entries may carry a role prefix:
+      JUSTICE:NAME -> NEW        (applies only when speaker role == 'justice')
+    LHS entries may also carry a term constraint:
+      NAME < YYYY-MM -> NEW      (applies only when term < YYYY-MM)
+      NAME >= YYYY-MM -> NEW     (applies only when term >= YYYY-MM)
+    Unconstrained entries always apply.
+    """
     path = Path(__file__).resolve().parent / 'speakermap.txt'
     if not path.exists():
-        return {}
-    result: dict[str, str] = {}
+        return []
+    result: list[tuple[str, str | None, str | None, str, str | None]] = []
     for line in path.read_text(encoding='utf-8').splitlines():
         line = line.strip()
         if not line or line.startswith('#'):
             continue
         parts = line.split('->', 1)
         if len(parts) == 2:
-            old, new = parts[0].strip(), parts[1].strip()
-            if old and new:
-                result[old] = new
+            lhs, new = parts[0].strip(), parts[1].strip()
+            if not lhs or not new:
+                continue
+            if lhs.upper().startswith('JUSTICE:'):
+                role_filter: str | None = 'justice'
+                lhs = lhs[len('JUSTICE:'):].strip()
+            else:
+                role_filter = None
+            m = _SPEAKERMAP_CONSTRAINT_RE.match(lhs)
+            if m:
+                result.append((m.group(1), m.group(2), m.group(3), new, role_filter))
+            else:
+                result.append((lhs, None, None, new, role_filter))
     return result
+
+
+def resolve_speaker_map(entries: list[tuple[str, str | None, str | None, str, str | None]], term: str) -> dict[str, tuple[str, str | None]]:
+    """Return a {base_name: (new_name, role_filter)} dict for entries applicable to the given term string."""
+    result: dict[str, tuple[str, str | None]] = {}
+    for base_name, op, constraint_term, new_name, role_filter in entries:
+        if op is None:
+            result[base_name] = (new_name, role_filter)
+        elif op == '<' and term < constraint_term:  # type: ignore[operator]
+            result[base_name] = (new_name, role_filter)
+        elif op == '>=' and term >= constraint_term:  # type: ignore[operator]
+            result[base_name] = (new_name, role_filter)
+    return result
+
+
+def check_unmapped_justices(case_dir: Path) -> None:
+    """Warn about speakers with role 'justice' whose name does not contain 'JUSTICE'."""
+    if not case_dir.is_dir():
+        return
+    for json_path in sorted(case_dir.glob('*.json')):
+        if json_path.name == 'files.json':
+            continue
+        try:
+            data = json.loads(json_path.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        if not isinstance(data, dict):
+            continue
+        for sp in (data.get('media') or {}).get('speakers') or []:
+            name, role = sp.get('name', ''), sp.get('role', '')
+            if role == 'justice' and 'JUSTICE' not in name.upper():
+                print(f'  {case_dir.name}/{json_path.name}: justice without JUSTICE in name: {name!r}')
+            elif role != 'justice' and 'JUSTICE' in name.upper():
+                print(f'  {case_dir.name}/{json_path.name}: non-justice with JUSTICE in name: {name!r} (role={role!r})')
 
 
 def apply_speaker_map_to_case(case_dir: Path, speaker_map: dict[str, str]) -> None:
     """Apply speaker name mappings to all transcript JSON files in a case directory."""
-    if not speaker_map or not case_dir.is_dir():
+    if not case_dir.is_dir():
         return
     for json_path in sorted(case_dir.glob('*.json')):
         if json_path.name == 'files.json':
@@ -387,12 +478,21 @@ def apply_speaker_map_to_case(case_dir: Path, speaker_map: dict[str, str]) -> No
             continue
         modified = False
         for sp in (data.get('media') or {}).get('speakers') or []:
-            if sp.get('name') in speaker_map:
-                sp['name'] = speaker_map[sp['name']]
+            name, role = sp.get('name', ''), sp.get('role', '')
+            if not role and 'JUSTICE' in name.upper():
+                sp['role'] = 'justice'
                 modified = True
+                continue
+            entry = speaker_map.get(name)
+            if entry is not None:
+                new_name, role_filter = entry
+                if role_filter is None or role == role_filter:
+                    sp['name'] = new_name
+                    modified = True
         for turn in data.get('turns') or []:
-            if turn.get('name') in speaker_map:
-                turn['name'] = speaker_map[turn['name']]
+            entry = speaker_map.get(turn.get('name', ''))
+            if entry is not None:
+                turn['name'] = entry[0]
                 modified = True
         if modified:
             json_path.write_text(
@@ -400,6 +500,7 @@ def apply_speaker_map_to_case(case_dir: Path, speaker_map: dict[str, str]) -> No
                 encoding='utf-8',
             )
             print(f'  {case_dir.name}: applied speaker map to {json_path.name}')
+    check_unmapped_justices(case_dir)
 
 
 # ── Core validation ───────────────────────────────────────────────────────────
@@ -514,18 +615,20 @@ def main() -> None:
         migrate_arguments_to_audio(cases_path)
         validate_cases_json_arguments(cases_path)
         normalize_audio_aligned_position(cases_path)
+        sync_files_count(cases_path)
 
-    speaker_map = load_speaker_map()
+    raw_speaker_map = load_speaker_map()
 
     if len(args) == 2:
         validate_case(term_dir, args[1], check_urls)
-        apply_speaker_map_to_case(term_dir / 'cases' / args[1], speaker_map)
+        apply_speaker_map_to_case(term_dir / 'cases' / args[1], resolve_speaker_map(raw_speaker_map, term))
     else:
         cases_dir = term_dir / 'cases'
         case_dirs = sorted(d for d in cases_dir.iterdir() if d.is_dir()) if cases_dir.is_dir() else []
         if not case_dirs:
             print('No case directories found.')
             return
+        speaker_map = resolve_speaker_map(raw_speaker_map, term)
         for d in case_dirs:
             validate_case(term_dir, d.name, check_urls)
             apply_speaker_map_to_case(d, speaker_map)

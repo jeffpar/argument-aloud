@@ -40,34 +40,74 @@ def fetch_json(url: str) -> object:
         return json.loads(r.read())
 
 
-def load_speaker_map() -> dict[str, str]:
-    """Load scripts/speakermap.txt → {old_name: new_name}."""
+_SPEAKERMAP_CONSTRAINT_RE = re.compile(r'^(.*?)\s+(>=|<)\s+(\d{4}-\d{2})$')
+
+
+def load_speaker_map() -> list[tuple[str, str | None, str | None, str, str | None]]:
+    """Load scripts/speakermap.txt → list of (base_name, op, constraint_term, new_name, role_filter).
+
+    LHS entries may carry a role prefix:
+      JUSTICE:NAME -> NEW        (applies only when speaker role == 'justice')
+    LHS entries may also carry a term constraint:
+      NAME < YYYY-MM -> NEW      (applies only when term < YYYY-MM)
+      NAME >= YYYY-MM -> NEW     (applies only when term >= YYYY-MM)
+    Unconstrained entries always apply.
+    """
     path = Path(__file__).resolve().parent / 'speakermap.txt'
     if not path.exists():
-        return {}
-    result: dict[str, str] = {}
+        return []
+    result: list[tuple[str, str | None, str | None, str, str | None]] = []
     for line in path.read_text(encoding='utf-8').splitlines():
         line = line.strip()
         if not line or line.startswith('#'):
             continue
         parts = line.split('->', 1)
         if len(parts) == 2:
-            old, new = parts[0].strip(), parts[1].strip()
-            if old and new:
-                result[old] = new
+            lhs, new = parts[0].strip(), parts[1].strip()
+            if not lhs or not new:
+                continue
+            if lhs.upper().startswith('JUSTICE:'):
+                role_filter: str | None = 'justice'
+                lhs = lhs[len('JUSTICE:'):].strip()
+            else:
+                role_filter = None
+            m = _SPEAKERMAP_CONSTRAINT_RE.match(lhs)
+            if m:
+                result.append((m.group(1), m.group(2), m.group(3), new, role_filter))
+            else:
+                result.append((lhs, None, None, new, role_filter))
     return result
 
 
-def apply_speaker_map(envelope: dict, speaker_map: dict[str, str]) -> None:
+def resolve_speaker_map(entries: list[tuple[str, str | None, str | None, str, str | None]], term: str) -> dict[str, tuple[str, str | None]]:
+    """Return a {base_name: (new_name, role_filter)} dict for entries applicable to the given term string."""
+    result: dict[str, tuple[str, str | None]] = {}
+    for base_name, op, constraint_term, new_name, role_filter in entries:
+        if op is None:
+            result[base_name] = (new_name, role_filter)
+        elif op == '<' and term < constraint_term:  # type: ignore[operator]
+            result[base_name] = (new_name, role_filter)
+        elif op == '>=' and term >= constraint_term:  # type: ignore[operator]
+            result[base_name] = (new_name, role_filter)
+    return result
+
+
+def apply_speaker_map(envelope: dict, speaker_map: dict[str, tuple[str, str | None]]) -> None:
     """Apply speaker name remappings in-place to a transcript envelope."""
-    if not speaker_map:
-        return
     for sp in (envelope.get('media') or {}).get('speakers') or []:
-        if sp.get('name') in speaker_map:
-            sp['name'] = speaker_map[sp['name']]
+        name, role = sp.get('name', ''), sp.get('role', '')
+        if not role and 'JUSTICE' in name.upper():
+            sp['role'] = 'justice'
+            continue
+        entry = speaker_map.get(name)
+        if entry is not None:
+            new_name, role_filter = entry
+            if role_filter is None or role == role_filter:
+                sp['name'] = new_name
     for turn in envelope.get('turns') or []:
-        if turn.get('name') in speaker_map:
-            turn['name'] = speaker_map[turn['name']]
+        entry = speaker_map.get(turn.get('name', ''))
+        if entry is not None:
+            turn['name'] = entry[0]
 
 
 def fetch_oyez_cases(year: str) -> list[dict]:
@@ -338,7 +378,8 @@ def main():
     print()
     downloaded = skipped = errors = 0
     cases_modified = False
-    speaker_map = load_speaker_map()
+    raw_speaker_map = load_speaker_map()
+    speaker_map = resolve_speaker_map(raw_speaker_map, term)
 
     for number in sorted(oyez_by_num):
         oyez_case = oyez_by_num[number]

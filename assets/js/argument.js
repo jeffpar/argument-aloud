@@ -469,7 +469,9 @@ function buildTermCases(term, cases, ul) {
           icon.title = 'Opinion issued';
           header.appendChild(icon);
           ci.classList.add('decided');
-        } else {
+        } else if (caseEntry.files !== 0) {
+          // caseEntry.files === 0 means files.json is known empty — skip the fetch.
+          // caseEntry.files === undefined means the count isn't recorded yet — fetch anyway.
           fetch(basePath + 'files.json')
             .then(r => r.ok ? r.json() : [])
             .then(files => {
@@ -494,7 +496,7 @@ function buildTermCases(term, cases, ul) {
         async function ensureFilesLoaded() {
           if (filesLoaded) return;
           filesLoaded = true;
-          const rawFiles = await loadFiles(basePath + 'files.json');
+          const rawFiles = caseEntry.files === 0 ? [] : await loadFiles(basePath + 'files.json');
 
           const TYPE_LABELS = {
             petitioner: 'Petitioner',
@@ -664,7 +666,18 @@ function buildNav() {
 
     decHeader.appendChild(decTog);
     decHeader.appendChild(decLabel);
-    decHeader.addEventListener('click', () => decLi.classList.toggle('open'));
+    decHeader.addEventListener('click', () => {
+      decLi.classList.toggle('open');
+      if (decLi.classList.contains('open')) {
+        // Prefetch case counts for all terms in this decade, in order.
+        (async () => {
+          const termEls = [...decUl.querySelectorAll('.term-group[data-term]')];
+          for (const el of termEls) {
+            await el._ensureCount?.();
+          }
+        })();
+      }
+    });
     decLi.appendChild(decHeader);
 
     const decUl = document.createElement('ul');
@@ -688,6 +701,11 @@ function buildNav() {
 
       termHeader.appendChild(termTog);
       termHeader.appendChild(label);
+
+      const termCount = document.createElement('span');
+      termCount.className = 'term-case-count';
+      termHeader.appendChild(termCount);
+
       termLi.appendChild(termHeader);
 
       const ul = document.createElement('ul');
@@ -699,8 +717,18 @@ function buildNav() {
         built = true;
         const cases = await fetchTermCases(term);
         buildTermCases(term, cases, ul);
+        const visible = cases.filter(c => c.audio?.length);
+        termCount.textContent = '(' + visible.length + '\u00a0cases)';
+      };
+      // Fetch count only (no DOM build) — used when expanding the decade.
+      const ensureCount = async () => {
+        if (termCount.textContent) return; // already populated
+        const cases = await fetchTermCases(term);
+        const visible = cases.filter(c => c.audio?.length);
+        termCount.textContent = '(' + visible.length + '\u00a0cases)';
       };
       termLi._ensureBuilt = ensureBuilt;
+      termLi._ensureCount = ensureCount;
 
       termHeader.addEventListener('click', async () => {
         if (termLi.classList.toggle('open')) {
@@ -941,7 +969,7 @@ async function loadCase(term, caseEntry) {
     qEl.style.cursor = '';
   }
 
-  const rawFiles = await loadFiles(basePath + 'files.json');
+  const rawFiles = caseEntry.files === 0 ? [] : await loadFiles(basePath + 'files.json');
   links = rawFiles.filter(f => f.refs);
 
   playerSection.hidden = false;
@@ -1470,9 +1498,19 @@ async function init() {
     // Expand the decade and term shells, then wait for the term's cases to load.
     const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);
     if (termLi) {
-      termLi.closest('.decade-group')?.classList.add('open');
+      const decLi = termLi.closest('.decade-group');
+      decLi?.classList.add('open');
       termLi.classList.add('open');
       await termLi._ensureBuilt?.();
+      // Prefetch counts for remaining terms in the decade (same as clicking the decade header).
+      if (decLi) {
+        (async () => {
+          const termEls = [...decLi.querySelectorAll('.term-group[data-term]')];
+          for (const el of termEls) {
+            await el._ensureCount?.();
+          }
+        })();
+      }
 
       const key = termParam + '/' + caseParam;
       const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`);

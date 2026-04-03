@@ -56,7 +56,7 @@ from pathlib import Path
 
 # Import opinion helpers from validate_cases (same scripts/ directory).
 sys.path.insert(0, str(Path(__file__).parent))
-from validate_cases import _fetch_opinions, check_opinion_for_case
+from validate_cases import _fetch_opinions, check_opinion_for_case, sync_files_count
 
 
 CASE_RE  = re.compile(r'^(\d+(?:-\d+|-Orig|A\d+))\s+(.+)$', re.IGNORECASE)
@@ -996,6 +996,9 @@ def main():
         files_path = cases_path.parent / 'cases' / case['number'] / 'files.json'
         if files_path.exists():
             check_opinion_for_case(files_path, case['number'], term)
+
+    # Sync files counts now that all files.json mutations are done
+    sync_files_count(cases_path)
 
 
 if __name__ == '__main__':
