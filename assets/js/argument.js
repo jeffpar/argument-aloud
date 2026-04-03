@@ -461,19 +461,29 @@ function buildTermCases(term, cases, ul) {
         header.appendChild(titleSpan);
 
         // ── Gavel icon: shown if this case has an opinion (background check) ──
-        fetch(basePath + 'files.json')
-          .then(r => r.ok ? r.json() : [])
-          .then(files => {
-            if (Array.isArray(files) && files.some(f => f.type === 'opinion')) {
-              const icon = document.createElement('span');
-              icon.className = 'case-decided-icon';
-              icon.textContent = '\u2696';
-              icon.title = 'Opinion issued';
-              header.appendChild(icon);
-              ci.classList.add('decided');
-            }
-          })
-          .catch(() => {});
+        const hasOpinionAudio = caseEntry.audio?.some(a => a.type === 'opinion');
+        if (hasOpinionAudio) {
+          const icon = document.createElement('span');
+          icon.className = 'case-decided-icon';
+          icon.textContent = '\u2696';
+          icon.title = 'Opinion issued';
+          header.appendChild(icon);
+          ci.classList.add('decided');
+        } else {
+          fetch(basePath + 'files.json')
+            .then(r => r.ok ? r.json() : [])
+            .then(files => {
+              if (Array.isArray(files) && files.some(f => f.type === 'opinion')) {
+                const icon = document.createElement('span');
+                icon.className = 'case-decided-icon';
+                icon.textContent = '\u2696';
+                icon.title = 'Opinion issued';
+                header.appendChild(icon);
+                ci.classList.add('decided');
+              }
+            })
+            .catch(() => {});
+        }
 
         // ── File sub-list (populated lazily) ──────────────────
         const fileUl = document.createElement('ul');
