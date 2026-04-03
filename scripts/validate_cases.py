@@ -2,13 +2,14 @@
 """Validate file entries for SCOTUS cases.
 
 Usage:
-    python3 scripts/validate_cases.py TERM [CASE] [--checkurls]
+    python3 scripts/validate_cases.py TERM [CASE] [--checkurls] [--verbose]
 
 Examples:
     python3 scripts/validate_cases.py 2025-10 24-1260
     python3 scripts/validate_cases.py 2025-10
     python3 scripts/validate_cases.py 2025-10 --checkurls
     python3 scripts/validate_cases.py 2025-10 24-1260 --checkurls
+    python3 scripts/validate_cases.py 2025-10 --verbose
 
 For each case's files.json:
   1. Checks supremecourt.gov for a slip opinion matching the case's docket number;
@@ -592,11 +593,67 @@ def check_duplicate_case_numbers(term_dir: Path) -> None:
             seen[key] = number
 
 
+def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
+    """Cross-check cases.json entries against case folders and transcript files on disk."""
+    cases_path = term_dir / 'cases.json'
+    cases_dir  = term_dir / 'cases'
+    if not cases_path.exists():
+        return
+
+    cases = json.loads(cases_path.read_text(encoding='utf-8'))
+    json_numbers = {c.get('number', ''): c for c in cases if c.get('number')}
+
+    # Folders present on disk.
+    disk_folders: set[str] = (
+        {d.name for d in cases_dir.iterdir() if d.is_dir()}
+        if cases_dir.is_dir() else set()
+    )
+
+    # 1. Cases in cases.json with no matching folder.
+    for number in sorted(json_numbers):
+        if number not in disk_folders:
+            case = json_numbers[number]
+            has_content = bool(case.get('audio')) or bool(case.get('files'))
+            if has_content or verbose:
+                print(f'WARNING: {number} in cases.json but no folder at cases/{number}/')
+
+    # 2. Folders on disk with no matching case in cases.json.
+    for folder in sorted(disk_folders):
+        if folder not in json_numbers:
+            print(f'WARNING: cases/{folder}/ exists on disk but not in cases.json')
+
+    # 3 & 4. Per-case transcript file cross-check.
+    _DATE_JSON_RE = re.compile(r'^\d{4}-\d{2}-\d{2}.*\.json$')
+    for number, case in sorted(json_numbers.items()):
+        if number not in disk_folders:
+            continue  # already warned above
+        case_dir = cases_dir / number
+
+        # text_hrefs referenced in audio objects (local files only, not URLs).
+        referenced: set[str] = set()
+        for audio in case.get('audio') or []:
+            th = audio.get('text_href', '')
+            if th and not th.startswith(('http://', 'https://')):
+                referenced.add(th)
+
+        # Date-stamped JSON files actually present on disk.
+        on_disk: set[str] = {
+            f.name for f in case_dir.iterdir()
+            if f.is_file() and _DATE_JSON_RE.match(f.name)
+        } if case_dir.is_dir() else set()
+
+        for fname in sorted(referenced - on_disk):
+            print(f'WARNING: {number}: audio text_href {fname!r} not found on disk')
+        for fname in sorted(on_disk - referenced):
+            print(f'WARNING: {number}: {fname} on disk but not referenced in audio')
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    args = [a for a in sys.argv[1:] if a != '--checkurls']
+    args = [a for a in sys.argv[1:] if a not in ('--checkurls', '--verbose')]
     check_urls = '--checkurls' in sys.argv
+    verbose    = '--verbose'    in sys.argv
 
     if len(args) not in (1, 2):
         print(__doc__)
@@ -609,6 +666,7 @@ def main() -> None:
         sys.exit(f'Error: directory not found: {term_dir}')
 
     check_duplicate_case_numbers(term_dir)
+    check_cases_sync(term_dir, verbose)
 
     cases_path = term_dir / 'cases.json'
     if cases_path.exists():
