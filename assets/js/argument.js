@@ -1477,7 +1477,16 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
 
   refsSelect.addEventListener('change', () => {
     const ref = refsSelect.value;
-    if (!ref) return;
+    if (!ref) {
+      input.value = '';
+      clearHighlights();
+      matchIndices = [];
+      matchCursor = -1;
+      delete input.dataset.lastSearchKey;
+      updateStatus();
+      input.focus();
+      return;
+    }
     input.value = ref;
     // Clear stale state and run search immediately
     clearHighlights();
