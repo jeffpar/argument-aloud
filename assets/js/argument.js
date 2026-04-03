@@ -1039,10 +1039,14 @@ function renderTranscript() {
     div.appendChild(tx);
     div.addEventListener('click', () => {
       const alreadyActive = idx === activeTurnIdx;
-      if (alreadyActive && !audio.paused) {
-        audio.pause();
+      if (alreadyActive) {
+        // Re-clicking the active turn toggles play/pause
+        if (turn.time != null) {
+          audio.paused ? audio.play().catch(() => {}) : audio.pause();
+        }
         return;
       }
+      const wasPlaying = !audio.paused;
       if (activeTurnIdx >= 0) {
         document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
       }
@@ -1050,9 +1054,10 @@ function renderTranscript() {
       activeTurnIdx = idx;
       const hadRef = checkLinksForActiveTurn(idx, true);
       if (!hadRef) collapseDocViewer();
-      // Only seek/play if this turn has a real timestamp
+      // Seek to the new turn; only play if audio was already playing
       if (turn.time != null) {
-        seekAndPlay(turnTimes[idx]);
+        audio.currentTime = turnTimes[idx];
+        if (wasPlaying) audio.play().catch(() => {});
       } else {
         div.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
@@ -1109,7 +1114,9 @@ function jumpToTurn(target) {
   activeTurnIdx = target;
   checkLinksForActiveTurn(target);
   if (turns[target]?.time != null) {
-    seekAndPlay(turnTimes[target]);
+    const wasPlaying = !audio.paused;
+    audio.currentTime = turnTimes[target];
+    if (wasPlaying) audio.play();
   }
 }
 
@@ -1350,9 +1357,17 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   // Close button
   closeBtn.addEventListener('click', closeSearch);
 
-  // Escape closes
+  // Escape closes; Space toggles play/pause
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeSearch();
+    if (e.key === ' ' && !overlay.classList.contains('open')) {
+      const tag = document.activeElement?.tagName;
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || tag === 'BUTTON') return;
+      if (audio.src && !playerSection.hidden) {
+        e.preventDefault();
+        audio.paused ? audio.play().catch(() => {}) : audio.pause();
+      }
+    }
   });
 
   // Search on Enter; Shift+Enter goes backwards
