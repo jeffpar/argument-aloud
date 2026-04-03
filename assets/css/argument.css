@@ -478,8 +478,24 @@ body {
   display: none;
 }
 
+/* ── Audio controls footer ───────────────────────────────── */
+#audio-controls {
+  flex-shrink: 0;
+  border-top: 1px solid #e0e0e0;
+  background: #fafafa;
+  padding: 10px 20px 12px;
+}
+
+#audio-controls[hidden] {
+  display: none;
+}
+
 #case-info {
   margin-bottom: 8px;
+}
+
+#mobile-back-btn {
+  display: none;
 }
 
 #case-info-row1 {
@@ -495,6 +511,7 @@ body {
   font-weight: 600;
   color: #222;
   flex: 1 1 auto;
+  max-width: 85%;
 }
 
 #audio-select {
@@ -514,6 +531,12 @@ body {
   font-size: 12px;
   line-height: 1.5;
   color: #444;
+  position: relative;
+}
+
+.questions-text.clamped {
+  max-height: calc(3 * 1.5em);
+  overflow: hidden;
 }
 
 #case-questions p {
@@ -521,11 +544,15 @@ body {
 }
 
 .questions-more {
-  margin-left: 4px;
   font-size: 11px;
   color: #0066cc;
   font-style: italic;
   white-space: nowrap;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(to right, transparent, #fafafa 30%);
+  padding-left: 20px;
 }
 
 #audio-row {
@@ -545,6 +572,8 @@ body {
   display: block;
 }
 
+#prev-turn-btn,
+#next-turn-btn,
 #search-btn {
   flex-shrink: 0;
   background: none;
@@ -558,10 +587,24 @@ body {
   transition: background 0.1s, color 0.1s;
 }
 
+#prev-turn-btn,
+#next-turn-btn {
+  font-size: 20px;
+  padding: 1px 6px;
+}
+
+#prev-turn-btn:hover:not(:disabled),
+#next-turn-btn:hover:not(:disabled),
 #search-btn:hover {
   background: #e4eef8;
   color: #2672b4;
   border-color: #a8c8e8;
+}
+
+#prev-turn-btn:disabled,
+#next-turn-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 /* ── Transcript search modal ─────────────────────────────── */
@@ -1113,7 +1156,13 @@ body {
   #transcript-viewer {
     overflow-y: visible;
     height: auto;
-    padding-bottom: 32px;
+    padding-bottom: 0;
+  }
+
+  #audio-controls {
+    position: sticky;
+    bottom: 0;
+    z-index: 50;
   }
 
   #doc-viewer {
@@ -1135,14 +1184,18 @@ body {
   }
 
   #case-info {
-    cursor: pointer;
+    cursor: default;
   }
 
-  #case-info::after {
-    content: ' ▲';
-    font-size: 9px;
+  #mobile-back-btn {
+    display: inline-block;
+    background: none;
+    border: none;
+    padding: 0 2px;
+    font-size: 11px;
     color: #aaa;
-    vertical-align: middle;
-    margin-left: 4px;
+    cursor: pointer;
+    line-height: 1;
+    flex-shrink: 0;
   }
 }
