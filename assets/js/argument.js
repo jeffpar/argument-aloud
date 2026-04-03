@@ -708,7 +708,9 @@ function buildNav() {
 
 // Load (or switch to) a specific audio entry within the already-set-up case.
 async function loadAudioEntry(arg, basePath) {
-  const transcriptUrl = /^https?:\/\//i.test(arg.text_href) ? arg.text_href : (basePath + arg.text_href);
+  const transcriptUrl = arg.text_href
+    ? (/^https?:\/\//i.test(arg.text_href) ? arg.text_href : (basePath + arg.text_href))
+    : null;
   const audioUrl      = arg.audio_href || (basePath + arg.audio);
 
   // Reset transcript area
@@ -719,11 +721,16 @@ async function loadAudioEntry(arg, basePath) {
   activeTurnIdx = -1;
 
   try {
-    const res = await fetch(transcriptUrl);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    let transcriptData = await res.json();
+    let transcriptData = [];
+    let isEnvelope = false;
 
-    let isEnvelope = !Array.isArray(transcriptData);
+    if (transcriptUrl) {
+      const res = await fetch(transcriptUrl);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      transcriptData = await res.json();
+      isEnvelope = !Array.isArray(transcriptData);
+    }
+
     turns = isEnvelope ? (transcriptData.turns ?? []) : transcriptData;
 
     // If the primary transcript has no time-aligned turns, try the Oyez fallback file.
@@ -806,8 +813,40 @@ async function loadCase(term, caseEntry) {
       bestSource  = src;
     }
   }
-  const sortedAudio = (sourceGroups.get(bestSource)?.entries ?? [])
-    .sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
+  const sortedAudio = (() => {
+    const best = (sourceGroups.get(bestSource)?.entries ?? [])
+      .sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
+
+    // Supplement with entries from other sources whose (date, type) pair is
+    // not already covered by the best source (e.g. a NARA opinion announcement
+    // on a date where the best source only has an argument entry).
+    const covered = new Set(best.map(a => `${a.date ?? ''}|${a.type ?? ''}`));
+    for (const [src, { entries }] of sourceGroups) {
+      if (src === bestSource) continue;
+      for (const a of entries) {
+        if (!covered.has(`${a.date ?? ''}|${a.type ?? ''}`)) {
+          best.push(a);
+          covered.add(`${a.date ?? ''}|${a.type ?? ''}`);
+        }
+      }
+    }
+    best.sort((a, b) => (a.date ?? '') < (b.date ?? '') ? -1 : 1);
+
+    // Group by date. For each date group that contains at least one aligned
+    // entry, keep only the aligned ones; otherwise keep all entries for that date.
+    const dateGroups = new Map();
+    for (const a of best) {
+      const dk = a.date ?? '';
+      if (!dateGroups.has(dk)) dateGroups.set(dk, []);
+      dateGroups.get(dk).push(a);
+    }
+    const filtered = [];
+    for (const group of dateGroups.values()) {
+      const alignedOnly = group.filter(a => a.aligned === true);
+      filtered.push(...(alignedOnly.length ? alignedOnly : group));
+    }
+    return filtered;
+  })();
 
   // Update nav
   document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
