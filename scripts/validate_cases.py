@@ -134,7 +134,7 @@ def _fetch_opinions(year_2digit: str) -> dict:
         return _OPINIONS_CACHE[year_2digit]
 
     url = f'{SCOTUS_BASE}/opinions/slipopinion/{year_2digit}'
-    print(f'  Fetching opinions index: {url}')
+    print(f'Fetching opinions index: {url}')
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
@@ -168,7 +168,8 @@ def _fetch_opinions(year_2digit: str) -> dict:
         }
 
     _OPINIONS_CACHE[year_2digit] = opinions
-    print(f'    Found {len(opinions)} opinion(s) for term year {year_2digit}.')
+    full_year = str(2000 + int(year_2digit))
+    print(f'  Found {len(opinions)} opinion(s) for term year {full_year}.')
     return opinions
 
 
@@ -288,7 +289,11 @@ def validate_cases_json_arguments(cases_path: Path) -> None:
             if not audio_href:
                 continue
 
-            source, type_val = _detect_source_type(audio_href)
+            source, inferred_type = _detect_source_type(audio_href)
+
+            # Preserve any explicitly recorded type; only fall back to the
+            # URL-inferred type when the key is absent entirely.
+            type_val = arg.get('type') or inferred_type
 
             text_href = arg.get('text_href', '')
             is_aligned = bool(
@@ -318,7 +323,33 @@ def validate_cases_json_arguments(cases_path: Path) -> None:
         )
         print('Updated cases.json: set source/type/aligned on audio objects.')
     else:
-        print('cases.json audio source/type/aligned fields already up to date.')
+        pass  # no changes needed
+
+
+def normalize_audio_aligned_position(cases_path: Path) -> None:
+    """Ensure 'aligned' is the last key in every audio object that has it."""
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    modified = False
+    for case in data:
+        for arg in case.get('audio', []):
+            if 'aligned' not in arg:
+                continue
+            keys = list(arg.keys())
+            if keys[-1] == 'aligned':
+                continue  # already last
+            aligned_val = arg.pop('aligned')
+            arg['aligned'] = aligned_val
+            modified = True
+
+    if modified:
+        cases_path.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print('Updated cases.json: moved "aligned" to last position in audio objects.')
 
 
 # ── Speaker map cleanup ───────────────────────────────────────────────────────
@@ -433,7 +464,6 @@ def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = Fal
 def validate_case(term_dir: Path, case_number: str, check_urls: bool = False) -> None:
     files_path = term_dir / 'cases' / case_number / 'files.json'
     if not files_path.exists():
-        print(f'{case_number}: no files.json — skipped.')
         return
     _printed = [False]
     def _print_header():
@@ -483,6 +513,7 @@ def main() -> None:
     if cases_path.exists():
         migrate_arguments_to_audio(cases_path)
         validate_cases_json_arguments(cases_path)
+        normalize_audio_aligned_position(cases_path)
 
     speaker_map = load_speaker_map()
 

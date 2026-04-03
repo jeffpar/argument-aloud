@@ -750,6 +750,12 @@ async function loadAudioEntry(arg, basePath) {
     audio.src = resolvedAudioUrl;
     audio.load();
 
+    // If the entry has an offset (e.g. NARA files covering multiple cases),
+    // seek to that position after metadata is ready.
+    if (arg.offset) {
+      seekOnly(parseTime(arg.offset));
+    }
+
     const unalignedNote = document.getElementById('unaligned-note');
     unalignedNote.hidden = turns.some(t => t.time != null);
 
