@@ -593,6 +593,26 @@ def check_duplicate_case_numbers(term_dir: Path) -> None:
             seen[key] = number
 
 
+def check_duplicate_audio_hrefs(term_dir: Path) -> None:
+    """Warn if any case has duplicate audio_href values across its audio entries."""
+    cases_path = term_dir / 'cases.json'
+    if not cases_path.exists():
+        return
+    cases = json.loads(cases_path.read_text(encoding='utf-8'))
+    for case in cases:
+        number = case.get('number', '?')
+        seen: dict[str, int] = {}   # href -> first index
+        for i, entry in enumerate(case.get('audio', [])):
+            href = entry.get('audio_href', '')
+            if not href:
+                continue
+            if href in seen:
+                print(f'WARNING: {number}: duplicate audio_href at audio[{seen[href]}] '
+                      f'and audio[{i}]: {href!r}')
+            else:
+                seen[href] = i
+
+
 def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
     """Cross-check cases.json entries against case folders and transcript files on disk."""
     cases_path = term_dir / 'cases.json'
@@ -623,7 +643,9 @@ def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
             print(f'WARNING: cases/{folder}/ exists on disk but not in cases.json')
 
     # 3 & 4. Per-case transcript file cross-check.
-    _DATE_JSON_RE = re.compile(r'^\d{4}-\d{2}-\d{2}.*\.json$')
+    _DATE_JSON_RE  = re.compile(r'^\d{4}-\d{2}-\d{2}.*\.json$')
+    _PART_TITLE_RE = re.compile(r'\bPart\s+(\d+)\b', re.IGNORECASE)
+    _PART_FILE_RE  = re.compile(r'-(\d+)\.json$')
     for number, case in sorted(json_numbers.items()):
         if number not in disk_folders:
             continue  # already warned above
@@ -635,6 +657,15 @@ def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
             th = audio.get('text_href', '')
             if th and not th.startswith(('http://', 'https://')):
                 referenced.add(th)
+            # Check that "Part N" in title matches "-N" suffix in filename.
+            title_m = _PART_TITLE_RE.search(audio.get('title', ''))
+            if title_m and th and not th.startswith(('http://', 'https://')):
+                expected_n = title_m.group(1)
+                file_m = _PART_FILE_RE.search(th)
+                actual_n = file_m.group(1) if file_m else None
+                if actual_n != expected_n:
+                    print(f'WARNING: {number}: title says Part {expected_n} '
+                          f'but text_href {th!r} has suffix -{actual_n or "none"}')
 
         # Date-stamped JSON files actually present on disk.
         on_disk: set[str] = {
@@ -666,6 +697,7 @@ def main() -> None:
         sys.exit(f'Error: directory not found: {term_dir}')
 
     check_duplicate_case_numbers(term_dir)
+    check_duplicate_audio_hrefs(term_dir)
     check_cases_sync(term_dir, verbose)
 
     cases_path = term_dir / 'cases.json'

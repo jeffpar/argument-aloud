@@ -393,13 +393,28 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
 // ── Build nav ───────────────────────────────────────────────────────────────
 
 // Populate the case list for a term — called the first time a term is expanded.
+// Return the date string to use for sorting/grouping a case within a term.
+// Picks the first argument/reargument audio entry whose date falls within the
+// term's year window [YYYY-MM-01, (YYYY+1)-MM-01).  Falls back to audio[0].date.
+function caseTermDate(caseEntry, term) {
+  const [yearStr, monthStr] = term.split('-');
+  const termStart = `${yearStr}-${monthStr}-01`;
+  const nextYear  = String(parseInt(yearStr, 10) + 1);
+  const termEnd   = `${nextYear}-${monthStr}-01`;
+  const audio = caseEntry.audio ?? [];
+  const inTerm = audio.find(a =>
+    a.type !== 'opinion' && a.date && a.date >= termStart && a.date < termEnd
+  );
+  return inTerm?.date ?? audio[0]?.date ?? '';
+}
+
 function buildTermCases(term, cases, ul) {
   // Skip cases that have no audio entries at all (e.g. dismissed before argument).
   const sortedCases = [...cases]
     .filter(c => c.audio?.length)
     .sort((a, b) => {
-    const da = a.audio?.[0]?.date ?? '';
-    const db = b.audio?.[0]?.date ?? '';
+    const da = caseTermDate(a, term);
+    const db = caseTermDate(b, term);
     return da < db ? -1 : da > db ? 1 : 0;
   });
 
@@ -408,7 +423,7 @@ function buildTermCases(term, cases, ul) {
                        'July','August','September','October','November','December'];
   const monthMap = new Map();
   sortedCases.forEach(caseEntry => {
-    const argDate = caseEntry.audio?.[0]?.date;
+    const argDate = caseTermDate(caseEntry, term);
     const mk = argDate ? argDate.slice(0, 7) : 'unknown';
     const ml = argDate ? MONTH_NAMES[parseInt(argDate.slice(5, 7), 10) - 1] : 'Unknown';
     if (!monthMap.has(mk)) monthMap.set(mk, { label: ml, cases: [] });

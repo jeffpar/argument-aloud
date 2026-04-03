@@ -234,10 +234,11 @@ def _oyez_filename(date_str: str, part: int = 0) -> str:
     return f'{date_str}-oyez{suffix}.json'
 
 
-def fetch_oyez_transcript(arg_href: str) -> dict | None:
+def fetch_oyez_transcript(arg_href: str) -> tuple[dict | None, str]:
     """Fetch an Oyez oral argument detail and convert to our envelope format.
 
-    Returns None if no transcript data is available.
+    Returns (envelope, mp3_url). envelope is None if no transcript data is available.
+    mp3_url may be non-empty even when envelope is None.
     """
     detail = fetch_json(arg_href)
 
@@ -250,7 +251,7 @@ def fetch_oyez_transcript(arg_href: str) -> dict | None:
 
     transcript = detail.get('transcript')
     if not transcript:
-        return None
+        return None, mp3_url
 
     sections = transcript.get('sections') or []
     speaker_cache: dict[int, str] = {}  # Oyez ID → formatted name
@@ -309,15 +310,16 @@ def fetch_oyez_transcript(arg_href: str) -> dict | None:
             'speakers': speakers,
         },
         'turns': turns_out,
-    }
+    }, mp3_url
 
 
 def main():
-    if len(sys.argv) != 2:
+    if len(sys.argv) not in (2, 3):
         print(__doc__)
         sys.exit(1)
 
     arg = sys.argv[1].strip()
+    case_filter = sys.argv[2].strip() if len(sys.argv) == 3 else None
     if re.fullmatch(r'\d{4}', arg):
         year_str = arg
         term = f'{arg}-10'
@@ -383,6 +385,8 @@ def main():
     speaker_map = resolve_speaker_map(raw_speaker_map, term)
 
     for number in sorted(oyez_by_num):
+        if case_filter and number != case_filter:
+            continue
         oyez_case = oyez_by_num[number]
         case_dir  = cases_path.parent / 'cases' / number
 
@@ -406,6 +410,8 @@ def main():
                     th = a.get('text_href')
                     if th:
                         existing_oyez_filenames.add(th)
+                    elif a.get('audio_href'):
+                        existing_oyez_filenames.add(a['audio_href'])
                     # Backfill title on oyez entries that lack one.
                     if not a.get('title'):
                         a['title'] = _audio_title(a.get('type', 'argument'), a.get('date', ''))
@@ -484,6 +490,14 @@ def main():
                 continue
             args_by_date.setdefault(date_str, []).append(oyez_arg)
 
+        # Sort each date's parts by the part number in the Oyez title so that
+        # Part 1 is always processed before Part 2, regardless of API order.
+        _part_num_re = re.compile(r'Part\s+(\d+)', re.IGNORECASE)
+        for date_str in args_by_date:
+            args_by_date[date_str].sort(
+                key=lambda a: int(m.group(1)) if (m := _part_num_re.search(a.get('title', ''))) else 0
+            )
+
         for date_str, parts in args_by_date.items():
             use_parts = len(parts) > 1
 
@@ -517,9 +531,24 @@ def main():
                 label = f'Part {part_num} ' if use_parts else ''
                 print(f'  {number} ({date_str}) {label}...', end=' ', flush=True)
                 try:
-                    envelope = fetch_oyez_transcript(oyez_arg['href'])
+                    envelope, mp3_url = fetch_oyez_transcript(oyez_arg['href'])
                     if envelope is None:
-                        print('no transcript data')
+                        # No transcript, but still record the audio entry if it's new.
+                        if mp3_url and mp3_url not in existing_oyez_filenames and out_name not in existing_oyez_filenames:
+                            type_val = _oyez_arg_type(oyez_arg.get('title', ''))
+                            new_arg = {
+                                'source':     'oyez',
+                                'type':       type_val,
+                                'title':      _audio_title(type_val, date_str, part_num),
+                                'date':       date_str,
+                                'audio_href': mp3_url,
+                            }
+                            local_case.setdefault('audio', []).append(new_arg)
+                            existing_oyez_filenames.add(mp3_url)
+                            cases_modified = True
+                            print('no transcript \u2014 audio entry added')
+                        else:
+                            print('no transcript data')
                         continue
 
                     apply_speaker_map(envelope, speaker_map)
@@ -571,6 +600,12 @@ def main():
                     continue
                 opinions_by_date.setdefault(date_str, []).append(oyez_opinion)
 
+            # Sort each date's parts by part number so Part 1 is processed first.
+            for date_str in opinions_by_date:
+                opinions_by_date[date_str].sort(
+                    key=lambda a: int(m.group(1)) if (m := _part_num_re.search(a.get('title', ''))) else 0
+                )
+
             for date_str, parts in opinions_by_date.items():
                 use_parts = len(parts) > 1
 
@@ -606,9 +641,23 @@ def main():
                     label = f'Part {part_num} ' if use_parts else ''
                     print(f'  {number} opinion ({date_str}) {label}...', end=' ', flush=True)
                     try:
-                        envelope = fetch_oyez_transcript(oyez_opinion['href'])
+                        envelope, mp3_url = fetch_oyez_transcript(oyez_opinion['href'])
                         if envelope is None:
-                            print('no transcript data')
+                            # No transcript, but still record the audio entry if it's new.
+                            if mp3_url and mp3_url not in existing_oyez_filenames and out_name not in existing_oyez_filenames:
+                                new_entry = {
+                                    'source':     'oyez',
+                                    'type':       'opinion',
+                                    'title':      _audio_title('opinion', date_str, part_num),
+                                    'date':       date_str,
+                                    'audio_href': mp3_url,
+                                }
+                                local_case.setdefault('audio', []).append(new_entry)
+                                existing_oyez_filenames.add(mp3_url)
+                                cases_modified = True
+                                print('no transcript \u2014 audio entry added')
+                            else:
+                                print('no transcript data')
                             continue
 
                         apply_speaker_map(envelope, speaker_map)
