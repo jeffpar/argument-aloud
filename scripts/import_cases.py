@@ -63,6 +63,11 @@ CASE_RE  = re.compile(r'^(\d+(?:-\d+|-Orig|A\d+))\s+(.+)$', re.IGNORECASE)
 DATE_RE  = re.compile(r'^(\d{2})/(\d{2})/(\d{2})$')
 ORIG_RE  = re.compile(r'^(\d+)[\s-]Orig\.?$', re.IGNORECASE)
 
+# Like CASE_RE but also matches '130Orig' (no hyphen) and bare numbers (e.g. '163') as
+# seen on archived transcript listing pages for pre-2000 terms.
+_TRANSCRIPT_CASE_RE = re.compile(r'^(\d+(?:-\d+|-?Orig\.?|A\d+)?)\s+(.+)$', re.IGNORECASE)
+_ORIG_NORM_RE       = re.compile(r'[\s-]*Orig\.?$', re.IGNORECASE)
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 BASE_URL  = 'https://www.supremecourt.gov'
 
@@ -156,6 +161,30 @@ def parse_docket_date(s: str) -> str | None:
     if not month:
         return None
     return f'{m.group(3)}-{month}-{m.group(2).zfill(2)}'
+
+
+ARCHIVED_DATE_RE = re.compile(r'^(\d{1,2})/(\d{1,2})/(\d{4})$')
+
+
+def parse_archived_date(date_str: str) -> str | None:
+    """Convert M/D/YYYY (archived transcript listing pages) to YYYY-MM-DD."""
+    m = ARCHIVED_DATE_RE.match(date_str.strip())
+    if not m:
+        return None
+    month, day, year = m.group(1), m.group(2), m.group(3)
+    return f'{year}-{int(month):02d}-{int(day):02d}'
+
+
+def parse_any_date(date_str: str) -> str | None:
+    """Try MM/DD/YY (audio listing) then M/D/YYYY (archived transcript listing)."""
+    return parse_date(date_str) or parse_archived_date(date_str)
+
+
+def _normalize_number(num: str) -> str:
+    """Normalize a case number to canonical form (e.g. '130Orig' → '130-Orig')."""
+    num = num.strip().rstrip('.')
+    num = _ORIG_NORM_RE.sub('-Orig', num)
+    return num
 
 
 # ── Transcript extraction ────────────────────────────────────────────────────
@@ -340,6 +369,66 @@ class DetailParser(HTMLParser):
             self.pdf_url = href if href.startswith('http') else BASE_URL + href
 
 
+# ── Transcript listing page parser ───────────────────────────────────────────
+
+class TranscriptListingParser(HTMLParser):
+    """Parse argument_transcript or archived_transcripts listing pages.
+
+    Each row has the case number+title (with an <a> href to a PDF) in the first
+    <td> and the argued date in the second.  Returns a list of dicts:
+        {number, title, date, pdf_url}
+    """
+
+    def __init__(self, base_url: str = ''):
+        super().__init__(convert_charrefs=True)
+        self._base_url   = base_url
+        self._td_depth   = 0
+        self._td_buf     = []
+        self._row_cells  = []
+        self._row_hrefs  = []
+        self._cur_href   = None
+        self.transcripts = []   # [{number, title, date, pdf_url}]
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'tr':
+            self._row_cells = []
+            self._row_hrefs = []
+        elif tag == 'td':
+            if self._td_depth == 0:
+                self._td_buf   = []
+                self._cur_href = None
+            self._td_depth += 1
+        elif tag == 'a' and self._td_depth == 1 and self._cur_href is None:
+            href = dict(attrs).get('href', '')
+            if href and href.lower().endswith('.pdf'):
+                self._cur_href = urllib.parse.urljoin(self._base_url, href)
+
+    def handle_endtag(self, tag):
+        if tag == 'td' and self._td_depth > 0:
+            self._td_depth -= 1
+            if self._td_depth == 0:
+                text = ' '.join(''.join(self._td_buf).split())
+                self._row_cells.append(text)
+                self._row_hrefs.append(self._cur_href)
+        elif tag == 'tr':
+            if len(self._row_cells) == 2:
+                case_text, date_text = self._row_cells
+                m        = _TRANSCRIPT_CASE_RE.match(case_text)
+                date_iso = parse_any_date(date_text)
+                pdf_url  = self._row_hrefs[0] if self._row_hrefs else None
+                if m and date_iso and pdf_url:
+                    self.transcripts.append({
+                        'number':  _normalize_number(m.group(1)),
+                        'title':   m.group(2).strip(),
+                        'date':    date_iso,
+                        'pdf_url': pdf_url,
+                    })
+
+    def handle_data(self, data):
+        if self._td_depth > 0:
+            self._td_buf.append(data)
+
+
 # ── Docket page parser ─────────────────────────────────────────────────────
 
 class DocketParser(HTMLParser):
@@ -458,6 +547,27 @@ def fetch_argument_urls(detail_url: str) -> dict:
     if parser.pdf_url:
         result['transcript_href'] = parser.pdf_url
     return result
+
+
+def _transcript_listing_url(year_str: str) -> str:
+    """Return the supremecourt.gov transcript listing URL for the given term year."""
+    year = int(year_str)
+    if year < 2000:
+        return f'{BASE_URL}/oral_arguments/archived_transcripts/{year_str}'
+    return f'{BASE_URL}/oral_arguments/argument_transcript/{year_str}'
+
+
+def fetch_transcripts_from_url(url: str) -> list[dict]:
+    """Return [{number, title, date, pdf_url}] scraped from a transcript listing page."""
+    print(f'Fetching transcript listing from {url} ...')
+    try:
+        html = fetch_html(url)
+    except Exception as exc:
+        print(f'  Warning: could not fetch transcript listing: {exc}')
+        return []
+    parser = TranscriptListingParser(base_url=url)
+    parser.feed(html)
+    return parser.transcripts
 
 
 def fetch_docket_info(number: str, term_year: str = '') -> dict:
@@ -649,6 +759,10 @@ def generate_missing_transcripts(cases_path: Path) -> None:
             pdf_url = arg.get('transcript_href')
             date    = arg.get('date')
             if not pdf_url or not date:
+                continue
+
+            # Skip archived (pre-2000) transcripts — OCR quality is too poor.
+            if '/pdfs/transcripts/' in pdf_url:
                 continue
 
             case_dir       = cases_path.parent / 'cases' / case['number']
@@ -933,6 +1047,124 @@ def extract_questions(cases_path: Path) -> None:
         print('  Nothing to extract.')
 
 
+# ── Step 2b: Import transcript PDFs from supremecourt.gov listing ─────────────
+
+def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
+    """Match PDF transcripts from the supremecourt.gov listing page to cases in
+    cases.json.  For each ussc audio entry lacking transcript_href, set it from
+    the listing; also add a type='transcript' entry to files.json.
+    Cases present on the listing but missing from cases.json are created."""
+
+    url = _transcript_listing_url(year_str)
+    transcripts = fetch_transcripts_from_url(url)
+    if not transcripts:
+        print('  No transcripts found on listing page.')
+        return
+    print(f'  Found {len(transcripts)} transcript(s) on listing page.')
+
+    # Build lookup: normalized number -> list of {date, title, pdf_url}
+    by_number: dict[str, list[dict]] = {}
+    for t in transcripts:
+        by_number.setdefault(t['number'], []).append(t)
+
+    if not cases_path.exists():
+        cases_path.parent.mkdir(parents=True, exist_ok=True)
+        cases_path.write_text('[]\n', encoding='utf-8')
+    existing = json.loads(cases_path.read_text(encoding='utf-8'))
+    cases_modified = False
+
+    def _add_to_files(case: dict, row: dict) -> None:
+        """Add a type='transcript' entry to this case's files.json if not present."""
+        pdf_url    = row['pdf_url']
+        dt_str     = row['date']
+        case_dir   = cases_path.parent / 'cases' / case['number']
+        files_path = case_dir / 'files.json'
+        case_dir.mkdir(parents=True, exist_ok=True)
+        files = json.loads(files_path.read_text(encoding='utf-8')) if files_path.exists() else []
+        if any(f.get('href') == pdf_url for f in files):
+            return  # already present
+        try:
+            dt    = datetime.fromisoformat(dt_str)
+            title = f'Transcript of Oral Argument on {dt.strftime("%B")} {dt.day}, {dt.year}'
+        except ValueError:
+            title = f'Transcript of Oral Argument on {dt_str}'
+        next_id = max((f.get('file', 0) for f in files), default=0) + 1
+        files.append({'file': next_id, 'type': 'transcript',
+                      'title': title, 'date': dt_str, 'href': pdf_url})
+        files_path.write_text(
+            json.dumps(files, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+
+    # Pass 1: match existing cases
+    matched_rows: set[tuple[str, str]] = set()  # (number, date) pairs handled
+    for case in existing:
+        norm = _normalize_number(case['number'])
+        rows = by_number.get(norm, [])
+        if not rows:
+            continue
+        for row in rows:
+            key = (norm, row['date'])
+            matched_rows.add(key)
+            _add_to_files(case, row)
+            # Assign transcript_href to any audio entry with a matching date
+            for arg in case.get('audio', []):
+                if arg.get('type') not in (None, 'argument', 'reargument'):
+                    continue
+                if arg.get('transcript_href'):
+                    continue
+                arg_date = arg.get('date', '')
+                if arg_date == row['date'] or (not arg_date and len(rows) == 1):
+                    # Insert transcript_href after audio_href, or after date if absent.
+                    insert_after = 'audio_href' if 'audio_href' in arg else 'date'
+                    new_arg: dict = {}
+                    inserted = False
+                    for k, v in arg.items():
+                        new_arg[k] = v
+                        if not inserted and k == insert_after:
+                            new_arg['transcript_href'] = row['pdf_url']
+                            inserted = True
+                    if not inserted:
+                        new_arg['transcript_href'] = row['pdf_url']
+                    arg.clear()
+                    arg.update(new_arg)
+                    cases_modified = True
+                    print(f'  {case["number"]} ({row["date"]}): transcript_href added')
+                    break  # assign to first matching USSC entry only
+
+    # Pass 2: create new cases for unmatched transcripts
+    existing_numbers = {_normalize_number(c['number']) for c in existing}
+    new_by_num: dict[str, list[dict]] = {}
+    for row in transcripts:
+        key = (row['number'], row['date'])
+        if key not in matched_rows and row['number'] not in existing_numbers:
+            new_by_num.setdefault(row['number'], []).append(row)
+
+    for norm, rows in sorted(new_by_num.items()):
+        title = rows[0]['title']
+        audio_entries = [
+            {'source': 'ussc', 'type': 'argument',
+             'date': r['date'], 'transcript_href': r['pdf_url']}
+            for r in rows
+        ]
+        new_case = {'title': title, 'number': norm, 'audio': audio_entries}
+        existing.append(new_case)
+        existing_numbers.add(norm)
+        cases_modified = True
+        print(f'  {norm}: new case added with {len(audio_entries)} audio entry(ies)')
+        for row in rows:
+            _add_to_files(new_case, row)
+
+    if cases_modified:
+        cases_path.write_text(
+            json.dumps(existing, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print('  Updated cases.json.')
+    else:
+        print('  No changes needed.')
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
@@ -950,13 +1182,25 @@ def main():
     url        = f'https://www.supremecourt.gov/oral_arguments/argument_audio/{year_str}'
     cases_path = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term / 'cases.json'
 
-    scraped = fetch_cases_from_url(url)
-    if not scraped:
-        print('No cases found on the page. Check the URL or page structure.')
-        sys.exit(1)
+    try:
+        scraped = fetch_cases_from_url(url)
+    except Exception as exc:
+        print(f'Audio listing page not available ({exc}); will rely on transcript listing.')
+        scraped = []
 
-    print(f'Found {len(scraped)} case(s) on page.\n')
-    update_cases_json(cases_path, scraped, year_str)
+    if scraped:
+        print(f'Found {len(scraped)} case(s) on audio listing page.\n')
+        update_cases_json(cases_path, scraped, year_str)
+    else:
+        print('No audio cases found.')
+        if not cases_path.exists():
+            cases_path.parent.mkdir(parents=True, exist_ok=True)
+            cases_path.write_text('[]\n', encoding='utf-8')
+
+    # Step 2b: import transcript PDFs from supremecourt.gov listing page
+    print()
+    print('Importing transcript PDFs from supremecourt.gov listing ...')
+    import_transcript_pdfs(cases_path, year_str)
 
     # Step 3: generate missing transcript JSON files
     print()
@@ -969,9 +1213,13 @@ def main():
     migrate_transcripts(cases_path)
 
     # Step 4: fetch docket info (questions_href + files.json proceedings)
+    # supremecourt.gov docket only has data from the 2001 term onward.
     print()
-    print('Fetching docket info for cases without questions_href ...')
-    update_docket_info(cases_path, year_str)
+    if int(year_str) >= 2001:
+        print('Fetching docket info for cases without questions_href ...')
+        update_docket_info(cases_path, year_str)
+    else:
+        print('Skipping docket info (not available before 2001 term).')
 
     # Step 5: clean up files.json titles and infer missing types
     print()
