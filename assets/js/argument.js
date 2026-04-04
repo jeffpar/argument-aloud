@@ -324,7 +324,7 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
   const panel  = document.getElementById('doc-viewer');
   const card   = document.getElementById('doc-viewer-card');
   const pdfEl  = document.getElementById('doc-viewer-pdf');
-  const isPdf  = /\.pdf(\?|$)/i.test(link.href);
+  const isPdf  = /\.pdf(#|\?|$)/i.test(link.href);
   const inPane = isPdf || link.view === 'pane';
 
   // Build the effective href, appending #page=N if applicable
@@ -402,6 +402,12 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
 // Falls back to 'id' for historical cases that have no docket number.
 function caseId(caseEntry) {
   return caseEntry.id || caseEntry.number || '';
+}
+
+// Directory name for the case on the filesystem — uses number first since
+// case directories are named by docket number, not the lonedissent id.
+function caseDirName(caseEntry) {
+  return caseEntry.number || caseEntry.id || '';
 }
 
 // Build the text for the case‑title label above the transcript pane.
@@ -488,7 +494,7 @@ function buildTermCases(term, cases, ul) {
 
       mCases.forEach(caseEntry => {
         const caseKey = term + '/' + caseId(caseEntry);
-        const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseId(caseEntry) + '/';
+        const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
 
         const ci = document.createElement('li');
         ci.className = 'case-item';
@@ -501,8 +507,12 @@ function buildTermCases(term, cases, ul) {
         const toggle = document.createElement('span');
         toggle.className = 'case-toggle';
         toggle.textContent = '\u25b6'; // ▶
-        // Pre-hide when files is 0 or undefined (no files.json available).
-        if (!caseEntry.files) toggle.style.display = 'none';
+        // Show toggle only when there is something expandable: real files, or
+        // opinion_href combined with audio/files (so Opinion appears as sub-item).
+        // Opinion-only cases open the opinion directly on title click — no expand needed.
+        const hasExpandable = caseEntry.files ||
+          (caseEntry.opinion_href && (caseEntry.files || caseEntry.audio?.length));
+        if (!hasExpandable) toggle.style.display = 'none';
 
         const titleSpan = document.createElement('span');
         titleSpan.className = 'case-title-nav';
@@ -552,6 +562,19 @@ function buildTermCases(term, cases, ul) {
           if (filesLoaded) return;
           filesLoaded = true;
           const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
+
+          // Inject opinion_href as a pseudo opinion file entry if present and
+          // not already covered by a real opinion entry in files.json.
+          // Only inject when there are other files/audio — cases with nothing
+          // else open the opinion directly on click, so no sub-entry is needed.
+          const hasOtherContent = !!(caseEntry.files || caseEntry.audio?.length);
+          if (hasOtherContent && caseEntry.opinion_href && !rawFiles.some(f => f.type === 'opinion')) {
+            rawFiles.push({
+              type: 'opinion',
+              href: caseEntry.opinion_href,
+              title: 'Opinion in ' + caseEntry.title,
+            });
+          }
 
           const TYPE_LABELS = {
             petitioner: 'Petitioner',
@@ -609,12 +632,28 @@ function buildTermCases(term, cases, ul) {
             const typeHeader = document.createElement('div');
             typeHeader.className = 'file-type-header';
 
+            const typeLabel = document.createElement('span');
+            typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
+
+            // Opinion: clicking the header opens the document directly — no toggle, no sub-items.
+            if (typeKey === 'opinion') {
+              const opinionFile = groups[typeKey][0];
+              typeHeader.style.cursor = 'pointer';
+              typeHeader.appendChild(typeLabel);
+              typeHeader.addEventListener('click', e => {
+                e.stopPropagation();
+                document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+                typeHeader.classList.add('active');
+                showDocViewer(opinionFile, { autoScroll: true });
+              });
+              groupLi.appendChild(typeHeader);
+              fileUl.appendChild(groupLi);
+              return;
+            }
+
             const typeTog = document.createElement('span');
             typeTog.className = 'file-type-toggle';
             typeTog.textContent = '\u25b6';
-
-            const typeLabel = document.createElement('span');
-            typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
 
             typeHeader.appendChild(typeTog);
             typeHeader.appendChild(typeLabel);
@@ -633,7 +672,7 @@ function buildTermCases(term, cases, ul) {
               fi.textContent = f.title;
               fi.addEventListener('click', e => {
                 e.stopPropagation();
-                document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
+                document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
                 fi.classList.add('active');
                 if (f.file != null) {
                   const url = new URL(location.href);
@@ -992,8 +1031,11 @@ async function loadAudioEntry(arg, basePath) {
 
     turns = isEnvelope ? (transcriptData.turns ?? []) : transcriptData;
 
-    // If the primary transcript has no time-aligned turns, try the Oyez fallback file.
-    if (!turns.some(t => t.time != null) && arg.date) {
+    // If the audio entry has no transcript and there's no time-aligned turns,
+    // try fetching an Oyez fallback file (only relevant for NARA audio entries
+    // without a dedicated text_href). If a text_href is already specified,
+    // that's the designated transcript — don't probe for another.
+    if (!turns.some(t => t.time != null) && arg.date && !arg.text_href) {
       const oyezUrl = basePath + arg.date + '-oyez.json';
       try {
         const oyezRes = await fetch(oyezUrl);
@@ -1050,7 +1092,7 @@ async function loadAudioEntry(arg, basePath) {
 
 async function loadCase(term, caseEntry, audioIdx = 0) {
   const caseKey = term + '/' + caseId(caseEntry);
-  const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseId(caseEntry) + '/';
+  const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
 
   // ── No-audio path: display opinion in document viewer ──────────────────────
   if (!caseEntry.audio?.length) {
@@ -1916,8 +1958,16 @@ async function init() {
         })();
       }
 
-      const key = termParam + '/' + caseParam;
-      const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`);
+      // Match the case param against id first, then number (for old URLs).
+      // After _ensureBuilt the cases are already cached in _termFetchPromises.
+      const termCases = await fetchTermCases(termParam);
+      const matchedCase = termCases.find(c =>
+        (c.id && c.id === caseParam) || (c.number && c.number === caseParam)
+      );
+      const resolvedKey = matchedCase
+        ? termParam + '/' + caseId(matchedCase)
+        : termParam + '/' + caseParam;
+      const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(resolvedKey)}"]`);
       if (caseEl) {
         caseEl.closest('.month-group')?.classList.add('open');
 
