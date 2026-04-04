@@ -224,6 +224,52 @@ def _audio_title(type_val: str, date_str: str, part: int = 0) -> str:
     return f'Oral Argument{part_str} on {date_label}'
 
 
+def _parse_unix_date(ts) -> str | None:
+    """Convert a Unix timestamp (int/float) to 'YYYY-MM-DD', or None."""
+    if not ts:
+        return None
+    try:
+        return datetime.utcfromtimestamp(int(ts)).strftime('%Y-%m-%d')
+    except (ValueError, OSError, OverflowError):
+        return None
+
+
+def _timeline_decision_date(timeline) -> str | None:
+    """Extract the 'Decided' date from an Oyez timeline list.
+
+    The timeline is a list of {event, dates: [unix_ts, ...]} objects.
+    Returns the first date of the 'Decided' event as 'YYYY-MM-DD', or None.
+    """
+    for entry in (timeline or []):
+        if (entry or {}).get('event') == 'Decided':
+            dates = entry.get('dates') or []
+            if dates:
+                return _parse_unix_date(dates[0])
+    return None
+
+
+def _set_decision(case: dict, decision_date: str) -> bool:
+    """Set case['decision'] to decision_date, inserting after 'number' if absent.
+
+    If 'decision' is already present (even if different), we leave it alone on
+    the assumption that it was manually corrected.  Returns True only when the
+    key is newly added.
+    """
+    if 'decision' in case:
+        return False  # preserve existing value regardless of content
+    # Rebuild dict to place 'decision' immediately after 'number'.
+    new: dict = {}
+    for k, v in case.items():
+        new[k] = v
+        if k == 'number':
+            new['decision'] = decision_date
+    if 'decision' not in new:
+        new['decision'] = decision_date
+    case.clear()
+    case.update(new)
+    return True
+
+
 def _oyez_filename(date_str: str, part: int = 0) -> str:
     """Return the transcript filename for an Oyez audio entry.
 
@@ -476,6 +522,16 @@ def main():
             }
             our_cases.append(local_case)
             our_by_num[number] = local_case
+            cases_modified = True
+
+        # ── Decision date ─────────────────────────────────────────────────────
+        # The decision date lives in the timeline under the 'Decided' event.
+        # Try the detail timeline first, fall back to the list-level timeline.
+        decision_date = (
+            _timeline_decision_date(detail.get('timeline'))
+            or _timeline_decision_date(oyez_case.get('timeline'))
+        )
+        if decision_date and _set_decision(local_case, decision_date):
             cases_modified = True
 
         # ── Oral arguments ────────────────────────────────────────────────────
