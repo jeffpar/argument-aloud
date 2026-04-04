@@ -25,6 +25,7 @@ Usage:
 
 import html
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -59,6 +60,20 @@ def parse_front_matter(md_path: Path) -> dict:
     return yaml.safe_load(fm_text) or {}
 
 
+def normalize_docket(raw: str) -> str:
+    """Normalize docket strings: 'N Misc.' → 'N-Misc', 'N Orig.' → 'N-Orig', etc."""
+    parts = raw.split(',')
+    normalized = []
+    for part in parts:
+        part = part.strip()
+        # "N Misc." / "N Orig." → "N-Misc" / "N-Orig"
+        part = re.sub(r'^(\S+)\s+(Misc|Orig)\.$', r'\1-\2', part)
+        # Standalone "Misc." / "Orig." → "Misc" / "Orig"
+        part = re.sub(r'^(Misc|Orig)\.$', r'\1', part)
+        normalized.append(part)
+    return ','.join(normalized)
+
+
 def build_case_obj(src: dict) -> dict:
     """Convert a source case dict to the target cases.json format."""
     obj: dict = {}
@@ -67,7 +82,7 @@ def build_case_obj(src: dict) -> dict:
     obj['title'] = html.unescape(src['title'])
 
     if 'docket' in src and src['docket'] is not None:
-        obj['number'] = str(src['docket'])
+        obj['number'] = normalize_docket(str(src['docket']))
 
     for field in PASSTHROUGH_FIELDS:
         if field in src and src[field] is not None:
