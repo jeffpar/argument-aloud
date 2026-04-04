@@ -314,14 +314,14 @@ body {
 .case-item {
   border-radius: 5px;
   transition: background 0.12s;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
 }
 
 .case-header {
   display: flex;
   align-items: flex-start;
   gap: 4px;
-  padding: 6px 6px 6px 10px;
+  padding: 3px 6px 3px 10px;
   cursor: pointer;
   border-radius: 5px;
   transition: background 0.12s;
@@ -361,8 +361,8 @@ body {
 .case-item.active>.case-header .case-title-nav {
   background: #2672b4;
   color: #fff;
-  padding: 1px 5px;
-  margin: -1px -1px;
+  padding: 0 5px;
+  margin: 0 -5px;
 }
 
 .case-decided-icon {
@@ -389,6 +389,10 @@ body {
 
 .case-item.open .file-list {
   display: block;
+}
+
+.case-item.open .file-list:empty {
+  display: none;
 }
 
 .file-type-group {
@@ -524,6 +528,14 @@ body {
   padding: 2px 5px;
   background: #fff;
   cursor: pointer;
+}
+
+#decision-date-label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #555;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 #case-questions {
