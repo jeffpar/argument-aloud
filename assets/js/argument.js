@@ -398,6 +398,38 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
 // Return the date string to use for sorting/grouping a case within a term.
 // Picks the first argument/reargument audio entry whose date falls within the
 // term's year window [YYYY-MM-01, (YYYY+1)-MM-01).  Falls back to audio[0].date.
+// Canonical identifier for the URL 'case' param and nav data-case-key.
+// Falls back to 'id' for historical cases that have no docket number.
+function caseId(caseEntry) {
+  return caseEntry.id || caseEntry.number || '';
+}
+
+// Build the text for the case‑title label above the transcript pane.
+// Priority for parenthesised annotation: docket number → usCite → nothing.
+function caseTitleLabel(caseEntry) {
+  let suffix = '';
+  if (caseEntry.number) {
+    const isMulti = /,/.test(caseEntry.number);
+    suffix = '\u00a0(' + (isMulti ? 'Nos.' : 'No.') + '\u00a0' + caseEntry.number + ')';
+  } else if (caseEntry.usCite) {
+    suffix = '\u00a0(' + caseEntry.usCite + ')';
+  }
+  return caseEntry.title + suffix;
+}
+
+// Parse a human-readable decision date like "Monday, October 17, 1910" → "1910-10-17".
+// Used as a fallback sort/group key for historical cases that have no audio entries.
+function parseDateDecision(str) {
+  if (!str) return '';
+  const m = str.match(/(\w+)\s+(\d+),\s+(\d{4})$/);
+  if (!m) return '';
+  const MONTHS = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December'];
+  const mi = MONTHS.indexOf(m[1]);
+  if (mi === -1) return '';
+  return `${m[3]}-${String(mi + 1).padStart(2, '0')}-${String(m[2]).padStart(2, '0')}`;
+}
+
 function caseTermDate(caseEntry, term) {
   const [yearStr, monthStr] = term.split('-');
   const termStart = `${yearStr}-${monthStr}-01`;
@@ -407,13 +439,13 @@ function caseTermDate(caseEntry, term) {
   const inTerm = audio.find(a =>
     a.type !== 'opinion' && a.date && a.date >= termStart && a.date < termEnd
   );
-  return inTerm?.date ?? audio[0]?.date ?? '';
+  return inTerm?.date ?? audio[0]?.date ?? parseDateDecision(caseEntry.dateDecision);
 }
 
 function buildTermCases(term, cases, ul) {
-  // Skip cases that have no audio entries at all (e.g. dismissed before argument).
+  // Include cases with audio or a direct opinion link; skip truly empty cases.
   const sortedCases = [...cases]
-    .filter(c => c.audio?.length)
+    .filter(c => c.audio?.length || c.opinion_href)
     .sort((a, b) => {
     const da = caseTermDate(a, term);
     const db = caseTermDate(b, term);
@@ -455,8 +487,8 @@ function buildTermCases(term, cases, ul) {
       monthUl.className = 'month-case-list';
 
       mCases.forEach(caseEntry => {
-        const caseKey = term + '/' + caseEntry.number;
-        const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseEntry.number + '/';
+        const caseKey = term + '/' + caseId(caseEntry);
+        const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseId(caseEntry) + '/';
 
         const ci = document.createElement('li');
         ci.className = 'case-item';
@@ -469,6 +501,8 @@ function buildTermCases(term, cases, ul) {
         const toggle = document.createElement('span');
         toggle.className = 'case-toggle';
         toggle.textContent = '\u25b6'; // ▶
+        // Pre-hide when files is 0 or undefined (no files.json available).
+        if (!caseEntry.files) toggle.style.display = 'none';
 
         const titleSpan = document.createElement('span');
         titleSpan.className = 'case-title-nav';
@@ -478,7 +512,8 @@ function buildTermCases(term, cases, ul) {
         header.appendChild(titleSpan);
 
         // ── Gavel icon: shown if this case has an opinion (background check) ──
-        const hasOpinionAudio = caseEntry.audio?.some(a => a.type === 'opinion');
+        const hasOpinionAudio = caseEntry.audio?.some(a => a.type === 'opinion')
+          || (!caseEntry.audio?.length && !!caseEntry.opinion_href);
         if (hasOpinionAudio) {
           const icon = document.createElement('span');
           icon.className = 'case-decided-icon';
@@ -486,13 +521,16 @@ function buildTermCases(term, cases, ul) {
           icon.title = 'Opinion issued';
           header.appendChild(icon);
           ci.classList.add('decided');
-        } else if (caseEntry.files !== 0) {
-          // caseEntry.files === 0 means files.json is known empty — skip the fetch.
-          // caseEntry.files === undefined means the count isn't recorded yet — fetch anyway.
+        } else if (caseEntry.files) {
+          // Only fetch if files count is a known positive number.
           fetch(basePath + 'files.json')
             .then(r => r.ok ? r.json() : [])
             .then(files => {
-              if (Array.isArray(files) && files.some(f => f.type === 'opinion')) {
+              if (!Array.isArray(files) || files.length === 0) {
+                toggle.style.display = 'none';
+                return;
+              }
+              if (files.some(f => f.type === 'opinion')) {
                 const icon = document.createElement('span');
                 icon.className = 'case-decided-icon';
                 icon.textContent = '\u2696';
@@ -513,7 +551,7 @@ function buildTermCases(term, cases, ul) {
         async function ensureFilesLoaded() {
           if (filesLoaded) return;
           filesLoaded = true;
-          const rawFiles = caseEntry.files === 0 ? [] : await loadFiles(basePath + 'files.json');
+          const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
 
           const TYPE_LABELS = {
             petitioner: 'Petitioner',
@@ -611,6 +649,9 @@ function buildTermCases(term, cases, ul) {
             groupLi.appendChild(itemsUl);
             fileUl.appendChild(groupLi);
           });
+
+          // Hide the toggle if there are no files to show.
+          if (fileUl.children.length === 0) toggle.style.display = 'none';
         }
 
         // Toggle (▶): expand or collapse the case — no selection, no transcript load.
@@ -630,7 +671,7 @@ function buildTermCases(term, cases, ul) {
           if (!fromRestore) {
             const url = new URL(location.href);
             url.searchParams.set('term', term);
-            url.searchParams.set('case', caseEntry.number);
+            url.searchParams.set('case', caseId(caseEntry));
             url.searchParams.delete('audio');
             url.searchParams.delete('file');
             url.searchParams.delete('turn');
@@ -736,14 +777,14 @@ function buildNav() {
         built = true;
         const cases = await fetchTermCases(term);
         buildTermCases(term, cases, ul);
-        const visible = cases.filter(c => c.audio?.length);
+        const visible = cases.filter(c => c.audio?.length || c.opinion_href);
         termCount.textContent = '(' + visible.length + '\u00a0cases)';
       };
       // Fetch count only (no DOM build) — used when expanding the decade.
       const ensureCount = async () => {
         if (termCount.textContent) return; // already populated
         const cases = await fetchTermCases(term);
-        const visible = cases.filter(c => c.audio?.length);
+        const visible = cases.filter(c => c.audio?.length || c.opinion_href);
         termCount.textContent = '(' + visible.length + '\u00a0cases)';
       };
       termLi._ensureBuilt = ensureBuilt;
@@ -1008,9 +1049,77 @@ async function loadAudioEntry(arg, basePath) {
 }
 
 async function loadCase(term, caseEntry, audioIdx = 0) {
-  if (!caseEntry.audio || !caseEntry.audio.length) return;
-  const caseKey = term + '/' + caseEntry.number;
-  const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseEntry.number + '/';
+  const caseKey = term + '/' + caseId(caseEntry);
+  const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseId(caseEntry) + '/';
+
+  // ── No-audio path: display opinion in document viewer ──────────────────────
+  if (!caseEntry.audio?.length) {
+    // Update nav highlight
+    document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
+    const navEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(caseKey)}"]`);
+    if (navEl) navEl.classList.add('active');
+
+    // Clear transcript state
+    playerSection.hidden = true;
+    audioControls.hidden = true;
+    emptyState.style.display = 'none';
+    activeTurnIdx = -1;
+    turnList.style.display = 'none';
+    turnList.innerHTML = '';
+    loadingMsg.style.display = 'none';
+
+    // Reset doc viewer to hidden so showDocViewer opens it at the new height
+    const docPanel = document.getElementById('doc-viewer');
+    docPanel.classList.remove('collapsed');
+    docPanel.style.height = '';
+    docPanel.hidden = true;
+    activeBottomLinkText = null;
+
+    // Show case title (hide audio select since there is no audio)
+    document.getElementById('case-title-label').textContent = caseTitleLabel(caseEntry);
+    document.title = caseEntry.title + ' | Argument Aloud';
+    document.getElementById('audio-select').hidden = true;
+    const decisionLabel = document.getElementById('decision-date-label');
+    if (caseEntry.dateDecision) {
+      decisionLabel.textContent = 'Decision on\u00a0' + caseEntry.dateDecision.replace(/^\w+,\s*/, '');
+      decisionLabel.hidden = false;
+    } else {
+      decisionLabel.hidden = true;
+    }
+
+    const qEl = document.getElementById('case-questions');
+    qEl.textContent = '';
+    qEl.hidden = true;
+    qEl.onclick = null;
+    qEl.style.cursor = '';
+
+    playerSection.hidden = false;
+
+    // Open opinion full-height in the document viewer.
+    // Use a local override so this large height doesn't persist for the next audio case.
+    if (caseEntry.opinion_href) {
+      const savedHeight = docViewerOpenHeight;
+      docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
+      showDocViewer(
+        { href: caseEntry.opinion_href, title: 'Opinion in ' + caseEntry.title },
+        { autoScroll: true }
+      );
+      docViewerOpenHeight = savedHeight;
+    }
+
+    if (isMobile()) {
+      playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+      setMobileNavVisible(false);
+    }
+    return;
+  }
+
+  // Restore audio-select visibility for normal audio cases.
+  // Reset height so the doc viewer reopens at the default 45vh, not any
+  // full-height value left over from a previous no-audio (historical) case.
+  document.getElementById('audio-select').hidden = false;
+  document.getElementById('decision-date-label').hidden = true;
+  docViewerOpenHeight = null;
 
   // Pick the best single source: prefer the source with the most aligned entries,
   // breaking ties by preferring 'oyez' > 'ussc' > others.
@@ -1099,8 +1208,8 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
   _currentBasePath  = basePath;
 
   // Update case title
-  document.getElementById('case-title-label').textContent =
-    caseEntry.title + '\u00a0(No.\u00a0' + caseEntry.number + ')';
+  document.getElementById('case-title-label').textContent = caseTitleLabel(caseEntry);
+  document.title = caseEntry.title + ' | Argument Aloud';
 
   const qEl = document.getElementById('case-questions');
   if (caseEntry.questions) {
@@ -1167,7 +1276,7 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
     qEl.style.cursor = '';
   }
 
-  const rawFiles = caseEntry.files === 0 ? [] : await loadFiles(basePath + 'files.json');
+  const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
   links = rawFiles.filter(f => f.refs);
 
   playerSection.hidden = false;
@@ -1352,11 +1461,19 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   const docBrowserPanel = document.getElementById('doc-browser');
   let vDragging = false, vStartX = 0, vStartW = 0;
 
+  // Transparent overlay placed over iframes during drag to prevent them
+  // from swallowing mouse events when the cursor moves over them quickly.
+  const dragShield = document.createElement('div');
+  dragShield.style.cssText = 'position:fixed;inset:0;z-index:9999;display:none';
+  document.body.appendChild(dragShield);
+
   vHandle.addEventListener('mousedown', e => {
     vDragging = true;
     vStartX = e.clientX;
     vStartW = docBrowserPanel.offsetWidth;
     vHandle.classList.add('dragging');
+    dragShield.style.cursor = 'col-resize';
+    dragShield.style.display = 'block';
     document.body.style.cursor = 'col-resize';
     document.body.style.userSelect = 'none';
     e.preventDefault();
@@ -1372,6 +1489,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     if (!vDragging) return;
     vDragging = false;
     vHandle.classList.remove('dragging');
+    dragShield.style.display = 'none';
     document.body.style.cursor = '';
     document.body.style.userSelect = '';
   });
@@ -1381,18 +1499,13 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   const docViewerPanel = document.getElementById('doc-viewer');
   let hDragging = false, hStartY = 0, hStartH = 0;
 
-  // Transparent overlay placed over iframes during drag to prevent them
-  // from swallowing mouse events when the cursor moves over them quickly.
-  const dragShield = document.createElement('div');
-  dragShield.style.cssText = 'position:fixed;inset:0;z-index:9999;display:none;cursor:row-resize';
-  document.body.appendChild(dragShield);
-
   hHandle.addEventListener('mousedown', e => {
     hDragging = true;
     hStartY = e.clientY;
     hStartH = docViewerPanel.offsetHeight;
     hHandle.classList.add('dragging');
     docViewerPanel.style.transition = 'none'; // disable animation while dragging
+    dragShield.style.cursor = 'row-resize';
     dragShield.style.display = 'block';
     document.body.style.userSelect = 'none';
     e.preventDefault();
