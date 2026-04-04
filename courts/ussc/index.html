@@ -107,5 +107,15 @@ const TERMS = [
     {%- endif -%}
   {%- endfor %}
 ];
+
+// ── Collections: auto-discovered by Jekyll from courts/ussc/collections/*.json
+const COLLECTIONS = [
+  {%- for file in site.static_files -%}
+    {%- assign p = file.path | split: '/' -%}
+    {%- if p.size == 5 and p[1] == 'courts' and p[2] == 'ussc' and p[3] == 'collections' and file.extname == '.json' -%}
+      {"url":"{{ file.path | relative_url }}"},
+    {%- endif -%}
+  {%- endfor %}
+];
 </script>
 <script src="{{ '/assets/js/argument.js' | relative_url }}"></script>
