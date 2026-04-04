@@ -860,8 +860,14 @@ function buildCollectionItem(sectionUl, collData) {
     groupName.className = 'month-name';
     groupName.textContent = group.title;
 
+    const groupCount = document.createElement('span');
+    groupCount.className = 'term-case-count';
+    const n = (group.cases || []).length;
+    groupCount.textContent = '(' + n + '\u00a0case' + (n === 1 ? '' : 's') + ')';
+
     groupHeader.appendChild(groupTog);
     groupHeader.appendChild(groupName);
+    groupHeader.appendChild(groupCount);
     groupHeader.addEventListener('click', () => groupLi.classList.toggle('open'));
 
     const groupUl = document.createElement('ul');
