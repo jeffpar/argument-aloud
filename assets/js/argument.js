@@ -624,17 +624,19 @@ function buildTermCases(term, cases, ul) {
         // Title: select the case, open it, and load the transcript.
         titleSpan.addEventListener('click', async (e) => {
           const fromRestore = !!e.fromRestore;
+          const audioIdx    = Number.isInteger(e.audioIdx) ? e.audioIdx : 0;
           ci.classList.add('open');
           await ensureFilesLoaded();
           if (!fromRestore) {
             const url = new URL(location.href);
             url.searchParams.set('term', term);
             url.searchParams.set('case', caseEntry.number);
+            url.searchParams.delete('audio');
             url.searchParams.delete('file');
             url.searchParams.delete('turn');
             history.replaceState(null, '', url);
           }
-          loadCase(term, caseEntry);
+          loadCase(term, caseEntry, audioIdx);
         });
 
         ci.appendChild(header);
@@ -760,6 +762,158 @@ function buildNav() {
     decLi.appendChild(decUl);
     termListEl.appendChild(decLi);
   });
+
+  buildCollectionsNav();
+}
+
+// ── Collections nav ──────────────────────────────────────────────────────────
+
+function buildCollectionsNav() {
+  if (typeof COLLECTIONS === 'undefined' || !COLLECTIONS.length) return;
+
+  const termListEl = document.getElementById('term-list');
+
+  // Top-level "Collections" — styled like a decade group
+  const sectionLi = document.createElement('li');
+  sectionLi.className = 'decade-group';
+
+  const sectionHeader = document.createElement('div');
+  sectionHeader.className = 'decade-header';
+
+  const sectionTog = document.createElement('span');
+  sectionTog.className = 'decade-toggle';
+  sectionTog.textContent = '\u25b6';
+
+  const sectionLabel = document.createElement('span');
+  sectionLabel.className = 'decade-label';
+  sectionLabel.textContent = 'Collections';
+
+  sectionHeader.appendChild(sectionTog);
+  sectionHeader.appendChild(sectionLabel);
+
+  const sectionUl = document.createElement('ul');
+  sectionUl.className = 'term-list-inner';
+
+  let sectionBuilt = false;
+  sectionHeader.addEventListener('click', async () => {
+    sectionLi.classList.toggle('open');
+    if (sectionLi.classList.contains('open') && !sectionBuilt) {
+      sectionBuilt = true;
+      // Sort by URL so 1.json < 2.json < … regardless of Jekyll iteration order.
+      const sorted = [...COLLECTIONS].sort((a, b) => a.url < b.url ? -1 : a.url > b.url ? 1 : 0);
+      for (const { url } of sorted) {
+        try {
+          const res = await fetch(url, { cache: 'reload' });
+          if (!res.ok) continue;
+          const collData = await res.json();
+          buildCollectionItem(sectionUl, collData);
+        } catch (e) {
+          console.warn('[collections] fetch failed:', url, e);
+        }
+      }
+    }
+  });
+
+  sectionLi.appendChild(sectionHeader);
+  sectionLi.appendChild(sectionUl);
+  termListEl.appendChild(sectionLi);
+}
+
+function buildCollectionItem(sectionUl, collData) {
+  // Each collection — styled like a term group
+  const collLi = document.createElement('li');
+  collLi.className = 'term-group';
+
+  const collHeader = document.createElement('div');
+  collHeader.className = 'term-header';
+
+  const collTog = document.createElement('span');
+  collTog.className = 'term-toggle';
+  collTog.textContent = '\u25b6';
+
+  const collLabel = document.createElement('span');
+  collLabel.className = 'term-label';
+  collLabel.textContent = collData.title;
+
+  collHeader.appendChild(collTog);
+  collHeader.appendChild(collLabel);
+  collHeader.addEventListener('click', () => collLi.classList.toggle('open'));
+
+  collLi.appendChild(collHeader);
+
+  const collUl = document.createElement('ul');
+  collUl.className = 'case-list';
+
+  for (const group of collData.groups || []) {
+    // Each group (e.g. "Abe Fortas") — styled like a month group
+    const groupLi = document.createElement('li');
+    groupLi.className = 'month-group';
+
+    const groupHeader = document.createElement('div');
+    groupHeader.className = 'month-header';
+
+    const groupTog = document.createElement('span');
+    groupTog.className = 'month-toggle';
+    groupTog.textContent = '\u25b6';
+
+    const groupName = document.createElement('span');
+    groupName.className = 'month-name';
+    groupName.textContent = group.title;
+
+    groupHeader.appendChild(groupTog);
+    groupHeader.appendChild(groupName);
+    groupHeader.addEventListener('click', () => groupLi.classList.toggle('open'));
+
+    const groupUl = document.createElement('ul');
+    groupUl.className = 'month-case-list';
+
+    for (const caseRef of group.cases || []) {
+      const caseKey = caseRef.term + '/' + caseRef.number;
+
+      const ci = document.createElement('li');
+      ci.className = 'case-item';
+      ci.dataset.caseKey = caseKey;
+
+      const header = document.createElement('div');
+      header.className = 'case-header';
+
+      const titleSpan = document.createElement('span');
+      titleSpan.className = 'case-title-nav';
+      titleSpan.textContent = caseRef.name;
+
+      header.appendChild(titleSpan);
+
+      titleSpan.addEventListener('click', async () => {
+        const cases = await fetchTermCases(caseRef.term);
+        const caseEntry = cases.find(c => c.number === caseRef.number);
+        if (!caseEntry) {
+          console.warn('[collections] case not found in cases.json:', caseRef);
+          return;
+        }
+        // caseRef.audio is 1-based; convert to 0-based index
+        const audioIdx = (caseRef.audio != null) ? Math.max(0, parseInt(caseRef.audio, 10) - 1) : 0;
+        const url = new URL(location.href);
+        url.searchParams.set('term', caseRef.term);
+        url.searchParams.set('case', caseRef.number);
+        if (audioIdx > 0) url.searchParams.set('audio', audioIdx + 1);
+        else url.searchParams.delete('audio');
+        url.searchParams.delete('file');
+        url.searchParams.delete('turn');
+        history.replaceState(null, '', url);
+        loadCase(caseRef.term, caseEntry, audioIdx);
+      });
+
+      ci.appendChild(header);
+      groupUl.appendChild(ci);
+    }
+
+    groupLi.appendChild(groupHeader);
+    groupLi.appendChild(groupUl);
+    collUl.appendChild(groupLi);
+  }
+
+  collLi.appendChild(collUl);
+  sectionUl.appendChild(collLi);
 }
 
 // ── Load a case ─────────────────────────────────────────────────────────────
@@ -847,7 +1001,7 @@ async function loadAudioEntry(arg, basePath) {
   }
 }
 
-async function loadCase(term, caseEntry) {
+async function loadCase(term, caseEntry, audioIdx = 0) {
   if (!caseEntry.audio || !caseEntry.audio.length) return;
   const caseKey = term + '/' + caseEntry.number;
   const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseEntry.number + '/';
@@ -929,7 +1083,10 @@ async function loadCase(term, caseEntry) {
     opt.textContent = audioEntryLabel(a);
     audioSelect.appendChild(opt);
   });
-  audioSelect.value = '0';
+  // Clamp audioIdx to valid range
+  const resolvedAudioIdx = (Number.isInteger(audioIdx) && audioIdx >= 0 && audioIdx < sortedAudio.length)
+    ? audioIdx : 0;
+  audioSelect.value = String(resolvedAudioIdx);
 
   // Store context for dropdown change events
   _currentAudioList = sortedAudio;
@@ -1009,7 +1166,7 @@ async function loadCase(term, caseEntry) {
 
   playerSection.hidden = false;
   audioControls.hidden = false;
-  await loadAudioEntry(sortedAudio[0], basePath);
+  await loadAudioEntry(sortedAudio[resolvedAudioIdx], basePath);
 
   if (isMobile()) {
     playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
@@ -1097,6 +1254,11 @@ audio.addEventListener('timeupdate', () => {
 document.getElementById('audio-select').addEventListener('change', async (e) => {
   const idx = parseInt(e.target.value, 10);
   if (_currentAudioList[idx] && _currentBasePath) {
+    const url = new URL(location.href);
+    url.searchParams.set('audio', idx + 1); // 1-based
+    url.searchParams.delete('turn');
+    url.searchParams.delete('file');
+    history.replaceState(null, '', url);
     await loadAudioEntry(_currentAudioList[idx], _currentBasePath);
   }
 });
@@ -1612,10 +1774,11 @@ async function init() {
 
   // Restore state from URL params
   const params = new URLSearchParams(location.search);
-  const termParam = params.get('term');
-  const caseParam = params.get('case');
-  const fileParam = params.get('file') != null ? parseInt(params.get('file'), 10) : null;
-  const turnParam = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
+  const termParam  = params.get('term');
+  const caseParam  = params.get('case');
+  const audioParam = params.get('audio') != null ? Math.max(0, parseInt(params.get('audio'), 10) - 1) : null; // convert 1-based → 0-based
+  const fileParam  = params.get('file') != null ? parseInt(params.get('file'), 10) : null;
+  const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
   if (termParam && caseParam) {
     // Expand the decade and term shells, then wait for the term's cases to load.
     const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);
@@ -1676,7 +1839,7 @@ async function init() {
         }
         // Use dispatchEvent so the fromRestore flag is passed to the title click handler.
         const titleEl = caseEl.querySelector('.case-title-nav');
-        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true }));
+        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true, audioIdx: audioParam ?? 0 }));
         if (!isMobile()) {
           requestAnimationFrame(() => caseEl.scrollIntoView({ behavior: 'instant', block: 'center' }));
         }
