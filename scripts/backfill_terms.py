@@ -23,6 +23,7 @@ Usage:
     python3 scripts/backfill_terms.py [--dry-run]
 """
 
+import datetime
 import html
 import json
 import re
@@ -73,6 +74,36 @@ def normalize_docket(raw: str) -> str:
         part = re.sub(r'^(Misc|Orig)\.$', r'\1', part)
         normalized.append(part)
     return ','.join(normalized)
+
+
+_MONTHS = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December',
+]
+_DATE_DEC_RE = re.compile(
+    r'^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+'
+    r'(January|February|March|April|May|June|July|August|September|'
+    r'October|November|December)\s+(\d{1,2}),\s+(\d{4})$'
+)
+
+
+def _date_decision_to_iso(date_decision: str) -> str | None:
+    """Convert 'Monday, January 5, 1926' → '1926-01-05', or None."""
+    m = _DATE_DEC_RE.match(date_decision.strip())
+    if not m:
+        return None
+    month_name, day, year = m.group(1), int(m.group(2)), int(m.group(3))
+    try:
+        month = _MONTHS.index(month_name) + 1
+        return datetime.date(year, month, day).strftime('%Y-%m-%d')
+    except (ValueError, IndexError):
+        return None
+
+
+def _prev_terms(term: str, n: int = 2) -> list[str]:
+    """Return up to n preceding term strings (same month, earlier year)."""
+    year, month = term.split('-')
+    return [f'{int(year) - i}-{month}' for i in range(1, n + 1)]
 
 
 def build_case_obj(src: dict) -> dict:
@@ -166,40 +197,67 @@ def process_term_file(md_path: Path, dry_run: bool) -> None:
         print(f'{term}: no existing cases.json — skipped (merge-only mode)')
         return
 
-    existing = json.loads(dest_file.read_text(encoding='utf-8'))
+    # Load cases.json for this term and up to 2 preceding terms.
+    # The dicts inside loaded[path] are the live objects we mutate in-place.
+    terms_to_search = [term] + _prev_terms(term)
+    loaded: dict[Path, list] = {}
+    for t in terms_to_search:
+        tf = TERMS_DIR / t / 'cases.json'
+        if tf.exists():
+            loaded[tf] = json.loads(tf.read_text(encoding='utf-8'))
 
-    # Index existing cases by their (normalised) docket number.
-    dest_by_number = {}
-    for c in existing:
-        num = c.get('number')
-        if num is not None:
-            dest_by_number[num] = c
-
-    # Build a lookup of source dockets → source case.
-    src_by_number = {}
-    for src in src_cases:
-        raw = src.get('docket')
-        if raw is not None:
-            src_by_number[normalize_docket(str(raw))] = src
+    # Build cross-term index: individual number part → (path, case_dict).
+    # Consolidated numbers like '1,2,4' are indexed by each comma-separated
+    # part so that an incoming '1,2,4,10' can match on any single component.
+    cross_idx: dict[str, tuple[Path, dict]] = {}
+    for tf, cases_list in loaded.items():
+        for c in cases_list:
+            raw_num = c.get('number', '')
+            if raw_num:
+                for part in str(raw_num).split(','):
+                    part = part.strip()
+                    if part and part not in cross_idx:
+                        cross_idx[part] = (tf, c)
 
     merged_count = 0
+    modified_paths: set[Path] = set()
+
     for src in src_cases:
         raw = src.get('docket')
         norm = normalize_docket(str(raw)) if raw is not None else None
-        dest_case = dest_by_number.get(norm) if norm else None
+        docket_parts = [p.strip() for p in norm.split(',')] if norm else []
+
+        # Convert incoming dateDecision to ISO for comparison with 'decision'.
+        incoming_date_str = src.get('dateDecision') or ''
+        incoming_iso = _date_decision_to_iso(incoming_date_str) if incoming_date_str else None
+
+        # Find the first docket part that matches an existing case.
+        # Where both sides have a date, require them to agree.
+        dest_path: Path | None = None
+        dest_case: dict | None = None
+        for part in docket_parts:
+            if part not in cross_idx:
+                continue
+            cpath, ccase = cross_idx[part]
+            existing_decision = ccase.get('decision')
+            if (incoming_iso is None or existing_decision is None
+                    or existing_decision == incoming_iso):
+                dest_path, dest_case = cpath, ccase
+                break
 
         if dest_case is None:
             print(f'  {term}: NOT FOUND — {src.get("title", "?")!r}  (No. {norm or "?"})')
             continue
 
         fields = build_merge_fields(src)
-        # Determine which fields actually changed.
         new_fields = {k: v for k, v in fields.items() if dest_case.get(k) != v}
         if not new_fields:
             continue
 
         # Rebuild the case dict so new keys are inserted before 'audio' (if present).
-        updated = {}
+        # dest_case is the live dict object inside loaded[dest_path], so mutating it
+        # directly updates the list that will be written back to disk.
+        updated: dict = {}
         inserted = False
         for k, v in dest_case.items():
             if not inserted and k == 'audio':
@@ -209,24 +267,27 @@ def process_term_file(md_path: Path, dry_run: bool) -> None:
                 inserted = True
             updated[k] = new_fields.get(k, v)  # overwrite if changed
         if not inserted:
-            # No 'audio' key — append new keys at end
             for nk, nv in new_fields.items():
                 if nk not in dest_case:
                     updated[nk] = nv
         dest_case.clear()
         dest_case.update(updated)
+        modified_paths.add(dest_path)
         merged_count += 1
 
     if merged_count == 0:
-        print(f'{term}: up to date ({len(existing)} cases)')
+        total = sum(len(v) for v in loaded.values())
+        print(f'{term}: up to date ({total} cases across {len(loaded)} file(s))')
         return
 
-    print(f'{term}: {"would update" if dry_run else "updating"} {merged_count} case(s)')
+    files_label = f'{len(modified_paths)} file(s)'
+    print(f'{term}: {"would update" if dry_run else "updating"} {merged_count} case(s) across {files_label}')
     if not dry_run:
-        dest_file.write_text(
-            json.dumps(existing, indent=2, ensure_ascii=False) + '\n',
-            encoding='utf-8',
-        )
+        for p in modified_paths:
+            p.write_text(
+                json.dumps(loaded[p], indent=2, ensure_ascii=False) + '\n',
+                encoding='utf-8',
+            )
 
 
 def main() -> None:
