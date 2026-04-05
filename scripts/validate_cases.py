@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate file entries for SCOTUS cases.
+"""Validate file entries and case metadata for SCOTUS cases.
 
 Usage:
     python3 scripts/validate_cases.py TERM [CASE] [--checkurls] [--verbose]
@@ -11,14 +11,20 @@ Examples:
     python3 scripts/validate_cases.py 2025-10 24-1260 --checkurls
     python3 scripts/validate_cases.py 2025-10 --verbose
 
-For each case's files.json:
+Per-run checks (always):
   1. Checks supremecourt.gov for a slip opinion matching the case's docket number;
      if found and not already recorded, adds it to files.json as type "opinion".
-  2. With --checkurls: also verifies that every href URL is reachable (HTTP HEAD
-     request with GET fallback) and checks whether it can be embedded in an iframe
-     by inspecting Content-Security-Policy and X-Frame-Options response headers.
-     If framing is blocked, the file is downloaded locally, the original URL is saved
-     as "source", and "href" is updated to the local path.
+  2. Checks consistency of 'decision' vs 'dateDecision' in cases.json; prints any
+     discrepancy and inserts a missing 'dateDecision' derived from 'decision'.
+  3. Detects files in case folders not yet listed in files.json, adds an entry for
+     each one (inferring type from the filename, building a title from the stem),
+     and increments the 'files' count in cases.json.
+
+With --checkurls:
+  4. Verifies every href URL in files.json is reachable (HTTP HEAD with GET fallback)
+     and checks iframe-embeddability via CSP / X-Frame-Options; downloads framing-
+     blocked documents locally and replaces href accordingly.
+  5. Probes every opinion_href in cases.json; reports unreachable URLs.
 """
 
 import datetime
@@ -35,6 +41,16 @@ REPO_ROOT    = Path(__file__).resolve().parent.parent
 SCOTUS_BASE  = 'https://www.supremecourt.gov'
 
 _OPINIONS_CACHE: dict = {}  # year_2digit -> {docket_lower: {date, name, author, href}}
+
+_DATE_DEC_PARSE_RE  = re.compile(
+    r'^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+'
+    r'(January|February|March|April|May|June|July|August|September|'
+    r'October|November|December)\s+(\d{1,2}),\s+(\d{4})$'
+)
+
+_MONTHS = ['January','February','March','April','May','June',
+           'July','August','September','October','November','December']
+_DAYS   = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
 
 
 # ── HTTP helpers ──────────────────────────────────────────────────────────────
@@ -550,6 +566,193 @@ def apply_speaker_map_to_case(case_dir: Path, entries: list[tuple]) -> None:
     check_unmapped_justices(case_dir)
 
 
+# ── Decision date consistency ─────────────────────────────────────────────────
+
+def _iso_to_date_decision(iso: str) -> str | None:
+    """Convert 'YYYY-MM-DD' → 'Monday, January 5, 2026', or None."""
+    try:
+        dt = datetime.date(
+            int(iso[0:4]), int(iso[5:7]), int(iso[8:10])
+        )
+        return f'{_DAYS[dt.weekday()]}, {_MONTHS[dt.month - 1]} {dt.day}, {dt.year}'
+    except (ValueError, IndexError):
+        return None
+
+
+def _date_decision_to_iso(date_decision: str) -> str | None:
+    """Convert 'Monday, January 5, 2026' → '2026-01-05', or None."""
+    m = _DATE_DEC_PARSE_RE.match(date_decision.strip())
+    if not m:
+        return None
+    month_name, day, year = m.group(1), int(m.group(2)), int(m.group(3))
+    month = _MONTHS.index(month_name) + 1
+    try:
+        return datetime.date(year, month, day).strftime('%Y-%m-%d')
+    except ValueError:
+        return None
+
+
+def check_decision_dates(cases_path: Path, term: str) -> None:
+    """Check 'decision' vs 'dateDecision' consistency; insert missing dateDecision."""
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    modified = False
+    for case in data:
+        decision = case.get('decision', '')
+        date_dec = case.get('dateDecision', '')
+        label    = case.get('number') or case.get('id', '?')
+        title    = case.get('title', '')
+
+        if not decision:
+            continue
+
+        generated = _iso_to_date_decision(decision)
+        if generated is None:
+            print(f'WARNING: {term}/{label} ({title[:40]}): '
+                  f'cannot parse decision={decision!r}')
+            continue
+
+        if not date_dec:
+            # Insert dateDecision immediately after decision.
+            new_case: dict = {}
+            for k, v in case.items():
+                new_case[k] = v
+                if k == 'decision':
+                    new_case['dateDecision'] = generated
+            case.clear()
+            case.update(new_case)
+            modified = True
+            print(f'  {term}/{label}: inserted dateDecision={generated!r}')
+        else:
+            parsed_back = _date_decision_to_iso(date_dec)
+            if parsed_back != decision:
+                print(f'WARNING: {term}/{label} ({title[:40]}): '
+                      f'decision={decision!r} but dateDecision parses to '
+                      f'{parsed_back!r} (stored: {date_dec!r})')
+
+    if modified:
+        cases_path.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print('Updated cases.json: inserted missing dateDecision values.')
+
+
+# ── Opinion href probing ──────────────────────────────────────────────────────
+
+def check_opinion_hrefs(cases_path: Path, term: str) -> None:
+    """Probe opinion_href URLs and report any that are unreachable."""
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    for case in data:
+        href = case.get('opinion_href', '')
+        if not href or not href.startswith(('http://', 'https://')):
+            continue
+        label = case.get('number') or case.get('id', '?')
+        title = case.get('title', '')
+        ok, headers = check_url(href)
+        _polite_delay(href)
+        if not ok:
+            status = headers.get('_status') or headers.get('_error', 'unknown')
+            print(f'WARNING: {term}/{label} ({title[:40]}): '
+                  f'opinion_href unreachable ({status})')
+
+
+# ── Untracked files backfill ──────────────────────────────────────────────────
+
+def _file_type_from_name(name: str) -> str | None:
+    """Infer a files.json 'type' value from a filename."""
+    lower = name.lower()
+    if any(kw in lower for kw in ('amicus', 'amici')):
+        return 'amicus'
+    if any(kw in lower for kw in ('petitioner', 'appellant')):
+        return 'petitioner'
+    if any(kw in lower for kw in ('respondent', 'appellee')):
+        return 'respondent'
+    return None
+
+
+def _title_from_filename(name: str) -> str:
+    """Build a user-friendly title from a filename (without extension)."""
+    stem = re.sub(r'[-_]+', ' ', Path(name).stem)
+    return stem.title()
+
+
+def backfill_untracked_files(cases_path: Path, term: str) -> None:
+    """Add files.json entries for files in case folders not yet listed.
+
+    Skips files.json itself, hidden files, and date-stamped transcript JSON
+    files (e.g. '2026-03-23-oyez.json').  Does not touch cases.json directly;
+    call sync_files_count() afterward to update the 'files' counts.
+    """
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    term_dir = cases_path.parent
+
+    for case in data:
+        folder_name = case.get('number') or case.get('id', '')
+        if not folder_name:
+            continue
+        case_dir   = term_dir / 'cases' / folder_name
+        files_path = case_dir / 'files.json'
+        if not case_dir.is_dir() or not files_path.exists():
+            continue
+
+        try:
+            files_data = json.loads(files_path.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        if not isinstance(files_data, list):
+            continue
+
+        # Build set of basenames already referenced in files.json.
+        tracked: set[str] = set()
+        for entry in files_data:
+            href = entry.get('href', '')
+            if not href.startswith(('http://', 'https://')):
+                # Strip any fragment, then take the last path component.
+                tracked.add(Path(href.split('#')[0]).name)
+
+        files_modified = False
+        for fpath in sorted(case_dir.iterdir()):
+            if fpath.is_dir() or fpath.name.startswith('.'):
+                continue
+            if fpath.suffix == '.json':
+                continue
+            if fpath.name in tracked:
+                continue
+
+            max_id = max(
+                (e['file'] for e in files_data if isinstance(e.get('file'), int)),
+                default=0,
+            )
+            local_href = f'/courts/ussc/terms/{term}/cases/{folder_name}/{fpath.name}'
+            new_entry: dict = {
+                'file':  max_id + 1,
+                'title': _title_from_filename(fpath.name),
+            }
+            ftype = _file_type_from_name(fpath.name)
+            if ftype:
+                new_entry['type'] = ftype
+            new_entry['href'] = local_href
+            files_data.append(new_entry)
+            tracked.add(fpath.name)
+            files_modified = True
+            print(f'  {folder_name}: added untracked file {fpath.name!r}')
+
+        if files_modified:
+            files_path.write_text(
+                json.dumps(files_data, indent=2, ensure_ascii=False) + '\n',
+                encoding='utf-8',
+            )
+
+
 # ── Core validation ───────────────────────────────────────────────────────────
 
 def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = False,
@@ -631,6 +834,8 @@ def check_duplicate_case_numbers(term_dir: Path) -> None:
     seen: dict[str, str] = {}   # lower -> original
     for case in cases:
         number = case.get('number', '')
+        if not number:
+            continue
         key = number.lower()
         if key in seen:
             print(f'WARNING: duplicate case number in cases.json: '
@@ -679,7 +884,13 @@ def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
     for number in sorted(json_numbers):
         if number not in disk_folders:
             case = json_numbers[number]
-            has_content = bool(case.get('audio')) or bool(case.get('files'))
+            # A folder is only needed when there are local files (files > 0) or
+            # an audio entry has a local text_href (not an external URL).
+            has_local_text = any(
+                a.get('text_href') and not a['text_href'].startswith('http')
+                for a in (case.get('audio') or [])
+            )
+            has_content = bool(case.get('files')) or has_local_text
             if has_content or verbose:
                 print(f'WARNING: {number} in cases.json but no folder at cases/{number}/')
 
@@ -740,7 +951,8 @@ def main() -> None:
     term_dir = REPO_ROOT / 'courts' / 'ussc' / 'terms' / term
 
     if not term_dir.is_dir():
-        sys.exit(f'Error: directory not found: {term_dir}')
+        print(f'Skipping {term}: directory not found.')
+        sys.exit(0)
 
     check_duplicate_case_numbers(term_dir)
     check_duplicate_audio_hrefs(term_dir)
@@ -751,7 +963,11 @@ def main() -> None:
         migrate_arguments_to_audio(cases_path)
         validate_cases_json_arguments(cases_path)
         normalize_audio_aligned_position(cases_path)
+        check_decision_dates(cases_path, term)
+        backfill_untracked_files(cases_path, term)
         sync_files_count(cases_path)
+        if check_urls:
+            check_opinion_hrefs(cases_path, term)
 
     raw_speaker_map = load_speaker_map()
 
