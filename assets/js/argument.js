@@ -426,7 +426,8 @@ function caseId(caseEntry) {
 // Directory name for the case on the filesystem — uses number first since
 // case directories are named by docket number, not the lonedissent id.
 function caseDirName(caseEntry) {
-  return caseEntry.number || caseEntry.id || '';
+  const name = caseEntry.number || caseEntry.id || '';
+  return name.split(',')[0].trim();
 }
 
 // Build the text for the case‑title label above the transcript pane.
