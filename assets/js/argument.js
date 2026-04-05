@@ -9,6 +9,7 @@ let activeBottomLinkText = null; // text key of the currently shown bottom link
 let docViewerOpenHeight = null;  // px height for next animated open (null = use 45vh default)
 let _currentAudioList = [];    // sorted audio entries for the active case
 let _currentBasePath  = '';    // base URL path for the active case
+let _collectionsSectionLi = null; // top-level Collections <li> (set by buildCollectionsNav)
 
 const audio       = document.getElementById('audio-player');
 const turnList    = document.getElementById('turn-list');
@@ -130,6 +131,24 @@ async function fetchTermCases(term) {
 }
 
 // Called when nav search opens: loads all not-yet-built term case lists.
+// ── URL param helper ─────────────────────────────────────────────────────────
+// Rebuilds URLSearchParams so that 'collection' (if present) is always first.
+function buildUrlParams(updates, deletes = []) {
+  const url = new URL(location.href);
+  // Apply deletes first.
+  deletes.forEach(k => url.searchParams.delete(k));
+  // Apply updates.
+  Object.entries(updates).forEach(([k, v]) => url.searchParams.set(k, v));
+  // If collection is present but not first, rebuild with it first.
+  const coll = url.searchParams.get('collection');
+  if (coll) {
+    const entries = [...url.searchParams.entries()];
+    const reordered = [['collection', coll], ...entries.filter(([k]) => k !== 'collection')];
+    url.search = new URLSearchParams(reordered).toString();
+  }
+  return url;
+}
+
 async function loadAllTermsForSearch() {
   const termEls = document.querySelectorAll('.term-group[data-term]');
   await Promise.all([...termEls].map(el => el._ensureBuilt?.()));
@@ -708,12 +727,10 @@ function buildTermCases(term, cases, ul) {
           ci.classList.add('open');
           await ensureFilesLoaded();
           if (!fromRestore) {
-            const url = new URL(location.href);
-            url.searchParams.set('term', term);
-            url.searchParams.set('case', caseId(caseEntry));
-            url.searchParams.delete('audio');
-            url.searchParams.delete('file');
-            url.searchParams.delete('turn');
+            const url = buildUrlParams(
+              { term, case: caseId(caseEntry) },
+              ['collection', 'audio', 'file', 'turn'],
+            );
             history.replaceState(null, '', url);
           }
           loadCase(term, caseEntry, audioIdx);
@@ -895,35 +912,45 @@ function buildCollectionsNav() {
   const sectionUl = document.createElement('ul');
   sectionUl.className = 'terms-list-inner';
 
-  let sectionBuilt = false;
+  let _buildPromise = null;
+  async function _doSectionBuild() {
+    // Sort by URL so 1.json < 2.json < … regardless of Jekyll iteration order.
+    const sorted = [...COLLECTIONS].sort((a, b) => a.url < b.url ? -1 : a.url > b.url ? 1 : 0);
+    for (const { url } of sorted) {
+      try {
+        const res = await fetch(url, { cache: 'reload' });
+        if (!res.ok) continue;
+        const collData = await res.json();
+        buildCollectionItem(sectionUl, collData, url);
+      } catch (e) {
+        console.warn('[collections] fetch failed:', url, e);
+      }
+    }
+  }
+  sectionLi._ensureBuilt = () => {
+    if (!_buildPromise) _buildPromise = _doSectionBuild();
+    return _buildPromise;
+  };
+
   sectionHeader.addEventListener('click', async () => {
     sectionLi.classList.toggle('open');
-    if (sectionLi.classList.contains('open') && !sectionBuilt) {
-      sectionBuilt = true;
-      // Sort by URL so 1.json < 2.json < … regardless of Jekyll iteration order.
-      const sorted = [...COLLECTIONS].sort((a, b) => a.url < b.url ? -1 : a.url > b.url ? 1 : 0);
-      for (const { url } of sorted) {
-        try {
-          const res = await fetch(url, { cache: 'reload' });
-          if (!res.ok) continue;
-          const collData = await res.json();
-          buildCollectionItem(sectionUl, collData);
-        } catch (e) {
-          console.warn('[collections] fetch failed:', url, e);
-        }
-      }
+    if (sectionLi.classList.contains('open')) {
+      await sectionLi._ensureBuilt();
     }
   });
 
+  _collectionsSectionLi = sectionLi;
   sectionLi.appendChild(sectionHeader);
   sectionLi.appendChild(sectionUl);
   termListEl.appendChild(sectionLi);
 }
 
-function buildCollectionItem(sectionUl, collData) {
+function buildCollectionItem(sectionUl, collData, collUrl) {
   // Each collection — styled like a term group
+  const collId = collUrl.split('/').pop().replace('.json', '');
   const collLi = document.createElement('li');
   collLi.className = 'term-group';
+  collLi.dataset.collectionUrl = collUrl;
 
   const collHeader = document.createElement('div');
   collHeader.className = 'term-header';
@@ -990,23 +1017,31 @@ function buildCollectionItem(sectionUl, collData) {
 
       header.appendChild(titleSpan);
 
-      titleSpan.addEventListener('click', async () => {
+      titleSpan.addEventListener('click', async (e) => {
+        const fromRestore = !!e.fromRestore;
         const cases = await fetchTermCases(caseRef.term);
         const caseEntry = cases.find(c => c.number === caseRef.number);
         if (!caseEntry) {
           console.warn('[collections] case not found in cases.json:', caseRef);
           return;
         }
-        // caseRef.audio is 1-based; convert to 0-based index
-        const audioIdx = (caseRef.audio != null) ? Math.max(0, parseInt(caseRef.audio, 10) - 1) : 0;
-        const url = new URL(location.href);
-        url.searchParams.set('term', caseRef.term);
-        url.searchParams.set('case', caseRef.number);
-        if (audioIdx > 0) url.searchParams.set('audio', audioIdx + 1);
-        else url.searchParams.delete('audio');
-        url.searchParams.delete('file');
-        url.searchParams.delete('turn');
-        history.replaceState(null, '', url);
+        // caseRef.audio is 1-based; convert to 0-based index.
+        // On restore, prefer the URL audio param passed via e.audioIdx.
+        const audioIdx = fromRestore
+          ? (Number.isInteger(e.audioIdx) ? e.audioIdx : 0)
+          : ((caseRef.audio != null) ? Math.max(0, parseInt(caseRef.audio, 10) - 1) : 0);
+        if (!fromRestore) {
+          const url = buildUrlParams(
+            {
+              collection: collId,
+              term: caseRef.term,
+              case: caseRef.number,
+              ...(audioIdx > 0 ? { audio: audioIdx + 1 } : {}),
+            },
+            [...(audioIdx === 0 ? ['audio'] : []), 'file', 'turn'],
+          );
+          history.replaceState(null, '', url);
+        }
         loadCase(caseRef.term, caseEntry, audioIdx);
       });
 
@@ -1114,6 +1149,9 @@ async function loadAudioEntry(arg, basePath) {
 async function loadCase(term, caseEntry, audioIdx = 0) {
   const caseKey = term + '/' + caseId(caseEntry);
   const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
+
+  // Update topbar term label
+  document.getElementById('topbar-term').textContent = termDisplayName(term);
 
   // ── No-audio path: display opinion in document viewer ──────────────────────
   if (!caseEntry.audio?.length) {
@@ -1398,8 +1436,7 @@ function renderTranscript() {
       }
       // Update URL with turn number
       const turnId = turn.turn ?? (idx + 1);
-      const url = new URL(location.href);
-      url.searchParams.set('turn', turnId);
+      const url = buildUrlParams({ turn: turnId });
       history.replaceState(null, '', url);
     });
     frag.appendChild(div);
@@ -1963,11 +2000,68 @@ async function init() {
 
   // Restore state from URL params
   const params = new URLSearchParams(location.search);
-  const termParam  = params.get('term');
-  const caseParam  = params.get('case');
+  const termParam       = params.get('term');
+  const caseParam       = params.get('case');
+  const collectionParam = params.get('collection');
   const audioParam = params.get('audio') != null ? Math.max(0, parseInt(params.get('audio'), 10) - 1) : null; // convert 1-based → 0-based
   const fileParam  = params.get('file') != null ? parseInt(params.get('file'), 10) : null;
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
+
+  // ── Collection restore ───────────────────────────────────────────────────
+  if (collectionParam && termParam && caseParam && _collectionsSectionLi) {
+    _collectionsSectionLi.classList.add('open');
+    await _collectionsSectionLi._ensureBuilt();
+    const collLi = _collectionsSectionLi.querySelector(
+      `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
+    );
+    if (collLi) {
+      collLi.classList.add('open');
+      const caseKey = CSS.escape(termParam + '/' + caseParam);
+      const ci = collLi.querySelector(`.case-item[data-case-key="${caseKey}"]`);
+      if (ci) {
+        ci.closest('.month-group')?.classList.add('open');
+        if (!isMobile()) requestAnimationFrame(() => ci.scrollIntoView({ behavior: 'instant', block: 'center' }));
+        if (fileParam != null || turnParam != null) {
+          document.addEventListener('transcriptloaded', () => {
+            if (turnParam != null) {
+              const turnIdx = turns.findIndex((t, i) => (t.turn ?? (i + 1)) === turnParam);
+              if (turnIdx >= 0) {
+                if (activeTurnIdx >= 0) document.getElementById('turn-' + activeTurnIdx)?.classList.remove('active');
+                const el = document.getElementById('turn-' + turnIdx);
+                if (el) {
+                  el.classList.add('active');
+                  activeTurnIdx = turnIdx;
+                  if (turns[turnIdx].time != null) seekOnly(turnTimes[turnIdx]);
+                  requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'center' }));
+                  const url = new URL(location.href);
+                  url.searchParams.set('turn', turnParam);
+                  history.replaceState(null, '', url);
+                }
+              }
+            }
+            if (fileParam != null) {
+              const fileEl = document.querySelector(`.file-item[data-file-id="${fileParam}"]`);
+              if (fileEl) {
+                fileEl.closest('.file-type-group')?.classList.add('open');
+                requestAnimationFrame(() => fileEl.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
+                fileEl.click();
+              }
+            }
+          }, { once: true });
+        }
+        if (isMobile()) {
+          document.addEventListener('transcriptloaded', () => {
+            playerSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+            setMobileNavVisible(false);
+          }, { once: true });
+        }
+        const titleEl = ci.querySelector('.case-title-nav');
+        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true, audioIdx: audioParam ?? 0 }));
+      }
+    }
+    return;
+  }
+
   if (termParam && caseParam) {
     // Expand the decade and term shells, then wait for the term's cases to load.
     const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);

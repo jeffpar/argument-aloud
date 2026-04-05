@@ -46,6 +46,15 @@ body {
   font-size: 13px;
 }
 
+#topbar-term {
+  margin-left: auto;
+  color: #888;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* ── Two-panel browser ───────────────────────────────────── */
 #browser {
   display: flex;

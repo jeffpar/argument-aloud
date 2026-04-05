@@ -28,10 +28,10 @@ fi
 run_term() {
     local term="$1"
     echo "========================================"
-    echo "  Term: $term"
+    echo "Term $term"
     echo "========================================"
     echo ""
-    python3 scripts/validate_cases.py "$term" 2>&1 | tee -a "$LOG"
+    python3 scripts/validate_cases.py "$term" --checkurls 2>&1 | tee -a "$LOG"
     echo ""
 }
 
