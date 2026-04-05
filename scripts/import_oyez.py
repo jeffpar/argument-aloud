@@ -388,10 +388,12 @@ def main():
     def _normalize_case_num(raw: str) -> str:
         """Normalise a docket number to canonical form.
 
-        Handles two Oyez quirks:
+        Handles Oyez quirks:
           1. Compact original-jurisdiction format: '22O141' → '141-Orig'
           2. Loose original-jurisdiction suffixes:
              '156-orig', '156-original', '156 orig', '156 Original' → '156-Orig'
+          3. Misc suffixes:
+             '1 MISC', '1-misc', '1 Miscellaneous' → '1-Misc'
         """
         s = raw.strip()
         # Oyez compact form: digits + 'O' + digits (e.g. '22O141')
@@ -402,6 +404,10 @@ def main():
         m = re.fullmatch(r'(.+?)[\s-]+(orig(?:inal)?)', s, re.IGNORECASE)
         if m:
             return f'{m.group(1)}-Orig'
+        # Misc suffix form: e.g. '1 MISC', '1-misc', '1 Miscellaneous' → '1-Misc'
+        m = re.fullmatch(r'(.+?)[\s-]+(misc(?:ellaneous)?)', s, re.IGNORECASE)
+        if m:
+            return f'{m.group(1)}-Misc'
         return s
 
     our_by_num = {_normalize_case_num(c['number']): c for c in our_cases}
