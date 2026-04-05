@@ -2,13 +2,14 @@
 """Validate file entries and case metadata for SCOTUS cases.
 
 Usage:
-    python3 scripts/validate_cases.py TERM [CASE] [--checkurls] [--verbose]
+    python3 scripts/validate_cases.py TERM [CASE] [--checkurls] [--opinions] [--verbose]
 
 Examples:
     python3 scripts/validate_cases.py 2025-10 24-1260
     python3 scripts/validate_cases.py 2025-10
     python3 scripts/validate_cases.py 2025-10 --checkurls
     python3 scripts/validate_cases.py 2025-10 24-1260 --checkurls
+    python3 scripts/validate_cases.py 2025-10 --checkurls --opinions
     python3 scripts/validate_cases.py 2025-10 --verbose
 
 Per-run checks (always):
@@ -24,7 +25,12 @@ With --checkurls:
   4. Verifies every href URL in files.json is reachable (HTTP HEAD with GET fallback)
      and checks iframe-embeddability via CSP / X-Frame-Options; downloads framing-
      blocked documents locally and replaces href accordingly.
-  5. Probes every opinion_href in cases.json; reports unreachable URLs.
+  5. Probes every opinion_href, audio_href, and transcript_href in cases.json;
+     renames unreachable keys to *_bad.
+
+With --checkurls --opinions:
+  Same as --checkurls but restricts URL probing to opinion_href only (skips
+  audio_href, transcript_href, and files.json hrefs).
 """
 
 import datetime
@@ -300,7 +306,7 @@ def validate_cases_json_arguments(cases_path: Path) -> None:
     term_dir = cases_path.parent
     modified = False
     for case in data:
-        case_dir = term_dir / 'cases' / case.get('number', '')
+        case_dir = term_dir / 'cases' / _case_folder(case.get('number', '') or case.get('id', ''))
         for i, arg in enumerate(case.get('audio', [])):
             audio_href = arg.get('audio_href', '')
             if not audio_href:
@@ -380,7 +386,8 @@ def sync_files_count(cases_path: Path) -> None:
     term_dir = cases_path.parent
     modified = False
     for case in data:
-        files_path = term_dir / 'cases' / case.get('number', '') / 'files.json'
+        folder_name = _case_folder(case.get('number', '') or case.get('id', ''))
+        files_path = term_dir / 'cases' / folder_name / 'files.json'
         count = 0
         if files_path.exists():
             try:
@@ -651,6 +658,15 @@ def _rename_key(obj: dict, old_key: str, new_key: str) -> None:
     obj.update(items)
 
 
+def _case_folder(number_or_id: str) -> str:
+    """Return the case folder name for a number field.
+
+    For consolidated cases the number field is comma-separated (e.g. '22,43').
+    The folder on disk is named after the first number only.
+    """
+    return number_or_id.split(',')[0].strip()
+
+
 def check_case_hrefs(cases_path: Path, term: str) -> None:
     """Probe opinion_href, audio_href, and text_href URLs in cases.json.
 
@@ -689,26 +705,27 @@ def check_case_hrefs(cases_path: Path, term: str) -> None:
                 print('✓')
 
         # audio entries: audio_href and transcript_href
-        _tag = {'audio_href': 'a', 'transcript_href': 't'}
-        for entry in case.get('audio') or []:
-            for key in ('audio_href', 'transcript_href'):
-                href = entry.get(key, '')
-                if not href or not href.startswith(('http://', 'https://')):
-                    continue
-                _print_case_header()
-                tag = _tag[key]
-                label = href if len(href) <= 80 else href[:77] + '…'
-                print(f'  [{tag}] {label}', end=' ', flush=True)
-                ok, headers = check_url(href)
-                _polite_delay(href)
-                if not ok:
-                    status = headers.get('_status') or headers.get('_error', 'unknown')
-                    bad_key = key + '_bad'
-                    print(f'✗ UNREACHABLE ({status}) — renaming to {bad_key}')
-                    _rename_key(entry, key, bad_key)
-                    dirty = True
-                else:
-                    print('✓')
+        if not opinions_only:
+            _tag = {'audio_href': 'a', 'transcript_href': 't'}
+            for entry in case.get('audio') or []:
+                for key in ('audio_href', 'transcript_href'):
+                    href = entry.get(key, '')
+                    if not href or not href.startswith(('http://', 'https://')):
+                        continue
+                    _print_case_header()
+                    tag = _tag[key]
+                    label = href if len(href) <= 80 else href[:77] + '…'
+                    print(f'  [{tag}] {label}', end=' ', flush=True)
+                    ok, headers = check_url(href)
+                    _polite_delay(href)
+                    if not ok:
+                        status = headers.get('_status') or headers.get('_error', 'unknown')
+                        bad_key = key + '_bad'
+                        print(f'✗ UNREACHABLE ({status}) — renaming to {bad_key}')
+                        _rename_key(entry, key, bad_key)
+                        dirty = True
+                    else:
+                        print('✓')
 
     if dirty:
         cases_path.write_text(
@@ -740,9 +757,9 @@ def _title_from_filename(name: str) -> str:
 def backfill_untracked_files(cases_path: Path, term: str) -> None:
     """Add files.json entries for files in case folders not yet listed.
 
-    Skips files.json itself, hidden files, and date-stamped transcript JSON
-    files (e.g. '2026-03-23-oyez.json').  Does not touch cases.json directly;
-    call sync_files_count() afterward to update the 'files' counts.
+    Skips files.json itself, hidden files, and .json transcript files.
+    Does not touch cases.json directly; call sync_files_count() afterward
+    to update the 'files' counts.
     """
     data = json.loads(cases_path.read_text(encoding='utf-8'))
     if not isinstance(data, list):
@@ -751,28 +768,32 @@ def backfill_untracked_files(cases_path: Path, term: str) -> None:
     term_dir = cases_path.parent
 
     for case in data:
-        folder_name = case.get('number') or case.get('id', '')
+        folder_name = _case_folder(case.get('number') or case.get('id', ''))
         if not folder_name:
             continue
-        case_dir   = term_dir / 'cases' / folder_name
+        case_dir = term_dir / 'cases' / folder_name
+        if not case_dir.is_dir():
+            continue
+
         files_path = case_dir / 'files.json'
-        if not case_dir.is_dir() or not files_path.exists():
-            continue
+        if files_path.exists():
+            try:
+                files_data = json.loads(files_path.read_text(encoding='utf-8'))
+            except Exception:
+                continue
+            if not isinstance(files_data, list):
+                continue
+        else:
+            files_data = []
 
-        try:
-            files_data = json.loads(files_path.read_text(encoding='utf-8'))
-        except Exception:
-            continue
-        if not isinstance(files_data, list):
-            continue
+        rel_case = 'cases/' + folder_name
 
-        # Build set of basenames already referenced in files.json.
+        # Build set of basenames already referenced in files.json (local hrefs only).
         tracked: set[str] = set()
         for entry in files_data:
             href = entry.get('href', '')
             if not href.startswith(('http://', 'https://')):
-                # Strip any fragment, then take the last path component.
-                tracked.add(Path(href.split('#')[0]).name)
+                tracked.add(Path(href).name)
 
         files_modified = False
         for fpath in sorted(case_dir.iterdir()):
@@ -787,7 +808,7 @@ def backfill_untracked_files(cases_path: Path, term: str) -> None:
                 (e['file'] for e in files_data if isinstance(e.get('file'), int)),
                 default=0,
             )
-            local_href = f'/courts/ussc/terms/{term}/cases/{folder_name}/{fpath.name}'
+            local_href = f'/courts/ussc/terms/{term}/{rel_case}/{fpath.name}'
             new_entry: dict = {
                 'file':  max_id + 1,
                 'title': _title_from_filename(fpath.name),
@@ -811,12 +832,12 @@ def backfill_untracked_files(cases_path: Path, term: str) -> None:
 # ── Core validation ───────────────────────────────────────────────────────────
 
 def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = False,
-                        print_header=None) -> None:
+                        print_header=None, opinions_only: bool = False) -> None:
     data = json.loads(files_path.read_text(encoding='utf-8'))
     if not isinstance(data, list):
         return
 
-    if not check_urls:
+    if not check_urls or opinions_only:
         return
 
     modified = False
@@ -869,7 +890,8 @@ def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = Fal
         )
 
 
-def validate_case(term_dir: Path, case_number: str, check_urls: bool = False) -> None:
+def validate_case(term_dir: Path, case_number: str, check_urls: bool = False,
+                  opinions_only: bool = False) -> None:
     files_path = term_dir / 'cases' / case_number / 'files.json'
     if not files_path.exists():
         return
@@ -878,7 +900,7 @@ def validate_case(term_dir: Path, case_number: str, check_urls: bool = False) ->
         if not _printed[0]:
             print(f'{case_number}:')
             _printed[0] = True
-    validate_files_json(files_path, files_path.parent, check_urls, _print_header)
+    validate_files_json(files_path, files_path.parent, check_urls, _print_header, opinions_only)
     check_opinion_for_case(files_path, case_number, term_dir.name, _print_header)
 
 
@@ -929,7 +951,15 @@ def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
         return
 
     cases = json.loads(cases_path.read_text(encoding='utf-8'))
-    json_numbers = {c.get('number', ''): c for c in cases if c.get('number')}
+    # Map from folder name → case for fast lookup.
+    # For consolidated cases (comma-separated numbers) the folder uses the first number.
+    json_numbers = {}
+    for c in cases:
+        raw = c.get('number', '')
+        if not raw:
+            continue
+        json_numbers[raw] = c  # keyed by full number string for duplicate checks
+    json_folders = {_case_folder(num): case for num, case in json_numbers.items()}
 
     # Folders present on disk.
     disk_folders: set[str] = (
@@ -938,9 +968,9 @@ def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
     )
 
     # 1. Cases in cases.json with no matching folder.
-    for number in sorted(json_numbers):
-        if number not in disk_folders:
-            case = json_numbers[number]
+    for number, case in sorted(json_numbers.items()):
+        folder = _case_folder(number)
+        if folder not in disk_folders:
             # A folder is only needed when there are local files (files > 0) or
             # an audio entry has a local text_href (not an external URL).
             has_local_text = any(
@@ -949,11 +979,11 @@ def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
             )
             has_content = bool(case.get('files')) or has_local_text
             if has_content or verbose:
-                print(f'WARNING: {number} in cases.json but no folder at cases/{number}/')
+                print(f'WARNING: {number} in cases.json but no folder at cases/{folder}/')
 
     # 2. Folders on disk with no matching case in cases.json.
     for folder in sorted(disk_folders):
-        if folder not in json_numbers:
+        if folder not in json_folders:
             print(f'WARNING: cases/{folder}/ exists on disk but not in cases.json')
 
     # 3 & 4. Per-case transcript file cross-check.
@@ -961,9 +991,10 @@ def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
     _PART_TITLE_RE = re.compile(r'\bPart\s+(\d+)\b', re.IGNORECASE)
     _PART_FILE_RE  = re.compile(r'-(\d+)\.json$')
     for number, case in sorted(json_numbers.items()):
-        if number not in disk_folders:
+        folder = _case_folder(number)
+        if folder not in disk_folders:
             continue  # already warned above
-        case_dir = cases_dir / number
+        case_dir = cases_dir / folder
 
         # text_hrefs referenced in audio objects (local files only, not URLs).
         referenced: set[str] = set()
@@ -996,9 +1027,10 @@ def check_cases_sync(term_dir: Path, verbose: bool = False) -> None:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    args = [a for a in sys.argv[1:] if a not in ('--checkurls', '--verbose')]
-    check_urls = '--checkurls' in sys.argv
-    verbose    = '--verbose'    in sys.argv
+    args = [a for a in sys.argv[1:] if a not in ('--checkurls', '--opinions', '--verbose')]
+    check_urls   = '--checkurls' in sys.argv
+    opinions_only = '--opinions' in sys.argv
+    verbose      = '--verbose'   in sys.argv
 
     if len(args) not in (1, 2):
         print(__doc__)
@@ -1024,12 +1056,12 @@ def main() -> None:
         backfill_untracked_files(cases_path, term)
         sync_files_count(cases_path)
         if check_urls:
-            check_case_hrefs(cases_path, term)
+            check_case_hrefs(cases_path, term, opinions_only)
 
     raw_speaker_map = load_speaker_map()
 
     if len(args) == 2:
-        validate_case(term_dir, args[1], check_urls)
+        validate_case(term_dir, args[1], check_urls, opinions_only)
         apply_speaker_map_to_case(term_dir / 'cases' / args[1], filter_speaker_map(raw_speaker_map, term))
     else:
         cases_dir = term_dir / 'cases'
@@ -1039,7 +1071,7 @@ def main() -> None:
             return
         speaker_map = filter_speaker_map(raw_speaker_map, term)
         for d in case_dirs:
-            validate_case(term_dir, d.name, check_urls)
+            validate_case(term_dir, d.name, check_urls, opinions_only)
             apply_speaker_map_to_case(d, speaker_map)
 
 
