@@ -745,6 +745,27 @@ function buildNav() {
   });
 
   const currentYear = new Date().getFullYear();
+
+  // Wrap all decades in a top-level "Terms" collapsible group.
+  const termsLi = document.createElement('li');
+  termsLi.className = 'terms-group';
+  const termsHeader = document.createElement('div');
+  termsHeader.className = 'terms-header';
+  const termsTog = document.createElement('span');
+  termsTog.className = 'terms-toggle';
+  termsTog.textContent = '\u25b6';
+  const termsLabel = document.createElement('span');
+  termsLabel.className = 'terms-label';
+  termsLabel.textContent = 'Terms';
+  termsHeader.appendChild(termsTog);
+  termsHeader.appendChild(termsLabel);
+  termsHeader.addEventListener('click', () => termsLi.classList.toggle('open'));
+  termsLi.appendChild(termsHeader);
+  const termsUl = document.createElement('ul');
+  termsUl.className = 'terms-list-inner';
+  termsLi.appendChild(termsUl);
+  termListEl.appendChild(termsLi);
+
   decadeMap.forEach((termList, decade) => {
     const decLi = document.createElement('li');
     decLi.className = 'decade-group';
@@ -840,7 +861,7 @@ function buildNav() {
     });
 
     decLi.appendChild(decUl);
-    termListEl.appendChild(decLi);
+    termsUl.appendChild(decLi);
   });
 
   buildCollectionsNav();
@@ -853,26 +874,26 @@ function buildCollectionsNav() {
 
   const termListEl = document.getElementById('term-list');
 
-  // Top-level "Collections" — styled like a decade group
+  // Top-level "Collections" — styled like the Terms group
   const sectionLi = document.createElement('li');
-  sectionLi.className = 'decade-group';
+  sectionLi.className = 'terms-group';
 
   const sectionHeader = document.createElement('div');
-  sectionHeader.className = 'decade-header';
+  sectionHeader.className = 'terms-header';
 
   const sectionTog = document.createElement('span');
-  sectionTog.className = 'decade-toggle';
+  sectionTog.className = 'terms-toggle';
   sectionTog.textContent = '\u25b6';
 
   const sectionLabel = document.createElement('span');
-  sectionLabel.className = 'decade-label';
+  sectionLabel.className = 'terms-label';
   sectionLabel.textContent = 'Collections';
 
   sectionHeader.appendChild(sectionTog);
   sectionHeader.appendChild(sectionLabel);
 
   const sectionUl = document.createElement('ul');
-  sectionUl.className = 'term-list-inner';
+  sectionUl.className = 'terms-list-inner';
 
   let sectionBuilt = false;
   sectionHeader.addEventListener('click', async () => {
@@ -1869,7 +1890,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
         ci.classList.remove('nav-search-match');
         ci.style.display = '';
       });
-      document.querySelectorAll('.month-group, .term-group, .decade-group').forEach(g => {
+      document.querySelectorAll('.month-group, .term-group, .decade-group, .terms-group').forEach(g => {
         g.style.display = '';
         g.classList.remove('open');
       });
@@ -1879,6 +1900,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
         activeCase.closest('.month-group')?.classList.add('open');
         activeCase.closest('.term-group')?.classList.add('open');
         activeCase.closest('.decade-group')?.classList.add('open');
+        activeCase.closest('.terms-group')?.classList.add('open');
         requestAnimationFrame(() => activeCase.scrollIntoView({ behavior: 'smooth', block: 'nearest' }));
       }
       return;
@@ -1895,6 +1917,7 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
         ci.closest('.month-group')?.classList.add('open');
         ci.closest('.term-group')?.classList.add('open');
         ci.closest('.decade-group')?.classList.add('open');
+        ci.closest('.terms-group')?.classList.add('open');
       }
     });
 
@@ -1911,6 +1934,11 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     // Hide decade-groups whose term-groups all got filtered out
     document.querySelectorAll('.decade-group').forEach(dg => {
       dg.style.display = dg.querySelector('.nav-search-match') ? '' : 'none';
+    });
+
+    // Hide terms-group if no matches at all
+    document.querySelectorAll('.terms-group').forEach(tg => {
+      tg.style.display = tg.querySelector('.nav-search-match') ? '' : 'none';
     });
 
     // Scroll first match into view
@@ -1946,6 +1974,7 @@ async function init() {
     if (termLi) {
       const decLi = termLi.closest('.decade-group');
       decLi?.classList.add('open');
+      termLi.closest('.terms-group')?.classList.add('open');
       termLi.classList.add('open');
       await termLi._ensureBuilt?.();
       // Prefetch counts for remaining terms in the decade (same as clicking the decade header).

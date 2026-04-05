@@ -7,6 +7,10 @@ case URLs, then for each case finds transcript JSON files and:
     name (e.g. "ELENA KAGAN")
   - Changes the speaker's role from "justice" to "advocate"
 
+Also syncs courts/ussc/collections/1.json with all cases listed in
+justicemap.md, resolving pre-Oyez cases (LOC, Justia, Oyez multi-year URLs)
+via US Reports volume+page lookup across all local cases.json files.
+
 Warnings are printed when:
   1. No transcript folder or files exist for a case.
   2. Transcripts were found but the justice's name was already corrected.
@@ -19,15 +23,25 @@ Usage:
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
-REPO_ROOT  = Path(__file__).resolve().parent.parent
-TERMS_DIR  = REPO_ROOT / 'courts' / 'ussc' / 'terms'
-JUSTICEMAP = Path(__file__).resolve().parent / 'justicemap.md'
+REPO_ROOT       = Path(__file__).resolve().parent.parent
+TERMS_DIR       = REPO_ROOT / 'courts' / 'ussc' / 'terms'
+JUSTICEMAP      = Path(__file__).resolve().parent / 'justicemap.md'
+COLLECTION_PATH = REPO_ROOT / 'courts' / 'ussc' / 'collections' / '1.json'
 
-_HEADING_RE   = re.compile(r'^## ((?:CHIEF )?JUSTICE .+)$')
-_OYEZ_URL_RE  = re.compile(r'https://www\.oyez\.org/cases/(\d{4})/([^\s\)]+)')
-_SUFFIX_RE    = re.compile(r',?\s+(?:JR|SR|II|III|IV)\.?$', re.IGNORECASE)
+_HEADING_RE    = re.compile(r'^## ((?:CHIEF )?JUSTICE .+)$')
+_OYEZ_URL_RE   = re.compile(r'https://www\.oyez\.org/cases/(\d{4})/([^\s\)]+)')
+_SUFFIX_RE     = re.compile(r',?\s+(?:JR|SR|II|III|IV)\.?$', re.IGNORECASE)
+# URL patterns for pre-Oyez cases (LOC tile, Oyez multi-year span, Justia)
+_LOC_USREP_RE  = re.compile(
+    r'https://tile\.loc\.gov/[^)]+/usrep(\d+)/usrep\d+(\d{3})/[^)]+\.pdf')
+_OYEZ_MULTI_RE = re.compile(
+    r'https://www\.oyez\.org/cases/\d{4}-\d{4}/(\d+)us(\d+)')
+_JUSTIA_US_RE  = re.compile(
+    r'https://supreme\.justia\.com/cases/federal/us/(\d+)/(\d+)/')
+_CASE_LINK_RE  = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
 _DATE_JSON_RE = re.compile(r'^\d{4}-\d{2}-\d{2}.*\.json$')
 
 
@@ -188,6 +202,194 @@ def process_justice(
                       f'({files})')
 
 
+# ── Collection sync helpers ─────────────────────────────────────────────────
+
+def _vol_page_from_url(url: str) -> tuple[str, str] | None:
+    """Extract (volume, page) as normalized strings from LOC/Oyez-multi/Justia URLs."""
+    for pat in (_LOC_USREP_RE, _OYEZ_MULTI_RE, _JUSTIA_US_RE):
+        m = pat.search(url)
+        if m:
+            return str(int(m.group(1))), str(int(m.group(2)))
+    return None
+
+
+def _oyez_term_case(url: str) -> tuple[str, str] | None:
+    """Extract (term, case_number) from a 4-digit-year Oyez URL."""
+    m = _OYEZ_URL_RE.search(url)
+    if not m:
+        return None
+    year, case = m.group(1), m.group(2)
+    case = re.sub(r'_([a-z])', lambda mm: '-' + mm.group(1).upper(), case)
+    return f'{year}-10', case
+
+
+def _display_name(full_name_upper: str) -> str:
+    """'SAMUEL A. ALITO, JR.' → 'Samuel A. Alito, Jr.'"""
+    return ' '.join(w.capitalize() for w in full_name_upper.split())
+
+
+def build_vol_page_index() -> dict[tuple[str, str], tuple[str, str]]:
+    """Return {(volume, page): (term, number)} from all local cases.json files."""
+    index: dict[tuple[str, str], tuple[str, str]] = {}
+    for cases_file in sorted(TERMS_DIR.glob('*/cases.json')):
+        term = cases_file.parent.name
+        try:
+            cases = json.loads(cases_file.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        for c in cases:
+            vol  = c.get('volume', '')
+            page = c.get('page', '')
+            if vol and page:
+                try:
+                    key = (str(int(vol)), str(int(page)))
+                except ValueError:
+                    continue
+                index[key] = (term, str(c.get('number', '')))
+    return index
+
+
+def load_all_justice_cases() -> list[dict]:
+    """Parse justicemap.md, returning all justice groups with all cases (all URL types).
+
+    Each entry is a dict with keys: display_name, prefix, full_name, formal_name,
+    and cases (a list of {name, url} dicts in markdown order).
+    """
+    text    = JUSTICEMAP.read_text(encoding='utf-8')
+    results: list[dict] = []
+    current: dict | None  = None
+    in_cases_argued: bool = False
+
+    for line in text.splitlines():
+        h_match = _HEADING_RE.match(line)
+        if h_match:
+            if current is not None:
+                results.append(current)
+            prefix, full_name, formal_name = _parse_heading(h_match.group(1).strip())
+            current = {
+                'display_name': _display_name(full_name),
+                'prefix':       prefix,
+                'full_name':    full_name,
+                'formal_name':  formal_name,
+                'cases':        [],
+            }
+            in_cases_argued = False
+        elif current is not None:
+            if line.strip() == '### Cases Argued':
+                in_cases_argued = True
+            elif in_cases_argued:
+                lm = _CASE_LINK_RE.search(line)
+                if lm:
+                    current['cases'].append({
+                        'name': lm.group(1).strip(),
+                        'url':  lm.group(2).strip(),
+                    })
+
+    if current is not None:
+        results.append(current)
+    return results
+
+
+def sync_collection(dry_run: bool) -> None:
+    """Update COLLECTION_PATH with any cases from justicemap.md not yet listed."""
+    print('\n\u2500\u2500 Syncing collection \u2500\u2500')
+    vol_page_index = build_vol_page_index()
+    justices       = load_all_justice_cases()
+
+    try:
+        coll = json.loads(COLLECTION_PATH.read_text(encoding='utf-8'))
+    except Exception as exc:
+        print(f'  ERROR: cannot read {COLLECTION_PATH}: {exc}')
+        return
+
+    groups_by_name: dict[str, dict] = {g['title']: g for g in coll.get('groups', [])}
+    total_added = 0
+
+    for justice in justices:
+        disp = justice['display_name']
+
+        # Resolve each markdown case to (name, term, number).
+        md_cases: list[dict] = []
+        for case in justice['cases']:
+            url, name = case['url'], case['name']
+            tc = _oyez_term_case(url)
+            if tc:
+                term, number = tc
+            else:
+                vp = _vol_page_from_url(url)
+                if not vp:
+                    continue  # unrecognised URL type, skip
+                result = vol_page_index.get(vp)
+                if not result:
+                    print(f'  [{disp}] WARN: no local case for '
+                          f'vol={vp[0]} page={vp[1]} ({name})')
+                    continue
+                term, number = result
+            md_cases.append({'name': name, 'term': term, 'number': str(number)})
+
+        if not md_cases:
+            continue
+
+        # Get or create the collection group.
+        group = groups_by_name.get(disp)
+        if group is None:
+            group = {'title': disp, 'cases': []}
+            coll.setdefault('groups', []).append(group)
+            groups_by_name[disp] = group
+
+        existing: list[dict] = group.get('cases', [])
+
+        # Count how many times each (term, number) already appears in existing.
+        existing_counts: Counter = Counter(
+            (e.get('term', ''), str(e.get('number', ''))) for e in existing
+        )
+
+        # Determine which md_cases are new (count exceeds existing count).
+        seen: Counter = Counter()
+        to_add: list[dict] = []
+        for mc in md_cases:
+            k = (mc['term'], mc['number'])
+            if seen[k] >= existing_counts.get(k, 0):
+                to_add.append(mc)
+            seen[k] += 1
+
+        if not to_add:
+            continue
+
+        # Insert new entries in term order, preserving existing entries.
+        new_existing = list(existing)
+        for new_case in to_add:
+            insert_pos = len(new_existing)
+            for i, e in enumerate(new_existing):
+                if e.get('term', '') > new_case['term']:
+                    insert_pos = i
+                    break
+            new_existing.insert(insert_pos, {
+                'name':   new_case['name'],
+                'term':   new_case['term'],
+                'number': new_case['number'],
+            })
+
+        group['cases'] = new_existing
+        total_added += len(to_add)
+        verb = 'Would add' if dry_run else 'Added'
+        names_str = ', '.join(c['name'] for c in to_add[:4])
+        if len(to_add) > 4:
+            names_str += f', \u2026 (+{len(to_add) - 4} more)'
+        print(f'  [{disp}] {verb} {len(to_add)}: {names_str}')
+
+    if total_added and not dry_run:
+        COLLECTION_PATH.write_text(
+            json.dumps(coll, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+        print(f'Wrote {COLLECTION_PATH.relative_to(REPO_ROOT)} (+{total_added} cases)')
+    elif total_added:
+        print(f'[dry-run] would write +{total_added} cases')
+    else:
+        print('Collection is already up to date.')
+
+
 def main() -> None:
     dry_run = '--dry-run' in sys.argv
     if dry_run:
@@ -196,6 +398,8 @@ def main() -> None:
     justices = load_justicemap()
     for prefix, full_name, formal_name, cases in justices:
         process_justice(prefix, full_name, formal_name, cases, dry_run)
+
+    sync_collection(dry_run)
 
 
 if __name__ == '__main__':
