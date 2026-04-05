@@ -31,7 +31,7 @@ LOG="scripts/get_terms.log"
 for (( year = START; year >= END; year -= INTERVAL )); do
     term="${year}-10"
     echo "========================================"
-    echo "  Term: $term"
+    echo "Term $term"
     echo "========================================"
 
 #   echo "--- import_cases.py $term ---"

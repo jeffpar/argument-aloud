@@ -642,24 +642,79 @@ def check_decision_dates(cases_path: Path, term: str) -> None:
 
 # ── Opinion href probing ──────────────────────────────────────────────────────
 
-def check_opinion_hrefs(cases_path: Path, term: str) -> None:
-    """Probe opinion_href URLs and report any that are unreachable."""
+def _rename_key(obj: dict, old_key: str, new_key: str) -> None:
+    """Rename a key in a dict in-place, preserving insertion order."""
+    items = list(obj.items())
+    idx = next(i for i, (k, _) in enumerate(items) if k == old_key)
+    items[idx] = (new_key, items[idx][1])
+    obj.clear()
+    obj.update(items)
+
+
+def check_case_hrefs(cases_path: Path, term: str) -> None:
+    """Probe opinion_href, audio_href, and text_href URLs in cases.json.
+
+    Unreachable URLs have '_bad' appended to their key name so they stop
+    being used, and cases.json is rewritten if anything changed.
+    """
     data = json.loads(cases_path.read_text(encoding='utf-8'))
     if not isinstance(data, list):
         return
 
+    dirty = False
     for case in data:
+        case_label = case.get('number') or case.get('id', '?')
+        _header_printed = False
+
+        def _print_case_header():
+            nonlocal _header_printed
+            if not _header_printed:
+                print(f'{case_label}:')
+                _header_printed = True
+
+        # opinion_href
         href = case.get('opinion_href', '')
-        if not href or not href.startswith(('http://', 'https://')):
-            continue
-        label = case.get('number') or case.get('id', '?')
-        title = case.get('title', '')
-        ok, headers = check_url(href)
-        _polite_delay(href)
-        if not ok:
-            status = headers.get('_status') or headers.get('_error', 'unknown')
-            print(f'WARNING: {term}/{label} ({title[:40]}): '
-                  f'opinion_href unreachable ({status})')
+        if href and href.startswith(('http://', 'https://')):
+            _print_case_header()
+            label = href if len(href) <= 80 else href[:77] + '…'
+            print(f'  [o] {label}', end=' ', flush=True)
+            ok, headers = check_url(href)
+            _polite_delay(href)
+            if not ok:
+                status = headers.get('_status') or headers.get('_error', 'unknown')
+                print(f'✗ UNREACHABLE ({status}) — renaming to opinion_href_bad')
+                _rename_key(case, 'opinion_href', 'opinion_href_bad')
+                dirty = True
+            else:
+                print('✓')
+
+        # audio entries: audio_href and transcript_href
+        _tag = {'audio_href': 'a', 'transcript_href': 't'}
+        for entry in case.get('audio') or []:
+            for key in ('audio_href', 'transcript_href'):
+                href = entry.get(key, '')
+                if not href or not href.startswith(('http://', 'https://')):
+                    continue
+                _print_case_header()
+                tag = _tag[key]
+                label = href if len(href) <= 80 else href[:77] + '…'
+                print(f'  [{tag}] {label}', end=' ', flush=True)
+                ok, headers = check_url(href)
+                _polite_delay(href)
+                if not ok:
+                    status = headers.get('_status') or headers.get('_error', 'unknown')
+                    bad_key = key + '_bad'
+                    print(f'✗ UNREACHABLE ({status}) — renaming to {bad_key}')
+                    _rename_key(entry, key, bad_key)
+                    dirty = True
+                else:
+                    print('✓')
+
+    if dirty:
+        cases_path.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
 
 
 # ── Untracked files backfill ──────────────────────────────────────────────────
@@ -786,7 +841,9 @@ def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = Fal
         _polite_delay(href)
         if not ok:
             status = headers.get('_status') or headers.get('_error', 'unknown')
-            print(f'✗ UNREACHABLE ({status})')
+            print(f'✗ UNREACHABLE ({status}) — renaming to href_bad')
+            _rename_key(entry, 'href', 'href_bad')
+            modified = True
             continue
 
         if is_framing_blocked(headers):
@@ -967,7 +1024,7 @@ def main() -> None:
         backfill_untracked_files(cases_path, term)
         sync_files_count(cases_path)
         if check_urls:
-            check_opinion_hrefs(cases_path, term)
+            check_case_hrefs(cases_path, term)
 
     raw_speaker_map = load_speaker_map()
 
