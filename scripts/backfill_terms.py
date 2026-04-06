@@ -20,8 +20,11 @@ Each case object contains:
   opinion_href   — derived LOC tile URL (tile.loc.gov)
 
 Usage:
-    python3 scripts/backfill_terms.py [--dry-run]
-    python3 scripts/backfill_terms.py --audit [--dry-run]
+    python3 scripts/backfill_terms.py [--dry-run] [--term YEAR]
+    python3 scripts/backfill_terms.py --audit [--dry-run] [--term YEAR]
+
+--term YEAR restricts processing to terms whose year matches YEAR
+  (e.g., --term 1948 processes only the 1948-xx term).
 
 --audit mode:
   Cross-references every backfilled case (identified by having both 'volume'
@@ -263,6 +266,7 @@ def process_term_file(md_path: Path, dry_run: bool) -> None:
         new_fields = {k: v for k, v in fields.items() if dest_case.get(k) != v}
         if not new_fields:
             continue
+        print(f'  {term}: FOUND — {src.get("title", "?")!r}  (No. {norm or "?"}) → {", ".join(new_fields)}')
 
         # Rebuild the case dict so new keys are inserted before 'audio' (if present).
         # dest_case is the live dict object inside loaded[dest_path], so mutating it
@@ -375,6 +379,13 @@ def main() -> None:
     if dry_run:
         print('[DRY RUN — no files will be written]')
 
+    term_filter = None
+    if '--term' in sys.argv:
+        idx = sys.argv.index('--term')
+        if idx + 1 >= len(sys.argv):
+            sys.exit('Error: --term requires a value (e.g., --term 1948)')
+        term_filter = sys.argv[idx + 1]
+
     if '--audit' in sys.argv:
         citations = load_citations()
         print(f'Loaded {len(citations)} citation key(s) from citations.csv\n')
@@ -382,6 +393,8 @@ def main() -> None:
             if not term_dir.is_dir():
                 continue
             if not (TERM_MIN <= term_dir.name <= TERM_MERGE_MAX):
+                continue
+            if term_filter and not term_dir.name.startswith(term_filter):
                 continue
             cases_path = term_dir / 'cases.json'
             if cases_path.exists():
@@ -393,6 +406,8 @@ def main() -> None:
         sys.exit(f'Error: no .md files found in {SOURCE_DIR}')
 
     in_scope = [f for f in md_files if TERM_MIN <= f.stem <= TERM_MERGE_MAX]
+    if term_filter:
+        in_scope = [f for f in in_scope if f.stem.startswith(term_filter)]
     print(f'Processing {len(in_scope)} term file(s) in range {TERM_MIN} – {TERM_MERGE_MAX}\n')
 
     for md_path in in_scope:
