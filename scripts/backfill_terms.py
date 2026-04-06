@@ -21,8 +21,16 @@ Each case object contains:
 
 Usage:
     python3 scripts/backfill_terms.py [--dry-run]
+    python3 scripts/backfill_terms.py --audit [--dry-run]
+
+--audit mode:
+  Cross-references every backfilled case (identified by having both 'volume'
+  and 'page' fields) against ../loners/lonedissent/sources/ld/citations.csv.
+  - Not in CSV, no 'audio', all-caps title: entire case object removed.
+  - Otherwise:                              left unchanged.
 """
 
+import csv
 import datetime
 import html
 import json
@@ -38,6 +46,8 @@ TERMS_DIR   = REPO_ROOT / 'courts' / 'ussc' / 'terms'
 
 TERM_MIN    = '1791-08'
 TERM_MAX    = '1954-10'
+
+CITATIONS_CSV = REPO_ROOT.parent / 'loners' / 'lonedissent' / 'sources' / 'ld' / 'citations.csv'
 TERM_MERGE_MAX = '2017-10'  # merge-only range: 1955-10 through 2017-10
 
 LOC_BASE = 'https://tile.loc.gov/storage-services/service/ll/usrep/usrep{vol}/usrep{vol}{page}/usrep{vol}{page}.pdf'
@@ -290,10 +300,93 @@ def process_term_file(md_path: Path, dry_run: bool) -> None:
             )
 
 
+def load_citations() -> set[tuple[int, int]]:
+    """Load citations.csv → set of (volume, page) keys."""
+    if not CITATIONS_CSV.exists():
+        sys.exit(f'Error: citations.csv not found at {CITATIONS_CSV}')
+    result: set[tuple[int, int]] = set()
+    with open(CITATIONS_CSV, newline='', encoding='utf-8') as f:
+        for row in csv.DictReader(f):
+            try:
+                result.add((int(row['volume']), int(row['page'])))
+            except (ValueError, KeyError):
+                continue
+    return result
+
+
+def _title_is_allcaps(title: str) -> bool:
+    """Return True if the title contains no lowercase letters other than allowed
+    abbreviation words: 'v.' (case separator), 'et', 'al.', 'ex', 'rel.'
+    e.g. 'FOO v. BAR' → True, 'FOO et al. v. BAR' → True, 'Foo v. Bar' → False.
+    """
+    # Strip allowed lowercase words, then check for any remaining lowercase.
+    stripped = re.sub(r'\b(?:v\.|et|al\.?|ex|rel\.)\s*', '', title)
+    return stripped == stripped.upper()
+
+
+def audit_term(cases_path: Path, citations: set[tuple[int, int]], dry_run: bool) -> None:
+    """Audit one cases.json against citations.csv and repair in-place."""
+    term = cases_path.parent.name
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    new_data: list[dict] = []
+    modified = False
+
+    for case in data:
+        volume = case.get('volume')
+        page   = case.get('page')
+
+        # Not a backfilled case — leave it alone.
+        if volume is None or page is None:
+            new_data.append(case)
+            continue
+
+        try:
+            key = (int(volume), int(page))
+        except (ValueError, TypeError):
+            new_data.append(case)
+            continue
+
+        has_audio   = 'audio' in case
+        in_csv      = key in citations
+
+        if not in_csv and not has_audio and _title_is_allcaps(case.get('title', '')):
+            # Not in CSV, no audio, and title is all-caps — remove the entire case.
+            modified = True
+            label = case.get('title', '?')
+            print(f'  {term}: {"would remove" if dry_run else "removing"} {label!r} (not in citations.csv)')
+            if dry_run:
+                new_data.append(case)  # keep in dry-run so the file is not altered
+            # else: intentionally not appended
+        else:
+            new_data.append(case)
+
+    if modified and not dry_run:
+        cases_path.write_text(
+            json.dumps(new_data, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+
+
 def main() -> None:
     dry_run = '--dry-run' in sys.argv
     if dry_run:
         print('[DRY RUN — no files will be written]')
+
+    if '--audit' in sys.argv:
+        citations = load_citations()
+        print(f'Loaded {len(citations)} citation key(s) from citations.csv\n')
+        for term_dir in sorted(TERMS_DIR.iterdir()):
+            if not term_dir.is_dir():
+                continue
+            if not (TERM_MIN <= term_dir.name <= TERM_MERGE_MAX):
+                continue
+            cases_path = term_dir / 'cases.json'
+            if cases_path.exists():
+                audit_term(cases_path, citations, dry_run)
+        return
 
     md_files = sorted(SOURCE_DIR.glob('*.md'))
     if not md_files:

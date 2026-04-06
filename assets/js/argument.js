@@ -470,49 +470,12 @@ function caseTermDate(caseEntry, term) {
 
 function buildTermCases(term, cases, ul) {
   // Include cases with audio or a direct opinion link; skip truly empty cases.
+  // Sort alphabetically by title.
   const sortedCases = [...cases]
     .filter(c => c.audio?.length || c.opinion_href)
-    .sort((a, b) => {
-    const da = caseTermDate(a, term);
-    const db = caseTermDate(b, term);
-    return da < db ? -1 : da > db ? 1 : 0;
-  });
+    .sort((a, b) => (a.title || '').localeCompare(b.title || ''));
 
-  // Group cases by argument month
-  const MONTH_NAMES = ['January','February','March','April','May','June',
-                       'July','August','September','October','November','December'];
-  const monthMap = new Map();
   sortedCases.forEach(caseEntry => {
-    const argDate = caseTermDate(caseEntry, term);
-    const mk = argDate ? argDate.slice(0, 7) : 'unknown';
-    const ml = argDate ? MONTH_NAMES[parseInt(argDate.slice(5, 7), 10) - 1] : 'Unknown';
-    if (!monthMap.has(mk)) monthMap.set(mk, { label: ml, cases: [] });
-    monthMap.get(mk).cases.push(caseEntry);
-  });
-
-  monthMap.forEach(({ label: monthLabel, cases: mCases }) => {
-    const monthLi = document.createElement('li');
-    monthLi.className = 'month-group';
-
-    const monthHeader = document.createElement('div');
-    monthHeader.className = 'month-header';
-
-      const monthTog = document.createElement('span');
-      monthTog.className = 'month-toggle';
-      monthTog.textContent = '\u25b6';
-
-      const monthName = document.createElement('span');
-      monthName.className = 'month-name';
-      monthName.textContent = monthLabel;
-
-      monthHeader.appendChild(monthTog);
-      monthHeader.appendChild(monthName);
-      monthHeader.addEventListener('click', () => monthLi.classList.toggle('open'));
-
-      const monthUl = document.createElement('ul');
-      monthUl.className = 'month-case-list';
-
-      mCases.forEach(caseEntry => {
         const caseKey = term + '/' + caseId(caseEntry);
         const basePath = '/courts/ussc/terms/' + term + '/cases/' + caseDirName(caseEntry) + '/';
 
@@ -739,13 +702,8 @@ function buildTermCases(term, cases, ul) {
 
         ci.appendChild(header);
         ci.appendChild(fileUl);
-        monthUl.appendChild(ci);
-      });
-
-      monthLi.appendChild(monthHeader);
-      monthLi.appendChild(monthUl);
-      ul.appendChild(monthLi);
-    });
+        ul.appendChild(ci);
+  });
 }
 
 function buildNav() {
@@ -1928,14 +1886,13 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
         ci.classList.remove('nav-search-match');
         ci.style.display = '';
       });
-      document.querySelectorAll('.month-group, .term-group, .decade-group, .terms-group').forEach(g => {
+      document.querySelectorAll('.term-group, .decade-group, .terms-group').forEach(g => {
         g.style.display = '';
         g.classList.remove('open');
       });
       // Expand only the groups containing the currently active case
       const activeCase = document.querySelector('.case-item.active');
       if (activeCase) {
-        activeCase.closest('.month-group')?.classList.add('open');
         activeCase.closest('.term-group')?.classList.add('open');
         activeCase.closest('.decade-group')?.classList.add('open');
         activeCase.closest('.terms-group')?.classList.add('open');
@@ -1952,19 +1909,13 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
       ci.classList.toggle('nav-search-match', matches);
       ci.style.display = matches ? '' : 'none';
       if (matches) {
-        ci.closest('.month-group')?.classList.add('open');
         ci.closest('.term-group')?.classList.add('open');
         ci.closest('.decade-group')?.classList.add('open');
         ci.closest('.terms-group')?.classList.add('open');
       }
     });
 
-    // Hide month-groups whose cases all got filtered out
-    document.querySelectorAll('.month-group').forEach(mg => {
-      mg.style.display = mg.querySelector('.nav-search-match') ? '' : 'none';
-    });
-
-    // Hide term-groups whose month-groups all got filtered out
+    // Hide term-groups with no matching cases
     document.querySelectorAll('.term-group').forEach(tg => {
       tg.style.display = tg.querySelector('.nav-search-match') ? '' : 'none';
     });
@@ -2093,8 +2044,6 @@ async function init() {
         : termParam + '/' + caseParam;
       const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(resolvedKey)}"]`);
       if (caseEl) {
-        caseEl.closest('.month-group')?.classList.add('open');
-
         if (fileParam != null || turnParam != null) {
           document.addEventListener('transcriptloaded', () => {
             if (turnParam != null) {
