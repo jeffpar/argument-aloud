@@ -237,7 +237,7 @@ def main() -> None:
                 print(f'ERROR: {term}/cases.json: {e}')
 
     modified: set[str] = set()
-    moved = merged = skipped = 0
+    moved = merged = skipped = fixed_orig = 0
 
     for i, term in enumerate(terms):
         if filter_term and term != filter_term:
@@ -245,11 +245,91 @@ def main() -> None:
         if term not in loaded:
             continue
 
-        start = term_start(term)
-        end = term_start(terms[i + 1]) if i + 1 < len(terms) else None
-
+        # --- Pass 1: fix "Orig. " bogus cases created by import_cases.py ---
+        # A bogus case has title starting with "Orig. " and number N where
+        # a real case with number N-Orig exists in the same term.
         cases = loaded[term]
         keep: list[dict] = []
+        for case in cases:
+            title = case.get('title', '')
+            number = case.get('number', '')
+            if not title.startswith('Orig. '):
+                keep.append(case)
+                continue
+
+            real_number = f'{number}-Orig'
+            real_case = next(
+                (c for c in cases if c.get('number') == real_number),
+                None,
+            )
+            if real_case is None:
+                # No matching N-Orig case — leave it alone.
+                keep.append(case)
+                continue
+
+            print(f'FIX-ORIG: {term} | removing bogus {number!r} → merging into {real_number!r}')
+
+            # Copy transcript_href from bogus audio into matching real audio by date.
+            for bog_audio in case.get('audio', []):
+                bog_date = bog_audio.get('date')
+                bog_href = bog_audio.get('transcript_href')
+                if not bog_date or not bog_href:
+                    continue
+                real_audio = next(
+                    (a for a in real_case.get('audio', []) if a.get('date') == bog_date),
+                    None,
+                )
+                if real_audio is not None and 'transcript_href' not in real_audio:
+                    real_audio['transcript_href'] = bog_href
+
+            if not dry_run:
+                # Merge bogus files.json entries into the real case folder.
+                bog_folder = TERMS_DIR / term / 'cases' / str(number)
+                real_folder = TERMS_DIR / term / 'cases' / real_number
+                bog_files_path = bog_folder / 'files.json'
+                if bog_files_path.exists():
+                    bog_files = json.loads(bog_files_path.read_text(encoding='utf-8'))
+                    real_files_path = real_folder / 'files.json'
+                    real_files: list[dict] = (
+                        json.loads(real_files_path.read_text(encoding='utf-8'))
+                        if real_files_path.exists() else []
+                    )
+                    max_id = max((f.get('file', 0) for f in real_files), default=0)
+                    for f in bog_files:
+                        max_id += 1
+                        real_files.append({**f, 'file': max_id})
+                    real_folder.mkdir(parents=True, exist_ok=True)
+                    real_files_path.write_text(
+                        json.dumps(real_files, indent=2, ensure_ascii=False) + '\n',
+                        encoding='utf-8',
+                    )
+                    real_case['files'] = len(real_files)
+                    bog_files_path.unlink()
+
+                # Remove bogus folder if now empty.
+                if bog_folder.is_dir() and not any(bog_folder.iterdir()):
+                    bog_folder.rmdir()
+
+                modified.add(term)
+
+            # Drop bogus case from keep (real_case stays — it's already in cases).
+            fixed_orig += 1
+
+        if not dry_run:
+            loaded[term] = keep
+
+        # Refresh cases list for pass 2 (bogus Orig. cases excluded).
+        bogus_numbers = {
+            c.get('number') for c in loaded[term]
+            if c.get('title', '').startswith('Orig. ')
+        }
+        cases = [c for c in loaded[term] if c.get('number') not in bogus_numbers
+                 or not c.get('title', '').startswith('Orig. ')]
+        keep = []
+
+        # --- Pass 2: move/merge cases filed in the wrong term by decision date ---
+        start = term_start(term)
+        end = term_start(terms[i + 1]) if i + 1 < len(terms) else None
 
         for case in cases:
             decision = case.get('decision')
@@ -335,6 +415,8 @@ def main() -> None:
             )
 
     parts = []
+    if fixed_orig:
+        parts.append(f'{fixed_orig} orig-fixed')
     if moved:
         parts.append(f'{moved} moved')
     if merged:
