@@ -66,7 +66,8 @@
         "date": "1993-01-13",
         "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1992/108%20ORIG/19930113a_108orig.delivery.mp3",
         "text_href": "1993-01-13-oyez.json",
-        "aligned": true
+        "aligned": true,
+        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1992/108_Orig_01-13-1993.pdf"
       },
       {
         "source": "oyez",
@@ -78,7 +79,7 @@
         "aligned": true
       }
     ],
-    "files": 0
+    "files": 1
   },
   {
     "title": "Delaware v. New York",
@@ -147,7 +148,8 @@
         "date": "1992-12-09",
         "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1992/111%20ORIG/19921209a_111orig.delivery.mp3",
         "text_href": "1992-12-09-oyez.json",
-        "aligned": true
+        "aligned": true,
+        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1992/111_Orig_12-09-1992.pdf"
       },
       {
         "source": "oyez",
@@ -159,7 +161,7 @@
         "aligned": true
       }
     ],
-    "files": 0
+    "files": 1
   },
   {
     "title": "United States v. Louisiana (Alabama and Missippi Boundary Case)",
@@ -8103,34 +8105,10 @@
     "files": 1
   },
   {
-    "title": "Orig. Nebraska v. Wyoming and Colorado",
-    "number": "108",
-    "audio": [
-      {
-        "source": "ussc",
-        "type": "argument",
-        "date": "1993-01-13",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1992/108_Orig_01-13-1993.pdf"
-      }
-    ],
-    "files": 1
-  },
-  {
-    "title": "Orig. Delaware v. New York",
-    "number": "111",
-    "audio": [
-      {
-        "source": "ussc",
-        "type": "argument",
-        "date": "1992-12-09",
-        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1992/111_Orig_12-09-1992.pdf"
-      }
-    ],
-    "files": 1
-  },
-  {
     "title": "Bray v. Alexandria Women's Health Clinic",
     "number": "90-985",
+    "previouslyFiled": "1991-10",
+    "decision": "1993-01-13",
     "id": "1992-018",
     "volume": "506",
     "page": "263",
@@ -8188,13 +8166,36 @@
     "opinion_href": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep506/usrep506263/usrep506263.pdf",
     "audio": [
       {
-        "source": "ussc",
+        "source": "oyez",
         "type": "argument",
+        "title": "Oral Argument on October 16, 1991",
+        "date": "1991-10-16",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1991/90-985/19911016a_90-985.delivery.mp3",
+        "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1991/90-985_10-16-1991.pdf",
+        "text_href": "1991-10-16-oyez.json",
+        "aligned": true
+      },
+      {
+        "source": "oyez",
+        "type": "reargument",
+        "title": "Oral Reargument on October 6, 1992",
         "date": "1992-10-06",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1991/90-985/19921006r_90-985.delivery.mp3",
+        "text_href": "1992-10-06-oyez.json",
+        "aligned": true,
         "transcript_href": "https://www.supremecourt.gov/pdfs/transcripts/1992/90-985_10-06-1992.pdf"
+      },
+      {
+        "source": "oyez",
+        "type": "opinion",
+        "title": "Opinion Announcement on January 13, 1993",
+        "date": "1993-01-13",
+        "audio_href": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1991/90-985/19930113o_90-985.delivery.mp3",
+        "text_href": "1993-01-13-oyez.json",
+        "aligned": true
       }
     ],
-    "files": 1
+    "files": 2
   },
   {
     "title": "Gilmore v. Taylor",

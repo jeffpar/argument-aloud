@@ -368,7 +368,8 @@ def main() -> None:
                     None,
                 )
                 if dst_case is not None and can_merge(case, dst_case):
-                    print(f'MERGE: {term} → {target_term} | {title!r} | decision {decision!r}')
+                    dst_title = dst_case.get('title') or dst_case.get('id') or '?'
+                    print(f'MERGE: {term} → {target_term} | {title!r} | decision {decision!r} ({dst_title!r})')
                     do_merge(case, dst_case, src_folder, dest_folder, term, dry_run)
                     if not dry_run:
                         modified.add(target_term)
