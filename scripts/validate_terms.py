@@ -24,8 +24,10 @@ Usage:
 """
 
 import json
+import re
 import shutil
 import sys
+from datetime import datetime
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -44,6 +46,17 @@ def case_folder_name(case: dict) -> str:
     if number:
         return str(number).split(',')[0].strip()
     return case.get('id', '')
+
+
+def parse_date_decision(date_decision: str) -> str | None:
+    """Parse a dateDecision string like 'Monday, March 14, 1955' into YYYY-MM-DD."""
+    s = re.sub(r'^[A-Za-z]+,\s*', '', date_decision.strip())
+    for fmt in ('%B %d, %Y', '%b %d, %Y'):
+        try:
+            return datetime.strptime(s, fmt).strftime('%Y-%m-%d')
+        except ValueError:
+            pass
+    return None
 
 
 def find_target_term(decision: str, terms: list[str]) -> str | None:
@@ -217,11 +230,9 @@ def do_merge(
 
 def main() -> None:
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
-    dry_run = '--dry-run' in sys.argv
+    dry_run  = '--dry-run' in sys.argv
+    allow_move = '--move' in sys.argv
     filter_term = args[0] if args else None
-
-    if dry_run:
-        print('[DRY RUN — no files will be written]\n')
 
     term_dirs = sorted(d for d in TERMS_DIR.iterdir() if d.is_dir())
     terms = [d.name for d in term_dirs]
@@ -244,6 +255,8 @@ def main() -> None:
             continue
         if term not in loaded:
             continue
+
+        print(f'{term}')
 
         # --- Pass 1: fix "Orig. " bogus cases created by import_cases.py ---
         # A bogus case has title starting with "Orig. " and number N where
@@ -351,6 +364,10 @@ def main() -> None:
                 skipped += 1
                 continue
 
+            if target_term == '1953-06':
+                keep.append(case)
+                continue
+
             if target_term not in loaded:
                 print(f'WARNING: {term} | {title!r} | decision {decision!r} — target term {target_term!r} has no cases.json')
                 keep.append(case)
@@ -385,6 +402,12 @@ def main() -> None:
                 continue
 
             # No conflict — plain move.
+            if not allow_move:
+                print(f'WARNING: {term} | {title!r} | decision {decision!r} should move to {target_term} (use --move to apply)')
+                keep.append(case)
+                skipped += 1
+                continue
+
             print(f'MOVE: {term} → {target_term} | {title!r} | decision {decision!r}')
 
             if not dry_run:
@@ -415,17 +438,109 @@ def main() -> None:
                 encoding='utf-8',
             )
 
-    parts = []
-    if fixed_orig:
-        parts.append(f'{fixed_orig} orig-fixed')
-    if moved:
-        parts.append(f'{moved} moved')
-    if merged:
-        parts.append(f'{merged} merged')
-    if skipped:
-        parts.append(f'{skipped} skipped')
-    suffix = ' (dry run)' if dry_run else ''
-    print(f'\n{", ".join(parts) or "0 changes"}{suffix}.')
+    # --- Pass 3: consistency checks ---
+    consistency_fixed = 0
+    for term in terms:
+        if filter_term and term != filter_term:
+            continue
+        if term not in loaded:
+            continue
+
+        cases = loaded[term]
+        cases_dir = TERMS_DIR / term / 'cases'
+
+        for case in cases:
+            label = case.get('title') or case.get('id') or '?'
+
+            # 3a. Ensure 'decision' present when 'dateDecision' exists.
+            if 'dateDecision' in case and 'decision' not in case:
+                parsed = parse_date_decision(case['dateDecision'])
+                if parsed:
+                    print(f'FIX-DECISION: {term} | {label!r} | inserting decision={parsed!r}')
+                    insert_after = 'number' if 'number' in case else 'title'
+                    rebuilt: dict = {}
+                    for k, v in case.items():
+                        rebuilt[k] = v
+                        if k == insert_after and 'decision' not in rebuilt:
+                            rebuilt['decision'] = parsed
+                    if 'decision' not in rebuilt:
+                        rebuilt['decision'] = parsed
+                    case.clear()
+                    case.update(rebuilt)
+                    if not dry_run:
+                        modified.add(term)
+                    consistency_fixed += 1
+                else:
+                    print(f'WARNING: {term} | {label!r} | could not parse dateDecision {case["dateDecision"]!r}')
+
+            # 3b. Ensure 'files' key exists.
+            if 'files' not in case:
+                print(f'FIX-FILES: {term} | {label!r} | appending files=0')
+                case['files'] = 0
+                if not dry_run:
+                    modified.add(term)
+                consistency_fixed += 1
+
+            files_count = case.get('files', 0)
+            folder_name = case_folder_name(case)
+
+            # 3c. Verify files count matches files.json when files > 0.
+            if files_count > 0:
+                if not folder_name:
+                    print(f'WARNING: {term} | {label!r} | files={files_count} but cannot determine folder name')
+                    continue
+                folder_path = cases_dir / folder_name
+                files_json_path = folder_path / 'files.json'
+                if not folder_path.exists():
+                    print(f'WARNING: {term} | {label!r} | files={files_count} but folder {folder_name!r} missing')
+                elif not files_json_path.exists():
+                    print(f'WARNING: {term} | {label!r} | files={files_count} but {folder_name}/files.json missing')
+                else:
+                    try:
+                        actual = json.loads(files_json_path.read_text(encoding='utf-8'))
+                        if not isinstance(actual, list):
+                            print(f'WARNING: {term} | {folder_name}/files.json is not an array')
+                        elif len(actual) != files_count:
+                            print(f'WARNING: {term} | {label!r} | files={files_count} but files.json has {len(actual)} entries')
+                    except Exception as e:
+                        print(f'WARNING: {term} | {folder_name}/files.json: {e}')
+
+            # 3d. Remove empty case folder when files == 0.
+            elif files_count == 0 and folder_name:
+                # A folder is legitimate even when files==0 if the case has
+                # audio entries with local text_href transcript JSON files.
+                has_local_text_href = any(
+                    a.get('text_href') and not a['text_href'].startswith(('http://', 'https://'))
+                    for a in case.get('audio') or []
+                )
+                if has_local_text_href:
+                    continue
+                folder_path = cases_dir / folder_name
+                if folder_path.exists():
+                    contents = list(folder_path.iterdir())
+                    if contents:
+                        print(f'WARNING: {term} | {label!r} | files=0 but folder {folder_name!r} is not empty — skipping')
+                    else:
+                        print(f'FIX-FOLDER: {term} | {label!r} | files=0; removing empty folder {folder_name!r}')
+                        if not dry_run:
+                            folder_path.rmdir()
+                        consistency_fixed += 1
+
+        # 3e. Report case folders that don't correspond to any case in cases.json.
+        known_folders = {case_folder_name(c) for c in cases if case_folder_name(c)}
+        if cases_dir.is_dir():
+            for folder_path in sorted(cases_dir.iterdir()):
+                if folder_path.is_dir() and folder_path.name not in known_folders:
+                    print(f'WARNING: {term} | orphan folder cases/{folder_path.name!r} has no matching case in cases.json')
+
+    # Re-write any files newly dirtied by Pass 3.
+    if not dry_run:
+        for term in modified:
+            cases_path = TERMS_DIR / term / 'cases.json'
+            cases_path.write_text(
+                json.dumps(loaded[term], indent=2, ensure_ascii=False) + '\n',
+                encoding='utf-8',
+            )
 
 
 if __name__ == '__main__':
