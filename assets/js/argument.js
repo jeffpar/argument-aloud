@@ -496,10 +496,10 @@ function caseTermDate(caseEntry, term) {
 }
 
 function buildTermCases(term, cases, ul) {
-  // Include cases with audio or a direct opinion link; skip truly empty cases.
+  // Include cases with audio, a direct opinion link, or browsable files; skip truly empty cases.
   // Sort alphabetically by title.
   const sortedCases = [...cases]
-    .filter(c => c.audio?.length || c.opinion_href)
+    .filter(c => c.audio?.length || c.opinion_href || c.files > 0)
     .sort((a, b) => (a.title || '').localeCompare(b.title || ''));
 
   sortedCases.forEach(caseEntry => {
@@ -517,12 +517,9 @@ function buildTermCases(term, cases, ul) {
         const toggle = document.createElement('span');
         toggle.className = 'case-toggle';
         toggle.textContent = '\u25b6'; // ▶
-        // Show toggle only when there is something expandable: real files, or
-        // opinion_href combined with audio/files (so Opinion appears as sub-item).
-        // Opinion-only cases open the opinion directly on title click — no expand needed.
-        const hasExpandable = caseEntry.files ||
-          (caseEntry.opinion_href && (caseEntry.files || caseEntry.audio?.length));
-        if (!hasExpandable) toggle.style.display = 'none';
+        // Toggle only shown when there are real files to browse.
+        // No-files cases (audio-only, opinion-only, etc.) are non-expandable.
+        if (!caseEntry.files) toggle.style.display = 'none';
 
         const titleSpan = document.createElement('span');
         titleSpan.className = 'case-title-nav';
@@ -541,6 +538,32 @@ function buildTermCases(term, cases, ul) {
           icon.title = 'Opinion issued';
           header.appendChild(icon);
           ci.classList.add('decided');
+          // Scales icon opens the opinion. Resolve it from opinion_href or files.json.
+          icon.style.cursor = 'pointer';
+          icon.addEventListener('click', async e => {
+            e.stopPropagation();
+            let opinionFile = null;
+            if (caseEntry.opinion_href) {
+              opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + (caseEntry.title || '') };
+            } else if (caseEntry.files) {
+              const files = await loadFiles(basePath + 'files.json');
+              opinionFile = files.find(f => f.type === 'opinion') || null;
+            }
+            if (!opinionFile) return;
+            if (caseEntry.audio?.length) {
+              // Has audio: open the opinion alongside the transcript.
+              document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+              showDocViewer(opinionFile, { autoScroll: true });
+            } else {
+              // No audio: full case load — opinion opens full-height.
+              const url = buildUrlParams(
+                { term, case: caseId(caseEntry) },
+                ['collection', 'audio', 'file', 'turn'],
+              );
+              history.replaceState(null, '', url);
+              loadCase(term, caseEntry, 0);
+            }
+          });
         } else if (caseEntry.files) {
           // Only fetch if files count is a known positive number.
           fetch(basePath + 'files.json')
@@ -550,11 +573,18 @@ function buildTermCases(term, cases, ul) {
                 toggle.style.display = 'none';
                 return;
               }
-              if (files.some(f => f.type === 'opinion')) {
+              const opinionFile = files.find(f => f.type === 'opinion');
+              if (opinionFile) {
                 const icon = document.createElement('span');
                 icon.className = 'case-decided-icon';
                 icon.textContent = '\u2696';
                 icon.title = 'Opinion issued';
+                icon.style.cursor = 'pointer';
+                icon.addEventListener('click', e => {
+                  e.stopPropagation();
+                  document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+                  showDocViewer(opinionFile, { autoScroll: true });
+                });
                 header.appendChild(icon);
                 ci.classList.add('decided');
               }
@@ -573,18 +603,9 @@ function buildTermCases(term, cases, ul) {
           filesLoaded = true;
           const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
 
-          // Inject opinion_href as a pseudo opinion file entry if present and
-          // not already covered by a real opinion entry in files.json.
-          // Only inject when there are other files/audio — cases with nothing
-          // else open the opinion directly on click, so no sub-entry is needed.
-          const hasOtherContent = !!(caseEntry.files || caseEntry.audio?.length);
-          if (hasOtherContent && caseEntry.opinion_href && !rawFiles.some(f => f.type === 'opinion')) {
-            rawFiles.push({
-              type: 'opinion',
-              href: caseEntry.opinion_href,
-              title: 'Opinion in ' + caseEntry.title,
-            });
-          }
+          // Inject opinion_href as a pseudo opinion file entry only when there
+          // are real files to browse — no-files cases use the scales icon instead.
+          // (No injection — opinion is now accessed via the scales icon in all cases.)
 
           const TYPE_LABELS = {
             petitioner: 'Petitioner',
@@ -592,9 +613,8 @@ function buildTermCases(term, cases, ul) {
             amicus:     'Amicus',
             other:      'Other',
             reference:  'References',
-            opinion:    'Opinion',
           };
-          const ORDER = ['petitioner', 'respondent', 'amicus', 'other', 'reference', 'opinion'];
+          const ORDER = ['petitioner', 'respondent', 'amicus', 'other', 'reference'];
 
           // When true, amicus + other are merged into a single "Other" group
           // (amicus entries first, then other, each sub-sorted by date).
@@ -645,22 +665,6 @@ function buildTermCases(term, cases, ul) {
             const typeLabel = document.createElement('span');
             typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
 
-            // Opinion: clicking the header opens the document directly — no toggle, no sub-items.
-            if (typeKey === 'opinion') {
-              const opinionFile = groups[typeKey][0];
-              typeHeader.style.cursor = 'pointer';
-              typeHeader.appendChild(typeLabel);
-              typeHeader.addEventListener('click', e => {
-                e.stopPropagation();
-                document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
-                typeHeader.classList.add('active');
-                showDocViewer(opinionFile, { autoScroll: true });
-              });
-              groupLi.appendChild(typeHeader);
-              fileUl.appendChild(groupLi);
-              return;
-            }
-
             const typeTog = document.createElement('span');
             typeTog.className = 'file-type-toggle';
             typeTog.textContent = '\u25b6';
@@ -689,7 +693,15 @@ function buildTermCases(term, cases, ul) {
                   url.searchParams.set('file', f.file);
                   history.replaceState(null, '', url);
                 }
+                // No-audio cases have no transcript pane, so expand the doc viewer full-height.
+                const savedHeight = docViewerOpenHeight;
+                if (!caseEntry.audio?.length) {
+                  docViewerOpenHeight = Math.round(window.innerHeight * 0.85);
+                }
                 showDocViewer(f, { autoScroll: true });
+                if (!caseEntry.audio?.length) {
+                  docViewerOpenHeight = savedHeight;
+                }
               });
               itemsUl.appendChild(fi);
             });
@@ -713,8 +725,9 @@ function buildTermCases(term, cases, ul) {
 
         // Title: select the case, open it, and load the transcript.
         titleSpan.addEventListener('click', async (e) => {
-          const fromRestore = !!e.fromRestore;
-          const audioIdx    = Number.isInteger(e.audioIdx) ? e.audioIdx : 0;
+          const fromRestore  = !!e.fromRestore;
+          const audioIdx     = Number.isInteger(e.audioIdx) ? e.audioIdx : 0;
+          const fileRestore  = e.fileRestore ?? null;
           ci.classList.add('open');
           await ensureFilesLoaded();
           if (!fromRestore) {
@@ -725,6 +738,15 @@ function buildTermCases(term, cases, ul) {
             history.replaceState(null, '', url);
           }
           loadCase(term, caseEntry, audioIdx);
+          // For no-audio cases, transcriptloaded never fires; restore file selection here,
+          // after ensureFilesLoaded() has finished building the file list DOM.
+          if (fileRestore != null && !caseEntry.audio?.length) {
+            const fileEl = document.querySelector(`.file-item[data-file-id="${fileRestore}"]`);
+            if (fileEl) {
+              fileEl.closest('.file-type-group')?.classList.add('open');
+              fileEl.click();
+            }
+          }
         });
 
         ci.appendChild(header);
@@ -840,14 +862,14 @@ function buildNav() {
         built = true;
         const cases = await fetchTermCases(term);
         buildTermCases(term, cases, ul);
-        const visible = cases.filter(c => c.audio?.length || c.opinion_href);
+        const visible = cases.filter(c => c.audio?.length || c.opinion_href || c.files > 0);
         termCount.textContent = '(' + visible.length + '\u00a0cases)';
       };
       // Fetch count only (no DOM build) — used when expanding the decade.
       const ensureCount = async () => {
         if (termCount.textContent) return; // already populated
         const cases = await fetchTermCases(term);
-        const visible = cases.filter(c => c.audio?.length || c.opinion_href);
+        const visible = cases.filter(c => c.audio?.length || c.opinion_href || c.files > 0);
         termCount.textContent = '(' + visible.length + '\u00a0cases)';
       };
       termLi._ensureBuilt = ensureBuilt;
@@ -856,6 +878,23 @@ function buildNav() {
       termHeader.addEventListener('click', async () => {
         if (termLi.classList.toggle('open')) {
           await ensureBuilt();
+          // Update URL: set term param, clear case/audio/file/turn params.
+          const url = new URL(location.href);
+          url.searchParams.set('term', term);
+          url.searchParams.delete('case');
+          url.searchParams.delete('audio');
+          url.searchParams.delete('file');
+          url.searchParams.delete('turn');
+          history.pushState(null, '', url);
+        } else {
+          // Term collapsed — remove term param too.
+          const url = new URL(location.href);
+          url.searchParams.delete('term');
+          url.searchParams.delete('case');
+          url.searchParams.delete('audio');
+          url.searchParams.delete('file');
+          url.searchParams.delete('turn');
+          history.pushState(null, '', url);
         }
       });
 
@@ -1118,9 +1157,9 @@ async function loadAudioEntry(arg, basePath) {
 
     renderTranscript();
     const docPanel = document.getElementById('doc-viewer');
-    docPanel.classList.remove('collapsed');
-    docPanel.style.height = '';
-    docPanel.hidden = true;
+    if (!docPanel.hidden && !docPanel.classList.contains('collapsed')) {
+      collapseDocViewer();
+    }
     activeBottomLinkText = null;
 
     loadingMsg.style.display = 'none';
@@ -1154,6 +1193,7 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
     turnList.style.display = 'none';
     turnList.innerHTML = '';
     loadingMsg.style.display = 'none';
+    document.getElementById('transcript-viewer').classList.add('no-audio');
 
     // Reset doc viewer to hidden so showDocViewer opens it at the new height
     const docPanel = document.getElementById('doc-viewer');
@@ -1204,6 +1244,7 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
   // Restore audio-select visibility for normal audio cases.
   // Reset height so the doc viewer reopens at the default 45vh, not any
   // full-height value left over from a previous no-audio (historical) case.
+  document.getElementById('transcript-viewer').classList.remove('no-audio');
   document.getElementById('audio-select').hidden = false;
   document.getElementById('decision-date-label').hidden = true;
   docViewerOpenHeight = null;
@@ -2108,11 +2149,27 @@ async function init() {
         }
         // Use dispatchEvent so the fromRestore flag is passed to the title click handler.
         const titleEl = caseEl.querySelector('.case-title-nav');
-        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true, audioIdx: audioParam ?? 0 }));
+        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), {
+          fromRestore: true,
+          audioIdx: audioParam ?? 0,
+          fileRestore: (fileParam != null && matchedCase && !matchedCase.audio?.length) ? fileParam : null,
+        }));
+        // For no-audio cases, file restore is handled inside the title click handler
+        // (after ensureFilesLoaded). For audio cases it fires on transcriptloaded above.
         if (!isMobile()) {
           requestAnimationFrame(() => caseEl.scrollIntoView({ behavior: 'instant', block: 'center' }));
         }
       }
+    }
+  } else if (termParam) {
+    // term-only URL: expand the term and load its case list, but don't select a case.
+    const termLi = document.querySelector(`.term-group[data-term="${CSS.escape(termParam)}"]`);
+    if (termLi) {
+      termLi.closest('.decade-group')?.classList.add('open');
+      termLi.closest('.terms-group')?.classList.add('open');
+      termLi.classList.add('open');
+      await termLi._ensureBuilt?.();
+      requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
     }
   }
 }

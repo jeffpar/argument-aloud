@@ -407,7 +407,7 @@ body {
 }
 
 .case-title-nav {
-  font-size: 12px;
+  /* font-size: 12px; */
   color: #2672b4;
   line-height: 1.4;
   flex: 1;
@@ -424,11 +424,10 @@ body {
 
 .case-decided-icon {
   flex-shrink: 0;
-  font-size: 14px;
+  font-size: 21px;
   color: #999;
   margin-left: 2px;
   align-self: flex-start;
-  margin-top: 2px;
   line-height: 1;
 }
 
@@ -847,6 +846,17 @@ body {
   flex: 1;
   overflow-y: auto;
   padding: 10px 20px 20px;
+}
+
+#transcript-viewer.no-audio {
+  flex: 0;
+  padding: 0;
+}
+
+/* In no-audio mode the doc viewer should fill all remaining space. */
+#transcript-viewer.no-audio ~ #doc-viewer:not([hidden]):not(.collapsed) {
+  flex: 1;
+  height: auto !important;
 }
 
 #empty-state {

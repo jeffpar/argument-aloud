@@ -667,7 +667,7 @@ def _case_folder(number_or_id: str) -> str:
     return number_or_id.split(',')[0].strip()
 
 
-def check_case_hrefs(cases_path: Path, term: str) -> None:
+def check_case_hrefs(cases_path: Path, term: str, opinions_only: bool = False) -> None:
     """Probe opinion_href, audio_href, and text_href URLs in cases.json.
 
     Unreachable URLs have '_bad' appended to their key name so they stop
