@@ -320,6 +320,12 @@ def process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_
             ))
             continue
 
+        if not src.get('caseTitle', '').strip():
+            term_print('    CHECK: {} (No. {}, Argued {}, Decided {})'.format(
+                title_label, docket, argued, decided
+            ))
+            continue
+
         # Build a new case object from source data.
         new_case = {}
         if src.get('caseId'):

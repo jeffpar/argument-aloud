@@ -63,7 +63,8 @@ body {
 
 /* ── Document Browser ───────────────────────────────────── */
 #doc-browser {
-  width: 280px;
+  width: 30%;
+  min-width: 240px;
   flex-shrink: 0;
   background: #f7f8fa;
   overflow-y: auto;
@@ -411,8 +412,18 @@ body {
   color: #2672b4;
   line-height: 1.4;
   flex: 1;
+  min-width: 0;
   border-radius: 3px;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.case-title-nav.expanded {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
 }
 
 .case-item.active>.case-header .case-title-nav {
@@ -608,6 +619,12 @@ body {
   color: #555;
   flex-shrink: 0;
   white-space: nowrap;
+  text-decoration: none;
+}
+
+#decision-date-label[href]:hover {
+  text-decoration: underline;
+  color: #2672b4;
 }
 
 #case-questions {
