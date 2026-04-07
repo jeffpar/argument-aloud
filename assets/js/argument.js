@@ -533,68 +533,47 @@ function buildTermCases(term, cases, ul) {
         header.appendChild(toggle);
         header.appendChild(titleSpan);
 
-        // ── Gavel icon: shown if this case has an opinion (background check) ──
-        const hasOpinionAudio = caseEntry.audio?.some(a => a.type === 'opinion')
-          || !!caseEntry.opinion_href;
-        if (hasOpinionAudio) {
+        // ── Speaker icon: shown if this case has oral argument audio ──
+        if (caseEntry.audio?.length) {
+          const speakerIcon = document.createElement('span');
+          speakerIcon.className = 'case-decided-icon case-audio-icon';
+          speakerIcon.textContent = '\u266b';
+          speakerIcon.title = 'Oral argument audio available';
+          header.appendChild(speakerIcon);
+        }
+
+        // ── Scales icon: shown if this case has an opinion; placeholder if audio-only ──
+        const hasOpinionAudio = !!caseEntry.opinion_href;
+        if (hasOpinionAudio || caseEntry.audio?.length) {
           const icon = document.createElement('span');
           icon.className = 'case-decided-icon';
           icon.textContent = '\u2696';
-          icon.title = 'Opinion issued';
+          if (hasOpinionAudio) {
+            icon.title = 'Opinion issued';
+            icon.style.cursor = 'pointer';
+            ci.classList.add('decided');
+            icon.addEventListener('click', e => {
+              e.stopPropagation();
+              const opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + (caseEntry.title || '') };
+              if (caseEntry.audio?.length) {
+                // Has audio: open the opinion alongside the transcript.
+                document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
+                showDocViewer(opinionFile, { autoScroll: true });
+              } else {
+                // No audio: full case load — opinion opens full-height.
+                const url = buildUrlParams(
+                  { term, case: caseId(caseEntry) },
+                  ['collection', 'audio', 'file', 'turn'],
+                );
+                history.replaceState(null, '', url);
+                loadCase(term, caseEntry, 0);
+              }
+            });
+          } else {
+            icon.style.opacity = '0';
+            icon.style.pointerEvents = 'none';
+          }
           header.appendChild(icon);
-          ci.classList.add('decided');
-          // Scales icon opens the opinion. Resolve it from opinion_href or files.json.
-          icon.style.cursor = 'pointer';
-          icon.addEventListener('click', async e => {
-            e.stopPropagation();
-            let opinionFile = null;
-            if (caseEntry.opinion_href) {
-              opinionFile = { href: caseEntry.opinion_href, title: 'Opinion in ' + (caseEntry.title || '') };
-            } else if (caseEntry.files) {
-              const files = await loadFiles(basePath + 'files.json');
-              opinionFile = files.find(f => f.type === 'opinion') || null;
-            }
-            if (!opinionFile) return;
-            if (caseEntry.audio?.length) {
-              // Has audio: open the opinion alongside the transcript.
-              document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
-              showDocViewer(opinionFile, { autoScroll: true });
-            } else {
-              // No audio: full case load — opinion opens full-height.
-              const url = buildUrlParams(
-                { term, case: caseId(caseEntry) },
-                ['collection', 'audio', 'file', 'turn'],
-              );
-              history.replaceState(null, '', url);
-              loadCase(term, caseEntry, 0);
-            }
-          });
-        } else if (caseEntry.files) {
-          // Only fetch if files count is a known positive number.
-          fetch(basePath + 'files.json')
-            .then(r => r.ok ? r.json() : [])
-            .then(files => {
-              if (!Array.isArray(files) || files.length === 0) {
-                toggle.style.display = 'none';
-                return;
-              }
-              const opinionFile = files.find(f => f.type === 'opinion');
-              if (opinionFile) {
-                const icon = document.createElement('span');
-                icon.className = 'case-decided-icon';
-                icon.textContent = '\u2696';
-                icon.title = 'Opinion issued';
-                icon.style.cursor = 'pointer';
-                icon.addEventListener('click', e => {
-                  e.stopPropagation();
-                  document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
-                  showDocViewer(opinionFile, { autoScroll: true });
-                });
-                header.appendChild(icon);
-                ci.classList.add('decided');
-              }
-            })
-            .catch(() => {});
         }
 
         // ── File sub-list (populated lazily) ──────────────────

@@ -829,6 +829,63 @@ def backfill_untracked_files(cases_path: Path, term: str) -> None:
             )
 
 
+def sync_opinion_href_from_files(cases_path: Path) -> None:
+    """For each case that lacks opinion_href, check its files.json for an entry
+    with type 'opinion' and, if found, insert opinion_href before 'files'."""
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    term_dir = cases_path.parent
+    modified = False
+
+    for case in data:
+        if case.get('opinion_href'):
+            continue  # already set
+
+        folder_name = _case_folder(case.get('number', '') or case.get('id', ''))
+        if not folder_name:
+            continue
+        files_path = term_dir / 'cases' / folder_name / 'files.json'
+        if not files_path.exists():
+            continue
+
+        try:
+            files_data = json.loads(files_path.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        if not isinstance(files_data, list):
+            continue
+
+        opinion_entry = next((e for e in files_data if e.get('type') == 'opinion'), None)
+        if not opinion_entry or not opinion_entry.get('href'):
+            continue
+
+        href = opinion_entry['href']
+        # Insert opinion_href immediately before 'files' (or at end if 'files' absent).
+        new_case: dict = {}
+        inserted = False
+        for k, v in case.items():
+            if k == 'files' and not inserted:
+                new_case['opinion_href'] = href
+                inserted = True
+            new_case[k] = v
+        if not inserted:
+            new_case['opinion_href'] = href
+
+        case.clear()
+        case.update(new_case)
+        modified = True
+        label = case.get('number') or case.get('id', '?')
+        print(f'  {label}: inserted opinion_href from files.json')
+
+    if modified:
+        cases_path.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+
+
 # ── Core validation ───────────────────────────────────────────────────────────
 
 def validate_files_json(files_path: Path, case_dir: Path, check_urls: bool = False,
@@ -1055,6 +1112,7 @@ def main() -> None:
         check_decision_dates(cases_path, term)
         backfill_untracked_files(cases_path, term)
         sync_files_count(cases_path)
+        sync_opinion_href_from_files(cases_path)
         if check_urls:
             check_case_hrefs(cases_path, term, opinions_only)
 
