@@ -9,6 +9,7 @@ let activeBottomLinkText = null; // text key of the currently shown bottom link
 let docViewerOpenHeight = null;  // px height for next animated open (null = use 45vh default)
 let _currentAudioList = [];    // sorted audio entries for the active case
 let _currentBasePath  = '';    // base URL path for the active case
+let _currentOpinionHref = null; // opinion_href for the active case (used by audio dropdown sentinel)
 let _collectionsSectionLi = null; // top-level Collections <li> (set by buildCollectionsNav)
 
 const audio       = document.getElementById('audio-player');
@@ -524,6 +525,10 @@ function buildTermCases(term, cases, ul) {
         const titleSpan = document.createElement('span');
         titleSpan.className = 'case-title-nav';
         titleSpan.textContent = caseEntry.title;
+        titleSpan.addEventListener('click', e => {
+          e.stopPropagation();
+          titleSpan.classList.toggle('expanded');
+        });
 
         header.appendChild(toggle);
         header.appendChild(titleSpan);
@@ -1208,7 +1213,18 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
     document.getElementById('audio-select').hidden = true;
     const decisionLabel = document.getElementById('decision-date-label');
     if (caseEntry.dateDecision) {
-      decisionLabel.textContent = 'Decision on\u00a0' + caseEntry.dateDecision.replace(/^\w+,\s*/, '');
+      let text = 'Decision on\u00a0' + caseEntry.dateDecision.replace(/^\w+,\s*/, '');
+      if (caseEntry.usCite) text += '\u00a0(' + caseEntry.usCite + ')';
+      decisionLabel.textContent = text;
+      if (caseEntry.opinion_href) {
+        decisionLabel.href = caseEntry.opinion_href;
+        decisionLabel.target = '_blank';
+        decisionLabel.rel = 'noopener noreferrer';
+      } else {
+        decisionLabel.removeAttribute('href');
+        decisionLabel.removeAttribute('target');
+        decisionLabel.removeAttribute('rel');
+      }
       decisionLabel.hidden = false;
     } else {
       decisionLabel.hidden = true;
@@ -1247,6 +1263,7 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
   document.getElementById('transcript-viewer').classList.remove('no-audio');
   document.getElementById('audio-select').hidden = false;
   document.getElementById('decision-date-label').hidden = true;
+  _currentOpinionHref = caseEntry.opinion_href || null;
   docViewerOpenHeight = null;
 
   // Pick the best single source: prefer the source with the most aligned entries,
@@ -1326,6 +1343,13 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
     opt.textContent = audioEntryLabel(a);
     audioSelect.appendChild(opt);
   });
+  // Append sentinel option linking to the opinion, if available.
+  if (caseEntry.opinion_href && caseEntry.dateDecision) {
+    const sentinelOpt = document.createElement('option');
+    sentinelOpt.value = 'opinion';
+    sentinelOpt.textContent = 'Decision on\u00a0' + caseEntry.dateDecision.replace(/^\w+,\s*/, '');
+    audioSelect.appendChild(sentinelOpt);
+  }
   // Clamp audioIdx to valid range
   const resolvedAudioIdx = (Number.isInteger(audioIdx) && audioIdx >= 0 && audioIdx < sortedAudio.length)
     ? audioIdx : 0;
@@ -1494,6 +1518,12 @@ audio.addEventListener('timeupdate', () => {
 
 // ── Audio entry dropdown ──────────────────────────────────────────────────
 document.getElementById('audio-select').addEventListener('change', async (e) => {
+  if (e.target.value === 'opinion') {
+    if (_currentOpinionHref) {
+      showDocViewer({ href: _currentOpinionHref, title: document.getElementById('case-title-label')?.textContent || 'Opinion' });
+    }
+    return;
+  }
   const idx = parseInt(e.target.value, 10);
   if (_currentAudioList[idx] && _currentBasePath) {
     const url = new URL(location.href);
