@@ -23,6 +23,7 @@ Usage:
 import json
 import re
 import sys
+from datetime import datetime
 from pathlib import Path
 
 REPO_ROOT   = Path(__file__).resolve().parent.parent
@@ -77,14 +78,29 @@ def title_is_allcaps(title):
     return bool(stripped) and stripped == stripped.upper()
 
 
-def build_votes(justices, jname_map, vote_map):
-    """Convert source justices array → [{"name": ..., "vote": ...}] list."""
+VOTE_SIMPLIFY = {
+    'voted with majority or plurality': 'majority',
+    'dissent': 'minority',
+}
+
+
+def build_votes(justices, jname_map, vote_map, justice_order, chief_lastname=''):
+    """Convert source justices array → [{"name": ..., "vote": ...}] list,
+    sorted with the chief justice first, then remaining by seniority."""
     result = []
     for j in justices:
+        if j.get('vote') in (0, 7):
+            continue  # 0 = did not participate, 7 = jurisdictional dissent
         code     = j.get('justiceName', '')
         name     = jname_map.get(code, code)
-        vote_str = vote_map.get(str(j.get('vote', '')), str(j.get('vote', '')))
-        result.append({'name': name, 'vote': vote_str})
+        raw_vote = vote_map.get(str(j.get('vote', '')), str(j.get('vote', '')))
+        vote_str = VOTE_SIMPLIFY.get(raw_vote, raw_vote)
+        seniority = justice_order.get(code, 9999)
+        # Chief justice sorts before all others (seniority key = -1).
+        last_name = name.split()[-1] if name else ''
+        is_chief = bool(chief_lastname and last_name.lower() == chief_lastname.lower())
+        result.append({'name': name, 'vote': vote_str, '_seniority': (-1 if is_chief else seniority)})
+    result.sort(key=lambda x: x.pop('_seniority'))
     return result
 
 
@@ -98,24 +114,40 @@ def apply_changes(case, changes):
         if k in case:
             case[k] = v
 
+    # Always ensure 'id' is the first key if it exists.
+    if 'id' in case:
+        id_val = case.pop('id')
+        rebuilt_id = {'id': id_val}
+        rebuilt_id.update(case)
+        case.clear()
+        case.update(rebuilt_id)
+
     # For keys that don't exist yet, rebuild with proper ordering.
     new_keys = {k: v for k, v in changes.items() if k not in case}
     if not new_keys:
         return
 
-    BEFORE_DECISION = {'dateArgument', 'dateRearg'}
+    BEFORE_DECISION = {'argument', 'reargument'}
     BEFORE_AUDIO = {
         'id', 'title', 'number', 'decision', 'volume', 'page', 'usCite',
         'dateDecision', 'voteMajority', 'voteMinority', 'votes',
-        'opinion_href', 'dateArgument', 'dateRearg',
+        'opinion_href', 'argument', 'reargument',
     }
 
     rebuilt = {}
+    # 'id' always goes first.
+    if 'id' in new_keys:
+        rebuilt['id'] = new_keys.pop('id')
     for k, v in case.items():
         if k == 'decision':
-            for field in ('dateArgument', 'dateRearg'):
+            for field in ('argument', 'reargument'):
                 if field in new_keys:
                     rebuilt[field] = new_keys.pop(field)
+        if k == 'votes':
+            rebuilt[k] = v
+            if 'opinion_href' in new_keys:
+                rebuilt['opinion_href'] = new_keys.pop('opinion_href')
+            continue
         if k == 'audio':
             for nk in list(new_keys):
                 if nk in BEFORE_AUDIO:
@@ -131,7 +163,7 @@ def apply_changes(case, changes):
 
 # ── Core processing ───────────────────────────────────────────────────────────
 
-def process_term(term, sorted_terms, source_cases, jname_map, vote_map, dry_run):
+def process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_order, dry_run):
     cases_path = TERMS_DIR / term / 'cases.json'
     if not cases_path.exists():
         return
@@ -151,6 +183,7 @@ def process_term(term, sorted_terms, source_cases, jname_map, vote_map, dry_run)
     target_cases = json.loads(cases_path.read_text(encoding='utf-8'))
     modified = False
     unmatched = []
+    matched_indices = set()
     printed_term = False
 
     def term_print(msg):
@@ -185,6 +218,7 @@ def process_term(term, sorted_terms, source_cases, jname_map, vote_map, dry_run)
             if tgt_id and src_caseId and tgt_id != src_caseId:
                 continue
             match = tgt
+            matched_indices.add(target_cases.index(tgt))
             break
 
         if match is None:
@@ -211,7 +245,7 @@ def process_term(term, sorted_terms, source_cases, jname_map, vote_map, dry_run)
         raw_num = str(match.get('number') or '').strip()
         tgt_numbers = [p.strip() for p in raw_num.split(',') if p.strip()] if raw_num else []
         if src_dockets and set(tgt_numbers) < set(src_dockets):
-            changes['number'] = ', '.join(src_dockets)
+            changes['number'] = ','.join(src_dockets)
 
         # volume / page
         if vol is not None:
@@ -242,36 +276,118 @@ def process_term(term, sorted_terms, source_cases, jname_map, vote_map, dry_run)
         # votes: rewrite from source justices
         justices = src.get('justices') or []
         if justices:
-            new_votes = build_votes(justices, jname_map, vote_map)
+            new_votes = build_votes(justices, jname_map, vote_map, justice_order,
+                                    chief_lastname=src.get('chief', ''))
+            expected = (src.get('majVotes') or 0) + (src.get('minVotes') or 0)
+            if expected and len(new_votes) != expected:
+                term_print('WARN vote count mismatch for {}: got {}, expected {}'.format(
+                    match.get('title', '?'), len(new_votes), expected
+                ))
             if match.get('votes') != new_votes:
                 changes['votes'] = new_votes
 
-        # dateArgument / dateRearg (only if non-empty in source)
-        for field in ('dateArgument', 'dateRearg'):
-            val = (src.get(field) or '').strip()
-            if val and match.get(field) != val:
-                changes[field] = val
+        # argument / reargument (only if non-empty in source)
+        for src_field, tgt_field in (('dateArgument', 'argument'), ('dateRearg', 'reargument')):
+            val = (src.get(src_field) or '').strip()
+            if val and match.get(tgt_field) != val:
+                changes[tgt_field] = val
 
         if not changes:
             continue
 
         title_label = match.get('title', '?')
+        _docket  = src.get('docket') or '—'
+        _argued  = (src.get('dateArgument') or '').strip() or '—'
+        _decided = src.get('dateDecision') or '?'
+        _suffix  = '(No. {}, Argued {}, Decided {})'.format(_docket, _argued, _decided)
         if dry_run:
-            term_print('WOULD UPDATE {!r} — {}'.format(title_label, ', '.join(changes)))
+            term_print('UPDATE: {} {}'.format(title_label, _suffix))
         else:
             apply_changes(match, changes)
-            term_print('UPDATED {!r} — {}'.format(title_label, ', '.join(changes)))
+            term_print('  UPDATED: {} {}'.format(title_label, _suffix))
             modified = True
 
-    if modified:
+    added = False
+    for src in unmatched:
+        title_label = ((src.get('caseTitle') or src.get('caseName') or '?')).strip()
+        docket  = src.get('docket') or '—'
+        argued  = (src.get('dateArgument') or '').strip()
+        decided = src.get('dateDecision') or '?'
+
+        if not argued:
+            term_print('UNMATCHED: {} (No. {}, Argued —, Decided {})'.format(
+                title_label, docket, decided
+            ))
+            continue
+
+        # Build a new case object from source data.
+        new_case = {}
+        if src.get('caseId'):
+            new_case['id'] = src['caseId']
+        new_case['title'] = title_label
+        src_dockets = normalize_dockets(src.get('docket') or '')
+        if src_dockets:
+            new_case['number'] = ','.join(src_dockets)
+        new_case['argument'] = argued
+        rearg = (src.get('dateRearg') or '').strip()
+        if rearg:
+            new_case['reargument'] = rearg
+        new_case['decision'] = decided
+
+        vol, page = parse_us_cite(src.get('usCite', ''))
+        if vol:
+            new_case['volume'] = vol
+        if page:
+            new_case['page'] = page
+        if src.get('usCite'):
+            new_case['usCite'] = src['usCite']
+        if src.get('dateDecision'):
+            try:
+                dt = datetime.strptime(src['dateDecision'], '%Y-%m-%d')
+                new_case['dateDecision'] = dt.strftime('%A, %B %-d, %Y')
+            except ValueError:
+                new_case['dateDecision'] = src['dateDecision']
+        if src.get('majVotes') is not None:
+            new_case['voteMajority'] = src['majVotes']
+        if src.get('minVotes') is not None:
+            new_case['voteMinority'] = src['minVotes']
+
+        justices = src.get('justices') or []
+        if justices:
+            new_case['votes'] = build_votes(justices, jname_map, vote_map, justice_order,
+                                            chief_lastname=src.get('chief', ''))
+        if vol and page:
+            new_case['opinion_href'] = loc_href(vol, page)
+
+        term_print('    ADDED: {} (No. {}, Argued {}, Decided {})'.format(
+            title_label, docket, argued, decided
+        ))
+
+        if not dry_run:
+            # Insert in decision-date order.
+            insert_at = len(target_cases)
+            for i, tc in enumerate(target_cases):
+                if tc.get('decision', '') > decided:
+                    insert_at = i
+                    break
+            target_cases.insert(insert_at, new_case)
+            added = True
+
+    if modified or added:
         cases_path.write_text(
             json.dumps(target_cases, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
 
-    for src in unmatched:
-        title_label = ((src.get('caseTitle') or src.get('caseName') or '?')).strip()
-        term_print('UNMATCHED: {!r} ({})'.format(title_label, src.get('dateDecision', '?')))
+    for i, tgt in enumerate(target_cases):
+        if i not in matched_indices:
+            _title   = tgt.get('title', '?')
+            _docket  = tgt.get('number') or '—'
+            _argued  = tgt.get('argument') or '—'
+            _decided = tgt.get('decision') or '?'
+            term_print('  UNKNOWN: {} (No. {}, Argued {}, Decided {})'.format(
+                _title, _docket, _argued, _decided
+            ))
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────
@@ -292,6 +408,8 @@ def main():
 
     jname_map = vars_data.get('justiceName', {}).get('values', {})  # code -> "John Jay"
     vote_map  = vars_data.get('vote',        {}).get('values', {})  # "1" -> "voted with..."
+    # justice_order: code -> int (lower = more senior)
+    justice_order = {code: int(num) for num, code in vars_data.get('justice', {}).get('values', {}).items() if num.isdigit()}
 
     sorted_terms = sorted(d.name for d in TERMS_DIR.iterdir() if d.is_dir())
 
@@ -306,7 +424,7 @@ def main():
         print('[DRY RUN — no files will be written]\n')
 
     for term in terms_to_process:
-        process_term(term, sorted_terms, source_cases, jname_map, vote_map, dry_run)
+        process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_order, dry_run)
 
     print('\nDone.')
 
