@@ -1,417 +1,314 @@
 #!/usr/bin/env python3
-"""Backfill courts/ussc/terms/ from lonedissent case .md files.
+"""Update courts/ussc/terms/ case data from decisions-prev.json.
 
-For each .md file in the source directory whose term falls within
-1791-08 through 1954-10 (inclusive), create:
+For each term folder in courts/ussc/terms, finds source cases (from
+decisions-prev.json) whose dateDecision falls within that term's date range,
+matches them to existing target cases by decision date + docket numbers, and
+updates the target cases with verified/corrected fields.
 
-    courts/ussc/terms/<term>/cases.json
+Fields updated when differing:
+  id, title (if all-caps + source has caseTitle), number (expanded to full
+  source docket list), volume, page, usCite, voteMajority, voteMinority,
+  votes (fully rewritten), opinion_href, dateArgument, dateRearg.
 
-Each case object contains:
-  id             — from id
-  title          — from title
-  number         — from docket (omitted if absent)
-  volume         — as-is
-  page           — as-is
-  usCite         — as-is
-  dateDecision   — as-is
-  voteMajority   — as-is
-  voteMinority   — as-is
-  votes          — as-is
-  opinion_href   — derived LOC tile URL (tile.loc.gov)
+Source cases with no matching target case are printed at the end.
 
 Usage:
-    python3 scripts/backfill_terms.py [--dry-run] [--term YEAR]
-    python3 scripts/backfill_terms.py --audit [--dry-run] [--term YEAR]
+    python3 scripts/backfill_terms.py [--dry-run] [<term-folder>]
 
---term YEAR restricts processing to terms whose year matches YEAR
-  (e.g., --term 1948 processes only the 1948-xx term).
-
---audit mode:
-  Cross-references every backfilled case (identified by having both 'volume'
-  and 'page' fields) against ../loners/lonedissent/sources/ld/citations.csv.
-  - Not in CSV, no 'audio', all-caps title: entire case object removed.
-  - Otherwise:                              left unchanged.
+    <term-folder>  Optional: restrict to one term folder (e.g. "1955-10").
+    --dry-run      Show what would change without writing any files.
 """
 
-import csv
-import datetime
-import html
 import json
 import re
 import sys
 from pathlib import Path
 
-import yaml
-
-SOURCE_DIR = Path.home() / 'Sites' / 'loners' / 'lonedissent' / '_pages' / 'cases' / 'all'
 REPO_ROOT   = Path(__file__).resolve().parent.parent
 TERMS_DIR   = REPO_ROOT / 'courts' / 'ussc' / 'terms'
+SOURCE_FILE = REPO_ROOT.parent / 'loners' / 'lonedissent' / 'sources' / 'ld' / 'archive' / 'decisions-prev.json'
+VARS_FILE   = REPO_ROOT.parent / 'loners' / 'lonedissent' / 'sources' / 'scdb' / 'vars.json'
 
-TERM_MIN    = '1791-08'
-TERM_MAX    = '1954-10'
-
-CITATIONS_CSV = REPO_ROOT.parent / 'loners' / 'lonedissent' / 'sources' / 'ld' / 'citations.csv'
-TERM_MERGE_MAX = '2017-10'  # merge-only range: 1955-10 through 2017-10
-
-LOC_BASE = 'https://tile.loc.gov/storage-services/service/ll/usrep/usrep{vol}/usrep{vol}{page}/usrep{vol}{page}.pdf'
-
-# Fields carried over unchanged from the source case object.
-PASSTHROUGH_FIELDS = [
-    'volume', 'page', 'usCite', 'dateDecision',
-    'voteMajority', 'voteMinority', 'votes',
-]
-
-
-def parse_front_matter(md_path: Path) -> dict:
-    """Extract and parse the YAML front matter from a Jekyll .md file."""
-    text = md_path.read_text(encoding='utf-8')
-    if not text.startswith('---'):
-        return {}
-    # Find the closing ---
-    end = text.find('\n---', 3)
-    if end == -1:
-        return {}
-    fm_text = text[3:end]
-    return yaml.safe_load(fm_text) or {}
-
-
-def normalize_docket(raw: str) -> str:
-    """Normalize docket strings: 'N Misc.' → 'N-Misc', 'N Orig.' → 'N-Orig', etc."""
-    parts = raw.split(',')
-    normalized = []
-    for part in parts:
-        part = part.strip()
-        # "N Misc." / "N Orig." → "N-Misc" / "N-Orig"
-        part = re.sub(r'^(\S+)\s+(Misc|Orig)\.$', r'\1-\2', part)
-        # Standalone "Misc." / "Orig." → "Misc" / "Orig"
-        part = re.sub(r'^(Misc|Orig)\.$', r'\1', part)
-        normalized.append(part)
-    return ','.join(normalized)
-
-
-_MONTHS = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December',
-]
-_DATE_DEC_RE = re.compile(
-    r'^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+'
-    r'(January|February|March|April|May|June|July|August|September|'
-    r'October|November|December)\s+(\d{1,2}),\s+(\d{4})$'
+LOC_BASE = (
+    'https://tile.loc.gov/storage-services/service/ll/usrep/'
+    'usrep{vol}/usrep{vol}{page}/usrep{vol}{page}.pdf'
 )
 
 
-def _date_decision_to_iso(date_decision: str) -> str | None:
-    """Convert 'Monday, January 5, 1926' → '1926-01-05', or None."""
-    m = _DATE_DEC_RE.match(date_decision.strip())
-    if not m:
-        return None
-    month_name, day, year = m.group(1), int(m.group(2)), int(m.group(3))
-    try:
-        month = _MONTHS.index(month_name) + 1
-        return datetime.date(year, month, day).strftime('%Y-%m-%d')
-    except (ValueError, IndexError):
-        return None
+# ── Helpers ──────────────────────────────────────────────────────────────────
 
+def normalize_dockets(raw) -> list:
+    """Split and normalize a source docket string → list of our-format strings.
 
-def _prev_terms(term: str, n: int = 2) -> list[str]:
-    """Return up to n preceding term strings (same month, earlier year)."""
-    year, month = term.split('-')
-    return [f'{int(year) - i}-{month}' for i in range(1, n + 1)]
-
-
-def build_case_obj(src: dict) -> dict:
-    """Convert a source case dict to the target cases.json format."""
-    obj: dict = {}
-
-    obj['id'] = src['id']
-    obj['title'] = html.unescape(src['title'])
-
-    if 'docket' in src and src['docket'] is not None:
-        obj['number'] = normalize_docket(str(src['docket']))
-
-    for field in PASSTHROUGH_FIELDS:
-        if field in src and src[field] is not None:
-            obj[field] = src[field]
-
-    # Build opinion_href from volume + page (both must be present).
-    # volume is zero-padded to 3 digits; page is used as-is (no padding).
-    vol  = str(src.get('volume', '')).zfill(3)
-    page = str(src.get('page',   ''))
-    if vol and page:
-        obj['opinion_href'] = LOC_BASE.format(vol=vol, page=page)
-
-    return obj
-
-
-def build_merge_fields(src: dict) -> dict:
-    """Build the fields to merge into an existing case object (merge-only mode).
-
-    Includes all passthrough fields plus id, and opinion_href only when
-    pdfSource is 'loc'. Title is intentionally excluded — the existing title
-    is preserved.
+    "5 Orig."     → ["5-Orig"]
+    "294 Misc."   → ["294-Misc"]
+    "429, 523"    → ["429", "523"]
+    ""            → []
     """
-    obj: dict = {}
-
-    obj['id'] = src['id']
-
-    if 'docket' in src and src['docket'] is not None:
-        obj['number'] = normalize_docket(str(src['docket']))
-
-    for field in PASSTHROUGH_FIELDS:
-        if field in src and src[field] is not None:
-            obj[field] = src[field]
-
-    if src.get('pdfSource') == 'loc':
-        vol  = str(src.get('volume', '')).zfill(3)
-        page = str(src.get('page',   ''))
-        if vol and page:
-            obj['opinion_href'] = LOC_BASE.format(vol=vol, page=page)
-
-    return obj
-
-
-def process_term_file(md_path: Path, dry_run: bool) -> None:
-    term = md_path.stem  # e.g. "1948-10"
-    if not (TERM_MIN <= term <= TERM_MERGE_MAX):
-        return
-
-    dest_dir  = TERMS_DIR / term
-    dest_file = dest_dir / 'cases.json'
-
-    fm = parse_front_matter(md_path)
-    src_cases = fm.get('cases') or []
-    if not src_cases:
-        print(f'{term}: no cases in front matter — skipped')
-        return
-
-    # ── Create mode: terms up to TERM_MAX ────────────────────────────────────
-    if term <= TERM_MAX:
-        cases = [build_case_obj(c) for c in src_cases]
-
-        if dest_file.exists():
-            existing = json.loads(dest_file.read_text(encoding='utf-8'))
-            if existing == cases:
-                print(f'{term}: up to date ({len(cases)} cases)')
-                return
-            print(f'{term}: {"would update" if dry_run else "updating"} ({len(cases)} cases)')
-        else:
-            print(f'{term}: {"would create" if dry_run else "creating"} ({len(cases)} cases)')
-
-        if not dry_run:
-            dest_dir.mkdir(parents=True, exist_ok=True)
-            dest_file.write_text(
-                json.dumps(cases, indent=2, ensure_ascii=False) + '\n',
-                encoding='utf-8',
-            )
-        return
-
-    # ── Merge mode: terms 1955-10 through TERM_MERGE_MAX ─────────────────────
-    if not dest_file.exists():
-        print(f'{term}: no existing cases.json — skipped (merge-only mode)')
-        return
-
-    # Load cases.json for this term and up to 2 preceding terms.
-    # The dicts inside loaded[path] are the live objects we mutate in-place.
-    terms_to_search = [term] + _prev_terms(term)
-    loaded: dict[Path, list] = {}
-    for t in terms_to_search:
-        tf = TERMS_DIR / t / 'cases.json'
-        if tf.exists():
-            loaded[tf] = json.loads(tf.read_text(encoding='utf-8'))
-
-    # Build cross-term index: individual number part → (path, case_dict).
-    # Consolidated numbers like '1,2,4' are indexed by each comma-separated
-    # part so that an incoming '1,2,4,10' can match on any single component.
-    cross_idx: dict[str, tuple[Path, dict]] = {}
-    for tf, cases_list in loaded.items():
-        for c in cases_list:
-            raw_num = c.get('number', '')
-            if raw_num:
-                for part in str(raw_num).split(','):
-                    part = part.strip()
-                    if part and part not in cross_idx:
-                        cross_idx[part] = (tf, c)
-
-    merged_count = 0
-    modified_paths: set[Path] = set()
-
-    for src in src_cases:
-        raw = src.get('docket')
-        norm = normalize_docket(str(raw)) if raw is not None else None
-        docket_parts = [p.strip() for p in norm.split(',')] if norm else []
-
-        # Convert incoming dateDecision to ISO for comparison with 'decision'.
-        incoming_date_str = src.get('dateDecision') or ''
-        incoming_iso = _date_decision_to_iso(incoming_date_str) if incoming_date_str else None
-
-        # Find the first docket part that matches an existing case.
-        # Where both sides have a date, require them to agree.
-        dest_path: Path | None = None
-        dest_case: dict | None = None
-        for part in docket_parts:
-            if part not in cross_idx:
-                continue
-            cpath, ccase = cross_idx[part]
-            existing_decision = ccase.get('decision')
-            if (incoming_iso is None or existing_decision is None
-                    or existing_decision == incoming_iso):
-                dest_path, dest_case = cpath, ccase
-                break
-
-        if dest_case is None:
-            print(f'  {term}: NOT FOUND — {src.get("title", "?")!r}  (No. {norm or "?"})')
-            continue
-
-        fields = build_merge_fields(src)
-        new_fields = {k: v for k, v in fields.items() if dest_case.get(k) != v}
-        if not new_fields:
-            continue
-        print(f'  {term}: FOUND — {src.get("title", "?")!r}  (No. {norm or "?"}) → {", ".join(new_fields)}')
-
-        # Rebuild the case dict so new keys are inserted before 'audio' (if present).
-        # dest_case is the live dict object inside loaded[dest_path], so mutating it
-        # directly updates the list that will be written back to disk.
-        updated: dict = {}
-        inserted = False
-        for k, v in dest_case.items():
-            if not inserted and k == 'audio':
-                for nk, nv in new_fields.items():
-                    if nk not in dest_case:
-                        updated[nk] = nv
-                inserted = True
-            updated[k] = new_fields.get(k, v)  # overwrite if changed
-        if not inserted:
-            for nk, nv in new_fields.items():
-                if nk not in dest_case:
-                    updated[nk] = nv
-        dest_case.clear()
-        dest_case.update(updated)
-        modified_paths.add(dest_path)
-        merged_count += 1
-
-    if merged_count == 0:
-        total = sum(len(v) for v in loaded.values())
-        print(f'{term}: up to date ({total} cases across {len(loaded)} file(s))')
-        return
-
-    files_label = f'{len(modified_paths)} file(s)'
-    print(f'{term}: {"would update" if dry_run else "updating"} {merged_count} case(s) across {files_label}')
-    if not dry_run:
-        for p in modified_paths:
-            p.write_text(
-                json.dumps(loaded[p], indent=2, ensure_ascii=False) + '\n',
-                encoding='utf-8',
-            )
-
-
-def load_citations() -> set[tuple[int, int]]:
-    """Load citations.csv → set of (volume, page) keys."""
-    if not CITATIONS_CSV.exists():
-        sys.exit(f'Error: citations.csv not found at {CITATIONS_CSV}')
-    result: set[tuple[int, int]] = set()
-    with open(CITATIONS_CSV, newline='', encoding='utf-8') as f:
-        for row in csv.DictReader(f):
-            try:
-                result.add((int(row['volume']), int(row['page'])))
-            except (ValueError, KeyError):
-                continue
+    raw = str(raw or '').strip()
+    if not raw:
+        return []
+    result = []
+    for part in (p.strip() for p in raw.split(',')):
+        m = re.match(r'^(\S+)\s+(Orig|Misc)\.$', part)
+        result.append('{}-{}'.format(m.group(1), m.group(2)) if m else part)
     return result
 
 
-def _title_is_allcaps(title: str) -> bool:
-    """Return True if the title contains no lowercase letters other than allowed
-    abbreviation words: 'v.' (case separator), 'et', 'al.', 'ex', 'rel.'
-    e.g. 'FOO v. BAR' → True, 'FOO et al. v. BAR' → True, 'Foo v. Bar' → False.
-    """
-    # Strip allowed lowercase words, then check for any remaining lowercase.
-    stripped = re.sub(r'\b(?:v\.|et|al\.?|ex|rel\.)\s*', '', title)
-    return stripped == stripped.upper()
+def parse_us_cite(us_cite):
+    """Parse "350 U.S. 497" → ("350", "497"), zero-padding both to >= 3 digits."""
+    m = re.match(r'^(\d+)\s+U\.S\.\s+(\d+)', us_cite or '')
+    if not m:
+        return None, None
+    vol  = m.group(1).zfill(3)
+    page_raw = m.group(2)
+    page = page_raw.zfill(3) if len(page_raw) < 3 else page_raw
+    return vol, page
 
 
-def audit_term(cases_path: Path, citations: set[tuple[int, int]], dry_run: bool) -> None:
-    """Audit one cases.json against citations.csv and repair in-place."""
-    term = cases_path.parent.name
-    data = json.loads(cases_path.read_text(encoding='utf-8'))
-    if not isinstance(data, list):
+def loc_href(vol, page):
+    return LOC_BASE.format(vol=vol, page=page)
+
+
+def title_is_allcaps(title):
+    """True when title has no intentional lowercase (ignoring 'v.', 'et', etc.)."""
+    stripped = re.sub(r'\b(?:v\.|et|al\.?|ex|rel\.)\s*', '', title or '')
+    return bool(stripped) and stripped == stripped.upper()
+
+
+def build_votes(justices, jname_map, vote_map):
+    """Convert source justices array → [{"name": ..., "vote": ...}] list."""
+    result = []
+    for j in justices:
+        code     = j.get('justiceName', '')
+        name     = jname_map.get(code, code)
+        vote_str = vote_map.get(str(j.get('vote', '')), str(j.get('vote', '')))
+        result.append({'name': name, 'vote': vote_str})
+    return result
+
+
+def apply_changes(case, changes):
+    """Apply changes dict to a case dict in-place, preserving key order and
+    inserting new keys at logical positions (dateArgument/dateRearg before
+    'decision'; everything else before 'audio' if 'audio' exists)."""
+
+    # Update in-place for existing keys.
+    for k, v in changes.items():
+        if k in case:
+            case[k] = v
+
+    # For keys that don't exist yet, rebuild with proper ordering.
+    new_keys = {k: v for k, v in changes.items() if k not in case}
+    if not new_keys:
         return
 
-    new_data: list[dict] = []
+    BEFORE_DECISION = {'dateArgument', 'dateRearg'}
+    BEFORE_AUDIO = {
+        'id', 'title', 'number', 'decision', 'volume', 'page', 'usCite',
+        'dateDecision', 'voteMajority', 'voteMinority', 'votes',
+        'opinion_href', 'dateArgument', 'dateRearg',
+    }
+
+    rebuilt = {}
+    for k, v in case.items():
+        if k == 'decision':
+            for field in ('dateArgument', 'dateRearg'):
+                if field in new_keys:
+                    rebuilt[field] = new_keys.pop(field)
+        if k == 'audio':
+            for nk in list(new_keys):
+                if nk in BEFORE_AUDIO:
+                    rebuilt[nk] = new_keys.pop(nk)
+        rebuilt[k] = v
+
+    for nk, nv in new_keys.items():
+        rebuilt[nk] = nv
+
+    case.clear()
+    case.update(rebuilt)
+
+
+# ── Core processing ───────────────────────────────────────────────────────────
+
+def process_term(term, sorted_terms, source_cases, jname_map, vote_map, dry_run):
+    cases_path = TERMS_DIR / term / 'cases.json'
+    if not cases_path.exists():
+        return
+
+    # Date range: [term, next_term)
+    idx = sorted_terms.index(term)
+    next_term = sorted_terms[idx + 1] if idx + 1 < len(sorted_terms) else None
+
+    in_range = [
+        c for c in source_cases
+        if c.get('dateDecision', '') >= term
+        and (next_term is None or c.get('dateDecision', '') < next_term)
+    ]
+    if not in_range:
+        return
+
+    target_cases = json.loads(cases_path.read_text(encoding='utf-8'))
     modified = False
+    unmatched = []
+    printed_term = False
 
-    for case in data:
-        volume = case.get('volume')
-        page   = case.get('page')
+    def term_print(msg):
+        nonlocal printed_term
+        if not printed_term:
+            print('{}:'.format(term))
+            printed_term = True
+        print('  {}'.format(msg))
 
-        # Not a backfilled case — leave it alone.
-        if volume is None or page is None:
-            new_data.append(case)
+    for src in in_range:
+        src_dockets = normalize_dockets(src.get('docket') or '')
+        src_date    = src.get('dateDecision', '')
+        src_caseId  = src.get('caseId', '')
+
+        # ── Find matching target case ────────────────────────────────────────
+        # Criteria: (1) decision date matches, (2) target numbers <= source dockets
+        # (or date-only match when source has no dockets), (3) if target already
+        # has an 'id', it must equal the source's caseId.
+        match = None
+        for tgt in target_cases:
+            if tgt.get('decision', '') != src_date:
+                continue
+            raw_num = str(tgt.get('number') or '').strip()
+            tgt_numbers = [p.strip() for p in raw_num.split(',') if p.strip()] if raw_num else []
+            if src_dockets:
+                if not tgt_numbers:
+                    continue
+                if not set(tgt_numbers) <= set(src_dockets):
+                    continue
+            # If target has an id set, it must agree with source caseId.
+            tgt_id = tgt.get('id')
+            if tgt_id and src_caseId and tgt_id != src_caseId:
+                continue
+            match = tgt
+            break
+
+        if match is None:
+            unmatched.append(src)
             continue
 
-        try:
-            key = (int(volume), int(page))
-        except (ValueError, TypeError):
-            new_data.append(case)
+        existing_id = match.get('id')
+
+        # ── Compute desired field values ─────────────────────────────────────
+        vol, page = parse_us_cite(src.get('usCite', ''))
+
+        changes = {}
+
+        # id
+        if not existing_id and src_caseId:
+            changes['id'] = src_caseId
+
+        # title: update if target is all-caps and source has caseTitle
+        src_title = (src.get('caseTitle') or '').strip()
+        if src_title and title_is_allcaps(match.get('title', '')):
+            changes['title'] = src_title
+
+        # number: expand if target number is a strict subset of source dockets
+        raw_num = str(match.get('number') or '').strip()
+        tgt_numbers = [p.strip() for p in raw_num.split(',') if p.strip()] if raw_num else []
+        if src_dockets and set(tgt_numbers) < set(src_dockets):
+            changes['number'] = ', '.join(src_dockets)
+
+        # volume / page
+        if vol is not None:
+            if match.get('volume') != vol:
+                changes['volume'] = vol
+            if match.get('page') != page:
+                changes['page'] = page
+
+        # usCite
+        src_usCite = src.get('usCite', '')
+        if src_usCite and match.get('usCite') != src_usCite:
+            changes['usCite'] = src_usCite
+
+        # voteMajority / voteMinority
+        maj = src.get('majVotes')
+        if maj is not None and match.get('voteMajority') != maj:
+            changes['voteMajority'] = maj
+        mn = src.get('minVotes')
+        if mn is not None and match.get('voteMinority') != mn:
+            changes['voteMinority'] = mn
+
+        # opinion_href
+        if vol and page:
+            desired_href = loc_href(vol, page)
+            if match.get('opinion_href') != desired_href:
+                changes['opinion_href'] = desired_href
+
+        # votes: rewrite from source justices
+        justices = src.get('justices') or []
+        if justices:
+            new_votes = build_votes(justices, jname_map, vote_map)
+            if match.get('votes') != new_votes:
+                changes['votes'] = new_votes
+
+        # dateArgument / dateRearg (only if non-empty in source)
+        for field in ('dateArgument', 'dateRearg'):
+            val = (src.get(field) or '').strip()
+            if val and match.get(field) != val:
+                changes[field] = val
+
+        if not changes:
             continue
 
-        has_audio   = 'audio' in case
-        in_csv      = key in citations
-
-        if not in_csv and not has_audio and _title_is_allcaps(case.get('title', '')):
-            # Not in CSV, no audio, and title is all-caps — remove the entire case.
-            modified = True
-            label = case.get('title', '?')
-            print(f'  {term}: {"would remove" if dry_run else "removing"} {label!r} (not in citations.csv)')
-            if dry_run:
-                new_data.append(case)  # keep in dry-run so the file is not altered
-            # else: intentionally not appended
+        title_label = match.get('title', '?')
+        if dry_run:
+            term_print('WOULD UPDATE {!r} — {}'.format(title_label, ', '.join(changes)))
         else:
-            new_data.append(case)
+            apply_changes(match, changes)
+            term_print('UPDATED {!r} — {}'.format(title_label, ', '.join(changes)))
+            modified = True
 
-    if modified and not dry_run:
+    if modified:
         cases_path.write_text(
-            json.dumps(new_data, indent=2, ensure_ascii=False) + '\n',
+            json.dumps(target_cases, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
 
+    for src in unmatched:
+        title_label = ((src.get('caseTitle') or src.get('caseName') or '?')).strip()
+        term_print('UNMATCHED: {!r} ({})'.format(title_label, src.get('dateDecision', '?')))
 
-def main() -> None:
+
+# ── Entry point ───────────────────────────────────────────────────────────────
+
+def main():
     dry_run = '--dry-run' in sys.argv
-    if dry_run:
-        print('[DRY RUN — no files will be written]')
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    term_filter = args[0] if args else None
 
-    term_filter = None
-    if '--term' in sys.argv:
-        idx = sys.argv.index('--term')
-        if idx + 1 >= len(sys.argv):
-            sys.exit('Error: --term requires a value (e.g., --term 1948)')
-        term_filter = sys.argv[idx + 1]
+    if not SOURCE_FILE.exists():
+        sys.exit('Error: source file not found:\n  {}'.format(SOURCE_FILE))
+    if not VARS_FILE.exists():
+        sys.exit('Error: vars file not found:\n  {}'.format(VARS_FILE))
 
-    if '--audit' in sys.argv:
-        citations = load_citations()
-        print(f'Loaded {len(citations)} citation key(s) from citations.csv\n')
-        for term_dir in sorted(TERMS_DIR.iterdir()):
-            if not term_dir.is_dir():
-                continue
-            if not (TERM_MIN <= term_dir.name <= TERM_MERGE_MAX):
-                continue
-            if term_filter and not term_dir.name.startswith(term_filter):
-                continue
-            cases_path = term_dir / 'cases.json'
-            if cases_path.exists():
-                audit_term(cases_path, citations, dry_run)
-        return
+    print('Loading source data...')
+    source_cases = json.loads(SOURCE_FILE.read_text(encoding='utf-8'))
+    vars_data    = json.loads(VARS_FILE.read_text(encoding='utf-8'))
 
-    md_files = sorted(SOURCE_DIR.glob('*.md'))
-    if not md_files:
-        sys.exit(f'Error: no .md files found in {SOURCE_DIR}')
+    jname_map = vars_data.get('justiceName', {}).get('values', {})  # code -> "John Jay"
+    vote_map  = vars_data.get('vote',        {}).get('values', {})  # "1" -> "voted with..."
 
-    in_scope = [f for f in md_files if TERM_MIN <= f.stem <= TERM_MERGE_MAX]
+    sorted_terms = sorted(d.name for d in TERMS_DIR.iterdir() if d.is_dir())
+
     if term_filter:
-        in_scope = [f for f in in_scope if f.stem.startswith(term_filter)]
-    print(f'Processing {len(in_scope)} term file(s) in range {TERM_MIN} – {TERM_MERGE_MAX}\n')
+        if term_filter not in sorted_terms:
+            sys.exit('Error: term folder {!r} not found.'.format(term_filter))
+        terms_to_process = [term_filter]
+    else:
+        terms_to_process = sorted_terms
 
-    for md_path in in_scope:
-        process_term_file(md_path, dry_run)
+    if dry_run:
+        print('[DRY RUN — no files will be written]\n')
+
+    for term in terms_to_process:
+        process_term(term, sorted_terms, source_cases, jname_map, vote_map, dry_run)
+
+    print('\nDone.')
 
 
 if __name__ == '__main__':
