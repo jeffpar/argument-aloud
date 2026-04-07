@@ -581,6 +581,16 @@ body {
   max-width: 85%;
 }
 
+#case-title-label a.case-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+#case-title-label a.case-title-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 #audio-select {
   font-size: 12px;
   font-weight: bold;
