@@ -443,6 +443,33 @@ function caseTitleLabel(caseEntry) {
   return caseEntry.title + suffix;
 }
 
+// Set the case-title-label element to a link that reveals the case in the nav pane.
+function setCaseTitleLabel(term, caseEntry) {
+  const span = document.getElementById('case-title-label');
+  span.innerHTML = '';
+  const urlParams = new URLSearchParams({ term, case: caseId(caseEntry) });
+  const a = document.createElement('a');
+  a.href = '?' + urlParams.toString();
+  a.className = 'case-title-link';
+  a.textContent = caseTitleLabel(caseEntry);
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const key = term + '/' + caseId(caseEntry);
+    const caseEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(key)}"]`);
+    if (!caseEl) return;
+    caseEl.closest('.terms-group')?.classList.add('open');
+    caseEl.closest('.decade-group')?.classList.add('open');
+    caseEl.closest('.term-group')?.classList.add('open');
+    caseEl.closest('.month-group')?.classList.add('open');
+    if (isMobile()) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      setMobileNavVisible(true);
+    }
+    requestAnimationFrame(() => caseEl.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+  });
+  span.appendChild(a);
+}
+
 // Parse a human-readable decision date like "Monday, October 17, 1910" → "1910-10-17".
 // Used as a fallback sort/group key for historical cases that have no audio entries.
 function parseDateDecision(str) {
@@ -506,7 +533,7 @@ function buildTermCases(term, cases, ul) {
 
         // ── Gavel icon: shown if this case has an opinion (background check) ──
         const hasOpinionAudio = caseEntry.audio?.some(a => a.type === 'opinion')
-          || (!caseEntry.audio?.length && !!caseEntry.opinion_href);
+          || !!caseEntry.opinion_href;
         if (hasOpinionAudio) {
           const icon = document.createElement('span');
           icon.className = 'case-decided-icon';
@@ -1136,7 +1163,7 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
     activeBottomLinkText = null;
 
     // Show case title (hide audio select since there is no audio)
-    document.getElementById('case-title-label').textContent = caseTitleLabel(caseEntry);
+    setCaseTitleLabel(term, caseEntry);
     document.title = caseEntry.title + ' | Argument Aloud';
     document.getElementById('audio-select').hidden = true;
     const decisionLabel = document.getElementById('decision-date-label');
@@ -1268,7 +1295,7 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
   _currentBasePath  = basePath;
 
   // Update case title
-  document.getElementById('case-title-label').textContent = caseTitleLabel(caseEntry);
+  setCaseTitleLabel(term, caseEntry);
   document.title = caseEntry.title + ' | Argument Aloud';
 
   const qEl = document.getElementById('case-questions');
