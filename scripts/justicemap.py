@@ -20,10 +20,12 @@ Usage:
     python3 scripts/justicemap.py [--dry-run]
 """
 
+import html
 import json
 import re
 import sys
 from collections import Counter
+from datetime import datetime
 from pathlib import Path
 
 REPO_ROOT       = Path(__file__).resolve().parent.parent
@@ -43,6 +45,15 @@ _JUSTIA_US_RE  = re.compile(
     r'https://supreme\.justia\.com/cases/federal/us/(\d+)/(\d+)/')
 _CASE_LINK_RE  = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
 _DATE_JSON_RE = re.compile(r'^\d{4}-\d{2}-\d{2}.*\.json$')
+_MONTHS_PAT   = (r'January|February|March|April|May|June|July|August|September|'
+                 r'October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec')
+_ARGUED_DATE_RE = re.compile(
+    r'(?:[Aa]rgued\s+)?((?:' + _MONTHS_PAT + r')\s+\d+'
+    r'(?:\s*[-\u2013]\s*(?:\d+|(?:' + _MONTHS_PAT + r')\s+\d+))?'
+    r'(?:\s+and\s+\d+)?'
+    r',\s*\d{4})',
+    re.IGNORECASE,
+)
 
 
 def _parse_heading(heading: str) -> tuple[str, str, str]:
@@ -213,6 +224,23 @@ def _vol_page_from_url(url: str) -> tuple[str, str] | None:
     return None
 
 
+def _normalize_case_number(raw: str) -> str:
+    """Take the first docket from a comma-separated list and normalize Misc/Orig format.
+
+    Examples:
+      '50,265-Misc,...' → '50'
+      '1-Misc'          → '1-Misc'
+      '1-Misc.'         → '1-Misc'
+      '1 Misc.'         → '1-Misc'
+      '120-Orig.'       → '120-Orig'
+    """
+    first = raw.split(',')[0].strip()
+    m = re.match(r'^(\d+)\s*[-\u2013]?\s*(Misc|Orig)\.?$', first, re.IGNORECASE)
+    if m:
+        return f'{m.group(1)}-{m.group(2).capitalize()}'
+    return first
+
+
 def _oyez_term_case(url: str) -> tuple[str, str] | None:
     """Extract (term, case_number) from a 4-digit-year Oyez URL."""
     m = _OYEZ_URL_RE.search(url)
@@ -226,6 +254,64 @@ def _oyez_term_case(url: str) -> tuple[str, str] | None:
 def _display_name(full_name_upper: str) -> str:
     """'SAMUEL A. ALITO, JR.' → 'Samuel A. Alito, Jr.'"""
     return ' '.join(w.capitalize() for w in full_name_upper.split())
+
+
+def _parse_first_arg_date_iso(note: str) -> str | None:
+    """Extract the first argued date from a parenthetical note as 'YYYY-MM-DD'.
+
+    Handles formats like 'Argued March 24, 2009', 'Argued January 9-10, 1951',
+    'Argued February 28-March 2, 1966', 'November 9, 1965' (no Argued prefix).
+    """
+    if not note:
+        return None
+    m = _ARGUED_DATE_RE.search(note)
+    if not m:
+        return None
+    raw = m.group(1)  # e.g. 'March 24, 2009' or 'January 9-10, 1951'
+    # Normalise: strip any trailing day range before the comma+year
+    # 'January 9-10, 1951' → 'January 9, 1951'
+    raw = re.sub(r'(\d+)\s*[-\u2013]\s*(?:\d+|(?:' + _MONTHS_PAT + r')\s+\d+)', r'\1', raw, flags=re.IGNORECASE)
+    # 'November 10 and 12, 1943' → 'November 10, 1943'
+    raw = re.sub(r'(\d+)\s+and\s+\d+', r'\1', raw)
+    raw = raw.strip().lstrip(',')
+    for fmt in ('%B %d, %Y', '%b %d, %Y'):
+        try:
+            return datetime.strptime(raw.strip(), fmt).strftime('%Y-%m-%d')
+        except ValueError:
+            pass
+    return None
+
+
+def audio_index_for_date(audio_list: list, iso_date: str | None) -> int:
+    """Return 1-based index of the audio entry whose date matches iso_date.
+
+    The list is sorted by date ascending before indexing. Returns 1 if no
+    match is found or no date is given.
+    """
+    if not audio_list:
+        return 1
+    sorted_audio = sorted(audio_list, key=lambda a: (a.get('date') or ''))
+    if iso_date:
+        for i, entry in enumerate(sorted_audio):
+            if entry.get('date') == iso_date:
+                return i + 1
+    return 1
+
+
+def build_cases_index() -> dict[tuple[str, str], dict]:
+    """Return {(term, number): case_obj} from all local cases.json files."""
+    index: dict[tuple[str, str], dict] = {}
+    for cases_file in sorted(TERMS_DIR.glob('*/cases.json')):
+        term = cases_file.parent.name
+        try:
+            cases = json.loads(cases_file.read_text(encoding='utf-8'))
+        except Exception:
+            continue
+        for c in cases:
+            raw = str(c.get('number') or '').strip()
+            number = raw.split(',')[0].strip()
+            index[(term, number)] = c
+    return index
 
 
 def build_vol_page_index() -> dict[tuple[str, str], tuple[str, str]]:
@@ -280,9 +366,11 @@ def load_all_justice_cases() -> list[dict]:
             elif in_cases_argued:
                 lm = _CASE_LINK_RE.search(line)
                 if lm:
+                    note = line[lm.end():].strip()
                     current['cases'].append({
-                        'name': lm.group(1).strip(),
+                        'name': html.unescape(lm.group(1).strip()),
                         'url':  lm.group(2).strip(),
+                        'note': note,
                     })
 
     if current is not None:
@@ -292,8 +380,9 @@ def load_all_justice_cases() -> list[dict]:
 
 def sync_collection(dry_run: bool) -> None:
     """Update COLLECTION_PATH with any cases from justicemap.md not yet listed."""
-    print('\n\u2500\u2500 Syncing collection \u2500\u2500')
+    print('\n── Syncing collection ──')
     vol_page_index = build_vol_page_index()
+    cases_index    = build_cases_index()
     justices       = load_all_justice_cases()
 
     try:
@@ -311,10 +400,11 @@ def sync_collection(dry_run: bool) -> None:
         # Resolve each markdown case to (name, term, number).
         md_cases: list[dict] = []
         for case in justice['cases']:
-            url, name = case['url'], case['name']
+            url, name, note = case['url'], case['name'], case.get('note', '')
             tc = _oyez_term_case(url)
             if tc:
                 term, number = tc
+                number = _normalize_case_number(number)
             else:
                 vp = _vol_page_from_url(url)
                 if not vp:
@@ -324,8 +414,17 @@ def sync_collection(dry_run: bool) -> None:
                     print(f'  [{disp}] WARN: no local case for '
                           f'vol={vp[0]} page={vp[1]} ({name})')
                     continue
-                term, number = result
-            md_cases.append({'name': name, 'term': term, 'number': str(number)})
+                term, raw_number = result
+                number = _normalize_case_number(raw_number)
+
+            # 'argued and reargued' without specific dates → two entries
+            is_dual = bool(re.search(r'\bargued\s+and\s+reargued\b', note, re.IGNORECASE))
+            if is_dual:
+                md_cases.append({'name': name, 'term': term, 'number': str(number), 'forced_audio': 1})
+                md_cases.append({'name': name, 'term': term, 'number': str(number), 'forced_audio': 2})
+            else:
+                arg_date_iso = _parse_first_arg_date_iso(note)
+                md_cases.append({'name': name, 'term': term, 'number': str(number), 'arg_date_iso': arg_date_iso})
 
         if not md_cases:
             continue
@@ -339,22 +438,28 @@ def sync_collection(dry_run: bool) -> None:
 
         existing: list[dict] = group.get('cases', [])
 
-        # Count how many times each (term, number) already appears in existing.
+        # How many times each (term, number) is wanted (from the markdown).
+        md_counts: Counter = Counter((mc['term'], mc['number']) for mc in md_cases)
+
+        # How many times each (term, number) already exists in the collection.
+        # Normalize stored numbers to guard against legacy format mismatches.
         existing_counts: Counter = Counter(
-            (e.get('term', ''), str(e.get('number', ''))) for e in existing
+            (e.get('term', ''), _normalize_case_number(str(e.get('number', ''))))
+            for e in existing
         )
 
-        # Determine which md_cases are new (count exceeds existing count).
+        # Add only the deficit: entries present in md_cases but not yet in the
+        # collection (or present fewer times than the markdown requires, e.g.
+        # a case argued and reargued needs two entries).
         seen: Counter = Counter()
         to_add: list[dict] = []
         for mc in md_cases:
             k = (mc['term'], mc['number'])
-            if seen[k] >= existing_counts.get(k, 0):
+            need = md_counts[k]
+            have = existing_counts.get(k, 0)
+            if seen[k] < need - have:
                 to_add.append(mc)
             seen[k] += 1
-
-        if not to_add:
-            continue
 
         # Insert new entries in term order, preserving existing entries.
         new_existing = list(existing)
@@ -370,22 +475,66 @@ def sync_collection(dry_run: bool) -> None:
                 'number': new_case['number'],
             })
 
+        # Build audio plan: (term, number) → ordered list of assignments from md_cases.
+        audio_plan: dict[tuple[str, str], list[dict]] = {}
+        for mc in md_cases:
+            k = (mc['term'], mc['number'])
+            audio_plan.setdefault(k, []).append({
+                'forced_audio': mc.get('forced_audio'),
+                'arg_date_iso': mc.get('arg_date_iso'),
+            })
+
+        # Annotate all entries (new and existing) with audio/opinion_href.
+        before = json.dumps(new_existing, ensure_ascii=False)
+        seen_by_key: Counter = Counter()
+        for entry in new_existing:
+            k = (entry.get('term', ''), str(entry.get('number', '')))
+            live = cases_index.get(k)
+            if live:
+                if live.get('audio'):
+                    plan = audio_plan.get(k, [])
+                    plan_entry = plan[seen_by_key[k]] if seen_by_key[k] < len(plan) else {}
+                    forced = plan_entry.get('forced_audio')
+                    arg_date_iso = plan_entry.get('arg_date_iso')
+                    if forced is not None:
+                        entry['audio'] = forced
+                    else:
+                        entry['audio'] = audio_index_for_date(live['audio'], arg_date_iso)
+                elif 'audio' in entry:
+                    del entry['audio']
+                if live.get('opinion_href'):
+                    entry['opinion_href'] = live['opinion_href']
+                elif 'opinion_href' in entry:
+                    del entry['opinion_href']
+            else:
+                entry.pop('audio', None)
+                entry.pop('opinion_href', None)
+            seen_by_key[k] += 1
+        after = json.dumps(new_existing, ensure_ascii=False)
+        annotations_changed = (before != after)
+
+        if not to_add and not annotations_changed:
+            continue
+
         group['cases'] = new_existing
         total_added += len(to_add)
-        verb = 'Would add' if dry_run else 'Added'
-        names_str = ', '.join(c['name'] for c in to_add[:4])
-        if len(to_add) > 4:
-            names_str += f', \u2026 (+{len(to_add) - 4} more)'
-        print(f'  [{disp}] {verb} {len(to_add)}: {names_str}')
+        if to_add:
+            verb = 'Would add' if dry_run else 'Added'
+            names_str = ', '.join(c['name'] for c in to_add[:4])
+            if len(to_add) > 4:
+                names_str += f', \u2026 (+{len(to_add) - 4} more)'
+            print(f'  [{disp}] {verb} {len(to_add)}: {names_str}')
 
-    if total_added and not dry_run:
+    coll_changed = json.dumps(coll, indent=2, ensure_ascii=False) + '\n' != COLLECTION_PATH.read_text(encoding='utf-8')
+
+    if coll_changed and not dry_run:
         COLLECTION_PATH.write_text(
             json.dumps(coll, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
-        print(f'Wrote {COLLECTION_PATH.relative_to(REPO_ROOT)} (+{total_added} cases)')
-    elif total_added:
-        print(f'[dry-run] would write +{total_added} cases')
+        print(f'Wrote {COLLECTION_PATH.relative_to(REPO_ROOT)} (+{total_added} cases, annotations updated)')
+    elif coll_changed:
+        print(f'[dry-run] would write +{total_added} cases, annotations updated')
     else:
         print('Collection is already up to date.')
 
