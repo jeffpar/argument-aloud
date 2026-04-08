@@ -18,6 +18,7 @@ const emptyState  = document.getElementById('empty-state');
 const loadingMsg  = document.getElementById('loading-msg');
 const playerSection   = document.getElementById('player-section');
 const audioControls   = document.getElementById('audio-controls');
+const _emptyStateDefault = emptyState.innerHTML;
 
 // ── Utilities ───────────────────────────────────────────────────────────────
 
@@ -57,6 +58,30 @@ function speakerClass(name) {
 
 function escapeHtml(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Show a journal cover in the transcript pane when a term with journal_cover
+// is selected but no case is loaded. Pass null to restore the default message.
+function updateEmptyStateForTerm(term) {
+  if (emptyState.style.display === 'none') return;
+  const termEntry = term ? TERMS.find(t => t.term === term) : null;
+  if (termEntry?.journal_cover && termEntry?.journal_href) {
+    const imgUrl = '/courts/ussc/terms/' + term + '/' + termEntry.journal_cover;
+    emptyState.innerHTML = '';
+    const a = document.createElement('a');
+    a.href = termEntry.journal_href;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.title = 'Open journal for ' + (termEntry.title || term);
+    const img = document.createElement('img');
+    img.src = imgUrl;
+    img.alt = 'Journal cover for ' + (termEntry.title || term);
+    img.id = 'journal-cover-img';
+    a.appendChild(img);
+    emptyState.appendChild(a);
+  } else {
+    emptyState.innerHTML = _emptyStateDefault;
+  }
 }
 
 function audioEntryLabel(a) {
@@ -866,6 +891,7 @@ function buildNav() {
       termHeader.addEventListener('click', async () => {
         if (termLi.classList.toggle('open')) {
           await ensureBuilt();
+          updateEmptyStateForTerm(term);
           // Update URL: set term param, clear case/audio/file/turn params.
           const url = new URL(location.href);
           url.searchParams.set('term', term);
@@ -875,6 +901,7 @@ function buildNav() {
           url.searchParams.delete('turn');
           history.pushState(null, '', url);
         } else {
+          updateEmptyStateForTerm(null);
           // Term collapsed — remove term param too.
           const url = new URL(location.href);
           url.searchParams.delete('term');
@@ -2229,6 +2256,7 @@ async function init() {
       termLi.closest('.terms-group')?.classList.add('open');
       termLi.classList.add('open');
       await termLi._ensureBuilt?.();
+      updateEmptyStateForTerm(termParam);
       requestAnimationFrame(() => termLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
     }
   }
