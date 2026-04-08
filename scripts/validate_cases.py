@@ -997,10 +997,12 @@ def check_audio_dates(cases_path: Path, term: str, dry_run: bool = False) -> Non
 
         # ── argument property ──────────────────────────────────────────────
         if arg_audio_dates:
-            expected = ','.join(sorted(set(arg_audio_dates)))
-            current  = case.get('argument', '')
-            if current != expected:
-                prefix = 'WARNING' if current else ' NOTICE'
+            audio_set     = set(arg_audio_dates)
+            current       = case.get('argument', '')
+            current_dates = set(current.split(',')) if current else set()
+            if not (audio_set <= current_dates):
+                expected = ','.join(sorted(current_dates | audio_set))
+                prefix = 'WARNING' if (current and not (current_dates & audio_set)) else ' NOTICE'
                 print(f'{prefix}: {term}/{label} ({title[:40]}): '
                       f'argument={current!r} → should be {expected!r}')
                 if not dry_run:
@@ -1012,10 +1014,12 @@ def check_audio_dates(cases_path: Path, term: str, dry_run: bool = False) -> Non
 
         # ── reargument property ────────────────────────────────────────────
         if rearg_audio_dates:
-            expected = ','.join(sorted(set(rearg_audio_dates)))
-            current  = case.get('reargument', '')
-            if current != expected:
-                prefix = 'WARNING' if current else ' NOTICE'
+            audio_set     = set(rearg_audio_dates)
+            current       = case.get('reargument', '')
+            current_dates = set(current.split(',')) if current else set()
+            if not (audio_set <= current_dates):
+                expected = ','.join(sorted(current_dates | audio_set))
+                prefix = 'WARNING' if (current and not (current_dates & audio_set)) else ' NOTICE'
                 print(f'{prefix}: {term}/{label} ({title[:40]}): '
                       f'reargument={current!r} → should be {expected!r}')
                 if not dry_run:
@@ -1154,11 +1158,12 @@ def validate_case(term_dir: Path, case_number: str, check_urls: bool = False,
     check_opinion_for_case(files_path, case_number, term_dir.name, _print_header)
 
 
-def check_duplicate_case_numbers(term_dir: Path, term: str) -> None:
+def check_duplicate_case_numbers(term_dir: Path, term: str, verbose: bool = False) -> None:
     """Warn if any case number appears more than once in cases.json."""
     cases_path = term_dir / 'cases.json'
     if not cases_path.exists():
         return
+    early_term = term < '1950-10'
     cases = json.loads(cases_path.read_text(encoding='utf-8'))
     seen: dict[str, str] = {}   # lower -> original
     for case in cases:
@@ -1167,8 +1172,13 @@ def check_duplicate_case_numbers(term_dir: Path, term: str) -> None:
             continue
         key = number.lower()
         if key in seen:
-            print(f'WARNING: {term}/{number}: duplicate case number in cases.json: '
-                  f'{seen[key]!r} and {number!r}')
+            if early_term:
+                if verbose:
+                    print(f' NOTICE: {term}/{number}: duplicate case number in cases.json: '
+                          f'{seen[key]!r} and {number!r}')
+            else:
+                print(f'WARNING: {term}/{number}: duplicate case number in cases.json: '
+                      f'{seen[key]!r} and {number!r}')
         else:
             seen[key] = number
 
@@ -1297,7 +1307,7 @@ def main() -> None:
         print(f'Skipping {term}: directory not found.')
         sys.exit(0)
 
-    check_duplicate_case_numbers(term_dir, term)
+    check_duplicate_case_numbers(term_dir, term, verbose)
     check_duplicate_audio_hrefs(term_dir)
     check_cases_sync(term_dir, verbose)
 
@@ -1325,7 +1335,8 @@ def main() -> None:
         cases_dir = term_dir / 'cases'
         case_dirs = sorted(d for d in cases_dir.iterdir() if d.is_dir()) if cases_dir.is_dir() else []
         if not case_dirs:
-            print('No case directories found.')
+            if verbose:
+                print(f'NOTICE: {term}: no case directories found')
             return
         speaker_map = filter_speaker_map(raw_speaker_map, term)
         for d in case_dirs:
