@@ -2095,7 +2095,7 @@ async function init() {
                   el.classList.add('active');
                   activeTurnIdx = turnIdx;
                   if (turns[turnIdx].time != null) seekOnly(turnTimes[turnIdx]);
-                  requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'center' }));
+                  requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'start' }));
                   const url = new URL(location.href);
                   url.searchParams.set('turn', turnParam);
                   history.replaceState(null, '', url);
@@ -2166,7 +2166,7 @@ async function init() {
                   el.classList.add('active');
                   activeTurnIdx = turnIdx;
                   if (turns[turnIdx].time != null) seekOnly(turnTimes[turnIdx]);
-                  requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'center' }));
+                  requestAnimationFrame(() => el.scrollIntoView({ behavior: 'instant', block: 'start' }));
                   const url = new URL(location.href);
                   url.searchParams.set('turn', turnParam);
                   history.replaceState(null, '', url);
