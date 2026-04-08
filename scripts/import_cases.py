@@ -573,7 +573,14 @@ def fetch_transcripts_from_url(url: str) -> list[dict]:
 def fetch_docket_info(number: str, term_year: str = '') -> dict:
     """Fetch the docket page and return {questions_href, proceedings}."""
     internal = _docket_number(number, term_year)
-    url = f'{BASE_URL}/docket/docketfiles/html/public/{internal}.html'
+    # The /docket/docketfiles/html/public/ path only exists from the 2017 term
+    # onward.  Earlier cases are served via the search.aspx wrapper with a .htm
+    # extension (the file lives at /docketfiles/{number}.htm on the server).
+    year_int = int(term_year) if term_year.isdigit() else 0
+    if year_int >= 2017:
+        url = f'{BASE_URL}/docket/docketfiles/html/public/{internal}.html'
+    else:
+        url = f'{BASE_URL}/search.aspx?filename=/docketfiles/{internal}.htm'
     try:
         html   = fetch_html(url)
         parser = DocketParser(page_url=url)
