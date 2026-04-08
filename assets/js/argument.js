@@ -437,7 +437,8 @@ function caseTitleLabel(caseEntry) {
   let suffix = '';
   if (caseEntry.number) {
     const isMulti = /,/.test(caseEntry.number);
-    suffix = '\u00a0(' + (isMulti ? 'Nos.' : 'No.') + '\u00a0' + caseEntry.number + ')';
+    const displayNumber = caseEntry.number.replace(/,\s*/g, ', ').replace(/-(?=Orig|Misc)/g, '\u00a0');
+    suffix = '\u00a0(' + (isMulti ? 'Nos.' : 'No.') + '\u00a0' + displayNumber + ')';
   } else if (caseEntry.usCite) {
     suffix = '\u00a0(' + caseEntry.usCite + ')';
   }
