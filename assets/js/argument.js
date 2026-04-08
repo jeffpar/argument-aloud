@@ -1026,19 +1026,50 @@ function buildCollectionItem(sectionUl, collData, collUrl) {
 
       header.appendChild(titleSpan);
 
+      // Speaker icon — if collection case has audio
+      if (caseRef.audio) {
+        const speakerIcon = document.createElement('span');
+        speakerIcon.className = 'case-decided-icon case-audio-icon';
+        speakerIcon.textContent = '\u266b';
+        speakerIcon.title = 'Oral argument audio available';
+        header.appendChild(speakerIcon);
+      }
+
+      // Scales icon — if audio or opinion; placeholder (invisible) if audio but no opinion
+      if (caseRef.audio || caseRef.opinion_href) {
+        const icon = document.createElement('span');
+        icon.className = 'case-decided-icon';
+        icon.textContent = '\u2696';
+        if (caseRef.opinion_href) {
+          icon.title = 'Opinion issued';
+          icon.style.cursor = 'pointer';
+          ci.classList.add('decided');
+          icon.addEventListener('click', e => {
+            e.stopPropagation();
+            showDocViewer({ href: caseRef.opinion_href, title: caseRef.name });
+          });
+        } else {
+          icon.style.opacity = '0';
+          icon.style.pointerEvents = 'none';
+        }
+        header.appendChild(icon);
+      }
+
       titleSpan.addEventListener('click', async (e) => {
         const fromRestore = !!e.fromRestore;
         const cases = await fetchTermCases(caseRef.term);
-        const caseEntry = cases.find(c => c.number === caseRef.number);
+        const caseEntry = cases.find(c => c.number === caseRef.number ||
+          (c.number && c.number.split(',').map(n => n.trim()).includes(caseRef.number)));
         if (!caseEntry) {
           console.warn('[collections] case not found in cases.json:', caseRef);
           return;
         }
-        // caseRef.audio is 1-based; convert to 0-based index.
-        // On restore, prefer the URL audio param passed via e.audioIdx.
+        // caseRef.audio is a 1-based index into the date-sorted audio list.
+        // Convert to 0-based for loadCase; fall back to 0 if not a valid number.
+        const defaultAudioIdx = Number.isInteger(caseRef.audio) && caseRef.audio >= 1 ? caseRef.audio - 1 : 0;
         const audioIdx = fromRestore
-          ? (Number.isInteger(e.audioIdx) ? e.audioIdx : 0)
-          : ((caseRef.audio != null) ? Math.max(0, parseInt(caseRef.audio, 10) - 1) : 0);
+          ? (Number.isInteger(e.audioIdx) ? e.audioIdx : defaultAudioIdx)
+          : defaultAudioIdx;
         if (!fromRestore) {
           const url = buildUrlParams(
             {
@@ -1130,7 +1161,10 @@ async function loadAudioEntry(arg, basePath) {
     }
 
     const unalignedNote = document.getElementById('unaligned-note');
-    hasTimes = turns.some(t => t.time != null);
+    // Only treat as time-aligned if at least one turn has a non-zero timestamp.
+    // All-zero timestamps (e.g. Oyez data where alignment failed) should be
+    // treated as unaligned to avoid scrolling to the last turn on timeupdate.
+    hasTimes = turnTimes.some(t => t > 0);
     unalignedNote.hidden = hasTimes;
     document.getElementById('prev-turn-btn').disabled = !turns.length;
     document.getElementById('next-turn-btn').disabled = !turns.length;
@@ -1477,7 +1511,7 @@ function renderTranscript() {
 // ── Sync highlight on playback ──────────────────────────────────────────────
 
 audio.addEventListener('timeupdate', () => {
-  if (!turns.some(t => t.time != null)) return;
+  if (!hasTimes) return;
   const idx = findCurrentTurn(audio.currentTime);
   if (idx === activeTurnIdx) return;
 
@@ -2085,7 +2119,7 @@ async function init() {
           }, { once: true });
         }
         const titleEl = ci.querySelector('.case-title-nav');
-        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true, audioIdx: audioParam ?? 0 }));
+        if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), { fromRestore: true, ...(audioParam != null ? { audioIdx: audioParam } : {}) }));
       }
     }
     return;

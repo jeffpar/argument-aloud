@@ -34,7 +34,7 @@
 
 ### Cases Argued
 
-  - [Citizens United v. Federal Election Commission (2010)](https://www.oyez.org/cases/2008/08-205) (Argued March 24, 2009, reargued September 9, 2009)
+  - [Citizens United v. Federal Election Commission (2010)](https://www.oyez.org/cases/2009/08-205) (Argued March 24, 2009, reargued September 9, 2009)
   - [Salazar v. Buono (2010)](https://www.oyez.org/cases/2009/08-472) (Argued October 7, 2009)
   - [Free Enterprise Fund v. Public Company Oversight Board (2010)](https://www.oyez.org/cases/2009/08-861) (Argued December 7, 2009)
   - [United States v. Comstock (2010)](https://www.oyez.org/cases/2009/08-1224) (Argued January 12, 2010)
@@ -57,7 +57,7 @@
 
 ### Cases Argued
 
-  - [Alfred Dunhill Of London, Inc. v. Cuba (1976)](https://www.oyez.org/cases/1974/73-1288)
+  - [Alfred Dunhill Of London, Inc. v. Cuba (1976)](https://www.oyez.org/cases/1975/73-1288)
 
 ## JUSTICE THURGOOD MARSHALL
 
@@ -75,8 +75,8 @@ Thurgood Marshall argued 37 times over a total of 35 cases.  Any consolidated ca
  8. [Taylor v. Alabama (1948)](https://tile.loc.gov/storage-services/service/ll/usrep/usrep335/usrep335252/usrep335252.pdf) (Argued April 30 and May 3, 1948)
  9. [Watts v. Indiana (1949)](https://tile.loc.gov/storage-services/service/ll/usrep/usrep338/usrep338049/usrep338049.pdf) (Argued April 25, 1949)
 10. [Sweatt v. Painter (1950)](https://www.oyez.org/cases/1940-1955/339us629) (Argued April 4, 1950)
-11. [Brown v. Board of Education (1954)](https://www.oyez.org/cases/1940-1955/347us483) (Argued December 9-11, 1952; Reargued December 7-9, 1953)
-12. [Brown v. Board of Education (1955)](https://www.oyez.org/cases/1940-1955/349us294) (Argued April 11-14, 1955; Marshall argued on the 12th and 14th)
+11. [Brown v. Board of Education (1954)](https://www.oyez.org/cases/1953/1) (Argued December 9-11, 1952; Reargued December 7-9, 1953)
+12. [Brown v. Board of Education (1955)](https://www.oyez.org/cases/1954/1) (Argued April 11-14, 1955; Marshall argued on the 12th and 14th)
 13. [Aaron v. Cooper (1958)](https://www.oyez.org/cases/1957/1_misc) (Argued August 28, 1958)
 14. [Cooper v. Aaron (1958)](https://www.oyez.org/cases/1957/1_misc) (September 11, 1958)
 15. [Harrison v. NAACP (1959)](https://www.oyez.org/cases/1958/127) (Argued March 24, 1959)
@@ -150,7 +150,7 @@ John Roberts argued 39 times in a total of 38 cases.  Any consolidated cases are
   - [Franklin v. Massachusetts (1992)](https://www.oyez.org/cases/1991/91-1502)
   - [Suter v. Artist M. (1992)](https://www.oyez.org/cases/1991/90-1488)
   - [Hudson v. McMillian (1992)](https://www.oyez.org/cases/1991/90-6531)
-  - [Bray v. Alexandria Women's Health Clinic (1993)](https://www.oyez.org/cases/1991/90-985) (argued and reargued, hence two appearances)
+  - [Bray v. Alexandria Women's Health Clinic (1993)](https://www.oyez.org/cases/1992/90-985) (argued and reargued, hence two appearances)
   - [Withrow v. Williams (1993)](https://www.oyez.org/cases/1992/91-1030)
   - [United States v. Green (1993)](https://www.oyez.org/cases/1992/91-1521)
   - [Helling v. McKinney (1993)](https://www.oyez.org/cases/1992/91-1958)
