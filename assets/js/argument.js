@@ -669,30 +669,11 @@ function buildTermCases(term, cases, ul) {
           effectiveOrder.forEach(typeKey => {
             if (!groups[typeKey] || !groups[typeKey].length) return;
 
-            const groupLi = document.createElement('li');
-            groupLi.className = 'file-type-group';
+            // When "other" contains only a single file, skip the collapsible
+            // group wrapper and render the item directly under the case.
+            const isSoloOther = typeKey === 'other' && groups[typeKey].length === 1;
 
-            const typeHeader = document.createElement('div');
-            typeHeader.className = 'file-type-header';
-
-            const typeLabel = document.createElement('span');
-            typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
-
-            const typeTog = document.createElement('span');
-            typeTog.className = 'file-type-toggle';
-            typeTog.textContent = '\u25b6';
-
-            typeHeader.appendChild(typeTog);
-            typeHeader.appendChild(typeLabel);
-            typeHeader.addEventListener('click', e => {
-              e.stopPropagation();
-              groupLi.classList.toggle('open');
-            });
-
-            const itemsUl = document.createElement('ul');
-            itemsUl.className = 'file-type-items';
-
-            groups[typeKey].forEach(f => {
+            function makeFileItem(f) {
               const fi = document.createElement('li');
               fi.className = 'file-item';
               if (f.file != null) fi.dataset.fileId = f.file;
@@ -716,8 +697,38 @@ function buildTermCases(term, cases, ul) {
                   docViewerOpenHeight = savedHeight;
                 }
               });
-              itemsUl.appendChild(fi);
+              return fi;
+            }
+
+            if (isSoloOther) {
+              fileUl.appendChild(makeFileItem(groups[typeKey][0]));
+              return;
+            }
+
+            const groupLi = document.createElement('li');
+            groupLi.className = 'file-type-group';
+
+            const typeHeader = document.createElement('div');
+            typeHeader.className = 'file-type-header';
+
+            const typeLabel = document.createElement('span');
+            typeLabel.textContent = TYPE_LABELS[typeKey] || typeKey;
+
+            const typeTog = document.createElement('span');
+            typeTog.className = 'file-type-toggle';
+            typeTog.textContent = '\u25b6';
+
+            typeHeader.appendChild(typeTog);
+            typeHeader.appendChild(typeLabel);
+            typeHeader.addEventListener('click', e => {
+              e.stopPropagation();
+              groupLi.classList.toggle('open');
             });
+
+            const itemsUl = document.createElement('ul');
+            itemsUl.className = 'file-type-items';
+
+            groups[typeKey].forEach(f => itemsUl.appendChild(makeFileItem(f)));
 
             groupLi.appendChild(typeHeader);
             groupLi.appendChild(itemsUl);

@@ -1158,6 +1158,89 @@ def validate_case(term_dir: Path, case_number: str, check_urls: bool = False,
     check_opinion_for_case(files_path, case_number, term_dir.name, _print_header)
 
 
+def deduplicate_cases(cases_path: Path) -> None:
+    """Detect and merge duplicate case entries where a stub entry's number is a
+    component of a more-complete entry's comma-separated number.
+
+    When import_cases.py finds a transcript for a number (e.g. '00-832') that
+    already exists inside a consolidated entry ('00-832,00-843'), it may create
+    a redundant stub entry.  This function detects that situation, merges the
+    stub's transcript_href into the complete entry's matching audio object, and
+    removes the stub.
+    """
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    def _is_stub(c: dict) -> bool:
+        """True if this entry has no id/votes and only transcript-only audio."""
+        if c.get('id') or c.get('votes'):
+            return False
+        return all(
+            not a.get('audio_href') and a.get('transcript_href')
+            for a in c.get('audio', [])
+        )
+
+    # Map each individual number component → index of the first case containing it.
+    comp_to_idx: dict[str, int] = {}
+    duplicates: list[tuple[int, int]] = []  # (complete_idx, stub_idx)
+    for i, case in enumerate(data):
+        raw = case.get('number', '')
+        if not raw:
+            continue
+        for part in (p.strip() for p in raw.split(',') if p.strip()):
+            if part in comp_to_idx:
+                other_idx = comp_to_idx[part]
+                other = data[other_idx]
+                if _is_stub(case) and not _is_stub(other):
+                    duplicates.append((other_idx, i))
+                elif _is_stub(other) and not _is_stub(case):
+                    duplicates.append((i, other_idx))
+                else:
+                    print(f'WARNING: {raw!r} and {other.get("number")!r} share '
+                          f'component {part!r} but neither is clearly a stub — skipping')
+            else:
+                comp_to_idx[part] = i
+
+    if not duplicates:
+        return
+
+    processed_stubs: set[int] = set()
+    to_remove: set[int] = set()
+    for complete_idx, stub_idx in duplicates:
+        if stub_idx in processed_stubs:
+            continue
+        processed_stubs.add(stub_idx)
+
+        complete = data[complete_idx]
+        stub = data[stub_idx]
+        label = complete.get('number') or complete.get('id', '?')
+        for stub_audio in stub.get('audio', []):
+            transcript_href = stub_audio.get('transcript_href')
+            date = stub_audio.get('date')
+            if not transcript_href:
+                continue
+            merged = False
+            for comp_audio in complete.get('audio', []):
+                if comp_audio.get('date') == date and not comp_audio.get('transcript_href'):
+                    comp_audio['transcript_href'] = transcript_href
+                    merged = True
+                    print(f'  {label} ({date}): merged transcript_href from stub {stub.get("number")}')
+                    break
+            if not merged:
+                print(f'  WARNING: no audio date {date!r} in {label!r} to receive '
+                      f'transcript_href from stub {stub.get("number")}')
+
+        to_remove.add(stub_idx)
+
+    kept = [c for i, c in enumerate(data) if i not in to_remove]
+    cases_path.write_text(
+        json.dumps(kept, indent=2, ensure_ascii=False) + '\n',
+        encoding='utf-8',
+    )
+    print(f'  Removed {len(to_remove)} duplicate stub entry(ies) from {cases_path.name}.')
+
+
 def check_duplicate_case_numbers(term_dir: Path, term: str, verbose: bool = False) -> None:
     """Warn if any case number appears more than once in cases.json."""
     cases_path = term_dir / 'cases.json'
@@ -1314,6 +1397,7 @@ def main() -> None:
     cases_path = term_dir / 'cases.json'
     if cases_path.exists():
         migrate_arguments_to_audio(cases_path)
+        deduplicate_cases(cases_path)
         validate_cases_json_arguments(cases_path, term, dry_run)
         normalize_audio_aligned_position(cases_path)
         check_audio_dates(cases_path, term, dry_run)

@@ -4,11 +4,15 @@ producing a cases.json, and generating transcript JSON files from the PDF
 transcripts.
 
 Usage:
-    python3 scripts/import_cases.py TERM
+    python3 scripts/import_cases.py TERM [--docket]
 
 Examples:
     python3 scripts/import_cases.py 2025-10
-    python3 scripts/import_cases.py 2024-10
+    python3 scripts/import_cases.py 2024-10 --docket
+
+Flags:
+    --docket   Fetch docket pages from supremecourt.gov to populate
+               questions_href and files.json proceedings entries.
 
 The term must be in YYYY-10 format. The corresponding supremecourt.gov listing
 page (https://www.supremecourt.gov/oral_arguments/argument_audio/YYYY) is
@@ -65,7 +69,7 @@ ORIG_RE  = re.compile(r'^(\d+)[\s-]Orig\.?$', re.IGNORECASE)
 
 # Like CASE_RE but also matches '130Orig' (no hyphen) and bare numbers (e.g. '163') as
 # seen on archived transcript listing pages for pre-2000 terms.
-_TRANSCRIPT_CASE_RE = re.compile(r'^(\d+(?:-\d+|-?Orig\.?|A\d+)?)\s+(.+)$', re.IGNORECASE)
+_TRANSCRIPT_CASE_RE = re.compile(r'^(\d+(?:-\d+|-?Orig\.?|A\d+)?)\.?\s+(.+)$', re.IGNORECASE)
 _ORIG_NORM_RE       = re.compile(r'[\s-]*Orig\.?$', re.IGNORECASE)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -185,6 +189,15 @@ def _normalize_number(num: str) -> str:
     num = num.strip().rstrip('.')
     num = _ORIG_NORM_RE.sub('-Orig', num)
     return num
+
+
+def _case_folder(number: str) -> str:
+    """Return the case folder name for a number field.
+
+    For consolidated cases (e.g. '00-832,00-843') the folder uses the first
+    (lead) number only, matching the convention in validate_cases.py.
+    """
+    return number.split(',')[0].strip()
 
 
 # ── Transcript extraction ────────────────────────────────────────────────────
@@ -680,7 +693,7 @@ def update_docket_info(cases_path: Path, term_year: str = '') -> None:
 
     for case in existing:
         number     = case['number']
-        files_path = cases_path.parent / 'cases' / number / 'files.json'
+        files_path = cases_path.parent / 'cases' / _case_folder(number) / 'files.json'
 
         if case.get('questions_href'):
             # Docket was already fetched (questions_href proves it). Only re-fetch
@@ -713,7 +726,7 @@ def update_docket_info(cases_path: Path, term_year: str = '') -> None:
 
         proceedings = info.get('proceedings', [])
         if proceedings:
-            case_dir   = cases_path.parent / 'cases' / number
+            case_dir   = cases_path.parent / 'cases' / _case_folder(number)
             files_path = case_dir / 'files.json'
             case_dir.mkdir(parents=True, exist_ok=True)
 
@@ -772,7 +785,7 @@ def generate_missing_transcripts(cases_path: Path) -> None:
             if '/pdfs/transcripts/' in pdf_url:
                 continue
 
-            case_dir       = cases_path.parent / 'cases' / case['number']
+            case_dir       = cases_path.parent / 'cases' / _case_folder(case['number'])
             transcript_out = case_dir / f'{date}.json'
 
             if transcript_out.exists():
@@ -829,7 +842,7 @@ def migrate_transcripts(cases_path: Path) -> None:
     total = 0
     for case in existing:
         number = case['number']
-        case_dir = cases_path.parent / 'cases' / number
+        case_dir = cases_path.parent / 'cases' / _case_folder(number)
         for arg in case.get('audio', []):
             date = arg.get('date', '')
             transcript_path = case_dir / f'{date}.json'
@@ -937,7 +950,7 @@ def add_transcript_entries(cases_path: Path) -> None:
             if not pdf_url or not date:
                 continue
 
-            case_dir   = cases_path.parent / 'cases' / number
+            case_dir   = cases_path.parent / 'cases' / _case_folder(number)
             files_path = case_dir / 'files.json'
             case_dir.mkdir(parents=True, exist_ok=True)
 
@@ -1084,7 +1097,7 @@ def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
         """Add a type='transcript' entry to this case's files.json if not present."""
         pdf_url    = row['pdf_url']
         dt_str     = row['date']
-        case_dir   = cases_path.parent / 'cases' / case['number']
+        case_dir   = cases_path.parent / 'cases' / _case_folder(case['number'])
         files_path = case_dir / 'files.json'
         case_dir.mkdir(parents=True, exist_ok=True)
         files = json.loads(files_path.read_text(encoding='utf-8')) if files_path.exists() else []
@@ -1106,12 +1119,20 @@ def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
     # Pass 1: match existing cases
     matched_rows: set[tuple[str, str]] = set()  # (number, date) pairs handled
     for case in existing:
-        norm = _normalize_number(case['number'])
-        rows = by_number.get(norm, [])
+        # For consolidated cases (e.g. "00-832,00-843") check each component.
+        case_norms = [_normalize_number(n) for n in case['number'].split(',')]
+        seen_row_keys: set[tuple] = set()
+        rows = []
+        for cn in case_norms:
+            for r in by_number.get(cn, []):
+                k = (r['number'], r['date'])
+                if k not in seen_row_keys:
+                    seen_row_keys.add(k)
+                    rows.append(r)
         if not rows:
             continue
         for row in rows:
-            key = (norm, row['date'])
+            key = (row['number'], row['date'])
             matched_rows.add(key)
             _add_to_files(case, row)
             # Assign transcript_href to any audio entry with a matching date
@@ -1140,7 +1161,12 @@ def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
                     break  # assign to first matching USSC entry only
 
     # Pass 2: create new cases for unmatched transcripts
-    existing_numbers = {_normalize_number(c['number']) for c in existing}
+    # Include all components of multi-number cases so e.g. "00-832" is recognised
+    # as already present when "00-832,00-843" exists.
+    existing_numbers: set[str] = set()
+    for c in existing:
+        for n in c['number'].split(','):
+            existing_numbers.add(_normalize_number(n.strip()))
     new_by_num: dict[str, list[dict]] = {}
     for row in transcripts:
         key = (row['number'], row['date'])
@@ -1175,11 +1201,14 @@ def import_transcript_pdfs(cases_path: Path, year_str: str) -> None:
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    if len(sys.argv) != 2:
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    fetch_docket = '--docket' in sys.argv
+
+    if len(args) != 1:
         print(__doc__)
         sys.exit(1)
 
-    term = sys.argv[1].strip()
+    term = args[0].strip()
     m = re.fullmatch(r'(\d{4})-10', term)
     if not m:
         print(f'Error: expected a term in YYYY-10 format (e.g. 2025-10), got {term!r}')
@@ -1221,8 +1250,11 @@ def main():
 
     # Step 4: fetch docket info (questions_href + files.json proceedings)
     # supremecourt.gov docket only has data from the 2001 term onward.
+    # Requires --docket flag to run (network-heavy; run separately as needed).
     print()
-    if int(year_str) >= 2001:
+    if not fetch_docket:
+        print('Skipping docket info (pass --docket to enable).')
+    elif int(year_str) >= 2001:
         print('Fetching docket info for cases without questions_href ...')
         update_docket_info(cases_path, year_str)
     else:
@@ -1248,7 +1280,7 @@ def main():
     print('Checking for slip opinions ...')
     existing = json.loads(cases_path.read_text(encoding='utf-8'))
     for case in existing:
-        files_path = cases_path.parent / 'cases' / case['number'] / 'files.json'
+        files_path = cases_path.parent / 'cases' / _case_folder(case['number']) / 'files.json'
         if files_path.exists():
             check_opinion_for_case(files_path, case['number'], term)
 
