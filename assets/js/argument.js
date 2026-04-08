@@ -27,6 +27,8 @@ function parseTime(s) {
 }
 
 function termDisplayName(term) {
+  const entry = TERMS.find(t => t.term === term);
+  if (entry?.title) return entry.title.replace(/ /g, '\u00a0');
   const [year, month] = term.split('-');
   const months = ['January','February','March','April','May','June',
                   'July','August','September','October','November','December'];
@@ -116,13 +118,14 @@ async function loadFiles(url) {
 }
 
 // ── Lazy term loading ────────────────────────────────────────────────────────
+let TERMS = [];       // populated from terms.json in init()
+let COLLECTIONS = []; // populated from collections.json in init()
 const _termFetchPromises = new Map(); // term → inflight Promise or resolved cases[]
 
 async function fetchTermCases(term) {
   if (_termFetchPromises.has(term)) return _termFetchPromises.get(term);
-  const entry = TERMS.find(t => t.term === term);
-  if (!entry) return [];
-  const p = fetch(entry.casesUrl, { cache: 'reload' })
+  const casesUrl = '/courts/ussc/terms/' + term + '/cases.json';
+  const p = fetch(casesUrl, { cache: 'reload' })
     .then(r => r.ok ? r.json() : [])
     .catch(e => { console.warn('[cases] fetch failed for term', term, e); return []; });
   _termFetchPromises.set(term, p);
@@ -926,14 +929,14 @@ function buildCollectionsNav() {
   async function _doSectionBuild() {
     // Sort by URL so 1.json < 2.json < … regardless of Jekyll iteration order.
     const sorted = [...COLLECTIONS].sort((a, b) => a.url < b.url ? -1 : a.url > b.url ? 1 : 0);
-    for (const { url } of sorted) {
+    for (const collEntry of sorted) {
       try {
-        const res = await fetch(url, { cache: 'reload' });
+        const res = await fetch(collEntry.url, { cache: 'reload' });
         if (!res.ok) continue;
-        const collData = await res.json();
-        buildCollectionItem(sectionUl, collData, url);
+        const groups = await res.json();
+        buildCollectionItem(sectionUl, groups, collEntry);
       } catch (e) {
-        console.warn('[collections] fetch failed:', url, e);
+        console.warn('[collections] fetch failed:', collEntry.url, e);
       }
     }
   }
@@ -955,12 +958,12 @@ function buildCollectionsNav() {
   termListEl.appendChild(sectionLi);
 }
 
-function buildCollectionItem(sectionUl, collData, collUrl) {
+function buildCollectionItem(sectionUl, groups, collEntry) {
   // Each collection — styled like a term group
-  const collId = collUrl.split('/').pop().replace('.json', '');
+  const collId = collEntry.url.split('/').pop().replace('.json', '');
   const collLi = document.createElement('li');
   collLi.className = 'term-group';
-  collLi.dataset.collectionUrl = collUrl;
+  collLi.dataset.collectionUrl = collEntry.url;
 
   const collHeader = document.createElement('div');
   collHeader.className = 'term-header';
@@ -971,7 +974,7 @@ function buildCollectionItem(sectionUl, collData, collUrl) {
 
   const collLabel = document.createElement('span');
   collLabel.className = 'term-label';
-  collLabel.textContent = collData.title;
+  collLabel.textContent = collEntry.title;
 
   collHeader.appendChild(collTog);
   collHeader.appendChild(collLabel);
@@ -982,7 +985,7 @@ function buildCollectionItem(sectionUl, collData, collUrl) {
   const collUl = document.createElement('ul');
   collUl.className = 'case-list';
 
-  for (const group of collData.groups || []) {
+  for (const group of groups) {
     // Each group (e.g. "Abe Fortas") — styled like a month group
     const groupLi = document.createElement('li');
     groupLi.className = 'month-group';
@@ -2060,6 +2063,19 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
 
 // ── Init ────────────────────────────────────────────────────────────────────
 async function init() {
+  // Load terms and collections metadata before building nav
+  try {
+    const res = await fetch('/courts/ussc/terms.json', { cache: 'reload' });
+    if (res.ok) TERMS = await res.json();
+  } catch (e) {
+    console.warn('[terms] fetch failed:', e);
+  }
+  try {
+    const res = await fetch('/courts/ussc/collections.json', { cache: 'reload' });
+    if (res.ok) COLLECTIONS = await res.json();
+  } catch (e) {
+    console.warn('[collections] fetch failed:', e);
+  }
   buildNav();
 
   // Restore state from URL params
