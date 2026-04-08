@@ -52,6 +52,7 @@ REPO_ROOT    = Path(__file__).resolve().parent.parent
 SCOTUS_BASE  = 'https://www.supremecourt.gov'
 
 _OPINIONS_CACHE: dict = {}  # year_2digit -> {docket_lower: {date, name, author, href}}
+_VERBOSE: bool = False
 
 _DATE_DEC_PARSE_RE  = re.compile(
     r'^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+'
@@ -162,7 +163,8 @@ def _fetch_opinions(year_2digit: str) -> dict:
         return _OPINIONS_CACHE[year_2digit]
 
     url = f'{SCOTUS_BASE}/opinions/slipopinion/{year_2digit}'
-    print(f'Fetching opinions index: {url}')
+    if _VERBOSE:
+        print(f'Fetching opinions index: {url}')
     req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
@@ -196,8 +198,9 @@ def _fetch_opinions(year_2digit: str) -> dict:
         }
 
     _OPINIONS_CACHE[year_2digit] = opinions
-    full_year = str(2000 + int(year_2digit))
-    print(f'  Found {len(opinions)} opinion(s) for term year {full_year}.')
+    if _VERBOSE:
+        full_year = str(2000 + int(year_2digit))
+        print(f'  Found {len(opinions)} opinion(s) for term year {full_year}.')
     return opinions
 
 
@@ -308,7 +311,7 @@ def _is_transcript_aligned(transcript_path: Path) -> bool:
         return False
 
 
-def validate_cases_json_arguments(cases_path: Path) -> None:
+def validate_cases_json_arguments(cases_path: Path, term: str = '', dry_run: bool = False) -> None:
     """Add/update 'source', 'type', and 'aligned' at the top of each audio object in cases.json."""
     data = json.loads(cases_path.read_text(encoding='utf-8'))
     if not isinstance(data, list):
@@ -317,7 +320,9 @@ def validate_cases_json_arguments(cases_path: Path) -> None:
     term_dir = cases_path.parent
     modified = False
     for case in data:
+        label = case.get('number') or case.get('id', '?')
         case_dir = term_dir / 'cases' / _case_folder(case.get('number', '') or case.get('id', ''))
+        case_modified = False
         for i, arg in enumerate(case.get('audio', [])):
             audio_href = arg.get('audio_href', '')
             if not audio_href:
@@ -349,13 +354,16 @@ def validate_cases_json_arguments(cases_path: Path) -> None:
                             if k not in ('source', 'type', 'aligned')})
             case['audio'][i] = new_arg
             modified = True
+            case_modified = True
 
-    if modified:
+        if case_modified:
+            print(f' NOTICE: {term}/{label}: set aligned on audio file(s)')
+
+    if modified and not dry_run:
         cases_path.write_text(
             json.dumps(data, indent=2, ensure_ascii=False) + '\n',
             encoding='utf-8',
         )
-        print('Updated cases.json: set source/type/aligned on audio objects.')
     else:
         pass  # no changes needed
 
@@ -932,12 +940,16 @@ def _insert_key_before(case: dict, new_key: str, new_val, *, before: str) -> Non
 def check_audio_dates(cases_path: Path, term: str, dry_run: bool = False) -> None:
     """Verify audio object dates are consistent with case-level argument/decision fields.
 
-    For argument/reargument audio objects:
+    For argument audio objects:
       - Warns if an audio object lacks a date.
-      - Computes the expected 'argument' value: unique audio dates, sorted
-        chronologically and joined with ', '.
-      - Prints a notice if the case's 'argument' property differs.
+      - Computes the expected 'argument' value: unique dates sorted chronologically,
+        joined with ',' (no spaces).
+      - Prints a notice/warning if the case's 'argument' property differs.
       - Unless dry_run, updates (or inserts) 'argument' to match.
+
+    For reargument audio objects:
+      - Same as argument, but targets the 'reargument' property, inserted after
+        'argument'.
 
     For opinion audio objects:
       - Warns if an audio object lacks a date.
@@ -954,19 +966,27 @@ def check_audio_dates(cases_path: Path, term: str, dry_run: bool = False) -> Non
         label = case.get('number') or case.get('id', '?')
         title = case.get('title', '')
 
-        arg_audio_dates: list[str] = []
-        opinion_audio_dates: list[str] = []
+        arg_audio_dates:      list[str] = []
+        rearg_audio_dates:    list[str] = []
+        opinion_audio_dates:  list[str] = []
 
         for i, audio in enumerate(case.get('audio') or []):
             atype = audio.get('type', '')
             date  = audio.get('date', '')
 
-            if atype in ('argument', 'reargument'):
+            if atype == 'argument':
                 if not date:
                     print(f'WARNING: {term}/{label} ({title[:40]}): '
-                          f'audio[{i}] ({atype}) missing date')
+                          f'audio[{i}] (argument) missing date')
                 else:
                     arg_audio_dates.append(date)
+
+            elif atype == 'reargument':
+                if not date:
+                    print(f'WARNING: {term}/{label} ({title[:40]}): '
+                          f'audio[{i}] (reargument) missing date')
+                else:
+                    rearg_audio_dates.append(date)
 
             elif atype == 'opinion':
                 if not date:
@@ -977,16 +997,42 @@ def check_audio_dates(cases_path: Path, term: str, dry_run: bool = False) -> Non
 
         # ── argument property ──────────────────────────────────────────────
         if arg_audio_dates:
-            expected = ', '.join(sorted(set(arg_audio_dates)))
+            expected = ','.join(sorted(set(arg_audio_dates)))
             current  = case.get('argument', '')
             if current != expected:
-                print(f'NOTICE: {term}/{label} ({title[:40]}): '
+                prefix = 'WARNING' if current else ' NOTICE'
+                print(f'{prefix}: {term}/{label} ({title[:40]}): '
                       f'argument={current!r} → should be {expected!r}')
                 if not dry_run:
                     if 'argument' in case:
                         case['argument'] = expected
                     else:
                         _insert_key_before(case, 'argument', expected, before='decision')
+                    modified = True
+
+        # ── reargument property ────────────────────────────────────────────
+        if rearg_audio_dates:
+            expected = ','.join(sorted(set(rearg_audio_dates)))
+            current  = case.get('reargument', '')
+            if current != expected:
+                prefix = 'WARNING' if current else ' NOTICE'
+                print(f'{prefix}: {term}/{label} ({title[:40]}): '
+                      f'reargument={current!r} → should be {expected!r}')
+                if not dry_run:
+                    if 'reargument' in case:
+                        case['reargument'] = expected
+                    else:
+                        if 'argument' in case:
+                            # Insert immediately after 'argument'.
+                            new_case: dict = {}
+                            for k, v in case.items():
+                                new_case[k] = v
+                                if k == 'argument':
+                                    new_case['reargument'] = expected
+                            case.clear()
+                            case.update(new_case)
+                        else:
+                            _insert_key_before(case, 'reargument', expected, before='decision')
                     modified = True
 
         # ── decision property (from opinion audio) ─────────────────────────
@@ -998,7 +1044,8 @@ def check_audio_dates(cases_path: Path, term: str, dry_run: bool = False) -> Non
             expected = unique_opinion[0]
             current  = case.get('decision', '')
             if current != expected:
-                print(f'NOTICE: {term}/{label} ({title[:40]}): '
+                prefix = 'WARNING' if current else ' NOTICE'
+                print(f'{prefix}: {term}/{label} ({title[:40]}): '
                       f'decision={current!r} → should be {expected!r} (from opinion audio)')
                 if not dry_run:
                     if 'decision' in case:
@@ -1029,7 +1076,7 @@ def warn_missing_opinion_href(cases_path: Path, term: str) -> None:
             continue
         label = case.get('number') or case.get('id', '?')
         title = case.get('title', '')
-        print(f'WARNING: {term}/{label} ({title[:40]}): no opinion_href')
+        print(f' NOTICE: {term}/{label} ({title[:40]}): no opinion_href')
 
 
 # ── Core validation ───────────────────────────────────────────────────────────
@@ -1107,7 +1154,7 @@ def validate_case(term_dir: Path, case_number: str, check_urls: bool = False,
     check_opinion_for_case(files_path, case_number, term_dir.name, _print_header)
 
 
-def check_duplicate_case_numbers(term_dir: Path) -> None:
+def check_duplicate_case_numbers(term_dir: Path, term: str) -> None:
     """Warn if any case number appears more than once in cases.json."""
     cases_path = term_dir / 'cases.json'
     if not cases_path.exists():
@@ -1120,7 +1167,7 @@ def check_duplicate_case_numbers(term_dir: Path) -> None:
             continue
         key = number.lower()
         if key in seen:
-            print(f'WARNING: duplicate case number in cases.json: '
+            print(f'WARNING: {term}/{number}: duplicate case number in cases.json: '
                   f'{seen[key]!r} and {number!r}')
         else:
             seen[key] = number
@@ -1236,6 +1283,9 @@ def main() -> None:
     verbose       = '--verbose'   in sys.argv
     dry_run       = '--dry-run'   in sys.argv
 
+    global _VERBOSE
+    _VERBOSE = verbose
+
     if len(args) not in (1, 2):
         print(__doc__)
         sys.exit(1)
@@ -1247,19 +1297,20 @@ def main() -> None:
         print(f'Skipping {term}: directory not found.')
         sys.exit(0)
 
-    check_duplicate_case_numbers(term_dir)
+    check_duplicate_case_numbers(term_dir, term)
     check_duplicate_audio_hrefs(term_dir)
     check_cases_sync(term_dir, verbose)
 
     cases_path = term_dir / 'cases.json'
     if cases_path.exists():
         migrate_arguments_to_audio(cases_path)
-        validate_cases_json_arguments(cases_path)
+        validate_cases_json_arguments(cases_path, term, dry_run)
         normalize_audio_aligned_position(cases_path)
         check_audio_dates(cases_path, term, dry_run)
         check_decision_dates(cases_path, term)
         backfill_untracked_files(cases_path, term)
-        sync_files_count(cases_path)
+        if not dry_run:
+            sync_files_count(cases_path)
         sync_opinion_href_from_files(cases_path)
         warn_missing_opinion_href(cases_path, term)
         if check_urls:
