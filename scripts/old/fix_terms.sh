@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../.."
 
 TERMS_DIR="courts/ussc/terms"
 LOG="scripts/fix_terms.log"

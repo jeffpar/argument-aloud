@@ -24,7 +24,7 @@ if [[ $INTERVAL -lt 1 ]]; then
     exit 1
 fi
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../.."
 
 LOG="scripts/get_terms.log"
 
