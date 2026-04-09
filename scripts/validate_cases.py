@@ -330,9 +330,10 @@ def validate_cases_json_arguments(cases_path: Path, term: str = '', dry_run: boo
 
             source, inferred_type = _detect_source_type(audio_href)
 
-            # Preserve any explicitly recorded type; only fall back to the
-            # URL-inferred type when the key is absent entirely.
-            type_val = arg.get('type') or inferred_type
+            # Preserve any explicitly recorded source/type; only fall back to
+            # URL-inferred values when the key is absent entirely.
+            source   = arg.get('source')   or source
+            type_val = arg.get('type')     or inferred_type
 
             text_href = arg.get('text_href', '')
             is_aligned = bool(

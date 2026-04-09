@@ -901,6 +901,19 @@ body {
   height: auto !important;
 }
 
+/* When audio is present but there is no text transcript, collapse the
+   transcript pane so the doc viewer can expand to fill the space. */
+#transcript-viewer.no-transcript {
+  flex: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+#transcript-viewer.no-transcript ~ #doc-viewer:not([hidden]):not(.collapsed) {
+  flex: 1;
+  height: auto !important;
+}
+
 #empty-state {
   height: 100%;
   display: flex;
