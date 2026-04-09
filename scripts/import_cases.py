@@ -78,8 +78,8 @@ BASE_URL  = 'https://www.supremecourt.gov'
 # ── Docket number map ─────────────────────────────────────────────────────────
 
 def _load_docket_map() -> dict[tuple[str, str], str]:
-    """Load scripts/docketmap.txt and return {(term_year, case_number): docket_number}."""
-    path = Path(__file__).parent / 'docketmap.txt'
+    """Load scripts/import_cases.txt and return {(term_year, case_number): docket_number}."""
+    path = Path(__file__).parent / 'import_cases.txt'
     result: dict[tuple[str, str], str] = {}
     if not path.exists():
         return result
@@ -104,7 +104,7 @@ def _docket_number(case_number: str, term_year: str) -> str:
 
     For standard cases (24-123, 24A884) this is just the case number itself.
     For original-jurisdiction cases (141-Orig) the default rule is YYOxxx
-    where YY is the 2-digit term year, but docketmap.txt can override this.
+    where YY is the 2-digit term year, but import_cases.txt can override this.
     """
     m = ORIG_RE.match(case_number)
     if m:
