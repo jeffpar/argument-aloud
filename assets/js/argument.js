@@ -634,7 +634,7 @@ function buildTermCases(term, cases, ul) {
 
           // For each audio entry whose transcript_href has no corresponding file
           // entry, inject a virtual transcript file object at the end of rawFiles.
-          if (caseEntry.files) {
+          {
             const existingHrefs = new Set(rawFiles.map(f => f.href).filter(Boolean));
             const audioByDate = [...(caseEntry.audio || [])]
               .sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
@@ -1256,6 +1256,8 @@ async function loadAudioEntry(arg, basePath) {
       : [...new Map(turns.map(t => [t.name, { name: t.name }])).values()];
 
     renderTranscript();
+    document.getElementById('transcript-viewer')
+      .classList.toggle('no-transcript', turns.length === 0);
     const docPanel = document.getElementById('doc-viewer');
     if (!docPanel.hidden && !docPanel.classList.contains('collapsed')) {
       collapseDocViewer();
@@ -1355,7 +1357,7 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
   // Restore audio-select visibility for normal audio cases.
   // Reset height so the doc viewer reopens at the default 45vh, not any
   // full-height value left over from a previous no-audio (historical) case.
-  document.getElementById('transcript-viewer').classList.remove('no-audio');
+  document.getElementById('transcript-viewer').classList.remove('no-audio', 'no-transcript');
   document.getElementById('audio-select').hidden = false;
   document.getElementById('decision-date-label').hidden = true;
   _currentOpinionHref = caseEntry.opinion_href || null;

@@ -6,18 +6,26 @@ decisions-prev.json) whose dateDecision falls within that term's date range,
 matches them to existing target cases by decision date + docket numbers, and
 updates the target cases with verified/corrected fields.
 
+A source docket may cover several numbers (e.g. "70-85,70-94,70-57").  Each
+target case whose numbers are a subset of the source docket is treated as a
+valid match and updated independently — so intentionally separated cases all
+receive the same source information without being re-grouped.
+
 Fields updated when differing:
-  id, title (if all-caps + source has caseTitle), number (expanded to full
-  source docket list), volume, page, usCite, voteMajority, voteMinority,
+  id (only when the source matched exactly one target), title (if all-caps +
+  source has caseTitle), number (expanded to full source docket list only when
+  a single target matched), volume, page, usCite, voteMajority, voteMinority,
   votes (fully rewritten), opinion_href, dateArgument, dateRearg.
 
-Source cases with no matching target case are printed at the end.
+Source cases with no matching target case are printed at the end.  New case
+objects are created only when --add is specified.
 
 Usage:
-    python3 scripts/backfill_terms.py [--dry-run] [<term-folder>]
+    python3 scripts/backfill_terms.py [--dry-run] [--add] [<term-folder>]
 
     <term-folder>  Optional: restrict to one term folder (e.g. "1955-10").
     --dry-run      Show what would change without writing any files.
+    --add          Also create new case objects for unmatched source cases.
 """
 
 import json
@@ -163,7 +171,7 @@ def apply_changes(case, changes):
 
 # ── Core processing ───────────────────────────────────────────────────────────
 
-def process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_order, dry_run):
+def process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_order, dry_run, allow_add):
     cases_path = TERMS_DIR / term / 'cases.json'
     if not cases_path.exists():
         return
@@ -198,12 +206,14 @@ def process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_
         src_date    = src.get('dateDecision', '')
         src_caseId  = src.get('caseId', '')
 
-        # ── Find matching target case ────────────────────────────────────────
-        # Criteria: (1) decision date matches, (2) target numbers <= source dockets
-        # (or date-only match when source has no dockets), (3) if target already
-        # has an 'id', it must equal the source's caseId.
-        match = None
-        for tgt in target_cases:
+        # ── Find all matching target cases ───────────────────────────────────
+        # Criteria: (1) decision date matches, (2) target numbers are a subset
+        # of source dockets (or date-only match when source has no dockets),
+        # (3) if target already has an 'id', it must equal the source's caseId.
+        # A single source may match multiple separate target cases when the
+        # source groups dockets that we have intentionally separated.
+        matches = []
+        for tgt_idx, tgt in enumerate(target_cases):
             if tgt.get('decision', '') != src_date:
                 continue
             raw_num = str(tgt.get('number') or '').strip()
@@ -217,95 +227,99 @@ def process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_
             tgt_id = tgt.get('id')
             if tgt_id and src_caseId and tgt_id != src_caseId:
                 continue
-            match = tgt
-            matched_indices.add(target_cases.index(tgt))
-            break
+            matches.append((tgt_idx, tgt))
+            matched_indices.add(tgt_idx)
 
-        if match is None:
+        if not matches:
             unmatched.append(src)
             continue
 
-        existing_id = match.get('id')
-
-        # ── Compute desired field values ─────────────────────────────────────
+        sole_match = len(matches) == 1
         vol, page = parse_us_cite(src.get('usCite', ''))
+        justices  = src.get('justices') or []
+        new_votes = (build_votes(justices, jname_map, vote_map, justice_order,
+                                 chief_lastname=src.get('chief', ''))
+                     if justices else None)
 
-        changes = {}
+        for _tgt_idx, match in matches:
+            existing_id = match.get('id')
 
-        # id
-        if not existing_id and src_caseId:
-            changes['id'] = src_caseId
+            # ── Compute desired field values ─────────────────────────────────
+            changes = {}
 
-        # title: update if target is all-caps and source has caseTitle
-        src_title = (src.get('caseTitle') or '').strip()
-        if src_title and title_is_allcaps(match.get('title', '')):
-            changes['title'] = src_title
+            # id: only assign when this source matched exactly one target
+            if sole_match and not existing_id and src_caseId:
+                changes['id'] = src_caseId
 
-        # number: expand if target number is a strict subset of source dockets
-        raw_num = str(match.get('number') or '').strip()
-        tgt_numbers = [p.strip() for p in raw_num.split(',') if p.strip()] if raw_num else []
-        if src_dockets and set(tgt_numbers) < set(src_dockets):
-            changes['number'] = ','.join(src_dockets)
+            # title: update if target is all-caps and source has caseTitle
+            src_title = (src.get('caseTitle') or '').strip()
+            if src_title and title_is_allcaps(match.get('title', '')):
+                changes['title'] = src_title
 
-        # volume / page
-        if vol is not None:
-            if match.get('volume') != vol:
-                changes['volume'] = vol
-            if match.get('page') != page:
-                changes['page'] = page
+            # number: expand only when this source matched exactly one target
+            # and the target's numbers are a strict subset of source dockets
+            raw_num = str(match.get('number') or '').strip()
+            tgt_numbers = [p.strip() for p in raw_num.split(',') if p.strip()] if raw_num else []
+            if sole_match and src_dockets and set(tgt_numbers) < set(src_dockets):
+                changes['number'] = ','.join(src_dockets)
 
-        # usCite
-        src_usCite = src.get('usCite', '')
-        if src_usCite and match.get('usCite') != src_usCite:
-            changes['usCite'] = src_usCite
+            # volume / page
+            if vol is not None:
+                if match.get('volume') != vol:
+                    changes['volume'] = vol
+                if match.get('page') != page:
+                    changes['page'] = page
 
-        # voteMajority / voteMinority
-        maj = src.get('majVotes')
-        if maj is not None and match.get('voteMajority') != maj:
-            changes['voteMajority'] = maj
-        mn = src.get('minVotes')
-        if mn is not None and match.get('voteMinority') != mn:
-            changes['voteMinority'] = mn
+            # usCite
+            src_usCite = src.get('usCite', '')
+            if src_usCite and match.get('usCite') != src_usCite:
+                changes['usCite'] = src_usCite
 
-        # opinion_href
-        if vol and page:
-            desired_href = loc_href(vol, page)
-            if match.get('opinion_href') != desired_href:
-                changes['opinion_href'] = desired_href
+            # voteMajority / voteMinority
+            maj = src.get('majVotes')
+            if maj is not None and match.get('voteMajority') != maj:
+                changes['voteMajority'] = maj
+            mn = src.get('minVotes')
+            if mn is not None and match.get('voteMinority') != mn:
+                changes['voteMinority'] = mn
 
-        # votes: rewrite from source justices
-        justices = src.get('justices') or []
-        if justices:
-            new_votes = build_votes(justices, jname_map, vote_map, justice_order,
-                                    chief_lastname=src.get('chief', ''))
-            expected = (src.get('majVotes') or 0) + (src.get('minVotes') or 0)
-            if expected and len(new_votes) != expected:
-                term_print('WARN vote count mismatch for {}: got {}, expected {}'.format(
-                    match.get('title', '?'), len(new_votes), expected
-                ))
-            if match.get('votes') != new_votes:
-                changes['votes'] = new_votes
+            # opinion_href
+            if vol and page:
+                desired_href = loc_href(vol, page)
+                if match.get('opinion_href') != desired_href:
+                    changes['opinion_href'] = desired_href
 
-        # argument / reargument (only if non-empty in source)
-        for src_field, tgt_field in (('dateArgument', 'argument'), ('dateRearg', 'reargument')):
-            val = (src.get(src_field) or '').strip()
-            if val and match.get(tgt_field) != val:
-                changes[tgt_field] = val
+            # votes: rewrite from source justices
+            if new_votes is not None:
+                expected = (src.get('majVotes') or 0) + (src.get('minVotes') or 0)
+                if expected and len(new_votes) != expected:
+                    term_print('WARN vote count mismatch for {}: got {}, expected {}'.format(
+                        match.get('title', '?'), len(new_votes), expected
+                    ))
+                if match.get('votes') != new_votes:
+                    changes['votes'] = new_votes
 
-        if not changes:
-            continue
+            # argument / reargument: only fill in when the field is absent;
+            # never overwrite dates we may have corrected since the initial backfill.
+            for src_field, tgt_field in (('dateArgument', 'argument'), ('dateRearg', 'reargument')):
+                val = (src.get(src_field) or '').strip()
+                if val and not match.get(tgt_field):
+                    changes[tgt_field] = val
 
-        title_label = match.get('title', '?')
-        _docket  = src.get('docket') or '—'
-        _argued  = (src.get('dateArgument') or '').strip() or '—'
-        _decided = src.get('dateDecision') or '?'
-        _suffix  = '(No. {}, Argued {}, Decided {})'.format(_docket, _argued, _decided)
-        if dry_run:
-            term_print('UPDATE: {} {}'.format(title_label, _suffix))
-        else:
-            apply_changes(match, changes)
-            term_print('  UPDATED: {} {}'.format(title_label, _suffix))
-            modified = True
+            if not changes:
+                continue
+
+            title_label = match.get('title', '?')
+            _docket  = src.get('docket') or '—'
+            _argued  = (src.get('dateArgument') or '').strip() or '—'
+            _decided = src.get('dateDecision') or '?'
+            _suffix  = '(No. {}, Argued {}, Decided {})'.format(_docket, _argued, _decided)
+            if dry_run:
+                term_print('UPDATE: {} {}'.format(title_label, _suffix))
+            else:
+                apply_changes(match, changes)
+                term_print('  UPDATED: {} {}'.format(title_label, _suffix))
+                modified = True
 
     added = False
     for src in unmatched:
@@ -313,6 +327,12 @@ def process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_
         docket  = src.get('docket') or '—'
         argued  = (src.get('dateArgument') or '').strip()
         decided = src.get('dateDecision') or '?'
+
+        if not allow_add:
+            term_print('UNMATCHED: {} (No. {}, Argued {}, Decided {})'.format(
+                title_label, docket, argued or '—', decided
+            ))
+            continue
 
         if not argued:
             term_print('UNMATCHED: {} (No. {}, Argued —, Decided {})'.format(
@@ -389,8 +409,22 @@ def process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_
         if i not in matched_indices:
             _title   = tgt.get('title', '?')
             _docket  = tgt.get('number') or '—'
-            _argued  = tgt.get('argument') or '—'
-            _decided = tgt.get('decision') or '?'
+            # Try to find the source entry whose docket overlaps with this target,
+            # so we can show the source's dates and highlight any date mismatch.
+            tgt_numbers = {p.strip() for p in _docket.split(',') if p.strip()}
+            src_match = None
+            if tgt_numbers:
+                for sc in source_cases:
+                    src_dockets = set(normalize_dockets(sc.get('docket') or ''))
+                    if tgt_numbers & src_dockets:
+                        src_match = sc
+                        break
+            if src_match:
+                _argued  = (src_match.get('dateArgument') or '').strip() or '—'
+                _decided = src_match.get('dateDecision') or '?'
+            else:
+                _argued  = tgt.get('argument') or '—'
+                _decided = tgt.get('decision') or '?'
             term_print('  UNKNOWN: {} (No. {}, Argued {}, Decided {})'.format(
                 _title, _docket, _argued, _decided
             ))
@@ -399,7 +433,8 @@ def process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 def main():
-    dry_run = '--dry-run' in sys.argv
+    dry_run   = '--dry-run' in sys.argv
+    allow_add = '--add'     in sys.argv
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     term_filter = args[0] if args else None
 
@@ -428,9 +463,11 @@ def main():
 
     if dry_run:
         print('[DRY RUN — no files will be written]\n')
+    if not allow_add:
+        print('[--add not specified; unmatched source cases will only be reported]\n')
 
     for term in terms_to_process:
-        process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_order, dry_run)
+        process_term(term, sorted_terms, source_cases, jname_map, vote_map, justice_order, dry_run, allow_add)
 
     print('\nDone.')
 
