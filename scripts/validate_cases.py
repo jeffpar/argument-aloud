@@ -435,10 +435,10 @@ def sync_files_count(cases_path: Path) -> None:
 # ── Remove redundant transcript file entries ──────────────────────────────────
 
 def remove_redundant_transcript_files(cases_path: Path) -> None:
-    """For each case, if an audio object has a transcript_href that is also
-    recorded in files.json as a 'transcript' entry with the same href and date,
-    remove it from files.json (renumbering subsequent entries to close the gap),
-    delete files.json if it becomes empty, and decrement the case's 'files' count.
+    """For each case, ensure every transcript entry in files.json is represented
+    as a transcript_href in a matching audio object, creating the audio object if
+    necessary.  Then remove the now-redundant file entry, renumbering subsequent
+    entries to close any gap; delete files.json if it becomes empty.
     """
     data = json.loads(cases_path.read_text(encoding='utf-8'))
     if not isinstance(data, list):
@@ -457,16 +457,86 @@ def remove_redundant_transcript_files(cases_path: Path) -> None:
         if not isinstance(files, list):
             continue
 
-        # Collect the transcript hrefs (with their dates) from audio objects.
-        audio_transcripts: set[tuple[str, str]] = set()
-        for a in case.get('audio', []):
-            href = a.get('transcript_href', '')
-            date = a.get('date', '')
-            if href and date:
-                audio_transcripts.add((href, date))
-
-        if not audio_transcripts:
+        # Identify transcript file entries that need to be promoted to an audio
+        # object (or merged into one) before being removed from files.json.
+        transcript_file_entries = [
+            f for f in files if f.get('type') == 'transcript'
+        ]
+        if not transcript_file_entries:
             continue
+
+        label = case.get('number') or case.get('id', '?')
+        audio_list: list[dict] = case.setdefault('audio', [])
+        audio_modified = False
+
+        for tf in transcript_file_entries:
+            tf_href = tf.get('href', '')
+            tf_date = tf.get('date', '')
+            if not tf_href or not tf_date:
+                continue
+
+            # Find an existing audio object for this date.
+            matched = next((a for a in audio_list if a.get('date') == tf_date), None)
+            if matched is not None:
+                if not matched.get('transcript_href'):
+                    raw_title = tf.get('title', '')
+                    arg_title = re.sub(r'^Transcript of\s+', '', raw_title).strip() or raw_title
+                    # Rebuild the audio object inserting title (if missing) and
+                    # transcript_href just before any trailing keys, so the key
+                    # order reads naturally.
+                    rebuilt: dict = {}
+                    for k, v in matched.items():
+                        rebuilt[k] = v
+                    if not matched.get('title') and arg_title:
+                        rebuilt['title'] = arg_title
+                    rebuilt['transcript_href'] = tf_href
+                    matched.clear()
+                    matched.update(rebuilt)
+                    print(f'  {label} ({tf_date}): added transcript_href to existing audio object')
+                    audio_modified = True
+                elif not matched.get('title'):
+                    # transcript_href already present but title is missing — fill it in
+                    # before files.json gets deleted so the title isn't lost.
+                    raw_title = tf.get('title', '')
+                    arg_title = re.sub(r'^Transcript of\s+', '', raw_title).strip() or raw_title
+                    if arg_title:
+                        rebuilt = {}
+                        for k, v in matched.items():
+                            rebuilt[k] = v
+                            if k == 'date':
+                                rebuilt['title'] = arg_title
+                        if 'title' not in rebuilt:
+                            rebuilt['title'] = arg_title
+                        matched.clear()
+                        matched.update(rebuilt)
+                        audio_modified = True
+            else:
+                # Build the title by stripping the "Transcript of " prefix so
+                # it reads as an argument title, e.g. "Oral Argument on …"
+                raw_title = tf.get('title', '')
+                arg_title = re.sub(r'^Transcript of\s+', '', raw_title).strip() or raw_title
+                new_audio: dict = {}
+                new_audio['source'] = 'ussc'
+                new_audio['type']   = 'argument'
+                new_audio['title']  = arg_title
+                new_audio['date']   = tf_date
+                new_audio['transcript_href'] = tf_href
+                audio_list.append(new_audio)
+                # Re-sort by date.
+                case['audio'] = sorted(audio_list, key=lambda a: a.get('date') or '')
+                audio_list = case['audio']
+                print(f'  {label} ({tf_date}): created audio object with transcript_href')
+                audio_modified = True
+
+        if audio_modified:
+            cases_modified = True
+
+        # Now collect all (href, date) pairs covered by audio objects.
+        audio_transcripts: set[tuple[str, str]] = {
+            (a.get('transcript_href', ''), a.get('date', ''))
+            for a in audio_list
+            if a.get('transcript_href') and a.get('date')
+        }
 
         # Find redundant entries: type='transcript' whose (href, date) matches.
         to_remove = [
@@ -493,7 +563,6 @@ def remove_redundant_transcript_files(cases_path: Path) -> None:
                 f['file'] = fid - gap
             new_files.append(f)
 
-        label = case.get('number') or case.get('id', '?')
         if new_files:
             files_path.write_text(
                 json.dumps(new_files, indent=2, ensure_ascii=False) + '\n',
@@ -501,6 +570,11 @@ def remove_redundant_transcript_files(cases_path: Path) -> None:
             )
         else:
             files_path.unlink()
+            # Remove the case folder too if it is now empty.
+            case_dir = files_path.parent
+            remaining = [p for p in case_dir.iterdir() if not p.name.startswith('.')]
+            if not remaining:
+                case_dir.rmdir()
 
         removed_count = len(to_remove)
         print(f'  {label}: removed {removed_count} redundant transcript file '
@@ -1254,15 +1328,25 @@ def deduplicate_cases(cases_path: Path) -> None:
     """Detect and merge duplicate case entries where a stub entry's number is a
     component of a more-complete entry's comma-separated number.
 
-    When import_cases.py finds a transcript for a number (e.g. '00-832') that
-    already exists inside a consolidated entry ('00-832,00-843'), it may create
-    a redundant stub entry.  This function detects that situation, merges the
-    stub's transcript_href into the complete entry's matching audio object, and
-    removes the stub.
+    Steps for each (complete, stub) pair:
+      1. Clean the stub's files.json: remove any transcript file entries whose
+         href is already expressed in an audio object's transcript_href (the
+         virtual-file mechanism means storing them in files.json is redundant).
+         Delete files.json if it becomes empty, then delete the stub's folder
+         if it contains nothing else.
+      2. Merge the stub's audio objects into the complete case:
+           - If the complete case already has an audio entry for the same date,
+             copy any missing transcript_href across.
+           - If no matching audio entry exists, append the stub's entry.
+      3. Merge any remaining files.json entries from the stub into the complete
+         case's files.json (deduped by href).
+      4. Remove the stub from cases.json.
     """
     data = json.loads(cases_path.read_text(encoding='utf-8'))
     if not isinstance(data, list):
         return
+
+    term_dir = cases_path.parent
 
     def _is_stub(c: dict) -> bool:
         """True if this entry has no id/votes and only transcript-only audio."""
@@ -1305,23 +1389,145 @@ def deduplicate_cases(cases_path: Path) -> None:
         processed_stubs.add(stub_idx)
 
         complete = data[complete_idx]
-        stub = data[stub_idx]
-        label = complete.get('number') or complete.get('id', '?')
+        stub     = data[stub_idx]
+        label    = complete.get('number') or complete.get('id', '?')
+        stub_num = stub.get('number') or stub.get('id', '?')
+
+        stub_folder = _case_folder(stub.get('number', '') or stub.get('id', ''))
+        stub_dir    = term_dir / 'cases' / stub_folder
+        stub_files_path = stub_dir / 'files.json'
+
+        # ── Step 1: clean stub's files.json of redundant transcript entries ──
+        if stub_files_path.exists():
+            stub_files = json.loads(stub_files_path.read_text(encoding='utf-8'))
+            if isinstance(stub_files, list):
+                audio_transcript_hrefs: set[str] = {
+                    a['transcript_href']
+                    for a in stub.get('audio', [])
+                    if a.get('transcript_href')
+                }
+                cleaned = [
+                    f for f in stub_files
+                    if not (f.get('type') == 'transcript'
+                            and f.get('href') in audio_transcript_hrefs)
+                ]
+                if len(cleaned) < len(stub_files):
+                    if cleaned:
+                        stub_files_path.write_text(
+                            json.dumps(cleaned, indent=2, ensure_ascii=False) + '\n',
+                            encoding='utf-8',
+                        )
+                    else:
+                        stub_files_path.unlink()
+                    stub_files = cleaned
+                    print(f'  {stub_num}: cleaned redundant transcript entries from files.json')
+
+        # ── Step 2: merge stub audio into complete case ───────────────────────
+        comp_audio: list[dict] = complete.setdefault('audio', [])
         for stub_audio in stub.get('audio', []):
-            transcript_href = stub_audio.get('transcript_href')
-            date = stub_audio.get('date')
-            if not transcript_href:
-                continue
-            merged = False
-            for comp_audio in complete.get('audio', []):
-                if comp_audio.get('date') == date and not comp_audio.get('transcript_href'):
-                    comp_audio['transcript_href'] = transcript_href
-                    merged = True
-                    print(f'  {label} ({date}): merged transcript_href from stub {stub.get("number")}')
-                    break
-            if not merged:
-                print(f'  WARNING: no audio date {date!r} in {label!r} to receive '
-                      f'transcript_href from stub {stub.get("number")}')
+            date             = stub_audio.get('date')
+            transcript_href  = stub_audio.get('transcript_href')
+
+            # Look for a matching entry in the complete case (same date).
+            matched_comp = next(
+                (a for a in comp_audio if a.get('date') == date),
+                None,
+            )
+            if matched_comp is not None:
+                if transcript_href and not matched_comp.get('transcript_href'):
+                    matched_comp['transcript_href'] = transcript_href
+                    print(f'  {label} ({date}): merged transcript_href from stub {stub_num}')
+                elif (transcript_href
+                      and matched_comp.get('transcript_href') != transcript_href):
+                    # Same date but a different transcript — this is a distinct
+                    # argument entry; append rather than overwrite.
+                    entry = dict(stub_audio)
+                    if not entry.get('title') and transcript_href:
+                        stub_files_now = []
+                        if stub_files_path.exists():
+                            try:
+                                stub_files_now = json.loads(stub_files_path.read_text(encoding='utf-8'))
+                            except Exception:
+                                pass
+                        tf_match = next(
+                            (f for f in stub_files_now
+                             if f.get('type') == 'transcript'
+                             and f.get('href') == transcript_href),
+                            None,
+                        )
+                        if tf_match:
+                            raw_t = tf_match.get('title', '')
+                            entry['title'] = re.sub(r'^Transcript of\s+', '', raw_t).strip() or raw_t
+                    comp_audio.append(entry)
+                    print(f'  {label} ({date}): appended distinct transcript audio from stub {stub_num}')
+            else:
+                # Truly unique audio entry — append it to the complete case.
+                # If the stub entry lacks a title, derive one from the matching
+                # transcript file entry in the stub's files.json.
+                entry = dict(stub_audio)
+                if not entry.get('title') and transcript_href:
+                    stub_files_now = []
+                    if stub_files_path.exists():
+                        try:
+                            stub_files_now = json.loads(stub_files_path.read_text(encoding='utf-8'))
+                        except Exception:
+                            pass
+                    tf_match = next(
+                        (f for f in stub_files_now
+                         if f.get('type') == 'transcript'
+                         and f.get('href') == transcript_href),
+                        None,
+                    )
+                    if tf_match:
+                        raw_t = tf_match.get('title', '')
+                        entry['title'] = re.sub(r'^Transcript of\s+', '', raw_t).strip() or raw_t
+                comp_audio.append(entry)
+                print(f'  {label} ({date}): appended unique audio entry from stub {stub_num}')
+
+        # Re-sort audio by date after any appends.
+        complete['audio'] = sorted(comp_audio, key=lambda a: a.get('date') or '')
+
+        # ── Step 3: merge remaining files.json entries ────────────────────────
+        if stub_files_path.exists():
+            stub_files = json.loads(stub_files_path.read_text(encoding='utf-8'))
+            if isinstance(stub_files, list) and stub_files:
+                comp_folder    = _case_folder(complete.get('number', '') or complete.get('id', ''))
+                comp_dir       = term_dir / 'cases' / comp_folder
+                comp_files_path = comp_dir / 'files.json'
+                comp_dir.mkdir(parents=True, exist_ok=True)
+                comp_files = (
+                    json.loads(comp_files_path.read_text(encoding='utf-8'))
+                    if comp_files_path.exists() else []
+                )
+                existing_hrefs = {f.get('href') for f in comp_files}
+                next_id = max((f.get('file', 0) for f in comp_files), default=0) + 1
+                added = 0
+                for sf in stub_files:
+                    if sf.get('href') not in existing_hrefs:
+                        entry = dict(sf)
+                        entry['file'] = next_id
+                        next_id += 1
+                        comp_files.append(entry)
+                        existing_hrefs.add(sf.get('href'))
+                        added += 1
+                if added:
+                    comp_files_path.write_text(
+                        json.dumps(comp_files, indent=2, ensure_ascii=False) + '\n',
+                        encoding='utf-8',
+                    )
+                    print(f'  {label}: merged {added} file(s) from stub {stub_num} into files.json')
+                stub_files_path.unlink()
+
+        # ── Step 4: try to remove the now-empty stub folder ──────────────────
+        if stub_dir.exists():
+            remaining = [p for p in stub_dir.iterdir()
+                         if not p.name.startswith('.')]
+            if not remaining:
+                stub_dir.rmdir()
+                print(f'  Removed empty stub folder {stub_folder}/')
+            else:
+                names = ', '.join(p.name for p in remaining)
+                print(f'  WARNING: stub folder {stub_folder}/ still has files: {names}')
 
         to_remove.add(stub_idx)
 
@@ -1489,6 +1695,10 @@ def main() -> None:
     cases_path = term_dir / 'cases.json'
     if cases_path.exists():
         migrate_arguments_to_audio(cases_path)
+        if not dry_run:
+            # Promote transcript file entries to audio objects first, so that
+            # deduplicate_cases sees a complete audio list when merging stubs.
+            remove_redundant_transcript_files(cases_path)
         deduplicate_cases(cases_path)
         validate_cases_json_arguments(cases_path, term, dry_run)
         normalize_audio_aligned_position(cases_path)
@@ -1496,7 +1706,6 @@ def main() -> None:
         check_decision_dates(cases_path, term)
         backfill_untracked_files(cases_path, term, dry_run)
         if not dry_run:
-            remove_redundant_transcript_files(cases_path)
             sync_files_count(cases_path)
         sync_opinion_href_from_files(cases_path)
         warn_missing_opinion_href(cases_path, term)
