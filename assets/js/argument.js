@@ -368,7 +368,7 @@ function scrollActiveTurnToTranscriptTop() {
 
 // autoScroll: when true, scrolls the document viewer into view on mobile
 // (used for explicit user clicks; omitted for auto-sync during playback).
-function showDocViewer(link, { autoScroll = false, matchedRef = null, page = null } = {}) {
+function showDocViewer(link, { autoScroll = false, matchedRef = null, page = null, force = false } = {}) {
   const panel  = document.getElementById('doc-viewer');
   const card   = document.getElementById('doc-viewer-card');
   const pdfEl  = document.getElementById('doc-viewer-pdf');
@@ -410,7 +410,21 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
     card.style.display = 'none';
     pdfEl.style.display = 'block';
     const src = effectiveHref.includes('#') ? effectiveHref : effectiveHref + '#pagemode=none';
-    if (pdfEl.src !== src) pdfEl.src = src;
+    if (force || pdfEl.src !== src) {
+      // Browsers won't navigate an iframe when only the fragment changes (same-PDF, different page).
+      // Force a real reload by going to about:blank first, then setting the real src only
+      // after the blank navigation has fully committed (load event).
+      if (pdfEl.src.split('#')[0] === src.split('#')[0] || force) {
+        const targetSrc = src;
+        pdfEl.addEventListener('load', function onBlankLoad() {
+          pdfEl.removeEventListener('load', onBlankLoad);
+          pdfEl.src = targetSrc;
+        }, { once: true });
+        pdfEl.src = 'about:blank';
+      } else {
+        pdfEl.src = src;
+      }
+    }
   } else {
     pdfEl.style.display = 'none';
     pdfEl.src = '';
@@ -482,6 +496,7 @@ function setCaseTitleLabel(term, caseEntry) {
   a.href = '?' + urlParams.toString();
   a.className = 'case-title-link';
   a.textContent = caseTitleLabel(caseEntry);
+
   a.addEventListener('click', e => {
     e.preventDefault();
     const key = term + '/' + caseId(caseEntry);
@@ -1402,7 +1417,7 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
   if (caseEntry.opinion_href && caseEntry.dateDecision) {
     const sentinelOpt = document.createElement('option');
     sentinelOpt.value = 'opinion';
-    sentinelOpt.textContent = 'Decision on\u00a0' + caseEntry.dateDecision.replace(/^\w+,\s*/, '');
+    sentinelOpt.textContent = 'Decision on\u00a0' + caseEntry.dateDecision.replace(/^\w+,\s*/, '') + (caseEntry.usCite ? ' (' + caseEntry.usCite + ')' : '');
     audioSelect.appendChild(sentinelOpt);
   }
   // Clamp audioIdx to valid range
@@ -1575,7 +1590,7 @@ audio.addEventListener('timeupdate', () => {
 document.getElementById('audio-select').addEventListener('change', async (e) => {
   if (e.target.value === 'opinion') {
     if (_currentOpinionHref) {
-      showDocViewer({ href: _currentOpinionHref, title: document.getElementById('case-title-label')?.textContent || 'Opinion' });
+      showDocViewer({ href: _currentOpinionHref, title: document.getElementById('case-title-label')?.textContent || 'Opinion' }, { force: true });
     }
     return;
   }
