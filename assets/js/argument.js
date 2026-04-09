@@ -10,6 +10,7 @@ let docViewerOpenHeight = null;  // px height for next animated open (null = use
 let _currentAudioList = [];    // sorted audio entries for the active case
 let _currentBasePath  = '';    // base URL path for the active case
 let _currentOpinionHref = null; // opinion_href for the active case (used by audio dropdown sentinel)
+let _currentTranscriptPdfUrl = null; // resolved transcript_href for the active audio entry
 let _collectionsSectionLi = null; // top-level Collections <li> (set by buildCollectionsNav)
 
 const audio       = document.getElementById('audio-player');
@@ -631,6 +632,25 @@ function buildTermCases(term, cases, ul) {
           filesLoaded = true;
           const rawFiles = caseEntry.files ? await loadFiles(basePath + 'files.json') : [];
 
+          // For each audio entry whose transcript_href has no corresponding file
+          // entry, inject a virtual transcript file object at the end of rawFiles.
+          if (caseEntry.files) {
+            const existingHrefs = new Set(rawFiles.map(f => f.href).filter(Boolean));
+            const audioByDate = [...(caseEntry.audio || [])]
+              .sort((a, b) => (a.date || '') < (b.date || '') ? -1 : (a.date || '') > (b.date || '') ? 1 : 0);
+            audioByDate.forEach(a => {
+              if (a.transcript_href && !existingHrefs.has(a.transcript_href)) {
+                rawFiles.push({
+                  type:  'transcript',
+                  title: 'Transcript of ' + (a.title || ''),
+                  date:  a.date || '',
+                  href:  a.transcript_href,
+                });
+                existingHrefs.add(a.transcript_href);
+              }
+            });
+          }
+
           // Inject opinion_href as a pseudo opinion file entry only when there
           // are real files to browse — no-files cases use the scales icon instead.
           // (No injection — opinion is now accessed via the scales icon in all cases.)
@@ -1162,7 +1182,12 @@ async function loadAudioEntry(arg, basePath) {
   const transcriptUrl = arg.text_href
     ? (/^https?:\/\//i.test(arg.text_href) ? arg.text_href : (basePath + arg.text_href))
     : null;
-  const audioUrl      = arg.audio_href || (basePath + arg.audio);
+  const audioUrl = arg.audio_href
+    ? (/^https?:\/\//i.test(arg.audio_href) ? arg.audio_href : (basePath + arg.audio_href))
+    : (basePath + arg.audio);
+  _currentTranscriptPdfUrl = arg.transcript_href
+    ? (/^https?:\/\//i.test(arg.transcript_href) ? arg.transcript_href : (basePath + arg.transcript_href))
+    : null;
 
   // Reset transcript area
   turnList.style.display = 'none';
