@@ -553,7 +553,7 @@ function buildTermCases(term, cases, ul) {
 
         const titleSpan = document.createElement('span');
         titleSpan.className = 'case-title-nav';
-        titleSpan.textContent = caseEntry.title;
+        titleSpan.textContent = caseTitleLabel(caseEntry);
         titleSpan.addEventListener('click', e => {
           e.stopPropagation();
           titleSpan.classList.toggle('expanded');
@@ -1691,9 +1691,20 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     e.preventDefault();
   });
 
+  const browser = document.getElementById('browser');
+  const MIN_RIGHT_PANE = 200; // px — minimum space to leave for the right pane
+
+  function clampSidebarWidth() {
+    const max = browser.offsetWidth - MIN_RIGHT_PANE;
+    const cur = docBrowserPanel.offsetWidth;
+    if (cur > max) docBrowserPanel.style.width = Math.max(140, max) + 'px';
+  }
+  window.addEventListener('resize', clampSidebarWidth);
+
   document.addEventListener('mousemove', e => {
     if (!vDragging) return;
-    const w = Math.max(140, Math.min(520, vStartW + (e.clientX - vStartX)));
+    const max = browser.offsetWidth - MIN_RIGHT_PANE;
+    const w = Math.max(140, Math.min(max, vStartW + (e.clientX - vStartX)));
     docBrowserPanel.style.width = w + 'px';
   });
 
