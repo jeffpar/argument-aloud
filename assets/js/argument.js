@@ -998,30 +998,22 @@ function buildCollectionsNav() {
   const sectionUl = document.createElement('ul');
   sectionUl.className = 'terms-list-inner';
 
-  let _buildPromise = null;
-  async function _doSectionBuild() {
-    // Sort by URL so 1.json < 2.json < … regardless of Jekyll iteration order.
-    const sorted = [...COLLECTIONS].sort((a, b) => a.url < b.url ? -1 : a.url > b.url ? 1 : 0);
+  let _sectionBuilt = false;
+  function _doSectionBuild() {
+    if (_sectionBuilt) return;
+    _sectionBuilt = true;
+    // Sort by collection path so 1.json < 2.json < … regardless of order.
+    const sorted = [...COLLECTIONS].sort((a, b) => a.collection < b.collection ? -1 : a.collection > b.collection ? 1 : 0);
     for (const collEntry of sorted) {
-      try {
-        const res = await fetch(collEntry.url, { cache: 'reload' });
-        if (!res.ok) continue;
-        const groups = await res.json();
-        buildCollectionItem(sectionUl, groups, collEntry);
-      } catch (e) {
-        console.warn('[collections] fetch failed:', collEntry.url, e);
-      }
+      buildCollectionItem(sectionUl, collEntry);
     }
   }
-  sectionLi._ensureBuilt = () => {
-    if (!_buildPromise) _buildPromise = _doSectionBuild();
-    return _buildPromise;
-  };
+  sectionLi._ensureBuilt = () => _doSectionBuild();
 
-  sectionHeader.addEventListener('click', async () => {
+  sectionHeader.addEventListener('click', () => {
     sectionLi.classList.toggle('open');
     if (sectionLi.classList.contains('open')) {
-      await sectionLi._ensureBuilt();
+      sectionLi._ensureBuilt();
     }
   });
 
@@ -1031,12 +1023,12 @@ function buildCollectionsNav() {
   termListEl.appendChild(sectionLi);
 }
 
-function buildCollectionItem(sectionUl, groups, collEntry) {
+function buildCollectionItem(sectionUl, collEntry) {
   // Each collection — styled like a term group
-  const collId = collEntry.url.split('/').pop().replace('.json', '');
+  const collId = collEntry.collection.split('/').pop().replace('.json', '');
   const collLi = document.createElement('li');
   collLi.className = 'term-group';
-  collLi.dataset.collectionUrl = collEntry.url;
+  collLi.dataset.collectionUrl = collEntry.collection;
 
   const collHeader = document.createElement('div');
   collHeader.className = 'term-header';
@@ -1051,13 +1043,52 @@ function buildCollectionItem(sectionUl, groups, collEntry) {
 
   collHeader.appendChild(collTog);
   collHeader.appendChild(collLabel);
-  collHeader.addEventListener('click', () => collLi.classList.toggle('open'));
-
-  collLi.appendChild(collHeader);
 
   const collUl = document.createElement('ul');
   collUl.className = 'case-list';
 
+  // Fetch and render groups only the first time this collection is expanded.
+  let _fetchPromise = null;
+  async function _ensureCollectionBuilt() {
+    if (_fetchPromise) return _fetchPromise;
+    _fetchPromise = (async () => {
+      try {
+        const res = await fetch(collEntry.collection, { cache: 'reload' });
+        if (!res.ok) return;
+        let groups = await res.json();
+        if (collEntry.sort) {
+          const [keyPath, order] = collEntry.sort.split(':');
+          const descending = order === 'descending';
+          const getVal = (obj) => keyPath.split('.').reduce((v, k) => (v != null ? v[k] : undefined), obj);
+          groups = [...groups].sort((a, b) => {
+            const av = getVal(a), bv = getVal(b);
+            const cmp = av < bv ? -1 : av > bv ? 1 : 0;
+            return descending ? -cmp : cmp;
+          });
+        }
+        _populateCollectionGroups(collUl, groups, collEntry, collId);
+      } catch (e) {
+        console.warn('[collections] fetch failed:', collEntry.collection, e);
+      }
+    })();
+    return _fetchPromise;
+  }
+
+  collLi._ensureBuilt = _ensureCollectionBuilt;
+
+  collHeader.addEventListener('click', async () => {
+    collLi.classList.toggle('open');
+    if (collLi.classList.contains('open')) {
+      await _ensureCollectionBuilt();
+    }
+  });
+
+  collLi.appendChild(collHeader);
+  collLi.appendChild(collUl);
+  sectionUl.appendChild(collLi);
+}
+
+function _populateCollectionGroups(collUl, groups, collEntry, collId) {
   for (const group of groups) {
     // Each group (e.g. "Abe Fortas") — styled like a month group
     const groupLi = document.createElement('li');
@@ -1072,7 +1103,7 @@ function buildCollectionItem(sectionUl, groups, collEntry) {
 
     const groupName = document.createElement('span');
     groupName.className = 'month-name';
-    groupName.textContent = group.title;
+    groupName.textContent = group.name;
 
     const groupCount = document.createElement('span');
     groupCount.className = 'term-case-count';
@@ -1099,7 +1130,7 @@ function buildCollectionItem(sectionUl, groups, collEntry) {
 
       const titleSpan = document.createElement('span');
       titleSpan.className = 'case-title-nav';
-      titleSpan.textContent = caseRef.name;
+      titleSpan.textContent = caseRef.title;
 
       header.appendChild(titleSpan);
 
@@ -1123,7 +1154,7 @@ function buildCollectionItem(sectionUl, groups, collEntry) {
           ci.classList.add('decided');
           icon.addEventListener('click', e => {
             e.stopPropagation();
-            showDocViewer({ href: caseRef.opinion_href, title: caseRef.name });
+            showDocViewer({ href: caseRef.opinion_href, title: caseRef.title });
           });
         } else {
           icon.style.opacity = '0';
@@ -1170,9 +1201,6 @@ function buildCollectionItem(sectionUl, groups, collEntry) {
     groupLi.appendChild(groupUl);
     collUl.appendChild(groupLi);
   }
-
-  collLi.appendChild(collUl);
-  sectionUl.appendChild(collLi);
 }
 
 // ── Load a case ─────────────────────────────────────────────────────────────
@@ -2187,6 +2215,7 @@ async function init() {
     );
     if (collLi) {
       collLi.classList.add('open');
+      await collLi._ensureBuilt?.();
       const caseKey = CSS.escape(termParam + '/' + caseParam);
       const ci = collLi.querySelector(`.case-item[data-case-key="${caseKey}"]`);
       if (ci) {
