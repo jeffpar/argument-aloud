@@ -431,6 +431,91 @@ def sync_files_count(cases_path: Path) -> None:
         print('Updated cases.json: synced "files" counts.')
 
 
+# ── Remove redundant transcript file entries ──────────────────────────────────
+
+def remove_redundant_transcript_files(cases_path: Path) -> None:
+    """For each case, if an audio object has a transcript_href that is also
+    recorded in files.json as a 'transcript' entry with the same href and date,
+    remove it from files.json (renumbering subsequent entries to close the gap),
+    delete files.json if it becomes empty, and decrement the case's 'files' count.
+    """
+    data = json.loads(cases_path.read_text(encoding='utf-8'))
+    if not isinstance(data, list):
+        return
+
+    term_dir = cases_path.parent
+    cases_modified = False
+
+    for case in data:
+        folder_name = _case_folder(case.get('number', '') or case.get('id', ''))
+        files_path = term_dir / 'cases' / folder_name / 'files.json'
+        if not files_path.exists():
+            continue
+
+        files = json.loads(files_path.read_text(encoding='utf-8'))
+        if not isinstance(files, list):
+            continue
+
+        # Collect the transcript hrefs (with their dates) from audio objects.
+        audio_transcripts: set[tuple[str, str]] = set()
+        for a in case.get('audio', []):
+            href = a.get('transcript_href', '')
+            date = a.get('date', '')
+            if href and date:
+                audio_transcripts.add((href, date))
+
+        if not audio_transcripts:
+            continue
+
+        # Find redundant entries: type='transcript' whose (href, date) matches.
+        to_remove = [
+            f for f in files
+            if f.get('type') == 'transcript'
+            and (f.get('href', ''), f.get('date', '')) in audio_transcripts
+        ]
+
+        if not to_remove:
+            continue
+
+        remove_file_ids = {f['file'] for f in to_remove if 'file' in f}
+
+        # Build updated list: skip removed entries, renumber to close gaps.
+        new_files = []
+        gap = 0
+        for f in files:
+            fid = f.get('file')
+            if fid is not None and fid in remove_file_ids:
+                gap += 1
+                continue
+            if gap and fid is not None:
+                f = dict(f)
+                f['file'] = fid - gap
+            new_files.append(f)
+
+        label = case.get('number') or case.get('id', '?')
+        if new_files:
+            files_path.write_text(
+                json.dumps(new_files, indent=2, ensure_ascii=False) + '\n',
+                encoding='utf-8',
+            )
+        else:
+            files_path.unlink()
+
+        removed_count = len(to_remove)
+        print(f'  {label}: removed {removed_count} redundant transcript file '
+              f'entr{"y" if removed_count == 1 else "ies"} from files.json'
+              + ('' if new_files else ' (files.json deleted)'))
+
+        case['files'] = len(new_files)
+        cases_modified = True
+
+    if cases_modified:
+        cases_path.write_text(
+            json.dumps(data, indent=2, ensure_ascii=False) + '\n',
+            encoding='utf-8',
+        )
+
+
 # ── Speaker map cleanup ───────────────────────────────────────────────────────
 
 _SPEAKERMAP_CONSTRAINT_RE = re.compile(r'^(.*?)\s+(>=|<)\s+(\d{4}-\d{2})$')
@@ -773,10 +858,12 @@ def _title_from_filename(name: str) -> str:
     return stem.title()
 
 
-def backfill_untracked_files(cases_path: Path, term: str) -> None:
+def backfill_untracked_files(cases_path: Path, term: str, dry_run: bool = False) -> None:
     """Add files.json entries for files in case folders not yet listed.
 
-    Skips files.json itself, hidden files, and .json transcript files.
+    Skips files.json itself, hidden files, .json transcript files, and .mp3
+    files (audio is tracked exclusively via audio objects in cases.json).
+    When dry_run is True, prints warnings instead of writing any changes.
     Does not touch cases.json directly; call sync_files_count() afterward
     to update the 'files' counts.
     """
@@ -818,9 +905,13 @@ def backfill_untracked_files(cases_path: Path, term: str) -> None:
         for fpath in sorted(case_dir.iterdir()):
             if fpath.is_dir() or fpath.name.startswith('.'):
                 continue
-            if fpath.suffix == '.json':
+            if fpath.suffix in ('.json', '.mp3'):
                 continue
             if fpath.name in tracked:
+                continue
+
+            if dry_run:
+                print(f'  WARNING: {folder_name}: untracked file {fpath.name!r} may need to be added to files.json')
                 continue
 
             max_id = max(
@@ -1402,8 +1493,9 @@ def main() -> None:
         normalize_audio_aligned_position(cases_path)
         check_audio_dates(cases_path, term, dry_run)
         check_decision_dates(cases_path, term)
-        backfill_untracked_files(cases_path, term)
+        backfill_untracked_files(cases_path, term, dry_run)
         if not dry_run:
+            remove_redundant_transcript_files(cases_path)
             sync_files_count(cases_path)
         sync_opinion_href_from_files(cases_path)
         warn_missing_opinion_href(cases_path, term)
