@@ -633,6 +633,25 @@ body {
   color: #2672b4;
 }
 
+#case-info-row2 {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3px;
+}
+
+#case-cite {
+  font-size: 12px;
+  color: #888;
+  text-decoration: none;
+  font-style: italic;
+}
+
+#case-cite:hover {
+  color: #2672b4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 #case-questions {
   margin-top: 6px;
   font-size: 12px;
