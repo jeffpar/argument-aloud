@@ -201,11 +201,12 @@ function buildUrlParams(updates, deletes = []) {
   deletes.forEach(k => url.searchParams.delete(k));
   // Apply updates.
   Object.entries(updates).forEach(([k, v]) => url.searchParams.set(k, v));
-  // If collection is present but not first, rebuild with it first.
+  // Ensure 'collection' is first and 'entry' is second (if present).
   const coll = url.searchParams.get('collection');
   if (coll) {
-    const entries = [...url.searchParams.entries()];
-    const reordered = [['collection', coll], ...entries.filter(([k]) => k !== 'collection')];
+    const entry = url.searchParams.get('entry');
+    const rest = [...url.searchParams.entries()].filter(([k]) => k !== 'collection' && k !== 'entry');
+    const reordered = [['collection', coll], ...(entry != null ? [['entry', entry]] : []), ...rest];
     url.search = new URLSearchParams(reordered).toString();
   }
   return url;
@@ -1095,14 +1096,34 @@ function buildCollectionItem(sectionUl, collEntry) {
             return { keyPath: keyPath.trim(), descending: order === 'descending' };
           });
           const getVal = (obj, keyPath) => keyPath.split('.').reduce((v, k) => (v != null ? v[k] : undefined), obj);
-          groups = [...groups].sort((a, b) => {
-            for (const { keyPath, descending } of sortKeys) {
-              const av = getVal(a, keyPath), bv = getVal(b, keyPath);
-              const cmp = av < bv ? -1 : av > bv ? 1 : 0;
-              if (cmp !== 0) return descending ? -cmp : cmp;
+          // Keys like "cases[].argument" sort the nested cases array on each group.
+          const groupKeys = sortKeys.filter(k => !k.keyPath.startsWith('cases[].'));
+          const caseKeys  = sortKeys.filter(k =>  k.keyPath.startsWith('cases[].'));
+          if (caseKeys.length) {
+            const caseGetVal = (obj, keyPath) => getVal(obj, keyPath.slice('cases[].'.length));
+            for (const group of groups) {
+              if (Array.isArray(group.cases)) {
+                group.cases = [...group.cases].sort((a, b) => {
+                  for (const { keyPath, descending } of caseKeys) {
+                    const av = caseGetVal(a, keyPath), bv = caseGetVal(b, keyPath);
+                    const cmp = av < bv ? -1 : av > bv ? 1 : 0;
+                    if (cmp !== 0) return descending ? -cmp : cmp;
+                  }
+                  return 0;
+                });
+              }
             }
-            return 0;
-          });
+          }
+          if (groupKeys.length) {
+            groups = [...groups].sort((a, b) => {
+              for (const { keyPath, descending } of groupKeys) {
+                const av = getVal(a, keyPath), bv = getVal(b, keyPath);
+                const cmp = av < bv ? -1 : av > bv ? 1 : 0;
+                if (cmp !== 0) return descending ? -cmp : cmp;
+              }
+              return 0;
+            });
+          }
         }
         _populateCollectionGroups(collUl, groups, collEntry, collId);
       } catch (e) {
@@ -1127,10 +1148,13 @@ function buildCollectionItem(sectionUl, collEntry) {
 }
 
 function _populateCollectionGroups(collUl, groups, collEntry, collId) {
-  for (const group of groups) {
+  for (let groupIdx = 0; groupIdx < groups.length; groupIdx++) {
+    const group = groups[groupIdx];
+    const entryNumber = groupIdx + 1; // 1-based index within the collection
     // Each group (e.g. "Abe Fortas") — styled like a month group
     const groupLi = document.createElement('li');
     groupLi.className = 'month-group';
+    groupLi.dataset.entryIdx = String(entryNumber);
 
     const groupHeader = document.createElement('div');
     groupHeader.className = 'month-header';
@@ -1151,7 +1175,16 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
     groupHeader.appendChild(groupTog);
     groupHeader.appendChild(groupName);
     groupHeader.appendChild(groupCount);
-    groupHeader.addEventListener('click', () => groupLi.classList.toggle('open'));
+    groupHeader.addEventListener('click', () => {
+      groupLi.classList.toggle('open');
+      if (groupLi.classList.contains('open')) {
+        const url = buildUrlParams(
+          { collection: collId, entry: entryNumber },
+          ['term', 'case', 'audio', 'file', 'turn'],
+        );
+        history.replaceState(null, '', url);
+      }
+    });
 
     const groupUl = document.createElement('ul');
     groupUl.className = 'month-case-list';
@@ -1216,6 +1249,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
           const url = buildUrlParams(
             {
               collection: collId,
+              entry: entryNumber,
               term: caseRef.term,
               case: caseRef.number,
               ...(audioIdx > 0 ? { audio: audioIdx + 1 } : {}),
@@ -1346,8 +1380,11 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
   if (!caseEntry.audio?.length) {
     // Update nav highlight
     document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
-    const navEl = document.querySelector(`.case-item[data-case-key="${CSS.escape(caseKey)}"]`);
-    if (navEl) navEl.classList.add('active');
+    const _navKeys = [caseKey];
+    if (caseEntry.number && caseEntry.id && caseEntry.id !== caseEntry.number)
+      _navKeys.push(term + '/' + caseEntry.number);
+    _navKeys.forEach(k => document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)
+      .forEach(el => el.classList.add('active')));
 
     // Clear transcript state
     playerSection.hidden = true;
@@ -1484,8 +1521,11 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
 
   // Update nav
   document.querySelectorAll('.case-item').forEach(el => el.classList.remove('active'));
-  const nav = document.querySelector(`.case-item[data-case-key="${CSS.escape(caseKey)}"]`);
-  if (nav) nav.classList.add('active');
+  const _activeKeys = [caseKey];
+  if (caseEntry.number && caseEntry.id && caseEntry.id !== caseEntry.number)
+    _activeKeys.push(term + '/' + caseEntry.number);
+  _activeKeys.forEach(k => document.querySelectorAll(`.case-item[data-case-key="${CSS.escape(k)}"]`)
+    .forEach(el => el.classList.add('active')));
 
   // Reset transcript area
   playerSection.hidden = true;
@@ -2243,11 +2283,31 @@ async function init() {
   const termParam       = params.get('term');
   const caseParam       = params.get('case');
   const collectionParam = params.get('collection');
+  const entryParam      = params.get('entry') != null ? parseInt(params.get('entry'), 10) : null;
   const audioParam = params.get('audio') != null ? Math.max(0, parseInt(params.get('audio'), 10) - 1) : null; // convert 1-based → 0-based
   const fileParam  = params.get('file') != null ? parseInt(params.get('file'), 10) : null;
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
 
   // ── Collection restore ───────────────────────────────────────────────────
+  // Entry-only: collection + entry index but no specific case selected.
+  if (collectionParam && entryParam && !termParam && !caseParam && _collectionsSectionLi) {
+    _collectionsSectionLi.classList.add('open');
+    await _collectionsSectionLi._ensureBuilt();
+    const collLi = _collectionsSectionLi.querySelector(
+      `.term-group[data-collection-url$="/${CSS.escape(collectionParam)}.json"]`
+    );
+    if (collLi) {
+      collLi.classList.add('open');
+      await collLi._ensureBuilt?.();
+      const groupLi = collLi.querySelector(`.month-group[data-entry-idx="${entryParam}"]`);
+      if (groupLi) {
+        groupLi.classList.add('open');
+        requestAnimationFrame(() => groupLi.scrollIntoView({ behavior: 'instant', block: 'start' }));
+      }
+    }
+    return;
+  }
+
   if (collectionParam && termParam && caseParam && _collectionsSectionLi) {
     _collectionsSectionLi.classList.add('open');
     await _collectionsSectionLi._ensureBuilt();

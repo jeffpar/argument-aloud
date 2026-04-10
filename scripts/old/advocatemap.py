@@ -163,15 +163,19 @@ def main() -> None:
         source_cases = fm.get('cases') or []
         cases = []
         for sc in source_cases:
-            title = html.unescape((sc.get('title') or '').strip())
+            source_title = html.unescape((sc.get('title') or '').strip())
 
             term   = sc.get('termId') or ''
             docket = sc.get('docket') or ''
             number = normalize_first_docket(docket) if docket else ''
 
             # Verify case exists in cases.json.
-            if term and number and (term, number) not in cases_index:
+            live_early = cases_index.get((term, number)) if term and number else None
+            if term and number and live_early is None:
                 print('  WARNING: case not found in cases.json: {}/{}'.format(term, number))
+
+            # Prefer the title from our cases.json over the source title.
+            title = (live_early.get('title') or source_title) if live_early else source_title
 
             # Build case object in output field order.
             case_obj: dict = {'title': title, 'term': term}
@@ -188,7 +192,7 @@ def main() -> None:
                     term, number, year, iso_decision))
 
             # Audio from live cases.json.
-            live = cases_index.get((term, number)) if term and number else None
+            live = live_early
             audio_idx: int | None = None
             audio_date: str | None = None
             if live:

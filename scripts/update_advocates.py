@@ -5,6 +5,15 @@ For every case in every cases.json under courts/ussc/terms/, follows each
 audio entry's text_href to its transcript file, extracts speakers whose role
 is "advocate", and records which case/date they appeared in.
 
+Audio entries may also include an "advocates" array of name strings to
+explicitly credit advocates when no transcript is available:
+
+    { "date": "1972-10-11", "advocates": ["MR. JOHN DOE", "MS. JANE ROE"] }
+
+These are processed identically to transcript speakers and are subject to
+the same 7-day deduplication window. If a transcript is later added for
+the same audio, duplicate entries will be suppressed automatically.
+
 The output is an array of people objects:
   {
     "name":  "JOHN DOE",
@@ -145,8 +154,40 @@ def main() -> None:
                                 for sorted_i, (orig_i, _) in enumerate(audio_sorted)}
 
             for orig_idx, audio in enumerate(audio_entries):
-                text_href = audio.get("text_href")
                 audio_date = audio.get("date") or case.get("argument", "")
+
+                def _record_advocate(raw_name: str) -> None:
+                    """Add a case entry for raw_name under this audio object."""
+                    name = raw_name.strip()
+                    if not name or not audio_date:
+                        return
+                    name_key = name.upper()
+                    case_key = (name_key, title, term, number)
+                    try:
+                        new_dt = Date.fromisoformat(audio_date)
+                    except ValueError:
+                        return
+                    prior = recorded_dates.get(case_key, [])
+                    if any(abs((new_dt - d).days) <= 7 for d in prior):
+                        return
+                    recorded_dates.setdefault(case_key, []).append(new_dt)
+                    if name_key not in advocates:
+                        advocates[name_key] = {"name": name, "cases": []}
+                    advocates[name_key]["cases"].append({
+                        "title":    title,
+                        "term":     term,
+                        "number":   number,
+                        "argument": audio_date,
+                        **({"decision": decision} if decision else {}),
+                        "audio":    audio_sorted_pos[orig_idx],
+                    })
+
+                # --- Explicit advocates list (no transcript required) ---
+                for raw_name in audio.get("advocates", []):
+                    _record_advocate(raw_name)
+
+                # --- Transcript-based speakers ---
+                text_href = audio.get("text_href")
                 if not text_href or not audio_date:
                     continue
 
@@ -173,39 +214,7 @@ def main() -> None:
                 for speaker in speakers:
                     if speaker.get("role") != "advocate":
                         continue
-                    raw_name = speaker.get("name", "").strip()
-                    if not raw_name:
-                        continue
-                    name_key = raw_name.upper()
-
-                    # Skip if this date is within 7 days of any already-
-                    # recorded date for this advocate+case (multi-day argument).
-                    case_key = (name_key, title, term, number)
-                    try:
-                        new_dt = Date.fromisoformat(audio_date)
-                    except ValueError:
-                        continue
-                    prior = recorded_dates.get(case_key, [])
-                    if any(abs((new_dt - d).days) <= 7 for d in prior):
-                        continue
-                    recorded_dates.setdefault(case_key, []).append(new_dt)
-
-                    # Ensure advocate record exists
-                    if name_key not in advocates:
-                        advocates[name_key] = {
-                            "name": raw_name,
-                            "cases": [],
-                        }
-                        counter += 1
-
-                    advocates[name_key]["cases"].append({
-                        "title":    title,
-                        "term":     term,
-                        "number":   number,
-                        "argument": audio_date,
-                        **({"decision": decision} if decision else {}),
-                        "audio":    audio_sorted_pos[orig_idx],
-                    })
+                    _record_advocate(speaker.get("name", ""))
 
     # Sort each advocate's cases chronologically by argument date
     for entry in advocates.values():

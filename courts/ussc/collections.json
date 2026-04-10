@@ -7,12 +7,13 @@
   {
     "title": "Argumentative Advocates",
     "collection": "/courts/ussc/collections/2.json",
-    "focus": "argument"
+    "focus": "argument",
+    "sort": "cases.length:descending,cases[].argument:ascending"
   },
   {
     "title": "All Advocates",
     "collection": "/courts/ussc/people/advocates.json",
     "focus": "argument",
-    "sort": "cases.length:descending,argument:ascending"
+    "sort": "cases.length:descending,cases[].argument:ascending"
   }
 ]
