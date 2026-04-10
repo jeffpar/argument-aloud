@@ -1,15 +1,18 @@
 [
   {
     "title": "Justices as Advocates",
-    "collection": "/courts/ussc/collections/1.json"
+    "collection": "/courts/ussc/collections/1.json",
+    "focus": "argument"
   },
   {
     "title": "Argumentative Advocates",
-    "collection": "/courts/ussc/collections/2.json"
+    "collection": "/courts/ussc/collections/2.json",
+    "focus": "argument"
   },
   {
     "title": "All Advocates",
     "collection": "/courts/ussc/people/advocates.json",
-    "sort": "cases.length:descending"
+    "focus": "argument",
+    "sort": "cases.length:descending,argument:ascending"
   }
 ]

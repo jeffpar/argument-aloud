@@ -298,6 +298,16 @@ def audio_index_for_date(audio_list: list, iso_date: str | None) -> int:
     return 1
 
 
+def audio_date_for_index(audio_list: list, idx: int) -> str | None:
+    """Return the date of the audio entry at 1-based idx in date-sorted order."""
+    if not audio_list or idx < 1:
+        return None
+    sorted_audio = sorted(audio_list, key=lambda a: (a.get('date') or ''))
+    if idx <= len(sorted_audio):
+        return sorted_audio[idx - 1].get('date') or None
+    return None
+
+
 def build_cases_index() -> dict[tuple[str, str], dict]:
     """Return {(term, number): case_obj} from all local cases.json files."""
     index: dict[tuple[str, str], dict] = {}
@@ -494,6 +504,7 @@ def sync_collection(dry_run: bool) -> None:
             live = cases_index.get(k)
             if not live:
                 print(f'  [{disp}] WARNING: case not found in cases.json: {k[0]}/{k[1]}')
+                entry.pop('argument', None)
                 entry.pop('decision', None)
                 entry.pop('audio', None)
                 entry.pop('opinion_href', None)
@@ -518,17 +529,23 @@ def sync_collection(dry_run: bool) -> None:
 
             # Audio: forced index for reargued cases, otherwise 1.
             audio_val: int | None = None
+            argument_date: str | None = None
             if live.get('audio'):
                 plan = audio_plan.get(k, [])
                 plan_entry = plan[seen_by_key[k]] if seen_by_key[k] < len(plan) else {}
                 forced = plan_entry.get('forced_audio')
                 audio_val = forced if forced is not None else 1
+                argument_date = audio_date_for_index(live['audio'], audio_val)
+            if not argument_date:
+                argument_date = live.get('argument') or None
 
             # Rebuild entry in correct field order (opinion_href omitted).
             entry.clear()
             entry['title'] = clean_title
             entry['term'] = k[0]
             entry['number'] = k[1]
+            if argument_date:
+                entry['argument'] = argument_date
             if decision:
                 entry['decision'] = decision
             if audio_val is not None:
