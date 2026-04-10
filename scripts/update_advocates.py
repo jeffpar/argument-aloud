@@ -7,14 +7,15 @@ is "advocate", and records which case/date they appeared in.
 
 The output is an array of people objects:
   {
-    "id":    "1-0001",          # T-NNNN; T=1, NNNN incremented from 1
     "name":  "JOHN DOE",
-    "cases": [                  # sorted chronologically by date
+    "cases": [                  # sorted chronologically by argument date
       {
-        "title":  "Roe v. Wade",
-        "term":   "1971-10",
-        "number": "70-18",
-        "date":   "1971-12-13"
+        "title":    "Roe v. Wade",
+        "term":     "1971-10",
+        "number":   "70-18",
+        "argument": "1971-12-13",  # date of the audio object argued
+        "decision": "1973-01-22",  # omitted if no decision date yet
+        "audio":    1              # 1-based index in date-sorted audio list
       },
       ...
     ]
@@ -40,7 +41,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 TERMS_DIR = REPO_ROOT / "courts" / "ussc" / "terms"
 OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "advocates.json"
 
-ID_PREFIX = "P"
+ID_PREFIX = "P"  # retained for migration compatibility, no longer written
 
 
 # ---------------------------------------------------------------------------
@@ -61,6 +62,11 @@ def load_existing() -> dict[str, dict]:
         return {}
     with OUTPUT_FILE.open(encoding="utf-8") as fh:
         data = json.load(fh)
+    # Migrate legacy "date" field to "argument" in-place.
+    for entry in data:
+        for case in entry.get("cases", []):
+            if "date" in case and "argument" not in case:
+                case["argument"] = case.pop("date")
     return {entry["name"].upper(): entry for entry in data}
 
 
@@ -72,7 +78,7 @@ def next_id(existing: dict[str, dict]) -> int:
     for entry in existing.values():
         try:
             nums.append(int(entry["id"].split("-")[1]))
-        except (IndexError, ValueError):
+        except (IndexError, ValueError, KeyError):
             pass
     return max(nums, default=0) + 1
 
@@ -97,7 +103,7 @@ def main() -> None:
 
     # advocates[name_upper] = {"id": ..., "name": ..., "cases": [...]}
     advocates: dict[str, dict] = load_existing()
-    counter = next_id(advocates)
+    counter = next_id(advocates)  # retained for migration only, not written
 
     # Track recorded dates per (name, title, term, number) so we can skip
     # any new date that falls within 7 days of an already-recorded date for
@@ -106,7 +112,9 @@ def main() -> None:
     for entry in advocates.values():
         for case in entry["cases"]:
             key = (entry["name"].upper(), case["title"], case["term"], case["number"])
-            recorded_dates.setdefault(key, []).append(Date.fromisoformat(case["date"]))
+            arg_date = case.get("argument") or case.get("date", "")
+            if arg_date:
+                recorded_dates.setdefault(key, []).append(Date.fromisoformat(arg_date))
 
     for term_dir in term_dirs:
         term = term_dir.name
@@ -126,11 +134,20 @@ def main() -> None:
             number = number_raw  # keep original (e.g. "18,53") for output
             folder_num = case_folder_number(number_raw)
             audio_entries = case.get("audio", [])
+            decision = case.get("decision") or None
 
-            for audio in audio_entries:
+            # Pre-compute 1-based sorted position for each audio entry.
+            audio_sorted = sorted(
+                enumerate(audio_entries),
+                key=lambda x: (x[1].get("date") or ""),
+            )
+            audio_sorted_pos = {orig_i: sorted_i + 1
+                                for sorted_i, (orig_i, _) in enumerate(audio_sorted)}
+
+            for orig_idx, audio in enumerate(audio_entries):
                 text_href = audio.get("text_href")
-                date = audio.get("date", "")
-                if not text_href or not date:
+                audio_date = audio.get("date") or case.get("argument", "")
+                if not text_href or not audio_date:
                     continue
 
                 transcript_path = (
@@ -165,7 +182,7 @@ def main() -> None:
                     # recorded date for this advocate+case (multi-day argument).
                     case_key = (name_key, title, term, number)
                     try:
-                        new_dt = Date.fromisoformat(date)
+                        new_dt = Date.fromisoformat(audio_date)
                     except ValueError:
                         continue
                     prior = recorded_dates.get(case_key, [])
@@ -176,25 +193,26 @@ def main() -> None:
                     # Ensure advocate record exists
                     if name_key not in advocates:
                         advocates[name_key] = {
-                            "id": make_id(counter),
                             "name": raw_name,
                             "cases": [],
                         }
                         counter += 1
 
                     advocates[name_key]["cases"].append({
-                        "title": title,
-                        "term": term,
-                        "number": number,
-                        "date": date,
+                        "title":    title,
+                        "term":     term,
+                        "number":   number,
+                        "argument": audio_date,
+                        **({"decision": decision} if decision else {}),
+                        "audio":    audio_sorted_pos[orig_idx],
                     })
 
-    # Sort each advocate's cases chronologically
+    # Sort each advocate's cases chronologically by argument date
     for entry in advocates.values():
-        entry["cases"].sort(key=lambda c: c["date"])
+        entry["cases"].sort(key=lambda c: c.get("argument", c.get("date", "")))
 
-    # Build output list sorted by ID
-    output = sorted(advocates.values(), key=lambda e: e["id"])
+    # Build output list sorted by name
+    output = sorted(advocates.values(), key=lambda e: e["name"])
 
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT_FILE.open("w", encoding="utf-8") as fh:

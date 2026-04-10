@@ -50,17 +50,33 @@ function formatSpeaker(name) {
 function decisionTooltip(term, caseEntry, decision) {
   const months = ['January','February','March','April','May','June',
                   'July','August','September','October','November','December'];
-  let parts = ['Term\u00a0' + term];
+  let s = 'Term\u00a0' + term;
   if (caseEntry.number) {
     const numbers = caseEntry.number.split(',').map(n => n.trim());
     const label = numbers.length > 1 ? 'Nos.' : 'No.';
-    parts.push(label + '\u00a0' + numbers.join(', '));
+    s += ' (' + label + '\u00a0' + numbers.join(', ') + ')';
   }
   if (decision) {
     const [y, m, d] = decision.split('-');
-    parts.push('Decided\u00a0' + (months[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y);
+    s += ' Decided\u00a0' + (months[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
   }
-  return parts.join(', ');
+  return s;
+}
+
+function argumentTooltip(term, caseRef) {
+  const months = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December'];
+  let s = 'Term\u00a0' + term;
+  if (caseRef.number) {
+    const numbers = caseRef.number.split(',').map(n => n.trim());
+    const label = numbers.length > 1 ? 'Nos.' : 'No.';
+    s += ' (' + label + '\u00a0' + numbers.join(', ') + ')';
+  }
+  if (caseRef.argument) {
+    const [y, m, d] = caseRef.argument.split('-');
+    s += ' Argued\u00a0' + (months[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y;
+  }
+  return s;
 }
 
 function toTitleCase(s) {
@@ -1074,13 +1090,18 @@ function buildCollectionItem(sectionUl, collEntry) {
         if (!res.ok) return;
         let groups = await res.json();
         if (collEntry.sort) {
-          const [keyPath, order] = collEntry.sort.split(':');
-          const descending = order === 'descending';
-          const getVal = (obj) => keyPath.split('.').reduce((v, k) => (v != null ? v[k] : undefined), obj);
+          const sortKeys = collEntry.sort.split(',').map(spec => {
+            const [keyPath, order] = spec.trim().split(':');
+            return { keyPath: keyPath.trim(), descending: order === 'descending' };
+          });
+          const getVal = (obj, keyPath) => keyPath.split('.').reduce((v, k) => (v != null ? v[k] : undefined), obj);
           groups = [...groups].sort((a, b) => {
-            const av = getVal(a), bv = getVal(b);
-            const cmp = av < bv ? -1 : av > bv ? 1 : 0;
-            return descending ? -cmp : cmp;
+            for (const { keyPath, descending } of sortKeys) {
+              const av = getVal(a, keyPath), bv = getVal(b, keyPath);
+              const cmp = av < bv ? -1 : av > bv ? 1 : 0;
+              if (cmp !== 0) return descending ? -cmp : cmp;
+            }
+            return 0;
           });
         }
         _populateCollectionGroups(collUl, groups, collEntry, collId);
@@ -1148,7 +1169,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       const titleSpan = document.createElement('span');
       titleSpan.className = 'case-title-nav';
       titleSpan.textContent = caseRef.title;
-      titleSpan.title = decisionTooltip(caseRef.term, caseRef, caseRef.decision);
+      titleSpan.title = argumentTooltip(caseRef.term, caseRef);
 
       header.appendChild(titleSpan);
 

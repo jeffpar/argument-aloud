@@ -125,6 +125,16 @@ def audio_index_for_date(audio_list: list, iso_date: str | None) -> int:
     return 1
 
 
+def audio_date_for_index(audio_list: list, idx: int) -> str | None:
+    """Return the date of the audio entry at 1-based idx in date-sorted order."""
+    if not audio_list or idx < 1:
+        return None
+    sorted_audio = sorted(audio_list, key=lambda a: (a.get('date') or ''))
+    if idx <= len(sorted_audio):
+        return sorted_audio[idx - 1].get('date') or None
+    return None
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main() -> None:
@@ -176,16 +186,26 @@ def main() -> None:
             if year and iso_decision and year != iso_decision[:4]:
                 print('  WARNING: year mismatch for {}/{}: year_from_date={} iso_decision={}'.format(
                     term, number, year, iso_decision))
-            if iso_decision:
-                case_obj['decision'] = iso_decision
 
-            # Annotate with audio from live cases.json; verify opinion_href is not being silently dropped.
+            # Audio from live cases.json.
             live = cases_index.get((term, number)) if term and number else None
+            audio_idx: int | None = None
+            audio_date: str | None = None
             if live:
                 live_audio = live.get('audio')
                 if live_audio:
                     iso_date = date_arg_to_iso(sc.get('dateArgument', ''))
-                    case_obj['audio'] = audio_index_for_date(live_audio, iso_date)
+                    audio_idx = audio_index_for_date(live_audio, iso_date)
+                    audio_date = audio_date_for_index(live_audio, audio_idx)
+                if not audio_date:
+                    audio_date = live.get('argument') or None
+
+            if audio_date:
+                case_obj['argument'] = audio_date
+            if iso_decision:
+                case_obj['decision'] = iso_decision
+            if audio_idx is not None:
+                case_obj['audio'] = audio_idx
 
             cases.append(case_obj)
 
