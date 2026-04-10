@@ -47,6 +47,22 @@ function formatSpeaker(name) {
   return name.split(' ').map(toTitleCase).join(' ').replace('General ', 'Gen. ');
 }
 
+function decisionTooltip(term, caseEntry, decision) {
+  const months = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December'];
+  let parts = ['Term\u00a0' + term];
+  if (caseEntry.number) {
+    const numbers = caseEntry.number.split(',').map(n => n.trim());
+    const label = numbers.length > 1 ? 'Nos.' : 'No.';
+    parts.push(label + '\u00a0' + numbers.join(', '));
+  }
+  if (decision) {
+    const [y, m, d] = decision.split('-');
+    parts.push('Decided\u00a0' + (months[parseInt(m, 10) - 1] || m) + '\u00a0' + parseInt(d, 10) + ',\u00a0' + y);
+  }
+  return parts.join(', ');
+}
+
 function toTitleCase(s) {
   return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
 }
@@ -569,7 +585,8 @@ function buildTermCases(term, cases, ul) {
 
         const titleSpan = document.createElement('span');
         titleSpan.className = 'case-title-nav';
-        titleSpan.textContent = caseTitleLabel(caseEntry);
+        titleSpan.textContent = caseEntry.title;
+        titleSpan.title = decisionTooltip(term, caseEntry, caseEntry.decision);
         titleSpan.addEventListener('click', e => {
           e.stopPropagation();
           titleSpan.classList.toggle('expanded');
@@ -1131,6 +1148,7 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
       const titleSpan = document.createElement('span');
       titleSpan.className = 'case-title-nav';
       titleSpan.textContent = caseRef.title;
+      titleSpan.title = decisionTooltip(caseRef.term, caseRef, caseRef.decision);
 
       header.appendChild(titleSpan);
 
@@ -1143,19 +1161,14 @@ function _populateCollectionGroups(collUl, groups, collEntry, collId) {
         header.appendChild(speakerIcon);
       }
 
-      // Scales icon — if audio or opinion; placeholder (invisible) if audio but no opinion
-      if (caseRef.audio || caseRef.opinion_href) {
+      // Scales icon — if case has a decision; placeholder (invisible) if audio but no decision
+      if (caseRef.audio || caseRef.decision) {
         const icon = document.createElement('span');
         icon.className = 'case-decided-icon';
         icon.textContent = '\u2696';
-        if (caseRef.opinion_href) {
+        if (caseRef.decision) {
           icon.title = 'Opinion issued';
-          icon.style.cursor = 'pointer';
           ci.classList.add('decided');
-          icon.addEventListener('click', e => {
-            e.stopPropagation();
-            showDocViewer({ href: caseRef.opinion_href, title: caseRef.title });
-          });
         } else {
           icon.style.opacity = '0';
           icon.style.pointerEvents = 'none';
@@ -1765,6 +1778,13 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   const MIN_RIGHT_PANE = 200; // px — minimum space to leave for the right pane
 
   function clampSidebarWidth() {
+    // In mobile layout the CSS handles sizing; writing an inline px value here
+    // would then persist as a wrong fixed width when the window grows back above
+    // the breakpoint and the media-query override is removed.
+    if (window.innerWidth <= 768) {
+      docBrowserPanel.style.width = '';
+      return;
+    }
     const max = browser.offsetWidth - MIN_RIGHT_PANE;
     const cur = docBrowserPanel.offsetWidth;
     if (cur > max) docBrowserPanel.style.width = Math.max(140, max) + 'px';

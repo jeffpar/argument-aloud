@@ -28,7 +28,7 @@ from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
-REPO_ROOT       = Path(__file__).resolve().parent.parent
+REPO_ROOT       = Path(__file__).resolve().parent.parent.parent
 TERMS_DIR       = REPO_ROOT / 'courts' / 'ussc' / 'terms'
 JUSTICEMAP      = Path(__file__).resolve().parent / 'justicemap.md'
 COLLECTION_PATH = REPO_ROOT / 'courts' / 'ussc' / 'collections' / '1.json'
@@ -391,7 +391,7 @@ def sync_collection(dry_run: bool) -> None:
         print(f'  ERROR: cannot read {COLLECTION_PATH}: {exc}')
         return
 
-    groups_by_name: dict[str, dict] = {g['title']: g for g in coll.get('groups', [])}
+    groups_by_name: dict[str, dict] = {g['name']: g for g in coll}
     total_added = 0
 
     for justice in justices:
@@ -432,8 +432,8 @@ def sync_collection(dry_run: bool) -> None:
         # Get or create the collection group.
         group = groups_by_name.get(disp)
         if group is None:
-            group = {'title': disp, 'cases': []}
-            coll.setdefault('groups', []).append(group)
+            group = {'name': disp, 'cases': []}
+            coll.append(group)
             groups_by_name[disp] = group
 
         existing: list[dict] = group.get('cases', [])
@@ -470,7 +470,7 @@ def sync_collection(dry_run: bool) -> None:
                     insert_pos = i
                     break
             new_existing.insert(insert_pos, {
-                'name':   new_case['name'],
+                'title':  new_case['name'],
                 'term':   new_case['term'],
                 'number': new_case['number'],
             })
@@ -484,31 +484,55 @@ def sync_collection(dry_run: bool) -> None:
                 'arg_date_iso': mc.get('arg_date_iso'),
             })
 
-        # Annotate all entries (new and existing) with audio/opinion_href.
+        # Annotate all entries (new and existing): strip year suffix from title,
+        # add decision, set audio, verify then omit opinion_href.
+        _year_suffix_re = re.compile(r'\s+\((\d{4})\)$')
         before = json.dumps(new_existing, ensure_ascii=False)
         seen_by_key: Counter = Counter()
         for entry in new_existing:
             k = (entry.get('term', ''), str(entry.get('number', '')))
             live = cases_index.get(k)
-            if live:
-                if live.get('audio'):
-                    plan = audio_plan.get(k, [])
-                    plan_entry = plan[seen_by_key[k]] if seen_by_key[k] < len(plan) else {}
-                    forced = plan_entry.get('forced_audio')
-                    arg_date_iso = plan_entry.get('arg_date_iso')
-                    if forced is not None:
-                        entry['audio'] = forced
-                    else:
-                        entry['audio'] = audio_index_for_date(live['audio'], arg_date_iso)
-                elif 'audio' in entry:
-                    del entry['audio']
-                if live.get('opinion_href'):
-                    entry['opinion_href'] = live['opinion_href']
-                elif 'opinion_href' in entry:
-                    del entry['opinion_href']
-            else:
+            if not live:
+                print(f'  [{disp}] WARNING: case not found in cases.json: {k[0]}/{k[1]}')
+                entry.pop('decision', None)
                 entry.pop('audio', None)
                 entry.pop('opinion_href', None)
+                seen_by_key[k] += 1
+                continue
+
+            # Strip " (<year>)" from title; verify it matches the decision YYYY.
+            raw_title = entry.get('title', '')
+            ym = _year_suffix_re.search(raw_title)
+            title_year = ym.group(1) if ym else None
+            clean_title = raw_title[:ym.start()] if ym else raw_title
+            decision = live.get('decision')
+            if title_year and decision and title_year != decision[:4]:
+                print(f'  WARNING: year mismatch for {k[0]}/{k[1]}: '
+                      f'title year={title_year}, decision={decision}')
+
+            # Verify opinion_href matches if both present, then omit it.
+            live_opinion = live.get('opinion_href')
+            entry_opinion = entry.get('opinion_href')
+            if live_opinion and entry_opinion and live_opinion != entry_opinion:
+                print(f'  WARNING: opinion_href mismatch for {k[0]}/{k[1]}')
+
+            # Audio: forced index for reargued cases, otherwise 1.
+            audio_val: int | None = None
+            if live.get('audio'):
+                plan = audio_plan.get(k, [])
+                plan_entry = plan[seen_by_key[k]] if seen_by_key[k] < len(plan) else {}
+                forced = plan_entry.get('forced_audio')
+                audio_val = forced if forced is not None else 1
+
+            # Rebuild entry in correct field order (opinion_href omitted).
+            entry.clear()
+            entry['title'] = clean_title
+            entry['term'] = k[0]
+            entry['number'] = k[1]
+            if decision:
+                entry['decision'] = decision
+            if audio_val is not None:
+                entry['audio'] = audio_val
             seen_by_key[k] += 1
         after = json.dumps(new_existing, ensure_ascii=False)
         annotations_changed = (before != after)
@@ -524,6 +548,13 @@ def sync_collection(dry_run: bool) -> None:
             if len(to_add) > 4:
                 names_str += f', \u2026 (+{len(to_add) - 4} more)'
             print(f'  [{disp}] {verb} {len(to_add)}: {names_str}')
+
+    # Sort groups by last name (stripping generational suffixes like ", Jr.").
+    def _last_name_key(group: dict) -> str:
+        name = re.sub(r',?\s+(?:Jr|Sr|II|III|IV)\.?$', '', group.get('name', ''), flags=re.IGNORECASE).strip()
+        return name.split()[-1] if name else ''
+
+    coll.sort(key=_last_name_key)
 
     coll_changed = json.dumps(coll, indent=2, ensure_ascii=False) + '\n' != COLLECTION_PATH.read_text(encoding='utf-8')
 

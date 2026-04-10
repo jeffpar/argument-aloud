@@ -23,7 +23,7 @@ try:
 except ImportError:
     sys.exit('Error: PyYAML is required. Install with: pip install pyyaml')
 
-REPO_ROOT   = Path(__file__).resolve().parent.parent
+REPO_ROOT   = Path(__file__).resolve().parent.parent.parent
 TERMS_DIR   = REPO_ROOT / 'courts' / 'ussc' / 'terms'
 SOURCE_DIR  = REPO_ROOT.parent / 'loners' / 'lonedissent' / '_pages' / 'advocates' / 'top100'
 OUTPUT_FILE = REPO_ROOT / 'courts' / 'ussc' / 'collections' / '2.json'
@@ -154,39 +154,49 @@ def main() -> None:
         cases = []
         for sc in source_cases:
             title = html.unescape((sc.get('title') or '').strip())
-            year  = year_from_date(sc.get('dateDecision', ''))
-            name  = '{} ({})'.format(title, year) if year else title
 
             term   = sc.get('termId') or ''
             docket = sc.get('docket') or ''
             number = normalize_first_docket(docket) if docket else ''
 
-            case_obj: dict = {'name': name, 'term': term}
+            # Verify case exists in cases.json.
+            if term and number and (term, number) not in cases_index:
+                print('  WARNING: case not found in cases.json: {}/{}'.format(term, number))
+
+            # Build case object in output field order.
+            case_obj: dict = {'title': title, 'term': term}
             if number:
                 case_obj['number'] = number
 
-            # Annotate with audio/opinion_href from live cases.json data.
+            # Decision date from source dateDecision.
+            iso_decision = date_arg_to_iso(sc.get('dateDecision', ''))
+            # Verify: the year previously appended to titles must match the
+            # YYYY portion of the decision date (both derived from dateDecision).
+            year = year_from_date(sc.get('dateDecision', ''))
+            if year and iso_decision and year != iso_decision[:4]:
+                print('  WARNING: year mismatch for {}/{}: year_from_date={} iso_decision={}'.format(
+                    term, number, year, iso_decision))
+            if iso_decision:
+                case_obj['decision'] = iso_decision
+
+            # Annotate with audio from live cases.json; verify opinion_href is not being silently dropped.
             live = cases_index.get((term, number)) if term and number else None
             if live:
                 live_audio = live.get('audio')
                 if live_audio:
                     iso_date = date_arg_to_iso(sc.get('dateArgument', ''))
                     case_obj['audio'] = audio_index_for_date(live_audio, iso_date)
-                if live.get('opinion_href'):
-                    case_obj['opinion_href'] = live['opinion_href']
 
             cases.append(case_obj)
 
-        groups.append({'title': advocate_name, 'cases': cases})
+        groups.append({'name': advocate_name, 'cases': cases})
 
     # Sort groups by number of cases descending (most argued first), then name.
-    groups.sort(key=lambda g: (-len(g['cases']), g['title']))
-
-    collection = {'title': 'Argumentative Advocates', 'groups': groups}
+    groups.sort(key=lambda g: (-len(g['cases']), g['name']))
 
     OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_FILE.write_text(
-        json.dumps(collection, indent=2, ensure_ascii=False) + '\n',
+        json.dumps(groups, indent=2, ensure_ascii=False) + '\n',
         encoding='utf-8',
     )
     print('Wrote {} groups to {}'.format(len(groups), OUTPUT_FILE))
