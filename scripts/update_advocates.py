@@ -39,6 +39,7 @@ Usage:
 
 import json
 import os
+import re
 import sys
 from datetime import date as Date, timedelta
 from pathlib import Path
@@ -51,6 +52,80 @@ TERMS_DIR = REPO_ROOT / "courts" / "ussc" / "terms"
 OUTPUT_FILE = REPO_ROOT / "courts" / "ussc" / "people" / "advocates.json"
 
 ID_PREFIX = "P"  # retained for migration compatibility, no longer written
+
+# Suffix normalisation patterns
+_SUFFIX_JR_SR_RE = re.compile(r',?\s+(JR|SR)\.?\s*$', re.IGNORECASE)
+_SUFFIX_ROMAN_RE = re.compile(r',?\s+(II|III|IV)\s*$', re.IGNORECASE)
+
+
+# ---------------------------------------------------------------------------
+# Name normalisation
+# ---------------------------------------------------------------------------
+
+def normalize_name_suffix(name: str) -> str:
+    """Normalise JR/SR and Roman-numeral generation suffixes.
+
+    Examples
+    --------
+    'MR. JOHN DOE JR'   -> 'MR. JOHN DOE, JR.'
+    'MR. JOHN DOE, SR'  -> 'MR. JOHN DOE, SR.'
+    'MR. JOHN DOE II'   -> 'MR. JOHN DOE, II'
+    'MR. JOHN DOE, III' -> 'MR. JOHN DOE, III'  (already canonical, unchanged)
+    """
+    m = _SUFFIX_JR_SR_RE.search(name)
+    if m:
+        base = name[:m.start()]
+        suffix = m.group(1).upper()
+        normalised = f"{base}, {suffix}."
+        if normalised != name:
+            return normalised
+        return name
+    m = _SUFFIX_ROMAN_RE.search(name)
+    if m:
+        base = name[:m.start()]
+        suffix = m.group(1).upper()
+        normalised = f"{base}, {suffix}"
+        if normalised != name:
+            return normalised
+    return name
+
+
+def normalize_transcript(transcript: dict) -> tuple[dict, dict[str, str]]:
+    """Normalise speaker-name suffixes throughout a transcript dict.
+
+    Updates ``media.speakers[].name`` and ``turns[].name`` in-place.
+    Returns ``(transcript, rename_map)`` where ``rename_map`` maps each
+    old name to its normalised replacement (empty dict if nothing changed).
+    """
+    rename: dict[str, str] = {}
+
+    for speaker in transcript.get("media", {}).get("speakers", []):
+        old = speaker.get("name", "")
+        new = normalize_name_suffix(old)
+        if new != old:
+            rename[old] = new
+
+    for turn in transcript.get("turns", []):
+        old = turn.get("name", "")
+        if old not in rename:
+            new = normalize_name_suffix(old)
+            if new != old:
+                rename[old] = new
+
+    if not rename:
+        return transcript, {}
+
+    for speaker in transcript.get("media", {}).get("speakers", []):
+        old = speaker.get("name", "")
+        if old in rename:
+            speaker["name"] = rename[old]
+
+    for turn in transcript.get("turns", []):
+        old = turn.get("name", "")
+        if old in rename:
+            turn["name"] = rename[old]
+
+    return transcript, rename
 
 
 # ---------------------------------------------------------------------------
@@ -71,11 +146,15 @@ def load_existing() -> dict[str, dict]:
         return {}
     with OUTPUT_FILE.open(encoding="utf-8") as fh:
         data = json.load(fh)
-    # Migrate legacy "date" field to "argument" in-place.
+    # Migrate legacy "date" field to "argument" in-place; normalise name suffixes.
     for entry in data:
         for case in entry.get("cases", []):
             if "date" in case and "argument" not in case:
                 case["argument"] = case.pop("date")
+        normalised = normalize_name_suffix(entry["name"])
+        if normalised != entry["name"]:
+            print(f"  Normalised existing name: {entry['name']!r} -> {normalised!r}")
+            entry["name"] = normalised
     return {entry["name"].upper(): entry for entry in data}
 
 
@@ -184,7 +263,7 @@ def main() -> None:
 
                 # --- Explicit advocates list (no transcript required) ---
                 for raw_name in audio.get("advocates", []):
-                    _record_advocate(raw_name)
+                    _record_advocate(normalize_name_suffix(raw_name.strip()))
 
                 # --- Transcript-based speakers ---
                 text_href = audio.get("text_href")
@@ -207,6 +286,16 @@ def main() -> None:
                         file=sys.stderr,
                     )
                     continue
+
+                transcript, rename_map = normalize_transcript(transcript)
+                if rename_map:
+                    for old, new in rename_map.items():
+                        print(f"  Normalised name in {transcript_path.relative_to(REPO_ROOT)}: "
+                              f"{old!r} -> {new!r}")
+                    transcript_path.write_text(
+                        json.dumps(transcript, indent=2, ensure_ascii=False) + "\n",
+                        encoding="utf-8",
+                    )
 
                 media = transcript.get("media", {})
                 speakers = media.get("speakers", [])
