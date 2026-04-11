@@ -8,7 +8,7 @@ is "advocate", and records which case/date they appeared in.
 Audio entries may also include an "advocates" array of name strings to
 explicitly credit advocates when no transcript is available:
 
-    { "date": "1972-10-11", "advocates": ["MR. JOHN DOE", "MS. JANE ROE"] }
+    { "date": "1972-10-11", "advocates": ["JOHN DOE", "JANE ROE"] }
 
 These are processed identically to transcript speakers and are subject to
 the same 7-day deduplication window. If a transcript is later added for
@@ -67,10 +67,10 @@ def normalize_name_suffix(name: str) -> str:
 
     Examples
     --------
-    'MR. JOHN DOE JR'   -> 'MR. JOHN DOE, JR.'
-    'MR. JOHN DOE, SR'  -> 'MR. JOHN DOE, SR.'
-    'MR. JOHN DOE II'   -> 'MR. JOHN DOE, II'
-    'MR. JOHN DOE, III' -> 'MR. JOHN DOE, III'  (already canonical, unchanged)
+    'JOHN DOE JR'   -> 'JOHN DOE, JR.'
+    'JOHN DOE, SR'  -> 'JOHN DOE, SR.'
+    'JOHN DOE II'   -> 'JOHN DOE, II'
+    'JOHN DOE, III' -> 'JOHN DOE, III'  (already canonical, unchanged)
     """
     m = _SUFFIX_JR_SR_RE.search(name)
     if m:
