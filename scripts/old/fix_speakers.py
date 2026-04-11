@@ -30,7 +30,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 TERMS_DIR = REPO_ROOT / "courts" / "ussc" / "terms"
 SPEAKERMAP = Path(__file__).resolve().parent / "speakermap.txt"
-WOMEN_CSV = REPO_ROOT / "courts" / "ussc" / "people" / "women.csv"
+WOMEN_CSV = REPO_ROOT / "courts" / "ussc" / "people" / "advocates" / "women.csv"
 
 # Terms whose advocates get an empty title (CSV not yet current)
 NO_TITLE_TERMS = {"2025-10"}
