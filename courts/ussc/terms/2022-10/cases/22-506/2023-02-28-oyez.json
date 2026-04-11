@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2022/22-506/22-506_20230228-argument.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "CLARENCE THOMAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "KETANJI BROWN JACKSON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "AMY CONEY BARRETT",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "NEIL M. GORSUCH",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BRETT M. KAVANAUGH",
+        "title": "JUSTICE"
       },
       {
         "name": "ELIZABETH B. PRELOGAR",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE THOMAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE JACKSON",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BARRETT",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GORSUCH",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAVANAUGH",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "JAMES A. CAMPBELL",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 22-506, Biden versus Nebraska. General Prelogar.",
       "time": "00:00:00.33"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "General, is this a waiver, or is it a modification?",
       "time": "00:02:16.68"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "Well, could you explain then -- in -- in -- in other provisions, there is express language as to cancellation, and, of course, there isn't here. So would you take a minute to explain how a waiver or modification amounts to a waiver -- to a cancellation?",
       "time": "00:02:44.71"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But, in -- in an opinion we had a few years ago by Justice Scalia, he talked about what the word \"modify\" means, and it's -- he said modified in our view connotes moderate change. He said it might be good English to say that the French Revolution modified the status of the French nobility, but only because there's a figure of speech called understatement and a literary device known as sarcasm. We're talking about half a trillion dollars and 43 million Americans. How does that fit under the normal understanding of \"modifying\"?",
       "time": "00:04:11.50"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but it's \"waive\" particular regulatory or statutory provisions.",
       "time": "00:05:25.74"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That to me suggests a much more focused use of the word.",
       "time": "00:05:30.64"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It doesn't say waive -- modify or waive loan balances.",
       "time": "00:05:40.99"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You think because there's a provision to allow waiver when your school closes, that because of that, Congress shouldn't have been surprised when half a trillion dollars is wiped off the books?",
       "time": "00:06:27.11"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "General, the amount at issue, the Chief mentioned the quarter trillion dollars or the half a trillion dollars. How do you deal with that? Because that seems to favor the argument that this is a major question.",
       "time": "00:07:51.60"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And General, let's say that nobody in Congress was aware that there is such a thing in our case law called the major questions doctrine. So put that out of their minds. And you simply polled every member of Congress and asked that person whether, in the ordinary sense of the term, they would regard what the government had -- proposes to do with student loans as a major question or something other than a major question.",
       "time": "00:09:39.68"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Is there any conceptual reason why the major questions doctrine should apply to most regulatory matters but not to the -- not to benefits programs?",
       "time": "00:10:33.03"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "It may have an effect on important individual rights, but do you think that the doctrine also or perhaps primarily has a separation of powers component?",
       "time": "00:11:06.15"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, I don't understand why it would under -- undermine Congress's intent to a greater extent in that context. But drawing a distinction between benefits programs and other programs seems to presume that when it comes to the administration of benefits programs, a trillion dollars here, a trillion dollars there, it doesn't really make that much difference to Congress. That doesn't seem very sensible.",
       "time": "00:11:41.94"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But, I mean, isn't the question, looking at this program and looking at this question, is this the sort of thing that Congress is likely to address expressly or through a contestable interpretation of some statutory language?",
       "time": "00:12:26.03"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "May I ask you a question about standing? So it's the case, isn't it, that if any party in either of these two cases has standing, then it would be permissible for us to reach the merits of the issue?",
       "time": "00:13:47.59"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Okay. Then let me ask you a question about MOHELA or maybe a question or two. If MOHELA itself had brought this suit, would you contest Article III standing?",
       "time": "00:14:14.92"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "All right. So then we would consider the Article III standing of the State of Missouri, right?",
       "time": "00:14:39.42"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And the -- the -- the most -- the -- the part of the Article III test that's most disputed is injury in fact, is that correct?",
       "time": "00:14:46.53"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Right.",
       "time": "00:14:57.40"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Okay. Injury in fact is a factual question. So I understand a big thrust of your argument to be that Missouri lacks standing because MOHELA is -- is separately incorporated. But why should that formal distinction govern the determination of injury in fact?",
       "time": "00:15:05.11"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Right. We -- I -- I, you know -- I --",
       "time": "00:16:20.26"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "All of that is certainly true. You think that our -- that the lack -- the fact that MOHELA is incorporated is the end of the day? That's enough to destroy -- to defeat standing?",
       "time": "00:16:22.48"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, what about --",
       "time": "00:16:43.17"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- Lebron and Amtrak?",
       "time": "00:16:44.37"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, have we ever decided a case that presents what you see is the issue here or what the parties see as the issue, as one of the issues, which is whether, for Article III standing purposes, a -- an entity is part of a state?",
       "time": "00:17:00.69"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "No, but the question would be whether MOHELA is part of the State of Missouri for present purposes. And where we're considering injury in fact, why should the test turn solely or why should the lack of corporate status be a necessary element? Why shouldn't the test be something more like whether the relationship between this entity and the State of Missouri is such that an injury to MOHELA will necessarily or presumptively be an injury to the state? And if that's the case, doesn't that all point to the reasons for setting up MOHELA as a very relevant factor and the degree of state control, the degree of the governor's control over MOHELA as a very important factor?",
       "time": "00:17:41.00"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "And, in fact, isn't that really, as you say, the most important thing if economic injury is the point?",
       "time": "00:18:52.15"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "I mean, I had understood that the injury that was being asserted here was an economic injury, but if we look at MOHELA and we see that its financial interests are totally disentangled from the state, it stands alone, it's incorporated separately, the state is not liable for anything that happens to MOHELA, I don't know how that could possibly be a -- a -- a reason to say that an injury to MOHELA should count as an injury to the state.",
       "time": "00:18:59.12"
     },
@@ -387,19 +387,19 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "And so --",
       "time": "00:19:51.67"
     },
     {
       "turn": 58,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "General --",
       "time": "00:19:51.97"
     },
     {
       "turn": 59,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- if MOHELA is being injured as a result of the plan or at least if that's the allegation, MOHELA has the ability to defend itself and its interests, correct?",
       "time": "00:19:52.22"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But wouldn't --",
       "time": "00:20:12.71"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "And so we would -- would we be breaking --",
       "time": "00:20:18.52"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- would we be breaking new ground then if, on this basis, we found standing?",
       "time": "00:20:20.45"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, would we be breaking new ground if we found that there was standing since we've never been presented, as you admitted earlier, with a case that presents precisely the issue that's here?",
       "time": "00:20:28.19"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Do you have any understanding about why MOHELA isn't here?",
       "time": "00:21:01.70"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Sunshine law requests brought by?",
       "time": "00:21:14.20"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Because MOHELA was not giving over information voluntarily?",
       "time": "00:21:22.51"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Do you think there might be a dependent relationship between agencies like MOHELA and the federal government since we're speculating about why they're not here?",
       "time": "00:21:53.87"
     },
@@ -507,19 +507,19 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "General --",
       "time": "00:22:07.15"
     },
     {
       "turn": 78,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Can I ask you, you -- oh, I'm sorry.",
       "time": "00:22:07.84"
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "General, there was a Missouri case in 1979, Menorah Medical Center, with an agency much like MOHELA, and, there, the -- the Missouri Supreme Court said that that entity was not the state. States are free to organize themselves and structure themselves in any way they want, correct?",
       "time": "00:22:09.67"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And it would be odd for us to have a state say we're creating a -- an -- a corporation, we're not going to be responsible for its debts, we're not going to be responsible for any of its contracts, we're not going to be responsible for anything it does financially, and the state itself says this is not the state, it's an independent corporation, and we're going to say instead that it is the state, correct?",
       "time": "00:22:35.50"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Or to override its own state supreme court's decision that it is not the state?",
       "time": "00:23:11.67"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "General, I'm thinking of, in Arkansas versus Texas, it was significant in that case that Arkansas owned the land of the university. So it does seem that Missouri has created this separateness with respect to the liabilities of MOHELA. What if -- and I'll ask this to the other side. It's not really clear to me what happens to MOHELA's assets. I mean, what if MOHELA itself dissolves? There are no shareholders. I mean, does your answer change if, even though Missouri is not responsible for the liabilities, it does have an ownership stake in the assets of MOHELA?",
       "time": "00:23:17.69"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Would you have the same position with respect to federal corporations? Like what about the FDIC or, you know, organizations like that, what if the agency didn't want to sue? Could the United States sue to protect the federal government's interests if the corporate identity was separate like here?",
       "time": "00:24:38.10"
     },
@@ -579,13 +579,13 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Thank you.",
       "time": "00:25:38.86"
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you -- thank you, General. I just have a question on the -- on the major questions doctrine, and I wanted just a little bit background for why -- I want to get your views on how it applies. You're -- you're arguing here that no notice-and-comment proceeding was required before the action taken on the half trillion dollars of loans and that because of your view that the President can act unilaterally, that there was no role for Congress to play in this either, and at least in this case, given your view of standing, there's no role for us to play in this -- in this either. Now we take very seriously the idea of separation of powers and that power should be divided to prevent its abuse, and there are many procedural niceties that have to be followed for the same purpose. The case reminds me of the one we had a few years ago under a different administration where the administration tried acting on its own to cancel the Dreamers program, and we blocked that effort. And I just wonder, given the posture of the case and given our historic concern about the separation of powers, you would recognize at least that this is a case that presents extraordinarily serious, important issues about the role of Congress and about the role that we should exercise in scrutinizing that, significant enough that the major questions doctrine ought to be considered implicated?",
       "time": "00:25:39.48"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But whether Congress acted or not was a factor that we considered in the major questions doctrine, and the way we considered it is whether or not the issue that was before the Court is something that had been seriously considered and debated and was a matter of political controversy before Congress. That certainly is the case here, right?",
       "time": "00:28:56.26"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, not just a politically significant action but one that has the attention of Congress. The fact that it hasn't acted under the major questions doctrine but has considered the matter we cited as support for the notion that maybe it should be one for Congress. If you're talking about this in the abstract, I think most casual observers would say, if you're going to give up that much amount of money, if you're going to affect the obligations of that many Americans on a subject that's of great controversy, they would think that's something for Congress to act on. And if they haven't acted on it, then maybe that's a good lesson to say for the President or -- or the administrative bureaucracy that maybe that's not something they should undertake on their own.",
       "time": "00:29:19.71"
     },
@@ -621,13 +621,13 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you. Justice Thomas, anything further?",
       "time": "00:30:50.03"
     },
     {
       "turn": 97,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "Just briefly. There's some discussion in the briefs that going past with this provision or that modification or waiver, that this is, in effect, a cancellation of a debt -- that's really what we're talking about -- and that as a cancellation of $400 billion in debt, in effect, this is a grant of $400 billion, and it runs head long into Congress's appropriations authority, and I'd like to give you some time to respond to that.",
       "time": "00:30:52.74"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "Well, I -- I think that forbearance fits more comfortably in modify -- waive or modify language. It's you simply forbearing on collecting an underlying debt, but you don't cancel the debt. And that's what we're talking about here. And, certainly, there's a cost to that, I understand, but I -- I still think that you haven't fully explained why, if you looked at this, you could not -- you would not argue that the Secretary could actually grant four billion -- $400 billion.",
       "time": "00:33:19.28"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "Do we agree on that?",
       "time": "00:33:54.50"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "He could not give grants of --",
       "time": "00:33:56.57"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "Yes.",
       "time": "00:34:02.05"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "So you would --",
       "time": "00:34:05.30"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "-- you would rely on appropriations from Congress for that, right?",
       "time": "00:34:06.72"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "And the argument is that you are, in effect, doing that without appropriations from Congress?",
       "time": "00:34:10.72"
     },
@@ -723,13 +723,13 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Alito? Justice Sotomayor?",
       "time": "00:35:04.51"
     },
     {
       "turn": 114,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Returning to the standing question, the states basically say we're going to lose money in taxation one way or another. In the Texas case, you argued that we should be looking at the cost benefit, and some of the amici here say that there will be a tremendous benefit to the states from this cancellation because that extra money will result in increased consumer spending and decreased housing insecurity, less defaults on other loans that those borrowers may have, et cetera. Do you agree with those amici that the economic benefits outweigh any alleged financial harm in this case?",
       "time": "00:35:08.69"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "In Pennsylvania, it was a tax credit that was going to be removed, so it's almost identical to this, correct?",
       "time": "00:36:24.38"
     },
@@ -753,19 +753,19 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Thank you.",
       "time": "00:37:14.61"
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Kagan?",
       "time": "00:37:15.56"
     },
     {
       "turn": 120,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "General Prelogar, I want to change the subject a bit. The -- your friends on the states' side and also the borrowers in the other case have a number of statutory arguments. They frame them as statutory arguments, saying this wasn't necessary under the terms of the statute, saying that it leaves borrowers better off, not worse off, again, pointing to statutory language saying that, you know, it -- the borrowers it targets aren't worse off because of the pandemic. Now I'm not sure that I understand really those arguments as statutory arguments as much as I understand them as arbitrary and capricious arguments, that, essentially, they are saying that the Secretary just did not say the right things, did not make the right findings, did not properly justify what he did here, that there's no sense in which we read this memorandum and we come away thinking, oh, yes, these harms were caused by the pandemic and -- and there's a basis for this action and -- and a -- and a sufficient basis for this action. So I wanted to give you a chance to talk about that. It's -- it's essentially the tie to the pandemic of the sort of harms that the Secretary said made relief appropriate.",
       "time": "00:37:16.98"
     },
@@ -777,19 +777,19 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Thank you.",
       "time": "00:40:40.80"
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Gorsuch?",
       "time": "00:40:41.94"
     },
     {
       "turn": 124,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I -- I'd like to follow up on Justice Kagan's question, General. Under State Farm, one of the things that the government must normally do is, in its memoranda, explain not just the -- the benefits of its proposed course of action but also grapple with the costs or negative effects of -- of a program that it proposes. And your friends on the other side argue that that's another deficiency in the Secretary's memorandum, and I'd like to give you the chance to respond to that.",
       "time": "00:40:43.47"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Oh, I -- I -- I --",
       "time": "00:41:25.77"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- I'm -- I don't just mean the numbers --",
       "time": "00:41:27.43"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- but, generally, the -- the negative effects to the economy, to other persons, to people who don't have this opportunity for debt relief. There are a variety of factors that, under State Farm, normally the government would have to consider, and -- and your friends on the other -- other side argue those are not present in this memorandum.",
       "time": "00:41:30.09"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Again, not -- not just the costs to the government. I'm sorry to interrupt. But --",
       "time": "00:42:26.88"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- what I think they argue that is missing is costs to other persons in terms of fairness, for example, people who have paid their loans, people who don't -- have -- have -- have -- have planned their lives around not seeking loans and people who are not eligible for loans in the first place and that a half a trillion dollars is being diverted to one group of favored persons over others. I think that's the nature of their argument, in addition to, as you point out, the cost to the fisc.",
       "time": "00:42:29.61"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "And I didn't see anything in the memorandum that dealt with those kinds of questions, and if there is something, I'd be appreciative if you could point me to it.",
       "time": "00:42:57.66"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I appreciate that. Congress has given the executive branch a lot of emergency authority, and I -- I think your argument rests on that. But it also requires generally the President to specify the provisions of law under which he proposes that he or others will act. That's 50 U.S.C. 1631, I think, my notes are right. And I'm just wondering, did that happen here?",
       "time": "00:43:34.54"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Did -- did he indicate anything under the HEROES Act or the Department of Education that's acting in this case?",
       "time": "00:44:16.30"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Okay. And then, finally, on standing, in -- in the New York census case, the majority of this Court held that the failure to count an individual, potential failure to count an individual, undercount the census, would have potential effects to the State of New York in the terms -- in terms of the benefits it might later receive. That kind of knock-on effect was sufficient to constitute standing in that case. And I'd just like to get your thoughts on how you'd have us distinguish that.",
       "time": "00:44:28.17"
     },
@@ -909,19 +909,19 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Thank you.",
       "time": "00:45:42.70"
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Kavanaugh?",
       "time": "00:45:43.66"
     },
     {
       "turn": 146,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "I'd like to pick up on the Chief Justice's and Justice Thomas's questions on statutory text and then our precedent. I think you said earlier what was Congress in 2003 supposed to do in terms of advance authorization. But, of course, they could have in 2003 referred to loan cancellation and loan forgiveness, and those are not in the statutory text. So then that leaves us with a situation that I think we've seen before, an old statute with a general language, Congress specifically considering the present issue repeatedly but not, as you acknowledge, passing legislation that would authorize the specific act -- and then, in the wake of Congress not authorizing the action, the executive, nonetheless, doing a massive new program. And that seems problematic under -- going back to the Benzene case, the Brown & Williamson, UARG. You know the line of cases. So why does this case not fit into that formula that we've seen before in prior cases?",
       "time": "00:45:44.86"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Yeah.",
       "time": "00:49:00.03"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Something else you said earlier was that we shouldn't necessarily apply that line of precedent in this situation because this is not a regulatory program but a -- but a benefits program. But I want to push back a little bit on that and get your response, which is, in something like this, there are going to be winners and losers, and that raises similar concerns about individual rights, individual liberty that are present arguably in regulatory programs as well. And why, therefore, wouldn't the same line of precedents that we've applied in the regulatory context apply also in the benefits context to consider whether we need specific express congressional authorization?",
       "time": "00:49:39.16"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Last question. Broadening it out and thinking about, you mentioned emergencies, the history of this Court with respect to executive assertions of emergencies. Some of the biggest mistakes in the Court's history were deferring to assertions of executive emergency power. Some of the finest moments in the Court's history were pushing back against presidential assertions of emergency power. And that's continued not just in the Korean War but post-9/11 in some of the cases there. So, given that history, there's a concern, I suppose, that I feel at least about how to handle an emergency assertion. You know, some of the amicus briefs, one of them from a professor says this is a case study in abuse of executive emergency powers. I'm not saying I agree with that. I'm just saying that's the assertion. And I want to get your assessment -- this is a big-picture question, so I'll give you a little time -- of how we should think about our role in assertion of presidential emergency power given the Court's history.",
       "time": "00:51:52.36"
     },
@@ -969,19 +969,19 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Thank you very much.",
       "time": "00:54:46.10"
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Barrett?",
       "time": "00:54:47.16"
     },
     {
       "turn": 156,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "General, my first question is clarifying because I think I may have misunderstood. You said at the start of your argument that the Secretary both waived and modified. I had understood that the Secretary only relied on the modification in the Federal Register at the relevant cites at 87 Federal Register 61512 and 61514. Is it in those same -- did I just miss in there, did he also specifically say waive?",
       "time": "00:54:48.39"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Yes.",
       "time": "00:55:17.64"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Okay. And to be clear, and I think maybe some of the confusion is waivers. I guess, when I saw that in the language, I thought he was talking -- using waiver as a synonym for cancellation there with respect to the underlying debt, the waiver of the obligation to pay back the principal. And just to be clear, waiver in the statute refers to waiving the statutory and regulatory provisions, not waiving the obligation to repay?",
       "time": "00:55:42.68"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "So kind of like, if you think of it as red penciling, both deleting and then adding back in, waiving and then putting his own requirements in?",
       "time": "00:56:41.24"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Okay. Next question is also a clarification because I want to be sure I understand your position on Lebron and the overlap potentially between when we're thinking about are you acting as an arm of the government for purposes of say, like in the Amtrak sense, are you bound by the First Amendment, and are -- is MOHELA part of the government of Missouri for purposes of standing. So could MOHELA, say, deny loans to people on the basis of their race or their religion? Would the First Amendment bind",
       "time": "00:57:12.23"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Well, why would that be? How can they be part of the government for purposes of the state action doctrine but then not for purposes of standing? Either they are or they are not part of the government of Missouri, right?",
       "time": "00:57:49.40"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "So two different buckets, three if you throw in sovereign immunity too? You would say one test is for purposes of state action, another test for purposes of sovereign immunity, and another test for purposes of standing?",
       "time": "00:58:58.55"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Right. Okay. And now I just want to return to Justice Kagan's questions about whether we think about these as statutory arguments or arbitrary and capricious arguments, some of these arguments about are you leaving them worse off or better off. Specifically, I want to focus on the causation. It seems to me that the government's position must be that the HEROES Act permits but-for causation and it doesn't require proximate cause because the Secretary's memo also refers to things like Russia's invasion of Ukraine and, you know, inflation and other things that would -- well, I mean, the invasion of Ukraine has nothing to do with COVID, but the other things that would have a more attenuated relationship to COVID. So is that your position, it would be a but-for?",
       "time": "00:59:38.29"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "But would that bear on the question of whether this is a statutory interpretation question or not, whether this is within the Secretary's authority? I mean, below the government took the position too that even in 10 years from now it could forgive loans based on COVID if effects were lingering, right?",
       "time": "01:00:31.91"
     },
@@ -1089,19 +1089,19 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "That's very helpful. Thank you.",
       "time": "01:01:43.16"
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Jackson?",
       "time": "01:01:44.72"
     },
     {
       "turn": 176,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Yes. I have two questions, one concrete and one big picture. The concrete question comes from a -- a statement that you make in your reply brief about MOHELA standing to earn offsetting fees. Can you spell out what those off -- by -- and by that, I mean offsetting fees from the discharges so that we aren't even really sure, you know, what the net loss would be. Can you spell out a little bit more about those?",
       "time": "01:01:46.01"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "So we don't know really what the ultimate loss would be to MOHELA, even if we believed that MOHELA is part of the state?",
       "time": "01:02:36.55"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "All right. And -- and I also have a big picture question about standing. You've been arguing that standing here would be a reach if we were to, for example, find that, you know, MOHELA somehow -- losses to it count for the purposes of the state based on established standing principles. And what I've been mulling and wondering is whether the same concerns about the political significance of this case that the Chief pointed to could be a reason for us to hold the line in terms of thinking about our standing doctrine and whether or not we should expand it in this area. I understood that the standing bar really, you know, as applied in a case like this, would allow the political branches to hash this out without interference, you know, from a torrent of lawsuits brought by states and entities and individuals who don't have a real personal stake in the outcome. And, in some ways, it's not unlike a case we heard last week where people were very concerned about, you know, lawsuits against tech companies and how they might hobble these companies if we allowed them to go forward. And I guess I have that same worry about the operation of the federal government and -- and its ability to govern. If we look at our standing doctrine in cases like this and we find that, you know, even the most minor state interest, a dormant fund that hasn't been, you know, funded or used by the state in 15 years, if that can be the basis for standing, I -- I guess I'm concerned that we're going to have a problem in terms of -- of -- of the federal government's ability to operate. So my question is: Is this a legitimate concern and should we think -- be thinking in cases like this about that type of concern as we ponder whether to expand our standing doctrines?",
       "time": "01:02:48.75"
     },
@@ -1137,13 +1137,13 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Thank you.",
       "time": "01:05:42.35"
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, General. General Campbell.",
       "time": "01:05:43.76"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "General, I think, at the beginning, you should comment some on the relationship between MOHELA and the State of Missouri, primarily, the -- as you've heard, the effect of this forgiveness program on MOHELA and, by extension, on the State of Missouri for the -- at least to establish standing.",
       "time": "01:07:47.83"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But isn't that your burden? I mean, I -- I understood the government to say that you are bringing this lawsuit and you have to establish standing. And so, to the extent we're trying to assess whether or not MOHELA is actually going to be injured, I -- I don't think you can answer but the government hasn't said something about the fees.",
       "time": "01:09:04.48"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "MOHELA isn't here, General Crawford, is that correct?",
       "time": "01:09:52.81"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It has the ability --",
       "time": "01:09:56.49"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- to sue and be sued. It's been set set up as an independent corporate entity with the ability to bring suits on its own. Usually, we don't allow one person to step into another's shoes and say I think that that person suffered a harm, even if the harm is very great. We -- we -- we -- we leave it to the person, him or her or itself, to make that judgment. Now, here, the state has derived very substantial benefits from setting up MOHELA as an independent body with financial distance from the state and sue and be sued authority. So why isn't MOHELA responsible for deciding whether to bring this suit?",
       "time": "01:09:58.25"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, I guess -- I mean, there are third parties all the time who have an interest in, gosh, I -- I wish that party over there would bring a suit because I have some relationship with that third party and I would like it very much if that third party represented its own interests better in my view. But we don't do that. We -- we -- we -- we don't allow that kind of interference with the decision of the entity involved to decide whether the harm is of the kind that -- that they want to sue for.",
       "time": "01:10:51.41"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I -- I -- I believe that in those cases the federal government had an independent interest. So the federal government was not saying, oh, we just have an entitlement to stand in the shoes of the -- the federal corporation.",
       "time": "01:11:33.77"
     },
@@ -1239,19 +1239,19 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "That's --",
       "time": "01:13:32.54"
     },
     {
       "turn": 200,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That seems --",
       "time": "01:13:32.75"
     },
     {
       "turn": 201,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "-- what's most important to you now is the Lewis and Clark Fund?",
       "time": "01:13:32.97"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "I guess I understood the interests to be, if MOHELA was really Missouri, the loss of the servicing fees. Am I misunderstanding that?",
       "time": "01:13:42.42"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "You have two different arguments, right?",
       "time": "01:13:50.03"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "You have that argument and then you have this argument about the Lewis and Clark Fund.",
       "time": "01:13:51.59"
     },
@@ -1299,13 +1299,13 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "All right. So let's --",
       "time": "01:14:04.21"
     },
     {
       "turn": 210,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "On the first theory, it's hard to imagine how the State of Missouri can claim an injury, putting the Lewis and Clark and the scholarship issues aside, when it's not responsible for the debts of MOHELA, it's not responsible for the contracts it enters into, it doesn't own the assets of that corporation. There is on paper no financial obligation by the state or loss to the state by anything MOHELA does or anything it gets. I'm -- I'm putting aside Lewis and Clark. It's hard -- it's just very hard for me to say that there is an interest sufficient for the state to speak on behalf of an entity who has the right to sue or be sued.",
       "time": "01:14:04.54"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But those are --",
       "time": "01:15:08.76"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- different -- those are different issues. Standing has to do with injury. It doesn't have to do with are you evading the Constitution, are you trying to delegate public functions. Those are all -- are you immune because you are acting in a way that only a state can. Those are very, very different questions. This is the question of standing, which relies on injury in fact. How can you have -- I'm putting Lewis and Clark aside -- how can you have injury in fact if you have immunize -- you, the state, have immunized yourself from any liability or any injury that MOHELA can experience?",
       "time": "01:15:09.69"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, it -- it decided to give this entity the right to sue and be sued. So it -- it chose to say I'm not injured in fact. Speaking is not the same as injury.",
       "time": "01:15:55.61"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Now let's go back to Lewis and Clark a moment. The arrangement that MOHELA and the state engaged in predated the pandemic, correct? It started in 2009, 2010?",
       "time": "01:16:26.55"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Yes. The --",
       "time": "01:16:42.36"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- suspension of MOHELA's contributions to it, correct?",
       "time": "01:16:42.57"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Isn't it a series of speculations that in 2004, absent this program, that the state won't continue that arrangement it currently has and continue to defer obligations? MOHELA said that it -- MOHELA has already said publicly that it doesn't think that contributions to the Lewis and Clark Fund are within its wheelbarrow obligations. That was one of the reasons this arrangement has been made, correct?",
       "time": "01:16:48.02"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, it's -- in fact, I understand it's not writing it off as an obligation anymore.",
       "time": "01:17:26.62"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It doesn't carry it on its books anymore.",
       "time": "01:17:32.20"
     },
@@ -1425,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Have you expressed any plans to actually use the fund to pursue projects in the foreseeable future, and, if so, what projects?",
       "time": "01:18:09.42"
     },
@@ -1437,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "I see. So we're talking about a fund that hasn't been contributed into because the state has waived the obligation to do so for at least a temporary period of time, and then, even if the funds were to go into this particular fund, you don't have a set of plans that you are planning to pursue with them?",
       "time": "01:18:20.61"
     },
@@ -1449,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Yes. No, I understand, but we're trying to figure out the degree to which the state is injured by the money not being there. And so, on the one hand, you know, I hear Justice Sotomayor exploring with you the fact that the state has allowed the money not to be there in the recent past by saying don't worry, you don't have to put it in there, MOHELA. So that seems to be a sort of strike against the state now saying we're so injured because the money isn't there. And then we have on top of that your representation here that the state isn't even actively seeking or interested in the money insofar as it's decided that it's going to engage in some sort of project that we need the money for. So I'm just wondering about the speculative, attenuated nature of the harm that you're alleging on the basis of there not being -- or -- or -- of the risk that we won't have extra money put into this fund.",
       "time": "01:18:48.57"
     },
@@ -1461,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Yes, I apologize. I'm just saying the state has not pressed MOHELA to put money into the fund, right?",
       "time": "01:20:01.32"
     },
@@ -1473,7 +1473,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "I -- I appreciate that, but I guess I'm just still trying to understand how you can look at that fund as the basis for the injury that you're claiming with respect to this particular plan.",
       "time": "01:20:12.40"
     },
@@ -1485,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "And you can't extend it?",
       "time": "01:20:29.77"
     },
@@ -1497,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "And there -- the -- the plan is not totally ridding them of any opportunity to make money, so they do have some other income, yes?",
       "time": "01:20:41.66"
     },
@@ -1509,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Yes.",
       "time": "01:20:51.23"
     },
@@ -1521,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Yes.",
       "time": "01:20:53.90"
     },
@@ -1533,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "All right. So we could believe that the income that MOHELA gets from its other sources of revenue could be used to pay off in a year the -- the -- the amount that the state says it requires in order to put off the obligation yet again, right?",
       "time": "01:20:54.86"
     },
@@ -1545,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "General, I'd like to put aside the Lewis and Clark Fund for a minute, and I want to return to the direct injury argument, the MOHELA is an arm of the state argument. Justice Sotomayor was pointing out statutorily MOHELA has the right to sue and be sued, the state doesn't have responsibility for its liabilities, and the state has disclaimed any -- any claim to the assets. Is that correct?",
       "time": "01:21:42.01"
     },
@@ -1557,7 +1557,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Okay.",
       "time": "01:22:04.36"
     },
@@ -1569,7 +1569,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "So explain to me why --",
       "time": "01:22:06.79"
     },
@@ -1581,7 +1581,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "-- because, on the one hand, you have -- you know, in -- in Missouri Statute 173.420, you have -- the last sentence says that nothing in these sections \"shall be construed to deprive the state and its governmental subdivisions of their respective powers over assets of the authority.\" But then, in the next section, 425, it says, \"[n]o asset of the authority shall be considered to be part of the revenue of the state.\" So which is it? I mean, because it would be hard to see how a win for the state would benefit MOHELA or a win for MOHELA would benefit the state if the assets are completely separate. You don't get any money out of it, putting aside Lewis and Clark because I'm not really interested in that.",
       "time": "01:22:08.14"
     },
@@ -1593,7 +1593,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Okay.",
       "time": "01:23:09.29"
     },
@@ -1605,7 +1605,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "If the state wanted money from MOHELA right now, if the state just wanted to pull assets out, say, because the state was going to make a decision to fund the Lewis and Clark Fund, does the state have the authority to do that?",
       "time": "01:23:36.93"
     },
@@ -1617,7 +1617,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Okay.",
       "time": "01:23:49.43"
     },
@@ -1629,7 +1629,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Do you want to address why MOHELA's not here?",
       "time": "01:24:09.65"
     },
@@ -1641,7 +1641,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Why didn't the state just make MOHELA come then? If -- if MOHELA is really an arm of the state and all of this would be a lot easier -- I mean, the Solicitor General conceded that if MOHELA was here, MOHELA would have standing. If MOHELA is an arm of the state, why didn't you just strong-arm MOHELA and say you've got to pursue this suit?",
       "time": "01:24:20.17"
     },
@@ -1653,7 +1653,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Just -- just along the same lines, I mean, it's true that you couldn't even get documents from MOHELA without file -- filing the state equivalent of a FOIA request.",
       "time": "01:24:54.76"
     },
@@ -1665,7 +1665,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, that was the mechanism. I think that if MOHELA was willing to hand you over the documents, you wouldn't have filed a state FOIA request.",
       "time": "01:25:09.80"
     },
@@ -1677,7 +1677,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "And when you say acting through the legislature in response to Justice Barrett, do you mean that sort of the -- the structure of MOHELA would have to be revisited through the legislature? In other words, you've now set it up -- we have a law in Missouri that structures this corporation in a certain way, and it is separate. So, when you say acting through the legislature, do you mean that there would have to be some kind of amendment to the way in which MOHELA is and operates in order to allow for you to reach its assets?",
       "time": "01:25:26.08"
     },
@@ -1689,7 +1689,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Counsel, on -- on the merits, if I could direct you to the Solicitor General's argument suggesting the major questions doctrine does not apply because this is a benefits program, despite our -- our holding in King versus Burwell, and -- and arguing that it doesn't implicate the Appropriations Clause authority of Congress. Can you address that argument, please?",
       "time": "01:26:06.50"
     },
@@ -1701,7 +1701,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I understand that. But this is a more specific question with respect to benefits programs --",
       "time": "01:26:39.60"
     },
@@ -1713,7 +1713,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- and the relationship between it and the Appropriations Clause and King versus Burwell.",
       "time": "01:26:43.95"
     },
@@ -1725,13 +1725,13 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Isn't the -- well, do --",
       "time": "01:27:28.90"
     },
     {
       "turn": 281,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I was just going to ask, that's the whole purpose of the HEROES Act. The whole purpose of the HEROES Act is to say in -- either for veterans or -- not for veterans, for people who are in military service or in a national emergency, we give you the authority to impose debt on us. The forbearance of payment is -- is it 5 billion a month or something like that? It's an outrageous sum. And yet that isn't -- no one is disputing that the Secretary -- that the Secretary has that power. It's not the amount of money. The question is: What's Congress's intent? And we know from the HEA Act that Congress recognized that there would be cancellation of debt for schools that close at least. Why would you think that Congress didn't intend under the HEROES Act to permit cancellations of debt if a national emergency required it?",
       "time": "01:27:31.11"
     },
@@ -1743,25 +1743,25 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But all of those -- a waiver --",
       "time": "01:28:43.37"
     },
     {
       "turn": 284,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, yes, it did. Sorry. May I?",
       "time": "01:28:44.14"
     },
     {
       "turn": 285,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Go ahead. Yes.",
       "time": "01:28:46.60"
     },
     {
       "turn": 286,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "General Campbell, I mean, it -- it says, \"waive or modify any statutory or regulatory provision applicable to the student financial assistance programs, and then it says the Secretary can add terms and conditions to be applied in lieu of such statutory and regulatory provisions.\" So it's really quite clear here, it's like you can waive or modify the old ones, and then you can add new ones in lieu of the old ones. So, you know, Congress could not have made this much more clear. I mean, Congress didn't say exactly the circumstances in which it wanted the Secretary to use this authority. Of course not. This is -- this is a -- a bill about, like, what happens when you have an emergency. So what Congress said is what happens when you have an emergency is the Secretary has the power to take care of emergencies, and it has that power by way of waiving or modifying any provision and adding others in lieu of them.",
       "time": "01:28:47.68"
     },
@@ -1773,7 +1773,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Or a waiver.",
       "time": "01:30:00.87"
     },
@@ -1785,7 +1785,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Or a -- and, you know, it's not just modify, it's waived. So it's modify even if we take a kind of MCI-type reading of modify, all -- you know, through more major changes, all the way up to waive, and then you can say what terms and conditions should be applied in lieu of those provisions. Congress doesn't get much clearer than that. We -- we deal with congressional statutes every day that are really confusing. This one is not.",
       "time": "01:30:02.02"
     },
@@ -1797,7 +1797,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Do you think that there is an ability to modify provisions respecting discharge? So, you know, is there any ability? Because there are these -- these particular discharge provisions, right, and it has to do with death and with when your school closes and so forth. So suppose the Secretary says, that's not enough, I want to do some more.",
       "time": "01:31:34.80"
     },
@@ -1809,7 +1809,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So let me give you an example. Suppose, like, there's an earthquake. We'll use an earthquake instead of a pandemic. And the Secretary says this isn't enough, people are -- are really being hurt by this. So we have a provision about the borrower dying. The Secretary says, I'm also going to allow dischargers where the primary earner in the borrower's household dies. Could the Secretary do that?",
       "time": "01:32:18.77"
     },
@@ -1821,7 +1821,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Really, just from the borrower dying, the Secretary is allowed to do that, but -- but the Secretary in -- in -- in -- in the face of this massive earthquake is not allowed to say, you know, or not just the borrower but the -- the -- the primary earner in the borrower's family?",
       "time": "01:32:50.43"
     },
@@ -1833,7 +1833,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I mean, this is very broad language, go -- go modify or waive any statutory or regulatory provision and come up with new ones, and you're not even going to allow me that?",
       "time": "01:33:15.86"
     },
@@ -1845,7 +1845,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Could the Secretary say, well, there was this terrible earthquake and lots of people's houses were destroyed, and so I'm going to discharge the loans of people whose houses were destroyed in this terrible earthquake?",
       "time": "01:33:37.15"
     },
@@ -1857,7 +1857,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "See, I -- I -- I -- I guess, you know, this is an emergency provision. There's an emergency. It's an earthquake. You don't think Congress wanted to give -- and -- and not just wanted. It's not what Congress thought. It's what Congress said, to give the Secretary power to say, oh, my gosh, people have had their homes wiped out, we're going to discharge their student loans.",
       "time": "01:33:58.77"
     },
@@ -1869,7 +1869,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Where do you see that in this statute? I mean, the -- the provision of the statute says any statutory or regulatory provision applicable to the student loan program you can waive, you can add another, to deal with an emergency. This isn't a massive delegation to the Secretary of Education. It's -- it's designed to deal with emergency conditions. You have a lot of power in emergencies. When those people's homes are destroyed, you have the power to -- to discharge their loans.",
       "time": "01:34:30.98"
     },
@@ -1881,7 +1881,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Congress used its voice. Congress used its voice in enacting this piece of legislation. All this business about executive power, I mean, we worry about executive power when Congress hasn't authorized the use of executive power. Here, Congress has authorized the use of executive power in an emergency situation. We're in that sphere, you know, in those -- all -- all those zones, we're in that sphere where the executive is acting with congressional authorization.",
       "time": "01:35:06.64"
     },
@@ -1893,7 +1893,7 @@
     },
     {
       "turn": 308,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Just pick up on the discussion that we've been having, the breadth of the statute at issue here. How does it compare to the breadth of the statutes that were at issue in our major questions doctrine, where we indicated enough even though the breadth of some of those provisions would by their terms literally cover the authority that the agency exercised, that given the nature of the authority and its consequences, that was not clear enough?",
       "time": "01:36:04.11"
     },
@@ -1905,13 +1905,13 @@
     },
     {
       "turn": 310,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Thomas? Justice Alito? Justice Sotomayor?",
       "time": "01:36:59.60"
     },
     {
       "turn": 311,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "This is substantially different because the Secretary is authorized to cancel loans under HEA. So this is not an action as a moratorium on eviction which had never occurred previously or wasn't within the wheelhouse of the agency. At least that's what the Court said. I had -- I had a difference of opinion. Putting that aside, this is not an action that could come as a surprise because it is expressly permitted under the HEA Act, and nothing in the HEROES Act says that the Secretary can't do something that's in the normal course of his business in circumstances that justify it, like a school closing or like a school engaged in fraud. Those are exceptions that clearly are permitted under the HEA to cancel a debt. So why would I have a view that Congress didn't understand that, in a proper emergency, debt cancellation would be right?",
       "time": "01:37:03.22"
     },
@@ -1923,7 +1923,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's changing the program. I -- I mean, it -- it's semantics. Clearly, a waiver is an extinguishment. Whether you're -- whether you're rewriting it to say a national emergency will pause your service years, statute says you have to serve consecutively, and the Secretary is saying you don't have to, you're rewriting the statute. You just want to say this is a bigger rewrite than I like. But it's not rewriting the statute. It's just saying this obligation is terminated.",
       "time": "01:38:38.87"
     },
@@ -1935,7 +1935,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "This obligation to serve continuously is terminated for this period of time.",
       "time": "01:39:20.10"
     },
@@ -1947,7 +1947,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That -- that really has us, as the third branch of government, changing Congress's words because we don't think we like what's happening.",
       "time": "01:39:28.81"
     },
@@ -1959,7 +1959,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There's 50 million students who are -- will benefit from this who today will struggle. Many of them don't have assets sufficient to bail them out after the pandemic. They don't have friends or families or others who can help them make these payments. The evidence is clear that many of them will have to default. Their financial situation will be even worse because, once you default, the hardship on you is exponentially greater. You can't get credit. You're going to pay higher prices for things. They are going to continue to suffer from this pandemic in a way that the general population doesn't. And what you're saying is now we're going to give judges the right to decide how much aid to give them. Instead of the person with the expertise and the experience, the Secretary of Education, who's been dealing with educational issues and the problems surrounding student loans, we're going to take it upon ourselves, instead of leaving that decision in the hands of the person who has experience with these questions.",
       "time": "01:39:41.55"
     },
@@ -1971,7 +1971,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel --",
       "time": "01:41:22.35"
     },
@@ -1983,7 +1983,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- that was an emergency, or that was a situation that was sui generis. That's what emergencies are.",
       "time": "01:41:23.68"
     },
@@ -1995,7 +1995,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Sui generis situations that the Secretary can address in a particular situation.",
       "time": "01:41:32.64"
     },
@@ -2007,13 +2007,13 @@
     },
     {
       "turn": 327,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Kagan? Justice Gorsuch?",
       "time": "01:41:49.54"
     },
     {
       "turn": 328,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I had understood the Office of Legal Counsel's memorandum to suggest that the Secretary, under the statute, had authority to put student borrowers in -- in the same condition that they were in prior to the emergency and that the nature of your argument is that that -- that test is not met. Do you agree with the OLC's position and understanding of the statute? And -- and -- and do -- and how do you -- how do you argue that it's exceeded that authority?",
       "time": "01:41:53.42"
     },
@@ -2025,7 +2025,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "And I understand the Secretary has considerable expertise when it comes to educational affairs, but with -- in terms of macroeconomic policy, do we normally assume that every -- every Secretary, cabinet member, as learned as they are, has that kind of knowledge?",
       "time": "01:43:07.48"
     },
@@ -2037,13 +2037,13 @@
     },
     {
       "turn": 332,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Kavanaugh?",
       "time": "01:43:45.24"
     },
     {
       "turn": 333,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "I think, when we're talking about emergency powers, that certainly focuses the inquiry, but that doesn't mean that the executive can't take action. And it all then turns on the -- I think, the language of the statute at issue and the kind of action taken. And I think you have a good argument on \"modify,\" but what do you do with the word \"waive\"? That is an extremely broad word. In 2003, Congress was very aware of potential emergency actions in the wake of September 11th and war, possible terrorist attacks, and yet it puts that extremely broad word, \"waive,\" into the statute. Why not just read that as written?",
       "time": "01:43:46.63"
     },
@@ -2055,7 +2055,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "You don't think that fits within \"waiver\"?",
       "time": "01:45:21.48"
     },
@@ -2067,7 +2067,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "And then, on the body of precedent we've developed within the pandemic on emergency powers and -- and major executive actions, we have the eviction moratorium case, we have the national OSHA mandate case, but, on the other hand, we have the healthcare mandate case, and I think the distinction -- one of the distinctions drawn there was that was more in the -- in the wheelhouse of the agency in question. And I think the Solicitor General has argued, and I'll just get your response, on this is right in the wheelhouse -- and Justice Sotomayor was just saying this -- right in the wheelhouse of what the Secretary of Education would normally be expected to do, unlike CDC doing an eviction moratorium. I know you've addressed this a little bit, but just to get your response on that.",
       "time": "01:45:32.95"
     },
@@ -2079,19 +2079,19 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Thank you.",
       "time": "01:46:57.15"
     },
     {
       "turn": 340,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Barrett?",
       "time": "01:46:57.90"
     },
     {
       "turn": 341,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Two questions, one on merits, one on standing. First, on the merits, do you agree that this Administration and the prior administration had authorization under the HEROES Act to pause loan -- loan repayment obligations?",
       "time": "01:46:59.10"
     },
@@ -2103,7 +2103,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "I know, but --",
       "time": "01:47:16.50"
     },
@@ -2115,7 +2115,7 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "-- the question is, do you think it's within it? This kind of goes to the --",
       "time": "01:47:17.14"
     },
@@ -2127,7 +2127,7 @@
     },
     {
       "turn": 347,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "-- scope of \"waive or modify,\" right?",
       "time": "01:47:20.97"
     },
@@ -2139,7 +2139,7 @@
     },
     {
       "turn": 349,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "So your argument is that even assuming that Secretary DeVos initially had the authority to -- and you're -- and you're kind of just whiffing on the question about before the CARES Act was passed, right? But you're talking about after the CARES Act was passed, she arguably had authority under the HEROES Act to extend the pause but that at some point as that time dragged on post the CARES Act, when the new administration came in, then it exceeded the authority to waive or modify?",
       "time": "01:48:15.45"
     },
@@ -2151,7 +2151,7 @@
     },
     {
       "turn": 351,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "So it's not that a pause is different in your mind than canceling the obligation to repay the principle. It's that -- or -- or I guess it's a combination of the distinction between a pause and a cancellation and then the temporal --",
       "time": "01:48:56.71"
     },
@@ -2163,7 +2163,7 @@
     },
     {
       "turn": 353,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "-- reach?",
       "time": "01:49:10.54"
     },
@@ -2175,7 +2175,7 @@
     },
     {
       "turn": 355,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Okay. I -- I understand. Second question is on standing. Could Missouri file suit to vindicate the interests of the City of St. Louis?",
       "time": "01:49:59.23"
     },
@@ -2187,19 +2187,19 @@
     },
     {
       "turn": 357,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Thank you.",
       "time": "01:50:18.53"
     },
     {
       "turn": 358,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Jackson?",
       "time": "01:50:19.49"
     },
     {
       "turn": 359,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "So can I just understand your view on waiver or modification with respect to sort of the initial applications of this authority? You know, we're sort of in a certain species of it now, but I had understood from the SG and from the briefs that originally we're talking about wartime, and -- and so I'm just trying to understand, are you saying that those were not legitimate waivers or modifications under this kind of power?",
       "time": "01:50:21.60"
     },
@@ -2211,7 +2211,7 @@
     },
     {
       "turn": 361,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Right. But I -- I --",
       "time": "01:50:56.34"
     },
@@ -2223,7 +2223,7 @@
     },
     {
       "turn": 363,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- what -- what is -- what is your view -- again, I'm just trying to clarify your exchange with -- with Justice Kavanaugh on what \"waiver\" means. So are you saying that the Secretary would have had to change something about the regulations but not about their application with respect to the obligations that they require of people?",
       "time": "01:50:59.09"
     },
@@ -2235,7 +2235,7 @@
     },
     {
       "turn": 365,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "I understand. But -- but -- but you're -- I guess my question is, do you dispute that under the prior circumstances people owed a certain amount, and what the Secretary did was modified the amount that they would owe as a result of this loan?",
       "time": "01:52:02.90"
     },
@@ -2247,7 +2247,7 @@
     },
     {
       "turn": 367,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Okay.",
       "time": "01:52:29.34"
     },
@@ -2259,7 +2259,7 @@
     },
     {
       "turn": 369,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But why doesn't it all -- why doesn't it all reduce to the same thing? And this is where I go back to the sort of original application. I mean, so, fine, we have wartime people who are away and you say you have no problem with the Secretary modifying the regulations insofar as it would help them, but doesn't it reduce to just them not having to pay as much? I don't understand why there's really a distinction --",
       "time": "01:52:57.35"
     },
@@ -2271,7 +2271,7 @@
     },
     {
       "turn": 371,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- between waiving the -- the regulations in the way that you're reading this and waiving the amount a person owes under a regulation that relates to a loan.",
       "time": "01:53:22.44"
     },
@@ -2283,7 +2283,7 @@
     },
     {
       "turn": 373,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Okay. Let me just ask you one final question on my big-picture concern. So I was listening carefully to your opening statement, and you started by indicating that this is one of today's most debated policy questions, and you ended by saying that we, the courts, should essentially answer it by invalidating this program. And what concerns me is that to the extent you're talking about separation of powers and major questions, the judiciary is part of the same constitutional separation of powers dynamic that compels us to think about questions like the major questions doctrine. And I feel like we really do have to be concerned about jumping into the political fray, unless we are prompted to do so by a lawsuit that is brought by someone who has an actual interest. So this is why I'm sort of pressing really hard on the standing point. And so do -- do you dispute that the ordinary standing rule would be that a plaintiff cannot establish standing by asserting the interests of an independent actor or by saying that an independent actor not before the Court will respond to the defendant's actions in a certain way? I mean, isn't the ordinary rule one that really doesn't cover you and what you're asking for in a way is an extension of our standing principles to allow for the state to proceed with this action?",
       "time": "01:53:39.10"
     },
@@ -2295,7 +2295,7 @@
     },
     {
       "turn": 375,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "All right. So we'll go back and look at that case, and if we find that the federal government had some sort of a separate interest that it was asserting, do you lose? I mean, is that your only case that is going to make it be the case that we can find standing for you?",
       "time": "01:55:27.00"
     },
@@ -2307,7 +2307,7 @@
     },
     {
       "turn": 377,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "So you reject the distinction that the -- that the SG pointed to with respect to what those cases were about? Those were not standing cases. We have different doctrines that apply when we're looking at different issues. And the issue of whether or not you are injured by, you know, an injury to another entity, an independent corporation, seems to me to be a separate thing. So do you have a case that would help us to understand whether an entity like MOHELA that has totally been isolated through state law from liability, that can sue for itself, et cetera, do you have a case where we've said that same kind of entity you can sue as a state in -- because you're injured for standing purposes?",
       "time": "01:55:57.86"
     },
@@ -2319,7 +2319,7 @@
     },
     {
       "turn": 379,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But, of course, that's the question here, right?",
       "time": "01:57:15.98"
     },
@@ -2331,7 +2331,7 @@
     },
     {
       "turn": 381,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Yeah.",
       "time": "01:57:18.31"
     },
@@ -2343,7 +2343,7 @@
     },
     {
       "turn": 383,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "I see.",
       "time": "01:57:20.03"
     },
@@ -2355,7 +2355,7 @@
     },
     {
       "turn": 385,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Thank you.",
       "time": "01:57:42.48"
     },
@@ -2367,7 +2367,7 @@
     },
     {
       "turn": 387,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Rebuttal, General?",
       "time": "01:57:43.53"
     },
@@ -2379,7 +2379,7 @@
     },
     {
       "turn": 389,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "02:02:30.90"
     }

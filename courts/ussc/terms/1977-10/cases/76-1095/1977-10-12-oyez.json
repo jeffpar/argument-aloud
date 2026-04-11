@@ -3,39 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1977/76-1095/19771012a_76-1095.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "STUART A. SMITH",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "CARL B. CORDES",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Smith you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -47,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Smith, before you do, in your brief on page 6, you say the Tax Court unanimously held that the cash payments did not qualify for the exclusion for gross income under Section 119, is that correct?",
       "time": "00:02:28.79"
     },
@@ -59,13 +63,13 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It sounds like the case we have just heard.",
       "time": "00:03:26.74"
     },
     {
       "turn": 6,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Smith while we have you there, you have in mind that when judge -- federal judge is assigned to another circuit or if in his regular duties, a District Judge goes to another station, he sits, he has given, I think its $50 a day allowance if he identifies the expenditure so much for his room, so much for meals and now since the judge presumably eats breakfast, lunch and dinner when he is at home, bear in mind at some points at your convenience would you tell me what do you think of that situation, under this duration or anyone like it, would the judge be required to take treat as income, breakfast, lunch, dinner?",
       "time": "00:03:30.71"
     },
@@ -77,7 +81,7 @@
     },
     {
       "turn": 8,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That is not true with federal judge, he has no business expenses in the sense that --",
       "time": "00:05:10.18"
     },
@@ -89,7 +93,7 @@
     },
     {
       "turn": 10,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You mean all these years I have been misreporting?",
       "time": "00:06:40.97"
     },
@@ -101,7 +105,7 @@
     },
     {
       "turn": 12,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Judicial conference.",
       "time": "00:06:45.78"
     },
@@ -113,7 +117,7 @@
     },
     {
       "turn": 14,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I have never put this on my dissent --",
       "time": "00:06:48.31"
     },
@@ -125,7 +129,7 @@
     },
     {
       "turn": 16,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Rather neither in the statement --",
       "time": "00:06:51.72"
     },
@@ -137,7 +141,7 @@
     },
     {
       "turn": 18,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I think I better disqualify myself in this case ?",
       "time": "00:06:56.94"
     },
@@ -149,7 +153,7 @@
     },
     {
       "turn": 20,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Smith your answer to the Chief Justices question that these allowances at any event are gross income leads for me to this question which may be at the very outer bounds of relevancy but that will not stop me from asking it. As I understand, the past three or four Presidents of the country have received what recalled tax free expense allowances, in addition to their salaries. Now, are those gross income for those persons?",
       "time": "00:07:06.56"
     },
@@ -161,7 +165,7 @@
     },
     {
       "turn": 22,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So that simply depends on the wording of the particular statute?",
       "time": "00:07:52.22"
     },
@@ -173,7 +177,7 @@
     },
     {
       "turn": 24,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the mundane factor of federal judges -- you distinguish them, do you? You do not distinguish federal judges from state highway patrolmen do you, for these purposes?",
       "time": "00:08:03.61"
     },
@@ -185,7 +189,7 @@
     },
     {
       "turn": 26,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there any significance in that payment in advance?",
       "time": "00:08:51.33"
     },
@@ -197,7 +201,7 @@
     },
     {
       "turn": 28,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Somewhere in your argument would you differentiate any services treatment on military allowances of this kind --",
       "time": "00:08:56.59"
     },
@@ -209,7 +213,7 @@
     },
     {
       "turn": 30,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the statute troopers allowance and tell us precisely why one is in and one is out?",
       "time": "00:09:04.88"
     },
@@ -221,7 +225,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Smith, you are not suggesting the Internal Revenue Service is ignorant of this kind of practice among --",
       "time": "00:13:09.66"
     },
@@ -233,7 +237,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I am sure these cases have been taken around here for over decade --",
       "time": "00:13:15.18"
     },
@@ -245,7 +249,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Here for over decade?",
       "time": "00:13:21.45"
     },
@@ -257,7 +261,7 @@
     },
     {
       "turn": 38,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You are not suggesting that what the employer thinks it ought to do to govern his tax consequences?",
       "time": "00:14:19.36"
     },
@@ -269,7 +273,7 @@
     },
     {
       "turn": 40,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He has to explain it in someway if its on W-2 Form and hence its perfectly natural for him to report or it makes some reference to his --",
       "time": "00:14:27.94"
     },
@@ -281,7 +285,7 @@
     },
     {
       "turn": 42,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let me try this hypothetical on you. Suppose in a state trooper situation they have a base somewhere with the radio dispature that communicates with all the cars and dispature, let us assume also, the dispature is on duty, nine hours a day. That is the terms of his employment and he is required by the terms of the employment to eat on the premises and go down to the cafeteria, pick up the tray and bring it back to the his gear, his broadcasting gear and remain on duty throughout the lunch period in order to handle calls to and from troopers in the field, would you say that was deductible -- that was gross income?",
       "time": "00:14:54.57"
     },
@@ -293,7 +297,7 @@
     },
     {
       "turn": 44,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What they do to say book keeping, they just allow him to go down to get a free meal.",
       "time": "00:15:50.90"
     },
@@ -305,7 +309,7 @@
     },
     {
       "turn": 46,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is the question as was it the gross income?",
       "time": "00:16:09.74"
     },
@@ -317,7 +321,7 @@
     },
     {
       "turn": 48,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Except for Section 119 it would be that?",
       "time": "00:16:17.34"
     },
@@ -329,7 +333,7 @@
     },
     {
       "turn": 50,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now, suppose the rules of state troopers required them at meal time to a drive to a restaurant, get the food in the restaurant and then bring it into the car and eat it in the car so there would within reach of their radio at all times, would you say that was --?",
       "time": "00:16:29.08"
     },
@@ -341,7 +345,7 @@
     },
     {
       "turn": 52,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Two of those requirements are clearly met are they not,in my hypothetical?",
       "time": "00:17:23.83"
     },
@@ -353,7 +357,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And that is on the premises if he is eating in the car, is he not?",
       "time": "00:17:29.98"
     },
@@ -365,7 +369,7 @@
     },
     {
       "turn": 56,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then let us back up to my radio dispature again and the state authorities decided it is too expensive to maintain the Barracks cafeteria and so they dispense for that, but say to the radio operator, you must be on duty and he sends across the street to McDonald's or at some place?",
       "time": "00:18:00.75"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 58,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In other words, the key to it is they have got to furnish the food?",
       "time": "00:18:29.41"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How does that bear on the tax question?",
       "time": "00:19:30.23"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And if they can deal with that sort of a problem by saying that?",
       "time": "00:19:33.67"
     },
@@ -413,7 +417,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I do not know, these men work in eight hour shifts?",
       "time": "00:20:23.20"
     },
@@ -425,7 +429,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would they need lunch during an eight hour shift?",
       "time": "00:20:28.14"
     },
@@ -437,7 +441,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yeah, the other point is, is there anything in the record that shows that they need special food at the lunch?",
       "time": "00:20:39.41"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There is a just regular meal or lunch?",
       "time": "00:20:46.10"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 72,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There is nothing to do with overtime?",
       "time": "00:21:25.40"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 74,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Smith suppose your employer erred in the case you have put, you said, you may not leave the factory premises during the lunch, would that make a difference?",
       "time": "00:21:29.03"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 76,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your case really comes down to whether the refund is in cash or whether there is --?",
       "time": "00:22:10.97"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Yes, I have one Mr. Smith, what is the Governments position with respect to Section 162 does it have any bearing on this case at all?",
       "time": "00:26:26.40"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Do you think your opponent can rely on 162 in any respect?",
       "time": "00:27:16.74"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Because?",
       "time": "00:27:23.24"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Smith, I gathered from your answer to Justice Blackmuns question about the treatment of military meals and little payments, that kind but there is no expressed statutory authority for treating them differently from state troopers? You have referred to the Court of Claims, Treasury Regulations and to a committee report, but there is expressed statutory position?",
       "time": "00:27:39.56"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And I suppose that statute on uniform personnel, you are bound to read as limited federal --",
       "time": "00:28:48.19"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Personnel.",
       "time": "00:28:55.36"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Cordes.",
       "time": "00:29:02.52"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Of course, but you were not given that phonetic A to the.",
       "time": "00:29:09.88"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 94,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is the Barracks point in this case?",
       "time": "00:29:59.52"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And whether or not that lodging his income is not in this case?",
       "time": "00:30:05.38"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 98,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Smith stated that the withholding began in 1970 that is correct. The State of New Jersey started withholding on the troopers meal allowances in response to pressure from the Internal Revenue Service which have been going on by a correspondence over a period of several years?",
       "time": "00:30:17.07"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 100,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So, do you say that adds up to the convenience of the state?",
       "time": "00:31:57.25"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And your first point that the substitution of the meal allowance for the meal station system was more convenient for the state in the prior system, but that is enough to satisfy the test of convenience for the state. Does that mean anytime you have very inefficient system and you have changed to something better that that would satisfy the test?",
       "time": "00:32:29.25"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But by the definition, your system did not satisfy the test because you found it inconvenient?",
       "time": "00:32:55.79"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But at the time of the change it apparently did not? At the time, one day before you made the change it was obviously inconvenient to the state?",
       "time": "00:33:03.88"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, then the test is more convenient than the predecessor system?",
       "time": "00:33:18.41"
     },
@@ -689,13 +693,13 @@
     },
     {
       "turn": 110,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Okay.",
       "time": "00:33:25.72"
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, the ultimate objective was to keep these men on the job, 60 minutes, out of every hour at all times when they were on duty is that not so?",
       "time": "00:33:27.21"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And your position is that either of them would satisfy the statute?",
       "time": "00:33:35.91"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Which statute 61 or 119?",
       "time": "00:33:44.67"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would not be within 61?",
       "time": "00:33:50.01"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Neither one would be and you are not relying at the moment at all on 119?",
       "time": "00:33:52.80"
     },
@@ -755,13 +759,13 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Cordes, as I understand the SG's position, it is quite immaterial whether the meals are being furnished for the convenience of the state or that. The issue deals with as I understand it quite simply to rather than that they were paid in cash or while the meals were furnished in kind?",
       "time": "00:33:59.20"
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is for 119, but your --",
       "time": "00:34:17.25"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 124,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You said, Solicitor General to make that broad generalization. Now, 119 is quite explicit in that respect. Now, the Saunders case reached a different result. It says that it was immaterial rather they were paid in cash or were provided in kind. Is that the only case that reached that conclusion, best only for Section 61 before 119 was enacted?",
       "time": "00:34:20.80"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And cash payment?",
       "time": "00:34:55.93"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 128,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Some of those exclusions from gross income are the result of Court decisions, are they not?",
       "time": "00:36:47.43"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 130,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I mean, this was not a voluntary act that raised on the part of the Internal Revenue Service?",
       "time": "00:36:53.88"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 132,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And regardless of whether they eat or not?",
       "time": "00:37:27.14"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, do you also have a stipulation and said not two people eat exact amount of food?",
       "time": "00:37:43.02"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 136,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, is it true as it is not the lieutenants receive larger meal allowance than troopers and captains receive a larger meal allowance than lieutenants?",
       "time": "00:38:13.15"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 138,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And major is a larger one than captains?",
       "time": "00:38:24.28"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 140,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the superintendent, the largest of all?",
       "time": "00:38:28.73"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And no claim that they have different appetites as a class, is it?",
       "time": "00:38:33.08"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 144,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, now wait a minute, the superintendent is driven by a trooper. Is he not?",
       "time": "00:39:02.67"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What I mean, well, they both stop and eat lunch, why did the superintendent get more, could not the trooper eat at the same place he eats and he eats the same food he eats?",
       "time": "00:39:11.85"
     },
@@ -917,7 +921,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I think involved in your case, it is a fact that for some reason which uptil now had not been explained to on merit not being explained at least to me. A superintendent, sitting behind a desk , he is more fool than a trooper running up and down the rule.",
       "time": "00:39:33.89"
     },
@@ -929,7 +933,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I -- these may not in the -- that somebody had never been near the military?",
       "time": "00:40:00.68"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "May be we should adopt that in the Court?",
       "time": "00:40:25.77"
     },
@@ -953,7 +957,7 @@
     },
     {
       "turn": 154,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Cordes supposing you had all the same regulations about what they had to do during the lunch hour - carry a radio on where they and all the rest and they did not get a meal allowance, but instead they were paid an extra $15 per day whatever might be, but these had little higher salary. How would one system serve for the convenience of employer more than the other?",
       "time": "00:41:10.47"
     },
@@ -965,7 +969,7 @@
     },
     {
       "turn": 156,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I suggest that is not responsive to my question? How does one system serve the convenience of the employer more than the other, the two alternatives I gave you.",
       "time": "00:41:40.93"
     },
@@ -977,7 +981,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, does is not come back to what Mr. Stuart himself suggested, Mr. Smith suggested that sometimes calling a thing by a name makes it one way or the other under tax law as distinguished under the law generally?",
       "time": "00:42:18.49"
     },
@@ -989,7 +993,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "They did not call a pay here.",
       "time": "00:42:42.02"
     },
@@ -1001,7 +1005,7 @@
     },
     {
       "turn": 162,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Which the Government as I understand concedes, was not taxable?",
       "time": "00:42:50.00"
     },
@@ -1013,7 +1017,7 @@
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is subject to a collective bargaining and has been between the troopers union and the state?",
       "time": "00:43:00.12"
     },
@@ -1025,7 +1029,7 @@
     },
     {
       "turn": 166,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, it would not.",
       "time": "00:43:20.87"
     },
@@ -1037,7 +1041,7 @@
     },
     {
       "turn": 168,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I did not -- I just asked a question whether or not it is?",
       "time": "00:43:21.93"
     },
@@ -1049,7 +1053,7 @@
     },
     {
       "turn": 170,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And I suppose it is higher now than it was in 1970?",
       "time": "00:43:26.87"
     },
@@ -1061,7 +1065,7 @@
     },
     {
       "turn": 172,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "As a result of a collective bargaining.",
       "time": "00:43:32.03"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But if Congress has recognized the meal allowance and so forth for military by separate statute, does not that remove some of the necessity for bringing it under the convenience of the employer doctrine?",
       "time": "00:45:39.28"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 177,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I have checked that exclusion -- I came out of the armed services committee rather than what is in the --",
       "time": "00:46:03.92"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is still a congressional recognition?",
       "time": "00:46:18.59"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Suppose if you could -- revenue people could go on and tax in a military bill, Instead, they will not be paid?",
       "time": "00:46:24.75"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 183,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Cordes, I take it you are placing no reliance on 162?",
       "time": "00:48:06.41"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 185,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And 162 provides what?",
       "time": "00:48:51.36"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 187,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Alright.",
       "time": "00:48:57.36"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 189,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "My question is are you relying on it?",
       "time": "00:49:01.37"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 191,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Despite Correll --",
       "time": "00:49:08.01"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So you do not agree with Mr. Smith that is just has faded the fact of this case?",
       "time": "00:49:16.93"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, thank you. Now, Mr. Smith do you have anything further?",
       "time": "00:50:00.95"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does it not serve, the convenience of the employer that is the State of New Jersey. They have this man on duty and on call for 60 minutes --",
       "time": "00:52:42.68"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There is no lunch hour. .",
       "time": "00:52:51.96"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I will go back to my hypothetical, I put to you. If they gave him the box lunch before he left the Barracks then you say that that is not taxable?",
       "time": "00:53:04.53"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 203,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "When we are in the premises of the employer, then would it?",
       "time": "00:53:18.49"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That he eats in the car?",
       "time": "00:53:25.89"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentleman. The case is submitted.",
       "time": "00:53:29.28"
     }

@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-6766/19850109a_83-6766.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL E. RAIDEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WILLIAM I. MUNSEY, JR.",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments first this morning in Hayes against Florida. Mr. Raiden, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Excuse me.",
       "time": "00:01:28.11"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It's agreed that there was no probable cause?",
       "time": "00:01:29.29"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It wasn't agreed to.",
       "time": "00:01:35.84"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The court did.",
       "time": "00:01:40.91"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Raiden, there's some suggestion in either the briefs or somewhere in this record that since they could have taken the fingerprints on his front porch or in his living room, it made no difference that they were taken later in the police station. Would you be here if they had taken the fingerprints in his living room?",
       "time": "00:02:58.75"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There's no difference, in your view.",
       "time": "00:03:27.50"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There's no difference. If they took it without his consent, as you argue, then it wouldn't make any difference whether they took it in his living room or at the police station.",
       "time": "00:03:32.22"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In other words, they would have had to get a warrant in order to take the first steps.",
       "time": "00:04:18.51"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But aren't those statutes for the most part based on no more than reasonable suspicion?",
       "time": "00:05:21.75"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You think there's some problem with those statutes; is that your position?",
       "time": "00:05:29.44"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think that it is valid within the Terry stop rationale to take a photograph of someone on the street when you make a voluntary stop and use that in evidence?",
       "time": "00:06:11.50"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does that violate any right of privacy, in your view?",
       "time": "00:06:28.28"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why is a fingerprint any different than your face? It's just a different form of identification like your physiognomy generally.",
       "time": "00:06:36.37"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I'm talking about a Terry stop. Within a Terry stop the Court has allowed a pat-down search of the person, which perhaps is more intrusive than taking a photograph or a fingerprint.",
       "time": "00:07:02.10"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why is it more intrusive... do you think it's more intrusive than taking a fingerprint?",
       "time": "00:07:20.73"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you have to place your hands on a person to do a pat-down search, I suppose.",
       "time": "00:07:35.49"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Have we also held that it's valid to ascertain identity?",
       "time": "00:08:04.09"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And isn't the taking of fingerprint a form of identification inquiry?",
       "time": "00:08:09.76"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Place and Royer both certainly involve something more than protection of the officer. They were looking for contraband in both cases. So I think perhaps Terry on its facts is protection of the officer, but Terry has been held to support a stop where you're looking for evidence.",
       "time": "00:08:33.86"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the decision announced by this Court yesterday in Hensley permitted a Terry-type stop just for identification purposes based on a flyer. Now, if fingerprinting on the scene were used for identification, how does that differ?",
       "time": "00:09:13.07"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That is not correct.",
       "time": "00:09:38.70"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, why, if it's valid to make that kind of a stop to check on identification, would it be invalid to go ahead and print someone at the scene of the Terry-type stop?",
       "time": "00:10:02.80"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Of course, in this case the individual was taken to the station, and you don't have the typical Terry-type on the scene stop. Let me ask you, if I may, suppose we agree with you that taking the individual to the station was not valid with the Terry stop rationale. As I understand it, the victim made a later in court identification of the defendant in this case. Now, even if you're correct that taking the defendant to the station was invalid, on retrial do you think that the state can get another set of prints and introduce fingerprint evidence again on retrial to convict this person?",
       "time": "00:10:36.80"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but I think that it's important to explore a bit. Is there probable cause now to obtain a warrant to take this person's fingerprints?",
       "time": "00:11:47.24"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, faced with this record, is there now probable cause to get the... Mr. Hayes' fingerprints?",
       "time": "00:12:21.37"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And if that's the case, what possible use is there in ordering a new trial just to consider the exact same evidence?",
       "time": "00:12:44.42"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But why should you have a second shot at that issue, just because on a purely unrelated matter there may have been a violation of the Fourth Amendment in taking the fingerprint?",
       "time": "00:13:05.57"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "To mean to relitigate Nix against Williams?",
       "time": "00:13:51.41"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, what possible... what possible flaw could there be in the identification--",
       "time": "00:13:59.82"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--if in open court she identified him as the attacker?",
       "time": "00:14:03.55"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was no objection made to her in court identification?",
       "time": "00:14:34.49"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, my trouble is that the purpose of getting fingerprints is singular: it's to identify, right?",
       "time": "00:18:01.41"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it for any other purpose than identification? Of course it's not. It's for identification. Now, my problem is if the officer walks up to you and says can you identify yourself, is that okay?",
       "time": "00:18:19.20"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And can you show me some identification; is that okay?",
       "time": "00:18:37.91"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And he says do you have any copy of your fingerprints? Can he ask you that?",
       "time": "00:18:44.97"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "A copy.",
       "time": "00:18:54.71"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No. Do you at this time, at this moment have a copy of your fingerprints?",
       "time": "00:19:00.61"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And could he then say let me have it? Well, let me give you the next question. Maybe you can answer that one. If he doesn't have it, can he then say may I take your fingerprints right now?",
       "time": "00:19:09.77"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And what in Terry gives you the right to question?",
       "time": "00:19:29.20"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, then he can't ask you for your driver's license, because if you're looking for Joe Doaks and your driver's license says Joe Doaks, and you show that driver's license, you're in trouble.",
       "time": "00:20:11.38"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I just don't see the difference in... well, when he gets to the police station, can he identify himself there?",
       "time": "00:20:32.95"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What good does the warrant do?",
       "time": "00:20:43.41"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why isn't your protest that he was arrested without probable cause?",
       "time": "00:21:05.74"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why don't you say he was arrested without probable cause when he was carried to the station?",
       "time": "00:21:12.85"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you haven't argued it here. That's what I'm worried about. You haven't abandoned it, have you?",
       "time": "00:21:34.66"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But on a Terry stop, could the policeman, if he found a gun, take the gun away from the man?",
       "time": "00:21:51.29"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And that might well... that might well be evidence, first, of carrying a concealed weapon without a license or, second, if they took some ballistic tests, it might tie him to a murder. So it's very, very important evidence, isn't it?",
       "time": "00:22:03.28"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But he can also detain the person for a brief period at least to question him, ask him some questions.",
       "time": "00:22:38.27"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, one of the questions that Justice Marshall asked you, whether it could be asked, was who are you and do you have any identification, and you agree that those questions may be asked. But what if they... what if the person says sorry, it's none of your business, and a person says... he's asked do you have a driver's license, and he says yes, I have a driver's license, but you can't see it? Now, could the officer then search him for his driver's license? I take it you say he could not.",
       "time": "00:23:03.96"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, yeah, but he could... but--",
       "time": "00:23:53.75"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--And if the officer says do you have... do you have a driver's license, I want to look at your fingerprints, and the fellow says well, I have a driver's license, but you... it's none of your business about looking, and the officer then searches him, not for a gun or anything else but for a driver's license.",
       "time": "00:24:03.45"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I think I would say you certainly have argued that he could not do that. If you argue that he could not take his fingerprints right there on the spot, surely you would argue he could not search him for his driver's license.",
       "time": "00:24:25.27"
     },
@@ -675,19 +675,19 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I get back to this case for a moment? In this case there are arguably two different seizures of the person: one, taking him to the station, and secondly, taking his fingerprints.",
       "time": "00:25:18.67"
     },
     {
       "turn": 108,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They're at least analytically separate.",
       "time": "00:25:29.29"
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In your view, which is the greater invasion, the more serious intrusion on the person that's under arrest?",
       "time": "00:25:31.24"
     },
@@ -699,13 +699,13 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well.",
       "time": "00:25:56.36"
     },
     {
       "turn": 112,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I have just one I'd like to ask, if I may. Does the record tell us how long Mr. Hayes was kept at the station and how long it took to get him there?",
       "time": "00:25:57.89"
     },
@@ -717,13 +717,13 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Thank you.",
       "time": "00:26:10.52"
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Munsey.",
       "time": "00:26:11.29"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, wasn't... they took his prints at the station, didn't they?",
       "time": "00:26:50.51"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And didn't they match?",
       "time": "00:26:54.05"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, did--",
       "time": "00:26:56.23"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Did they release him then?",
       "time": "00:26:57.66"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what's that I said. So how long was he detained at the station? He was arrested.",
       "time": "00:27:00.37"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He was detained for quite a while. [Laughter]",
       "time": "00:27:07.00"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, if he wasn't arrested--",
       "time": "00:27:13.53"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--That's the answer to the question, isn't it?",
       "time": "00:27:24.21"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, if he wasn't legally arrested, arrested as a matter of law when they took him away from his home, he certainly was arrested as soon as they took the fingerprints.",
       "time": "00:27:27.18"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Munsey--",
       "time": "00:30:34.44"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--May I back up just a moment?",
       "time": "00:30:35.71"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You said that in some prior case he was arrested and null prossed.",
       "time": "00:30:38.41"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I'm talking about the one that he wasn't tried on, the one he was null prossed on.",
       "time": "00:31:00.41"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was he arrested in that one?",
       "time": "00:31:06.83"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how in the world is it that they didn't have his fingerprints?",
       "time": "00:31:15.75"
     },
@@ -915,13 +915,13 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I just can't how you can null prosse a case when a man is not arrested.",
       "time": "00:31:48.41"
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Were these second charges brought after his fingerprinting in the case now before us?",
       "time": "00:31:53.54"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Munsey, may I ask what the point of all this discussion of the evidence is?",
       "time": "00:33:58.94"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What... what relevance does that have to the point that you want to make?",
       "time": "00:34:03.94"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The C.I. being a confidential informant?",
       "time": "00:34:19.94"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what is the point of this? What is the legal relevance of all of this discussion of the--",
       "time": "00:35:11.53"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, you're trying to argue here that the court below was wrong in saying there was no probable cause, is that it?",
       "time": "00:35:26.14"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you want us to reweigh the evidence and disagree with the court below and find there's probable cause? Is that what you're arguing?",
       "time": "00:35:35.32"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 162,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Well, then you're saying that this Court is not bound by the state court's determination on this issue because it's a federal issue?",
       "time": "00:36:00.10"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 164,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And that you argue here that there was probable cause for the arrest.",
       "time": "00:36:08.30"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you are going to get to whether... to the question of whether you can take fingerprints on reasonable suspicion.",
       "time": "00:36:18.10"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Soon.",
       "time": "00:36:26.10"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr.... General Munsey, may I just ask this one question--",
       "time": "00:37:24.70"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--on your probable cause argument. I am correct, am I not, in understanding that the evidence on which you rely to establish probable cause was not all presented at the hearing on the motion to suppress.",
       "time": "00:37:28.24"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It partly relies on the trial transcript.",
       "time": "00:37:39.88"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is there any reason why prints couldn't be taken at the scene or at a suspect's home?",
       "time": "00:39:02.42"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what's involved... just an ink pad and a piece of paper?",
       "time": "00:39:17.09"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Didn't you just roll your finger on an ink pad and put it on a piece of paper?",
       "time": "00:39:38.09"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you the same question I asked your adversary? Which do you regard as the greater intrusion on the citizen's freedom, you might say... taking him to the station or taking his fingerprints?",
       "time": "00:39:47.26"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But maybe you could invite the officer into the living room.",
       "time": "00:41:03.18"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right. Well, in view of your answer to Justice Stevens, doesn't this come down, then, to a seizure case rather than a fingerprinting case?",
       "time": "00:41:10.01"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 188,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your argument here is that this would have been inevitably discovered in any event under the Nix case, and therefore we're spinning our wheels up here, is that right?",
       "time": "00:41:30.59"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, quite apart from inevitable discovery, is it arguable that no new trial is required simply to present the same evidence all over again?",
       "time": "00:42:19.93"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it could also conclude, could it not, that for reasons stated by the Florida district court of appeal, this fingerprinting was proper under a Terry standard.",
       "time": "00:42:55.61"
     },
@@ -1197,7 +1197,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm a little puzzled about the argument. I frankly hadn't thought it all the way through, but about the victim's testimony at the trial. Isn't all that the product of the fingerprinting? I mean if there had been no fingerprinting, how do we know what would have happened thereafter?",
       "time": "00:43:09.64"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But... but you're relying on... on the pre... the pre-fingerprinting identification--",
       "time": "00:43:44.38"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--rather than what she said at trial?",
       "time": "00:43:49.97"
     },
@@ -1233,13 +1233,13 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But how--",
       "time": "00:43:59.80"
     },
     {
       "turn": 201,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Wasn't her in court identification based on her view of the defendant at the scene of the rape?",
       "time": "00:44:00.51"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But how do we know he would have even gotten to court if there hadn't been the fingerprinting? Did they have enough to arrest him without the fingerprinting and bring him into court? She didn't see him any place except in the courtroom, did she?",
       "time": "00:44:07.80"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 206,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Anything further?",
       "time": "00:44:52.59"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 208,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well.",
       "time": "00:44:55.89"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 210,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have four minutes remaining.",
       "time": "00:44:56.99"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was the null prossing after this case?",
       "time": "00:45:41.77"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what in the world that's got to do with this case?",
       "time": "00:45:46.72"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What in the world does that have to do with this case?",
       "time": "00:45:49.31"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The argument that the Government made was that they had probable cause to think it was him because he had been null processed.",
       "time": "00:45:53.19"
     },
@@ -1353,13 +1353,13 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I understood the Government's argument to be that these other asserted attacks were known to the police at the time they went to his house, and that that furnished an additional basis for a probable cause arrest at that time.",
       "time": "00:46:02.68"
     },
     {
       "turn": 221,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But that's not what he said.",
       "time": "00:46:22.23"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, that's the way I understood his argument. Otherwise, there would have been no point in talking about these null prossed cases.",
       "time": "00:46:27.63"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I thought the point was that three different people had versions of what he looked like, and together they were able to arrange a composite drawing that gave them their probable cause.",
       "time": "00:46:41.47"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But if your friend is right on his theory that there was probable cause at the time they went to the man's home, then the inevitable discovery claim evaporates from the case, is that not right?",
       "time": "00:48:21.34"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted. We'll hear arguments next in Ball against the United States.",
       "time": "00:48:40.99"
     }

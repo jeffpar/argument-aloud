@@ -3,59 +3,63 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2000/99-1240/20001011a_99-1240.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
       },
       {
         "name": "JEFFREY S. SUTTON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL H. GOTTESMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "SETH P. WAXMAN",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 99-1240, the Board of Trustees of the University of Alabama v. Patricia Garrett. Mr. Sutton.",
       "time": "00:00:00.00"
     },
@@ -67,13 +71,13 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Let's--",
       "time": "00:01:12.84"
     },
     {
       "turn": 4,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Mr. Sutton, there were congressional findings that there has been discrimination against the disabled in voting, health services, transportation, education, and so on, and there are numerous examples in the legislative record, and those are areas of traditional State control. Do you think that those findings are somehow false, or not relevant in some way, or that the discrimination is just not unconstitutional, or what?",
       "time": "00:01:13.69"
     },
@@ -85,7 +89,7 @@
     },
     {
       "turn": 6,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that's what I'm trying to press you on a little bit, because the findings in some instances are in areas that are under traditional State control.",
       "time": "00:02:05.78"
     },
@@ -97,7 +101,7 @@
     },
     {
       "turn": 8,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did the findings distinguish at all between discrimination that was the result of the State as opposed to, say, the county or the city?",
       "time": "00:02:30.14"
     },
@@ -109,7 +113,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why isn't it a constitutional violation when one witness said, the Essex Junction School System said they were not hiring me because I was using a wheelchair?",
       "time": "00:02:57.25"
     },
@@ -121,7 +125,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, I mean, I pick that out because the SG's brief is filled with references, and we have all these amicus briefs that are filled with references along the lines I just said. Now, if I... is it that I'm supposed to count all those, and they have a whole lot here in a huge stack of briefs, and count them all and then say, well, they're just not enough, or there are enough? Why wouldn't, say, 200 instances like that be enough?",
       "time": "00:03:16.27"
     },
@@ -133,7 +137,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, they tell us, for example, that a lot of States didn't have laws, to use this case, involving cancer, or perceptions of handicap which really weren't, and then they list all kinds of flaws in those laws in these briefs, and I suppose they're probably right in terms of the facts here.",
       "time": "00:03:56.93"
     },
@@ -145,7 +149,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, I mean, that's what I'm asking. That's what I'm trying to get to. Why isn't it a constitutional violation where Congress has lots and lots of instances of States that seem to discriminate against handicapped people under instances where, given the information in front of them, for some reason or other, these handicapped people have not been able successfully to avail themselves of State law.",
       "time": "00:04:21.00"
     },
@@ -157,7 +161,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So if, in fact, in the sixties, there had been discrimination in the South, and we discovered there was a State law banning racial discrimination, Congress would not have been able to pass laws against racial discrimination in your view without--",
       "time": "00:05:19.72"
     },
@@ -169,7 +173,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--And today? What about today?",
       "time": "00:05:41.99"
     },
@@ -181,7 +185,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Let me ask you, suppose we have a real case or a hypothetical case along the lines described by Justice Breyer, a very egregious case, a person absolutely confined to a wheelchair. That person can't get into the court hearing on time, or can't get into a voting booth, and you have an insensitive State official. In that single discrete case, could there be an action brought under the Equal Protection Clause to compel the access, compel access to the court, compel access to the building?",
       "time": "00:05:51.86"
     },
@@ -193,7 +197,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's why I'm asking.",
       "time": "00:06:30.56"
     },
@@ -205,7 +209,7 @@
     },
     {
       "turn": 26,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would the court be wrong to say that there's a quasi... would the court be wrong to say there's a quasi suspect class here, or suspect class?",
       "time": "00:06:39.33"
     },
@@ -217,7 +221,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, what I'm trying to find out-- --Mr.-- --is if there's ever an equal protection violation on a stand alone discrete case--",
       "time": "00:07:03.53"
     },
@@ -229,7 +233,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--where a State discriminates against a person by reason of a severe handicap.",
       "time": "00:07:09.51"
     },
@@ -241,7 +245,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does that state an equal protection violation, and if it does, why is it that the courts can do what Congress cannot? That's the line of inquiry I--",
       "time": "00:07:15.70"
     },
@@ -253,7 +257,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Yes. It would seem that that's one consequence of your argument, and I want you to address it.",
       "time": "00:07:29.87"
     },
@@ -265,7 +269,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you're willing to concede, apparently, that it is a constitutional violation not to make special provision in public buildings for those who are handicapped.",
       "time": "00:08:02.38"
     },
@@ -277,7 +281,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That is a denial of equal protection of the laws.",
       "time": "00:08:12.55"
     },
@@ -289,7 +293,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you know of any case that has held that?",
       "time": "00:08:17.17"
     },
@@ -301,7 +305,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When Congress was speaking of discrimination could it possibly have been referring to the statutory definition of discrimination?",
       "time": "00:08:21.38"
     },
@@ -313,7 +317,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is there any compatibility between that and the constitutional requirement of equal protection?",
       "time": "00:08:31.39"
     },
@@ -325,19 +329,19 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't know why you're running away from it. It seems to me that's the core issue in this case.",
       "time": "00:08:37.58"
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Sutton--",
       "time": "00:08:40.68"
     },
     {
       "turn": 48,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Whether, in fact... whether, in fact, making special accommodation for those who are handicapped, or the failure to do so, is a violation of the Constitution. I think if it is your case is a hard one.",
       "time": "00:08:41.71"
     },
@@ -349,7 +353,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Sutton, isn't this an employment case rather than an access case?",
       "time": "00:08:55.38"
     },
@@ -361,7 +365,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the particular claims are employment claims, and is it not at least theoretically possible that refusal of employment to a person because of a handicap would be an equal protection violation, regardless of whether the access provision was?",
       "time": "00:09:02.42"
     },
@@ -373,7 +377,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Should they have ruled--",
       "time": "00:09:18.75"
     },
@@ -385,7 +389,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--that nobody with an artificial limb can ever have a job of a certain character? You could say that wouldn't pass the rational basis test, couldn't you?",
       "time": "00:09:19.40"
     },
@@ -397,7 +401,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but in that kind of a hypothetical you would agree that that could be a constitutional violation?",
       "time": "00:09:29.07"
     },
@@ -409,7 +413,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If there were no rational basis for it, in other words.",
       "time": "00:09:41.70"
     },
@@ -421,7 +425,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But there might be a rational basis for refusing to hire a teacher who was in a wheelchair--",
       "time": "00:09:43.93"
     },
@@ -433,7 +437,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--if only that the school is not properly equipped to accommodate such a teacher.",
       "time": "00:09:49.92"
     },
@@ -445,7 +449,7 @@
     },
     {
       "turn": 66,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about Justice Stevens' hypothesis, a man with an artificial limb turned down for a teacher, just without any real basis for it, you know, we're just afraid we might not be able to handle you.",
       "time": "00:09:59.88"
     },
@@ -457,7 +461,7 @@
     },
     {
       "turn": 68,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That would be arbitrary.",
       "time": "00:10:15.09"
     },
@@ -469,7 +473,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, assuming there was evidence of that kind of discrimination, I really don't understand the argument that the fact that there are State remedies also available makes it impermissible for there to be a Federal remedy.",
       "time": "00:10:25.96"
     },
@@ -481,7 +485,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I--",
       "time": "00:10:42.00"
     },
@@ -493,7 +497,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Why couldn't there be a Fourteenth Amendment Federal remedy, even though there also was a State remedy? I don't quite understand the thrust of your main argument.",
       "time": "00:10:43.57"
     },
@@ -505,7 +509,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but the fact that a State remedy exists does not necessarily mean that discrimination is not taking place.",
       "time": "00:10:57.56"
     },
@@ -517,7 +521,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So I take it if you went back to Justice Breyer's example and used the hypothesis of maybe 200 examples... I don't know how many we've got, but maybe that many were adduced... and in each of those instances Congress had said not only, we find here is an example of an instance of discrimination, but Congress had also expressly said, and we find that in this example there was no enforcement of State law to correct it, and it had matched its 200 examples with 200 examples of State failure to enforce, do I understand your position to be that then there would be an adequate legislative predicate under section 5?",
       "time": "00:11:07.71"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So that if you win this case, Congress could go back and dredge up from its record its 200 examples and, if Congress said well, we now... you know, we've checked into this, and in each of these examples there was no State enforcement, Congress could then pass the act again under section 5 and it would... on your view would be valid?",
       "time": "00:11:52.20"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:12:15.40"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Sutton, would you... I thought we were talking just about the employment section, those of the ADA, but you're saying no, it's broader than that.",
       "time": "00:12:50.00"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you would want to know, wouldn't you, Mr. Sutton, whether these 200 instances were, quote, discrimination, close quote, in the sense that Congress used it, or discrimination in the sense that it's used in the City of Cleburne--",
       "time": "00:13:21.97"
     },
@@ -577,7 +581,7 @@
     },
     {
       "turn": 88,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--as that's different.",
       "time": "00:13:35.68"
     },
@@ -589,7 +593,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, the difference that I wondered about is, Kimel I thought was ambiguous as to whether or not a rational basis test applies, and I'd be interested... I know you're probably aware of the argument, the SG makes it, that rational basis is a test that courts have created in order not to intrude upon the province of the legislature. But there is no reason to have the province of the legislature not intruding upon the province of the legislature and, therefore, you don't need to apply that strict a matter and should respect the congressional judgment that, in fact, there is unreasonable discrimination being exhibited in these States against handicapped people. I would like to get your response to that kind of an argument.",
       "time": "00:13:58.49"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I don't think the issue is one that is encompassed by getting into presumptions of constitutionality. The issue, I think, that's getting raised is one about, let's say the competence of the courts to make judgments, particularly when we get into the rational basis area to make sound judgments and it seems that the courts are not as good second guessers there, perhaps, as legislatures may be. But the fact is, Congress is a legislature, and it is not laboring under the judicial disability as a second guesser, so why do we... I mean, I go back to the question raised. Why should we apply the same standard that we would if we were dealing with a court's review?",
       "time": "00:15:37.26"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You're right, but this is just a question of standard, and you're saying, look, whatever standard you apply, be careful to realize that you don't have, on your view, a sufficient predicate in the record to pass muster on any standard. That's one argument, and I think we understand that, but why should the standard be the same?",
       "time": "00:16:59.22"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can I ask you, on this very... the SG has headlined in his brief, S report number 116, at page 18, and in big letters, current Federal and State laws are inadequate. That was right out of the Senate report, so why wouldn't that be a finding that current Federal and State laws are inadequate?",
       "time": "00:17:47.57"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The question is, I suppose, inadequate to do what, inadequate to do the good things that need doing?",
       "time": "00:18:14.82"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or inadequate to assure compliance with the Constitution of the United States?",
       "time": "00:18:25.12"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the report doesn't say the latter.",
       "time": "00:18:30.19"
     },
@@ -673,13 +677,13 @@
     },
     {
       "turn": 104,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "All right.",
       "time": "00:18:36.02"
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's the other question, but that's what you were answering. Why isn't this a constitutional... if Congress finds that there are all these problems going on with the States, and the current State laws are inadequate to help these handicapped people who are discriminated against, why isn't that sufficient to show the problem that permits them to act under section 5?",
       "time": "00:18:36.28"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And they are not constitutional violations because--",
       "time": "00:19:12.04"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Why weren't they asking about the constitutionality if they explicitly abrogate the State's immunity?",
       "time": "00:19:29.36"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They could only do that under the Fourteenth Amendment.",
       "time": "00:19:37.13"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So then they must have been talking about the Fourteenth Amendment.",
       "time": "00:19:43.36"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Seminole wasn't decided until 1997.",
       "time": "00:19:52.59"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Sutton, you've made something in your brief of the absence of a congressional provision to treat the Federal Government, or Federal employment on a par with private sector employment. You emphasized that, but I didn't see the connection between that and the section 5 inquiry that's before us.",
       "time": "00:20:38.85"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What is being imposed on State governments that's not being imposed on private employers?",
       "time": "00:21:37.24"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But with respect to the kinds of cases that we're dealing with, with employment, there are money damages against individuals.",
       "time": "00:22:02.96"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, your... I'm sorry. That's a proposition a little hard to maintain, because in the age discrimination area this Court has never found a violation of the rational basis test, but in the handicapped area we've found a bunch of violations.",
       "time": "00:22:22.81"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But there are a number of other areas where there have been constitutional violations, but none in the age area.",
       "time": "00:22:40.70"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, but not that it was unconstitutional to place the discrimination on the basis of that person's age.",
       "time": "00:22:51.80"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I ask you if you think the congressional findings might have been phrased a little differently if they'd been made after the Seminole decision?",
       "time": "00:23:22.36"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It seems to me you're suggesting that we treat the Congress of the United States as a trial court and remand the case to them to prepare better findings. [Laughter]",
       "time": "00:23:45.04"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "May I go back to the remedy question that Justice Ginsburg raised? Is it your position that with respect to the damages remedy that you zeroed in on, that that would fail the proportionality test unless the same remedy were applied to the National Government and to private employers generally? Is that the position that you're taking.",
       "time": "00:24:29.30"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it may not be sufficient, but is it your position that it would be necessary to survive the proportionality--",
       "time": "00:25:02.23"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Very well, Mr. Sutton.",
       "time": "00:25:17.93"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Gottesman, we'll hear from you.",
       "time": "00:25:19.77"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But has... Mr. Gottesman, has any court bought that argument? After all, there is the Garcia case to deal with, and--",
       "time": "00:26:15.38"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--This would be an argument that could be made only by the State, not by a county or a city, I take it.",
       "time": "00:26:37.49"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I would think that if you lose the Commerce Clause challenge the least of your worries is the States. You're going to have many more businesses who employ people, that they're going to be exempt.",
       "time": "00:27:07.14"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Gottesman, I'm not sure that the record here presents much in the way of a title II claim. I know the Ninth Circuit has said that all employment disputes under the ADA are covered only by title I, not title II, that title II addresses public services, and I know the grant of certiorari covered both, ostensibly, because the plaintiffs' cause of action appeared to address both, and I think this Court probably hasn't decided whether all employment cases fall under title I, but if we thought they did, do we have to address the title II issue?",
       "time": "00:27:36.57"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And how does one usually determine that? I mean, I would usually consider it to be irrational and motivated by prejudice when there's no practical reason for it. Doesn't it boil down to the same thing? You look to see whether, indeed, there's a rational basis for what's been done. If there's no rational basis, you say it must be motivated by, you know, irrational prejudice or stereotyping, or whatever.",
       "time": "00:30:00.10"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure it advances the ball. I think the two boil down to the same.",
       "time": "00:30:32.01"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand.",
       "time": "00:30:57.27"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I just don't know how you prove that, except by looking at whether there is, in fact, a rational basis. How do you prove that--",
       "time": "00:31:00.66"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That puts the cart before the horse. They have to have shown unconstitutional State action before they can use the prophylaxis.",
       "time": "00:31:20.44"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you're saying the unconstitutional State action is going to be based upon not the realities out there, whether there was a rational basis, but whether, even though there was a rational basis, the States somehow were acting out of irrational hatred of the disabled. How do you establish that?",
       "time": "00:31:28.85"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did Congress establish it?",
       "time": "00:31:46.05"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Tell me how.",
       "time": "00:31:47.78"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I didn't catch the last word, Mr.... are what?",
       "time": "00:31:54.96"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Widespread.",
       "time": "00:31:57.19"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That proves that prejudice exists. Does it prove that State action has been taken on the basis of that prejudice when there is rational basis for the State action?",
       "time": "00:32:44.02"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Let's not talk about State action for a minute, Mr. Gottesman. Let's talk about the States and the Eleventh Amendment section. What findings did Congress make, what examples did it use to tie in the States with this sort of irrational discrimination?",
       "time": "00:33:04.43"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, when you say discrimination in answer to this question, you mean--",
       "time": "00:33:45.62"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--unconstitutional--",
       "time": "00:33:49.60"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Unconstitutional action.",
       "time": "00:33:51.00"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "By people who were acting for the State?",
       "time": "00:34:03.02"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What was the basis for that finding?",
       "time": "00:34:23.07"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Was there... of the teacher?",
       "time": "00:34:24.14"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Was there any testimony on the other side?",
       "time": "00:34:28.87"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just hear one side and make a finding?",
       "time": "00:34:31.75"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "One witness who says, the reason I didn't get promoted was my arthritis, and Congress says State... unconsitutional state discrimination.",
       "time": "00:34:49.48"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That is unconstitutional discrimination?",
       "time": "00:35:20.04"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That is irrational discrimination?",
       "time": "00:35:22.42"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Whether it's good or bad--",
       "time": "00:35:24.53"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--maybe it shouldn't exist, but you think there is no rational basis.",
       "time": "00:35:24.53"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 199,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "On the facts of this case, could the plaintiffs have gone to a court of competent jurisdiction and established an equal protection violation?",
       "time": "00:35:31.70"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are there cases in the State courts, or in the lower Federal courts which have accepted this rationale?",
       "time": "00:36:05.33"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 203,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But if this is so evidently an equal protection violation, why haven't courts for the last 30, 40, 50 years routinely entertained these challenges and given relief?",
       "time": "00:36:31.51"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You're telling me that over the last 30 or 40 or 50 years there have been numerous cases in the courts where handicapped and disabled people have routinely made equal protection claims and prevailed?",
       "time": "00:36:57.52"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Gottesman, what are your other two arguments? You had three, I believe.",
       "time": "00:37:20.85"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 209,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Were these findings by Congress?",
       "time": "00:38:49.40"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 211,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This report that you're now describing was a report made to Congress by--",
       "time": "00:39:01.26"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 213,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Do you think it is proper to leap from these general psychological generalizations about the society at large, and State employers in particular, to the conclusion that the States have been acting unconstitutionally?",
       "time": "00:40:08.52"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You may answer, Mr. Gottesman, briefly.",
       "time": "00:40:27.07"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 217,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The answer is yes.",
       "time": "00:40:30.01"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Gottesman. General Waxman, we'll hear from you.",
       "time": "00:40:48.26"
     },
@@ -1375,7 +1379,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But General Waxman, it's not magic words. The whole point of City of Boerne is that when Congress alters the Federal balance it must consider very carefully the consequences of doing so, and to say that it's simply magic words does not do justice or respect to that very fundamental principle, and the Federal--",
       "time": "00:42:27.25"
     },
@@ -1387,7 +1391,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--And the Federal balance is altered far more under the Fourteenth Amendment than it is under the Commerce Clause.",
       "time": "00:42:55.06"
     },
@@ -1399,7 +1403,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "General Waxman, do you agree with Mr. Gottesman that if the... supposing there emerged a 55-year retirement law, rational basis, relied on in Kimel, do you agree with Mr. Gottesman's suggestion that if a court could be persuaded that when the legislature acted, that they really had it in for people over 55, that that would be invalid?",
       "time": "00:43:42.15"
     },
@@ -1411,7 +1415,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but now, I don't want to put words in Mr. Gottesman's mouth, but I understood him to say that sure, rational basis, but if you could prove that although there was a rational basis for requiring people to retire at 55, if the legislature that enacted that had really been motivated by a dislike for people over 55, then it would... there would be a violation of equal protection.",
       "time": "00:44:28.30"
     },
@@ -1423,13 +1427,13 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you in the process of answering my question?",
       "time": "00:44:59.04"
     },
     {
       "turn": 230,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:45:01.77"
     },
@@ -1441,19 +1445,19 @@
     },
     {
       "turn": 232,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, no, no.",
       "time": "00:45:08.64"
     },
     {
       "turn": 233,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:45:08.78"
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you agree with Mr. Gottesman?",
       "time": "00:45:08.93"
     },
@@ -1465,7 +1469,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you think it provided rational basis as the foundation of review in Cleburne?",
       "time": "00:45:46.50"
     },
@@ -1477,7 +1481,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Or something more?",
       "time": "00:45:53.96"
     },
@@ -1489,7 +1493,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think Congress can by law establish that the disabled are a discrete minority entitled to heightened scrutiny in reviewing legislation, or action by States?",
       "time": "00:47:21.67"
     },
@@ -1501,7 +1505,7 @@
     },
     {
       "turn": 242,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We said the same thing in Kimel. We said, rational basis scrutiny, much legislative latitude.",
       "time": "00:48:12.95"
     },
@@ -1513,7 +1517,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but... I'll reread Cleburne, but Cleburne said that in order to defer to the authority of the legislature to pass a zoning law, that did not have to do with the authority of the legislature to declare a suspect class.",
       "time": "00:48:34.99"
     },
@@ -1525,7 +1529,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's quite different.",
       "time": "00:48:50.60"
     },
@@ -1537,7 +1541,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you think Congress can do that?",
       "time": "00:49:06.78"
     },
@@ -1549,7 +1553,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But I persist in the point that that did not address Congress' authority and scope and prerogatives under section 5 of the Fourteenth Amendment. That's quite different.",
       "time": "00:49:14.51"
     },
@@ -1561,7 +1565,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well now, General Waxman, are we then to look through separate opinions, dissenting opinions, and say if the majority didn't contradict them they must have been subscribed to by the whole Court? We've never done that.",
       "time": "00:50:31.43"
     },
@@ -1573,7 +1577,7 @@
     },
     {
       "turn": 254,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I'm surprised that you would simply cite an opinion like that, as if... unless the majority said, gee, we don't agree with that statement, it suggests the majority did agree with it.",
       "time": "00:50:45.76"
     },
@@ -1585,7 +1589,7 @@
     },
     {
       "turn": 256,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What you were citing was Justice Marshall's opinion, and are you saying that Congress could rely on that?",
       "time": "00:51:10.20"
     },
@@ -1597,13 +1601,13 @@
     },
     {
       "turn": 258,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well then, one... Congress could make its record, I take it, out of statements in dissenting opinions from this Court.",
       "time": "00:51:37.96"
     },
     {
       "turn": 259,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I have to write more dissents and concurring opinions, I guess, if I want to be really influential. [Laughter]",
       "time": "00:51:43.53"
     },
@@ -1615,7 +1619,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Unconstitutional. Did they use the words--",
       "time": "00:52:22.62"
     },
@@ -1627,7 +1631,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--unconstitutional?",
       "time": "00:52:24.59"
     },
@@ -1639,7 +1643,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What does?",
       "time": "00:52:32.75"
     },
@@ -1651,7 +1655,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The congressional findings here?",
       "time": "00:52:34.07"
     },
@@ -1663,7 +1667,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Waxman, is it really rational basis review? I mean, Cleburne does... the result seems at odds with the... with just anything goes, which had been what rational basis meant. I thought that the Cleburne decision was very much like Reed v. Reed in the gender area. That is, the Court purported to apply rational basis, but came to a result that didn't square with any prior rational basis decision.",
       "time": "00:53:24.22"
     },
@@ -1675,7 +1679,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about judicial findings, a question posed to your colleague. One would really have expected, if this was a massive constitutional problem, that there would have been a large number of cases that had found the States guilty of unconstitutional action.",
       "time": "00:55:42.79"
     },
@@ -1687,7 +1691,7 @@
     },
     {
       "turn": 273,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:56:00.65"
     },
@@ -1699,7 +1703,7 @@
     },
     {
       "turn": 275,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:56:01.78"
     },
@@ -1711,7 +1715,7 @@
     },
     {
       "turn": 277,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, General Waxman. Mr. Sutton, you have 5 minutes remaining.",
       "time": "00:56:23.89"
     },
@@ -1723,7 +1727,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And how do you explain the results? I mean, one could conceive of many bases that would uphold that zoning provision, and yet the court not only didn't attempt to justify the legislation, but held the legislation to a rather stringent burden of justification.",
       "time": "00:57:03.93"
     },
@@ -1735,7 +1739,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought under classic rational basis review the court was not only to listen to the Government's argument, but if there's any basis it could conceive... and surely there were bases that could be conceived--",
       "time": "00:57:43.20"
     },
@@ -1747,7 +1751,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--that were not driven by animus--",
       "time": "00:57:56.74"
     },
@@ -1759,13 +1763,13 @@
     },
     {
       "turn": 285,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Sutton.",
       "time": "00:59:39.29"
     },
     {
       "turn": 286,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Well, if you have a minute, I would like to go back to equal protection of the law. Equal protection of the law might be violated where a State official has a bad reason for doing something, though he might have a good one. As you point out, a court probably wouldn't catch that violation, because a court has to apply a rational basis test, but that's for institutional reasons, so why should we apply such a test where the institution is Congress? So do you see what I'm... I'm trying to get--",
       "time": "00:59:41.41"
     },
@@ -1777,7 +1781,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yes.",
       "time": "01:00:21.37"
     },
@@ -1789,7 +1793,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "City of Boerne, if I find City of Boerne ambiguous on this point, on the point of whether it's going to... whether a court would find a violation, or whether there is a violation, if I find it ambiguous on that point, can't I pre crank in my institutional considerations?",
       "time": "01:00:29.50"
     },
@@ -1801,7 +1805,7 @@
     },
     {
       "turn": 292,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Sutton. The case is submitted.",
       "time": "01:01:15.01"
     }

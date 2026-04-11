@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2004/03-9168/20041108a_03-9168.delivery.mp3",
     "speakers": [
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "LINDA J. THOMPSON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "JOHN P. ELWOOD",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We will hear argument in Shepard against the United States. Ms. Thompson.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What... what do you mean by a... just so we get our terms defined, what do you mean by a nongeneric burglary statute--",
       "time": "00:01:30.12"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and a generic burglary statute?",
       "time": "00:01:37.93"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, do you... do you agree that all the papers showing the arrest and the investigation and so forth show that this was in fact a building--",
       "time": "00:02:08.24"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--that was burglarized?",
       "time": "00:02:19.26"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does it show it was a vehicle?",
       "time": "00:02:22.55"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Or a boat?",
       "time": "00:02:25.42"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Or a motorcycle?",
       "time": "00:02:27.45"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It shows nothing? None of the supporting documentation shows what it was?",
       "time": "00:02:29.27"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that isn't my question. I asked you whether any of them show that it was, in fact, a building or a car or a boat.",
       "time": "00:02:38.47"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Thank you.",
       "time": "00:02:48.48"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, why... why are you resisting that the... that the police report gave an identified building? I mean, you're... you're saying that one mustn't look behind, in the case of a guilty plea, to find the police report or even the police application for complaint. But there isn't any question, is there, that the police reports in fact gave addresses of particular buildings?",
       "time": "00:02:53.57"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So what... what you're saying is the conviction itself didn't show that, and so the question is whether you can look to documents that in fact showed it.",
       "time": "00:03:34.73"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So the rule you would have us follow does result in a... a super technicality in a sense of what... what was on the record at the time of the plea.",
       "time": "00:03:44.28"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose... suppose in the earlier conviction, the police report is in the court. It's not part of the record, and then the court says, I've read the police report. Is that accurate? And the client... or the defendant says, yes. Then later, can we go back and look at the police report even though it was not annexed as part of the record?",
       "time": "00:04:24.32"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if the defendant at the plea colloquy had said, yes, I entered X building or even in the plea bargain had said that, even though the charge just read the boiler plate, the whole statute, buildings, vessels, et cetera, if he had admitted it either in the plea colloquy or in the plea bargain, wouldn't that be enough?",
       "time": "00:05:15.25"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I... I don't understand your reading of Taylor. As I've read that case many times, it seemed to me that that was making a perfectly sensible point. At the end of the opinion, Justice Blackmun says, you know, there are some States like Massachusetts, for example, that instead of just saying burglary, they say burglary of a... of a ship or a car or a building. And that leads us to answer a more general question. Well, in context, that more general question is whether you ought to go look into how a particular burglary was committed to see if there was really violence or not. And he says no. Just look to the definition of the crime. That's what he says. That will end it. Now, he says we agree, because I started here, that we have a couple of States with some weird statutes, and what you have to do in those States is you won't know if it's a boat or a car or... so he says, for example, in a State like the one we have, if it shows it's charged us with a burglary and you have to find out, you know, here's what you do. It says you may have to go beyond the mere fact of conviction. So he says go look to the indictment or information and jury instructions. That isn't a limiting phrase. That's for example. He just thought that in those cases, that's what... all you'll have to look to, for example. We happen to have an unusual case where there are no jury instructions because he pled guilty. So what's the harm of going looking to the documents that will show, in an uncontested way, just what the address on these pieces of paper show? There are no boats, you know, in Watertown. It's not a dock, I don't think, or at least not in that part of it. So... so I mean, what's the problem here?",
       "time": "00:06:05.35"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why is everyone so mixed up? I must be missing something.",
       "time": "00:07:50.35"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What's the problem? I grant you I could imagine a case that could be a problem. Maybe it was a houseboat. Okay? [Laughter] Or maybe it's like a trailer. So if we run into that case, we'll deal with it. You know, I'm perfectly capable of thinking that if this is a charge where there is a dispute on the contested point, fine, we won't take that dispute into account, maybe decide it in the favor of the defendant, maybe. But this is not that case. And by the way, if he's going to say, how do you know? I'd say, I know. I know Boston and I also know that breaking into a boat at least is unusual. So if he thinks it wasn't that, let him say so.",
       "time": "00:08:10.60"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, of course, there wasn't. So all he has to do now is say, Judge, in my latest thing, you know, they say 30 Bremer Street. 30 Bremer Street sounds like the address of a building, but by the way, unusually enough, it's the license plate of a car. Now, if in fact that's the case, he can come in and say it. There's no Fifth Amendment problem. We're talking about sentencing and what a prior conviction was. He doesn't even have to say it. You as his lawyer could tell us. Now, you know why I think you don't say it? Because it isn't conceivably right.",
       "time": "00:09:12.11"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What do you mean it isn't right in fact? What is it?",
       "time": "00:09:48.69"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:09:50.38"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "We look to facts about what the prior convictions were about. That's what Taylor says. That, of course, is a fact, but it's a legal fact, what was this conviction for.",
       "time": "00:09:53.01"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I understand your reading of it. What I want to know is what's wrong with my reading of it.",
       "time": "00:10:05.86"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. What... is... is your argument that we are likely, in effect, to... to violate some constitutional standard if we do what the Government wants, or is your argument as follows? That Taylor says this is an offense-based not a fact-based determination. Taylor says that's what the statute is getting at. And if you go as far as the Government wants here, you basically will have gone beyond offense-based. You will have gone... become fact-based and you will be violating the statute. So my question is, is there something constitutionally we have to worry about which is the basis for your argument, or is it a violation of the statute that you think we ought to be worried about?",
       "time": "00:10:25.10"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I don't have a position. I can't--",
       "time": "00:11:25.71"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, aren't we asking that question in... in any case? The question ultimately is, what did he mean when he said I am guilty? If you've got a plea colloquy, as you admitted a moment ago, it's easy to find out what he meant because they would have gone into the factual basis for the plea. If there's a written plea agreement, it's probably going to be easy to find out because, again, there would be a basis for the plea set out. Here, there isn't one of those documents. So you're going one step further, but you're still asking the question what did he mean when he stood in that courtroom and said I am guilty. And yes, in... in one sense that's fact-based, but all of those questions are fact-based. They're going to the same issue. What did he mean? What was pleading guilty to? Isn't that correct?",
       "time": "00:12:05.70"
     },
@@ -367,19 +367,19 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, maybe, maybe not. That's kind of the question we have, how... what gloss to put on Taylor.",
       "time": "00:13:03.65"
     },
     {
       "turn": 56,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose--",
       "time": "00:13:09.93"
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you join the amici in saying Almendarez-Torres has to be overruled?",
       "time": "00:13:10.72"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No.",
       "time": "00:13:16.95"
     },
@@ -403,19 +403,19 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But suppose--",
       "time": "00:13:18.35"
     },
     {
       "turn": 62,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "All right. So we're looking--",
       "time": "00:13:18.81"
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Taylor were not on the books. What... what would be the basis of your argument? You say that it's all right to look at a plea colloquy, but it's not all right to look at an arrest report to which the judge referred. What's the basis for that distinction? What sense does it make?",
       "time": "00:13:19.53"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but why can you look at what's in the plea colloquy that's in the record, but you cannot look at a document that the judge referred to, if that document isn't there? What's... what's the common sense argument that you're making? I... I don't understand it.",
       "time": "00:14:30.42"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No. This is my little hypothetical case so that we can test your theory, just to see the reasons that you're advancing for... for us to rule in your favor. And I... I don't see any rationale that you've given us.",
       "time": "00:14:49.27"
     },
@@ -451,13 +451,13 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Let me try the same question.",
       "time": "00:15:21.97"
     },
     {
       "turn": 70,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but why can't you go one step further and refer to the document that was not in the record but that the judge mentioned in his... in his findings at the first sentencing? Why? I still haven't had a reason why.",
       "time": "00:15:22.94"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question? Assume the case had been tried and you could not tell from either the indictment or the instructions to the jury whether it was a generic burglary or a nongeneric burglary. Would the... our decision permit us to look at the transcript of the trial to answer that question?",
       "time": "00:16:11.35"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So your argument is that this is comparable to using the transcript of the trial.",
       "time": "00:16:36.00"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So this is even farther removed.",
       "time": "00:16:54.27"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But that's what I don't understand. We're now talking about that part of Taylor which deals with a narrow statute where our object is not to find out what he's guilty of or anything. We're just trying to find out what was the crime he was charged with. And there are two or three States which lump together in one statute crimes that are violent and nonviolent. Burglary of a structure is violent. Burglary of a car or a ship is not. So all we want to know is what was the charge at issue. Now, do you... let me break the question into two parts. The key sentence here, I think, is for example, in a State whose burglary statutes include entry of an automobile, as well as a building, if the indictment or information and jury instructions show that the defendant was charged only with burglary of a building, then it's going to be violent. Now, would you... would you agree with me or not that he could have written... Justice Blackmun... that same sentence to say if, for example, the indictment or information and jury instructions show? Would you be willing to add those two words, for example?",
       "time": "00:17:01.92"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If, for example. I want to know how... how absolute you're making this. And the next question I'd ask would be if you agree for example, what are the things you can look to and what are the things you can't?",
       "time": "00:18:21.69"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, but do you want add the for example or do you want to take it just categorically?",
       "time": "00:18:36.67"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:18:44.87"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. Then what kinds of things would you--",
       "time": "00:18:46.63"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--let us look to and what kinds of things not? All we're interested in is what was he charged with, which of these three things.",
       "time": "00:18:49.64"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--No, no, no. I will get that later. Let me deal with the charge. If he was charged with breaking into a boat, that's the end of this. Okay?",
       "time": "00:19:00.78"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So, fine. So I want to know what he was charged with. Let me do that one. Now, what will you let me look to to see what he was charged with?",
       "time": "00:19:09.60"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So what happens in the case where... Justice Blackmun let us go further than that. He says the indictment... that's the charging document... or information and jury instruction. He'll let us look to a jury instruction as if there's actually been a trial. So he'll let us go further than you will.",
       "time": "00:19:23.07"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And what's the difference between that and a police report that makes it quite clear that in the circumstances there was no possibility of a boat or a car being involved? What's the difference between that and the police report?",
       "time": "00:20:14.57"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. What shows us that... what shows us that is--",
       "time": "00:20:34.88"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--is the check mark. No. The check mark on the form that says, for example, plea, admit sufficient facts. You know, that's a check mark or it's on the form. It says plea, guilty. I mean, you know, you could have different things checked. So that's what established the guilt. And then the police report establishes whether... what kind of a thing was at issue. And I will agree with you that if it's at all contested, we shouldn't get into it. But if it's not contested, there's no question. There was no boat around there. It's a city street. Or there was no car. It's plain it was a building. Then that's just as good as the jury instruction. Why not? Tell me why not.",
       "time": "00:20:37.62"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, but that's always true. You could have a... you could have a... a sheet that shows: admitted, assault, you know. And... and what the sheet says, it says: charge, assault; plea, guilty. It's possible, for all we know, that when the actual colloquy took place, he was talking about some other thing. I don't know what he was talking about, but what you'd go upon is that there was a charge and he pleaded guilty to the charge.",
       "time": "00:22:04.03"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I... I don't... good. Are you going to explain this? Because I thought what we were supposed to do is just look to the sheet, charge; the plea, guilty. And that is what we do and it disposes of 98 percent of the cases.",
       "time": "00:22:51.67"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So... so are you talking about those 98 percent now?",
       "time": "00:23:08.51"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why can't you make the determination? Isn't the... the problem that your determination may not be as reliable? And I thought ultimately your argument would boil down to saying this. The reason you will accept the plea colloquy or the plea agreement, if it sets out the facts, is that that is very reliable. It is a reliable indication of what he was pleading guilty to and what the court was finding him guilty of. But once you go beyond that and you start looking into police reports appended to complaints or whatnot, you're getting into an area of less reliability, and when we're dealing with sentence enhancements like this, we better be reliable. That's why the statute based it on... on offense rather than facts. Don't get into a factual determination that is unreliable. I thought that was your argument ultimately.",
       "time": "00:23:48.68"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I... I'll accept that, yes.",
       "time": "00:25:01.95"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you... you still haven't given a reason, other than the one Justice Souter accepts. Look it. This is a case where we all know what the truth is, but you want to argue that we shouldn't find that out. And it seems to me you have to give us a rationale for we shouldn't know the truth here. You... you don't want us to find it, and there must be some reasons for that. And the law does that once in a while. We all know that something happened, but the law is supposed to pretend it didn't. That's why Justice has a blindfold on. I... I know that. But you haven't given me one reason yet why I should adopt your theory.",
       "time": "00:25:14.14"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But why is a categorical determination important? I threw you a... a bone a second ago, and I said maybe it's because of--",
       "time": "00:26:03.37"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--a reliability concern. Is that it? Is that your point?",
       "time": "00:26:11.50"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but is... is your point that once you get beyond the documents that you admit we can look at, there is a higher... an... an unacceptably high risk of unreliability? Is that your argument?",
       "time": "00:26:19.59"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but that... that doesn't necessarily follow.",
       "time": "00:26:46.70"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But that doesn't necessarily follow from... from looking at a police report. It may well be that we would say the burden never shifts, and he is simply in the position of any other party to a case. If... if the other side has put in evidence that is... is against his interest and he does nothing, then he's in trouble. But that isn't the same as shifting the burden.",
       "time": "00:26:48.80"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "There's no... I guess all I'm saying is it doesn't follow from the argument that the Government is making that a burden of persuasion shifts. Isn't that correct?",
       "time": "00:27:12.62"
     },
@@ -793,13 +793,13 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but the Government--",
       "time": "00:27:40.19"
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Ms. Thompson, you know your white light is on. So if you want to save time, you should perhaps do so right now.",
       "time": "00:27:41.90"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Elwood.",
       "time": "00:27:46.61"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question? Suppose the police report had been ambiguous and referred to both a boat and a house. What would... could... would it be... what would you do in that case?",
       "time": "00:28:30.77"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But why... why couldn't you use it in the other case? Couldn't you ask the police officer what he... who conducted the investigation what the facts really were?",
       "time": "00:28:55.53"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you'd start out with the premise that 90 percent of these cases are really houses anyway, so there's a strong presumption in favor of the Government?",
       "time": "00:29:04.36"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the... the question in this case is whether a police report is extrinsic evidence, isn't it?",
       "time": "00:29:19.15"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, suppose that it was an assault and battery, for example, and you're trying to decide whether it was violent or not, and the police report was somewhat ambiguous. Could you... you couldn't look at it then.",
       "time": "00:29:30.88"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There's a distinction between violent assaults and--",
       "time": "00:29:48.98"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--nonviolent assaults.",
       "time": "00:29:53.65"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you might want to find out which one it was and... and as here, it seems pretty easy. Everybody knows most burglaries are... are of houses. But I'm just wondering if we're not trying to find out what the categorical rule is that... that is at stake here.",
       "time": "00:29:54.50"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, you say it provided the basis for the conviction. Was it presented to the court in each of these cases?",
       "time": "00:30:31.94"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought Judge Gertner said she didn't know whether anybody had seen this police report. It wasn't attached to the charge. I thought that was her position, that these are untested documents. We don't know one way or another whether the judge that accepted the plea had seen them.",
       "time": "00:31:11.18"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But we don't have any colloquy. We don't know what happened at the... you're saying it's... it's altogether likely that that happened, but we don't know.",
       "time": "00:32:17.70"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So if the defendant says, yes, I plead guilty to this crime and the crime is described as ship, vessel, car, building, and that's... if that's all that happened is the boiler plate charge that just repeats the statute and the defendant says, yes, I did that, but nothing tells us did what, other than violate the statute.",
       "time": "00:32:36.31"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But couldn't the judge in that colloquy have said to him, did you break into a building, a car, or a boat? And he would have said yes, and wouldn't that have satisfied the element of the crime?",
       "time": "00:33:33.06"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, there's no record here of the colloquy at the plea? Is that it?",
       "time": "00:34:00.86"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But your test is whether or not there's reliable record evidence? Is that... that the test?",
       "time": "00:34:14.99"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does it... does the plea refer to the police report?",
       "time": "00:34:45.68"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Where do you draw the line? Is there some... I... I take it that you say certainly if the plea colloquy or the... or the judge's guilt determination refers to the police report, then the police report comes in. Suppose there's no reference to the police report.",
       "time": "00:35:05.72"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can we still go find the police report and then where do we stop?",
       "time": "00:35:22.29"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, you mentioned--",
       "time": "00:35:47.73"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--You... you mentioned the State file. Is... is the rule whatever is in the State file, even if there's no reference to it? You had... you had two variables: one that there was reference to it; and two, that it was in State file. Suppose there's no reference, but it is in the State file. What... I'm... I'm not sure what rule you would draw?",
       "time": "00:35:52.57"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what is your... what rule would you have here? The question is, was he convicted of a crime of violence? 98 percent of the cases, all you have to do is look to the crime charged, burglary, and the fact that he was convicted. He pleaded guilty or didn't. But there are these two... three States I guess that lump together in one code provision for breaking and entering into a ship or a car or a house. So now we've got to know which of the three it is. If they go to trial, it's easy. Just look to the jury instructions. If they plead guilty, I guess your opponents would say that's the end of it. You can't use it because we don't ever know from the charge itself which of the three it was that was at issue. Was a house at issue? Was a car at issue? Was a boat at issue? Now, you're going to say, but do a little investigating to find out what was at issue. Look at the police report. Is your view look at anything as long as it's uncontested and clear? Their argument is no matter what you look into, once you go beyond that charging document, you're going to find I think Justice Souter's point. It's going to be ambiguous sometimes. You get into facts of things happened years ago. It's just not worth it.",
       "time": "00:36:38.32"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, but we're still going to have to write something.",
       "time": "00:38:12.74"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And what I want to know is what's your rule.",
       "time": "00:38:15.15"
     },
@@ -1099,13 +1099,13 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I--",
       "time": "00:38:28.02"
     },
     {
       "turn": 178,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So... so we... are we going to decide... decide a lot of probate cases about incorporation by reference in wills and stuff?",
       "time": "00:38:28.82"
     },
@@ -1117,7 +1117,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I don't know what we're supposed to do.",
       "time": "00:38:36.24"
     },
@@ -1129,7 +1129,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But if we don't get to the outer reaches, the next case I suppose will involve a... an application for a search warrant or an arrest warrant which describes facts and pretty well tells you what really happened. Could you rely on that?",
       "time": "00:38:46.11"
     },
@@ -1141,7 +1141,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the police report wasn't made on that date. The police report was prepared earlier, I assume.",
       "time": "00:39:08.04"
     },
@@ -1153,7 +1153,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if it's that... if it's that explicit, I don't think you need the police report.",
       "time": "00:39:25.41"
     },
@@ -1165,7 +1165,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me we're dealing with a case in which the court documents are sufficiently ambiguous that you have to look to something else. Then the question is what other things may you look to, and you say we can look to police reports. I say why not look at warrant applications or maybe the prosecutor's notes, or there could be other equally reliable documents available, it would seem to me, that would... which establish the facts.",
       "time": "00:39:33.84"
     },
@@ -1177,7 +1177,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I thought the police reports were not present in the court--",
       "time": "00:40:00.13"
     },
@@ -1189,7 +1189,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, the... the warrant affidavit is going to be present in the files. It's... it's returned. It's... it's normally filed with... with the other papers in the case.",
       "time": "00:40:07.28"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why... why not? I... I mean, are we going to imagine an entirely different case out of the blue from the one that's disclosed in... in the warrant application? It seems to me that there's a... a relatively high degree of probability there.",
       "time": "00:40:23.85"
     },
@@ -1213,7 +1213,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, let's say the warrant application says, you know, we're looking for a stolen radio and the charge does indicate that he was... that... that the... that the property taken in the burglary was a... was... was a radio. Wouldn't that be a basis for saying, okay, the warrant application probably discloses what was going on here? If... if the... if it was a radio on the warrant application, a radio in the burglary charge to which he did plead guilty, probably it's the radio at the address indicated in the warrant application. Isn't that a fair inference?",
       "time": "00:40:51.58"
     },
@@ -1225,7 +1225,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it may be done in advance by... you know, by... by a couple of hours from the... the police going in--",
       "time": "00:41:36.39"
     },
@@ -1237,7 +1237,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--What... what about the... the police officer... what... what if we don't have a document of any sort but the... the State calls the police officer who, in fact, made the application for the... the issuance of the complaint and he says, when I appeared to ask for the issuance of the complaint, I testified to, I swore to the following facts? I.e., that it was a house at such and such Shaw Street. That gives you your contemporaneity element. Why not accept that?",
       "time": "00:41:45.24"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "They have notes. But the police all have little notebooks. That's what they use in trial day in and day out. So it seems to me that... that if... if contemporaneity is the... is... is... or rough contemporaneity is... is the criterion, then on your theory we ought to get into testimonial evidence.",
       "time": "00:42:38.40"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess you would be content with just relying on whatever was disclosed at the plea colloquy in court.",
       "time": "00:43:08.28"
     },
@@ -1273,7 +1273,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you would take... you would make the assumption, apparently, that on that occasion the elements, the factual basis for the plea would have been disclosed. But unfortunately, the record has been destroyed.",
       "time": "00:43:16.54"
     },
@@ -1285,7 +1285,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You can just presume that the proceeding was regular and it was disclosed. Is that right? Is... under Massachusetts law is there any difference in the penalty at all for burglary of a house versus a motorcycle versus a car versus a vessel?",
       "time": "00:43:42.42"
     },
@@ -1297,7 +1297,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So you want us to write the opinion that we can presume that what's in the State investigative files and records was likely before the trial court? I... I'd like to know what--",
       "time": "00:44:05.27"
     },
@@ -1309,7 +1309,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--I don't know what I'm supposed to write.",
       "time": "00:44:18.19"
     },
@@ -1321,7 +1321,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Mr. Elwood, can I tell you what's troubling me about that? Maybe the whole categorical approach is unwise. It may have been more strict than it should be. But it... I'm puzzled by the notion that in a case that's been tried to verdict, you can only look at the indictment and the instructions, as I understand Justice Blackmun's opinion. You could not look at the testimony in the record, even though there are nine witnesses who described what happened. It seems to me that might be much more reliable than a police report. And I'm just wondering am I correct, do you think, on saying you cannot look at the testimony in the tried case? And if so, how do you... how do you say that police reports are better than sworn witnesses?",
       "time": "00:44:43.63"
     },
@@ -1333,7 +1333,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's a for example thing.",
       "time": "00:45:29.29"
     },
@@ -1345,7 +1345,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The thing I'm just questioning is whether this rule that you... you're advocating is really more administrable than one that just says it seems crazy in this particular case. But... but in the interest of having a categorical administrative rule, we'll simply say whatever the public record shows and the proceedings themselves.",
       "time": "00:45:55.54"
     },
@@ -1357,7 +1357,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How should we interpret Taylor? Do you... do you agree with the interpretation suggested this morning by Justice Breyer, for example?",
       "time": "00:46:20.21"
     },
@@ -1369,7 +1369,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, then... but reading it that way, which is arguable, this case, but reading it that way, you'd say you can look... what we're interested in is not what happened. We are interested in what kind of a crime was at issue. And where it's difficult to decide what crime is at issue, you can look to whatever official documents are there at the time, any court records, to make that determination, but there... if there is any indication that they're... they're contested, if there's any dispute as to what was at issue, then you can't count it. Then it doesn't count. What about that as a rule?",
       "time": "00:47:03.05"
     },
@@ -1381,7 +1381,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So you'd say there's... you can look to what Justice Stevens says. You can look to what is official in that record that seems to have indication of reliability, and if there is any indication at all that this was a matter in dispute, you can't count the conviction. That would be the rule.",
       "time": "00:47:45.60"
     },
@@ -1393,7 +1393,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Elwood, we had a case last term involving a search warrant, Groh against Ramirez, and it... it was very clear that the application for the warrant identified specifically what the police were to search for, but the warrant itself didn't. And this Court held you couldn't look behind that blank warrant for the particulars that were revealed in the warrant application. And I suppose this is similar in the sense that we have the conviction and you're saying, but you can look behind that conviction to something that, we don't know, may or may not have been before the court.",
       "time": "00:48:16.34"
     },
@@ -1405,7 +1405,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, Taylor... Taylor doesn't quite have this full for example because there's another paragraph following the for example paragraph which says we hold an offense constitutes burglary for purposes of 924(e) if either the statutory definition corresponds to generic burglary, which it doesn't here, or the charging paper, which it doesn't here, and jury instructions, which the judge tells the jury you must find this in order to convict. Those are not for examples. That paragraph says you've got three things you can look to. You can look to the statutory definition. You can look to the charging paper, and you can look to the jury instruction. And that's it.",
       "time": "00:49:31.22"
     },
@@ -1417,7 +1417,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but aren't the vast majority of guilty pleas unambiguous? This is a rather rare case.",
       "time": "00:51:05.78"
     },
@@ -1429,7 +1429,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, whenever straddle crimes, but... but they're the exception rather than the rule.",
       "time": "00:51:15.75"
     },
@@ -1441,7 +1441,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But even burglary I think in most States would be clear.",
       "time": "00:51:24.47"
     },
@@ -1453,7 +1453,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Elwood. Ms. Thompson, you have a little over 3 minutes.",
       "time": "00:52:07.28"
     },
@@ -1465,7 +1465,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Ms. Thompson. The case is submitted.",
       "time": "00:55:04.26"
     }

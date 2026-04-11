@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1961/34/19630116r_34.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ARTHUR J. GOLDBERG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
       },
       {
         "name": "MARVIN M. MITCHELSON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GOLDBERG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "BURTON MARKS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JACK E. GOERTZEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "WILLIAM E. JAMES",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "William Douglas and Bennie Will Meyes, Petitioners, versus California. Mr. Mitchelson.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Was the murder charged of felony murder?",
       "time": "00:03:00.03"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "The same felony?",
       "time": "00:03:03.60"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did he disqualify himself for any stated reason or just to recuse himself.",
       "time": "00:04:51.55"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I know that.",
       "time": "00:04:59.51"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did he?",
       "time": "00:05:01.74"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did you represent Douglas in this robbery case?",
       "time": "00:07:08.49"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Was there a disagreement on the first murder trial there?",
       "time": "00:10:13.36"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Hung jury.",
       "time": "00:10:17.48"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "As to both.",
       "time": "00:10:18.64"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Was there an appeal for the murder conviction on the murder trial?",
       "time": "00:11:01.53"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Can you tell us what happened?",
       "time": "00:11:06.98"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What court is this speaking?",
       "time": "00:11:46.86"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:11:50.21"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that case from which you read cited in your brief?",
       "time": "00:14:16.59"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "00:14:21.52"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I don't see it. Well, I -- what is it? Will you give it to me again?",
       "time": "00:14:23.68"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The page in the book.",
       "time": "00:14:29.23"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Alright, thank you.",
       "time": "00:14:36.53"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, Mr. Mitchelson, that was the appeal from the murder trial, is it not?",
       "time": "00:14:42.96"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And in that trial, the statement that you read had to do with dispute between the two as to who had been the -- who has pulled the trigger.",
       "time": "00:14:49.81"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And in that trial, each was represented by separate counsel, correct?",
       "time": "00:15:00.81"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In this case, these are what burglary or robbery.",
       "time": "00:15:07.92"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, because there was a conflict in that case and they did have separate counsel.",
       "time": "00:15:27.07"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But how does that bear on this case?",
       "time": "00:15:31.77"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This burglary and robbery indictment.",
       "time": "00:15:35.49"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How do you -- how do you get that into a burglary around --",
       "time": "00:15:57.57"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Would it?",
       "time": "00:16:38.51"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The record says it doesn't – [Inaudible]",
       "time": "00:17:11.33"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You represented Meyes, and he's not [Inaudible]",
       "time": "00:17:17.30"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:17:22.80"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Mitchelson.",
       "time": "00:17:28.00"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you mind telling us very briefly how these robbery cases came into the murder case just the factual situation so you have to connect with that --",
       "time": "00:17:28.75"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- very briefly.",
       "time": "00:17:41.02"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, how did the facts developed? Where -- where was this man arrested and under what circumstances and what brought the robbery -- robbery sentence.",
       "time": "00:17:47.19"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That puts it in perspective for me --",
       "time": "00:18:48.14"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I'm still a little confused. I thought you said the murder charge was a felony murder charge.",
       "time": "00:19:09.19"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "It's -- what I mean is --",
       "time": "00:19:18.60"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "It was not a charge of killing in the course of the commission of an independent felony.",
       "time": "00:19:20.71"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "It was not.",
       "time": "00:19:26.30"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I know. I misunderstood you.",
       "time": "00:19:28.04"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "It was premeditated murder.",
       "time": "00:19:33.64"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it you're saying that the -- these two people should not only have had counsel but they should have had a separate counsel.",
       "time": "00:19:55.09"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And they didn't have any counsel at all during the trial after a certain point.",
       "time": "00:20:02.74"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you're also saying that they should have had counsel on appeal.",
       "time": "00:20:08.89"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, if you're right in the latter point, doesn't it make these other points irrelevant here in the sense that there should have been an appeal in the state courts with the assistance of counsel who had considered these and the California courts themselves might correct these other errors that you're talking about.",
       "time": "00:20:13.13"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But there was an affirmance of the conviction in an appellate process where these two defendants had no counsel.",
       "time": "00:21:00.82"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you're saying that they should have had counsel.",
       "time": "00:21:09.76"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you're saying they should have had counsel because it would have had them more chance in getting the conviction reversed.",
       "time": "00:21:12.70"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If this Court directs itself only to that question and you prevailed the result would be only that I suppose that California would allow an appeal with counsel and there's no -- there's no guarantee at all that the -- that the California Supreme Court or District Court of Appeal would not still affirm the conviction, wouldn't it?",
       "time": "00:21:34.18"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And then you'd be back here again with your first point.",
       "time": "00:22:07.34"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I mean, isn't that quite possible from that?",
       "time": "00:22:12.49"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Probably.",
       "time": "00:22:17.60"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how can it be for both of them? You're saying that there should have been separate counsel but both of them discharged them -- discharged the lawyer. It looks to me like the -- the first fellow who discharged them -- one of the other of them hasn't got a point on that. He was certainly -- you have to get to some other point besides conflict to say that -- that the public defender wasn't qualified to represent one of them.",
       "time": "00:22:42.58"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well do you agree or not that the conflict point only goes to one of the other of them.",
       "time": "00:23:18.51"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which one?",
       "time": "00:23:23.19"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So Meyes did the discharge here except for another reason.",
       "time": "00:23:34.20"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "When was he appointed?",
       "time": "00:25:26.04"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "When your judge -- when your judge appoints a public defender, he doesn't appoint John Jones of the Public Defender's Office to represent him, does he?",
       "time": "00:26:29.57"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "He represents the Public Defender's Office of Los Angeles County.",
       "time": "00:26:40.46"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And as you say, they have about 100 deputies.",
       "time": "00:26:44.98"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well that's -- that's a matter of circumstance only it wouldn't have to be that way, would it?",
       "time": "00:26:56.34"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But I suppose that in all events, it could not be said that the public defender's office as an institution, could not reasonably have been prepared for that trial.",
       "time": "00:27:37.61"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, alright. In those circumstances, isn't it a matter of discretion for the judge to determine whether there's going to be continuance or not?",
       "time": "00:27:58.10"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Can any -- can any lawyer, whether he's paid or whether he's public defender just walk in and say, You Honor, this -- I came in the case six weeks ago, but I'm just not prepared and not ready to go.",
       "time": "00:28:07.36"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:28:21.76"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In my mind.",
       "time": "00:28:23.12"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Why?",
       "time": "00:28:31.53"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "After -- after he's been appointed by the Court and accepted by the defendant, is there -- does he have any different status before the Court than a paid attorney?",
       "time": "00:29:06.91"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Counsel with reference to the Chief Justice's [Inaudible]",
       "time": "00:29:43.41"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:29:52.23"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:30:01.86"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:30:05.25"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "I agree to that but nothing can be found in the history of the [Inaudible]",
       "time": "00:30:29.38"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What if a week later, he comes back and says, “I'm still not prepared, Your Honor”?",
       "time": "00:31:37.54"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "If this was -- this was paid counsel who made exactly the same representations to the Court; you believe then that the Court could have compelled him to proceed?",
       "time": "00:31:53.06"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Let's don't change any facts except --",
       "time": "00:32:13.31"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Don't change a single fact except that in one case, the man is -- the public defender, he was here, and in the other case, we would have been paid a lawyer.",
       "time": "00:32:16.36"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Then -- then whether he's a paid counsel or public defender, they're both in the same position.",
       "time": "00:32:35.89"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, having some knowledge of the calendar, criminal calendar in Los Angeles County, I would say that the courts would be in a rather weak position to get their work done if every time the public defender came in and said, “I'm not prepared,” to be entitled to a continuance as a right.",
       "time": "00:33:06.79"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, that's alright.",
       "time": "00:33:42.00"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, you may.",
       "time": "00:33:43.28"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may. Mr. Marks.",
       "time": "00:33:45.07"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There are almost 100 judges in the Superior Court of Los Angeles.",
       "time": "00:34:30.47"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "About 20 of them assigned to criminal --",
       "time": "00:34:35.33"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And they rotate -- I mean they're not -- are they permanent criminal judges or --",
       "time": "00:34:37.83"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "They're assigned normally for a year at a time, aren't they?",
       "time": "00:34:58.69"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:35:01.56"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:38:23.68"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:38:32.85"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the other three?",
       "time": "00:38:45.08"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You lack the rule, that's what I understood.",
       "time": "00:38:57.44"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "If you relax a rule as to what constituted the appropriate cause?",
       "time": "00:39:00.99"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "The judge does said every time when the prosecutor or public defender imposed, he said I'm sorry, I'm not ready today. The judge said okay, draw the next case. Now, every public defendant, every prosecutor or every defense lawyer would know [Inaudible]. First thing he knows that doctrine would be brought out.",
       "time": "00:39:34.02"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Are you going to spend any time on the question that Justice White asked your colleague questionably whether these people were entitled to counsel?",
       "time": "00:43:15.47"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "On appeal?",
       "time": "00:43:25.91"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "You haven't gotten with that yet. Nobody has discussed it.",
       "time": "00:43:28.49"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "You mean as a matter of constitutional law and a lawyer goes before a state court, says I think there's a conflict of interest that forecloses any exercise of discretion, any appraisal of the situation by the judge.",
       "time": "00:44:53.28"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "This would only apply to the appointed counsel.",
       "time": "00:45:30.81"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Well, other counsels could decide. In fact --",
       "time": "00:45:35.00"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Well, the thing about is, it's being [Inaudible]",
       "time": "00:45:45.37"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, he would have to get the Court's permission.",
       "time": "00:45:56.03"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "The Court's permission.",
       "time": "00:46:07.15"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "At what stage of the proceedings did counsel raise the conflict of interest issue?",
       "time": "00:46:35.27"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The beginning of the trial?",
       "time": "00:46:46.02"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:46:53.40"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But they didn't get into the middle of taking of testimony and then -- then the issue being raised. It was done before that.",
       "time": "00:47:05.69"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:47:15.36"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Did I understand it under California law, if the Court had appointed a separate lawyer from the public defender's office for Meyes or for Douglas, in other words, it had appointed two different lawyers but both of them from public defender's office, that would have been -- that wouldn't have solved the problem at all because their cases would say that's the same law firm.",
       "time": "00:47:24.31"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It has fully reviewed it.",
       "time": "00:49:24.20"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:49:35.61"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It follows what you say, I think, isn't it?",
       "time": "00:49:42.36"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:50:07.18"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:50:19.26"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:50:25.20"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "The counsel there argued the [Inaudible]",
       "time": "00:50:36.66"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:51:29.01"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This Court -- this Court goes through that in a couple of dozen cases every week. We have petitions for certiorari filed by people in the penitentiary, that don't have any help of counsel at all and we dispose those petitions one way or the other, but no argument and there's no counsel representing the petitioner.",
       "time": "00:52:37.07"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And everybody does have a right to appeal including a pauper, doesn't it?",
       "time": "00:53:17.08"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "[Inaudible]",
       "time": "00:53:37.43"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:53:44.28"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:53:51.39"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "So normally, they are not permitted to request?",
       "time": "00:54:10.53"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Can I ask you one more question.",
       "time": "00:54:42.40"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:54:45.46"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:55:17.32"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Apparently, you're saying that the [Inaudible]",
       "time": "00:55:48.10"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:55:57.28"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you mean the [Inaudible]",
       "time": "00:56:06.50"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:56:15.43"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:56:27.81"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "To what -- begin -- when do you refer to as the beginning?",
       "time": "00:56:59.73"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:57:05.88"
     },
@@ -1647,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, you may. So you mean at the beginning of the trial or when he was -- when they were appointed?",
       "time": "00:57:06.21"
     },
@@ -1659,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean counsel, there's going to be one.",
       "time": "00:57:36.37"
     },
@@ -1671,13 +1671,13 @@
     },
     {
       "turn": 271,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:57:38.89"
     },
     {
       "turn": 272,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's the point [Inaudible]",
       "time": "00:57:39.18"
     },
@@ -1689,7 +1689,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The point is there's going to be one.",
       "time": "00:57:41.59"
     },
@@ -1701,7 +1701,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:57:44.34"
     },
@@ -1713,7 +1713,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:57:49.92"
     },
@@ -1725,7 +1725,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:57:56.56"
     },
@@ -1737,7 +1737,7 @@
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Goertzen.",
       "time": "00:58:06.15"
     },
@@ -1749,7 +1749,7 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "00:58:27.59"
     },
@@ -1761,7 +1761,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean the counsel [Inaudible]",
       "time": "00:59:32.32"
     },
@@ -1773,7 +1773,7 @@
     },
     {
       "turn": 288,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I still don't -- I still don't get the sequence on the conflict of interest issues to when it was raised and how and --",
       "time": "00:59:55.71"
     },
@@ -1785,7 +1785,7 @@
     },
     {
       "turn": 290,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- would you -- would you please --",
       "time": "01:00:06.77"
     },
@@ -1797,7 +1797,7 @@
     },
     {
       "turn": 292,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was this allowed, you say the preemptory challenge?",
       "time": "01:01:08.82"
     },
@@ -1809,7 +1809,7 @@
     },
     {
       "turn": 294,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, the question --",
       "time": "01:01:22.99"
     },
@@ -1821,7 +1821,7 @@
     },
     {
       "turn": 296,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- of timeliness.",
       "time": "01:01:24.74"
     },
@@ -1833,7 +1833,7 @@
     },
     {
       "turn": 298,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:01:33.90"
     },
@@ -1845,7 +1845,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They haven't done any earlier continuances.",
       "time": "01:07:23.10"
     },
@@ -1857,7 +1857,7 @@
     },
     {
       "turn": 302,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I suppose these men also had been in jail ever since they had been charged with the murder.",
       "time": "01:07:48.98"
     },
@@ -1869,7 +1869,7 @@
     },
     {
       "turn": 304,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How long had that been before this trial?",
       "time": "01:07:55.60"
     },
@@ -1881,7 +1881,7 @@
     },
     {
       "turn": 306,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How many counts of robbery were there in this information?",
       "time": "01:10:40.64"
     },
@@ -1893,7 +1893,7 @@
     },
     {
       "turn": 308,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Does the record show how many -- how many witnesses were essentially tried that?",
       "time": "01:10:50.57"
     },
@@ -1905,7 +1905,7 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "General [Inaudible]",
       "time": "01:11:08.65"
     },
@@ -1917,7 +1917,7 @@
     },
     {
       "turn": 312,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Alibis of murder trials would have been quite different. There maybe an entirely different witnesses perhaps, because the murder --",
       "time": "01:13:20.92"
     },
@@ -1929,7 +1929,7 @@
     },
     {
       "turn": 314,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The lying in wait.",
       "time": "01:13:44.51"
     },
@@ -1941,7 +1941,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "01:13:47.00"
     },
@@ -1953,7 +1953,7 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And as to what witnesses testified.",
       "time": "01:13:56.07"
     },
@@ -1965,7 +1965,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Wouldn't it be cheaper to give them separate trial than to appoint private counsel that kind of thing? That has nothing to do with the merits of this case but that is just --",
       "time": "01:19:03.37"
     },
@@ -1977,7 +1977,7 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:20:06.07"
     },
@@ -1989,7 +1989,7 @@
     },
     {
       "turn": 324,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:20:15.97"
     },
@@ -2001,7 +2001,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:20:17.40"
     },
@@ -2013,7 +2013,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "These are the alibi witnesses for the robberies.",
       "time": "01:20:50.97"
     },
@@ -2025,7 +2025,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The robbery victims.",
       "time": "01:20:55.58"
     },
@@ -2037,7 +2037,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The prosecution witnesses.",
       "time": "01:20:57.09"
     },
@@ -2049,7 +2049,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:23:58.76"
     },
@@ -2061,7 +2061,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:24:42.55"
     },
@@ -2073,7 +2073,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The public defender has to ask the judge, does he, to get an outside counsel appointed?",
       "time": "01:24:48.33"
     },
@@ -2085,7 +2085,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the public defender -- the public defender can't just say, “I am withdrawing from representation and --",
       "time": "01:24:59.53"
     },
@@ -2097,7 +2097,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, I know, but the judge automatically -- this does not automatically take his word for it?",
       "time": "01:25:07.73"
     },
@@ -2109,7 +2109,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Mr. General, may I ask this question? [Inaudible]",
       "time": "01:25:25.32"
     },
@@ -2121,7 +2121,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:26:25.71"
     },
@@ -2133,7 +2133,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:26:34.43"
     },
@@ -2145,7 +2145,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:26:39.38"
     },
@@ -2157,7 +2157,7 @@
     },
     {
       "turn": 352,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, Mr. Goertzen, that takes us back to Mr. Justice White's original question. Will you state specifically what the public defender represented to the trial court on the question of conflict of interest?",
       "time": "01:27:08.75"
     },
@@ -2169,7 +2169,7 @@
     },
     {
       "turn": 354,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where will -- will we find it in the record?",
       "time": "01:27:36.74"
     },
@@ -2181,7 +2181,7 @@
     },
     {
       "turn": 356,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Page 32?",
       "time": "01:27:45.56"
     },
@@ -2193,7 +2193,7 @@
     },
     {
       "turn": 358,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Page what please?",
       "time": "01:27:51.22"
     },
@@ -2205,7 +2205,7 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Very well.",
       "time": "01:27:54.80"
     },
@@ -2217,7 +2217,7 @@
     },
     {
       "turn": 362,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "It's also true in the middle. He says, for that -- he talks about Douglas thinking there might be a conflict but then he puts his weight behind it, perhaps not very heavily but he says for that reason amongst others, I think that perhaps --",
       "time": "01:28:57.73"
     },
@@ -2229,13 +2229,13 @@
     },
     {
       "turn": 364,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- for the well founded reason.",
       "time": "01:29:10.76"
     },
     {
       "turn": 365,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I guess his strongest statement is on page 32, isn't it, right at the end of that?",
       "time": "01:29:14.06"
     },
@@ -2247,7 +2247,7 @@
     },
     {
       "turn": 367,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "With all those reasons, he thought it would be manifestly unfair --",
       "time": "01:29:31.17"
     },
@@ -2259,7 +2259,7 @@
     },
     {
       "turn": 369,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "What page is that?",
       "time": "01:30:37.20"
     },
@@ -2271,7 +2271,7 @@
     },
     {
       "turn": 371,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You say you're reading that from page 69?",
       "time": "01:37:27.04"
     },
@@ -2283,7 +2283,7 @@
     },
     {
       "turn": 373,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Goertzen, may I ask you this question?",
       "time": "01:38:22.66"
     },
@@ -2295,7 +2295,7 @@
     },
     {
       "turn": 375,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was there anything that developed in the murder trials themselves to indicate a conflict between these two defendants so far as their defense was concerned?",
       "time": "01:38:27.95"
     },
@@ -2307,7 +2307,7 @@
     },
     {
       "turn": 377,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:39:07.07"
     },
@@ -2319,7 +2319,7 @@
     },
     {
       "turn": 379,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:39:15.54"
     },
@@ -2331,7 +2331,7 @@
     },
     {
       "turn": 381,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I know but was there an actual conflict in the evidence so far as the defense was concerned and the defense -- for instance, did Douglas give the testimony that was recounted in that opinion of the Court of Appeals? Did he in that -- say that Meyes was the fellow who did the shooting and so forth in the trial court or --",
       "time": "01:39:27.83"
     },
@@ -2343,7 +2343,7 @@
     },
     {
       "turn": 383,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:40:15.21"
     },
@@ -2355,7 +2355,7 @@
     },
     {
       "turn": 385,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:40:18.65"
     },
@@ -2367,7 +2367,7 @@
     },
     {
       "turn": 387,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:40:22.15"
     },
@@ -2379,7 +2379,7 @@
     },
     {
       "turn": 389,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But how about the -- what I'm trying to get at is this, Mr. Goertzen, how about the incident, the time they were arrested and the time of the shooting took place. Did either of them in the trial tried to blame it on the other?",
       "time": "01:40:28.66"
     },
@@ -2391,7 +2391,7 @@
     },
     {
       "turn": 391,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:41:11.00"
     },
@@ -2403,7 +2403,7 @@
     },
     {
       "turn": 393,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that's what I mean.",
       "time": "01:41:17.00"
     },
@@ -2415,7 +2415,7 @@
     },
     {
       "turn": 395,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:41:41.01"
     },
@@ -2427,7 +2427,7 @@
     },
     {
       "turn": 397,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Reconcile or reconcile the testimony.",
       "time": "01:41:44.05"
     },
@@ -2439,7 +2439,7 @@
     },
     {
       "turn": 399,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:41:48.10"
     },
@@ -2451,7 +2451,7 @@
     },
     {
       "turn": 401,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well. Mr. James.",
       "time": "01:41:54.02"
     },
@@ -2463,7 +2463,7 @@
     },
     {
       "turn": 403,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "When you say its appeal is not automatic, you don't mean that there -- there is not an absolute right to appeal.",
       "time": "01:43:23.11"
     },
@@ -2475,7 +2475,7 @@
     },
     {
       "turn": 405,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There is --",
       "time": "01:43:29.10"
     },
@@ -2487,7 +2487,7 @@
     },
     {
       "turn": 407,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And is this paid for by the State?",
       "time": "01:43:53.95"
     },
@@ -2499,7 +2499,7 @@
     },
     {
       "turn": 409,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Regardless of whether the appellant is indigent?",
       "time": "01:43:57.81"
     },
@@ -2511,7 +2511,7 @@
     },
     {
       "turn": 411,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "01:44:03.61"
     },
@@ -2523,7 +2523,7 @@
     },
     {
       "turn": 413,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But in every case, there's an absolute right to appeal upon -- filing of a notice of appeal --",
       "time": "01:44:12.73"
     },
@@ -2535,7 +2535,7 @@
     },
     {
       "turn": 415,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- in an automatic preparation of the record statement --",
       "time": "01:44:18.25"
     },
@@ -2547,7 +2547,7 @@
     },
     {
       "turn": 417,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. James, what happens -- what happens when a man does not have counsel on appeal and he's in the penitentiary? What are the proceedings in the Court of Appeals?",
       "time": "01:46:17.72"
     },
@@ -2559,7 +2559,7 @@
     },
     {
       "turn": 419,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, we take -- I'm taking the position where -- where he doesn't have counsel.",
       "time": "01:46:37.09"
     },
@@ -2571,7 +2571,7 @@
     },
     {
       "turn": 421,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Let us say he does request it and the Court says it isn't necessary in this case?",
       "time": "01:46:41.51"
     },
@@ -2583,7 +2583,7 @@
     },
     {
       "turn": 423,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:47:03.95"
     },
@@ -2595,7 +2595,7 @@
     },
     {
       "turn": 425,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, before we get -- before we get to that, I'd like to clear up this procedural matter. Meyes and Douglas were denied counsel in this case.",
       "time": "01:49:17.34"
     },
@@ -2607,7 +2607,7 @@
     },
     {
       "turn": 427,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And were permitted to write their own briefs. Meyes did write his own brief. It went to the Court of Appeals. Now what procedure do you have in the Court of Appeals then?",
       "time": "01:49:29.88"
     },
@@ -2619,7 +2619,7 @@
     },
     {
       "turn": 429,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:49:47.65"
     },
@@ -2631,7 +2631,7 @@
     },
     {
       "turn": 431,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:49:59.48"
     },
@@ -2643,7 +2643,7 @@
     },
     {
       "turn": 433,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Waived by who? Waived by who --",
       "time": "01:50:05.02"
     },
@@ -2655,7 +2655,7 @@
     },
     {
       "turn": 435,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The Attorney General, so how about Meyes?",
       "time": "01:50:12.17"
     },
@@ -2667,7 +2667,7 @@
     },
     {
       "turn": 437,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, let me stick with the procedure a moment. Now, when the briefs were filed and it was set for hearing, the Attorney General waived argument.",
       "time": "01:50:21.06"
     },
@@ -2679,7 +2679,7 @@
     },
     {
       "turn": 439,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, what about Meyes, was he permitted to be there?",
       "time": "01:50:33.32"
     },
@@ -2691,7 +2691,7 @@
     },
     {
       "turn": 441,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Or did he waive argument or they just proceeded --",
       "time": "01:50:37.33"
     },
@@ -2703,7 +2703,7 @@
     },
     {
       "turn": 443,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- in his absence.",
       "time": "01:50:41.93"
     },
@@ -2715,7 +2715,7 @@
     },
     {
       "turn": 445,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, but now, would that same procedure -- could that same procedure be followed if a man had a paid lawyer? Could they proceed without their lawyer, without the man's lawyer?",
       "time": "01:50:44.21"
     },
@@ -2727,7 +2727,7 @@
     },
     {
       "turn": 447,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But it's provided for, but now, let's suppose that the man had a paid attorney and the Court said, “Well, we're going to the -- the Attorney General has waived the argument so you cannot have a hearing for this so far as the defendant is concerned. We won't listen to any argument from you.” Is that -- is that in accordance with the California system?",
       "time": "01:51:05.67"
     },
@@ -2739,7 +2739,7 @@
     },
     {
       "turn": 449,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:51:31.60"
     },
@@ -2751,7 +2751,7 @@
     },
     {
       "turn": 451,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:51:36.64"
     },
@@ -2763,7 +2763,7 @@
     },
     {
       "turn": 453,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But what I'm trying to find out is what distinction there is in the consideration the Court gives to a case where the defendant on appeal has no lawyer and in the case where he does have a lawyer. In one case, as I understand you now, the Court must hear the lawyer if he wants to be heard. In the other case, it makes no difference whether the man wants to be heard or not he isn't heard.",
       "time": "01:51:38.69"
     },
@@ -2775,7 +2775,7 @@
     },
     {
       "turn": 455,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, but if he is in jail, they just don't do that, do they?",
       "time": "01:52:24.23"
     },
@@ -2787,7 +2787,7 @@
     },
     {
       "turn": 457,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That was my experience.",
       "time": "01:52:30.30"
     },
@@ -2799,7 +2799,7 @@
     },
     {
       "turn": 459,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Your point -- your point is that there was a review on the merits and a full review on the merits and the fact that the defendants did not have a counsel on appeal is relevantly insignificant.",
       "time": "01:53:18.77"
     },
@@ -2811,7 +2811,7 @@
     },
     {
       "turn": 461,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And this (Voice Overlap) says the appellate court went through was not just a process of deciding whether or not the points were frivolous or ordinary appeal. These points that were raised didn't merit the appeal.",
       "time": "01:53:40.56"
     },
@@ -2823,7 +2823,7 @@
     },
     {
       "turn": 463,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And --",
       "time": "01:53:55.71"
     },
@@ -2835,7 +2835,7 @@
     },
     {
       "turn": 465,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't consider -- you don't make any point that these points were frivolous, do you?",
       "time": "01:53:59.05"
     },
@@ -2847,7 +2847,7 @@
     },
     {
       "turn": 467,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But these were points of narrative review.",
       "time": "01:54:06.79"
     },
@@ -2859,7 +2859,7 @@
     },
     {
       "turn": 469,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now the --",
       "time": "01:54:25.48"
     },
@@ -2871,7 +2871,7 @@
     },
     {
       "turn": 471,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. The appellate court really treated these appeals as on behalf of both of them.",
       "time": "01:54:28.44"
     },
@@ -2883,7 +2883,7 @@
     },
     {
       "turn": 473,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And did the State Supreme Court do the same thing on the request for certiorari in that Court?",
       "time": "01:54:37.51"
     },
@@ -2895,7 +2895,7 @@
     },
     {
       "turn": 475,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was that on behalf of both of them?",
       "time": "01:54:58.48"
     },
@@ -2907,7 +2907,7 @@
     },
     {
       "turn": 477,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. James, we're going to recess now but this afternoon, I'm going to ask the counsel for the petitioner although their time is up, if they will point out to us in the trial transcript of the murder, what testimony there was on behalf of the defendants to show a conflict in defenses as between them, do I make myself clear on that? Alright, we'll recess now. Mr. James, you may resume.",
       "time": "01:55:07.69"
     },
@@ -2919,7 +2919,7 @@
     },
     {
       "turn": 479,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "01:56:01.34"
     },
@@ -2931,7 +2931,7 @@
     },
     {
       "turn": 481,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is it the practice of the District Court of Appeals to make a reference to the local bar association to evaluate?",
       "time": "01:57:51.88"
     },
@@ -2943,7 +2943,7 @@
     },
     {
       "turn": 483,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Mr. James was that done, do you happen to know, in this case?",
       "time": "01:58:31.18"
     },
@@ -2955,7 +2955,7 @@
     },
     {
       "turn": 485,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Thank you.",
       "time": "01:59:23.07"
     },
@@ -2967,7 +2967,7 @@
     },
     {
       "turn": 487,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In other words, they both claim that it was whatever was done by either of them was done as self-defense because the officer shot first.",
       "time": "02:00:53.55"
     },
@@ -2979,7 +2979,7 @@
     },
     {
       "turn": 489,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "02:01:07.61"
     },
@@ -2991,7 +2991,7 @@
     },
     {
       "turn": 491,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "02:01:12.23"
     },
@@ -3003,7 +3003,7 @@
     },
     {
       "turn": 493,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There was a second trial for Meyes, am I right?",
       "time": "02:01:33.53"
     },
@@ -3015,7 +3015,7 @@
     },
     {
       "turn": 495,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Hung jury as to both.",
       "time": "02:01:40.16"
     },
@@ -3027,7 +3027,7 @@
     },
     {
       "turn": 497,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I see.",
       "time": "02:01:41.95"
     },
@@ -3039,7 +3039,7 @@
     },
     {
       "turn": 499,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, wouldn't you have anything to add to what Mr. Goertzen has said.",
       "time": "02:01:48.88"
     },
@@ -3051,7 +3051,7 @@
     },
     {
       "turn": 501,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, yes that's all.",
       "time": "02:01:56.69"
     },
@@ -3063,7 +3063,7 @@
     },
     {
       "turn": 503,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "02:02:21.16"
     },
@@ -3075,7 +3075,7 @@
     },
     {
       "turn": 505,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "02:02:30.27"
     },
@@ -3087,7 +3087,7 @@
     },
     {
       "turn": 507,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, was that in the record?",
       "time": "02:02:52.21"
     },
@@ -3099,7 +3099,7 @@
     },
     {
       "turn": 509,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- at the murder trial?",
       "time": "02:02:54.52"
     },
@@ -3111,7 +3111,7 @@
     },
     {
       "turn": 511,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, which you read to us.",
       "time": "02:03:49.68"
     },
@@ -3123,7 +3123,7 @@
     },
     {
       "turn": 513,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How did that get -- how did that get into the appeal if it wasn't in the record?",
       "time": "02:03:52.46"
     },
@@ -3135,7 +3135,7 @@
     },
     {
       "turn": 515,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, I suppose that was a statement that some police officer took from --",
       "time": "02:03:58.37"
     },
@@ -3147,7 +3147,7 @@
     },
     {
       "turn": 517,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, is that right?",
       "time": "02:04:04.01"
     },
@@ -3159,7 +3159,7 @@
     },
     {
       "turn": 519,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Have made any such statements?",
       "time": "02:04:37.53"
     },
@@ -3171,7 +3171,7 @@
     },
     {
       "turn": 521,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did Douglas deny that he had made the statement?",
       "time": "02:04:42.79"
     },
@@ -3183,7 +3183,7 @@
     },
     {
       "turn": 523,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "He did?",
       "time": "02:04:48.41"
     },
@@ -3195,25 +3195,25 @@
     },
     {
       "turn": 525,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I think the question was answered for me anyway.",
       "time": "02:06:00.62"
     },
     {
       "turn": 526,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Could I ask one more question?",
       "time": "02:06:03.14"
     },
     {
       "turn": 527,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, excuse me, Justice.",
       "time": "02:06:04.96"
     },
     {
       "turn": 528,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Don't you have to distinguish between the conflict that existed which your adversary admits on the murder trial, and the conflict as you claim that existed on the case with which we're here concerned. What you have been talking about relates to the murder trial, and as I understand it, the conflict that is claimed to have existed in this case, relates to two things: (1) the fact that Douglas was acquitted on the murder trial, and (2), the fact that Meyes in contradistinction to Douglas had a long criminal record. Isn't that the only elements -- aren't those the only elements of conflict?",
       "time": "02:06:06.62"
     },
@@ -3225,7 +3225,7 @@
     },
     {
       "turn": 530,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I think the questions had been answered now. That's all.",
       "time": "02:08:04.46"
     },
@@ -3237,7 +3237,7 @@
     },
     {
       "turn": 532,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "02:08:09.29"
     },

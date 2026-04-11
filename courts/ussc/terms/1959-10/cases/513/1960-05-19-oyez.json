@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1959/513/19600519a_513.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "RALPH S. SPRITZER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ERWIN N. GRISWOLD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "HOWARD P. TRAVIS",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 513, United States, Petitioner, versus Cannelton Sewer Pipe Company. Mr. Spritzer.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Gross -- gross --",
       "time": "00:06:33.62"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Gross receipt.",
       "time": "00:06:35.49"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That was just raw material.",
       "time": "00:07:06.30"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You mean under the free enterprise system?",
       "time": "00:07:47.13"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:08:31.96"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I ask you a question? Did the -- as you read the Court of Appeals' opinion, did it hold that as a matter of law, the end product was the determinative thing in all instances?",
       "time": "00:15:53.97"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even though he's not making it.",
       "time": "00:16:18.54"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In other words --",
       "time": "00:16:26.24"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does that mean that if the proof had showed that this manufacture could have sold that anterior product at a profit, that the --",
       "time": "00:16:38.80"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- then that would have been the base.",
       "time": "00:16:49.32"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But if it had ended up with bricks, instead of sewer pipe, bricks would sold at $3 a ton and make a profit.",
       "time": "00:17:21.86"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That that would have been the measure?",
       "time": "00:17:29.37"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, then I don't understand your answer to Justice Harlan.",
       "time": "00:17:41.66"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's the only product it is making.",
       "time": "00:18:12.51"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Where, Mr. Spritzer, if I may ask if you understand, does the Court of Appeals get this basis or this concept in profit?",
       "time": "00:19:14.34"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Go on.",
       "time": "00:19:25.05"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could be using this?",
       "time": "00:20:39.29"
     },
@@ -267,13 +271,13 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, in relation to 252, 253 you -- With reference is to the record, Your Honor?",
       "time": "00:21:35.48"
     },
     {
       "turn": 38,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes (Inaudible) your first reference to the steps and the processes involved here, where on your theory as to processing to that end?",
       "time": "00:21:41.52"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Before any of (Voice Overlap) --",
       "time": "00:22:06.54"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:22:11.78"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So under that theory, you've got no treatments.",
       "time": "00:22:23.11"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That in all events, it would exclude any application of the treatment clause of the section, does it not? I thought you --",
       "time": "00:22:33.76"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, actually, they have to get it out of the ground, that ends it from your point of view as to --",
       "time": "00:22:50.43"
     },
@@ -345,13 +349,13 @@
     },
     {
       "turn": 50,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "In this case -- in this case, you will get no effect -- give no effect to that treatment process clause of the section.",
       "time": "00:22:58.44"
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Because you'll (Voice Overlap) --",
       "time": "00:23:04.07"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I'm not --",
       "time": "00:23:05.65"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- saying (Voice Overlap) --",
       "time": "00:23:06.33"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Page 94 of what?",
       "time": "00:26:01.92"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, may I ask, do you suggest that this mineral comes within that subdivision?",
       "time": "00:30:25.52"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, as I understood you though, Mr. Spritzer, there's no sorting or concentrating or sintering involved, is there, as to this (Voice Overlap) --",
       "time": "00:30:46.73"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But as to this particular -- but as to this particular mineral, none of those things.",
       "time": "00:31:01.61"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What year is this?",
       "time": "00:41:07.06"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Is this the first regulation where it appears?",
       "time": "00:44:28.51"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Can you tell us (Inaudible)",
       "time": "00:49:32.22"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "He was first from the industry?",
       "time": "00:49:58.57"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "He is not a Congressman.",
       "time": "00:50:00.70"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But he is a lawyer, not a miner.",
       "time": "00:50:03.92"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "We've come along ways in using legislative (Inaudible) used statements of lawyers here and before committees as to expressing the congressional intent, I --",
       "time": "00:50:32.53"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "They were --",
       "time": "00:50:50.12"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "They are not --",
       "time": "00:50:51.82"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "They were not the law -- they're not the law makers or --",
       "time": "00:50:52.90"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What part are you reading now?",
       "time": "00:51:44.16"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Where are you now, Mr. Spritzer?",
       "time": "00:52:22.36"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Up to this point, has there been any suggestion that there ought to be a broader base in depletion?",
       "time": "00:53:24.38"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "None?",
       "time": "00:53:31.69"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But the Senate --",
       "time": "00:54:19.02"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- now that report says to obtain a marketable product which --",
       "time": "00:54:20.23"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That's -- that's our question, I guess, isn't it?",
       "time": "00:54:31.41"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:55:16.62"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is what was claimed to -- to Congress should be the case.",
       "time": "00:57:35.78"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It's not individual taxpayers, is it?",
       "time": "00:57:44.33"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Has there -- has there ever been any regulation that provided that?",
       "time": "00:58:20.93"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "00:58:35.58"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you know when the first claim was made, at least as it developed into losses, had finished products -- the value of finished products would be used to measure the depletion allowance?",
       "time": "00:59:06.29"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "When was that?",
       "time": "00:59:44.83"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This was the Court of Appeals opinion?",
       "time": "00:59:53.25"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That would fall under criteria, would it not?",
       "time": "00:59:55.52"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But on your assumption, it -- on the assumption that you've stated, and why do you think it was wrong? (Inaudible)",
       "time": "01:00:59.17"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Although nobody in the industry -- although nobody in the industry did it.",
       "time": "01:01:17.23"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Assume that you agree that if nobody does it as ordinary, do we have to face in this -- on your theory, do we have to face in this case what constitutes -- what participation in the both in the early sale, the earliest sale as a mining product, what percentage of the industry is in your point of view would be the industry?",
       "time": "01:03:00.78"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap)",
       "time": "01:03:33.43"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) geographically and quantitatively, what (Inaudible)",
       "time": "01:03:34.11"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In -- in Indiana or in the United States?",
       "time": "01:03:54.12"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that industry-wide, Mr. Spritzer, or was that just in Indiana?",
       "time": "01:04:10.28"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Maybe not in this case, but on your -- even on your theory, some individualization -- some problems of individualization would be raised as indicated by my question, statewide industry, nationwide industry, what percentage constitute the industry? Those questions would still be, or wouldn't it?",
       "time": "01:05:10.27"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Griswold.",
       "time": "01:07:09.42"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That just shows my ignorance.",
       "time": "01:15:57.31"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Where is it? Where are those findings?",
       "time": "01:18:27.65"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I ask in the -- are the integrated brick manufacturers using this process?",
       "time": "01:19:31.68"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And it's something the integrated fellow who, I take this on the end product basis.",
       "time": "01:19:42.51"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Even the fellow who buys the raw material (Voice Overlap) --",
       "time": "01:19:56.41"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But even -- are they -- permitted it on the -- a depletion based on brick if they buy the minerals --",
       "time": "01:20:05.57"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I interrupt you just a second to see if I'm off --",
       "time": "01:27:11.02"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) on this? You emphasize commercially marketable. Now, of course, that phrase can be given effect under your theory, under the Government's theory, as well as yours.You say commercially marketable means commercially marketable by the individual taxpayer, as I understand it. And the Government says commercially marketable means marketable in general, irrespective of whether the taxpayers involved in that operation or not.",
       "time": "01:27:14.58"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I must say, Dean, I didn't understand Mr. Spritzer to say that. I thought --",
       "time": "01:34:02.57"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- all that he said was that under subdivision (3) at page 94 of this brief, they -- these minerals might be embraced within those --the language (Voice Overlap) --",
       "time": "01:34:06.91"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I thought (Voice Overlap) --",
       "time": "01:34:23.26"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- within the language which are customarily sold in the form of a (Voice Overlap) --",
       "time": "01:34:23.94"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes. Well, I --",
       "time": "01:34:31.01"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Voice Overlap) does not specifically designate it. Maybe there is an inconsistency but I wasn't quite clear if that was so.",
       "time": "01:34:38.49"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Do you mean by that (Inaudible) it has to specify with particularity the various arguments to sustain a particular point or is foreclosed?",
       "time": "01:37:06.37"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Doesn't -- doesn't paragraph 4 conceal the very conflict which is now before us, namely, as to what the content of the scope of \"commercially marketable product or products\" is?",
       "time": "01:40:02.74"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Might I ask you there sir? Do you conceive that the phrase on the one hand, marketable product, and on the other hand, the phrase products for which there is a market are different concepts?",
       "time": "01:40:48.11"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "All right, commercially marketable product.",
       "time": "01:41:14.23"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "There was some mention of it, but in any case, are -- is it the same concept to think of a commercially marketable product on the one hand and on the other hand, a product for which there is a market.",
       "time": "01:41:23.09"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well it might -- obviously. It might be -- that it might be the type of article which in one place would be readily -- would meet a ready market, but in some other place, there would be no market for it, but the article itself is the same in either place. Now then, would it --",
       "time": "01:41:59.03"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is it your idea that commercially marketable has to mean marketable at a profit to the owners?",
       "time": "01:42:36.66"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "During the depression there was considerable -- as I recall it, many complaints made of the oil industry that the price was so low that it's impossible to sell it at a profit. Would you say that the oil then was not commercially marketable?",
       "time": "01:43:30.86"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "What's the difference between tons of this clay at one point in Indiana, or how did you (Inaudible) as the product.",
       "time": "01:44:11.22"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Your argument requires, does it not, that one accepts your distinction between an incentive allowance and a depletion allowance? Otherwise, I'd suppose that you can't be depleted of any more than what it's worth and if it's not -- has no market, you can't sell it --",
       "time": "01:46:01.01"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- it wouldn't be right.",
       "time": "01:46:22.44"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, if you're restricted in other ways of what you were actually will be depleted of, so you will not deplete it of any sulfide.",
       "time": "01:47:11.86"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What page you said (Voice Overlap) --",
       "time": "01:53:38.39"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Your brief.",
       "time": "01:53:41.86"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do the italics apply to them?",
       "time": "01:54:48.79"
     },
@@ -1233,7 +1237,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where did you say the reports -- did you cite the place where the reports said that it was the intent of the Committee?",
       "time": "01:57:00.54"
     },
@@ -1245,7 +1249,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "89?",
       "time": "01:57:07.89"
     },
@@ -1257,7 +1261,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there any place where they define marketable -- commercially marketable product?",
       "time": "01:57:24.42"
     },
@@ -1269,7 +1273,7 @@
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do you think Congress intended that you should get a -- greater depletion value than you could -- than you could go up and buy the product in the market --",
       "time": "02:00:17.75"
     },
@@ -1281,7 +1285,7 @@
     },
     {
       "turn": 206,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I ask you a question about your self-assessment argument? I'm not quite clear on it. Do you take the position that the base is the -- involves the product, mining product, that is actually being made by a particular taxpayer or that one that could have been made by him profitable?",
       "time": "02:08:40.81"
     },
@@ -1293,7 +1297,7 @@
     },
     {
       "turn": 208,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But supposing these taxpayers, supposing it was showing in this record that this -- that there was an active market for the clay and shale in this very town, this -- your clients' operating from. What would have been the base in those circumstances?",
       "time": "02:12:22.12"
     },
@@ -1305,7 +1309,7 @@
     },
     {
       "turn": 210,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, and turn it around.",
       "time": "02:12:46.34"
     },
@@ -1317,7 +1321,7 @@
     },
     {
       "turn": 212,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that's --",
       "time": "02:12:56.16"
     },
@@ -1329,7 +1333,7 @@
     },
     {
       "turn": 214,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)[Laughter]",
       "time": "02:12:57.17"
     },
@@ -1341,7 +1345,7 @@
     },
     {
       "turn": 216,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, self-assessment, if it has any virtue at all must mean that it's a product that is made by the tax party.",
       "time": "02:14:13.12"
     },
@@ -1353,7 +1357,7 @@
     },
     {
       "turn": 218,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's --",
       "time": "02:14:20.95"
     },
@@ -1365,13 +1369,13 @@
     },
     {
       "turn": 220,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Yes.",
       "time": "02:14:31.72"
     },
     {
       "turn": 221,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you say that because you indicate that that would be the statute.You accept Mr. Spritzer's starting off point, his standard, namely, that is the ordinary conduct of the industry in your case industry predominantly percentage-wise throughout the United States --",
       "time": "02:14:32.23"
     },
@@ -1383,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- so that --",
       "time": "02:14:50.98"
     },
@@ -1395,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- so that in those assessment, there is also a function of the -- of the ordinary practice which means industry practice, whatever that means, isn't that right? And not merely the individualized idiosyncratic --",
       "time": "02:14:52.72"
     },
@@ -1407,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So that the general -- the general -- that utilization of the general behavior in the industry becomes part of what he's entitled to do in his individual case.",
       "time": "02:15:18.59"
     },
@@ -1419,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "I wonder what your view might be of this. If a -- such a minor manufacturer may go on with these processes until he reaches something that is salable at a profit. Suppose he never reaches a profit then is he denied any deduction at all?",
       "time": "02:16:05.38"
     },
@@ -1431,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "No. He may have some other things.",
       "time": "02:16:34.12"
     },
@@ -1449,7 +1453,7 @@
     },
     {
       "turn": 234,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He's depleted himself.",
       "time": "02:16:47.55"
     },
@@ -1461,7 +1465,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "So, Dean, I -- I understood Mr. Spritzer to say that 300,000 out of 500,000 tons of shale and -- and clay that are mined in Indiana are -- are sold by the -- the miners and -- and that the average was about $1.60 a ton and that on the average, they would get about 11 cents -- 11 cents a ton, now depletion. Now, does that and do you mean that according to your theory, that's all those miners would get --",
       "time": "02:16:55.75"
     },
@@ -1473,7 +1477,7 @@
     },
     {
       "turn": 238,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- but that you -- you because you have a plant alongside of -- of your mine would get a depletion based upon $40 because -- a ton, because that's the -- the value of your completed --",
       "time": "02:17:36.59"
     },
@@ -1485,7 +1489,7 @@
     },
     {
       "turn": 240,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But if you weren't big enough to -- to have an integrated plant, then Congress intended that you should only get about a -- 15 or 16 cents where --",
       "time": "02:18:06.00"
     },
@@ -1497,7 +1501,7 @@
     },
     {
       "turn": 242,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- the other in your situation, you get about $4.",
       "time": "02:18:17.75"
     },
@@ -1509,7 +1513,7 @@
     },
     {
       "turn": 244,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But I thought -- well, we can suppose, we can suppose, I guess, a man who does have -- does mine shale and -- and clay and who doesn't have the means to -- to build an integrated plant and he has to -- he has to sell it. It's the only way he can transact his business. He would get about 11 cents a ton and you'll get --",
       "time": "02:18:32.07"
     },
@@ -1521,7 +1525,7 @@
     },
     {
       "turn": 246,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- you get $4.",
       "time": "02:18:56.49"
     },
@@ -1533,7 +1537,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Spritzer.",
       "time": "02:22:11.99"
     },
@@ -1545,7 +1549,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, tell me, Mr. Spritzer, is it the fact that the brick manufacturer gets his allowance based on --",
       "time": "02:22:41.72"
     },
@@ -1557,7 +1561,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This is Merry Brother.",
       "time": "02:23:12.57"
     },
@@ -1569,7 +1573,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that the Merry Brothers?",
       "time": "02:23:15.46"
     },
@@ -1581,7 +1585,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Has the Commissioner acquiesced in those?",
       "time": "02:23:17.21"
     },
@@ -1593,25 +1597,25 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did you mean that --",
       "time": "02:23:29.98"
     },
     {
       "turn": 259,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did you -- did you -- excuse me.",
       "time": "02:23:30.24"
     },
     {
       "turn": 260,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "02:23:31.49"
     },
     {
       "turn": 261,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did you assume that denial of a certiorari meant nothing or not?[Laughter]",
       "time": "02:23:31.72"
     },
@@ -1623,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What I want to know if whether it was assumed that it was determined, you said it was determined. Was it determined that you couldn't make who, that it was commercially marketable or that in the particular cases you did?",
       "time": "02:23:57.82"
     },
@@ -1635,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, but -- but -- well --",
       "time": "02:24:12.08"
     },
@@ -1647,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Therefore, you --",
       "time": "02:24:13.64"
     },
@@ -1659,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you weren't foreclosed by the pleadings to start a case in which you could prove the fact for you in some other case.",
       "time": "02:24:18.25"
     },
@@ -1671,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what's --",
       "time": "02:25:58.70"
     },
@@ -1683,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- in Brazil?",
       "time": "02:25:59.29"
     },
@@ -1695,7 +1699,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You have it in Brazil but are the Bureau of Mines' figures in this case as to this product, as to this mine, as to this mineral too, were dependable?",
       "time": "02:26:00.91"
     },
@@ -1707,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But was it substantial in volume or in percentage of the industry, what is the prevailing things?",
       "time": "02:26:18.89"
     },
@@ -1719,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "02:26:29.38"
     },
@@ -1731,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But what's the dollar price to which you would apply the allowance in this case?",
       "time": "02:26:44.29"
     },
@@ -1743,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I'm thinking of this case.",
       "time": "02:27:00.51"
     },
@@ -1755,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Of this case?",
       "time": "02:27:02.87"
     },
@@ -1767,7 +1771,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather, the record is (Voice Overlap) --",
       "time": "02:27:16.16"
     },
@@ -1779,7 +1783,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "02:29:03.81"
     },
@@ -1791,7 +1795,7 @@
     },
     {
       "turn": 291,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What are you -- you go ahead. I don't want to interrupt you.",
       "time": "02:32:39.51"
     },
@@ -1803,7 +1807,7 @@
     },
     {
       "turn": 293,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The question I was going to ask you. I understood Dean Griswold would argue that the Government had attempted, at least very recently, to get Congress to do what you're trying to -- to get the Court do in this case.",
       "time": "02:33:27.61"
     },
@@ -1815,7 +1819,7 @@
     },
     {
       "turn": 295,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, now, what significance do you -- did you get it?",
       "time": "02:33:42.62"
     },

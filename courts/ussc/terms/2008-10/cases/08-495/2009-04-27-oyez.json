@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2008/08-495/20090427a_08-495.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "THOMAS E. MOSELEY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CURTIS E. GANNON",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument first this morning in Nijhawan v. Holder. Mr. Moseley.",
       "time": "00:00:00.00"
     },
@@ -55,25 +55,25 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Another--",
       "time": "00:01:49.72"
     },
     {
       "turn": 4,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Under the time-honored--",
       "time": "00:01:50.20"
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--No, please.",
       "time": "00:01:51.50"
     },
     {
       "turn": 6,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Under the time-honored approach, if the jury verdict necessarily -- or not necessarily, but did in fact refer to the amount involved and it was over $10,000, would that be part of the time-honored approach and then the statute would be fulfilled?",
       "time": "00:01:52.86"
     },
@@ -85,7 +85,7 @@
     },
     {
       "turn": 8,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, in that connection, at some point in the argument -- and you may be a little early because you're talking about the statute -- I'd like to know either anecdotally from your experience or -- or because it's written somewhere, how often do juries give special verdicts? It actually applies in the second case we're to hear as well. And has that changed in the light of -- of Apprendi? In -- in my experience, we just didn't know many of the features of the crime from -- from the jury verdict, and I just would like to know if that's changed in this day and age.",
       "time": "00:02:18.66"
     },
@@ -97,7 +97,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you may reach that after you've talked about the statute.",
       "time": "00:02:58.73"
     },
@@ -109,7 +109,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And if you -- if you do extend that lifeline to the government, aren't you conceding that the amount of the loss is not an element of the offense, and aren't you conceding that it is not necessary for the loss amount to be an element of the offense?",
       "time": "00:03:33.87"
     },
@@ -121,7 +121,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, let me give you a concrete example. Let's say it's a Federal mail fraud case. Let's say there are two Federal mail fraud cases, and you don't have to prove the amount of loss in order to convict under the mail fraud statute. In the first case, after the jury returns a guilty verdict they also return -- or together with that they answer a special interrogatory and they say the loss exceeded $10,000. In the second case, the defendant pleads guilty and admits during the plea colloquy that the amount is more than $10,000. Would there be a problem in those cases?",
       "time": "00:04:12.68"
     },
@@ -133,19 +133,19 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In this--",
       "time": "00:04:53.38"
     },
     {
       "turn": 17,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And then--",
       "time": "00:04:53.85"
     },
     {
       "turn": 18,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--In this case, how many of the defendants were alien? You're -- the jury is given a charge that covers all of the defendants. They're all charged with the same crime. How many of them were aliens?",
       "time": "00:04:54.10"
     },
@@ -157,7 +157,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then the judge wouldn't distinguish -- it would not be relevant for the -- for the defendants who were not aliens because it would have no consequences for them. So why should the judge -- even if the question could be asked, why should the judge -- the judge takes a position: It's not an element of the crime. Therefore, I'm not going to charge it, and I'm not going to confuse the jury by saying as to the defendants who are aliens, you have to find the amount.",
       "time": "00:05:29.06"
     },
@@ -169,7 +169,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But before you go on to that, we're talking about (M)(i). It's coupled with another provision that's an offense that is described in section 21 -- 7201 of Title 26 -- that's tax evasion -- in which the revenue loss to the government exceeds 10,000. So it's the same \"in which\" construction, and there's no requirement -- to convict someone of tax evasion, the jury does not have to find the deficiency.",
       "time": "00:06:43.87"
     },
@@ -181,7 +181,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "A deficiency, but not the amount of the deficiency.",
       "time": "00:07:30.77"
     },
@@ -193,7 +193,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But is the amount -- there's a deficiency. The jury has to find in order to find tax evasion there is a deficiency. Does it have to find that the revenue loss to the government exceeds $10,000?",
       "time": "00:07:43.66"
     },
@@ -205,7 +205,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--What is the -- What is the difference between a defendant's saying during a guilty plea colloquy, the loss was -- I admit the loss was more than $10,000; and the defendant's agreeing for sentencing purposes that the loss was more than $10,000?",
       "time": "00:08:46.52"
     },
@@ -217,7 +217,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, if he's admitting it, what does the standard of the evidence matter?",
       "time": "00:09:22.18"
     },
@@ -229,7 +229,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, he's not saying, I admit to a degree of preponderance of the evidence that it was over 10,000. He's saying, period, over 10,000. The burden of proof, the standard of proof doesn't matter.",
       "time": "00:09:36.94"
     },
@@ -241,7 +241,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And he definitively resolves it by admission.",
       "time": "00:09:56.83"
     },
@@ -253,7 +253,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, I understand the facts of this case. I was commenting on your answer to Justice Alito's question, and it would seem to me that the answer to the question is there is no difference.",
       "time": "00:10:07.96"
     },
@@ -265,7 +265,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right, that really gets to the question that I was going to ask, and that is, I don't see how the modified categorical approach is something that you could admit would be sufficient because, as I understand your argument -- and it is in part an argument based on sort of standard grammatical construction -- you're saying that in the definition \"The term \"aggravated felony\" means an offense that. \" --and you emphasize the \"that\", the restrictive nature of the \"that\" clause -- \"involves fraud or deceit in which the loss exceeds $10,000. \" if I understand your restrictive clause argument, the definition of the offense has got to include the element of exceeding $10,000 or it does not satisfy your, the -- it does not satisfy the standard that you were arguing for based on the restrictive clause. So it seems to me that you've got to go the whole hog or you get nothing, and the whole hog is that it's got to be an element of the offense that the loss exceed $10,000. Am I wrong?",
       "time": "00:10:48.50"
     },
@@ -277,7 +277,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay, how about this one. You were arguing based on this statute and you make an argument based on the restrictive nature of a $10,000.",
       "time": "00:12:26.43"
     },
@@ -289,7 +289,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, yeah, you would prevail, but you would prevail, it seems to me, at the expense of this objection, and the government makes it. There are very, very few fraud and deceit statutes that define the offense by reference to a loss in excess of $10,000. My recollection from the government's brief is that they come up with three. The fact is also that this provision, the $10,000 figure, was placed into the statute at a time when Congress was trying to expand the category of deportable, removable offenses, and it would be passing strange in that context to define the offense by reference to a $10,000 figure as an element of the offense which would cut it down, which would cut the compass of the statute down to three offenses. What is your response to that?",
       "time": "00:12:51.64"
     },
@@ -301,7 +301,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, once you get into the State statutes you get into the further problem of an utter and I would suppose unjust patchwork of statutory reference to which this would apply. If you -- if you steal the $11,000 in State A, you get booted out of the country. If you steal it across the State line in State B, you stay home. I mean, I can't imagine that Congress would have enacted that kind of scheme.",
       "time": "00:14:13.47"
     },
@@ -313,7 +313,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "A uniform test that produces both unjust results and I would suppose strangely unsatisfying results to a Congress that wanted to expand the concept of deportable offense.",
       "time": "00:14:46.52"
     },
@@ -325,7 +325,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the problem is that there's no pattern to it, The point that Justice Souter made. If we take your position that there are a number of statutes that mention amount, some as an element, some by this, there seems to be no rhyme or reason to when the amount is there and when it isn't, and then you have these unequal results within the Federal system and in the States, so when you think -- would it make any sense for Congress to have drawn the line that way if the State happens to make -- to have the \"in which\" or if it just has fraud and deceit with no amount?",
       "time": "00:15:23.71"
     },
@@ -337,7 +337,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it's treating people who do the identical thing differently.",
       "time": "00:16:38.94"
     },
@@ -349,7 +349,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But what you're saying is you're not denying that people who commit the identical theft or deceit or fraud will be treated differently depending on whether the statute under which they're convicted has this \"in which\" clause?",
       "time": "00:17:02.33"
     },
@@ -361,13 +361,13 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Moseley--",
       "time": "00:17:38.50"
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Moseley, can I get your help on a question I really have difficulty with. It seems to me as I read the text, it is easy to read it in one of two ways: It involves fraud or deceit in which the loss to the victim in fact exceeded $10,000. In that case you would lose. Or it could be read to say involves fraud or deceit in which an element of the crime is that the victim or victims exceeded a loss of $10,000. You would lose under that also because it is not an element of the crime. So you are relying on a modified approach, and under your modified approach what does the statute say?",
       "time": "00:17:39.12"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the statute doesn't say anything about conviction.",
       "time": "00:18:24.80"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I don't -- I don't understand how you squeeze your -- your modified categorical approach, which seems to be a deus ex machina which is intended to blunt the government's argument that very few statutes would be covered by this. I don't see how you get that out of the word \"convicted\". Are you convicted of an offense involving more than $10,000 if in a separate interrogatory the jury, though it has no obligation in order to find you guilty to say how much you stole, in an interrogatory the jury says, oh, yes, the amount was more than $10,000? Does that cause you to have been convicted of that? You are convicted of what you are charged with. You are convicted of the elements of the offense, not -- not of whatever, whatever the judge chooses to allow the jury to be questioned about.",
       "time": "00:18:51.70"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Can we go back to my question, which I don't think you've fully answered? And that's the tax evasion situation. For any tax -- a person who is charged with tax evasion who goes to trial and is convicted, that person would not be deportable, as I understand it under your reading, because the jury is not asked to determine the amount of the deficiency.",
       "time": "00:20:44.29"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I know. You told me that most of them admit it at the plea stage. But going to trial, these are parallel provisions, and it seems to me they are meant to operate the same way.",
       "time": "00:21:29.73"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Did you have any authority for the -- the idea that a trial judge in a criminal case should ask the jury to answer a special interrogatory regarding a question that has no bearing on the conviction, but may have a bearing on the future immigration status of the defendant, which is what you're suggesting should be done in these tax cases?",
       "time": "00:22:14.38"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But I can see that if there are multiple defendants in the case, some of the defendants might say that this is unnecessary, it's inflammatory.",
       "time": "00:22:57.54"
     },
@@ -451,13 +451,13 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But all that just underscores the fact that--",
       "time": "00:23:17.29"
     },
     {
       "turn": 70,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--your earlier -- your earlier assertion that it was necessary to -- that -- that it would be necessary to get that -- that amount specified for sentencing purposes is simply not true. I mean, we didn't -- we didn't hold that the guidelines are mandatory, and you -- that you need a -- a jury determination. We've said they are discretionary.",
       "time": "00:23:19.79"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So if you don't have a jury determination, you can still sentence on the basis of the amount taken, even though that was not found by the jury.",
       "time": "00:23:42.04"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I hope in rebuttal you'll address the argument about deferring to the agency's finding about what it means. We usually do that.",
       "time": "00:26:04.28"
     },
@@ -493,13 +493,13 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can save it for rebuttal.",
       "time": "00:26:15.50"
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Gannon.",
       "time": "00:26:16.40"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, except -- except for his modified hangout. His modified -- his modified categorical does -- does expand; doesn't it?",
       "time": "00:26:45.09"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And also interrogatories to the jury.",
       "time": "00:27:16.87"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But this -- but this defendant did ask, didn't -- he asked the judge.",
       "time": "00:28:24.10"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but then you just -- you, the government, says -- you know, you'll have a little debate about what the special interrogatory, how it is phrased, and your objection there could be dealt with on -- during that negotiation.",
       "time": "00:28:55.82"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And -- and why would you be reluctant to do that? Would you just spell that out a little bit?",
       "time": "00:29:24.06"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Could I ask you this, does this -- which is not exactly on point to the issue here, but does the government have a theory about how the loss is measured for purposes of this statute? Under the sentencing guidelines, the loss was a very complicated calculation, lots of rules about relevant conduct and lots of cases and different ways of proving loss, and here we just have the statute.",
       "time": "00:32:02.63"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What if you have somebody who participates in a -- in a scheme involving $100 million, the total loss is $10,000, but this person had no way of reasonably anticipating that this would be the -- the total amount of the loss, this was a minor participant, and -- where would the -- how would that come out?",
       "time": "00:32:49.39"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does the judge, when he arrives at the restitution amount, have discretion to say, as to this particular defendant, he was just an accountant with the company that was committing the fraud, he didn't put anything into his own pocket except the salary they paid him, so I'm going to exclude him from the restitution order?",
       "time": "00:33:40.19"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You -- you wouldn't allow that exclusion to have any effect on deportation, would you?",
       "time": "00:34:24.40"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So in -- in my very hypothetical--",
       "time": "00:34:49.68"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Even -- even though this defendant did not pocket any gain?",
       "time": "00:35:02.53"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about the defendant's argument that at least as far as his admission for sentencing purposes, he did that only because otherwise the government wouldn't ask for a downward departure?",
       "time": "00:35:59.36"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But your position -- I want to be sure I understand it -- is that if the record in this case had been -- let's say it's a mail fraud case, they proved one mailing and one victim lost $30, and that's all the trial established, but as a matter of fact you could establish this was part of a scheme, just like the one we've got here, in which millions of dollars were lost, you could prove that independently and he would still be required to be deported?",
       "time": "00:37:09.36"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the scheme -- the evidence of the scheme consisted of just two mailings, say. They allege a scheme and say it's a broad -- a broad scheme, but they don't describe the amount. They merely prove two mailings that involved $25 apiece. But the scheme itself, because you proved it in other cases, you have the facts, actually was a big scheme like we have here. Could they rely on that for -- for immigration purposes in a proceeding like this?",
       "time": "00:37:42.60"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You can determine exactly what you proved in this case.",
       "time": "00:38:15.75"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not -- I -- I'm losing you. I would -- I would have thought that you have to have convicted him of the larger scheme.",
       "time": "00:38:38.18"
     },
@@ -703,19 +703,19 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, it was.",
       "time": "00:38:52.11"
     },
     {
       "turn": 112,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I didn't--",
       "time": "00:38:52.94"
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it didn't describe the dimensions of the scheme. As far as the record shows, it only affected -- it was one scheme that was as large as this one, but the evidence to prove the scheme only required you to prove two or three mailings involving small amounts of money. But then later on you proved before the immigration judge there really was a big scheme, and that's the one he was convicted of. Isn't that enough?",
       "time": "00:38:53.47"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You had the evidence, but you didn't need it.",
       "time": "00:39:22.96"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I know it's easy; I'm wondering if it's necessary. I -- I think under your theory, it would not be necessary. As long as the evidence is out there, you can use it in a de novo proceeding before the immigration judge.",
       "time": "00:39:34.43"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, my -- he pleads guilty to the mammoth scheme proved, the evidence before the court or on the plea colloquy, whatever is described is enough to show that he was guilty.",
       "time": "00:40:20.05"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But then as I understand it, you can prove the size of the scheme later on.",
       "time": "00:40:31.52"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, I would -- I thought that was the whole case we had before us, Where you haven't proved either as an element or -- or by a separate jury finding how much money was involved. Your point is you don't have to.",
       "time": "00:40:39.88"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can establish that later.",
       "time": "00:40:55.74"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I suppose your answer, it's your first argument, it's the -- it's the offense.",
       "time": "00:41:02.74"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And if for Blockburger purposes or for double jeopardy purposes, you couldn't retry him for those other -- for that additional loss, then that's -- I assume your argument is that that's included within the offense for which he was convicted.",
       "time": "00:41:11.76"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your position is that in ancillary, subsequent proceedings anything you prove that's within the offense convicted -- say, as measured by double jeopardy purposes, as protection against multiple prosecutions, that you can make that showing?",
       "time": "00:41:51.74"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's my point.",
       "time": "00:42:14.32"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I take it that that's your whole argument.",
       "time": "00:42:15.36"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the appropriate burden of proof was beyond a reasonable doubt. That is in the second proceeding, the recidivist, the multiple offender proceeding--",
       "time": "00:42:44.67"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--the relationship, domestic relationship had to be proved beyond a reasonable doubt, which is not the standard that the BIA used.",
       "time": "00:42:55.82"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:43:09.41"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, yes.",
       "time": "00:43:12.69"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's what you're talking about, the alien who is convicted of a qualifying crime, an aggravating felony, then tries -- then comes back illegally. The difference between two years and 20 years, you admit there you would have to prove beyond a reasonable doubt?",
       "time": "00:43:21.88"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Gannon, we're dealing with the definition of a particular term, aggravated felony. And yet you say the only thing that you have to prove under the protections of criminal law to prove that this is an aggravated felony is that it involved fraud or deceit. Now, the other elements -- the other provisions here talk about firearms offenses, child pornography offenses, national security offenses, but here it's fraud or deceit. I mean, it's a felony, but there's nothing that strikes -- strikes me that it's particularly an aggravated felony.",
       "time": "00:45:06.73"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And yet that's all you have to prove with the protections of the criminal law as opposed to the civil.",
       "time": "00:45:43.02"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But not subject to the protections of criminal law that you have to show.",
       "time": "00:45:57.90"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Beyond the reasonable doubt, with the jury protections.",
       "time": "00:46:02.47"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes, I guess what I'm saying, the only thing that makes this aggravated, the $10,000, in contrast to the other things, which are aggravated by virtue of elements that you have to approve -- you have to prove beyond a reasonable doubt -- is that it's fraud ir deceit. And as I said, there's nothing about that that -- it's bad, but it doesn't strike me as particularly aggravated.",
       "time": "00:46:14.18"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that's just -- I think that's kind of begging the question. You assume that those elements, those provisions also don't have to be proved as elements. And what I'm suggesting, I guess, is that if the only thing that makes it aggravated is -- is something you don't have to prove beyond a reasonable doubt, it seems that we ought to look, well, is that really aggravated?",
       "time": "00:46:48.11"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And when you're talking about firearm offenses, or child pornography, yes, that's aggravated; but fraud and deceit is kind of a run of the mine felony.",
       "time": "00:47:07.41"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I guess I don't understand how that's responsive. It's -- it's--",
       "time": "00:47:44.25"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--crime of violence. In other words it seems to me you're already in the aggravated area, so it makes sense to say that's what you have to prove.",
       "time": "00:47:47.69"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I -- I guess I don't understand the answer, and I'm sorry if it's--",
       "time": "00:48:15.04"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--I'm hard to get through. [Laughter] It just -- you're saying is that there are exceptions, but I don't see that that detracts from the point that \"crime of violence\" -- you think right away, well, that's aggravated; national security crimes, that's aggravated; firearms offenses, that's aggravated. They're sort of on their own without respect to these other things that you say you only have to prove by the civil -- pursuant to the civil burden requirements. Fraud or deceit -- as I guess I've already said, that doesn't strike me as particularly aggravated.",
       "time": "00:48:19.97"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What makes it aggravated is something as to which you have a much lighter burden.",
       "time": "00:48:50.71"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I -- I would have thought you would not accept the Chief Justice's premise, that a crime of violence is an aggravated felony.",
       "time": "00:49:15.51"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It isn't.",
       "time": "00:49:25.30"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the -- but the Chief Justice points out that the facts that make the fraud aggravated are facts that you do not have to prove beyond a reasonable doubt, which takes back to your opponent's argument. Therefore, you were not convicted by proof beyond a reasonable doubt of the aggravated felony that's the basis for the immigration order.",
       "time": "00:49:35.99"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you were not convicted of the aggravated offense that -- the issue in this case.",
       "time": "00:50:01.39"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the -- but you hadn't been convicted of the aggravated offense until you established its aggravation by proof of less -- not under a reasonable doubt. So the word \"convicted\" really is pretty important.",
       "time": "00:50:14.55"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It depends on how you read the language. I guess -- I guess grammatically it could be read either way. You can read it: an offense that involves fraud or deceit in which -- in which the loss to the victim exceeds $10,000. Or you could read it: convicted of an offense that involves fraud or deceit, in which the loss to the victim exceeds $10,000. I mean, \"convicted\" doesn't necessarily apply to the last -- to the last phrase.",
       "time": "00:51:12.90"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and that's basically what we're arguing about.",
       "time": "00:51:41.92"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but the word \"convicted\" -- the question is whether the word \"convicted\" applies to the word \"aggravated\". That's the point, as I understand the Chief Justice's questioning, which goes to the burden of proof. So you would win even under that approach if you said you had a proof beyond a reasonable doubt of the other factors. But the thing that creates the -- the missing link is that to convert it from ordinary fraud to aggravated fraud, you have to prove X under one view by a reasonable -- beyond a reasonable doubt, but, under your view, by only clear and convincing evidence.",
       "time": "00:51:44.05"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Gannon.",
       "time": "00:53:55.76"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Moseley, you have 4 minutes remaining.",
       "time": "00:53:57.63"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To come back to the deference point, you say -- is this relevant to the criminal conviction? He's convicted criminally regardless of how you read that. You acknowledge it doesn't -- it isn't an element of the crime, and so to be convicted criminally you acknowledge you don't have to show the amount--",
       "time": "00:55:25.92"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--right?",
       "time": "00:55:46.23"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, in that later criminal proceeding, they would have to prove it undoubtedly--",
       "time": "00:56:04.02"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But this is not a later criminal proceeding; this is an administrative proceeding. And why shouldn't it be up to the BIA initially to determine how to interpret this language for purposes of the deportation laws?",
       "time": "00:56:08.26"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But there -- was it not true that there the interpretation placed upon the statute by BIA would also be the interpretation necessary to secure the criminal conviction? And that's not the case here.",
       "time": "00:56:37.45"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I frankly couldn't understand the government's concession on that point. I thought the -- the offense on illegal entry was to enter illegally after you've been deported. It's a -- there's a defense if the original deportation was flawed?",
       "time": "00:57:28.38"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I don't understand that.",
       "time": "00:57:43.06"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I see.",
       "time": "00:58:05.19"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:58:08.96"
     }

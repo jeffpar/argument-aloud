@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1987/85-673/19871103a_85-673.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL J. HAYES",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "COLLEEN K. CONNELL",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument this morning in Case Number 85-673, Neil F. Hartigan v. David Zbaraz. Mr. Hayes, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Hayes, didn't the 7th Circuit reserve judgment as to a part of the matter pending in the promulgation of rules by the Supreme Court of Illinois?",
       "time": "00:03:20.74"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, what is the status of the rule-making procedure proceeding before the Illinois Supreme Court? I assume it's in progress.",
       "time": "00:04:07.89"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Has anybody initiated that or taken any action to get that work done?",
       "time": "00:04:21.40"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Has it been initiated? Has anybody proposed rules?",
       "time": "00:04:26.55"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Who is responsible for initiating it, do you suppose?",
       "time": "00:04:31.87"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How about the Attorney General of the state? Has he done anything about it?",
       "time": "00:04:46.95"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about his position as to whether the statute itself is operative if those rules are never promulgated? I mean, it might well be constitutional to apply the statute without the rules, but it might also be contrary to the intent of the Illinois legislature. Has anyone Illinois court spoken about that?",
       "time": "00:05:04.23"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's a question of legislative intent, though, isn't it?",
       "time": "00:05:55.69"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As to whether the Illinois legislature intended this statute to be implemented if the rules provision never went into effect, if the Illinois Supreme Court never adopted the emergency rules that it anticipated.",
       "time": "00:05:58.56"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think you're disagreeing. I'm just saying that it is ultimately a question of what the Illinois legislature intended.",
       "time": "00:06:26.38"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the Attorney General asserts the legislature intended one thing, but, ultimately, that's a question to be answered by the Illinois courts, I take it, isn't it?",
       "time": "00:06:33.99"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The same courts that have refused to promulgate the rules thus far.",
       "time": "00:06:43.26"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Hayes, do you think, moving from the question of whether we have jurisdiction to hear the appeal, is it clear that the District Court had proper jurisdiction to entertain this suit in the first place? As I understand it, the suit was brought with respect to a statute that envisioned the promulgation of emergency rules by the Illinois Supreme Court, and the suit was brought before those rules had ever been issued, and the District Court jumped right in to create the situation that you describe, which, in your words, is deterring the Illinois Supreme Court from ever issuing those rules since they are rules governing a statute that's been declared unconstitutional.",
       "time": "00:08:56.43"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does that mean, Mr. Hayes, that there need not have even be a lawsuit filed, the statute would not have had any legal effect until the rules were promulgated? Is that your position?",
       "time": "00:10:30.56"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then, why wasn't it ripe for adjudication? If it did have legal effect right away, why wouldn't it have been ripe for adjudication?",
       "time": "00:10:42.70"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, at the time of the District Court's decision.",
       "time": "00:10:49.97"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did either the District Court or the Court of Appeals here make a finding that this statute could be implemented whether or not the Supreme Court of Illinois ever issues those rules? Is that a finding made?",
       "time": "00:11:45.27"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you're telling us that that's essential to the jurisdiction here.",
       "time": "00:11:58.78"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As I understand your position, it is an essential element of the jurisdiction that this statute is operative without the Illinois Supreme Court rules.",
       "time": "00:12:05.44"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And, yet, neither of the Courts below has made a finding that that's how the statute should be interpreted, which is a question of Illinois law, but nobody has made any finding to that effect yet.",
       "time": "00:12:15.66"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I ask you a question about how this statute would work without the Supreme Court rules? It has a provision in it for a guardian ad litem, as I understand it, for the minor who comes in and asks for judicial by-pass of the consent provision.",
       "time": "00:17:16.47"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Who pays the guardian ad litem's fee?",
       "time": "00:17:27.81"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that set out in the statute or is that... what's the source of that?",
       "time": "00:17:42.64"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "At state expense?",
       "time": "00:17:50.56"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see. Thank you.",
       "time": "00:17:52.68"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just be sure? Are you... when you say that there are no fees, is it the no filing fees in Sub-Section (h) of Section 5 that you rely on for that?",
       "time": "00:19:38.16"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And what is the source of the statement no attorneys fees?",
       "time": "00:19:48.42"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, that's your instruction of the general legislative intent rather than any specific finding in the Act?",
       "time": "00:20:02.40"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I hadn't found it.",
       "time": "00:20:08.05"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Hayes, can I ask you one other question about the statute?",
       "time": "00:21:28.50"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is the reason for notice to both parents? Why isn't notice to one parent sufficient?",
       "time": "00:21:32.42"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does that shed light on the state's interest in being sure that the child is having the benefit of sympathetic advice and so forth?",
       "time": "00:22:02.64"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You have to rely on that right to justify notice to both parents. You don't rely on just the best interests of the child for that reason.",
       "time": "00:22:23.47"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Hayes,--",
       "time": "00:25:47.86"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--excuse me. I was just wondering. Is there any other medical procedure in Illinois that has a rule like this?",
       "time": "00:25:49.66"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's what I was questioning about. Is there nothing other than that one citation?",
       "time": "00:26:16.17"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand what that means. Suppose you have a minor who wants to have some kind of elective surgery, let's say a facelift or sterilization, whatever you like.",
       "time": "00:26:23.36"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It would.",
       "time": "00:26:38.54"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Consent. Of both parents?",
       "time": "00:26:40.77"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "One would be sufficient.",
       "time": "00:26:45.03"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Hayes. We'll hear now from you, Ms. Connell.",
       "time": "00:26:52.25"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But what if the Illinois Supreme Court thinks the present structure of Illinois rules in the appellate courts is adequate to accomplish that and, so, nothing more is necessary? What if they've looked at it and they've so concluded?",
       "time": "00:29:26.35"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, you tell us they're not. Now, maybe you're right, but what if I'm an Illinois Supreme Court Justice and I disagree with you, and I think what we've got now is perfectly okay? What would I have to do? Nothing.",
       "time": "00:29:43.06"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it certainly has. They haven't taken any action. I assume that they respect the General Assembly when the General Assembly asks them to do something they think is necessary. I don't think... you know, they're just defining another branch of the state government, are they?",
       "time": "00:30:00.27"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That is a question for the Illinois Supreme Court under the statute. It says such rules as are necessary. What puzzles me is why does this incompleteness of the statute trouble you now but it did not trouble you when you brought your suit?",
       "time": "00:31:14.90"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You have gotten then... you have been successful below. You have a final order that prevents him from enforcing the statute without the rules, don't you? He cannot now do what he wanted to do, enforce the statute without the rules. The injunction that's now in existence prevents him from doing that.",
       "time": "00:31:45.00"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If that opportunity is ever accepted by the Illinois Supreme Court.",
       "time": "00:32:21.01"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's entirely possible that the Illinois Supreme Court never adopts its rules and forever, nonetheless, should it adopt that course, this Attorney General is restrained from doing what he wants to do on the ground that to do that under the statute, as he interprets it, is unconstitutional. Isn't that the situation?",
       "time": "00:32:25.63"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He asserts it doesn't require rules. He asserts he can enforce it without the rules. You have a judgment that says you cannot enforce it without the rules period. Now, why isn't that a final determination that the statute as he interprets it is unconstitutional?",
       "time": "00:33:13.53"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Connell, don't you think that we would at least have jurisdiction if we granted certiorari to review whether the injunction was properly issued below?",
       "time": "00:33:59.34"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The question... Ms. Connell, the question is whether we have jurisdiction to grant certiorari, not whether we ought to grant it. That was Justice O'Connor's question. What's your answer to that?",
       "time": "00:34:24.41"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That would be a reason why the Court should not grant certiorari, but I think all we require jurisdictionally to follow up on Justice O'Connor's question is that a case be in the Court of Appeals, and there's no question this case was in the Court of Appeals, is it?",
       "time": "00:35:07.25"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How much time did you give the Supreme Court to adopt those rules before you filed suit?",
       "time": "00:36:04.86"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's a very simple question.",
       "time": "00:36:12.76"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And about how long does it take a state to adopt... your state to adopt its rules?",
       "time": "00:36:19.53"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How many years?",
       "time": "00:36:27.24"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's right.",
       "time": "00:36:30.59"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If we had those rules, we could decide the case very easily, couldn't we?",
       "time": "00:36:31.67"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you jumped the gun, didn't you?",
       "time": "00:36:37.99"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mexican stand-off.",
       "time": "00:37:08.08"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what rule of this Court do we deal with that, with a Mexican stand-off?",
       "time": "00:37:14.50"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Connell, shouldn't the District Court in the first instance either have abstained to let the Illinois courts decide whether the statute could go into effect by its own terms without Supreme Court rules or determine whether as a matter of state law the statute could go into effect by its own terms and then act accordingly?",
       "time": "00:38:09.22"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, proceeding in that fashion has just created a stand-off, as has already been pointed out. So, I wonder whether it isn't appropriate to look at whether the injunction was properly issued.",
       "time": "00:39:04.35"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're right, you're right, Ms. Connell. The prosecution would have failed in state court, wouldn't it, or any sort of action would have failed in state court because, in your view, the legislature did not intend the statute to go into effect without rules in the Supreme Court of Illinois, and the first time the... the state attorney general or Mr. Daley walked into state court to do something about this, the state courts would have told him that.",
       "time": "00:40:21.04"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then, you must be in some doubt about your construction of state law, if you feel you have no assurance of that.",
       "time": "00:40:48.25"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you can't have it both ways, Ms. Connell. If you want to attack a statute which you interpret as being a statute that allows you to go forward without the Supreme Court rules, then it seems to me, fine, if you want to attack the statute as being that kind of a statute, then it seems to me you have to take the unpleasant part of that, which is when that statute is struck down, there is jurisdiction here to review the striking down. But you want to have the one without the other. You want to strike it down as being what you now say it is, a statute that can't go forward or that can go forward without the Supreme Court rule, but then you come here and you say, no, actually, nothing is really happening.",
       "time": "00:41:24.13"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It declared your statute unconstitutional, the one you asserted this statute was, namely a statute that allows the Attorney General to go forward without the Supreme Court rules, otherwise there wouldn't have been any jurisdiction in the District Court.",
       "time": "00:42:14.23"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you didn't say that in the District Court. Your whole theory in the District Court was the state is going to go ahead without these rules and that is what the statute says and such a statute is unconstitutional. Your theory in the District Court was not enjoining the Attorney General from going ahead because he's violating state law; your theory is he may well be in compliance with state law and that law is unconstitutional.",
       "time": "00:42:37.64"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'll let you move into the merits, Ms. Connell. I think that's fair.",
       "time": "00:43:32.99"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me just ask this because... is it correct that the Court of Appeals' opinion held that the statute without the rules does not provide either an expedited or a confidential method of review and, therefore, is both unconstitutional without that and it also fails to comply with the intent of the legislature because those two requirements, confidentiality and expedition, are both statutory requirements and you contend they're also constitutional requirements? The 7th Circuit agreed with you, so their decision is both, on what the statute means without the rules and what its constitutional status is.",
       "time": "00:43:36.60"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Connell, let's assume a rule without any by-pass provision, a rule that requires notification of the parents absolutely and one day after that notification for the parents to speak with the child about the abortion. What cases of ours say that that is unconstitutional?",
       "time": "00:47:21.03"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does this apply for other minor personal operations? Let's say a sterilization. Suppose you have a thirteen year old who decides that she wants to be sexually active and doesn't want to have to worry about the problem of having abortions later and decides she wants sterilization, would the same constraints apply?",
       "time": "00:48:19.51"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm talking about a non-pregnant young woman.",
       "time": "00:49:01.84"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that... and the consent is needed, isn't it, not just notification, but actual consent?",
       "time": "00:49:08.91"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that constitutional?",
       "time": "00:49:18.37"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not if she wants to be sexually active until that point.",
       "time": "00:49:44.50"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What about attorneys fees for the--",
       "time": "00:51:28.82"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--So, you basically disagree with your opponent on who pays these expenses?",
       "time": "00:51:34.24"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I notice the statute requires a confidential record of the evidence be maintained. I suppose you have to have a court reporter, too.",
       "time": "00:51:38.55"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You have to pay the court reporter, too.",
       "time": "00:51:44.62"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Connell, the premise of this statute is that an informed decision has not been made until the young woman talks with her parents.",
       "time": "00:53:06.77"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just speaking with a doctor who may not have her interests as much in heart as her parents do is not enough. Isn't that a reasonable assumption for the legislature to make?",
       "time": "00:53:14.69"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The delay only applies if she wants to avoid giving notification to the parents.",
       "time": "00:54:08.22"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If she's willing to give notification to the parents, I thought it's just a twenty-four period.",
       "time": "00:54:16.50"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Connell. Mr. Hayes, you have four minutes remaining.",
       "time": "00:56:54.74"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Hayes, let me just interrupt. It is clear that the Illinois legislature has commended and expedited a confidential appeal.",
       "time": "00:57:27.04"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And is it not also true that the 7th Circuit upheld that the statute without the rules as a matter of Illinois law does not provide for either of those things?",
       "time": "00:57:35.39"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I read their opinion, maybe not on the expedition, but I read their opinion as saying that the present Illinois statutory scheme and rules do not provide the kind of confidentiality that is necessary, either to meet the word in the statute or to meet what they regard as the constitutional requirements.",
       "time": "00:58:35.93"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You may be right, and the Court of Appeals may be wrong. All I'm suggesting is I think the Court of Appeals concluded that the confidentiality requirement was not satisfied under the existing State of Illinois law.",
       "time": "00:59:23.18"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you agree, do you not, that confidentiality and expedition are essential?",
       "time": "00:59:56.13"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you agree that the Illinois legislature... it was the intent of the Illinois legislature that there be an expeditious and confidential procedure?",
       "time": "01:00:05.51"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Okay.",
       "time": "01:00:15.08"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But you ask it of both parents?",
       "time": "01:00:49.70"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Suppose the father is on military duty in Viet Nam?",
       "time": "01:00:53.24"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Suppose he's on business in Honolulu?",
       "time": "01:01:08.17"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Hayes. The case is submitted.",
       "time": "01:01:33.05"
     }

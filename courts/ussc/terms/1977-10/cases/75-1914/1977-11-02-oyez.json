@@ -3,35 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1977/75-1914/19771102a_75-1914.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "OSCAR CHASE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "L. KEVIN SHERIDAN",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in 1914, Monell against City of New York. Mr. Chase you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -43,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you say monitory relief is sought against them in their official capacity, you mean monitory relief to come out of the public treasury in some form?",
       "time": "00:02:16.99"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Okay, just before you go on, in connection with Brother Rehnquist's question, there is no finding here and no issue as to whether the individual members are persons or purposes of prospective relief?",
       "time": "00:02:40.18"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What would be the distinguisher between the local board and the state board?",
       "time": "00:04:41.64"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but counsel, now do not you have to take things in context when you are talking about a substantive right to relief, you may not be focusing on who are proper defendants and vice versa. I do not think you can take every word as written out of every opinion of this court and say that it decides a question that the court may not have been focusing on. I thought from your earlier comment, you probably agreed with that.",
       "time": "00:05:00.40"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, where a local financially or where a local board bears the burden of a school desegregation order and gets a grant from the government, the order could be perfectly effective, prospectively through individual school board members and nonetheless impose the burden of buying buses and that sort of thing on the school district I would suppose. Is not it that language of Congress there perfectly reconcilable with that interpretation?",
       "time": "00:07:10.78"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Chase.",
       "time": "00:09:41.28"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What extent is your position predicated on the deal that the New York Board of Education is a separate entity from the City of New York.",
       "time": "00:09:42.69"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That it have any thought of levy the taxes?",
       "time": "00:10:17.12"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or issue bonds?",
       "time": "00:10:23.05"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They come from all three of those don't they?",
       "time": "00:10:31.76"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is the Board of Education and here what you would call a municipal corporation a sue, that can sue, be sued that sort of thing.",
       "time": "00:11:00.28"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well it is not a private corporation?",
       "time": "00:11:43.99"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And it is not a municipal corporation, then what is it?",
       "time": "00:11:47.51"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Then what does the State of New York say it is?",
       "time": "00:11:53.13"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that statute here, at some place in the record?",
       "time": "00:12:07.57"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does the constitution of New York provide for Boards of Education as constitutional entities, this is true in my state of Virginia, for example.",
       "time": "00:12:15.84"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume at one o'clock counsel.",
       "time": "00:17:29.71"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Counsel, you may continue.",
       "time": "00:17:48.10"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If there is no money available, let us assume hypothetically, for some legal reasons, could others be compelled to enact legislation or make appropriations or raise the money by borrowing it in order to pay or if they have borrowing power, that they be compelled to exercise that borrowing power.",
       "time": "00:19:03.80"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But do not you think the courts have to think about that?",
       "time": "00:20:10.03"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now, that is casting it somewhat different terms from my inquiry. If you were talking about two private parties, that certainly would be true, the courts are not concerned with it. We are talking about public money here now.",
       "time": "00:20:30.53"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would the individual defendants in a capacity, you are talking about, have the same good faith, reasonable type of defense that they would have to damages action against them personally in this capacity?",
       "time": "00:21:00.48"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I should say to counsel in this case by the way that Mr. Justice Brennan is inevitably absent, but has heard part of the arguments and will participate in case on the basis of the tape recordings of the oral arguments and of course all the records.",
       "time": "00:21:37.94"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In other words as I understand it, your argument in this phase the case is not at all depended upon our respondeat superior theory.",
       "time": "00:24:36.99"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What if this school board member says I have done all I can to give you back pay, but I do not have the money and then I get my money from the city. Is he then like a police officer?",
       "time": "00:24:52.59"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would you have a stronger case if you came from somewhere else than New York? Do you think?",
       "time": "00:25:36.14"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, will you be here making the same claim if there had been no claim for equitable relief other than this so called restitutionary claim?",
       "time": "00:26:03.05"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh, Yeah.",
       "time": "00:26:14.77"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, why don't you just say that if I am suing the school board or its members, I can sue them in law and get money even if the city has to pay it? To that extent Monroe just does not reach it. Is that really your position?",
       "time": "00:26:29.72"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired now counsel. Mr. Sheridan.",
       "time": "00:31:48.99"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Counsel, this morning I do not know if you sat here during the argument in the Memphis. I gathered that all parties there conceded that the Memphis, utility was simply a division of the city.",
       "time": "00:34:15.06"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And the mayor ran that like he did other divisions. I take if that is not the case with the New York City school board.",
       "time": "00:34:30.35"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But they do not themselves have taxing authority.",
       "time": "00:34:57.46"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or the authority to borrow money.",
       "time": "00:35:01.66"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They issue bonds, do they?",
       "time": "00:35:05.01"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then it varies from subdivision to subdivision within the state of New York?",
       "time": "00:35:30.34"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What do the statutes of New York say that the Board of Education of the City of New York is? What does the statute say?",
       "time": "00:36:16.47"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I am going to have all the trouble of recollection.",
       "time": "00:36:28.28"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I think it is very important what the state considers destiny, what kind of an animal is this.",
       "time": "00:36:32.52"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And the statute is silent.",
       "time": "00:36:59.22"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it in these records, the statute?",
       "time": "00:37:05.18"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Let me follow that up if I may, Mr. Sheridan. Supposing that the -- this court were to hold in accordance with your opponents contentions that the individual defendants could be required to pay public moneys to redress past wrongs, what would be the source of those public moneys?",
       "time": "00:37:11.33"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that is what we are talking about here.",
       "time": "00:37:43.84"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But if there were a judgment, they would forward it to the controller of the City of New York.",
       "time": "00:38:06.71"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What funds would he pay it out of?",
       "time": "00:38:19.35"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And it remained more abundant for a long time did not it?",
       "time": "00:41:17.42"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you are saying I think it would not make any difference to the school board where had its own sources of funds, had its own taxing --",
       "time": "00:42:49.56"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I know, but you are making that argument.",
       "time": "00:43:01.14"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What if it were to be held that there is jurisdiction to give a judgment against the school board member as a member of an all the judgment would require him to do is to send the voucher into the controller of city and that the judgment did not require the controller to pay it. Would that satisfy your --",
       "time": "00:43:23.43"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I am not asking to predict what the what the controller would do, I am asking, if the court expressly said that the judgment does not run against the controller.",
       "time": "00:43:55.31"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, my question is would that satisfy your worries?",
       "time": "00:44:20.44"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, of course, the city neither the city not the controller is a party to the state.",
       "time": "00:45:13.05"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think that if the judgment was not paid, the voucher was not paid, the controller would be held in contempt?",
       "time": "00:45:23.91"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Before you leave this hypothetical, Justice White's hypothetical, I took it that way, does that have some elements of an advisory opinion of the court to say this is what ought to be done, but we expressly say that the controller does not have to pay any attention to it and the individual defendants do not have to respond in the money judgment?",
       "time": "00:45:37.91"
     },
@@ -691,13 +695,13 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, does it have some elements of an advisory opinion of the court or how would you characterize it other than being wrong, as you see it?",
       "time": "00:46:15.92"
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "And as the Chief Justice sees it.",
       "time": "00:46:28.04"
     },
@@ -709,7 +713,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, but your friend, that your friend also counseled us not to be concerned about whether the court's judgment if if it resumed for him, whatever be acknowledged or have any response.",
       "time": "00:46:51.85"
     },
@@ -721,7 +725,7 @@
     },
     {
       "turn": 116,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Sheridan may I ask you a question about significance of e how the judgment is paid in a case of this kind but your opponent says, we should not be concerned with that, but I guess you are saying the case is and perhaps we should. Supposing we had a case on its facts like Monroe against Pape, where police officers were guilty of misconduct and the police chief and so forth and there were judgment for damages against the New York police officers. Would that judgment be paid from municipal firms?",
       "time": "00:47:39.14"
     },
@@ -733,7 +737,7 @@
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But in deciding whether or not to impose liability, should that fact be considered by the Trial Court in the 1983 Action? And if not in a police officer case, why should it be so in a school board case?",
       "time": "00:48:15.10"
     },
@@ -745,7 +749,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Sheridan, are not you wrong about policeman suits in New York and as a matter of fact they are settled out of court by your office?",
       "time": "00:49:39.46"
     },
@@ -757,7 +761,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Pretty uniformly.",
       "time": "00:49:51.87"
     },
@@ -769,7 +773,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The law is most demonstrated in your office.",
       "time": "00:49:59.33"
     },
@@ -781,7 +785,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well that is because of changes in the construction of the Fourteenth Amendment not because of changes in the construction 1983.",
       "time": "00:52:10.17"
     },
@@ -793,7 +797,7 @@
     },
     {
       "turn": 128,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well certainly if I read the cases that I think you are referring to about job security and those sort of things, they would not have been afforded by this court in the absence of some construction of the Fourteenth Amendment. 1983 just says a if you have violation of the Fourteenth Amendment.",
       "time": "00:52:23.30"
     },
@@ -805,7 +809,7 @@
     },
     {
       "turn": 130,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Kevin if it also say are the violation of laws of the United States. A new statute it is all about.",
       "time": "00:52:52.67"
     },
@@ -817,7 +821,7 @@
     },
     {
       "turn": 132,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did you lay off any judges?",
       "time": "00:58:19.69"
     },
@@ -829,7 +833,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you Mr. Sheridan. Thank you gentleman. The case is submitted.",
       "time": "00:58:41.82"
     }

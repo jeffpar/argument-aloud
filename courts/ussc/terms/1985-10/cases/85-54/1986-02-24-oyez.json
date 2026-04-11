@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/85-54/19860224a_85-54.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES A. ROTHFELD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CHARLES STEPHEN RALSTON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Rothfeld, I think you may proceed when you're ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Rothfeld, if there were private litigants involved in a case like this, so we didn't have the Federal Government issue, if some form of pre-judgment interest were sought as against a private defendant employer, would it be payable as part of attorneys' fee, or as a part of damages in general, or how? What's the theory of the recovery against the private litigant, do you think?",
       "time": "00:03:31.85"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So if it were a private defendant, in your view then it would be a part of attorneys' fee or costs in any event?",
       "time": "00:04:24.68"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that right?",
       "time": "00:04:33.30"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is it conceded all around that in the case of a private defendant pre-judgment interest can be recovered on attorneys' fees?",
       "time": "00:04:56.66"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "As part of the attorneys' fee?",
       "time": "00:05:12.42"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Not as a part of damages?",
       "time": "00:05:15.73"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Rothfeld, would you comment to Attorney General Bell's memorandum that you opponent quotes toward the end of his brief? Does he take... do you think he... he wouldn't agree with your view, I take it?",
       "time": "00:09:05.64"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And at that time, the Department took the position that no interest would be awarded on attorneys' fees awards?",
       "time": "00:09:53.90"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, I was just curious to know what the position of the Government was when Attorney General... when Griffin Bell was the attorney General. I had the impression from reading this that there'd probably been a change in the Government's position, but maybe I'm wrong.",
       "time": "00:10:04.46"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I also just clarify, because I'm a little hazy on it, what is your position with respect to post-judgment interest on an attorneys' fee award?",
       "time": "00:10:57.46"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I know it's not at issue. Your position is that such interest is or is not--",
       "time": "00:11:17.10"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I'm talking about attorneys' fee awards.",
       "time": "00:11:23.80"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's not available. Can I ask one other question that troubles me about this case that nobody mentions in the briefs. In Judge Oberdorfer's award he deducted I think $3100 because the client had already paid that amount to the attorney. Do you recall that? He said that that should be deducted. That was plainly wrong, wasn't it? Why would that be deducted? Isn't the... is the attorneys' fees... is there to be no attorneys' fees award if the client has already paid the attorney?",
       "time": "00:11:27.13"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And so that if he pays his own attorney, he's not entitled to recover the fee? It just sounds crazy to me.",
       "time": "00:12:12.35"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And perhaps I shouldn't, but I just thought that perhaps you would have thought about it and have some comment that would help me understand it.",
       "time": "00:12:19.67"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me the Government got a $3100 windfall at that point, let me just put it that way.",
       "time": "00:12:27.57"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, it doesn't. Mr. Rothfeld, harking back a moment to post-judgment interest on attorneys' fees, does the... did you say the Respondent in this case agrees that post-judgment interest isn't available against the Government?",
       "time": "00:12:34.96"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Ralston.",
       "time": "00:18:41.63"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does the legislative history speak expressly anywhere to pre-judgment interest on attorneys' fees?",
       "time": "00:24:31.82"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Ralston--",
       "time": "00:25:08.32"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Excuse me.",
       "time": "00:25:09.65"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I didn't mean to cut off your response.",
       "time": "00:25:10.96"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you agree with the Solicitor General that Congress has usually used much more express language when it's provided for the payment of interest than it did in this case?",
       "time": "00:25:14.30"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think this statute allows the recovery of post-judgment interest--",
       "time": "00:27:59.80"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--against the Government, or a private litigant?",
       "time": "00:28:07.46"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is it available against private parties?",
       "time": "00:28:34.72"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So the short answer is you think it's recoverable against the Government, post-judgment interest?",
       "time": "00:28:45.67"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you agree that the enhancement factor here is the equivalent of the award of interest?",
       "time": "00:30:14.68"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I'm asking what your position is.",
       "time": "00:30:25.17"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "In answering the question in this case, should we address the question of pre-judgment interest or should we address some other question?",
       "time": "00:30:52.79"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But in which of the two senses that you just spoke of do they use that term, \"delay in payment\"? Damages for delay in getting the money, for the loss of the use of the money, or damages because the money is worth less when you get it?",
       "time": "00:32:03.95"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So that's something different in your view, then, than simply loss of the use of the money for that period of time?",
       "time": "00:32:55.57"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If we were to agree with you on the point that a district court may properly allow for lessening value of the money--",
       "time": "00:34:02.24"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--but would agree with the Government on the proposition that there is no interest or damages for delay on attorneys' fees, we would have to reverse the Court of Appeals, would we not?",
       "time": "00:34:10.26"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I thought you said if the district judge had done that he would have given you more than interest.",
       "time": "00:34:53.77"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "As the Respondent, are you entitled to try to present a theory here that would give you more than you got?",
       "time": "00:35:04.13"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me go back for a moment to your distinction between loss of use and loss of value. The district court computed the ten percent for each of three years entirely on loss of use, as I read its is that not right? And he did not take--",
       "time": "00:37:20.62"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Rothfeld?",
       "time": "00:42:37.43"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does that mean... may I just interrupt. Does that mean that, say there's a five year piece of litigation. At the end of the litigation the judge thinks that it would be fairer to, say, award fees on the basis of current going rates in the market for legal services, rather than those that applied five years ago. That would be prohibited by the no interest rule, would you say?",
       "time": "00:43:02.00"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do any of the no interest rule cases on which you rely actually discuss the problem of inflation, as opposed to the problem of loss of use of the money?",
       "time": "00:43:42.03"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not sure that the change in the value of the money is necessarily covered by the notion compensation for delay. It's compensation for change in value instead of loss of use. Maybe it is, I don't know.",
       "time": "00:44:34.23"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Equally quick?",
       "time": "00:46:11.73"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was the underlying statute in Waite a statute that required the Government to compensate for the taking of a patent?",
       "time": "00:46:45.94"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just, one last question. What is your response to his reliance of the patent case, Devex against General Motors?",
       "time": "00:48:02.16"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but the Government was the infringer in that case, wasn't it?",
       "time": "00:48:16.93"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Devex was against General Motors. That's right, it was General Motors.",
       "time": "00:48:20.24"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What about the claims against the Government where the Government is an infringer of a patent? Is pre-judgment interest awarded in those cases, do you know?",
       "time": "00:48:31.40"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:49:06.93"
     }

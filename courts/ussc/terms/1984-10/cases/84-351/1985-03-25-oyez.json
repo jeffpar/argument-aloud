@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/84-351/19850325a_84-351.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES E. RYAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MARILYN HOLLE",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next this morning in Atascadero State Hospital and California Department of Mental Health against Scanlon. Mr. Ryan, I think you may proceed now whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Ryan, I suppose you would concede, however, that a plaintiff in the circumstances of this case could nevertheless seek an injunction against the state asking for an order that the physician be given--",
       "time": "00:05:39.24"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--You think not under Ex Parte Young?",
       "time": "00:06:07.59"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But no officials were named here.",
       "time": "00:06:15.84"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If officials had been named, and injunctive relief sought, you would agree the suit could have proceeded in federal court?",
       "time": "00:06:22.98"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And maybe attorneys' fees obtained if successful?",
       "time": "00:06:40.30"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Counsel, you mentioned the position of the Solicitor General. It hasn't always been consistent, has it?",
       "time": "00:10:50.89"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In this case.",
       "time": "00:10:58.65"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So he was against you earlier.",
       "time": "00:11:00.61"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You didn't mention that. Mr. Ryan, would the plaintiff here have been able to file suit in the California state courts under Section 504 for damages?",
       "time": "00:11:03.92"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that because the state has generally waived its sovereign immunity to actions like this in the state court?",
       "time": "00:11:20.78"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So your position is the Eleventh Amendment protection is really broader than the protection under the sovereign immunity doctrine.",
       "time": "00:11:42.58"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Have we ever so held?",
       "time": "00:12:06.51"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Where that particular point was at issue?",
       "time": "00:12:11.88"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean where you had an acknowledgement by the state that there had been a waiver of any sovereign immunity defense, nevertheless assertion of the Eleventh Amendment.",
       "time": "00:12:18.84"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your provision says, \"Suits may be brought against a state in such manner and in such courts as shall be directed by law. \" That does not include federal courts, the way you read it?",
       "time": "00:13:04.08"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Ms. Holle.",
       "time": "00:20:23.21"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Holle, have you said all you are going to say about your argument that the state statute waives immunity both in federal courts as well as state courts?",
       "time": "00:23:08.40"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You are going to get to that later?",
       "time": "00:23:21.46"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Have you read our Great Northern Insurance Company versus Read case?",
       "time": "00:24:43.79"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What do you think it depends on, Ms. Holle, the intent of the legislature passing the--",
       "time": "00:25:45.09"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--I mean, I was asking what you think it depends on.",
       "time": "00:25:52.94"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So it is not a question of whether they intended the waiver to extend to federal court as well as to state court?",
       "time": "00:26:10.79"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But what is the test for purposes of applying the Eleventh Amendment?",
       "time": "00:26:25.99"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So if a legislature simply passes a statute, perhaps like the statute in Great Northern, saying the state waives its immunity to sue, period, that would be enough in your--",
       "time": "00:26:43.22"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But I--",
       "time": "00:26:57.03"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Would you answer my question?",
       "time": "00:26:58.58"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, did the court below deal with that question?",
       "time": "00:27:02.80"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, suppose we disagree with you on the federal law issue. What do we do with this state law waiver question?",
       "time": "00:27:21.38"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was waiver argued at all in the lower courts?",
       "time": "00:27:44.08"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That wasn't a state law question.",
       "time": "00:27:55.47"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You asked us to look particularly at the Maurice case in California.",
       "time": "00:43:31.76"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that not an appellate court decision?",
       "time": "00:43:42.22"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It was approved by the California Supreme Court in Nevada against Hall?",
       "time": "00:43:58.50"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Ryan?",
       "time": "00:44:56.60"
     },
@@ -463,13 +463,13 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:47:24.11"
     },
     {
       "turn": 72,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10:00.",
       "time": "00:47:26.99"
     }

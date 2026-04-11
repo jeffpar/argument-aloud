@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1023/19851009a_84-1023.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "PATTY MERKAMP STEMLER",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JUDY CLARE CLARKE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mrs. Stemler, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mrs. Stemler, do you think the case is moot?",
       "time": "00:02:49.15"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you call a superseding indictment?",
       "time": "00:10:03.95"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you would... I gather from what you have said that there would be some superseding indictments where a discretionary continuance certainly should be granted.",
       "time": "00:10:27.22"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you just say the act just doesn't make it mandatory except once, just once.",
       "time": "00:10:44.54"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "As long as the superseding indictment relates to the same transaction, right?",
       "time": "00:10:51.90"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even if the superseding indictment charges a violation of an additional statute?",
       "time": "00:11:02.02"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Even if an entirely new crime is added?",
       "time": "00:11:21.37"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You seemed to hesitate. Would you have a question whether it is a supervening indictment or superseding indictment where wholly now offense is alleged?",
       "time": "00:11:29.13"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Arises out of the same transaction you say.",
       "time": "00:11:45.50"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "May I inquire about the relationship between the 70 day limit and the 30 day limit?",
       "time": "00:13:59.95"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If the... if the government dismisses the original indictment and goes to trial on a new or supervening indictment, then the trial has to commence within 70 days of the arraignment on the original indictment--",
       "time": "00:14:07.50"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--under the terms of the statute.",
       "time": "00:14:26.08"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So as a matter of common sense, maybe the 30 day preparation should run from the same date. Does it make any difference if the original indictment is not dismissed, in your view?",
       "time": "00:14:27.86"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And why not, because the act is so specific and deals in one section with a dismissal by the government and in another on motion of the defendant.",
       "time": "00:14:52.41"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right.",
       "time": "00:15:16.45"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right.",
       "time": "00:15:31.24"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask this question on the harmless error situation. Supposing you had a violation of the 70 day requirement and they didn't get to trial soon enough, and the statute says there must be a dismissal of the indictment.",
       "time": "00:18:39.30"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And say there's some argument about whether there's a violation or not, and the District Court decides there's not, that the trial was in time, there's an appeal, and the Court of Appeals concludes that the 70 day requirement was violated. Would the government then be in a position to argue that the violation was harmless, under your submission?",
       "time": "00:18:50.69"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why wouldn't under the... a fair reading of the language of the harmless error rule, a Court of Appeals be able to say, well, it seems sort of silly to us, they can dismiss without prejudice, go through a whole trial again. He's obviously guilty, and 71 days didn't prejudice him at all. Sure, the statute says shall be dismissed. There's just... it's a clear error, but why couldn't that be harmless?",
       "time": "00:19:50.98"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There would have been another trial, and the same evidence would go in, and you prove him guilty all over again, just spend a lot of money to carry out a--",
       "time": "00:20:20.01"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, on the other side of the coin, are there any decisions ever holding a violation of the Speedy Trial Act harmless?",
       "time": "00:20:37.88"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The 30 day rule or any other provision of the statute?",
       "time": "00:20:44.22"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's a brand new contention, isn't it?",
       "time": "00:20:50.70"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Ms. Clarke?",
       "time": "00:21:52.74"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it is mandatory, as I read it, from the date on which the defendant first appears through counsel.",
       "time": "00:22:53.58"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You are paraphrasing... you just paraphrased what the Conference submitted to Congress?",
       "time": "00:23:35.61"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but the Congress could so easily have said from the date on which an indictment is first returned if it had meant what you said.",
       "time": "00:24:24.24"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But first appearance through counsel could be at an arraignment, couldn't it?",
       "time": "00:25:13.67"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So they just didn't tie it to indictment at all.",
       "time": "00:25:26.37"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If it can be at an arraignment--",
       "time": "00:25:31.26"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But it's not the date of the indictment... I mean, the arraignment doesn't necessarily take place on the date of the indictment.",
       "time": "00:25:37.21"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, counsel, suppose the superseding indictment merely changed the date from the 3rd to the 4th of August?",
       "time": "00:26:45.00"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I realize that.",
       "time": "00:26:57.81"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So what is the need for a whole lot of time on that?",
       "time": "00:26:59.63"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Because I'm going to take it to when they change the time from 12:15 to 12:16.",
       "time": "00:27:06.82"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What additional weight does that put on the defendant?",
       "time": "00:27:20.44"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What additional weight does that put on the defendant?",
       "time": "00:27:28.10"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Wouldn't that Be up to the judge?",
       "time": "00:28:13.49"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Wouldn't that be up to the judge to decide that?",
       "time": "00:28:16.82"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Whether or not you needed more time to change from the 5th to the 6th.",
       "time": "00:28:21.40"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought the decision was that it was automatic. If you changed the indictment in any form or fashion, for example, if you corrected a word, the misspelling of a word, you get 30 more days.",
       "time": "00:28:34.53"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's your position.",
       "time": "00:28:48.26"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh, I think you could have.",
       "time": "00:28:52.48"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't it true that if the defendant says I need 30 days and therefore extends the time, that automatically extends the 70 day period, too.",
       "time": "00:30:21.71"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the crushing pressure isn't there if there's a need for it. You've got to assume the judges are going to listen to these motions.",
       "time": "00:30:30.52"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I imagine if the defendant asked for another 15 days, he's normally going to say I'll give it to you because it extends... it relieves them of the 70 day pressure as well.",
       "time": "00:30:46.21"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, and according to the government, he was not prejudiced by the failure to get it, either.",
       "time": "00:30:59.35"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But under, under what you propose, you can have a situation where the 30 day period no longer relates to the original indictment, but the 70 day period continues to relate back, and it would be impossible for the government to go to trial at all, and that is obviously an absurd result. So to make the 70 day period and the 30 day period co-exist, you pretty much have to adopt the rule that the government espouses here, don't you?",
       "time": "00:31:38.92"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what difference does it make whether the government dismisses or doesn't, in your view?",
       "time": "00:32:54.69"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, isn't that a purely perfunctory act in the circumstances of this case?",
       "time": "00:33:14.31"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And why should anything turn on that?",
       "time": "00:33:20.56"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But that's not this case. I mean, you... here the government filed a supervening indictment to change by a very small margin what apparently was a typographical error on the date.",
       "time": "00:34:08.43"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Ms. Clarke, do you think a superseding indictment was necessary in this case at all?",
       "time": "00:36:08.21"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You wouldn't be here at all.",
       "time": "00:36:30.31"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But if the change is minute, why would he need a continuance?",
       "time": "00:37:53.72"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, to say he makes a decision that hurts only himself, if 30 unnecessary days are consumed between the time of indictment and the time of trial, the public is hurt.",
       "time": "00:38:18.25"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that varies from district to district.",
       "time": "00:39:05.09"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In New York they have about six running every day.",
       "time": "00:39:09.28"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The court allows them sometimes to correct an indictment during trial.",
       "time": "00:39:26.08"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "To conform to the evidence.",
       "time": "00:39:32.33"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But any change at all, under your rule, the government's out.",
       "time": "00:39:49.45"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Any change at all.",
       "time": "00:39:56.74"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What confusion is there in requiring the defendant to file a motion and say that you haven't complied with the rule?",
       "time": "00:40:14.08"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They file a superseding indictment, and the defendant says you have not given me my extra 30 days and I need my extra 30 days for the following reason.",
       "time": "00:40:25.39"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That I'm injured.",
       "time": "00:40:41.16"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'm harmed by it.",
       "time": "00:40:44.94"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what would be wrong with such a requirement is my question.",
       "time": "00:40:50.52"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, could we require it?",
       "time": "00:40:58.28"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Stuck?",
       "time": "00:41:04.58"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just ask this again? You may have already covered it and I'm a little fuzzy on it, but Justice Rehnquist has emphasized the fact the statute doesn't refer to indictment, it refers to the date through which counsel appeared, and you say that date refers precisely to what, the date of the arraignment or the date of the return of the superseding indictment?",
       "time": "00:41:41.76"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "By that... does that mean the arraignment date or when he's--",
       "time": "00:42:00.82"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--He's got... an appearance, if they file a written appearance, as they do in some courts, may well have been filed in advance.",
       "time": "00:42:06.07"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it doesn't say on the superseding indictment.",
       "time": "00:42:16.64"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because he has a lawyer.",
       "time": "00:42:40.83"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if already had the lawyer for a couple of weeks, why isn't that satisfied?",
       "time": "00:42:44.02"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but we're... by hypothesis, we are dealing with cases where there is no prejudice. It is a miniscule change in the indictment, and you are saying Congress commanded even in the non-prejudice situation to avoid the risk of prejudice there shall always be this 30 day delay.",
       "time": "00:42:54.28"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why do you suppose they didn't refer to the Your Honor then?",
       "time": "00:43:11.20"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You see, the other thing that's interesting is in the, in (c)(1) as I remember it, they carefully differentiate between the date of the indictment and the date of appearance through counsel, and say the latter of the two dates shall control.",
       "time": "00:43:15.23"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:43:30.63"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:43:36.16"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But (c)(1) says the latter of the two dates.",
       "time": "00:43:43.84"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The later of--",
       "time": "00:43:49.65"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Not necessarily arraignment, appearance of a judicial officer in which the charge is pending. Could that be a preliminary hearing? I was thinking that contemplated a situation in which there might be a hearing in advance of indictment, appearance before a judicial officer.",
       "time": "00:43:58.16"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why did they say, I wonder, judicial officer of the court rather than a judge?",
       "time": "00:44:37.02"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They take arraignments.",
       "time": "00:44:42.46"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I'm still not sure what your response was, Ms. Clarke, to Justice Marshall's inquiry about what the prejudice to Mr. Rojas-Contreras was in this case by virtue of the change. It sounded to me like you said her lost the benefit of a windfall defense had the indictment not been amended.",
       "time": "00:46:27.74"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I understand your argument. Now try to answer this question: What was the prejudice?",
       "time": "00:47:04.15"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, on that score, it's true, it's not malum in se, but here's a man who's repeating precisely the act that he had previously performed.",
       "time": "00:48:19.99"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Making two illegal entries.",
       "time": "00:48:33.26"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, it's not an issue, I quote agree, but I was merely having an observation on your point that he really hadn't done anything very seriously wrong.",
       "time": "00:48:53.76"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He's had repeated, repeated performances.",
       "time": "00:49:03.32"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The way you spell out all these things you have to do, I marvel that you could do it really in 30 days.",
       "time": "00:49:23.61"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, then, 30 days wouldn't help you.",
       "time": "00:49:32.48"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I think the real problem is you're making this argument here and it wasn't made below.",
       "time": "00:49:45.04"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why is it made here?",
       "time": "00:49:53.14"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did the government argue harmless error below?",
       "time": "00:50:03.92"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Haven't some of the other circuits already done that?",
       "time": "00:50:22.37"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Am I correct in my understanding that the Ninth Circuit decided this case without oral argument?",
       "time": "00:50:50.65"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mrs. Stemler?",
       "time": "00:51:40.30"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why wasn't it? Why does the government choose a supervening indictment instead of the amendment?",
       "time": "00:54:25.58"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What would the government do about the problem of the subsection (b) requirement of a date relating to arrest?",
       "time": "00:54:45.11"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I don't recall what the rule provision is, if any, on amending indictments. What rule governs that?",
       "time": "00:56:05.51"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:56:30.99"
     }

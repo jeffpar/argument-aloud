@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2018/17-1307/17-1307_20190107-argument.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BRETT M. KAVANAUGH",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "NEIL M. GORSUCH",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
       },
       {
         "name": "DANIEL L. GEYSER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAVANAUGH",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GORSUCH",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "KANNON K. SHANMUGAM",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "JONATHAN C. BOND",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument next in Case 17-1307, Obduskey versus McCarthy & Holthus. Mr. Geyser.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I think you have a -- you have a pretty good argument if we look just at 15 U.S.C. 1692a(6), which talks about regularly collects or attempts to collect, directly or indirectly, debts owed or due or asserted to be owed or due to another. At least you've got a -- you've got a reasonable argument under that provision. But the two provisions that seem to me to create a lot of problems for your position are 15 U.S.A. -- 15 U.S.C. 1692a(6), which creates a special definition of \"debt collector\" for a purpose that's not relevant here, and that refers to any business the principal purpose of which is the enforcement of security interests. So, if a -- a business whose principal purpose is the enforcement of security interests fell within the prior definition, the all-purpose definition, there wouldn't be a reason for -- for that provision. So I -- I think you've got a tough time explaining that away. And your -- your answer is that refers to repo activities. But then there's another provision that talks about what looks like repo activities in a lot more specific language, 1692f(6), which talks about dispossession and disablement. So what's your answer to that?",
       "time": "00:01:27.48"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Right.",
       "time": "00:03:07.72"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "But it's --",
       "time": "00:03:27.68"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "-- it's only expanding it for purposes of 1692f(6).",
       "time": "00:03:29.04"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "That's the -- that means that it's something less than that, other than 1692f(6). At least that's the most natural or a natural way to read it.",
       "time": "00:03:38.20"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Yeah, but somebody who's engaging in a non-judicial foreclosure is enforcing a security interest, and if they didn't -- so they appear to fall within that provision. And if Congress didn't want them to fall within that provision and only wanted to capture the repo guys, why wouldn't it use the more specific language that it used elsewhere when it was referring to the repo guys?",
       "time": "00:04:20.76"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Mr. Geyser, can -- I -- I may be missing something here, so I -- I'd appreciate your help. As I understand it, you -- you think that first sentence in a(6) is the main one and captures most debt collectors, but, for some reason, it doesn't capture the -- the repo man who in the dead of night goes and just grabs my car. And for that, we need the last sentence, right?",
       "time": "00:06:34.08"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "All right. I'm following you so far, great. But then, when I go over to f(6), which further illuminates that last sentence and -- and talks about who's covered, it talks about the fellow who takes -- now the dead-of-night repo man you're talking about -- or threatens to take a security interest. So there's that fellow, he's not just taking the stuff in the middle of the night; he's -- he's threatening to do it. He's talking to me. And I would have thought that fellow would have been captured by your reading of the first sentence of -- of a(6). So that's rather convoluted and roundabout, but help me out. Why -- why doesn't that disprove your -- your thesis?",
       "time": "00:06:55.12"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Many elegant words there, but what do we do about the word \"threatening\"? That was my question.",
       "time": "00:08:12.80"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Well, threaten to take a non-judicial action to -- with respect to a security interest. That's what the statute says.",
       "time": "00:08:28.32"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "So -- so help me out with that language. That's where I need your -- I know you've got something for me here.",
       "time": "00:08:34.92"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's the point. That's the point, I think. I mean, let's call it part 1 and part 2. Part 1 says debt collectors can't -- are so and so, and then here are all the things they can't do. And that's a lot of them. And then we have part 2, and part 2 says the mortgage people are debt collectors for purposes of f(6). And f(6) doesn't have all of them. It just has a few pretty bad ones. And so why would Congress have put in f(6) if it wanted all of them to apply?",
       "time": "00:09:10.24"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, it doesn't say that. It says a debt collector may not -- or they put in part 2, which I'm calling part 2, to be sure that these people who are not full-fledged debt collectors have to do at least f(6). Okay?",
       "time": "00:09:52.72"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right. And if we have a person who fits within the definition of part 2, that would seem to argue against his fitting into the definition of part 1.",
       "time": "00:10:07.04"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No?",
       "time": "00:10:18.24"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah.",
       "time": "00:10:27.84"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And why isn't the repo man like that in part 1?",
       "time": "00:10:33.08"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then who is in part 2 but not in part 1?",
       "time": "00:10:39.12"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Isn't the repo man doing that?",
       "time": "00:10:51.12"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. But that's my other question, of course, is what do you want to say in respect to the fact that Colorado has a pretty good, in many respects stricter law than there is here, and -- and that protects the consumers more, and yet I guess, if we accept what you say, we'd have to say that that Colorado law is illegal.",
       "time": "00:11:14.44"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No? Because?",
       "time": "00:11:33.84"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, the reason I thought it would be illegal is because it says you can't communicate with a third person. You couldn't tell the trustee about he's supposed to send a letter. You couldn't communicate, put anything in the newspaper. I mean, that would seem to me contradictory, and I guess the Colorado law would fall then.",
       "time": "00:11:34.96"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You don't have to walk through them if you don't want to. Just tell me where they are in your brief.",
       "time": "00:12:13.32"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Geyser, I -- I find this a difficult question. Going back to something that Justice Alito said, the reason I find it a difficult question is it seems to me that judicial foreclosures, non-judicial foreclosures, fall within both. They -- you know, these people are debt collectors under the language of the statute, and these people are enforcing security interests under the language of the statute. But that can't be right because the grammar of the statute suggests that we now have to kick them out of one or the other. All right? And so the question is, which do we kick them out of? Do we say, notwithstanding that they look like debt collectors, we're not going to treat them like debt collectors, or do we say that, notwithstanding that they enforce security interests, we're going to pretend that they don't? So, when I think about it that way, I kind of think: Well, I don't know, foreclosures are paradigmatic enforcement of security interests. There's nothing that gets more enforcing a security interest than foreclosing on a mortgage. So kicking them out of that one seems a little bit more odd than kicking them out of a very broad definition of debt collectors.",
       "time": "00:12:57.96"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Your -- your point there, though, depends, right, on reading that language as referring to the repo guy, right?",
       "time": "00:14:59.72"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "But then, when you turn to f(6), is that really just limited to the repo situation?",
       "time": "00:15:09.92"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "The point being the language of f(6) seems a lot broader than just the repo situation, so then, when you go back to a, it seems odd to think that that's just limited to the repo situation, if I understand the interaction of the two provisions correctly.",
       "time": "00:15:22.00"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, let me ask you this about the repo situation: Suppose that the repo guy is out there getting into a car, and the owner of the car sees him out the window and runs out with a gun and says, what are you doing? And the repo guy says, well, you didn't pay, you're in default on your payments, so I'm taking your car. Is he a -- is he a debt collector because he's now told the -- the -- the car owner that -- about the debt?",
       "time": "00:16:02.44"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So what is the difference between that situation and the non-judicial foreclosure situation where the -- the homeowner is simply notified that the -- the house that -- the mortgage is being foreclosed?",
       "time": "00:17:05.76"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What is the difference?",
       "time": "00:17:23.12"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I have another question about your repo man example. You say we need that last sentence to capture him in a(6). But why wouldn't he be captured by the first sentence in a(6) too? Why isn't a repo man a classic debt collector under any definition, even the broad, the very broad ones you proffer for a(6), first sentence?",
       "time": "00:18:15.64"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "The principal purpose of his business, using interstate commerce to collect a debt.",
       "time": "00:18:47.40"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Whatever -- whatever the first sentence says.",
       "time": "00:18:52.56"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Why -- why don't you lose then? Why isn't that just conceding away the case?",
       "time": "00:19:06.24"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "If the repo man is not collecting a debt, he's just executing a security interest, why is that really problematic for you, Mr. Geyser?",
       "time": "00:19:11.36"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I'm just talking about the repo man. Just the repo man. First of all, first question, why doesn't he fall within the first sentence of -- of a? And -- and, second, if -- if he doesn't, then why isn't he exactly like the foreclosure expert?",
       "time": "00:19:35.76"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But the result of that is to liquidate the debt. And I thought that your principal argument as to non-judicial foreclosures was that we should look to the real economic effect of this, which is to liquidate the debt. And just like a non-judicial foreclosure liquidates a debt, so too does repossession of the collateral do the exact same thing.",
       "time": "00:19:58.96"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It seems as though, when you get to the repo man, you're indulging in all these sort of hypertechnical distinctions, the same kind that you criticize Mr. Shanmugam for indulging in when it comes to non-judicial foreclosures. I mean, if you're going to get non-technical about it, you should carry through the non-technical, and then the repo man is in the same position as the non-judicial foreclosure person.",
       "time": "00:20:31.00"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "f(6) also describes non-judicial foreclosures.",
       "time": "00:21:27.96"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Right?",
       "time": "00:21:35.60"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "f(6) does describe, by its terms, non-judicial foreclosures?",
       "time": "00:21:37.92"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "You're trying to explain why this third sentence is in there -- and I understand that -- and then drawing the distinction between repo and non-judicial foreclosures. But correct me if I'm wrong about this: The history of how this came about was there was debate about whether those who enforce security interests would be covered under debt collection or -- debt collector or not. There were two polar positions, yes and no. And what Congress ended up with was something in between. Is that correct?",
       "time": "00:21:58.16"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "And the something in between, though, it's hard to just read that in between language as repo and not non-judicial foreclosure.",
       "time": "00:22:27.48"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "That's the heart of it for me.",
       "time": "00:22:37.04"
     },
@@ -587,13 +587,13 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Excuse me, I -- I've been having a huge problem with this entire case, not on your position, but I was going to ask this of your adversary. I'm reading the language of the statute. It says, for the purposes of Section 1692f, it includes people who are enforcing. And the statement that 1692f starts with is \"a debt collector, period, may not use the unfair or unconscionable means to collect or attempt to collect any debt.\" It seems to say that a security person is a debt collector. And it says, \"without limiting the general applicability of the foregoing, without limiting that people who enforce debts, security interests, the following conduct in addition is a violation of this section\". I don't mean to help you, but I -- (Laughter.)",
       "time": "00:23:51.88"
     },
     {
       "turn": 92,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- but I'm reading f and it seems clearly to support your position. It's basically saying these are two additional bad ways that they can violate being a debt collector. It's not limiting it to those two ways.",
       "time": "00:24:54.12"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I don't even know what the repo argument was about in your brief.",
       "time": "00:25:11.28"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It's adding -- it's also including -- if there was ever any doubt, it's also including those people.",
       "time": "00:25:17.40"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But the one subsection seems to say any of these people can't do unfair practices.",
       "time": "00:25:30.40"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That -- that --",
       "time": "00:25:44.68"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- that's fine, but what -- what's really -- what's really at issue is the unfair practices. These people who enforce security interests cannot collect or attempt to collect any debt unfairly. That's the first sentence. And without limiting that general sentence, these two additional things are considered unfair practices.",
       "time": "00:25:46.68"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I -- I -- I -- so tell me the counter.",
       "time": "00:26:15.92"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why -- why are they arguing that other unfair practices are not actionable when that sentence says it is to my mind?",
       "time": "00:26:18.48"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What am I missing there?",
       "time": "00:26:28.80"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Shanmugam.",
       "time": "00:26:51.40"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry. You -- you started that statement with when you send a letter to a state official. The issue here is not sending a letter to the state official. The issue here is, did you do something wrong in sending it to the customer first?",
       "time": "00:27:15.28"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Or to the creditor -- to the --",
       "time": "00:27:31.60"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but in most cases -- well, maybe I'm wrong, I'm just assuming in most cases that if you start the foreclosure process, and the debtor comes in and says, okay, I see you're serious about this, and, you know, either rearranges the financing or pays the debt, that's the purpose, right?",
       "time": "00:28:44.04"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Banks don't want to own houses. They want to be paid. And the reason they go to foreclosure is to get payment of the debt.",
       "time": "00:29:00.84"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, I don't really understand that, Mr. Shanmugam. I mean, the whole point of getting the security interest in the first place is so that the creditor has leverage in order to pressure the debtor to pay his debt. And -- and it's an alternative way to collect the debt if the debtor fails to do so. So how can it not be about payment of the debt?",
       "time": "00:29:58.68"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, whether you say that or not explicitly, isn't that how everybody understands a foreclosure notice? They're going to foreclose on my house unless I come up with my -- some money.",
       "time": "00:30:42.68"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Well, that's true, but it's inherently communicating a message that you need to repay the debt or you're going to lose the house, as Justice Kagan says. You -- you referred earlier to common sense. Well, common sense tells you this is an effort to have you repay the debt.",
       "time": "00:31:15.48"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Why not? Why not?",
       "time": "00:31:37.20"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Even if the express words aren't there, everyone who gets something like that, who has the money, and wants to, will understand this is a -- this is a letter seeking to get you to repay.",
       "time": "00:31:37.84"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Exactly. The animating purpose is to tell you you need to pay or you're going to lose your house.",
       "time": "00:32:34.72"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Is it an either/or really? I mean, it can't be a both/and?",
       "time": "00:32:46.52"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But what do you --",
       "time": "00:33:08.08"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but you have --",
       "time": "00:33:27.32"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You do have the word \"indirectly\" in the first part. And even if you think in a technical sense initiating foreclosure is not collecting the debt, it certainly is an indirect effort to collect the debt.",
       "time": "00:33:29.76"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "But you're --",
       "time": "00:34:43.76"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "You are arguing, I think, that even if I disagree with you, we disagree with you on the first sentence, you win because of the third sentence, right?",
       "time": "00:34:45.32"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "And on the third sentence, I guess the -- the responsive argument is that's an odd way for Congress to have excluded those who enforce security interests from the broad definition of debt collectors and the repo example you heard. Can you respond to that?",
       "time": "00:34:54.20"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but that's not the most natural reading. It's -- it's -- the \"also includes,\" you would normally say that it doesn't include; rather, the \"also include\" is additive, and it's additive to a pretty broad collection as well. You would say even though, again, arguendo, this would be included in the broad language, it doesn't include this. But, instead, it says it also includes this, and then for the limited purpose. It's -- it's not the way you would have told Congress to write this statute, or your -- or your friend on the other side. It's a very circuitous way of getting to your result.",
       "time": "00:36:00.48"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But -- but now you're -- you're counting on your argument about sentence one again. And I think that these questions are really questions that assume that you're wrong on sentence one. Assume that these are debt collectors under the definition that Congress has gave. And the question is why we should then read an additive provision to exclude people from that general definition.",
       "time": "00:36:59.60"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, I guess I want to make you assume that.",
       "time": "00:37:33.80"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "On the third sentence, I think what you're saying, but tell me if I'm wrong, is that even if we disagree with you on the first sentence, a necessary premise of the third sentence is that Congress, notwithstanding the broad language of the first sentence, must have thought that enforcement of security interests should be distinct from debt collection?",
       "time": "00:39:39.20"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It is a bit strange to think that Congress intended to cover judicial foreclosures where a judge is supervising the process but not when it's a non-judge supervised process. It's -- it's counterintuitive, where more --",
       "time": "00:43:47.16"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- more damage, I think, can be done in a non-judicial foreclosure because there is no judge there to protect or review what's occurring. It -- I -- I'm not sure.",
       "time": "00:44:10.08"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You seem to argue that because Congress knew that non-judicial foreclosures were set forth in very particular ways. But they also knew judicial foreclosures are.",
       "time": "00:44:27.40"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, that -- that's the problem with non-judicial foreclosure. There's no way to ignore that you take the property to sell it to pay off a part or the whole of the debt.",
       "time": "00:45:07.20"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So do foreclosure actions.",
       "time": "00:45:32.36"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It doesn't help you review after sales if you've lost your home.",
       "time": "00:45:56.72"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you.",
       "time": "00:47:13.76"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel.",
       "time": "00:47:14.92"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Bond.",
       "time": "00:47:27.44"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Not really. I mean, this is a pretty unnatural way to do that too.",
       "time": "00:48:56.32"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But just so I understand the nature of your argument, I mean, you could be saying, look, foreclosure proceedings don't fall within the general purpose definition. They only fall within the limited purpose definition. Or you could be saying, oh, gosh, we have a funny statute here, they fit within both, and now we have to figure out what to make of that. So which argument are you making?",
       "time": "00:49:08.40"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "No, but you're not answering my question. Take just if you have the general purpose provision itself, do you -- only, that's the only thing that the statute says -- would foreclosure proceedings fit or not?",
       "time": "00:49:35.28"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It -- it -- it didn't use that language, though, and it -- it seems significant language on the first step of Justice Kagan's question. It said indirectly. And when you're talking about collecting a debt indirectly, well, what are other examples of collecting the debt indirectly that would be better examples than foreclosing on the -- on the mortgage?",
       "time": "00:50:10.40"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry, he -- he doesn't, because he says the creditor doesn't care -- the repo man doesn't care about the debt. He gets paid for taking the car. And if the creditor gets the car, the creditor exempted -- is exempted from the Act because he can -- he's legally entitled for his debt not covered by the Act to sell it.",
       "time": "00:51:23.60"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And so I'm not sure how you're right. The repo man is not looking for the guy to sell. And I think even Mr. Shanmugam said that if the repo guy said I will wait to three hours, if you pay your debt, I won't take your car, that he could, in fact, be a debt collector.",
       "time": "00:51:48.76"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can I ask you one question on what you mean? Imagine we have a person just like this one, he's trying to enforce a securities interest and he doesn't ask for any deficiency payment. All right. You say that falls within the f(6) exclusion or that's part 2 that falls in the -- all right. But, if he goes further and he says something more and he gets into 1, but you're also worried about the state law. And you don't want to create a situation where the state law says go through this procedure and they can't do it because of this Act. What happens if the person is exactly like this one, doesn't ask for a deficiency payment, and then that does violate some sections of this outside of f(6) and there is no state law requiring it?",
       "time": "00:53:12.44"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So he -- there -- there is a state law for -- I guess here requiring you to go to newspapers. There is a state law requiring you to communicate. Well, what happens in the government's view, if it's just the same as here, but that last mentioned state law requiring you to advertise in newspapers, for example, doesn't exist?",
       "time": "00:54:12.16"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:54:36.40"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that's the part that puzzles me, because -- exactly what I thought you would say, and can I -- can you explain it a little, because, if you're outside of the main thing, part 1, and only covered by f(6), because you did certain things, I want the house, and I'm not saying anything about deficiency, just what happened here, if you're outside it for the instance where you get a conflict with state law, why wouldn't you be outside it for the instance where you don't get a conflict with state law?",
       "time": "00:54:40.08"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, in other words, you're saying if the state were exactly the same, but it just didn't say anything about newspapers, then his client would win?",
       "time": "00:55:30.84"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why?",
       "time": "00:55:44.36"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If they're out, they're out. They're in, they're in. Their behavior is identical.",
       "time": "00:55:45.52"
     },
@@ -1235,25 +1235,25 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "What -- what -- what --",
       "time": "00:56:15.88"
     },
     {
       "turn": 200,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Can I see if I under -- I'm sorry.",
       "time": "00:56:17.16"
     },
     {
       "turn": 201,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Go ahead.",
       "time": "00:56:19.96"
     },
     {
       "turn": 202,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I just want to make sure I understand the answer. The -- the statute uses the language primary purpose debt collection, primary purpose security interest, sentences 1 and 3. Are you saying that the test of a bank's primary purpose is whether it's taking an action necessary under state law to collect on a security interest or to enforce a security interest?",
       "time": "00:56:20.56"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Right. But -- but -- but, in that third sentence, it also uses that language, primary purpose.",
       "time": "00:56:49.48"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Is your answer that we determine that by reference to state law and what is mandated in order to collect on a security interest or to enforce a security interest?",
       "time": "00:56:55.12"
     },
@@ -1289,13 +1289,13 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "All right. I understand. Thank you. I'm sorry for interrupting.",
       "time": "00:57:13.96"
     },
     {
       "turn": 209,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "No, so if state law, if a state's non-judicial foreclosure process also allows the creditor to get a deficiency judgment, what in your view follows from that?",
       "time": "00:57:16.40"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Three minutes, Mr. Geyser.",
       "time": "00:57:42.24"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm assuming that to the extent judicial foreclosures have been viewed as debt collection, that whatever conflicts have worked out there have also been -- that have happened there have also been worked out?",
       "time": "01:00:29.92"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel.",
       "time": "01:01:02.48"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The case is submitted.",
       "time": "01:01:03.72"
     }

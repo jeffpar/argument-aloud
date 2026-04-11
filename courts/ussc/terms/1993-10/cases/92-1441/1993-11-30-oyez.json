@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1993/92-1441/19931130a_92-1441.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "JENNIFER L. DE ANGELIS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JAMES A. FELDMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 92-1441, Harold E. Staples v. the United States. Ms. De Angelis.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You say certainly he did not?",
       "time": "00:02:03.85"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the jury thought otherwise.",
       "time": "00:02:06.67"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh, I'm sorry. I misunder... I misunderstood you.",
       "time": "00:02:11.21"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, now, counsel, I am somewhat concerned about--",
       "time": "00:02:34.13"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--the argument in your brief, and apparently one you're going to make here, that we have before us this issue of whether the defendant actually knew it was automatic. I thought the jury found that it was a machinegun, and the court of appeals did not overturn that finding.",
       "time": "00:02:39.20"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I thought the jury had to find that it was a machinegun. They didn't have to find that your client knew of its capability.",
       "time": "00:03:21.99"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the firearm was defined in this instance, under this statute, as something that fires automatically with a single pull of the trigger.",
       "time": "00:03:32.88"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And that was the finding and the court of appeals did not upset that. So we... we take that as a given, don't we?",
       "time": "00:03:45.30"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And if it were shown that this defendant knew of... of that capability, of that operational feature, then there wouldn't be really a case here.",
       "time": "00:04:09.31"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right.",
       "time": "00:04:17.49"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "When you talk about fair play, counsel, you're not suggesting that if this statute, in fact, said all you have to know is that you have a gun and the gun, in fact, has to be of a certain type... that that's what this statute said, that's fair play?",
       "time": "00:06:23.49"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I was thinking what you said... you're interpreting a statute and you say... said that the statute requires that the defendant know he possessed a machinegun. Suppose... so... and you're... as you read the statute, that's what it says.",
       "time": "00:06:48.21"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If the statute, in fact, said defendant must know he has a gun, the gun must be a machinegun, period, that that would be fair play, that you wouldn't... you're not raising a constitutional point.",
       "time": "00:07:03.97"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I don't believe I authored that decision.",
       "time": "00:07:31.35"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I think it was Judge Silberman, was it not?",
       "time": "00:07:33.49"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And I believe that Justice Thomas concurred in that.",
       "time": "00:07:37.60"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If there's an ambiguity.",
       "time": "00:08:01.44"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, do they say that in our drug laws? I mean, you know, possession of heroin and so forth? Do they say knowing that it... knowing that it is heroin? Do those statutes say that?",
       "time": "00:08:40.14"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But doesn't Congress say what drugs are unlawful?",
       "time": "00:09:22.69"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So why isn't this case more like the drug case, particularly the Balint case, than it is like the Food Stamps case. Because a gun is a dangerous instrument. Nothing dangerous about a Food Stamp.",
       "time": "00:09:32.17"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And don't... don't some drugs have lawful uses too?",
       "time": "00:10:12.21"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, one could even lawfully possess marijuana in connection with treatment of certain forms of cancer, is that not so?",
       "time": "00:10:25.15"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I don't quite understand what the Second Amendment has to do with the case. Would you explain that again?",
       "time": "00:11:03.07"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The militia is.",
       "time": "00:11:29.05"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It is. But is this part of somebody's militia, this machinegun?",
       "time": "00:11:32.58"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, we mentioned earlier about the lawful uses of articles of this kind. What is the primary lawful use of a machinegun?",
       "time": "00:11:38.18"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I know. But I'm just asking you. I just don't happen to know. What is the primary lawful use? Why would one not think, getting a machinegun, that there might be a reason to check as to whether there's any reason to have it registered and so forth? Why is it... is it so commonly used, like an automobile or something like that? Isn't that the kind of article that would put you on notice that if you want to use it in... that you ought to check and be sure the use is lawful?",
       "time": "00:11:53.48"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is your point machineguns or is your point semiautomatic rifles?",
       "time": "00:12:31.87"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which, due to some defect, may turn into machineguns, which is what you... what you say is the situation here.",
       "time": "00:12:37.94"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And there are many more than 140,000 semiautomatic rifles.",
       "time": "00:12:46.33"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Many hunters use semiautomatics all the time. It just means you don't have to reload each time you fire one round.",
       "time": "00:12:49.42"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I suppose that a pistol... would a pistol that had that defect become... would an automatic pistol that had that defect become a machinegun?",
       "time": "00:13:02.21"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A semiautomatic pistol?",
       "time": "00:13:11.46"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If it fires more than one round with a pull, it doesn't matter how long the barrel is, it becomes a machinegun.",
       "time": "00:13:19.86"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's not quite accurate. This didn't... this wasn't really a semiautomatic weapon. It was an automatic weapon that had been rendered semiautomatic, and that because of a defect became automatic again.",
       "time": "00:13:56.84"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wasn't this weapon an automatic weapon as originally designed, and it had been modified to prevent the automatic feature of it from operating?",
       "time": "00:14:09.51"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Exactly.",
       "time": "00:14:21.17"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In which case you wouldn't be making this argument, if your client had bought one of those.",
       "time": "00:15:08.37"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No I realize that. But if your client had bought one of the guns in which there was a third position and all the client had to do was to put the device in the third position, you wouldn't be making the same argument that you're making here.",
       "time": "00:15:22.03"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I suppose I didn't understand your answer to Justice Scalia's question. In the form that this came from the manufacturer, and if it was operating properly, without any defect, would... it would be semiautomatic only, is that correct?",
       "time": "00:15:37.61"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So it was not manufactured as a machinegun within the meaning of the act.",
       "time": "00:15:54.36"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Only if there's a defect does it become... does it acquire that characteristic.",
       "time": "00:16:01.67"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You may proceed, Mr. Feldman.",
       "time": "00:19:13.67"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Feldman, now, just to clarify for us, you agree that this weapon was manufactured as a semiautomatic?",
       "time": "00:20:08.71"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And as manufactured, it would not fall within the definition of a machinegun?",
       "time": "00:20:20.12"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, if... if the modifications of a weapon were... were strictly internal so there was nothing on the exterior that would alert a possessor about the change, and if you had a defendant who simply didn't know that the weapon had been modified internally when it was purchased, that person would be liable under your theory, I guess.",
       "time": "00:20:35.81"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, I just want to--",
       "time": "00:21:16.38"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--I want to understand how far your theory goes, and it would go so far as to hold someone who was absolutely unaware of the modification liable.",
       "time": "00:21:17.69"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Feldman, I don't understand your argument. This statute says that it's to be interpreted like the Narcotic Act?",
       "time": "00:22:20.66"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But narcotics are different from... from a semiautomatic rifle, which are very common.",
       "time": "00:22:50.47"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Narcotics may not be different from a machinegun that looks like a machinegun.",
       "time": "00:22:58.08"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's something when, you know, you're presented with it, you say, gee, this is a machinegun, what's this doing around here. Or if you're presented with narcotics, the same thing, you ought to notice right away. But when you... when you're... when you say a semiautomatic rifle, hunters use them throughout the country. It's no big deal.",
       "time": "00:23:03.02"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it was, except that in the narcotics example, I suppose it's true to say that Congress did not draw a line between... sort of down the middle in the class of dangerous narcotics and say, well, we'll... we'll prohibit or regulate some and leave others free. But that, in effect, is what has happened in the gun situation. I mean, after all, the Brady bill didn't pass until last week. I mean, there's just been a long history of refusal to regulate the major class of guns in this country, so that when you are faced with something that, so far as externals are concerned, looks perfectly well like a gun which is unregulated and which has been the subject of repeated decisions not to regulate, you're not in the same situation that you're in with the narcotics.",
       "time": "00:24:09.48"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I'm still... I guess maybe I'm going to move aside a little bit from the... from attacking the historical analogy, and just go to the merits of applying the interpretive rule here. Given the fact that the... that the overwhelming number of guns in this country, all of which are dangerous to some degree, are not regulated, I have difficulty in seeing the ease of applying this rule that one simply is on notice that there may be regulation by virtue of the fact that one has a weapon which, by definition, is dangerous.",
       "time": "00:25:40.88"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So just on the analytical point, I think you've got a hurdle to jump here.",
       "time": "00:26:16.47"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, does the... does the argument, then, in this case, come down to the fact that if you're dealing with a machinegun, that's fair to say, something which is manufactured as a machinegun, sold as a machinegun, anyone sort of buying it could reasonably be assumed... or possessing it, could reasonably be assumed to know that it was a machinegun, but that the argument doesn't wash in the case of a gun which, at least to external appearances, is not a machinegun.",
       "time": "00:27:07.75"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "To this act, that it falls within this very dangerous category of regulated weapons.",
       "time": "00:27:45.72"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In other words, we've got a category of dangerous weapons which are not regulated. Presumably, there's nothing about the possession of a singleshot 22 that ought to put the owner on... to an obligation of calling the Government to see whether they regulate singleshot 22's. When the person possesses or buys a machinegun pure and simple, yes, you get a pretty strong argument that it's fair to put that obligation on him. Then we have the middle category of guns which maybe can be converted, and which in most cases are not. And is it... is it appropriate to put the obligation on the possessor or the buyer of those weapons to see whether something, in fact, has... has been modified about them that puts them into the especially dangerous regulable category? And that's the issue we've got.",
       "time": "00:27:51.80"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, they may have... they may have done that on the assumption that we were going to apply this rule, which we're having difficulty applying, or at least I'm having difficulty applying. Congress many have said, well... you know, in fact Congress frequently does this... you know, the courts will work it out, they'll figure out what to do here. So I'm not sure that you can infer much from Congress' failure to act positively here.",
       "time": "00:28:55.99"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, while keeping... while keeping their silence on mens rea.",
       "time": "00:29:35.51"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But I... I think... I guess what's... I guess what's bothering me is that I don't see in the drug situation an analogy to this fact about the gun situation: In the gun situation, there has been a continuing political contest for further back than I can tell, about the appropriateness of regulating guns. And Congress, by and large, has taken a very narrow view of what should be regulated. And it seems to me that that is a fact which makes it difficult to apply, sort of, your tough version of the rule. And I don't see any analogy there in the drug situation.",
       "time": "00:30:01.43"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there any circuit other than... any circuit other than the D.C. Circuit that has gone for the defendant in?",
       "time": "00:31:38.10"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Couldn't one rank this gun, based on the defendant's expert testimony, that this was a defect, and so bracket the defective gun with the internal modification, rather than the external modification?",
       "time": "00:32:09.44"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, of course-- --Mr. Feldman-- --Under your position, even if it's defective, there's liability?",
       "time": "00:32:47.48"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, isn't it a question of law as to what is a machinegun and what isn't?",
       "time": "00:33:11.51"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, is it your position that a defective firearm that fires multiple rounds is or is not a machinegun?",
       "time": "00:33:14.37"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can you tell me where you're reading from, please?",
       "time": "00:33:32.64"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Thank you.",
       "time": "00:33:36.12"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So the Government's position is that unless--",
       "time": "00:33:55.95"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--So the Government's position is that there's a machinegun involved if it shoots most of the time or some of the time as fully automatic?",
       "time": "00:34:00.90"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If the statute is ambiguous, isn't that an argument for requiring specific knowledge of its characteristics, as opposed to strict liability?",
       "time": "00:34:18.74"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it seems to me we've just stumbled onto one.",
       "time": "00:34:35.34"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the Government has the burden of proof on that, I take it.",
       "time": "00:35:00.58"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the jury must be instructed as to that.",
       "time": "00:35:03.82"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, was the jury instructed on the... on a defensive defect here? I didn't think it was.",
       "time": "00:35:22.45"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, you said a moment ago that the jury rejected the theory that, in fact, this was a merely defective gun, and I didn't... I didn't understand that that issue was put to the jury.",
       "time": "00:35:29.58"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In fact, I don't... as I understood the instructions, the jury wouldn't have had any occasion even to take that issue up.",
       "time": "00:35:38.87"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:35:50.66"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And under that definition, as I understand the instructions, if the jury found that on one occasion one pull of the trigger shot more than one round, that that... that would qualify as a machinegun.",
       "time": "00:35:53.00"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And the jury was not instructed, as I understand it, that in... in the generality of cases this particular gun had to function in that way. And as I understand it, it was not instructed that if it did so as a result of a defect, that it was not a machinegun. Am I wrong about the instructions?",
       "time": "00:36:06.91"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, then we can't... we can't say that the jury rejected the theory of defect in this case.",
       "time": "00:36:25.58"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I agree with you, but that's not... that's not the point. The point is did it reject a theory of defective weapon such that if it had found it was merely defective, that would have been defensive. And the jury didn't reject that theory.",
       "time": "00:36:38.02"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, I'm not addressing the court of appeals, I'm just addressing your argument, and you were making the argument a moment ago that the jury had rejected the theory of defect, and I don't see how it did... you can make that argument based on the instructions.",
       "time": "00:36:56.77"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, regardless--",
       "time": "00:37:23.43"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Regardless of what the theory of defect is, the jury did not reject a theory of defect. Isn't that fair to say, under the jury instructions as given?",
       "time": "00:37:25.21"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You're doing... you're doing a good job. [Laughter]",
       "time": "00:37:38.96"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Feldman, can I ask what the Government's theory of mens rea requirement is? You're certainly not asserting that we should read every Federal statute which does not explicitly have a knowledge requirement as dispensing with it.",
       "time": "00:38:42.05"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ordinarily, we will read in a requirement that you have to know you're violating the law.",
       "time": "00:38:56.70"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, what... what makes this different?",
       "time": "00:39:02.46"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All registration and recordkeeping requirements do not have a scienter.",
       "time": "00:39:28.37"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Feldman, does the Government want to concede that you ordinarily read in a requirement that you must know you're violating the law in every criminal statute where Congress is silent? Isn't the presumption ordinarily that ignorance of the law is no defense?",
       "time": "00:39:51.60"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then--",
       "time": "00:40:06.31"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, but it's... then, it seems to me, you're giving a different answer to me than you gave to Justice Scalia a moment ago.",
       "time": "00:40:07.70"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but that's a different... it's one thing to say the defendant must know the facts that make his conduct illegal. It's another thing to say that he must know the law that makes them illegal.",
       "time": "00:40:30.35"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I meant... I meant the former. The Chief Justice is quite correct to make that modification. But in this case, that would lead to the normal requirement that he had to know the fact that it was a machinegun.",
       "time": "00:40:45.20"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you say that's not the case here because--",
       "time": "00:41:00.64"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Machineguns are dangerous and this act looks like another act that we've held doesn't have a recordkeeping requirement, and this is a... doesn't have such a requirement. And lastly, this... this act is a recordkeeping act.",
       "time": "00:41:03.97"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do most recordkeeping acts have prison sanctions for up to 10 years, which is what this is?",
       "time": "00:41:27.06"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it seems to me that implicit in the argument that it's a registration, a regulatory act, is also the assumption that the penalty is... is not too severe. This is a very severe penalty.",
       "time": "00:41:52.33"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Feldman, remind me of your answer to Justice Souter's question about the difference between drugs, where one would say drugs are dangerous, and guns where, for the most part, Congress hasn't regulated, so it's only a special category that's registered? You don't have the same kind of congressional determination of dangerousness.",
       "time": "00:42:44.88"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr.-- --What if... what if you don't even know that it's a shotgun, you don't even know you have a shotgun? You buy a house, wight, and sealed up in an abandoned room in the basement there is a sawed-off shotgun; would you be liable? You don't have to know anything at all? You don't even have to know you possess it?",
       "time": "00:44:26.49"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh.",
       "time": "00:44:44.72"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that?",
       "time": "00:44:47.10"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that?",
       "time": "00:44:49.07"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that the way the drug law is interpreted too, that you appeal to? If I sell something that I think is face powder and it turns out to heroin, that what they said in the Supreme Court?",
       "time": "00:45:03.60"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I didn't think it was.",
       "time": "00:45:15.46"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:45:25.32"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, but if--",
       "time": "00:45:27.37"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I think if you're going to appeal to Bailant and the drug cases, you have to say it really doesn't even matter whether he knows it's... it's a... he owns a gun.",
       "time": "00:45:28.72"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, isn't it true that all the courts of appeals have done that. At least... at least they have to know that he possessed the item.",
       "time": "00:46:01.85"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you happen to know, as a matter of history, what precipitated the enactment of the '34 act?",
       "time": "00:46:08.11"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You didn't live in--",
       "time": "00:46:14.73"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--You didn't live in Chicago then, I guess.",
       "time": "00:46:18.62"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is it fair to say... we could argue about the facts of application, but is it fair to say that your interpret... the Government's interpretative rule for finding what Congress probably intended, or imputing an intent to Congress, does require, for your position to prevail, that we conclude that the... that the... that the defendant understand that what he was possessing was... was an object within a class of highly dangerous objects which it is reasonable to suppose the Government would regulate?",
       "time": "00:46:21.27"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is that the general premise?",
       "time": "00:47:00.66"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:47:05.03"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Feldman. Ms. De Angelis, you have 10 minutes remaining.",
       "time": "00:47:09.51"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's a court that makes the distinction between internal and external.",
       "time": "00:47:53.71"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And which we don't have here, because whatever you call it, it was external.",
       "time": "00:47:59.44"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you're not saying that this case fits within the, \"You can't see it; it's all on the inside. \"",
       "time": "00:48:33.49"
     },
@@ -1499,13 +1499,13 @@
     },
     {
       "turn": 243,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. De Angelis. The case is submitted.",
       "time": "00:48:42.68"
     },
     {
       "turn": 244,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:48:47.02"
     }

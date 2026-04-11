@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1963/92/19640116a_92.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ARTHUR J. GOLDBERG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "LOUIS F. CLAIBORNE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GOLDBERG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES S. TAYLOR",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 92 United States Appellant versus Wiesenfeld Warehouse Company. Mr. Claiborne.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You refer to what page of your brief exactly? Do you remember?",
       "time": "00:06:51.69"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That no one should be deleted.",
       "time": "00:07:08.94"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:07:13.08"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Suppose it would hard -- be hard to find a building that was not accessible to rodents, birds, and insects, the building itself.",
       "time": "00:08:06.07"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there evidence (Inaudible) ways that he can pull away from that?",
       "time": "00:08:46.24"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "At least for himself.",
       "time": "00:08:53.35"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's a criminal statute.",
       "time": "00:09:39.77"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You should indict under what, six counts or so?",
       "time": "00:09:42.91"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What penalties?",
       "time": "00:09:46.83"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course this is a corporate defendant or not?",
       "time": "00:09:54.67"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Suppose in most cases, if not all, the defendants were corporate entities.",
       "time": "00:10:41.71"
     },
@@ -187,13 +191,13 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Inaudible)",
       "time": "00:10:59.22"
     },
     {
       "turn": 26,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Inaudible) criminal prosecution?",
       "time": "00:11:02.64"
     },
@@ -205,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's not what the indictment lead you to believe, if you did. It says that if you have a building which is, as in fact, accessible then you're guilty. That's the presupposition of the indictment, isn't it?",
       "time": "00:13:24.34"
     },
@@ -217,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What you're saying in effect, as I understand it, is this, isn't it, that it would be an affirmative defense to show the exercise of all the reasonable care that could be taken in keeping the food himself or aren't you saying that?",
       "time": "00:14:20.02"
     },
@@ -229,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And you think that would be a matter of defense?",
       "time": "00:14:58.87"
     },
@@ -241,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:15:33.84"
     },
@@ -253,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible) exposed to the contamination (Inaudible)",
       "time": "00:15:55.65"
     },
@@ -265,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible) the characterization of what was charged. The said action caused the said (Inaudible) and enforce it and it would be exposed. (Inaudible) will be thereby exposed (Inaudible) in charge of putting it in a building inaccessible to rodents, birds, and insects and (Inaudible).",
       "time": "00:16:40.90"
     },
@@ -277,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "These are not in the general charge or some other way that you (Inaudible)",
       "time": "00:17:22.06"
     },
@@ -289,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible) whether this information is (Inaudible). Now, assuming that at that time (Inaudible).",
       "time": "00:18:02.32"
     },
@@ -301,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible) you still have before us (Inaudible)",
       "time": "00:18:18.32"
     },
@@ -313,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If I don't -- I -- you don't view this as very -- this would question, you say, of what's the problem. It says it has to be held for sale. Now, was this -- there was this -- was this food for sale or was it in the warehouses?",
       "time": "00:20:49.10"
     },
@@ -325,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, not as for any other purposes other than sale.",
       "time": "00:21:13.00"
     },
@@ -337,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This was a public warehouse?",
       "time": "00:22:01.84"
     },
@@ -349,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I suppose it was the foods -- these articles were being stored there --",
       "time": "00:22:07.34"
     },
@@ -361,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "By the -- by the owner pending sale or whole sale.",
       "time": "00:22:13.04"
     },
@@ -373,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And it was actually being held for storage. It wasn't on sale, was it there?",
       "time": "00:22:23.16"
     },
@@ -385,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Mr. Claiborne, I was thinking back (Inaudible) never to hold the statute as constitutional. Instead, instruction must be applied. Therefore, the information does not commit an offense in (Inaudible) inaccessible to rodents, birds, or pests is now susceptible to the (Inaudible) the statute applied to (Inaudible) the information. Is that constitutional?",
       "time": "00:23:13.60"
     },
@@ -397,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible) for us to interpret whether the information charged to the man.",
       "time": "00:24:13.68"
     },
@@ -409,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:25:40.73"
     },
@@ -421,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you inject an ambiguity and you say that it was more accessible to rodents that it should have been? What's your standard on that?",
       "time": "00:25:58.63"
     },
@@ -433,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Expert testimony is the standard generally followed by warehouses and buildings?",
       "time": "00:27:41.02"
     },
@@ -445,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does this suggest that the Food and Drug has an inspection operation and staff for that purpose?",
       "time": "00:28:31.54"
     },
@@ -457,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are there regulations governing?",
       "time": "00:28:46.32"
     },
@@ -469,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If there had been a trial of the duty, the sort of charge would've been sufficiently charged if they could find him guilty by quoting the language of the charge that calls the number of bags of said food to be held in a building that was accessible to rodents and birds, insects and did cause the food to be exposed to contamination by rodents, birds, and insects? Would that be a good charge?",
       "time": "00:28:55.76"
     },
@@ -481,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Wouldn't have District Court been saying (Inaudible) is the indictment of charge only that the food was held in the warehouse and became contaminated?",
       "time": "00:29:56.98"
     },
@@ -493,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And -- and that -- and that is what the indictment charges, except to the office that says it's held in a warehouse in a manner that would expose it to contaminants.",
       "time": "00:30:12.45"
     },
@@ -505,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That it was contaminated. That it was held and became contaminated.",
       "time": "00:30:30.38"
     },
@@ -517,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even though contamination occurs during the holding.",
       "time": "00:30:43.55"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Taylor.",
       "time": "00:31:47.47"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:32:39.77"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What you need to point out --",
       "time": "00:32:44.77"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's quite a major difference.",
       "time": "00:32:48.24"
     },
@@ -577,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It seems to me to be quite a major difference that the --",
       "time": "00:32:51.08"
     },
@@ -589,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:33:09.38"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't -- you say that the statute doesn't cover or make a crime the holding of food in a public warehouse and permitting it to become insanitary.",
       "time": "00:34:23.04"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That isn't enough?",
       "time": "00:34:38.62"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:35:08.89"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "The Congress (Inaudible) have a big mess (Inaudible) criminal act (Inaudible) inaccessible throughout the (Inaudible)",
       "time": "00:35:51.17"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:36:18.95"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible) This is one way of saying that that (Inaudible)",
       "time": "00:36:24.74"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Is that the position you find --",
       "time": "00:36:39.21"
     },
@@ -685,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No matter what happens to the food.",
       "time": "00:36:55.18"
     },
@@ -697,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even though you --",
       "time": "00:37:04.98"
     },
@@ -709,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, even though -- even though you don't take any action to prevent something from happening.",
       "time": "00:37:09.77"
     },
@@ -721,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "To keep the food safe?",
       "time": "00:37:20.66"
     },
@@ -733,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the food became contaminated.",
       "time": "00:38:02.17"
     },
@@ -745,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the food became contaminated.",
       "time": "00:38:04.09"
     },
@@ -757,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I'm not sure if that so. That isn't what -- we were not going to decide that here. We're going to -- we're going to state that statute permits -- if we decided against, we'd say the statute permits or that the Court was wrong below in construing the statute the way it did, but it does cover holding food under some circumstances.",
       "time": "00:38:18.84"
     },
@@ -769,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, but I mean that we don't necessarily have to. To decide for the Government, we don't necessarily have to say that that's all the Government's proof needs to consist of.",
       "time": "00:38:45.47"
     },
@@ -781,13 +785,13 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Inaudible)",
       "time": "00:39:02.59"
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the information --",
       "time": "00:39:03.06"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- will be bad then. That they did cause certain food to be exposed to contamination by rodents, birds, and insect.",
       "time": "00:39:04.13"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And they'd have to prove that.",
       "time": "00:39:14.01"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "By holding it but, well, it doesn't make any difference.",
       "time": "00:39:28.18"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I don't get it. I don't quite understand why they can't permit the offense of holding it if, by hoarding it, they cause it be exposed to contamination, the same as all the -- certainly, while moving it, they do that.",
       "time": "00:39:31.95"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "00:40:22.15"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "00:40:42.62"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible) that afternoon would be met by -- it could be properly raised what you're raising and focusing on now after trial and the court has charged the jury. I would think that you would not be required to give it a technical construction that, such as you indicate, it should be given.",
       "time": "00:41:30.36"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How do we know -- how do we know as a matter of common knowledge that it couldn't have been made inaccessible to rats? Aren't some buildings rat-proof?",
       "time": "00:42:09.48"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Or maybe not, but --",
       "time": "00:42:23.35"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That would hardly -- that would hardly one bird could glide through --",
       "time": "00:42:34.24"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And maybe it might not be enough to terminate them all.",
       "time": "00:42:38.68"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It might not be right.",
       "time": "00:42:41.57"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Have you filed a bill or asked for a bill of particulars?",
       "time": "00:43:17.28"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, you could easily do that, of course. I'm just wondering if this is -- this isn't a broad enough or narrow enough information to justify the case going to trial and having these issues tried out.",
       "time": "00:43:24.42"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's involved somewhat in the argument you're making?",
       "time": "00:43:54.76"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- argument you're making?",
       "time": "00:43:57.49"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- argument you make.",
       "time": "00:43:59.26"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't (Inaudible) the Government has to prove insofar as your (Inaudible)",
       "time": "00:44:09.51"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And maybe the Government will be -- might not get -- might not make out its case, make out a jury case, and stop this showing that you held the food and that the 10 bags of something came out of there contaminated. They just not -- might not make their case out that way.",
       "time": "00:44:41.44"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, do you -- I'm looking at page 3. I don't know whether there --",
       "time": "00:45:05.38"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, I am. That's Count 2. The lower paragraph at page 3, “That said act of causing said food to be held in said building, as the court said, and to be exposed to contamination.” Would it be just enough to show that the food was in the building and was contaminated under that allegation? Says “causing to be held.”",
       "time": "00:45:10.26"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And to be exposed to contamination. I would suppose it would be a matter of proof of how you caused it to be held and to be exposed.",
       "time": "00:45:36.12"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:45:51.14"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, when I get back to aforesaid --",
       "time": "00:45:54.83"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:46:09.73"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:46:24.15"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:47:04.25"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:47:11.34"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:47:22.78"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:47:26.44"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "There's nothing you could do about it (Inaudible)",
       "time": "00:47:44.66"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "You may be if they have an alternate refrigerator.",
       "time": "00:48:07.77"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:48:17.83"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:48:27.76"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:48:42.15"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What do you think should be included in order to make this a valid indictment?",
       "time": "00:50:54.91"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:51:05.46"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:54:44.98"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You don't contend that the statute itself is too vague to support an indictment, do you?",
       "time": "00:55:42.81"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, was your motion -- your motion below was that the acts charged in the indictment didn't constitute a crime under the statute?",
       "time": "00:56:27.30"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the District Court said that it didn't because it just didn't happen to reach holding and it only reached things connected with labeling.",
       "time": "00:56:38.28"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you don't make that argument here?",
       "time": "00:57:19.11"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't make that argument here.",
       "time": "00:57:21.24"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Fundamentally, you say the statute really makes a crime out of the impossible.",
       "time": "00:58:00.51"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There is certainty (Inaudible)",
       "time": "00:58:27.02"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Unless (Inaudible) from getting dirty.",
       "time": "00:58:42.17"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:58:50.62"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, we're done with the closing argument. I don't believe we'll start the next case now.",
       "time": "00:59:07.94"
     }

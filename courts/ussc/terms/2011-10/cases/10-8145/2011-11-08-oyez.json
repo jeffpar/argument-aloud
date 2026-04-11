@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2011/10-8145/20111108a_10-8145.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "KANNON K. SHANMUGAM",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DONNA R. ANDRIEU",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument next this morning in Case 10-8145, Smith v. Cain. Mr. Shanmugam.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Wasn't there a picture? Boatner saw a picture in the newspaper and that turned on the light for him; right? It wasn't any police suggestion?",
       "time": "00:01:55.32"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, aren't you exaggerating a little bit about the value of the impeachment evidence regarding Boatner? My understanding is that he made his first statement to the effect that he couldn't identify anybody at the scene, when he had been at the scene where five people that he knew very well had been killed. He was lying on the floor with a big gash on his head. He was questioned at the scene, and at that time -- this was in the evening -- he said: I can't identify anybody. But then later that very day, wasn't it? That very evening, after midnight, he was questioned at the police station. Am I correct.",
       "time": "00:03:12.22"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And at that point he gave a description. He did make an -- he did provide a description of the person that he said was the one who first came through the door. So, you know, that -- I don't know -- and then later, he said he -- there were statements to the effect that he couldn't identify anybody. But in light of the fact that he did provide a pretty, you know, somewhat detailed description on the very evening of the event, doesn't that -- aren't you exaggerating when you say that he said numerous times -- the effect of these statements that he couldn't--",
       "time": "00:03:51.83"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The standard is a reasonable probability that the result would have been different, reasonable probability?",
       "time": "00:05:45.32"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--That may be true, but if you were a juror and Boatner testified and he was cross-examined and they attempted to impeach him based on his failure to make an identification right at the scene and he said, well, that was because five of my friends had just been killed and I was lying on the floor and I thought I was going to be shot too and I had a big gash on my head, and then a couple of hours later when I collected myself and they asked me the same question at the police station I provided a description and didn't say I couldn't identify anybody, do you think jurors would just dismiss that and say, well, he couldn't identified him at the scene so he must have been lying when he identified -- when he provided a description later at the police station?",
       "time": "00:07:17.36"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Wasn't there -- wasn't there an intervening -- didn't he say 5 days after that he couldn't identify? And that was after what he said on the night, the same night. 5 days later he said: I couldn't -- I couldn't identify him.",
       "time": "00:08:04.36"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counselor--",
       "time": "00:08:42.76"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Counselor, your argument now and in your brief suggests that you're relying most heavily on the failure to provide the impeachment materials of the only witness to this crime and the only piece of evidence that ties your client to the crime. But you also mention other things, and Respondents spend 90 percent of their brief arguing against the other things. But I just want to clarify those other things. Number one, was the testimony mixed testimony about whether the assailants wore a mask across their face or over their entire head?",
       "time": "00:08:50.74"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What's the best take on what the evidence showed that was presented on that issue?",
       "time": "00:09:29.18"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could I ask you something? Who determines that issue of whether that's a dying declaration? Do we determine that in deciding whether the withholding of the Brady materials was harmful or not? Do we give deference to the lower court's determination of that? Do they have to decide whether it was a dying declaration. What's the standard on something like this?",
       "time": "00:10:25.22"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Now, Mr. Mims was the neighbor who saw the two -- there were three assailants in total, right, and two left the scene?",
       "time": "00:12:31.01"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Does the defense have any theory as to why Boatner would lie about whether he could identify this individual?",
       "time": "00:14:00.17"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Yes, but -- but the impact of your impeachment evidence would be related certainly to if a juror would ask: Well, why would he lie about this? And I'm -- I'm just asking, did the defense have any theory about what his motive would be about whether he could identify somebody, whether this first person had a mask or not.",
       "time": "00:14:22.77"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But the first time he -- he said that the person wasn't masked and provided a description was long before he saw any mug shots. It was the evening of the event. It was when he was questioned at the police station.",
       "time": "00:15:49.71"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Yes, but by doing that he's saying this person wasn't wearing a mask. That's the critical point.",
       "time": "00:16:07.59"
     },
@@ -239,13 +239,13 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Am I right that this--",
       "time": "00:17:36.06"
     },
     {
       "turn": 34,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In looking at the appendix, there are some asterisks. Were these statements, the first two -- the one at 252 in the joint appendix and then the statement on March 2nd, which is the one you just referred to, 296, were parts of those statements given to the defense counsel or none of the statements? And how long were the documents? Were they 20 or 30 pages? Can you tell me a little bit about that?",
       "time": "00:17:36.23"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I shouldn't have said statements. None of the reports.",
       "time": "00:18:05.56"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can you just tell me, how does Brady work? Is there some obligation for the defense counsel to say: Please give me all relevant reports?",
       "time": "00:19:59.09"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Counsel, is -- this group or gang, all of them had gold teeth and faded hair cuts?",
       "time": "00:20:32.39"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "In short, faded hair cuts and gold teeth were not a unique characteristic.",
       "time": "00:21:10.02"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What were these-- [Laughter] They are uncommon to me. These -- these were not gold teeth that were implanted, right? Was it some kind of a mouthpiece of gold?",
       "time": "00:21:17.68"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm sorry to hear that.",
       "time": "00:21:39.53"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, on that point, the State says that you're drawing a meaningless distinction between a hand -- a 9-millimeter handgun and a 9-millimeter automatic pistol.",
       "time": "00:22:50.94"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'd just like to go back to that because I'm not sure that I understand the argument. Both the ballistics expert at trial said that the casings were consistent with a 9-millimeter, and I know that Boatner said that it was a 9-millimeter that was used, and the issue was whether anybody would call a MAC gun a handgun as opposed to an automatic pistol, correct?",
       "time": "00:24:07.09"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Shanmugam, just a quick one. Was -- is all the evidence that you're discussing here today, was that presented to the State post-conviction court?",
       "time": "00:25:27.56"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Ms. Andrieu.",
       "time": "00:25:39.35"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does this -- was this line-up, was this after Boatner saw the photograph in the newspapers?",
       "time": "00:26:51.10"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could you tell me why Boatner waited 2 weeks to -- or never told the police that the face that he saw in the newspaper was the face of his assailant? I -- I -- as I understand the facts, he says he saw the newspaper, recognized his assailant and remained silent.",
       "time": "00:27:15.55"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It wasn't until they presented him with the line-up including Mr. Smith's face that he identified Mr. Smith. What's the reason for the delay?",
       "time": "00:27:37.43"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And so what turned -- what changed his mind once police showed him the line-up.",
       "time": "00:28:03.28"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And that was before or after the picture in the paper?",
       "time": "00:28:19.15"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What is this? I mean, I thought -- I may -- I thought the issue is that there were some notes, and the first note, which was made on the day, the policeman says that Boatner said he could not supply a description of the perpetrator, other than to say they were black males. Then he said they had golden teeth and low-cut haircuts. And 5 days later he could not ID anyone because he couldn't see faces. Then he said he'd only glanced at the first man. He couldn't tell if they had their faces covered and didn't see anyone. Then he said: I could not ID, would not know them if I saw them. Then another set of police notes says he said that he could not identify any of the perpetrators of the murder. So I guess those are all notes that the -- the prosecution did not give to the defense. So if you were a defense lawyer, whatever this other stuff is, I guess you would have been pretty happy to have those notes, because you might have tried to impeach his identification.",
       "time": "00:28:56.35"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And so what -- you're saying that I guess it would have made no difference?",
       "time": "00:29:54.65"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then I'd like to hear that, because it seems on its face that it certainly could have made a difference, that if he had those notes that he could have tried to impeach him and said where did this sudden recognition come from.",
       "time": "00:29:59.52"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How could it not be material? Here is the only eyewitness--",
       "time": "00:30:26.09"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--and we have inconsistent statements. Are you really urging that the prior statements were immaterial?",
       "time": "00:30:29.77"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, and you could argue, presumably you did argue, that before the jury, and that would be compelling evidence for the jury. And if you were the defense lawyer you really would like to have that statement where he said: I couldn't identify them.",
       "time": "00:32:15.56"
     },
@@ -509,13 +509,13 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How does that make it not material? You can argue that it should be given diminished weight, but an inconsistent statement by the only eyewitness seems to me most material and useful to the defense in cross-examining the eyewitness. I really don't understand how you can -- you can argue that the jury shouldn't put much weight on it, because there were these other things; but to say that it's immaterial -- I find that that is -- is not plausible.",
       "time": "00:32:40.84"
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And not only the only eyewitness but if I understand it correctly the only evidence against the defendant. This was the only evidence against him, this one eyewitness identification, right? Was there anything else?",
       "time": "00:33:14.60"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But just on the materiality point, I -- I just have to agree with Justice Ginsburg. What you're telling us is that when the defense stands up and said, and isn't it true that in this statement which you've just testified to on direct and which the police have put in on direct, you also said you could not identify any perpetrators of the murder -- and then the prosecutor says immaterial and the judge says strike it.",
       "time": "00:33:47.40"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I just can't believe that.",
       "time": "00:34:14.60"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm talking about the Boatner statement of 3/6/95, in which Boatner told police he could not identify any of the perpetrators of the murder. JA-259/60.",
       "time": "00:34:23.16"
     },
@@ -563,13 +563,13 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And you say that's immaterial. I find that just incredible.",
       "time": "00:34:33.58"
     },
     {
       "turn": 88,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is it that you mean immaterial, or is it that you mean that, that it wasn't prejudicial, because there's so much other evidence, there was no reasonable probability it would have made a difference in the trial?",
       "time": "00:34:36.28"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. So we can forget the word \"material\". Now, you're saying there's so much other evidence here against him that it wouldn't have made any difference. I can understand that argument.",
       "time": "00:34:48.31"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't know if it's right. That is -- that is -- now I think I can go back to Justice Kennedy's question, put it in those terms and say why wouldn't -- this could have made a difference. I mean, here, we have this witness who said all of these great things for your side, and within a space of hours, he has been telling the police that he can't identify anybody, he doesn't know. I mean, what -- that sounds like there is a probability that would have made a difference. Why not?",
       "time": "00:34:58.65"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What if--",
       "time": "00:36:35.33"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--what if -- could the jury be entitled to reject that conclusion? They have four statements by this man who Ronquillo described as very coherent, very with it at the scene of the crime. Would a jury be entitled to -- to reject that excuse by Ronquillo?",
       "time": "00:36:36.01"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And if they were entitled to do that, why would the absence of four statements that I can't identify someone not have been an argument that defense counsel could have used, number one, and that have a reasonable probability of making a difference?",
       "time": "00:37:01.16"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "At different hours.",
       "time": "00:37:39.97"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "At different hours.",
       "time": "00:37:41.34"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And to different officers.",
       "time": "00:37:43.49"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So that's two statements. My math is wrong?",
       "time": "00:37:45.79"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But there is a description that other -- other suspects fit. The close-cut hair, the gold teeth. That didn't identify Smith, as opposed to the other folks who had those same characteristics.",
       "time": "00:38:05.05"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In -- in terms of prior inconsistent statements, and we can argue about whether there were more consistent statements than inconsistent statements -- to say that this was not Brady material, because what -- we are not saying that Larry Boatner made up a story on the stand that doesn't -- didn't conform to the truth. The question is should the prosecutor, should the defense attorney, have access to a prior inconsistent statement?",
       "time": "00:38:49.43"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Could you explain how this -- how this took place? You have a case in which you're -- you're relying almost entirely on the testimony of one witness, and you have these notes that were taken by, and are presumably in the possession of the lead investigator. Wouldn't any prosecutor ask the -- the lead -- the lead investigator, do you have any statements of this witness?",
       "time": "00:39:29.09"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "They have to be examined, and if there's anything in them that's -- that is impeachable material, they have to be turned over to the defense. And under Louisiana laws, is there are a rule that requires the turning over of statements by witnesses, prior statements by witnesses?",
       "time": "00:39:52.70"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But you have -- you have to supply statements by a witness when they take the stand, don't you? Those are immaterial? Don't you have to turn over--",
       "time": "00:40:22.07"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--not in the State of Louisiana? You don't have to turn over witness statements when they are taking the stand?",
       "time": "00:40:30.70"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So you are -- so are you claiming that the judge's failure to catch these inconsistencies excuses your Brady obligation?",
       "time": "00:40:47.94"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Ms. Andrieu, if I could go back to Justice Alito's question, was the problem here that the prosecutors never received these statements from the police officers, or did the prosecutors make a determination similar to the kind of arguments that you're making today -- make a determination that these statements simply should not be turned over because they are not material?",
       "time": "00:41:01.20"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's so odd that -- I mean look, it seems like here it is, 5 days after the shooting and well before, I guess, that this witness saw any mugshots or did anything. And he says I could not identify anyone because he couldn't see the faces of the people. And now you're saying later, which you introduce into trial, his having looked at the faces of the people and identifying them from their faces -- now previously, he said he couldn't see their faces. And in Louisiana, the State of Louisiana, the prosecution and the judges say that isn't -- you don't have to turn over that statement that he couldn't see the faces made earlier.",
       "time": "00:41:37.96"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What?",
       "time": "00:42:20.98"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You know, all these -- all these statements that we have here, you're saying, all referred to people other than the Defendant.",
       "time": "00:42:48.08"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Well, was there a finding on that?",
       "time": "00:42:56.87"
     },
@@ -833,13 +833,13 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Perhaps the defense would have liked to say they did apply to the Defendant.",
       "time": "00:43:06.76"
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't say \"all of them\". All of them? Didn't apply to the--",
       "time": "00:43:11.71"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--This was not -- that applied to everyone, right?",
       "time": "00:43:21.00"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The one at the scene applied to everyone.",
       "time": "00:43:23.89"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "\"Can't identify anyone\".",
       "time": "00:43:25.74"
     },
@@ -887,13 +887,13 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. So you're bringing--",
       "time": "00:43:33.64"
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry. You've lost me there. But he says \"I can't identify anyone\", Smith is out of that group already?",
       "time": "00:43:35.66"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Okay.",
       "time": "00:43:44.32"
     },
@@ -917,13 +917,13 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You say like--",
       "time": "00:43:54.81"
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Excuse me. I can't identify everyone or everyone?",
       "time": "00:43:55.52"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--He says, \"I can't identify anyone because I couldn't see faces. \" Okay? That's what it says here, at least in my notes that my law clerks gathered. [Laughter] All right, and my point is, then this seems very odd, I mean really unusual that in the State of Louisiana that they have some kind of system that doesn't turn that statement over to the defense.",
       "time": "00:44:01.41"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Where is that reflected in the record? I--",
       "time": "00:44:35.64"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--What you said in your brief was that the judge determined that the supplemental report relating to the North Roman Street murders contains no Brady material.",
       "time": "00:44:44.50"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I didn't understand the record to be that all of Boatner's statements, that all the statements of Boatner that we are concerned about now were examined by the judge before--",
       "time": "00:44:54.54"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--Before trial?",
       "time": "00:45:05.73"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And the record reflects that in where?",
       "time": "00:45:06.73"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Is it the view of the prosecutor's office that because those materials were turned over to the judge, assuming that they were turned over to the judge, that that obviates the Brady obligation? Is that the view of the prosecutor's office?",
       "time": "00:45:12.15"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did you concede there was a Brady violation in this case?",
       "time": "00:45:28.93"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you now concede--",
       "time": "00:45:33.00"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--there was a Brady violation in the case?",
       "time": "00:45:34.75"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your telling the Court that this should have been kept from the defense, all of it?",
       "time": "00:45:36.51"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Under Brady.",
       "time": "00:45:43.85"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But Kyles is a decision saying what the prosecutor must disclose, not: It's a good practice.",
       "time": "00:45:49.32"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So is there a violation under our holding in Kyles?",
       "time": "00:45:59.65"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Is there a Brady violation under our holding in Kyles?",
       "time": "00:46:04.75"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So explain why what is on its face seemingly inconsistent statements are not required to be turned over.",
       "time": "00:46:09.43"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I don't understand how he becomes the arbiter of what's Brady. You said to me earlier that a jury would be entitled to reject his conclusion. All right. Tell me what -- how his conclusion makes it non-Brady if a juror could decide differently.",
       "time": "00:46:40.09"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "The two components to Brady, should they have been turned over? And if they had, is there a reasonable probability of a different outcome?",
       "time": "00:47:51.93"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Should they have been turned over? That's the question that I think my colleague asked you, and you're saying no.",
       "time": "00:48:00.06"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right, now articulate what legal theory--",
       "time": "00:48:14.88"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--would say these are not, these are not materials that needed to be turned over, when they say \"could not ID; would not know them if I saw them; can't tell if had faces covered; didn't see anyone. \" That's one of the notes. The other one, \"I don't know how many that I saw; I was too scared to look at anybody. \" And-- What makes any of those statements--",
       "time": "00:48:19.08"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--This is all the jury argument. Tell me why they didn't on their face constitute Brady materials that needed to be turned over. What's the legal principle that doesn't make them Brady?",
       "time": "00:49:04.98"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How do you know? How can you possibly know? The jury is supposed to decide on the credibility of this witness. There is a statement that he made it -- a prior inconsistent statement. The -- Mr. Shanmugam outlined five categories of what he called Brady materials. Is -- are you maintaining that none of those categories, that there was no Brady material at all in this case?",
       "time": "00:49:30.48"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:50:04.77"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm talking about Mims and -- what was the woman's name? Russell?",
       "time": "00:50:13.49"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And Young and the snitch, the one who said that -- his cellmate told him -- his cellmate was the perpetrator.",
       "time": "00:50:17.96"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Was it a determination by the judge that it wasn't a dying declaration?",
       "time": "00:50:39.47"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Because it was not -- because it was not turned over. And with all respect, I think you misspoke when you -- when you were asked what is -- what is the test for when Brady material must be turned over. And you said whether or not there is a reasonable probability -- reasonable likelihood; pardon me -- a reasonable probability that the result would have been different. That's the test for when there has been a Brady violation. You don't determine your Brady obligation by the test of a Brady violation. You're transposing two very different things. And so that's incorrect.",
       "time": "00:50:52.13"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "All right. Let's go to Mims, who says, \"I saw them\" -- \"I saw the perpetrators go to their car when they were exiting. \" \"They had ski masks. \"",
       "time": "00:51:30.41"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But isn't it most unlikely as your -- as what Mr. Shanmugam said, that robbers -- I mean, the people who are entering, intruding on another's premises to rob or whatever else they wanted to do, would wear masks going out but not going in? I mean, they don't want anybody -- they don't want anybody to be able to identify them.",
       "time": "00:51:52.17"
     },
@@ -1295,13 +1295,13 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But is that maybe--",
       "time": "00:52:28.99"
     },
     {
       "turn": 210,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I thought -- I'm sorry. I thought the idea was they were going to kill everybody who might have seen them inside. Their only worry would be someone who would see them outside, right?",
       "time": "00:52:30.03"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Ms. Andrieu, did your office ever consider just confessing error in this case?",
       "time": "00:52:45.22"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Did your office ever consider just confessing error in this case? You've had a bunch of time to think about it. Do you know? We took cert a while ago. I'm just wondering whether you've ever considered confessing error.",
       "time": "00:52:50.68"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But you're taking that judgment away from the jury. There was a prior inconsistent statement. Shouldn't that be the end of it? A -- a prior inconsistent statement, one that is favorable to the defense, has to be turned over, period. That's what I thought was -- what Brady requires.",
       "time": "00:53:59.00"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I -- may I suggest that--",
       "time": "00:54:18.06"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--you -- you stop fighting as to whether it should be turned over? Of course it should have been turned over. I think the case you're making is that it wouldn't have made a difference.",
       "time": "00:54:21.65"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And -- and that's a closer case, perhaps, but surely it should have been turned over. Why don't you give that up?",
       "time": "00:54:31.96"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, my worry is the following. You've read Cullen--",
       "time": "00:55:03.51"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--You read Cullen.",
       "time": "00:55:07.66"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You read the dissent in Cullen. There has been serious accusations against the practices of your office, not yours in particular but prior ones. It is disconcerting to me that when I asked you the question directly should this material have been turned over, you gave an absolute no. It didn't need to be. It would have been prudent, but it didn't need to be. That's really troubling.",
       "time": "00:55:09.33"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's the second prong of Brady. I said there were two prongs to Brady. Do you have to turn it over, and second, does it cause harm. And the first one you said not. That -- it is somewhat disconcerting that your office is still answering equivocally on a basic obligation as one that requires you to have turned these materials over--",
       "time": "00:55:44.67"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--whether it caused harm or not.",
       "time": "00:56:06.45"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You can, very briefly.",
       "time": "00:56:16.19"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel.",
       "time": "00:56:37.19"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Shanmugam, 4 minutes.",
       "time": "00:56:38.92"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm not surprised they are correct. [Laughter]",
       "time": "00:57:05.56"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "It is your understanding that the -- that all of Boatner's, all the notes about Boatner's statements were turned over to the judge before trial for in camera inspection?",
       "time": "00:57:43.66"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel, counsel. The case is submitted.",
       "time": "01:00:07.49"
     }

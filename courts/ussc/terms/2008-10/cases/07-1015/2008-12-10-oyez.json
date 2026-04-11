@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2008/07-1015/20081210a_07-1015.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "GREGORY G. GARRE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ALEXANDER A. REINERT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument first this morning in Case 07-1015, Ashcroft versus Iqbal. General Garre.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Garre, will you clarify one point? You said \"fails to state\" enough to overcome qualified immunity. But, usually, these -- the pleading is analyzed discretely. This is a 12(b)(6) motion, is it?",
       "time": "00:00:56.62"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And so that tests just the pleading. Qualified immunity is an affirmative defense which hasn't even been stated formally. So isn't it entirely conceivable that you could have a good complaint judged from the 12(b)(6) point of view, but when the qualified immunity defense is asserted, the plaintiff isn't able to come up with enough to stave off a summary judgment motion?",
       "time": "00:01:17.58"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, Mr. Garre, isn't there more involved here than simply derivative liability for the acts of others? I -- I've got a bunch of excerpts from the complaint, but let me just go to one, on section -- paragraph, rather, 97. That charges the defendants Ashcroft and Mueller with willfully and maliciously designing a policy. It doesn't sound like respondeat superior. I mean, it seems to -- to charge them directly with coming up with what these people are complaining about.",
       "time": "00:02:50.09"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, why don't -- may I just interrupt you there? Why don't you think the reference here in the language I just read, to designing a policy, includes the policy which is several times described as being one which called for holding -- for Arab Muslim men of certain countries of origin without reference to any penal purpose? I mean, that -- I think that is adequately described in there as part of the policy.",
       "time": "00:04:00.77"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You don't -- you don't dispute that, whatever the policy was, that it was approved and condoned by the Attorney General and the Director of the FBI?",
       "time": "00:05:33.03"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, it may -- it may very well be, but isn't it, for purposes of a complaint, sufficient to raise a due process claim by saying what they say? In other words, you -- you may have a very good defense to it. You may have something that does not ever get beyond -- get them beyond the point of summary judgment. But for them simply to charge that there was a policy in which they picked up people and they held them until they were cleared, i.e., sort of demonstrated to be innocent in some way, that at least on the face of it seems to -- to state a due process problem under the Fifth Amendment, doesn't it?",
       "time": "00:06:05.84"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Even -- even if, as the Chief Justice said, they knew and condoned the policy?",
       "time": "00:06:49.87"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, you may be -- you -- I mean, you may be right. I think there's -- there's a lot of tension in the -- in the allegations here. I -- I grant you that. But isn't the proper way to deal with those tensions at this stage to file a motion for a more definite statement and find out for sure?",
       "time": "00:07:09.73"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The difference, it -- and maybe this isn't a sufficient difference. But the difference in my mind between this and Bell Atlantic was that, in Bell Atlantic you had a set of allegations in which in -- in effect it was an either-or choice. There were two possibilities consistent with the allegations in Bell Atlantic. One was a conspiracy possibility; one was a -- a lawful parallel conduct possibility. And there just wasn't any way to pick one as being a more probable interpretation of what they were getting at. Here the problem is not so much an eitheror choice as to which we are clueless, but a just vagueness or uncertainty. Does the -- Does the talk about the -- the racial criterion go to the policy as devised or the policy as implemented? And so on. And it seems to me that here we're -- we're in a kind of conceptually a squishier situation and it might be better to get a more definite statement than to say, well, you -- you've got to make a choice, and there's no way to make a choice.",
       "time": "00:07:55.79"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Garre, I think that the Bell Atlantic case -- and -- and I'm sure that Justice Souter will correct me if I'm wrong about this, but most of it is about what it takes -- what are the essential elements of a Sherman section 1 charge. And there's a big mistake that the pleaders are making; that is, there has to be an agreement, and they haven't alleged an agreement. This case seems to be quite different. And I think you have taken Bell Atlantic, frankly, for more than is there. That is, twice -- at least twice in the opinion, the Court says, we are not developing any heightened pleading rules. Form 11 is as good today as it was yesterday. What we are talking about is a missing -- is an essential element to a substantive claim for relief. I thought that's what--",
       "time": "00:09:27.97"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That -- that sounds like an argument on the merits of the Bivens claim, rather than an argument going to qualified immunity.",
       "time": "00:11:00.10"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How does -- how does this work in an ordinary case? I should know the answer to this, but I don't. It's a very elementary question. Jones sues the president of Coca-Cola. His claim is the president personally put a mouse in the bottle. Now, he has no reason for thinking that. Then his lawyer says: Okay, I'm now going to take seven depositions of the president of Coca-Cola. The president of Coca-Cola says: You know, I don't have time for this; there's no basis. He's -- he's -- I agree he's in good faith, but he's -- there is no basis. Okay, I don't want to go and spend the time to answer a question. Where in the rules does it say he can go to the judge and say, judge -- his lawyer will say -- my client has nothing to do with this; there's no basis for it; don't make him answer the depositions, please?",
       "time": "00:11:54.84"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Where does it say that in the rules?",
       "time": "00:12:47.29"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "In Rule 8?",
       "time": "00:12:54.09"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought Rule 8 was move for a more definite statement.",
       "time": "00:12:55.46"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "He shows a plausible entitlement. He says -- there's no doubt it's a claim if the president of Coca-Cola did put the mouse in the bottle. It's just there is no basis for thinking that.",
       "time": "00:13:11.10"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So he wants to go to the judge and say: I've set out a claim here; I copied it right out of the rules. All right? Now, what allows the judge to stop this deposition?",
       "time": "00:13:23.71"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Where?",
       "time": "00:13:36.22"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But, Mr. Garre, you are using the word \"plausible\" or you're taking the word \"plausible\" out of Bell Atlantic, I think, and you are using it to mean something that probably can be proven to be true. Bell Atlantic drew that distinction. They -- the plausibility there is a plausibility that if they prove what they say, they will -- they will establish a violation.",
       "time": "00:13:41.09"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. I -- I think you are right that if somebody makes just a totally bizarre allegation that nobody in the world could take seriously, that -- that the issue can be raised. But in Justice Breyer's case, the -- that -- that may be the case if the claim is that the president of Coke was -- was personally putting mouses in bottles. But the claim, it seems to me, that the Attorney General or the Director of the FBI was establishing a policy of no release until cleared or a policy that centered on people with the same characteristics as the hijackers does not have that kind of bizarre character to it and, I think, would not run afoul of the -- of the plausibility standard.",
       "time": "00:14:11.88"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I would agree, but this is about as far from common government operation as one can get.",
       "time": "00:15:24.74"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Oh, I know, but the courts can't--",
       "time": "00:15:48.27"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--The courts can't ignore the extraordinary circumstances, either.",
       "time": "00:15:50.16"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm sorry, I just don't have the answer to my question. I must not have said it properly. Imagine, way before Twombly -- these rules have been in existence for decades. So we go back years ago. Certainly, there have been many cases where, for whatever reasons, the plaintiffs included allegations that were just factually very unlikely. I want to know where the judge has the power to control discovery in the rules. That's -- I should know that. I can't remember my civil procedure course. Probably, it was taught on day 4. [Laughter]",
       "time": "00:16:14.67"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, I see that. It says a person has a right to go and get discovery. It doesn't say they only control it under certain provisions which don't seem to me to apply to the truly absurd discovery. There must be some power a judge has. And the second question I'm going to ask you, when you tell me what that power is, which apparently I'm not going to find out -- but -- but whatever that power is, which must be there, why doesn't that work to solve your problem?",
       "time": "00:16:50.93"
     },
@@ -359,25 +359,25 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, what -- I mean, my basic question, which I really want to hear the answer to, is the Attorney General is very busy and what he does is very important. The president of Coca-Cola is very busy. The president of General Motors is very busy -- and very busy at the moment. And what he ---- [Laughter] What they are doing is very important. There are quite a few people in this country who aren't even in the government, and what they do is very important and they are very busy. And so if there is something in these rules that allows people to bring suits without any factual foundation, even though the -- the complaint says there is--",
       "time": "00:18:25.81"
     },
     {
       "turn": 54,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--How about--",
       "time": "00:19:03.77"
     },
     {
       "turn": 55,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I'll bet those people are being harassed--",
       "time": "00:19:04.17"
     },
     {
       "turn": 56,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--How about Rule 11 to take care of Justice Breyer's problem? The judge would say to the lawyer: Now, you signed this pleading, and when you made -- you signed it, you made certain representations, and I'm going to read the Riot Act to you if it turns out that this is a frivolous petition.",
       "time": "00:19:05.43"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Reading the Riot--",
       "time": "00:19:25.23"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Reading the Riot Act to the lawyer is protection against the Attorney General and the Director of the FBI after they're hauled in for discovery or subjected to depositions and the judge finds out--",
       "time": "00:19:26.63"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--I'm sorry, Mr. Garre. --the judge finds out that there wasn't in fact a sufficient basis for it, and that -- that will show them, if they get read the Riot Act by a judge?",
       "time": "00:19:38.02"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I was responding to Justice Breyer's Coca-Cola president. I think Rule 11 would work quite well to answer that.",
       "time": "00:19:51.41"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, Mr. Garre, it seems to me you are really arguing -- I am very sympathetic to the argument -- that if there was no plausible claim in Bell Atlantic, in which there was a direct allegation of a conspiracy in violation of section 1, was rejected because the Court thought it implausible, a fortiori this claim is implausible because it's got exactly the same problems in that you don't want to subject these important people to all the inconvenience of discovery. It seems to me these cases are very, very similar.",
       "time": "00:20:05.34"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, in both of the cases, the job of the district judge would have been made much easier if one of the defendants had filed an affidavit denying those allegations, but nobody has done that in either case.",
       "time": "00:20:36.09"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I have two questions -- I have two questions that might be related. You began by saying that you had two points for us. [Laughter] You said the first was that the court erred in saying that there was a -- a violation had been alleged.",
       "time": "00:21:13.15"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And I wanted to reach the second, and I was wondering if the second would address this sub-question that I have. If we were to say that Twombly is to be confined to the antitrust and commercial context, would -- would that destroy your case?",
       "time": "00:21:28.56"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I do have the same lingering doubts as Justice -- or concerns or questions as Justice Breyer. It's hard for me to believe we had to wait for Twombly in order to have this, and it seems to me Rule 11 is not applicable here because it simply works after the fact.",
       "time": "00:22:52.48"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Garre, there was a reference, I think, in Judge Gleason's decision in the Eastern District to the Office of the Inspector General report on the detainees' treatment at the Metropolitan Detention Center. Is there nothing in those reports that lends some plausibility to Iqbal's claims?",
       "time": "00:23:44.20"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Garre, can I ask you a factual question because I really don't know? In the -- assume that -- that they had to go to trial on this case, which may not be the case. Would they be entitled to be defended by the Department of Justice or would they have to get private counsel?",
       "time": "00:25:36.07"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that applies even if there would be a trial later on?",
       "time": "00:25:53.18"
     },
@@ -533,13 +533,13 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:25:60.00"
     },
     {
       "turn": 83,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there other litigation, General Garre, pending with respect to the detentions?",
       "time": "00:26:00.35"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there -- is there a Tort Claims Act action pending or -- I don't know where I got that impression -- arising out of these detentions?",
       "time": "00:26:53.23"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, General.",
       "time": "00:27:13.05"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Reinert.",
       "time": "00:27:14.25"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, General Garre said there's no question that there was a policy, and that it was known by and approved by the Petitioners here, but that the policy is different from the policy that you allege.",
       "time": "00:28:31.54"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And that's the question. Where -- what do you think is the most specific allegation in your complaint as to the Petitioners' knowledge and approval of the -- of an illegal policy?",
       "time": "00:28:44.62"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "As to paragraphs 96 and 97, which did seem to be the most specific, are those based on any specific information that you have concerning Petitioners, or are they based on inferences that you think you can draw from your allegations about what happened and the nature of the responsibilities of the Petitioners?",
       "time": "00:29:10.17"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I'm not sure that really answered my question. Are they based on anything specific that you know about what the Petitioners did?",
       "time": "00:29:45.31"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Are you suggesting General Garre's statement he just made to us -- he said there's nothing in the Office of the Inspector General's report that suggests that the Attorney General or the head of the FBI were engaged in any wrongdoing?",
       "time": "00:30:11.70"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that's a little bit different -- if I could interrupt you -- than saying, make the conditions of confinement as harsh as possible. It's saying, make the conditions of confinement such that they will not be able to communicate with alleged -- alleged -- other prisoners that -- that might be part of the same group connected with the activities on 9/11.",
       "time": "00:30:51.61"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you -- you could have said the same thing about the existence of a conspiracy in -- in the antitrust case. I mean, that was the argument. How can we prove an agreement until we have discovery?",
       "time": "00:31:34.86"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We say you need something more in order to go forward, something more than, you know, you prevented these people from talking to Johnny Cochran. That's not going to do it.",
       "time": "00:31:47.28"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, there are two possibilities here. Number one is the possibility that there was a general policy adopted by the high-level officials which was perfectly valid and that whatever distortions you are complaining about was in the implementation by lower level officials. That's one possibility. The other possibility, which seems to me much less plausible, is that the -- the high-level officials themselves directed these -- these unconstitutional and unlawful acts.",
       "time": "00:32:13.60"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Do you agree that -- to follow up on Justice Breyer's questioning of General Garre, do you believe that the same pleading standards apply in the action against the president of Coca-Cola as apply to the actions of the Attorney General and Director of the FBI on the evening of September 11, 2001?",
       "time": "00:33:09.32"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry? Certainly or certainly not?",
       "time": "00:33:29.83"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, why -- why isn't the protection -- I have the number of the rule I want. Maybe I am not understanding it. But Rule 26(e)(2), says -- says, among other things, that the judge can change the number of depositions you get. He could reduce them to zero if, for example, he decides the burden or the expense outweighs the likely benefit. Can't he do that whether you are the president of Coca -- Cola or whether you are the president of Ford or whether you are the President, or you are the Attorney General?",
       "time": "00:33:40.08"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can he do that or not?",
       "time": "00:34:12.95"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, he can.",
       "time": "00:34:16.66"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I mean, that's lovely, that -- that the -- the ability of the Attorney General and Director of the FBI to -- to do their jobs without having to litigate personal liability is dependent upon the discretionary decision of a single district judge. I mean, I thought that the protection of qualified immunity gave them -- gave them more than that.",
       "time": "00:34:34.12"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It doesn't give them much, if that's all it gives them.",
       "time": "00:35:03.54"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So the pleading standard -- let's leave the president of Coca-Cola out of it. The local manager of the Coca-Cola distribution center, you can state that the same rigor required in the complaint that applies to him also applies to the Attorney General and the Director of the FBI in the wake of 9/11?",
       "time": "00:35:34.12"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But your -- your response then focuses solely on the merits of the underlying claim, not any requirement of -- of heightened pleading.",
       "time": "00:36:04.62"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well I thought -- and others may know better in connection to Bell Atlantic, but I thought in Bell Atlantic what we said is that there's a standard, but it's an affected by the context in which the allegations are made. That was a context of a particular type of antitrust violation and that affected how we would look at the complaint. And here, I think you at least accept, don't you -- or I understood from your answers to the question on Coca Cola that maybe you don't -- that because we're looking at litigation involving the Attorney General and the Director of FBI in connection with their national security responsibilities, that there ought to be greater rigor applied to our examination of the complaint.",
       "time": "00:36:23.00"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Do you -- do you disagree with the notion that Bell Atlantic at least established that the level of pleading required depends on the context of the claim -- the context of the particular case?",
       "time": "00:37:18.51"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But they pleaded a conspiracy -- they pleaded a conspiracy in Bell Atlantic. It wasn't a matter of not -- not setting forth in the complaint the substance of what produced liability. They pleaded conspiracy.",
       "time": "00:37:51.99"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When?",
       "time": "00:38:21.63"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does it say when? Does it say what basis?",
       "time": "00:38:22.81"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't know on what basis any of these allegations against the high-level officials are made.",
       "time": "00:38:25.50"
     },
@@ -875,25 +875,25 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, we'll -- we'll check that.",
       "time": "00:38:38.47"
     },
     {
       "turn": 140,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Reinert--",
       "time": "00:38:40.51"
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The Solicitor General contests that.",
       "time": "00:38:41.26"
     },
     {
       "turn": 142,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--I want to throw you a question. I'm not sure it's a softball question. You can ---- [Laughter] You can let me know. I -- I'm starting with the assumption, which I think is -- is in Bell Atlantic, that what we are concerned with in context is that the -- the context tells us how specific you've got to be versus how conclusory you've got to be, and the reason it does so is that some allegations are -- are more likely to be true than others depending on the context. Is it fair to say -- going back to Justice Breyer's question, is it fair to say that your basic pleading here rests on the following assumption: That it is more plausible that the Attorney General of the United States and the Director of the FBI were in fact directly involved in devising a policy with the racial characteristics and the coercive characteristics that you claim, than that the President of Coca Cola was putting mouses in bottles?",
       "time": "00:38:42.89"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you would say, if -- to the Coke question you would say, yes, they've got to get more facts there, this is just -- this is just crazy to think that the president is putting mice in the bottles. But you're saying that, so far as the close involvement of the Attorney General and the FBI director, it's not crazy to assume what you -- what you say, and, therefore, you don't have to get into more detail in order to have an adequate claim here. Is that--",
       "time": "00:40:07.28"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But that's also not the--",
       "time": "00:40:40.50"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Absurd and bizarre is also not the pleading standard, and how are we -- to follow up on Justice Souter's question -- how are we supposed to judge whether we think it's more unlikely that the president of Coca-Cola would take certain actions as opposed to the Attorney General of the United States?",
       "time": "00:40:42.35"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, the problem with the president of the Coca-Cola is the allegation probably would be that the Coca-Cola Company has adopted sloppy procedures in its manufacturing lines, and the president is responsible for those procedures, and that's why the bottles are filled with rats.",
       "time": "00:41:04.60"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's the way you would allege it. You wouldn't say he did it personally.",
       "time": "00:41:19.16"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And then you would have a similar question.",
       "time": "00:41:22.46"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, this is a policy of being derelict in the sanitary conditions in the plant and so forth and so on; therefore, mice -- mice are getting into bottles with undue frequency, and the president is responsible for that. I don't see that that's a fanciful allegation.",
       "time": "00:41:47.44"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not suggesting that Coca-Cola really does that. Of course not, but--",
       "time": "00:42:03.45"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But the standard theory is that--",
       "time": "00:42:07.96"
     },
@@ -1013,13 +1013,13 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, they weren't \"all\" completely -- they were not--",
       "time": "00:42:24.25"
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I was just going to say the -- the difficulty with wrestling with the case through the perspective of the hypothetical of the mice in the bottles is that it's -- it's by its nature particularly absurd, but what if the allegation is that the president of Coca Cola is individually involved in a particular price-fixing scheme? Then does this case seem so terribly different from the level of specificity Bell Atlantic would require?",
       "time": "00:42:26.52"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But that's easy. I hope that the Attorney General and the Director of FBI -- of the FBI knew of and approved whatever the policy was. What you have to show is some facts, or at least what you have to allege are some facts, showing that they knew of a policy that was discriminatory--",
       "time": "00:43:35.39"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--based on ethnicity and country of origin.",
       "time": "00:43:52.21"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, but they didn't -- that isn't what 96 says. What 96 says, which I think is important, is it says that they knew of and agreed to subject the plaintiffs to these harsh conditions solely on account of their religion, race, and national origin, and for no legitimate penological interest. Because, if they are looking for suspects from 9/11, given the people they found, it's not surprising that they might look for people who looked like Arabs. All right? That isn't surprising to me, because that was what the suspects looked like. So, they want to say, yes, that was part of it, but it's not for no legitimate penological interest; it was for every good reason: We didn't want more bombs to go off. Now, suppose that's their view. Suppose also -- I'm just hypothetically -- they never, and they know this, ever had a conversation where they said, go look for people of Arabic descent alone. They never said that. They said, look for those people who have other connections and had something we reasonably believe is 9/11-connected; they might be dangerous. Suppose that's what they thought. So they read this, and they think, Judge, I want to tell Judge that you have no evidence to show anything other than what I just said, which sounds as if it might be reasonably connected to the 9/11 investigation. What is open to our two defendants, if you win this case? If they're right, how do they prevent lots of depositions from coming in and taking their time? How do they prevent this case dragging on and taking their time? If the facts are what I just said, rather than what you think?",
       "time": "00:44:35.47"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They'll -- they'll deny the facts; then you'll say there's a factual matter. And suppose hypothetically -- not what you think -- but you have no reason at all hypothetically, imagine, for believing that they did this solely for racial reasons unrelated to the investigation of 9/11. Suppose you don't have any information that shows that, and they are going to say everything else is covered by qualified immunity, and you have nothing else. Then what do they do to get out of 10 years of discovery?",
       "time": "00:46:43.90"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I just interrupt? There are a whole bunch of other defendants in this case. As I understand it, they're still in the case.",
       "time": "00:47:32.31"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you do have discovery of maybe 25 to 30 officials who would have a lot of information about this case. It seems to me it's entirely possible that you could either postpone discovery and dismiss the two principal defendants for now and then bring them in later, if the facts you develop from the other discovery would prove what you have alleged.",
       "time": "00:47:39.57"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What is the statute of limitations that would apply?",
       "time": "00:48:15.96"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You have -- you have not had discovery from the Attorney General or--",
       "time": "00:48:25.40"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--So--",
       "time": "00:48:28.18"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--So it's -- it's as though discovery with respect to those two defendants was stayed pending your discovery from the lower level defendants?",
       "time": "00:48:29.18"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Has it?",
       "time": "00:48:44.28"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--Well, that may be what happened here, but if -- if the Second Circuit is affirmed, there may be other suits that are like this. And what is the protection of the high-level official with qualified immunity with respect to discovery if the -- the official cannot get dismissal under qualified immunity at the 12(b)(6) stage? How many district judges are there in the country? Over 600? One of the district judges has a very aggressive idea about what the discovery should be. What's the protection there?",
       "time": "00:48:48.06"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "It's a discretionary decision, interlocutory discretionary decision by the trial judge.",
       "time": "00:49:14.84"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--May I ask you this question? And -- and I ask it, you know, mindful of what you've just said, but I -- I'm not sure that the two issues can be kept as -- as separated as you suggest. Another avenue to responding to the problem, I think, that Justice Breyer's last hypo raised would be as follows -- and then I'll tell you the difficulty that I have with it, and I was going ask you to comment on the difficulty. He said that the -- the allegation -- one way to read the allegation, and I think a fair way, is to say that the Attorney General and the Director of the FBI devised a policy and condoned the implementation of a policy that was based on racial and religious grounds with no penological purpose. Well, under the circumstances of immediate post-9/11, it is not surprising necessarily that they -- they devised a policy that had reference to religion and national origin and so on, given what we knew about the hijackers. What is not so easy to accept, as a matter of adequate pleading, is the claim that there was no penological interest involved in the decision of how to and how long to hold the individuals who were picked up. One answer to that, which I think is -- is in your pleadings, is that you refer to specific individuals and in particular to your own client, who was in the position of being held under these conditions for a considerable period of time, and it turns out there's -- there's no indication that there was ultimately a justified penological interest. So that might be your answer to Justice Breyer's question. There's enough in here about specific detentions to make it plausible for pleading standards that they were being held without any penological interest. The difficulty I have with that line of thinking is this: You also allege in there that lower level officials were making decisions on an ad hoc basis without adequate criteria as to -- as to how they should make them. And that particular line of allegations suggests that what was really going on here, including what was happening to your client, wasn't the result of -- of clear policy decisions made by the Attorney General and the Director of the FBI, but they -- they were just being scattered. So, what in the context of your whole pleading makes it adequate simply to charge on a conclusory basis that these two defendants were devising a policy that had -- that was intended to have an effect of no penological interest?",
       "time": "00:50:46.90"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Did -- you'll have to help me out. Did you allege that?",
       "time": "00:53:53.70"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. That's what you're saying--",
       "time": "00:54:03.94"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Are you -- are you saying that the -- that the claim that there was no penological interest for certain decisions goes simply to the distinction between the decision whether to classify as \"of interest\" versus as \"of high interest\"?",
       "time": "00:54:40.68"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is -- is no penological interest enough?",
       "time": "00:55:16.37"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, is that the only basis -- after an attack on the country of the magnitude of 9/11, is that the only basis on which people could be held? Namely that these people are the -- are the guilty culprits, and we are going to put them in jail?",
       "time": "00:55:20.86"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Surely for at least a period, you can hold people just -- just to investigate?",
       "time": "00:55:36.87"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it wasn't solely on that.",
       "time": "00:55:46.92"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the net was surely not cast wide enough if anybody with that race, religion was -- was swept in.",
       "time": "00:55:54.66"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, if it's solely for that reason, there would have been hundreds of thousands of others.",
       "time": "00:56:02.97"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--implausible.",
       "time": "00:56:10.42"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Wasn't it limited to people who were already indicted on other charges?",
       "time": "00:56:16.29"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "We're not dealing with the universe of men who are of a certain national origin; we are dealing with only ones who were incarcerated for an offense that has nothing to do with terrorism.",
       "time": "00:56:26.68"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry -- swept up? You mean they were in -- in prison because they had violated immigration and other laws, right?",
       "time": "00:56:49.63"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You can finish.",
       "time": "00:57:45.80"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Garre, you have 3 minutes remaining.",
       "time": "00:57:57.44"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it -- it did happen? At least it did--",
       "time": "00:58:16.52"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Garre, I just wanted to -- would you say that the -- the Attorney General might be subject to taking a deposition, even if he's not a defendant?",
       "time": "00:59:13.57"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there any -- some standard rule of law that government officials don't have to testify at proceedings?",
       "time": "00:59:26.00"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I certainly didn't think there was when I wrote Clinton v. Jones. [Laughter]",
       "time": "00:59:33.92"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And the reason you can't make this argument under 26(b)(2)(C) is?",
       "time": "00:59:49.16"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The judge there is supposed to weigh burdens versus desirability of going forward. And so why don't you make this argument right at that point? If you are right you win; if not, you lose.",
       "time": "00:59:59.72"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you are right, you win assuming you get a district judge who is also right.",
       "time": "01:00:17.93"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And that's also true, I guess, of complaints, and every other legal question.",
       "time": "01:00:22.69"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, General Garre--",
       "time": "01:01:09.48"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Mr. Reinert. The case is submitted.",
       "time": "01:01:10.70"
     }

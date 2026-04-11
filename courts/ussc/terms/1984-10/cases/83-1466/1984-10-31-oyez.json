@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-1466/19841031a_83-1466.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "MARTIN I. GROSS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JON MEYER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Supreme Court of New Hampshire against Piper. I think you may proceed whenever you are ready, Mr. Gross.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But they may be nonresidents the next day and still practice in New Hampshire?",
       "time": "00:02:43.86"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Suppose one has been born, and a lifelong resident of New Hampshire, at that time becomes a member of the New Hampshire bar, and the next day moves over to Vermont. May he continue to practice law in New Hampshire?",
       "time": "00:03:07.22"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What is the requirement for taking the examination in the first instance? Is it either residence or a statement of intent to become a resident?",
       "time": "00:04:39.56"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Either one will do?",
       "time": "00:04:49.52"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They don't care what happens after?",
       "time": "00:05:10.37"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What do they do if you move out?",
       "time": "00:05:14.15"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, then you have to answer my question they don't.",
       "time": "00:05:18.19"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The only thing they want is for you to be a resident of New Hampshire for... how long does it take to administer the oath? Is that it?",
       "time": "00:05:21.86"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is that it?",
       "time": "00:05:34.63"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What else can you do to somebody who takes the oath and then leaves that night?",
       "time": "00:05:37.72"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That night.",
       "time": "00:05:44.59"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I would like something better than supposing.",
       "time": "00:05:49.54"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Gross, I suppose states vary on this, don't they?",
       "time": "00:06:44.29"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "As I understand, in Virginia, for instance, the Commonwealth insists that an attorney... that residency is not enough. He has to have an office in the state. Now, at least New Hampshire doesn't go that far.",
       "time": "00:06:47.93"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Suppose Mrs. Piper here, living, as she did, just across the border in Vermont, maintained or joined a law firm that had an office in New Hampshire. Still not eligible?",
       "time": "00:07:27.62"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Suppose it is in my example, it was a primary office.",
       "time": "00:08:16.72"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Suppose it was the only place. She was offered a partnership in a New Hampshire firm, but lived across the line in Vermont, just commuted. Like a lot of areas in the country, you commute across state lines to do the only law practice you do.",
       "time": "00:08:31.93"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but that wouldn't be enough in New Hampshire.",
       "time": "00:08:56.36"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does the record show anything about what the lady's intention was with respect to an office, or where she was going to practice?",
       "time": "00:09:04.20"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did she apply for an exemption, or for a waiver?",
       "time": "00:09:17.64"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that in the record?",
       "time": "00:09:35.57"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you know where it is?",
       "time": "00:09:37.04"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Thank you very much.",
       "time": "00:09:46.13"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The District Court said that the respondent, Ms. Piper, resided in Lower Waterford.",
       "time": "00:10:17.25"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that right across the river from Littleton?",
       "time": "00:10:27.37"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but that's about 120 or 130 miles that the river is the boundary. Is it in the Littleton area, say, rather than the Brattleboro area?",
       "time": "00:10:42.90"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I notice the rules that the court construe deal with taking the bar exam, and the admission of people who have just taken the bar exam. What do the rules provide with respect to people who have been admitted in other states maybe five or ten years earlier and practiced for a period of time? Is there any provision for, say, a member of the New York bar ever to be admitted?",
       "time": "00:10:55.42"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It must be by examination.",
       "time": "00:11:20.74"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Doesn't it bear on the strength of your justifications for your rule if it is clear that a lawyer who is a resident of New Hampshire can move out of the state and still practice law in New Hampshire? Because a lot of the reasons that you give would sort of wash out with him. You wouldn't have control over him. You couldn't control his pro bono work, et cetera.",
       "time": "00:12:31.67"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes? Is that right, or not? It does bear on the strength of your justification?",
       "time": "00:13:00.62"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you are assuming, aren't you, Mr. Gross, that the lawyers in question do business as individuals when you say that the privileges and immunities clause applies to. For instance, a lawyer doing business as a professional corporation, I presume, couldn't claim the benefit of the privileges and immunities clause.",
       "time": "00:16:35.34"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We have held it doesn't apply to corporations.",
       "time": "00:17:00.64"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I think the argument is quite the contrary, that if they practice in the corporate form, they cannot get any benefit from the privileges and immunities clause which they now are urging to somehow insulate themselves.",
       "time": "00:17:39.78"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Gross, do you think Bradwell versus Illinois is still good law?",
       "time": "00:18:43.19"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you think that Bradwell's holding that a state can exclude women from the practice of law without violating the privileges and immunities clause is still good law?",
       "time": "00:19:12.96"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where do you think the privileges and immunities clause is found, I mean, what amendment?",
       "time": "00:19:52.27"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Gross, I am just wondering if your argument would... I notice in your opponent's brief there are 269 members of your bar that have offices out of state. Do you think the Supreme Court of your state would have the power to say that they must confine their practice to the state in order to further these objectives that you describe, and not divert their energies by practicing elsewhere?",
       "time": "00:20:30.83"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I am not suggesting it would be a better rule. I am asking if you think they would have the power to adopt such a rule.",
       "time": "00:20:57.56"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I am not saying if you leave. I say just, A, you've got to be a resident, and B, you must confine your practice to this state, because we are interested in having the highest quality practice within our state. We don't want your energies diverted by going over across the river.",
       "time": "00:21:14.67"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you would think they would have constitutional power to do that? And if you are going to say yes to that, I mean, I don't see how that's really different from saying to somebody across the river, you can't come into the state. But it seems to me you must say that you could tell all the members of your bar, don't practice elsewhere if you want to retain your membership.",
       "time": "00:21:35.07"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "All the reasons that you have explained would seem to me to support such a rule.",
       "time": "00:22:06.02"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right, and my rule would serve those same functions.",
       "time": "00:22:27.93"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What if a lawyer from Alexandria wants to come up in practice in your state? What must he show, or she?",
       "time": "00:24:39.52"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes.",
       "time": "00:24:51.49"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What if the lawyer has practiced for 20 years in Virginia? Is there no--",
       "time": "00:25:05.59"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--No admission on reciprocity.",
       "time": "00:25:12.59"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Gross, before you do that, and with reference to your last argument, do you think that In Re Griffiths, where the Court rejected the kind of argument you are making on behalf of lawyers, is relevant?",
       "time": "00:25:25.53"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Gross, just one thing before you sit down. Exactly what harm is done to New Hampshire by somebody that goes up, passes the bar, passes the test, and is not a resident?",
       "time": "00:26:16.07"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How does that hurt the state? All I know the state has done is given them a piece of paper.",
       "time": "00:26:42.63"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How will this one case affect that?",
       "time": "00:27:01.68"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would 100 be de minimis?",
       "time": "00:27:14.59"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would 100 be de minimis?",
       "time": "00:27:17.59"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What harm would it do?",
       "time": "00:27:20.79"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, some of these New Hampshire lawyers have moved to... they don't have any interest in that, do they?",
       "time": "00:27:33.07"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's what I'm saying.",
       "time": "00:27:41.57"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You must, Mr. Gross, you must have attorneys admitted to the New Hampshire bar that go to Boston and come up and try cases in New Hampshire.",
       "time": "00:27:59.38"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But you are not concerned with that.",
       "time": "00:28:12.69"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "This is the weak spot in your case, if there is any.",
       "time": "00:28:15.71"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I suppose that is true of any state, really.",
       "time": "00:28:51.07"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Gross, is there any record of waivers for people who say, I live across the border, I want to commute into New Hampshire and practice law, and I have a job with a law firm, I want a waiver, and if you will give it to me, I will take the bar, and go to work in New Hampshire? Is there any record of waivers in those situations?",
       "time": "00:28:56.64"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right, well, and so you feel the rule is that rigid, that it just doesn't make any difference.",
       "time": "00:29:32.14"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Meyer.",
       "time": "00:29:44.28"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What provision of the Constitution do you rely on to say that the burden is on the state of New Hampshire rather than on the person in the position of your client?",
       "time": "00:30:25.46"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think Camden changed that test somewhat?",
       "time": "00:31:18.99"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Meyer, before you get into that, may I ask you this question? Is the issue before us only related to lawyers who are willing to take the bart in New Hampshire and who have taken it?",
       "time": "00:32:33.89"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "One of those standards may be that the bar examination of your state must be passed.",
       "time": "00:33:16.47"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I thought your friend told us that in order to take the examination in the first place, the applicant must represent that they intend to make a residence in New Hampshire and practice law there, and that without that they are not even permitted to take the examination. Is that right?",
       "time": "00:33:24.14"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That isn't quite and fully consistent with your earlier response. You have cleared it up now.",
       "time": "00:33:45.92"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you think the state of New Hampshire can require you to come physically to Concord and take the bar examination, or do you think you can have it sent to you in Los Angeles?",
       "time": "00:34:15.22"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So they would be requiring you to reside in Concord at least for the day that you are in Concord?",
       "time": "00:34:28.82"
     },
@@ -903,13 +903,13 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr.... Go ahead.",
       "time": "00:35:12.69"
     },
     {
       "turn": 144,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But your position is also that this rule is unconstitutional even if the applicant wants to have her principal office in Vermont.",
       "time": "00:35:14.39"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, would you be satisfied if we ruled in your favor to the extent that at least where the intention is to commute into New Hampshire to your principal legal office?",
       "time": "00:35:39.16"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, but how about satisfying your client?",
       "time": "00:35:56.29"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It may not satisfy your organization, but it may--",
       "time": "00:35:59.74"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--I see it, on Page 41, 42?",
       "time": "00:36:23.52"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:36:42.32"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Meyer, in looking at the privileges and immunities clause issue, do we have to look at the threat posed by the whole class rather than as to the particular individual?",
       "time": "00:36:50.42"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Out of how many, Mr. Meyer?",
       "time": "00:38:10.64"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Meyer, let me go back just a moment to a statement you made. You say your client wanted to practice in New Hampshire. Now, does the record show any specific plan, like, was she going to open an office in Littleton?",
       "time": "00:38:49.98"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't your opponent's position basically that the requirement is working the way it is, that if you have 269 out of 1,900 living out of state, the great majority of those are not attempting to practice in New Hampshire?",
       "time": "00:40:25.37"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you know?",
       "time": "00:40:40.70"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then was this a proper case for the District Court to render summary judgment on?",
       "time": "00:40:48.39"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But your opponent argues the system as it is now is working. You say it really isn't working. And he says the New Hampshire lawyers practicing out of state or living out of state are not practicing in New Hampshire. You say some of them are.",
       "time": "00:41:06.28"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Meyer, on that particular question, what if the lawyer lives in Chicago, or San Francisco, or New Orleans? Is it your view that the New Hampshire court would have the right to appoint him to defend an indigent criminal and compel him to come to New Hampshire to try it?",
       "time": "00:42:19.65"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Do you think as a practical matter they could perform those obligations? Depending on where they live, I suppose.",
       "time": "00:43:03.51"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "It does impose a burden on the court. I know when I was practicing law, the judge would call you on the telephone and say, we have an indigent who needs counsel, are you available, and he gets an answer right away. I suppose he could call long distance to New Orleans.",
       "time": "00:43:39.95"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I wonder if that is an entirely satisfactory answer. Supposing that there is an emergency application filed for an injunction, temperate TRO, you know the name of the opposing counsel, although he hasn't actually made an appearance. Now, ordinarily those things are set on very short notice, and if you know the name of the opposing counsel, you are supposed to get a hold of him and tell him about it. Isn't that the practice in New Hampshire, as the law is elsewhere?",
       "time": "00:44:21.94"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if this client is represented by the El Fideldo attorneys in Los Angeles, it is just going to mean several days, isn't it, before they can have a hearing, whereas if they were represented by somebody in Manchester or Concord it, could be tomorrow.",
       "time": "00:44:48.41"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What about... I can hear the other side of the argument perhaps from you if you were representing the opposing party, saying that, look, I was in Los Angeles, but I am a member of the New Hampshire bar. We got notice of this expedited hearing on a TRO on Tuesday. We were told to show up by Wednesday. I couldn't get any red eye flight. I couldn't possibly get there until Thursday. I was denied due process of law. Now, a Los Angeles attorney who practices in New Hampshire can make that argument. A Concord or Manchester attorney can't.",
       "time": "00:45:28.28"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but your answer to Justice O'Connor's question a while ago, the rule has to apply to everybody, and it can certainly address evils that aren't present in every single case or every single application.",
       "time": "00:46:18.86"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Meyer, do you think that a state bar requirement that the person either live in the state or in an area immediately adjacent to it would survive scrutiny?",
       "time": "00:47:03.99"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But would it survive scrutiny?",
       "time": "00:47:23.97"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What about a state requirement charging out of state residents more tuition to go to a state university than in-state residents? I suppose getting an education is a fundamental right as well. Would charging out of state students more tuition or making entrance requirement more difficult for them at an in-state institution survive your kind of privileges and immunities analysis?",
       "time": "00:47:38.47"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why?",
       "time": "00:48:15.86"
     },
@@ -1197,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question about the record? I notice the dissent started out by noting that the rule might serve the less than commendable purpose of insulating New Hampshire practitioners from out of state competition. I am sure that doesn't really motivate this at all. 0 [Generallaughter.] But is there anything in the record that suggests it might?",
       "time": "00:48:54.32"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there anything in the record to provide a basis for the dissent's comment, or is that just speculation based on judicial notice?",
       "time": "00:49:12.07"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I am still not quite clear how you answered my question. There is nothing in the record?",
       "time": "00:49:37.35"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I suppose if a claim were made to them, whether they saw it as an undue imposition or not, if they felt that the result required was required by a decision of this Court, they would be obligated to reach that conclusion, whether they were happy with it or not.",
       "time": "00:51:35.78"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Meyer, you practice where, in Manchester?",
       "time": "00:53:14.30"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How do attorneys in Manchester first find out about decisions of the Supreme Court of New Hampshire?",
       "time": "00:53:19.52"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Advance sheets?",
       "time": "00:53:27.82"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What, seven or eight months later?",
       "time": "00:53:30.07"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you also read about them often for the first time in the Manchester newspaper?",
       "time": "00:53:37.98"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about Concord?",
       "time": "00:53:50.89"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They would be helpful, though, wouldn't they?",
       "time": "00:54:07.00"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you have any idea what percentage of the attorneys in New Hampshire subscribe to the slip sheet service?",
       "time": "00:54:17.04"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Do you have anything further, Mr. Gross?",
       "time": "00:56:02.29"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, the case is submitted. Thank you, gentlemen.",
       "time": "00:56:07.71"
     }

@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/85-1021/19861006a_85-1021.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "ERWIN N. GRISWOLD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "REX E. LEE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We will hear arguments next in No. 85-1021, R.J. Reynolds Tobacco Company versus Durham County, North Carolina, et al.-- Mr. Griswold, you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course, we could grant cert anyway, I suppose, couldn't we?",
       "time": "00:07:35.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "We could grant certiorari anyway.",
       "time": "00:07:39.19"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, Mr. Griswold, in the Xerox case the jurisdictional argument was that the decision rested on an adequate state ground. It wasn't the claim that there was no statute drawn in question. Isn't that right?",
       "time": "00:07:56.72"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the immediately preceding sentence was, \"Appellees argue that this Court lacks jurisdiction since the decision of the Texas court reversing the grant of an injunction rested on an independent and adequate state ground. \" and then what follows is in response to that argument.",
       "time": "00:08:30.97"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But in this case, as I understand it, their argument is that there is no challenge to a statute within the meaning of the code. Well, perhaps I should--",
       "time": "00:08:49.68"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, Mr. Griswold, true, the court said \"we hold\" there, but was that actually a holding? Isn't that language a little broader than was necessary to decide the case?",
       "time": "00:09:52.26"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Griswold, is it possible, then, that the state could levy its tax and just defer the collection until the goods leave the warehouse?",
       "time": "00:10:56.96"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Consistent with the Federal scheme?",
       "time": "00:11:10.45"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, maybe the tax could be levied but it just... the collection would be deferred until the goods leave the warehouse, if they are intended for domestic use.",
       "time": "00:11:32.32"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Griswold, supposing we would agree that you are correct entirely about the construction of the Xerox opinion. Is that opinion a constitutional opinion such as it would come under Justice Brandeis's observation in Burnett that stare decisis is less important in constitutional cases than statutory cases.",
       "time": "00:15:31.01"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Griswold, how should that affect our interpretation of what Congress intended so many years ago when it passed the Act that we are asked to apply here?",
       "time": "00:22:16.03"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That extension which you say is an extension of Griswold, by the terms of that statute it applies only as to goods held for exportation, which is the very issue here, whether--",
       "time": "00:23:26.19"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--No, the last provision that you read, which you suggested was an expansion of Xerox--",
       "time": "00:23:59.01"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--that only applies to domestic goods put into those trade zones for exportation.",
       "time": "00:24:06.89"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Griswold. We will hear from you, Mr. Lee.",
       "time": "00:28:13.89"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Lee, the Xerox opinion contains rather broad language, although on its facts we have there a situation of goods intended for export. But the Xerox opinion relied in part on a D.C. Circuit opinion called District of Columbia versus International Distributing Corporation, and that opinion in turn seemed to suggest to me that the state lacked jurisdiction to tax property in these bonded warehouses because they have not yet been in fact imported.",
       "time": "00:30:50.39"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes. So it seemed to me that perhaps to that extent there is a problem in your argument about the meaning of the Xerox opinion.",
       "time": "00:31:26.81"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I think there may be some practical difficulties, too. Although in this case apparently it is conceded that the tobacco will be for domestic use, there may be a variety of products put in these warehouses where the importers aren't certain yet whether they will be reexported or not.",
       "time": "00:33:04.26"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but you would certainly have to have in mind what you were going to do.",
       "time": "00:33:43.40"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is it possible that Congress intended at least that state and local taxes on goods for domestic use be deferred?",
       "time": "00:36:33.73"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It is the same as Xerox, isn't it?",
       "time": "00:37:29.95"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Same as Xerox.",
       "time": "00:37:35.92"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why wouldn't it be an entirely different matter for purposes of assessment of the Federal import tax as well? And yet it is clear that that is not assessed immediately on those goods that are held in that warehouse but will later be used domestically rather than reexported.",
       "time": "00:38:31.82"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But surely that indicates that Congress had in mind a system under which everything that is in the warehouse is in the warehouse, period, because it makes no more sense to defer the Federal import tax until the point where it is taken out for domestic consumption than it does, as you have described, to prevent the imposition of state property taxes until it is taken out.",
       "time": "00:39:03.40"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is the amount of tax at stake in this case, Mr. Lee?",
       "time": "00:43:14.32"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How much?",
       "time": "00:43:24.59"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Seven to eight million dollars?",
       "time": "00:43:27.20"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You would think it would be easy, if this is what Congress intended, to get a statute through. I mean, if indeed they intended to have the tax applied, what you say makes it a wonderment that a statute hasn't been enacted.",
       "time": "00:45:10.15"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But not much, you don't think.",
       "time": "00:46:44.43"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But not much, you don't think?",
       "time": "00:46:45.86"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Your argument... your argument... your argument would really lead to just saying that Xerox was just wrong and should be overruled.",
       "time": "00:46:49.60"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, eight Justices joined that opinion and that language in it.",
       "time": "00:47:11.76"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you agree it was in effect a statutory construction.",
       "time": "00:47:33.64"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How are they different?",
       "time": "00:48:11.30"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Lee, there was an old Treasury Department regulation, was there not--",
       "time": "00:49:49.91"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--that used to say that these state and local taxes were preempted?",
       "time": "00:49:54.51"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you. Do you have something further, Mr. Griswold? You have two minutes.",
       "time": "00:52:56.82"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Getting a refund of state property taxes is not the easiest task in the world. It is very different from income taxes.",
       "time": "00:53:52.07"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are you clear that those excise taxes are payable when the goods are in the bonded--",
       "time": "00:54:44.67"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Is that the same kind of discrimination that Mr. Lee is telling us about in this case? Potential discrimination?",
       "time": "00:55:13.41"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your time has expired, Mr. Griswold. The case is submitted. We will resume there at 1:00 o'clock.",
       "time": "00:55:49.17"
     }

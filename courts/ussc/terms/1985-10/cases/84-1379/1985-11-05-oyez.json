@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1379/19851105a_84-1379.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
       },
       {
         "name": "DENNIS J. HORAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "R. PETER CAREY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Horan, I think you may proceed when you're ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Horan, again a matter of curiosity. You started the case off with a man named Campbell as a plaintiff. When did he get off the train?",
       "time": "00:03:43.08"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "One of your original plaintiffs was named Campbell.",
       "time": "00:03:58.30"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But you don't even name him here as an Appellant.",
       "time": "00:04:07.96"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Are you representing him?",
       "time": "00:04:30.16"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was he on the notice of appeal?",
       "time": "00:04:32.51"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, my whole point is, how can he be here if he's not on the notice of appeal?",
       "time": "00:04:42.10"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how can he be before this Court?",
       "time": "00:04:52.25"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, how can you... he is not a party before this Court?",
       "time": "00:05:00.02"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Thank you.",
       "time": "00:05:04.17"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Are you still representing him here?",
       "time": "00:05:10.18"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Very well.",
       "time": "00:05:20.42"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, may I ask, Mr. Horan, what cases of this Court do you rely on as upholding the standing of a private citizen to assert the constitutionality of a state criminal statute?",
       "time": "00:05:30.17"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, that wasn't my question. My question is what cases of this Court do you rely on?",
       "time": "00:05:53.83"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And they were state criminal statutes?",
       "time": "00:06:22.47"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And you can't remember the names?",
       "time": "00:06:26.23"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "State criminal statutes?",
       "time": "00:06:43.49"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But is it not true that in those cases the State had also appeared as a party?",
       "time": "00:07:04.32"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "This is the first time we have had nobody except an intervening doctor, isn't it, on this side of the case?",
       "time": "00:07:13.45"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you help me a little bit. I understand you rely very heavily on the fact you've been hit rather heavily with a fee award in the lower court, and of course you do have an interest in that. If there were not the fee in the case, do you think you'd have standing independently?",
       "time": "00:07:21.89"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand the Court of Appeals recently disagreed with those holdings.",
       "time": "00:07:44.77"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean on a similar issue.",
       "time": "00:07:51.32"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, in any event, what is the theory on which, apart from the fee question, a doctor who is interested in the cause that you represent has standing to litigate in a case like this?",
       "time": "00:08:04.45"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let's stop with that one just for a minute. What is the nature of his interest as a parent? Does he allege that his daughter is apt to have an abortion or anything like that?",
       "time": "00:08:37.63"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He can't tell his own daughter this information?",
       "time": "00:09:04.62"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there a realistic probability of something like this happening?",
       "time": "00:09:16.72"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are you qualified to give us the position of the State of Illinois?",
       "time": "00:09:21.10"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Did the State itself take an appeal to the Seventh Circuit?",
       "time": "00:09:53.29"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You're sure about that?",
       "time": "00:09:58.97"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what is the position of the State now, and how do you know?",
       "time": "00:10:02.36"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Can we rule in this case that we decided on your assurance of what the law is in the State of Illinois and what the State of Illinois intends to do? In other words, you can't give us any one word of authority from the State of Illinois?",
       "time": "00:10:32.99"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Am I right?",
       "time": "00:10:57.57"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what exactly does the State of Illinois authorize you to say?",
       "time": "00:11:00.03"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, we don't need you for that, do we? We can read the brief.",
       "time": "00:11:14.94"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, the brief would be here.",
       "time": "00:11:20.49"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's right. And if you can't represent the State of Illinois, what is before us is exactly nothing.",
       "time": "00:11:29.51"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that right?",
       "time": "00:11:38.49"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but no one has exercised that power of appointment.",
       "time": "00:12:10.58"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Certainly we haven't.",
       "time": "00:12:14.29"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And may I also ask, you suggested the Attorney General was inadvertent in failing to file a notice of appeal. But surely he had plenty of time to file a brief on the merits. That can't be attributed to inadvertence.",
       "time": "00:12:15.66"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Horan, may I ask on the attorney fee point that you mentioned, the $100,000 liability. I understand you contest that fee award. Do you contest both the amount of the fee and do you also take the position you're not really liable for any fees at all?",
       "time": "00:12:58.34"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I assume you take that position?",
       "time": "00:13:13.20"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand that. But in addition, I suppose you claim that as intervenors you're probably not liable for fees at all?",
       "time": "00:13:19.87"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "To say the least.",
       "time": "00:13:29.57"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, I suppose we could save you $100,000 by ruling you have no business in this litigation at all. [Laughter]",
       "time": "00:13:40.17"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one other question about the statute, Mr. Horan. In your reply brief you state there's nothing in the record to support the suggestion that an IUD or Stilbestrol is an abortifacient within the meaning of the statute. Does the statute itself or the legislative history or anything in the record identify any drugs or devices that are properly... that a doctor should know are in fact, whatever the term is?",
       "time": "00:15:47.91"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And is it entirely up to the doctor to decide for himself whether a particular drug or device is such a device within the meaning of the act? How does the doctor know?",
       "time": "00:16:23.54"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, would it be a defense under the statute for a doctor always to say, well, I didn't realize this was an abortifacient?",
       "time": "00:16:47.86"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "This is just with respect to one or two of the statutes?",
       "time": "00:23:01.85"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:23:11.58"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, if we happen to agree with you, what should we do, vacate and tell them to dismiss the case to that extent?",
       "time": "00:23:12.85"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Horan, do you contend that the changes were mandated by Ashcroft? You said they were trying to comply. If so, it seems to me, perhaps without intending to do so, you're suggesting that perhaps the old version would have been invalid under Ashcroft.",
       "time": "00:23:36.42"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Another way of putting it, I suppose, is that if there's no decision on the old version of 6-4 and 6-1 the legislature would remain free in your view to re-enact those statutes?",
       "time": "00:24:38.95"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well then, it really doesn't make much difference what we do with the old, is that what you're saying?",
       "time": "00:24:56.30"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you think the Court of Appeals decision in this case will probably rub off on the other one?",
       "time": "00:25:12.44"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are you saying that the argument against the Pennsylvania statute doesn't apply to this statute, the argument we just earlier?",
       "time": "00:28:22.83"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired, counsel.",
       "time": "00:31:42.42"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Carey.",
       "time": "00:31:45.32"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Carey, what about our case of Singleton against Wulff, decided in 1976, where a majority of the Court held that doctors could raise not only their own rights, but the rights of their patients?",
       "time": "00:33:50.73"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but doesn't he alleged similar financial interests to those of the doctors in Singleton?",
       "time": "00:34:29.59"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, on the standing question, how can you consistently take the position here that there's no... you really don't have an adversary, and yet if what your opponent told us is correct, you asked for $100,000 from him in the district court on the ground that he was your adversary? How can you have it both ways?",
       "time": "00:35:31.35"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, would you not agree that as a normal proposition, if he has no standing to litigate, which I understand to be your position, you certainly shouldn't have standing to get fees from him?",
       "time": "00:36:25.55"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're going to get... presumably, if you win you get some kind of an injunction against the State of Illinois enforcing the statute. You're not going to get any relief against these people, are you?",
       "time": "00:36:49.34"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "May I inquire. If the Appellant here lacked standing, then I take it the Court of Appeals would have rendered just an advisory opinion?",
       "time": "00:37:34.12"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I see.",
       "time": "00:37:53.10"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Carey, your opponent says that the statute doesn't define either Stilbestrol or IUD as one of these devices.",
       "time": "00:40:10.58"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there a finding to that effect?",
       "time": "00:40:46.59"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:51:07.42"
     }

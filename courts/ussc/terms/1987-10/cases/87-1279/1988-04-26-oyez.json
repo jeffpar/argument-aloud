@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1987/87-1279/19880426a_87-1279.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "ALEXIA MORRISON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "MICHAEL DAVIDSON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "THOMAS S. MARTIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES FRIED",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear arguments now in No. 87-1279, Alexia Morrison v. Theodore B. Olson. Ms. Morrison, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Morrison, your opponents suggest that that is really a very narrow kind of discretion that is entrusted to the Attorney General, that following the structure of the statute he is almost bound to recommend the creation of a special prosecutor. What is your reply to that--",
       "time": "00:03:55.97"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Except that he doesn't have an unlimited time period in which to conduct that--",
       "time": "00:04:55.07"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It's quite short. You have said that Congress's function is at an end and that it has not part in the implementation of the law, but in this case Congress or members of Congress did indeed send a letter to the Attorney General, did they not, asserting that there were reasonable grounds to investigate. What does the Attorney General have to do when the alleged defense consists of false testimony before the Congress, and he gets a letter from the Congress saying that in our view there was false testimony? Can he possibly conclude within the short period of time that he's left for the investigation that there is not reasonable grounds to investigate--",
       "time": "00:04:59.73"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You don't assert that letter from the Congress was inappropriate, Congress can have that participation in the process--",
       "time": "00:06:06.34"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What if that letter reaches the Attorney General on the 80th day after his investigation of whether there are reasonable grounds to further investigate continues, and he has ten days to check that out--",
       "time": "00:06:35.36"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--But it wouldn't have to, isn't that right? Isn't there some flexibility there for the Special Division to determine its jurisdiction--",
       "time": "00:09:16.68"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Doesn't that raise some separation of powers concerns? The extent to which the Special Division is given Executive Branch powers--",
       "time": "00:09:36.44"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Does the Special Division determine when the job is over--",
       "time": "00:11:15.60"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--How would they know that--",
       "time": "00:11:40.38"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--As a matter of fact do independent counsel regularly or at any time consult with the Special Division or members of the Special Division with respect to problems that may arise--",
       "time": "00:11:50.44"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Is that subject to review--",
       "time": "00:12:55.30"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Where--",
       "time": "00:12:59.42"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Ms. Morrison, speaking of the functions of the Special Division, the Court of Appeals judgment that we are reviewing, that opinion, they point out that the Special Division had written an opinion in this case. What part of the function did that represent? Written an opinion on the constitutionality, really, of this special prosecutor statute--",
       "time": "00:13:17.93"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Ms. Morrison, are you going to take the position today that under the Blair case this Court shouldn't exercise jurisdiction over the case?",
       "time": "00:15:24.45"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, did you raise any objection in the District Court?",
       "time": "00:15:56.25"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So is it perhaps waived, and is that something that the court below relied on--",
       "time": "00:16:01.32"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, to the extent the Court of Appeals had a different view, you think it was just wrong that the independent counsel must follow Department procedures--",
       "time": "00:18:10.42"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Excuse me, Ms. Morrison. What policies and guidelines exist that you are bound by? What policies and guidelines does the Department have governing special prosecutors... or prosecutors in general--",
       "time": "00:20:18.97"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--And it is your position that so long as the Department of Justice put something in the manual or establishes it in writing... or I suppose even any unwritten policy would govern you, and you consider yourself bound by that--",
       "time": "00:21:23.73"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That would not include, I suppose, or would it, guidelines... as I recall there used to be in the days when I was in Justice Department... about before an investigation of certain officials is conducted, matters that could be especially sensitive, the matter would be checked with the deputy attorney general or with the attorney general before it goes forward. Would a policy like that govern the special counsel--",
       "time": "00:22:08.84"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, Ms. Morrison, it certainly could be argued that the appointment of the prosecutor is ordinarily an Executive function, that it gives that to the judicial branch, don't you think--",
       "time": "00:24:55.18"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Yes, but our cases, I think, suggest it isn't just the Appointments Clause that is involved, but that you cannot assign to one branch certain functions that inherently belong to the other.",
       "time": "00:26:11.48"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Those functions were not exclusively executive, were they--",
       "time": "00:27:26.13"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Let me ask about your position on the Appointments Clause as far as the ability of judges to appoint officers. You wouldn't contend, I suppose, that judges can appoint officers in the military, or would you? Could Congress vest that in the judiciary--",
       "time": "00:27:51.84"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Why would it create more problems? I mean, the other side argues that that would create less problems because it seems much worse to have the courts appointing the people who are going to present cases to them, which they are supposed to judge impartially, than it would be for judges to appoint officers who are going to go off to fight a war that they have nothing to do with--",
       "time": "00:28:15.03"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--But Ms. Morrison, it is true that in the District of Columbia the court used to appoint members of the school board--",
       "time": "00:29:11.01"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--I don't think it was ever challenged--",
       "time": "00:29:26.60"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Morrison. We'll hear now from you, Mr. Davidson.",
       "time": "00:30:14.52"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Davidson, you could say that about any cabinet office or any judicial appointment: Congress creates the positions, the Executive designates the people to fulfill them.",
       "time": "00:31:09.77"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Davidson, in your view are there no limits at all on inter-branch appointments of inferior officers, from one branch to another?",
       "time": "00:31:39.17"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, can you really say it is a single function, because the Special Division is also given the power to define the jurisdiction, is it not? And to terminate the investigation as well.",
       "time": "00:34:06.77"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is that what happened in this case?",
       "time": "00:35:09.86"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes or no.",
       "time": "00:35:15.01"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "When an expansion was requested, was the request made to the Attorney General?",
       "time": "00:35:22.82"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Davidson, may I interrupt? Isn't it true, though, that when they went back they did enlarge somewhat the jurisdictional definition that had existed originally, to at least encompass review of these two other individuals?",
       "time": "00:36:01.89"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I guess the concern is that Article III limits the jurisdiction of the courts to cases in controversies, and at least arguably this statute gives more to the courts than Article III case or controversy jurisdiction would indicate, doesn't it?",
       "time": "00:36:52.34"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Plus these other aspects, to the extent they are exercised.",
       "time": "00:37:18.46"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Davidson, can I ask you about the matter in gross rather than in the details? And it seems to me, I am concerned about the reality of affecting the balance between the two Branches. Anyone who has been in a high level in the Executive Branch has occasion to testify before Congress. That is not always a happy occasion. The system has certain conflicts built in it, and that is all very good; it's the way it works. But isn't the result of this that whenever there is testimony displeasing to a committee of Congress, and the committee believes that the testimony was not forthright, was not fully disclosing and so forth, which happens not infrequently, that committee writes a letter to the Attorney General, and the consequence is unless the Attorney General can determine within 90 days that there is no basis for even investigating further, the individual is subjected to a special prosecutor investigation by someone not appointed by the Attorney General, not appointed by the President, by a staff that didn't sign on simply to investigate but that signed on to investigate him. That does not really shift the balance of power between the Legislature and Executive officials to any significant degree?",
       "time": "00:38:49.89"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When you say he must report, you are referring to the Attorney General?",
       "time": "00:43:51.23"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And where does the Attorney General get his information?",
       "time": "00:43:55.02"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How does he go about it?",
       "time": "00:44:06.49"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Davidson. We'll hear now from you, Mr. Martin.",
       "time": "00:45:57.88"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the independent counsel, do you think he or she is part of the Executive Branch?",
       "time": "00:46:41.01"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the independent counsel is part of the Executive Branch in the sense that at least he or she is performing an Executive function.",
       "time": "00:46:57.95"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the fact that he or she is not subject to the usual control of the President doesn't necessarily make it unconstitutional.",
       "time": "00:47:05.98"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean Congress may never create an office in the Executive Branch that is not subject to unlimited power by the President?",
       "time": "00:47:18.53"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the power is being exercised by the Executive, by an officer of the Executive Branch.",
       "time": "00:47:43.40"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But there is a provision that says that the counsel has to obey the written guidelines and unwritten policies of the Department, and the special counsel has acknowledged that that provision means what it says.",
       "time": "00:49:16.41"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not written that way. Do you want to read the legislative history or do you want to read the text? It says, shall be bound by.",
       "time": "00:49:56.24"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But the President doesn't have a day by day supervision of the Department of Justice. Don't we all know that?",
       "time": "00:51:49.72"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He does?",
       "time": "00:52:00.18"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does he do the day by day supervision of the United States District Attorney in Utah?",
       "time": "00:52:14.51"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does he?",
       "time": "00:52:21.05"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Impossible under an independent prosecutor.",
       "time": "00:52:51.03"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But shouldn't a prosecutor be independent?",
       "time": "00:52:56.90"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What's wrong with it?",
       "time": "00:53:01.40"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What U.S. Attorney was elected?",
       "time": "00:53:19.68"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The Attorney General wasn't elected.",
       "time": "00:53:23.72"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you told me that the Attorney General runs the Department.",
       "time": "00:53:26.95"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask one question. What branch of the government is the grand jury in?",
       "time": "00:54:12.25"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I agree it is unique. Which branch of government is it in?",
       "time": "00:54:25.74"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it independent?",
       "time": "00:54:32.13"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I guess it returns indictments, doesn't it?",
       "time": "00:54:47.55"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There have never been grand juries that didn't act independently?",
       "time": "00:54:59.38"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That acted without the guidance of an Executive official?",
       "time": "00:55:06.47"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And I'm still not sure what your answer is. Is the grand jury part of the Executive Branch or the Judicial Branch?",
       "time": "00:55:13.72"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's not part of either.",
       "time": "00:55:20.73"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In this case, if you should prevail, what happens to the grand jury that has issued these subpoenas?",
       "time": "00:55:28.81"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is it your position, Mr. Martin, that Congress cannot condition the President's removal power if once we find that the office is strictly an Executive function, that Congress cannot place any limits on the President's power to remove from that office?",
       "time": "00:55:53.95"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now you say control, the President ordinarily would exercise that control by appointing a person in the first place, choosing who it was to be, and removing the person if the President doesn't like what they are doing, yet you agree that Congress can place some limits on the President's removal authority.",
       "time": "00:56:35.27"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, she can be removed for good cause, can she not?",
       "time": "00:57:37.20"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that would be, good cause would not include refusing to obey the order of the President.",
       "time": "00:57:49.76"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or the statute, I suppose.",
       "time": "00:57:58.66"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Martin, isn't it likely that the Attorney General had some knowledge of what had been going on for that two and a half years? I mean, it didn't come totally out of the blue.",
       "time": "00:59:18.70"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He had the whole FBI available.",
       "time": "00:59:31.39"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but I think your constitutional argument would be the same if it was six months or a year, wouldn't it?",
       "time": "00:59:42.86"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Martin, I doubt whether we are going to use the legislative history to cause language which on its face can be interpreted in a constitutional fashion to be interpreted in an unconstitutional fashion. I mean, the chances that we would do that are rather slim, don't you think?",
       "time": "01:00:44.43"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Try us, if the difference is between constitutionality and unconstitutionality. Do you know of any case where this Court said, gee, on its face this statute could be constitutional, but the legislative history requires us to interpret it in such a fashion that it is unconstitutional? Can you give me one case where we have done that?",
       "time": "01:01:13.54"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What specifically does the statute say about the role of the court in defining the jurisdiction of the prosecutor?",
       "time": "01:02:26.87"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It doesn't in any way direct the court to a presumption to follow the recommendation?",
       "time": "01:02:50.71"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you contend that the definition of jurisdiction in this case was unconstitutional in any way? There may be some other cases the court might define the jurisdiction in a way that would be totally intolerable, to go investigate the Soviet Union or something. But what does that got to do with the case before us?",
       "time": "01:03:00.80"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It did not expand the jurisdiction to indict anyone except Mr. Olson, did it?",
       "time": "01:03:50.82"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You think that is unconstitutional?",
       "time": "01:04:04.25"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If the Attorney General said, I think there is probable cause, or reasonable cause or whatever the statutory language is, to investigate charge A, and he names one statute, could the court authorize the independent counsel to investigate the possibility of violating related statutes? Or must he just confine it to the particular statute--",
       "time": "01:04:14.02"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But is it your submission that if the Attorney General gives a specific reference naming only one criminal statute and one target, possible defendant, that any enlargement of that scope of jurisdiction to include a second statute would violate the constitution?",
       "time": "01:04:43.95"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the Siebold case certainly is relevant, isn't it here? Were there any Executive functions involved in the people appointed in the Siebold case?",
       "time": "01:08:02.17"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I guess the Court thought it involved some Executive functions, didn't it, didn't the court think it involved?",
       "time": "01:08:29.92"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the Court did recognize some inter-branch appointment power in Siebold.",
       "time": "01:08:42.61"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt? I really wonder about that argument. Judges have been appointing defense counsel for years to represent indigents. Why is there any greater appearance of impropriety in this situation? Don't judges know that they are separate from the lawyers that appear before them?",
       "time": "01:10:46.20"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But do you see any impropriety at all in our appointing counsel to represent an indigent defendant?",
       "time": "01:11:09.93"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why is there if you do it on the other side? What is the difference?",
       "time": "01:11:15.77"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There are many, many cases in the state courts where the special prosecutors have been appointed by judges when the regular prosecutor couldn't handle the matter for some reason or other. I just don't see any impropriety involved.",
       "time": "01:11:28.91"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "On that definition of jurisdiction, I looked again here at the reference by the Attorney General. It was to see if there was any violation of 18 U.S.C. 1505, 1001, or any other provision of criminal law. So you certainly can't say here that it's the court that gave it too broad a definition.",
       "time": "01:11:52.99"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but this case involves what was done here.",
       "time": "01:12:18.35"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Davidson, following up on Justice Stevens comment, what do you have to say about the federal courts appointing interim United States attorneys?",
       "time": "01:12:53.79"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But it's still an inter-branch appointment.",
       "time": "01:13:36.76"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Are you questioning the constitutionality of that as a theoretical matter?",
       "time": "01:13:47.32"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In other words, who appoints the Librarian of Congress--",
       "time": "01:14:34.80"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--Well, the President, of course. And it is confirmed by the Senate. The very title of the Librarian of Congress would indicate this is an inter-branch appointment, also.",
       "time": "01:14:41.56"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "My only point is that our history in practice is rife with examples of inter-branch appointments.",
       "time": "01:15:27.00"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but you used the term core function. One of the questions is whether this is a core function, because in colonial times the governor didn't have all that much to do with the appointment of prosecutors. They were done by justices of the peace, the grand jury independently, there are a lot variety there, and a lot of private prosecutions.",
       "time": "01:15:54.68"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but did they, by using the word Executive power, necessarily refer to this power which had not been exercised to the same extent by the chief executive of the colonies or the crown in England or any of that?",
       "time": "01:16:21.32"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In other words, you rely on practice subsequent to the adoption of the Constitution rather than the contemporary practice for your position.",
       "time": "01:16:49.25"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Martin. We'll hear now from you, General Fried.",
       "time": "01:17:13.79"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "To whom were the election inspectors in Siebold subordinate?",
       "time": "01:23:49.35"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And the Architect of the Capitol.",
       "time": "01:24:23.00"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, General Fried. Ms. Morrison, you have one minute remaining.",
       "time": "01:28:38.11"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I have just one since you're not going to use the rest of your time anyway. What do you interpret the meaning of the words, if possible, to be in that provision that says you must follow the Attorney General's written guidelines and policies, if possible. When would it not be possible?",
       "time": "01:29:18.79"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right.",
       "time": "01:29:42.99"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Morrison. The case is submitted.",
       "time": "01:30:13.71"
     }

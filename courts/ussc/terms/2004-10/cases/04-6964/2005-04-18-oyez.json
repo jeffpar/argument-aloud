@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2004/04-6964/20050418a_04-6964.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "STEPHEN B. BEDRICK",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "SETH K. SCHALIT",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 04-6964, Jay Shawn Johnson v. California. Mr. Bedrick.",
       "time": "00:00:00.00"
     },
@@ -59,13 +59,13 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's not very--",
       "time": "00:02:28.37"
     },
     {
       "turn": 4,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's a very low standard in the first place, and why should it be watered down more?",
       "time": "00:02:29.17"
     },
@@ -77,7 +77,7 @@
     },
     {
       "turn": 6,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is the test for going to the jury the same as the test for whether or not discovery can proceed?",
       "time": "00:02:50.04"
     },
@@ -89,7 +89,7 @@
     },
     {
       "turn": 8,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I'm... I'm surprised you set the bar that high. If we're going to--",
       "time": "00:02:59.26"
     },
@@ -101,7 +101,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, I was just admiring your... your proposal in that at least it relied on something that the lower courts are used to applying. I mean, I guess, is there enough to go to the jury? My goodness, it's a standard test. But you've suddenly destroyed it all by saying it isn't quite that because, you know, if it's... if it's really close, the tie goes to the plaintiff, which is an unusual way for the tie to go. The tie usually goes to the other side.",
       "time": "00:03:24.88"
     },
@@ -113,7 +113,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what's the standard under title VII when we talk about that, when we talk about enough evidence to shift the burden of proof? Is that something less?",
       "time": "00:03:58.50"
     },
@@ -125,7 +125,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, in... in Batson, I guess the opinion for the Court suggested that it was basing it on the title VII cases, the McDonnell Douglas formula. Is that right or not? Or have we gone beyond that?",
       "time": "00:04:30.04"
     },
@@ -137,7 +137,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What... what happens if he doesn't come up with an answer in... in this case? What--",
       "time": "00:05:03.83"
     },
@@ -149,7 +149,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--what happens if the prosecutor just says, gee, I... you know... or the... the prosecutor has died? You know, it comes up later in... in a habeas action. The prosecutor is dead.",
       "time": "00:05:08.46"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. It... it's one hypothesis. There is no answer filed by the State as to what the real reason was. What happens?",
       "time": "00:05:20.52"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Are you going to say that if... if there's no answer, then the challenge is presumed to be correct?",
       "time": "00:05:42.15"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. So the trial judge can... can overrule the challenge.",
       "time": "00:05:50.09"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It seems to me that's quite different from the standard that requires it go to the jury. You send a case to a jury if there's evidence from which the jury could find for the plaintiff.",
       "time": "00:05:55.95"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that's... it... it seems to me that's a... that's much more rigorous than the standard that you've proposed in... in your brief, and that... and that other courts use in the Batson case. The Batson inquiry, as... as I understand it, is... is simply that, an inquiry. There's a basis to ask the prosecutor the reason. That's all.",
       "time": "00:06:09.20"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And... and that's quite different than sending a case to the jury.",
       "time": "00:06:33.06"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "May I... may I go back to your answer to the... the question whether in the absence of an answer, there is a presumption of a Batson violation, and you said, no, there isn't a presumption--",
       "time": "00:06:51.23"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--where the court has still ultimately got to decide it? What sorts of things could the court consider when it ultimately decides?",
       "time": "00:07:03.40"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "At step three. We've... we've gotten to step three.",
       "time": "00:07:14.53"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Step one, whatever the standard is, it has been met. Step two, silence. We get to step three. What does the court consider at step three?",
       "time": "00:07:17.20"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Which is zero. Which is silence. There is no answer.",
       "time": "00:07:37.31"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:07:44.82"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. But what I'm getting at is let's assume he doesn't draw that inference. Ultimately at step three, he says, no. I am going to reject the challenge. I do not think that the burden of persuasion has been met. What... what considerations might lead him to do that, assuming that step one has been satisfied?",
       "time": "00:08:01.47"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. Let me--",
       "time": "00:08:26.61"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Let me suggest this. Wouldn't... wouldn't he almost necessarily have to consider at step three those reasons that the prosecutor has not given, but which he thinks might be good reasons for the challenge which do not raise Batson discrimination?",
       "time": "00:08:29.01"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Right. That's what I'm... that's what I'm getting at. And... and what I'm troubled by is I... I take your... I understand your point, that it's not appropriate for him to speculate and supply an answer at stage two. But if stage one... at stage one, the objector has satisfied the test and at stage three, the... the court may, nonetheless, reject the challenge, I don't know what he would be rejecting the challenge for unless it is on the basis of this kind of, as you put it, speculation about what the reasons might be. So help me out there.",
       "time": "00:08:58.01"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then why don't you have to say at that stage, if there is silence on the part of the government, he's got to find the violation?",
       "time": "00:09:44.69"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But if he doesn't have to, he's got to have some reason for doing it. This is not a matter of whim. And if he's got to have a reason and his reasons may not legitimately be those speculations on what might be a legitimate basis for the challenge, but which were never raised by the State, and you can't think of any other reasons... and I admit I can't right now... then it seems to me that he would pretty... it would... it would follow that... that he would be required to... to uphold the challenge.",
       "time": "00:10:06.22"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, but... but the refusal to answer... I just... you know, it happened so long ago, Your Honor. I had a lot of other... I... you know. But it comes up later, and he says I just don't remember why I challenged this--",
       "time": "00:10:48.55"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Don't remember.",
       "time": "00:10:59.40"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Bedrick, in your brief you were very, it seemed, uncomfortable about addressing this question. You said it's just like you go through the same litany as title VII, that is, the plaintiff meets a burden which is in title VII very easy to meet--",
       "time": "00:11:23.24"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--stage one. Then the defendant has to come up with a nondiscriminatory reason, and then you find out if that was pretext. You kept saying in your brief what you said a moment ago that you have never seen a case. You said it never happens. It never happens that the prosecutor stands silent. So this is a hypothetical, academic question. But I think you're being pressed to say, well, suppose it does happen, and I take it that your answer is in that case the person who's raising the Batson challenge wins. But you're... you're not willing to say certainly. I mean, you seem to say... well, why are you uncertain?",
       "time": "00:11:44.22"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But suppose you had in a title VII case the employer says, I'm not going to give you a nondiscriminatory reason. You... you've gone through the McDonnell Douglas. The plaintiff has shown those four things. The employer says, I'm not going to give you any reason. Then what happens?",
       "time": "00:12:43.46"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's because--",
       "time": "00:13:23.71"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Wow.",
       "time": "00:13:26.55"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I... I don't think we've ever said that. I thought we've... we've said to the contrary, that the ultimate question is always, did the plaintiff show by a preponderance that... that the reason was discrimination. That's what I thought our... our cases say, not... not automatically to punish the employer for not giving a reason, he loses, which is what you want to do here.",
       "time": "00:13:27.15"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What happens in a title VII case if, in fact, we meet just what Justice Ginsburg said? Can you have a jury trial? Imagine a situation, jury. Okay?",
       "time": "00:13:57.91"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The plaintiff gets up and establishes the four points. Defense. The defense rests. Now, does the judge send it to the jury, or does the judge direct a verdict for the plaintiff?",
       "time": "00:14:07.90"
     },
@@ -497,13 +497,13 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Unusual. I--",
       "time": "00:14:25.34"
     },
     {
       "turn": 77,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And... and it seems to me the... your... there's some difficulty in... in trying to equate Batson challenges and... and title VII, and that's because your beginning point is that you base... you... you require too much of the prima facie case. It... it seems to me all that's required under Batson is reason to inquire.",
       "time": "00:14:28.11"
     },
@@ -515,13 +515,13 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that's... that's a special use of the term prima facie. Now, if... if we want to be consistent with the use of the word... of the term, prima facie, from Batson to title VII, then it seems to me this inquiry is necessary. But... and you're the one that puts it in motion by setting this rather high threshold that is the same as to go to a jury. I disagree with that.",
       "time": "00:14:47.31"
     },
     {
       "turn": 80,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "May I suggest you might have put the high threshold because it's a threshold that judges are familiar with and can use, whereas reason to inquire would be a fine test for when a judge is permitted to demand a response but it cannot possibly be a test for when a judge is required to demand a... what does... what does reason to inquire mean? Is that a... is that a standard that... that can be applied in law?",
       "time": "00:15:11.38"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What does it mean?",
       "time": "00:15:46.46"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What does it mean?",
       "time": "00:15:47.83"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Any suspicion whatever.",
       "time": "00:15:51.79"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Any suspicion... he strikes one black from the jury.",
       "time": "00:15:54.88"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It has to be reason to inquire.",
       "time": "00:16:00.16"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's--",
       "time": "00:16:03.07"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And... and is that like permitting discovery to go forward?",
       "time": "00:16:06.08"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And... and is that standard less than going to a jury?",
       "time": "00:16:12.17"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. So that... that's... I recognize that it's been difficult for us to find an analog. It may be that Batson is sui generis. It may not be. If we're going to talk about what judges are familiar with, then it's prima facie case and it's title VII.",
       "time": "00:16:15.36"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Then are you saying, look, judge... imagine you had a jury on this question. If the defendant has made out enough of a case that you would send it to the jury, then go to step two and ask the questions as to why.",
       "time": "00:17:05.61"
     },
@@ -653,13 +653,13 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's it. Fine.",
       "time": "00:17:23.74"
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Could... could I take that a step further? Would this... would this be a... a fair summary of... of your position on all the steps? Step one, there must be enough that would justify sending the question to the jury if it were a jury question.",
       "time": "00:17:25.30"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Number two, if there is silence at stage two or in Justice Scalia's example, the prosecutor just can't remember, and we then go to stage three, your position is as follows. At stage three, number one, there is enough... there is enough evidence on the record from which the judge can find a Batson violation. Number two, there is a state of the evidence from which he is not required to find a Batson violation. Sometimes, maybe most times, the prosecutor's silence will be a reason to find a Batson violation, in addition to those that were stated at stage one. And finally, theoretically... theoretically even with the prosecutor's silence, the evidence at stage one, sufficient as it might be to get to the jury, will not be persuasive. And there may be outlying cases in which, even with prosecutorial silence, the court will say I don't see the Batson violation shown here. Is that a fair statement of your position?",
       "time": "00:17:42.82"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:19:04.56"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I... I take it in your view the California standard is more strict than the title VII standard for prima facie case.",
       "time": "00:19:35.81"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the California court at least appears to say it's the same.",
       "time": "00:19:45.25"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And do we say that that equates to a standard of more likely than not or do we not say that?",
       "time": "00:20:19.59"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is... is step one of title VII more likely than not?",
       "time": "00:20:34.69"
     },
@@ -743,13 +743,13 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I don't see how that's much different from what California is doing.",
       "time": "00:20:38.59"
     },
     {
       "turn": 118,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I thought step one was evidence from which it could be found more likely than not.",
       "time": "00:20:42.50"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "He doesn't have to prove more likely than not at stage one, as I understand your position. He has to put in enough evidence from which a fact finder could find more likely than not if he accepts all the evidence as true and so on.",
       "time": "00:20:51.11"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Can I ask you a question about the other part of your case, which is that the judge cannot consider in... in step one anything except the... except the... the racial strikes and... and nothing else and cannot even speculate as to what causes might have produced the strikes? That seems to me rather extreme.",
       "time": "00:21:16.26"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How can you possibly decide whether it... a reasonable juror could find this? Let's assume that all three of the... of the minority, three blacks are stricken by the prosecution. The judge, the district judge, knows that everyone of them is... is a... a defendant's lawyer, every single one. He has to blot that out of his mind?",
       "time": "00:21:39.56"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But once... once you have the lenient test that you've established, why isn't it enough to say even with that... even with that speculation, a reasonable juror could find? Once you have that lenient test, I don't know why you have to exclude the speculation. I mean, there... what if all three of the blacks... it's a case in which the... the visual evidence is significant and all three of the blacks are blind and... and you tell me the judge has to say, oh, no, it... it can't be that... that reason that they were stricken. That doesn't make any sense.",
       "time": "00:22:47.03"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but one of the things, it seems to me, you're all overlooking is that if it's as obvious as they're all blind, those would be challenges for cause.",
       "time": "00:23:40.11"
     },
@@ -821,13 +821,13 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We're talking about challenges where there are no... no obvious basis for it.",
       "time": "00:23:48.08"
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, in practice, Mr. Bedrick, is it always worked out like this kind of a minuet? First we have step one and step two. Isn't a lot of it just at a bench conference?",
       "time": "00:23:51.90"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why do we need the same... the same rules for State and Federal courts? You have here the California Supreme Court. Why do they have to use the same... the same minuet that the Federal courts do?",
       "time": "00:24:28.27"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but... but State courts have different rules of evidence. They have different rules of procedure, and we allow Federal cases to be determined under those State rules of evidence and State rules of procedure so long as they provide due process.",
       "time": "00:25:00.03"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why can't... why can't the Batson question similarly be decided but decided under State rules of procedure?",
       "time": "00:25:14.23"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you would have no objection to our limiting our opinion, saying, you know, reversing and remanding and saying this is not Federal law. It's not what we would do in Federal court. Of course, the California Supreme Court is free to have some different system.",
       "time": "00:25:45.13"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, you don't want us to do that, do you?",
       "time": "00:26:00.02"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Isn't it sometimes even when you're not involved with a constitutional question, if you have a Federal claim in a State court... Byrd against Blue Ridge is one example... the Federal procedure... that the State procedure needs to be modified so it's in sync with the Federal?",
       "time": "00:26:15.65"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That was a question of what kind of questions go to juries.",
       "time": "00:26:36.59"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The State said ordinarily we don't give this kind of question to the jury, but we're dealing with a Federal claim, and the Federal procedure trumps.",
       "time": "00:26:40.77"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Bedrick. Mr. Schalit.",
       "time": "00:26:53.82"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, do... do you agree that the California standard is more rigorous than the standard applied by the Federal courts and by most State courts?",
       "time": "00:27:34.19"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you think the California rule is the same as the Federal rule?",
       "time": "00:27:57.53"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, what about Hanson, and is it Purkett v. Elem?",
       "time": "00:28:16.17"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But that's in... in the title VII context, certainly you don't have to show more likely than not to get past the initial threshold. All you have to do is to make four showings that... that Federal courts have recognized are rather easily made. So the real show doesn't come until the pretext stage. But it's not that you have to show anything by a preponderance of the evidence, that... you don't have to show discrimination by a preponderance of the evidence under title VII. You just have to show four things from which someone may but not must infer discrimination.",
       "time": "00:28:50.91"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought all it did was shift the burden of production to the defendant. It doesn't... the showing at stage one doesn't involve the burden of persuasion.",
       "time": "00:30:34.41"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, you... you can say that its words say that, but what it does doesn't say that. I mean, to establish a prima facie case, all you have to show is that... that you were qualified for the job, you're a member of a minority, and you weren't hired, and somebody who's not a member of a minority was hired. Do you think that's enough to show that it's more likely than not that race was the basis and that's... you know, that's how those cases pan out? That's enough for a prima facie case. Is that enough to say it's more likely than not that race was the reason?",
       "time": "00:31:49.79"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Really?",
       "time": "00:32:28.61"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you really believe that? I mean, in... in a large... you know, large... large operation, you... you're a minority. You apply for a job. You're qualified for it. You aren't hired, but somebody who's not a minority is hired. That alone, without any other information, is enough to enable somebody to find that it is more likely than not that... that race was the reason? My goodness. I... I don't think that's an accurate description.",
       "time": "00:32:30.24"
     },
@@ -1043,19 +1043,19 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Hicks does say that. I think you're right.",
       "time": "00:33:00.52"
     },
     {
       "turn": 168,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It does say it. I'm just saying--",
       "time": "00:33:03.15"
     },
     {
       "turn": 169,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. But suppose that... but Wigmore says that the words, prima facie case, can be used either to describe the Hicks situation, which is the plaintiff produces the four elements. The defendant sits silent, and the judge says, directed verdict for plaintiff. That's what Hicks seems to say. And Wigmore says the words, prima facie case, can mean that. But then he says the words, prima facie case, can also mean a different thing, and the different thing is what the judge says then is, jury, you may find for the plaintiff, not you have to. And so I guess our question is which of the two meanings shall we take here. And my question to be... to you is, why not the second? After all, the whole point of Batson is in suspicious circumstances to explore matters further, and once you get to the point where you're willing to tell a jury, jury, you may, you have suspicious circumstances.",
       "time": "00:33:04.60"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, if it's not a directed verdict, then a fortiori, then every analogy works against you.",
       "time": "00:34:24.11"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. Assuming the four--",
       "time": "00:34:45.16"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--elements, directed verdict. If you're right--",
       "time": "00:34:47.15"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--about that, which is what Hicks says--",
       "time": "00:34:50.49"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--we have a choice, a fork in the road. Take it. All right.",
       "time": "00:34:52.88"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Which fork? And I put the reason why. Your opponents will argue, it seems plausibly, take the second fork because we have the suspicious circumstance.",
       "time": "00:34:57.72"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "On step one, I take it it's not enough to simply say, look, the person challenged is a member of a minority group. What more must be shown?",
       "time": "00:36:02.47"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But I'm talking about step one.",
       "time": "00:36:42.83"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "This is all step one?",
       "time": "00:36:45.86"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why... why is the defense attorney in a better position to explain the... the motives of the prosecutor than the prosecutor?",
       "time": "00:37:33.32"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I don't understand that.",
       "time": "00:37:39.72"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The question is what motivated the prosecutor. Correct?",
       "time": "00:37:49.51"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's hard for me to see how the... the defense counsel is in a better position than the prosecutor to show that.",
       "time": "00:37:53.28"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--The question is not what motivated the prosecutor unless and until the step one showing can be made.",
       "time": "00:38:05.42"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But, of course, you can afford to be very rigorous at step two because your threshold at step one is high. The threshold is... if the threshold at step one is... is easier to cross, then we could be more rigorous at... at step two.",
       "time": "00:38:15.03"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And here there was no reason given.",
       "time": "00:38:45.90"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So why shouldn't this operate as so many things do in... in an unfolding proceeding? If someone stands silent... and we're not involved with a Fifth Amendment privilege... there's an inference... an adverse inference. Worse, take a... a discovery and one plaintiff asks for discovery from... from the... the defendant, and the defendant says, sorry, I'm not going to give you what you want. What is the consequence of that if the defendant, being presented with a opportunity or a requirement to give a reason or to produce something, says, I won't?",
       "time": "00:38:50.66"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But one of them, if we're going to continue with that analogy to someone who says I won't make discovery, is not just an inference but that you take what the opposing party says to be true on that issue.",
       "time": "00:40:11.32"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This is not... not issue preclusion. I mean, this is... that is... the defendant who stands silent is going to lose.",
       "time": "00:40:31.08"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I must confess I'm a little puzzled about the discussion of the trial strategy because is it not correct that whenever the judge thinks step one has been met, the prosecutor always answers the question?",
       "time": "00:41:04.17"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well... well, whatever it is, he... generally they are not silent when the judge says I think step one has been met. I want to be sure understand California's position on one point. Is it your view in... in California that the judge must decide himself that it is more likely than not that... that discrimination is present before you proceed to step two?",
       "time": "00:41:29.53"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now, that is not the test in an ordinary tort case in California, is it?",
       "time": "00:41:51.88"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In an ordinary tort case--",
       "time": "00:41:58.43"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--if the judge, at the end of the plaintiff's case, says I'm not sure what the answer is, but there is enough evidence here to submit to the jury, so I'm going to overrule the motion for judgment... judgment at the end of the case. Now, that's a different test than you say is appropriate under Batson, is it not?",
       "time": "00:41:59.84"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you... so you have two... in California you have two definitions of a prima facie case, one for Batson and one for all normal tort litigation.",
       "time": "00:42:17.58"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And is it not true that the definition that your opponent asks for is the same definition that would apply in tort litigation in California and in most States of the country?",
       "time": "00:42:32.61"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you're asking for a special rule for California's application of Batson.",
       "time": "00:42:42.86"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It sounds like you are in that it's a tougher standard than normal. Here you had a situation, did you not, where there were three black prospective jurors and the prosecutor struck all three?",
       "time": "00:42:48.42"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And could that present enough evidence that the fact finder, if it were referred to the fact finder, could find a Batson violation?",
       "time": "00:43:04.89"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So why is that not enough to satisfy the standard to require the prosecutor to give an answer?",
       "time": "00:43:22.20"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is it because the judge could imagine reasons that the prosecutor might have had?",
       "time": "00:43:39.58"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would your answer here be exactly the same if there had been 12 African American prospective jurors and all 12 were struck? Does that make a difference?",
       "time": "00:43:55.58"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but your test is... is that the judge under California law is required to find that there's a strong likelihood or a reasonable likelihood, but he must do that without hearing the prosecutor's reasons. That's your position. Right?",
       "time": "00:44:19.63"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but it would be the same rule if it was a bench trial. The judge could say to him... say, I think you may have enough but I'm not 100 percent sure yet. I'd like to hear the defense... hear the rest of the case. He doesn't... it does not really... the... the definition of a prima facie case does not depend on whether it's a jury trial or a bench trial.",
       "time": "00:45:10.25"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you think that the... the steps in this case have to be determined by what we do in title VII, that whatever we do here should be... should be, must be the same as what we do in title VII?",
       "time": "00:47:00.53"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but perhaps only for... for the operation of, you know, what the various steps are. You have to go step one first, step two next, and so forth.",
       "time": "00:47:26.41"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A lot of people don't read footnotes. [Laughter]",
       "time": "00:47:51.37"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Could I... I just confirm my understanding of how the jury selection process in California works? All the for-cause challenges are... are made and ruled upon. Then there are 12 jurors in the box, and then you make the peremptory challenge juror by juror. Is that correct?",
       "time": "00:48:05.65"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "After the for-cause challenges have been--",
       "time": "00:48:35.75"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Then you exhaust it.",
       "time": "00:48:38.36"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May... may I just--",
       "time": "00:48:58.10"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--ask you to clarify one thing? I... I take it from what you've said, although I didn't understand it from your brief, that California doesn't have any different standard, that they are following the same standard that would be applicable in Federal court on a Batson challenge. Or did I misunderstand you?",
       "time": "00:49:00.55"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So you're not arguing that States have flexibility to apply Batson according to different procedural rules. You're arguing that the Ninth Circuit is wrong about what the Federal standard is.",
       "time": "00:49:49.51"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Schalit, can you give me some reason why I should care a whole lot about this? What's the big deal? I mean, so what if we adopt a very minimal standard. So what. It just means you have a bench conference and the... and the judge asks, you know... you know, you struck three... three blacks. It, you know, looks suspicious to me. I'm not sure it's more likely than not. I'm not sure it's even enough to go to a jury, but it looks suspicious to me. Why just... how come you... you struck all three blacks that were in the venire? What is such a big deal about adopting a very... a very low standard?",
       "time": "00:50:56.79"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What?",
       "time": "00:51:33.23"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Like... like what?",
       "time": "00:51:34.42"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So the State has an interest in exercising peremptories.",
       "time": "00:51:50.15"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I agree. Of course, the State has a... has an interest in... in exercising peremptories. But... but why is it important that whether the State is doing it in a biased fashion be decided up front at step one instead of having the parties come to the judge and say, you know, why did you do it?",
       "time": "00:52:12.77"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's what I can't understand, why that is so important to the State.",
       "time": "00:52:32.98"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it still could be... I mean, you're not taking away the peremptory. You're saying the... the prosecutor can give a reason and the judge says, okay, that passes. It wouldn't pass for a challenge for cause, but as a peremptory, it's okay.",
       "time": "00:52:52.34"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But Batson overruled that. I mean, those days are gone. Tell California to stop worrying about that. [Laughter] You cannot make peremptory challenges for any reason anymore. You can't do it for any reason.",
       "time": "00:53:19.43"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So they're gone. Now, once you acknowledge they're gone, what's the big deal about... about having the parties come up to the judge and just explain to the judge, we didn't do it for a racial reason?",
       "time": "00:53:33.41"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, in avoiding that chill, you're in effect saying the prosecutor is entitled to one or two free discriminatory challenges.",
       "time": "00:54:19.89"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The dog is entitled to one bite.",
       "time": "00:54:40.40"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I say, the dog is entitled to one bite.",
       "time": "00:54:43.35"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a New Hampshire rule. [Laughter]",
       "time": "00:54:48.71"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Schalit. Mr. Bedrick, you have 4 minutes left.",
       "time": "00:54:57.00"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Schalit. The case is submitted.",
       "time": "00:56:57.32"
     }

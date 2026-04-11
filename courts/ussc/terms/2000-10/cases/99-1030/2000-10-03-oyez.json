@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2000/99-1030/20001003a_99-1030.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "A. SCOTT CHINN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PATRICIA A. MILLETT",
-        "role": "advocate"
+        "title": "MS."
       },
       {
         "name": "KENNETH J. FALK",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Chinn.",
       "time": "00:00:07.31"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I have just one question about that. I guess on the checkpoints to check for drunk drivers, that's at least related to the condition of the driver of the car, and the Court applied a balancing test and upheld it. Now, is this search more to find drugs being transported in vehicles or is it looking for drivers who are impaired by drug use?",
       "time": "00:00:52.92"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What do the statistics show or do they show about the percentage of people that were arrested that were using drugs and were therefore driving under the influence of drugs? Do the statistics show us that?",
       "time": "00:01:31.64"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But does that make this akin to a checkpoint, for instance, to catch burglars in an area or a murderer or something of that kind? Is this more for typical law enforcement purposes? And does that affect the balance in some way?",
       "time": "00:01:59.51"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if there were a high crime area with lots of thefts and burglaries and it was believed that the burglars typically made their getaway in cars, is it appropriate to have roadblocks and check people for that purpose?",
       "time": "00:02:53.76"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, there's always such a connection. I know very few burglars that go on foot. I mean, you're saying yes, then. You're answering the question yes.",
       "time": "00:03:23.39"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can stop all cars to see if they have burglary tools?",
       "time": "00:03:33.34"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is the connection between burglars, who usually get where they're going by car, not as close as the connection with drug traffickers, who usually engage in their business by car? I mean, everybody almost usually does everything by car. It seems to me I don't see anything special about this.",
       "time": "00:03:56.08"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does the record... does the record tell us how many of these drug arrests involved persons who were selling drugs as opposed to those who might have just been using them themselves?",
       "time": "00:04:31.66"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would your case be as strong if the record showed that every one of the persons stopped just happened to be a casual user or something and then had some drugs left in the car?",
       "time": "00:04:58.87"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't really... you don't really have to rely on the fact that some of them may be selling drugs?",
       "time": "00:05:11.42"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Chinn, I think you answered to an earlier question that the dominant reason for this program is to catch people who distribute, unlike the alcohol stops, the sobriety checks, that the dominant purpose is not to catch dangerous drivers, and you have no record of distinguishing between those two, so we have to assume... well, you have been candid about it. Your purpose is to catch people who are distributing drugs. Is that not so?",
       "time": "00:05:21.33"
     },
@@ -195,13 +195,13 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, I don't--",
       "time": "00:05:57.28"
     },
     {
       "turn": 26,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Is that the only purpose?",
       "time": "00:05:58.23"
     },
@@ -213,7 +213,7 @@
     },
     {
       "turn": 28,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yeah.",
       "time": "00:06:00.79"
     },
@@ -225,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I suppose given the fact that you don't have a record with respect to finding actual impairment among the people that you stop, I suppose that if we sustain the search here, we would be required to do the same thing if you made a facial showing that in a given neighborhood drug distribution was done on foot. I suppose you would be able to stop pedestrians again on a sort of a random basis according to some set of criteria like this and question every pedestrian.",
       "time": "00:06:35.09"
     },
@@ -237,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why not?",
       "time": "00:07:21.82"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, the reason that it is is that... that we... we have, if not a history, at least some experience with... with motorist checkpoints, but there was a day when we didn't. It had to start somewhere, and I don't know why the same reasoning couldn't be applied to pedestrians and start somewhere there, and after a while we'd have a tradition of stopping pedestrians on the street, too.",
       "time": "00:07:35.19"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah, but the original rationale for that was that because the person was in a car, the person could get away easily, and yet that rationale has nothing to do with the rationale that... that you're advancing here to justify this stop. Your... your rationale for stopping cars is that people use cars to distribute drugs, and my suggestion is that in a given area if people distribute drugs on foot, the same rationale that would justify what you're doing here would justify pedestrian stops, and the original Carroll justification for an automobile exception so-called doesn't have anything to do with either case.",
       "time": "00:08:07.02"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought the rationale with the car was a lesser expectation of privacy in a car, say, as opposed to a home, but if you're going to do expectation of privacy, one can't be seen, I suppose the street would be lowest because the car, at least you are sheltered by the car itself. On the street there you are. Everybody can see you, so the rationale that you're offering, I think, would apply at least as much. A high crime area, you have reason to suspect that people are going to get away so that the police are there to check them, and is there a distinction based on the expectation of privacy? I don't see it, but perhaps you can explain it to me.",
       "time": "00:09:25.88"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I've never heard the concept of expectation of privacy which has been applied to... to searches applied to seizures, which is what you're now saying. You're saying there's no reasonable expectation of not being seized, right?",
       "time": "00:10:53.56"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you know of any of our cases that ever applied that reasoning to seizures? I mean, after all, you have to stop for a traffic light. You have to stop for, you know, bridges that are up and all sorts of things, so you say, you expect to be stopped or seized by government order frequently while you're in a car, and therefore you have no right not to be.",
       "time": "00:11:14.08"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah, but it doesn't say anything about expectation of being stopped. I mean, this is just a novel, a novel approach to me, to use the expectation rationale with respect to seizures as opposed to searches.",
       "time": "00:11:49.08"
     },
@@ -321,13 +321,13 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, even so, it's somewhat circular. I mean, if we say there is no expectation, then there is going to be no expectation.",
       "time": "00:12:20.29"
     },
     {
       "turn": 47,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You're using the expectation. It's just... it's much more... it's reasonable to stop cars very often, very often for checks, you know, all the things that people have said in prior cases. But the difficulty with your case is it doesn't seem any more reasonable to stop a car just to look for evidence of a crime in general than it does to stop a pedestrian to look for evidence of a crime in general. And what you haven't done, at least I haven't heard you do, is to say why there's something special about this that would really justify stopping the car any more than it would justify stopping a pedestrian. So what is it?",
       "time": "00:12:34.21"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So that's when we go back to Justice Ginsburg who made the point very well, look, people sometimes rob banks on foot. Bank robbers perhaps are poor, they can't afford cars. They walk around. And that happens a certain number of times. So do we stop all the pedestrians? I mean, you heard her question. My problem is, I can't find anything special about being in a car in respect to a general search without suspicion that there's any special crime but just a general effort to stop crime, and I haven't heard you present one.",
       "time": "00:13:29.56"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What was the reasoning of the Court in Martinez-Fuerte? There you had a... a... a... a... a stop with... without a search, and unless there was probable cause.",
       "time": "00:14:25.27"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Chinn, wasn't there the factor, the locational factor there that the stop, although distant from the border, was on the main... the road, the highway that you would take if you were going from the Mexican border into the interior because that's where all the traffic flowed. But here you don't have that. It could be any... anyplace.",
       "time": "00:15:03.21"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it was a fact in the case. There wasn't any question it was a main highway that people used, traveling from Mexico.",
       "time": "00:15:35.73"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you think you could stop... police can stop cars anywhere in the United States just to look for smuggled immigrants? Just stop the car and say, you know, can I see your papers, please? That's sort of scary.",
       "time": "00:15:52.66"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What seems to be your argument, the strength of your case depends on the success, your success rate. In other words, you prove it was reasonable by what you find rather than by what you knew before you started.",
       "time": "00:16:25.97"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If I read your brief, it's important to your case that 5 percent of the people in Indianapolis apparently don't have their driver's license with them and another 5 percent have some marijuana in the car. If there was only 1 percent, your case would be much weaker.",
       "time": "00:16:53.63"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah.",
       "time": "00:17:09.07"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you didn't know that until you conducted the searches.",
       "time": "00:17:10.64"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Sort of like... sort of like you found something there, ergo, it was reasonable to look for it.",
       "time": "00:17:15.84"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The case that everybody begins with in automobile searches is Carroll, the prohibition case, and the Chief Justice in that case writing it said it would be intolerable and unreasonable if a prohibition agent were authorized to stop every automobile on the chance of finding liquor and thus subject all persons lawfully using the highway to the inconvenience and indignity of such a search. That's this case, isn't it?",
       "time": "00:17:26.53"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Chinn. Ms. Millett, we'll hear from you.",
       "time": "00:18:21.39"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "On your first point about Martinez, how would you respond to Justice Scalia's question? Would that checkpoint have been legal in Indianapolis?",
       "time": "00:19:00.98"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As a constitutional matter.",
       "time": "00:19:14.81"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "With what we now know about Indianapolis, just right as of today, do you think it would be legal to have the Martinez-Fuerte's checkpoint in Indianapolis today?",
       "time": "00:19:33.59"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then did they have to show them before they conducted these checkpoints here, did the city have to show that 5 percent of the people were driving without licenses or did they find that out after they did it?",
       "time": "00:19:44.45"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The high crime statistics they got as a result of the program they instituted.",
       "time": "00:20:09.05"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let me follow up on the Indianapolis hypothetical. Why would it have to be alien smuggling? I mean, why couldn't you simply identify an area that has a large... you know that there are a large number of illegal aliens in this section of Indianapolis that is largely Hispanic, so you simply set up roadblocks, and I'll bet you you'll get a pretty good catch if you stop every car that drives down the street in that section to see if there are illegal aliens in the car.",
       "time": "00:20:22.88"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then the same result then would be for pedestrian checkpoints?",
       "time": "00:21:09.25"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why not?",
       "time": "00:21:12.87"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why should there be? In other words, the rationale that you're advancing and that your brother has been advancing doesn't seem to me to make any particular sense of that distinction.",
       "time": "00:21:18.07"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, if... if Martinez-Fuerte can be applied as you have said to Justice Scalia that it may be applied in Indianapolis or the middle of Nebraska somewhere because there is... there is a... a... a general basis in the evidence prior to the search operation, that there is a high incidence of illegal aliens, then to begin with Judge Posner's rationale has nothing, I guess, to do... much to do with the case, and it doesn't seem to have anything... it doesn't seem to be key to the use of automobiles, and therefore I don't see why, if we accept your answer to Justice Scalia, we are not well down the road toward pedestrian checkpoints.",
       "time": "00:21:35.78"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, then, on... excuse me... on that theory could the police station drug detection dogs at every street crossing where the traffic lights require pedestrians to wait until the yellow light comes along? The pedestrians are being stopped in the normal manner in which pedestrian traffic is regulated. The dog is no more intrusive than the dog is when it goes around the car. Could the police do that and have a good search?",
       "time": "00:23:22.32"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So if somebody says to the dog, you know, get away from me, the police can say, no, you've got to let the dog search you?",
       "time": "00:23:56.50"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then why isn't it a seizure of the car for something other than the purposes of checking license plates when the dog goes around the car? Are you telling... or maybe your answer would be that the driver of the car can say to the police, get the dog away from the car. And the police would have to do it. Would they?",
       "time": "00:24:06.50"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You have a legitimate basis for stopping the pedestrian until the light turns yellow. The pedestrian is just as validly stopped as the car is for the driver's license check.",
       "time": "00:24:29.90"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "If the pedestrian can tell the police to get the dog away, why can't the car owner?",
       "time": "00:24:40.43"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well--",
       "time": "00:24:48.39"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Do we know in the facts of this case whether the dog sniffing occurs while the license check is going on or whether the policeman first checks the license and then says, okay, now stay here, I'm done checking your license, but I want to walk around the car with a police dog?",
       "time": "00:24:53.14"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose the city council authorized this search and had a preamble and said, in order to interdict drug distributors, we are setting up the following checkpoint, and then the case is just like it is, and you have a license, they say that the sole... the purpose is to interdict drug smuggling. Does that change the case at all?",
       "time": "00:25:22.86"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In other words, in order to do it, the city has candidly told us it wants it to apprehend drug distributors, it has this pretense of stopping people to check their licenses an also purpose, but it's using that as a gateway to get to what it's really interested in, which is the drug distribution.",
       "time": "00:26:36.80"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "No, you said that they would have to do that. Mr. Chinn told us... candidly, I thought, to his credit... that the primary purpose of doing this is to apprehend drug distributors. So you're saying, yeah, but they couldn't just do that openly or overtly, they need some kind of cover for it. So we do the license check.",
       "time": "00:27:07.80"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So let's take... then let's take away that. You are saying without the license and registration check this would still be okay, we just stop people because we want to have the dog go around the car.",
       "time": "00:27:36.32"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Millett. Mr. Falk, we'll hear from you.",
       "time": "00:28:34.65"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Certainly the seizures in Martinez-Fuerte and Sitz were also seizures of primarily entered in. No one claims they had a 51 percent harvest there.",
       "time": "00:28:56.86"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But in Martinez-Fuerte they arrested these people. That's how the case came to this Court.",
       "time": "00:29:24.89"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What did the Court say, then in Martinez-Fuerte? What did it say the main purpose, the programmatic purpose, as you call it, was?",
       "time": "00:29:52.50"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And drunk driving.",
       "time": "00:30:29.53"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How about driving while impaired by drug use? If that were the purpose, okay?",
       "time": "00:30:31.47"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How could the city show that without having done some investigation?",
       "time": "00:30:47.16"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Please, finish your answer.",
       "time": "00:31:02.85"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about a driver without a driver's license, is that a safety concern? Do you acknowledge that it's okay to make the stops to see that the person behind the wheel has a driver's license?",
       "time": "00:31:17.17"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's fine. Let's assume that that is so justified here.",
       "time": "00:31:36.78"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What difference does it make that in the course of that search, in the course of that stop the police also send a dog around the car? I mean, in the case of individualized traffic stops, we have innumerable cases where the person who was caught with drugs in his car after a stop for a broken taillight and in the course of interrogating the driver about the broken taillight, the policeman sees something suspicious, and then conducts a full search. And it is often alleged and may well be true that the reason the policeman stopped the car with the broken taillight was that this car looked suspicious and he thought it might have drugs in it, and we have simply rejected that argument. We've said we're not going to go into the subjective motivation of the individual policeman. So long as he had a valid basis for stopping the car, that's enough.",
       "time": "00:31:40.29"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, why shouldn't that apply in gross, just as it applies with respect to individual traffic stops?",
       "time": "00:32:34.61"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right, so--",
       "time": "00:32:43.57"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But there is cause. You've acknowledged that it is okay to stop to check for driver's licenses.",
       "time": "00:32:46.99"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm assuming they're not going beyond what's allowed. They're only stopping to check... now their real purpose is to find drugs, but they're only stopping the cars as long as it takes to check for driver's licenses.",
       "time": "00:33:05.28"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "While they do that the dog sniffs around the car.",
       "time": "00:33:18.20"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The dog... the dog is not a search under our place.",
       "time": "00:33:27.78"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Or it's a stop. Not just arguably. The Court has said it's correct.",
       "time": "00:33:34.18"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Beyond the scope of what?",
       "time": "00:33:49.87"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I guess a policeman could walk a dog, a sniffing dog down the street, couldn't he? I mean, suppose he did that. There are people stopped, I mean, so it doesn't bother anybody, but he sniffs the dog. I thought probably that was lawful.",
       "time": "00:33:55.64"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I would like you to address that particular point. I'm confused. My characterization, not theirs. But from what Mr. Chinn said, I thought that this was a stop the basic purpose of which was to look for drugs; i.e., if the police had known they weren't going to get... be able to look for drugs, there would have been no stop. From what the Solicitor General said, I thought that my characterization, not hers, that this was a different kind of stop. This was a stop to search for drunk drivers or a stop to search for licenses... unlicensed drivers, and the police would have done it if drugs had had nothing to do with it, and their having done this is like somebody stopping at a red light, and people walk a dog around. Well, there seems to be quite different considerations. So what is this case?",
       "time": "00:34:11.50"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But that isn't my point. My point is, have the police set this up to look for drugs and in the absence of their ability to do that, they wouldn't have set it up, wouldn't have stopped people? Or is it a search that the police set up to look for no licenses and alcohol? And if you had told them you can't look for drugs, they would have done it anyway?",
       "time": "00:35:07.68"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, when you say it's a search to look for drugs, and the Solicitor General says it isn't, it's a search for... how am I going to find out who is right?",
       "time": "00:35:38.89"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Where did they concede that?",
       "time": "00:35:53.79"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And does primary purpose mean in the absence of their ability to do that, they wouldn't have done it; i.e., it was a necessary condition for the stop?",
       "time": "00:35:59.53"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Did the courts below find there were these other purposes in addition?",
       "time": "00:36:20.91"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why can't the city or the state have a multipurpose stop?",
       "time": "00:37:06.40"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I thought counsel here said that there were three purposes for the thing.",
       "time": "00:37:15.15"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What service... at what point do you think the city would have to make that showing?",
       "time": "00:37:34.26"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You mean the city council would have to pass a resolution?",
       "time": "00:37:44.54"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Justifying it at what point? I mean, when it's brought to court, as it was here?",
       "time": "00:37:51.06"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you're not saying they would have to justify it beforehand?",
       "time": "00:37:57.09"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It seems to me in court, the lower court, the District Court they found that there were additional purposes.",
       "time": "00:38:01.86"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Surmised?",
       "time": "00:38:14.35"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But if that was satisfactory for the District Court, are you saying it's clearly erroneous to have found that?",
       "time": "00:38:18.18"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Take an easy case in which there is simply a history in Indianapolis or any other jurisdiction of license roadblock checks, and after 25 years of doing this, suddenly one day a drug sniffing dog appears at the license check. Would you find anything constitutionally suspect in the use of the dog there?",
       "time": "00:38:34.99"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but let's... you're talking about seizure. Let's assume that the dog simply sniffs, if it sniffs at all, during the time in which it takes to look at the license so that there is no... there is no greater imposition upon the driver by the use of the dog. Would that raise a constitutional suspicion?",
       "time": "00:39:10.20"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But in the example that I gave you, the assumption that I was making or implying by the hypo was that the license check remained, in fact, a bona fide license check. It had been so before dogs arrived, it continued to be so after the dog arrived. If you make that assumption, that in fact there is a bona fide license check being made for the ostensible purpose, that of checking licenses, does the addition of the dog raise a constitutional suspicion?",
       "time": "00:40:00.89"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Does it raise it for any other reason than it raises a question as to whether they are still really looking for licenses?",
       "time": "00:40:38.16"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I can understand... I guess I can understand your argument. You say, hey, look, when the dog appears, we all know that they are no longer interested in licenses, they are interested in something else. They are doing just what they are doing here. That argument I can understand. But if you assume, if it were proved, if it were found as a fact by a reviewing court that the license check was still a bona fide purpose, that's where I have trouble with your position.",
       "time": "00:40:47.33"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But the reality of police work is that the police enforce all of the laws. Suppose there were a driver's license checkpoint as stipulated by Justice... hypothesized by Justice Souter, and the police said now we want to add the people, the officers manning this license checkpoint who are experts in drug detection. Would there be something constitutionally suspicious about that?",
       "time": "00:41:24.03"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, but they're trained especially to look at people's eyes and to smell and to look at the kinds of containers they can see in plain view, this is to normal police work.",
       "time": "00:41:57.46"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So then if that's permissible, what's not permissible about adding the dog? Because the dog's more efficient?",
       "time": "00:42:12.32"
     },
@@ -1251,13 +1251,13 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Officers with really sharp noses would be okay? [Laughter]",
       "time": "00:42:23.84"
     },
     {
       "turn": 202,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How about bringing a witness, just bringing a witness to look at somebody stopped at a stoplight? I mean, people do things like this all the time. You stop them for one purpose, but what the policeman does doesn't hurt them in any way whatsoever. It's just a way of getting a witness or somebody to... you're pursuing this line of I guess assuming that this was a stop that was done for a legitimate other purpose, and I'm having trouble following that assumption.",
       "time": "00:42:27.06"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What does secondary mean? To me secondary meant that they never would have done this thing if it weren't for the primary purpose. That's what I thought it was and now I'm a little mixed up about it.",
       "time": "00:43:12.30"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Do they have any other places in the city where they stop people for checking for licenses?",
       "time": "00:43:31.54"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Do they have any other places in the city in the same way where they stop people for drunk driving with these same kinds of checks?",
       "time": "00:43:38.23"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Falk, I don't understand why it makes any difference whether the city would have done this otherwise. Why does it make any difference in this case? It surely makes no difference when a defendant who has been convicted of a drug offense comes in and says, the policeman who stopped my car, oh, yes, he stopped it because of a defective brake light, but that's not really what he was after. And we don't inquire as to whether that's really what he was after, and I frankly personally believe that very often that isn't what he was really after, that he stopped this suspicious looking car which happened to have a defective brake light. Now, we just don't listen to that argument. We don't care what the primary subjective purpose was. Why should we care here so long as they have authority to stop for the driver's licenses and one of the purposes of the stop is driver's licenses, what difference does it make that they have another motive?",
       "time": "00:43:47.14"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Falk, I want to get into this same area with you because as I read Sitz and Martinez-Fuerte, this Court didn't look at purpose at all. We have spent most of the morning here talking about purpose, what was the purpose. That wasn't the analysis. The Court just went to balancing. What does the government need and how closely does the checkpoint serve that need? And we totally obviated the need to look for purpose, so I'm not sure that these discussions have helped the analysis that much.",
       "time": "00:44:46.96"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You have no bright line. I read over Martinez-Fuerte twice in the last, and I simply don't find any statement in there that the seizure was primarily regulatory. Can you refer me to language in the case that says that? They ended up arresting the people.",
       "time": "00:45:36.64"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But where does it say in Martinez-Fuerte that the seizure is primarily regulatory?",
       "time": "00:45:59.28"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I asked you about Martinez-Fuerte.",
       "time": "00:46:09.81"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That says it's regulatory?",
       "time": "00:46:14.55"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you're trying to reconcile that decision as a piece of a tapestry with the ones that had to do, for example, with the fire investigation when this Court did make something of a purpose line. They said if you want to find out how this fire got started, that's regulatory and it's okay.",
       "time": "00:46:15.84"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if you're trying to find the arsonist, it's not okay.",
       "time": "00:46:39.24"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But I want to go back to the rationale that I think you started to add up right there for the reason for the purpose inquiry. If I understood what you were saying is, I think you were implying that in cases like Martinez-Fuerte and the regular driver's checks, the question of purpose was not in the case; that where purpose has come into the case, as Justice Ginsburg suggested, we have... we have said that in fact purpose is a crucial inquiry. And I understood you to be starting to say that if you don't make it a crucial inquiry, your categories simply collapse and there is no way, in effect, to stop, as you said in your... there is no way to stop short of pedestrian search. Can you elaborate on that?",
       "time": "00:46:49.36"
     },
@@ -1413,13 +1413,13 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But we have recognized special needs as an exception to the individualized suspicion, and we've recognized those special needs in the automobile context. And it is certainly arguable, I guess, that because the state licen... or the... because the state licenses the driver and because motor vehicles are deadly weapons potentially that the state has a special need of assuring that the people who are driving are licensed and are not impaired by drugs or alcohol. And maybe there's a special need there that can be met by occasional checkpoints. Is that unreasonable?",
       "time": "00:48:45.39"
     },
     {
       "turn": 229,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And if I may add, this is exactly what the Court said, this is what Justice O'Connor's point is. This is exactly what the Court said in Sitz. We don't need Martinez-Fuerte, not because there is a difference between a regulatory stop and a stop for probable cause, but because it's a car involved. That's the way I read Sitz.",
       "time": "00:49:26.88"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That doesn't translate to pedestrians at all. We are dealing with licensing somebody to use this potentially lethal vehicle.",
       "time": "00:49:56.60"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right. Then it boils down to whether there is any increase in intrusion by having the dog sniff.",
       "time": "00:50:19.11"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know you say yes, but until I heard the Solicitor General, frankly, I thought that just like the first of the cases you're talking about was an immigration case and the second case was a drunk search. This was a drug search.",
       "time": "00:50:33.67"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The lower courts have treated it this way.",
       "time": "00:50:50.76"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Indianapolis had said any other purpose was secondary.",
       "time": "00:50:53.19"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now suddenly since the Solicitor General argued, I think there is a new premise reaching in... reaching in. This is not a drug search case. This is a drunk search plus a dog. Now, that's quite a different thing.",
       "time": "00:50:56.42"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And because of that issue, I think it's important to get clear on what it is, and if we're treating it as a drug case, it's one thing. Drunk case plus a dog, it's another. So in your last answer, you accepted the characterization. The second characterization. And I want to be sure what you think about that and why I take it you think it should be the first characterization, not the second.",
       "time": "00:51:12.60"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So what is wrong about the city saying, look, we have a right to stop people, to look at their licenses? Police forces do this all the time in Fairfax County. They stop to make sure you paid your vehicle tax. Why don't we do that, and in the course of doing it have a dog sniff around the car? In fact, their primary purpose may be to have the dog sniff around the car, but they are conducting a stop that is a perfectly legitimate stop, and we don't look into purpose.",
       "time": "00:52:08.61"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I'm not... I'm not assuming a mixed motive. I'm hypothesizing that they wanted to get people carrying drugs, and the means of doing it, they said we have a perfect right to stop cars in order to look at licenses, and why don't we do that, and while the cars are stopped, send a dog around the car. What's wrong with that?",
       "time": "00:52:44.65"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, it isn't a criminal investigatory seizure. It's a seizure to look at their licenses.",
       "time": "00:53:06.46"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but this comes back to your purpose argument. You're basically saying that Justice Scalia's premise cannot be accepted in those circumstances.",
       "time": "00:53:14.45"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And you're saying that because purpose is crucial, we characterize it this way as the drug search.",
       "time": "00:53:21.97"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But the tough question, and I think this is consistent with his question, what if we assume, it is found as a fact by the reviewing court that the license check or the registration check is, in fact, a genuine, bona fide purchase... purpose, and they simply add the dog? They're saying, look, if we're stopping them for this legitimate purpose anyway, why not check for this, too? Why not let the dog go around?",
       "time": "00:53:28.08"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why does the dog taint the search in that case?",
       "time": "00:53:59.49"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And is the reason of the beyond the scope criterion essentially a slippery slope reason? Are you, in effect, saying that my premise is really an unsupportable premise? Because if you accept that premise, everybody's going to wink and say, we're just checking for licenses, and we happen to have this dog here, and... and that the... that the premise, in fact, will never... or will... the threat that the premise will not be true, that it will not be a bona fide purpose is just too great, and that's why you don't let the dog--",
       "time": "00:54:15.30"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Oh, I realize that. I'm pursuing... I'm just pursuing the limits of your argument as Justice Scalia--",
       "time": "00:54:53.28"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Would you say stopping for driver's license, a man who doesn't have a driver's license is not a criminal investigatory purpose?",
       "time": "00:55:04.51"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Deemed by whom?",
       "time": "00:55:14.33"
     },
@@ -1647,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, there's also a presumption you've committed a crime.",
       "time": "00:55:26.41"
     },
@@ -1659,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you want us to use the Von Raab analysis and in Sitz we said when you have automobiles you don't, you use the Martinez-Fuerte analysis.",
       "time": "00:55:39.33"
     },
@@ -1671,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Would you allow a dog in a Martinez-Fuerte stop?",
       "time": "00:56:12.54"
     },
@@ -1683,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me that you're really arguing that there's a difference between pretext when it's an individual officer acting and pretext when it's a regulatory program. That's the heart of your case.",
       "time": "00:56:29.92"
     },
@@ -1695,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's a word motive instead of pretext.",
       "time": "00:56:45.86"
     },
@@ -1707,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And what's the danger that you perceive in making the distinction between the individual and the programmatic? Why do you make that distinction? Why do you say there can't be a programmatic rem?",
       "time": "00:57:03.36"
     },
@@ -1719,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Falk, I asked Miss Millett earlier whether the dogs ever took longer than the license check, and she said no, that the license check takes three to five minutes, and the dog's done by the time the license check... do you agree with that?",
       "time": "00:57:27.09"
     },
@@ -1731,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Falk. Mr. Chinn, you have two minutes remaining.",
       "time": "00:58:40.86"
     },
@@ -1743,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And do you ever do other similar traffic, any registration checks without the drugs?",
       "time": "00:59:22.69"
     },
@@ -1755,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How was it advertised to the public? I forgot what those signs were. I know there was a sign that said canine, but what was the other sign? Wasn't it drug checkpoint ahead?",
       "time": "00:59:45.05"
     },
@@ -1767,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What is your... what is your take on whether... whether you have to wait after your driver's license has been checked for the dog to complete sniffing? Do we know about that?",
       "time": "01:00:07.63"
     },
@@ -1779,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you all. Thank you, Mr. Chinn. The case is submitted.",
       "time": "01:00:36.77"
     }

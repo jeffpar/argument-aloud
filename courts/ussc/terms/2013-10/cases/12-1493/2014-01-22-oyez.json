@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2013/12-1493/20140122a_12-1493.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD D DIETZ",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOSEPH R. PALMORE",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument next in Case 12-1493, Abramski v. United States. Mr. Dietz?",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What would happen if two people walk into the gun store, one person hands the money to the other and says, buy me that gun?",
       "time": "00:00:56.60"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Is that not actionable, according to your theory?",
       "time": "00:01:08.83"
     },
@@ -83,13 +83,13 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What's -- what's truthful about saying you're the buyer--",
       "time": "00:01:30.62"
     },
     {
       "turn": 8,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Please finish what you were saying. I -- I didn't understand what your point was.",
       "time": "00:01:34.55"
     },
@@ -101,7 +101,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I'm sorry. So you're saying that in that case, the gun dealer runs the background check on the person who hands the gun dealer the credit card as opposed to the person who will be the actual recipient of the gun? Is that what you're saying the statute requires?",
       "time": "00:02:07.40"
     },
@@ -113,7 +113,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, in the gift -- in the gift situation. But Congress requires certain information from the buyer, whatever that means; right?",
       "time": "00:02:34.41"
     },
@@ -125,7 +125,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "The -- the dealer has to record the name of the buyer; right?",
       "time": "00:02:41.62"
     },
@@ -137,7 +137,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And the address of the buyer?",
       "time": "00:02:45.59"
     },
@@ -149,7 +149,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And do an instant check on the buyer?",
       "time": "00:02:48.48"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Now, why would -- why would Congress have wanted those things with respect to the person who was just the straw purchaser and not the person -- the person who's actually going to acquire the weapon?",
       "time": "00:02:51.51"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Why wouldn't they be concerned about the starting point? Let's say there's a man, Mr. Straw, and he holds himself out as a gun buyer, puts, you know, a website, creates a website. He puts something in the Yellow Pages under \"Straw Man\". And he says: You want to acquire a gun and you don't want the dealer to record your name and you don't want to have an instant check on you, you come to me. And so these people come to him and whenever they do, he goes to Joe's gun shop and -- with the other person. He says, I want to buy a gun, but this fellow with me is going to do all the talking. So the guy who's with him talks with Joe about different types of guns, costs and everything. After that's done, the person who's done all the talking says, now, my friend, Mr. Straw, is going to buy this gun. He gives Mr. Straw the money, Mr. Straw buys the gun, and the dealer writes down Mr. Straw's name for the fifteenth time that month, his address, does another instant check on it. What sense does that make?",
       "time": "00:03:24.72"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I suppose that your answer to what sense it makes is that was the compromise, that there was strong opposition to any gun control law, and the condition was you get the buyer and you don't make the buyer promise not to give it to somebody else. He could immediately give it to somebody who's unqualified to own the gun, couldn't he? Would that be a violation?",
       "time": "00:04:46.18"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about somebody, somebody who is qualified to own a firearm? Can I take a firearm that I own and say, you know, it's yours?",
       "time": "00:05:34.24"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Don't have to register it? I don't have to go through a firearm dealer, right? It's my gun and I can give it to somebody else who's qualified.",
       "time": "00:05:47.05"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you're never going to know who the end user is once the gun is sold, whether you take the, you know, the straw buyer's name or the -- or the other person's name or both. You don't know where the gun is going to end up, do you?",
       "time": "00:06:06.73"
     },
@@ -233,19 +233,19 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Language matters in a statute. I mean, I do believe that. And here the relevant language seems to me, what is material to the government says -- is the statute about selling or delivering. Now, did this person -- was he the buyer, your client? Was he somebody that they sold or delivered it to? Well, he's a straw. A straw purchaser is someone who doesn't purchase. The person who purchases is the person who uses the straw. Now, you can't say that about a giver, a benefactor is -- the person who's the beneficiary of the benefactor is not the purchaser. But the straw purchaser is not the purchaser. And it comes from \"straw bail\" where someone else put up the bail and it was called straw because the people who made a career of that used to wear straw in their shoes. Interesting. But in terms of -- in terms of this case, the straw--",
       "time": "00:06:24.81"
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He made that up. [Laughter]",
       "time": "00:07:32.57"
     },
     {
       "turn": 34,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--No, I didn't. I thought it came from the Wizard of Oz, but it doesn't-- [Laughter] The fact is that is where it comes from. I think in every legal context it means someone who is not the real. So who is the real? In this case it is the person for whom the straw purchased. So we fit that within the language. We can't fit the beneficiary of a gift within the language and that's the reason for the distinction, and so why not do it that way?",
       "time": "00:07:34.84"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "You still have not explained what purpose is served by obtaining the name of the straw purchaser and doing an instant check on the straw purchaser. You said that it allows the tracing of the weapon, but that's not going to be true in the case of a straw purchaser, because the person, the straw purchaser, isn't necessarily and probably in the vast majority of cases isn't going to get the name or any information about the actual recipient. That's the whole purpose of having a straw purchaser. So then what purpose is served by this? It's just meaningless.",
       "time": "00:08:46.54"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So they find the gun dealer and the gun dealer says, I sold it to Mr. Straw. And then they go to Mr. Straw and Mr. Straw said: My client took it. Okay, who's your client? I have no idea. He came into my store. He contacted me. I didn't ask his name. He didn't give me his name. And that's the end of it. So no purpose is served by putting down the name, the address, doing the check on the straw purchaser.",
       "time": "00:09:46.08"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, what you're saying is they did a meaningless thing. That was the compromise. They would do something that's utterly meaningless.",
       "time": "00:10:15.27"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And in some cases they can track it all the way. In this case, unlike the hypothetical that Justice Alito gave you, if they went to the straw, to the straw purchaser, he would say: Oh, I actually bought it from my uncle. And he'd give the uncle's name, and then the uncle would say, you know, where else the firearm went from him.",
       "time": "00:10:57.69"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your position is that this is not a material misstatement; is that correct?",
       "time": "00:11:29.83"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why isn't it material in light of the fact that it was a question that was on the government form that was promulgated, that was directed by regulations?",
       "time": "00:11:37.11"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Dietz, can we go back to the question that Justice Alito raised. The primary object of this statute is to keep guns out of hands of felons, of people with mental illness and so forth. Now, it's absolutely true, as you have said, that Congress didn't do everything it could have to achieve that result, right? That there are many kinds of resales that are allowable, that there are gifts that are allowable. It's one thing to say that. It's another thing to say that at the initial point of sale, which is where the entire system is set up, right, with the gun dealer doing the automatic checks, that at that initial point of sale, which is the centerpiece of this statute, that we will -- that we will essentially disregard fronts, that we -- you know, that we don't care that the person standing at the counter is a front. I mean, that goes far beyond the other kinds of resale possibilities that you're talking about. And I guess what I want to know is why you think a Congress that was geared towards this object of keeping guns out of the hands of dangerous people and set up a mechanism that had the gun seller be the kind of enforcer, at the point of sale, would have thought, oh, it's fine if a front, if a straw walks in the door.",
       "time": "00:12:45.44"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "In -- in the situation that Justice Alito hypothesized of the person who's doing this several times a month and has the ad in the Yellow Pages, is that -- is that person subject to regulation as a dealer?",
       "time": "00:15:28.77"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But this -- this family member, the uncle, residing in Pennsylvania, he could not have purchased that gun in Virginia, isn't that right, because he's a nonresident?",
       "time": "00:16:12.25"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But wouldn't he -- wouldn't he have to comply with the 552(c), which says how somebody who doesn't show up in person can purchase a gun? And none of those requirements were satisfied here. So it seems to me that what you're asking is just an end run around what Congress said. If you're out of State and you want to buy it, this is how you have to do it.",
       "time": "00:16:46.11"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What is the government's -- I guess I should ask the government, but does the government contend that there are two buyers now? Both -- is the real buyer the person who sends in the straw man so that it's only his information that you have to give? Or are there two buyers?",
       "time": "00:18:39.45"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--What -- what position are you taking here? Are you arguing that it doesn't matter whether it's a straw purchaser or not; a buyer is a buyer is a buyer? It's the person who puts the money down on the counter? Or are you arguing, as a -- as a backup or as your main point -- I don't understand -- that if it's a lawful buyer using a straw man, that that's not actionable?",
       "time": "00:19:28.50"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Even if their intent is to sell it to a prohibited person?",
       "time": "00:20:06.81"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If we disagree with you on the first point about the straw purchaser, would you -- would you lose on the grounds that Mr. Abramski's uncle could not have lawfully purchased the gun at that store because he wasn't a resident of the State?",
       "time": "00:20:28.72"
     },
@@ -425,19 +425,19 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But he couldn't have taken possession of it in -- in Pennsylvania.",
       "time": "00:21:03.01"
     },
     {
       "turn": 65,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In Virginia.",
       "time": "00:21:06.02"
     },
     {
       "turn": 66,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "In Virginia.",
       "time": "00:21:06.83"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But would it have been a lawful sale if the gun had been delivered to him on the spot?",
       "time": "00:21:36.59"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Yes. He could not -- Mr. Abramski is out of the picture and the uncle goes in, buys the gun, puts down a Pennsylvania address. The dealer gives him the gun and walks out of the store. That -- would that be a lawful sale?",
       "time": "00:21:42.57"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In describing what happened here, you -- you -- you said that Abramski went in and then went to Pennsylvania and gave the gun to his uncle. That's not quite correct. He -- he transferred it to him for consideration. I had thought, and this was -- goes back to Justice Scalia's question -- question about if there's one buyer here or two. I had thought that it might be possible that you can -- to construct a case where Abramski tells his uncle, I'm going to buy the gun, and then I'm going to sell it to you, and I'm going to sell it to you in Pennsylvania at a gun dealer's store so we can fill out the necessary forms. Would the government then have objected to what happened here?",
       "time": "00:22:14.30"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I mean, we can ask the government--",
       "time": "00:23:01.81"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--as Justice Scalia indicates, but under -- as you understand their case.",
       "time": "00:23:03.74"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could -- could you address the other -- the other point here, which is the one I have more trouble with, to tell you the truth, Count 2?",
       "time": "00:23:32.42"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can you lie in -- in answering questions that the government has no technical right to answer? I mean, let's assume I agree with you that, in fact, this information was -- the government was not authorized to obtain this information, and therefore, it was not required to be kept. But nonetheless they asked it, and your client didn't just say, I won't answer. He lied. Now, can you -- can you lie, so long as the question is improper?",
       "time": "00:24:49.43"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Palmore.",
       "time": "00:26:00.61"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As to the first, are there two buyers in your view?",
       "time": "00:26:56.07"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what does -- what does the person who's buying for somebody else -- he has to provide both names or just the name of the real buyer?",
       "time": "00:27:07.54"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And both of them had to take possession, right?",
       "time": "00:27:45.08"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's not the case here. The person who paid took possession, was authorized to take position.",
       "time": "00:27:50.16"
     },
@@ -593,13 +593,13 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Where in this -- I'm sorry.",
       "time": "00:28:09.34"
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So there are two buyers and both of them have to be on the form.",
       "time": "00:28:10.45"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I can understand you saying the real buyer is the person who put up the money.",
       "time": "00:28:17.12"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Where in the Act does -- is the basis for the requirement on the form? The form says, you know, if you're not the actual, you're buying for somebody else. Where is that in the statute?",
       "time": "00:28:34.85"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Its current one. It used to have a different one.",
       "time": "00:28:52.74"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "(A)(6)?",
       "time": "00:29:10.30"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's awfully broad. It isn't the language, I think. The statute, it has to be material to the lawfulness of the sale. Now, we look to see what section is it material to, and you say in your brief it's material to the section that says -- you have two of them, but they come to the same thing -- selling or delivering any firearm to any person. All right. Now, he says did they sell or deliver this firearm to what you call the real purchaser. No. They sold or delivered it to the straw, and that's the end of the matter. And at least the statute is open to this interpretation, and it's a criminal statute. And besides, the ATF for a long time interpreted it that way. So what we should do is interpret it strictly. Now, that's I think the basis of their argument if I understand it. And so you have to get those words \"sale\" and \"deliver\" and explain how in a criminal statute they apply to what you're calling the real purchaser.",
       "time": "00:30:29.16"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But you also quote \"material\", the need for it to be material to the lawful ness of the sale.",
       "time": "00:31:50.44"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You seem to concede that in the brief. It has to be material, and there are two sections and both come to the same thing, which is what I said.",
       "time": "00:31:55.65"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If he was -- if he then -- if he is the actual purchaser, then he falls within the term of a person to whom the firearm was sold or delivered. That's your argument.",
       "time": "00:32:13.04"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, there's no question about that.",
       "time": "00:32:26.07"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that -- why is that any more horrible than the notion that as soon as I buy it I walk out of the store and I meet this guy in the parking lot, he says: Hey, that's a nifty looking gun there. How much did you pay for it? He says: You know, I paid 600 dollars. I'll give you 700. Oh, it's yours. Right? I can hand it to him, can't I?",
       "time": "00:33:05.50"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So the notion that the gun would somehow get into the hands of somebody who, you know, who wasn't registered or who couldn't buy it himself, that's going to happen any way. What you assert does not stop that problem.",
       "time": "00:33:25.49"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Palmore, when the Agency changed its view in 1994, there was no change in the statutory text, was there?",
       "time": "00:34:13.62"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And at that time, the interpretation was that you committed the offense if you sold -- if the person, the true buyer, was an unlawful -- a person to whom firearms could not be sold. But if you -- if the ultimate possessor was a lawful possessor, then there was no liability. So the -- the statute has to be open, at least, to either interpretation, no change in the words. The Agency read it one way, and then later changed its mind and read it the other way.",
       "time": "00:34:22.91"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah, but still -- look, what I thought was a very good argument on your side is exactly what I said. The narrow interpretation would also apply to a straw man who buys a gun for Al Capone. And so this -- this part of the statute would be virtually worthless. Their response to that is don't worry about that. There are plenty of other provisions that will take care of that. Are there? And if it's so obvious about the Al Capone, why did the ATF decide it their way for 20 years? I mean, how -- how did they get into that?",
       "time": "00:35:31.01"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I think it's very -- it's very problematic to talk about the overriding purpose when you're dealing with a very sensitive compromise. There's, as far as I can tell, nothing in the language of the statute that talks about straw men or actual buyers or anything like that.",
       "time": "00:37:27.15"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but there wasn't -- there wasn't a strong lobby in Congress saying we're the group that supports Ponzi schemes, so maybe it makes more sense to have a broad construction of that provision. This language is fought over tooth and nail by people on the, you know, gun control side and the gun ownership side. And to say -- you look at it and say well, the purpose is this, even though there's no words in the statute that have anything to do with straw purchasers, I think, is very problematic.",
       "time": "00:37:49.67"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, you agree that in Justice Alito's example, that person is regulated as a gun dealer, right?",
       "time": "00:38:25.96"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The Yellow Pages.",
       "time": "00:38:35.98"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "They're putting an ad--",
       "time": "00:38:37.37"
     },
@@ -839,13 +839,13 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, I meant my hypothetical. So he doesn't have -- he doesn't put it in the Yellow Pages and he doesn't put it on the Internet. He just hangs around in the parking lot at Joe's to accommodate people who -- and Joe's is near the border, and he wants to accommodate people who may take it -- who wish to employ him as a straw purchaser.",
       "time": "00:38:40.09"
     },
     {
       "turn": 134,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You wouldn't think of prosecuting him, would you? [Laughter]",
       "time": "00:38:59.20"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Before you got on--",
       "time": "00:39:21.74"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I wanted to get back to the Al Capone hypothetical. As I understand Petitioner's case here, I don't think he's asserting that if Al Capone, if -- if he intended to transfer it to Al Capone, that his statement would not have been material. His position is, since I intended to transfer it to somebody who could lawfully possess it, the statement was immaterial.",
       "time": "00:39:23.35"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, Mr. Palmore, is that right? I thought that Mr. Dietz's argument went beyond what Justice Scalia just said, that for Mr. Dietz, regarding -- you can -- he might be prosecuted under another statute for selling something to somebody he knows is Al Capone, but that he was -- you know, because he was the guy at the counter and he was buying for somebody else, as to this question of material representation, it does not matter whether the ultimate transferee was Al Capone or somebody else.",
       "time": "00:40:03.10"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I think he said that just right in here.",
       "time": "00:40:45.92"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Now, this -- this -- now you're talking about the second question.",
       "time": "00:42:46.64"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And the provision that makes the -- the information that's required, makes it material -- correct me if I'm wrong -- is 922(b)(5), right? That's what requires--",
       "time": "00:42:48.71"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Okay. Now, all that says is you have to keep the information of the person to whom you're transferring the firearm. So your argument has to be, when somebody sees the person, they realize that that means not somebody who's buying it for somebody else, right?",
       "time": "00:43:04.07"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes. I know. If I assume -- if I assume you're right, then you're right.",
       "time": "00:43:38.59"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Because then 922(b)(5) says, but the fact that it's -- has to be the actual person who ends up with the gun.",
       "time": "00:43:48.47"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, 922--",
       "time": "00:44:16.01"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Where -- where is that?",
       "time": "00:44:20.13"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that on the appendix to your brief?",
       "time": "00:44:24.01"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "If you're right on Question 1, 922(t) just makes this a slam dunk on Question 2. And there's a question about whether you are right on Question 1. But if you are, (t) says, look, the dealer is supposed to check the transferee, right? And if we assume that when Congress says \"the transferee\", it's the real transferee, not the fake transferee, the dealer is supposed to check the real transferee. So what does the dealer think is material? I mean, the question is: What does a reasonable dealer think is material? I better know who you are so I can check you. That's material.",
       "time": "00:44:45.77"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I can't look at all these things because they are not in your brief. I really -- I really resent, especially in statutory cases, not having the statute in front of us. I shouldn't have to flip through your -- your brief to see what page you cite a little snippet from one section on.",
       "time": "00:45:28.95"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, it's not just the structure -- it's not just the overriding purpose. 922(t) says that the dealer is supposed to check the transferee to find out whether the transferee has a criminal record, to find out whether the transferee has mental illness. So who does he check? Who is the transferee? Well, I need to know who the transferee is to make that check. So, obviously, it's material to know who the transferee is.",
       "time": "00:46:13.90"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But it's going to be the same problem, which is the straw because the transferee, in context, probably refers to the person to whom the dealer transferred the weapon; namely, the buyer. And does it apply, for example, if he knows that the buyer is going to give the -- the weapon to another person? And you will say no. Then he's not the transferee, the other person. You admit that. You say it. And so why is the person to whom -- the one who puts up the cash is going to later transfer the weapon is the same question as to whether he is really the purchaser. I just don't see a difference. And, therefore, I thought -- but you can explain to me why there's a difference. I'd like to know that. And I guess I'd like to bring you back to the -- to that issue and -- and I'd just like to know how the ATF reached the contrary conclusion if it would so undermine the statute.",
       "time": "00:46:48.64"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then what about the donee?",
       "time": "00:48:18.68"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You don't think that crime bosses--",
       "time": "00:48:44.72"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--You don't think crime bosses look at their underlings, pay them a lot of money for whatever they're doing and just say, go get me a gun and give it to me?",
       "time": "00:48:48.20"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why?",
       "time": "00:49:02.58"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could you answer Justice Kennedy's question? Is -- is this all contingent on the intent at the moment? I mean, you had a lovely wrapped case here because you had the money transferred before the purchaser, so there's no question that the intent was to purchase for the uncle. But what about the situation where there's a conversation beforehand that says, I'm going to buy the gun and I'll sell it to you afterwards?",
       "time": "00:49:09.86"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm not sure what you mean. I gave you a hypothetical. What -- what -- why is it a factual--",
       "time": "00:49:54.53"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is a criminal statute. And -- and you're saying that when -- when I buy it and I told somebody I'll sell it to you later, that I am acting as an agent? Wow. It's a criminal statute.",
       "time": "00:50:08.82"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, he's not told that in the statute. He's told that in a form that was quite different from the form that was used before.",
       "time": "00:51:03.72"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "As to whether or not there was a sale, suppose the facts in this case, it was a Glock, I think--",
       "time": "00:51:42.43"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--was -- was delivered, and suddenly the -- Abramski finds that it's a valuable collector's item. There were only two or three of these made, had a special trigger or something, and it's now immensely valuable. Could the uncle insist that it be sold to him for the $700, or for the -- for the agreed price? The $400 thing?",
       "time": "00:51:49.02"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if it isn't -- if it isn't, then there wasn't -- then there -- there was a subsequent sale.",
       "time": "00:52:19.10"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I'm asking about that.",
       "time": "00:52:25.85"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Dietz, you have four minutes.",
       "time": "00:54:21.82"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, if we agreed with you on the -- on the second argument, would the government have to prove that the person to whom the straw purchaser transferred the gun was ineligible or would it be a defense if it was shown that the person was eligible?",
       "time": "00:57:30.52"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But the other purpose that they said this provision has is to get gun dealers to run checks. And you can't run a check if the name isn't there.",
       "time": "00:58:17.61"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes. But the other problem -- we're back to the language. The -- there -- they say your client, you know, falls within the language and you say he doesn't. Is it -- all right. Forget it.",
       "time": "00:58:30.75"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:58:41.44"
     }

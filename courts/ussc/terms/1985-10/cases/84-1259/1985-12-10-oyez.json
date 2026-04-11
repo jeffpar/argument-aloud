@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1259/19851210a_84-1259.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "JANE M. GOOTEE",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ALAN I. HOROWITZ",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Ms. Gootee, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, that was an on the ground inspection?",
       "time": "00:02:10.28"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't the question in the case, whether it had such a duty? You said it ignored this duty, but isn't that the issue?",
       "time": "00:04:09.96"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Gootee, what if the EPA inspector here had been able to go to a nearby hilltop and just look over the fence? Do you think the statute prohibits that?",
       "time": "00:05:25.30"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why is it any different if they fly over the premises?",
       "time": "00:05:40.49"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Okay, so you have no objection to the flying over and taking a look, but to the... your sole objection is to the taking of the photographs?",
       "time": "00:06:01.72"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, would you object to standing on the hillside with a camera?",
       "time": "00:06:34.36"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Or taking pictures from that spot?",
       "time": "00:06:53.62"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And it would be more with a camera from a hillside as well as on a fly-over?",
       "time": "00:07:01.61"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Let's take it that they have one of these... I don't own one, but one of these very... that pick up everything?",
       "time": "00:07:09.53"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Go ahead.",
       "time": "00:07:26.57"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Forgive me. I don't quite understand your answer. If one is equipped with a camera and there is a hilltop and they can photograph from that spot the things that were photographed by the fly-over, would that be objectionable?",
       "time": "00:07:36.98"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, what about an airplane, as we read in here, whether they're accurate or not, stories about the phenomenal accuracy of photography now from three, four miles up. Suppose not directly above the Dow plant but without trespassing on the air space of the Dow plant, pictures are taken from an angle at 12,000, 15,000, 18,000 feet and disclosed everything that was disclosed here. Is that bad?",
       "time": "00:08:14.89"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I mean, it's the taking of the picture, not the invasion of your air space?",
       "time": "00:08:49.73"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you object to any enhancement of to person's normal senses in making an inspection?",
       "time": "00:09:13.96"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What about a case like the following of an automobile by the use of a beeper, which this Court has said was all right under the Fourth Amendment, and yet the police with their natural senses might have lost track of the vehicle they were trying to follow?",
       "time": "00:09:49.85"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Before you go on, may I put another hypothetical that I suspect you will say is difficult. One reads in the media that a satellite flying 100 miles, not 20,000 feet but 100 miles above the Earth can identify a tennis ball on a tennis court. These satellites are up there every day, the Soviet and the American, and if these pictures had been taken by an unfriendly... at 100 miles up, would that make any difference?",
       "time": "00:10:43.48"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "It's really a matter of privilege?",
       "time": "00:11:41.00"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt, just to follow up on Justice Powell's question. You said it doesn't matter if it's 1,000 feet or 100 miles. What if it's 100 feet? What if it's a helicopter?",
       "time": "00:12:09.59"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, the helicopters are not bound by the 1,000 foot regulation. That doesn't apply. It applies to fixed wing aircraft.",
       "time": "00:12:23.52"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it your view that even if you descend low enough so that you see with the naked eye and see the same half-inch pipes? Would that be a violation? And if so, why?",
       "time": "00:12:45.01"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm just directing it at the Fourth Amendment.",
       "time": "00:13:01.89"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what makes it so obvious?",
       "time": "00:13:08.96"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, no. I am suggesting no technology, the naked eye.",
       "time": "00:13:17.07"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh, oh. So is an automobile. I thought you said planes were like automobiles?",
       "time": "00:13:21.92"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I really have some difficulty. You cannot look from helicopters at a low altitude?",
       "time": "00:13:37.90"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But cannot constitutionally? The police are constitutionally disabled from flying around in helicopters at low altitude?",
       "time": "00:13:45.43"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that's because a helicopter is a sophisticated device, is that it, just as though it were a high-powered telescope?",
       "time": "00:14:10.87"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What about catching speeders by following them with a helicopter?",
       "time": "00:14:39.40"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume there at 1:00 o'clock counsel.",
       "time": "00:14:50.51"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You may proceed.",
       "time": "00:15:10.57"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What did you say photo 3 was?",
       "time": "00:16:33.04"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What caused the difference in degree between 1 and 2 on the one hand and 3 on the other? Is it the level of flight of the airplane, the type of camera, or--",
       "time": "00:17:32.68"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, now does that have Fourth Amendment implications, whether it's an oblique angle or a straight down--",
       "time": "00:18:00.43"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--If you're just talking about whether or not they serve a law enforcement purpose, I would think that photographs 1 and 2 would serve that purpose better than photograph 3.",
       "time": "00:18:24.73"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You are saying that isn't a law enforcement purpose?",
       "time": "00:18:40.93"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So that, the test then is what they're going to be looking for in the way of emissions that are happening that day or not?",
       "time": "00:18:58.47"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Ms. Gootee, may I ask you in that connection, what would Dow Chemical Company do if one of its competitors, using a private aircraft, took the same pictures? Would you bring a trespass action against it, or charge the competitor with criminal intrusion, entering or breaking of a private residence, or what?",
       "time": "00:19:54.97"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the government didn't make use of the photos in anyway that constitutes a violation of laws concerning trade secrets, did it?",
       "time": "00:21:00.55"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Has there been any use made of the photos by the government at all, to your knowledge?",
       "time": "00:21:25.78"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Ms. Gootee, do I understand you that if you can see into the plant that's okay, but if you take a picture of what you see, that's wrong?",
       "time": "00:21:40.69"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You are talking... if the exact same spot where that person was standing, and legally, according to your view of it, he couldn't take a picture, or not?",
       "time": "00:22:04.06"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't see how you... I'm standing and I can see, and I point a camera and do the exact same thing, that's wrong?",
       "time": "00:22:24.82"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, the harm is the camera?",
       "time": "00:22:42.61"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is that done by the camera?",
       "time": "00:22:52.45"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What is the technology that you are complaining about?",
       "time": "00:22:58.04"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, then what are you complaining about?",
       "time": "00:23:06.96"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you're objecting to the technology?",
       "time": "00:23:13.78"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "A camera is not a gun.",
       "time": "00:23:26.23"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's exactly why I don't understand you.",
       "time": "00:23:31.33"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't know how far you cooperated. When they asked to come in, you told them no.",
       "time": "00:23:44.69"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I don't call that cooperating.",
       "time": "00:23:53.61"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a couple of questions. Supposing the problem were either emissions from a stack or water or some chemical being discharged eventually into water pollution, and if you couldn't see it except by flying over the plant, but if you do fly over the plant you could see a discoloration of water or maybe some smoke coming out of a very tiny smokestack. Would it be illegal and unconstitutional under your view for the government to fly over and just look and see if that was happening?",
       "time": "00:24:27.08"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even your plant, with all... suppose you had to fly at a very low altitude to do that, that they get permission from the FAA or something so that they can fly low enough to take a look. Would it still be all right?",
       "time": "00:24:56.50"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what do you mean by \"extraordinary\"?",
       "time": "00:25:18.08"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Forget the statute for a minute. I'm just talking about the constitutional question. But supposing they can fly at 1,000 feet, then, and they could not be sure with the naked eye but they could take a picture just like you did and then magnify the picture and look at it. That's bad, you say?",
       "time": "00:25:33.27"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "At 1,000 feet, they look down with the naked eye, they can't really detect the coloration of the water very well but they take a picture thinking they can study it, you know, have it enlarged and look at it more closely and then they can figure out... that's unconstitutional?",
       "time": "00:25:49.38"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It shows... it enables them to make darned sure that there's some discoloration of the water. What about smoke coming out of the smokestack. They couldn't quite see it with the naked eye, it was a little foggy or something, but they take a picture and they study it and they find out... is that unconstitutional?",
       "time": "00:26:06.73"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you don't have any control over the air space?",
       "time": "00:26:24.07"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think it's wrong to fly around in airplanes looking for emissions that pollute the air?",
       "time": "00:27:06.55"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, are you suggesting that you would give the government everything that they got by these pictures if they asked for it?",
       "time": "00:27:30.58"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Horowitz.",
       "time": "00:28:12.16"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Horowitz, tell me if we can sort of sharpen the focus of this case. My understanding is that Dow is not arguing that the Constitution necessarily would forbid an overflight just to take a picture of a beautiful plant. I understand its position is that it has trade secrets that cannot be covered under a roof because of the nature of the secret. I have no idea what that is. So, if you would focus your attention on--",
       "time": "00:29:36.91"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--On a company protecting a trade secret, and what... and when there is no other option but an overflight, what is the government's answer to that?",
       "time": "00:30:11.09"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "If they are trade secrets that cannot be covered up--",
       "time": "00:30:55.58"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But what if the government... I know it's not true in this case, but what if there were a secret that the government was interested in acquiring, went over and took a picture and then went ahead and developed its own plant to make whatever the chemical might be or something. Could you claim that was a seizure?",
       "time": "00:33:10.20"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "It wouldn't have been business of the government to obtain an administrative warrant, would it really?",
       "time": "00:37:12.41"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "It wouldn't have been burdensome to have obtained, as you did in Barlow, an administrative warrant?",
       "time": "00:37:18.51"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "This whole area is very puzzling in light of the scientific development. Think about all the buildings we now see that are made entirely of glass. I'm glad I don't live in one of them, but I suppose with the right sort of photography you could take pictures of whatever you wanted inside those buildings if they were anywhere near the windows, and I wonder if that would involve... implicate the Fourth Amendment? I'm not talking about a private home. I'm talking about--",
       "time": "00:37:43.73"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Mr. Horowitz, do you think the standard should be the same in flying over an industrial complex of this type as it should for the police to fly over someone's residential back yard and take photographs? Is it really the same standard?",
       "time": "00:39:39.34"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I go back to Justice Powell's example. Supposing it were a glass office building and you could fly over and you had... I don't know if techniques are this sophisticated or not, but you could take pictures through the glass walls or roof that were sufficiently detailed to read documents on a desk. Any objection to that?",
       "time": "00:41:49.22"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm a little puzzled on that, on the Dow case. It seems to me you've agreed that they have a privacy interest in keeping people out at ground level, from seeing what goes on within, and surely there could be things that happen in the plant that they would like to have the same degree of privacy--",
       "time": "00:43:30.17"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But if 99 and 99 one-hundredths of the passengers in airplanes, and pilots who flew over really couldn't see anything, it's only the one case out of a million in which you take a sophisticated camera and take a picture, would you say they have no expectation that in general their privacy would be respected? Isn't that the fact, that it's the unusual case where somebody can look at the kind of stuff they see here?",
       "time": "00:44:02.65"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Would it be fair to say that they are interesting in protecting a trade secret and they think the trade secret would not be revealed from someone taking a photograph from the hillside?",
       "time": "00:46:20.88"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "I appreciate the facts can vary widely. My understanding was that this Dow facility was built on what, a 2,000 acre plot... a 2,000 acre tract of land? I don't know what part of that was covered by the plant, but the record indicates that it would not have been feasible to protect it. I'm not at all sure that you're wrong on the Fourth Amendment. I just think we ought to stick to what I understand the facts to be, and that is that this company was trying to protect a trade secret that couldn't be protected if sophisticated equipment was used by airplanes flying over it for the purpose of detecting the secret. Now, you've got a pretty good answer, I think, if I understand it, when you say all the EPA was interested in was the emissions from a smokestack and whatever else you took was incidental, is that correct?",
       "time": "00:46:41.29"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We had a couple of cases a couple of years ago. I can't think of the name of them now, from Tennessee involving Stouffer where Stouffer was complaining that they didn't want EPA to contract out an inspection because they thought there was a danger of losing some of their trade secrets. So, you know, was there any case of contracting out here on the part of EPA, or was it all EPA employees who did the--",
       "time": "00:48:44.94"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Mr. Horowitz, you seem to agree that if there were space age technology used, it might be so unusual that it would be unconstitutional. Does that mean that as we get more accustomed to more sophisticated technology, it would no longer be objectionable so that the constitutional rule will change as scientific developments increase?",
       "time": "00:51:03.24"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Perhaps if that's the rule, the government could do a very good job of educating everybody as to their great capacity for sophisticated investigation and people would realize that they'd have to just take those risks.",
       "time": "00:51:56.68"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Horowitz, what I'm now going to ask you is immaterial to the case, really, but you were talking about this garden variety type camera. There is a footnote in the district court brief that says the camera cost $20,000. That's rather special, isn't it?",
       "time": "00:53:15.89"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Could that identify a pipe one-half an inch in diameter? I have a 35 millimeter camera and I--",
       "time": "00:53:49.60"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, that's a little vice versa from our usual ruling, is that if it doesn't violate the constitution you don't have to get into statutory--",
       "time": "00:55:16.37"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Let me ask you one last question. What's the state of the record, either supporting or contradicting Judge Merrit's statement that the plant is located within the landing pattern of a nearby airport?",
       "time": "00:55:58.80"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further?",
       "time": "00:56:16.26"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think Judge Merritt just made that up?",
       "time": "00:56:32.44"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He flies airplanes, I understand.",
       "time": "00:56:35.49"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How far is it from an airport?",
       "time": "00:56:53.38"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Thanks a lot.",
       "time": "00:56:58.17"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:58:00.89"
     }

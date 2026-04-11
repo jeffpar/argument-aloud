@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1998/97-303/19981130a_97-303.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES W. COLBERT, III",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "G. ROBERT BLAKEY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 97-303... spectators are cautioned to remain quiet until you leave the courtroom. The Court remains in session. Do not talk until you get outside. Humana Inc, v. Mary Forsyth. Mr. Colbert.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, how do you say we should look at the level of conflict between Federal and State law to determine impairment? I mean, one way to look at this is that the Federal RICO law gives a remedy that is not precluded by State law, and that may be supplemental but doesn't impair the State scheme.",
       "time": "00:03:12.00"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But I thought the law didn't commute punitive damages which have no lid and could be higher than treble damages.",
       "time": "00:04:16.57"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I can understand if Nevada had passed some statutory provision in expressing its intent that its State remedies be exclusive, that this would be an impairment, but absent that, it isn't so clear to me that allowing the Federal remedy is an impairment.",
       "time": "00:04:54.26"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it doesn't have to, but when it's enacting its own laws it can certainly make it clear. In the meantime, how is it an impairment?",
       "time": "00:05:28.78"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, the obvious thing would be much simpler. I mean, the obvious thing if you didn't know anything about it, you'd say, well, this Court held that insurance was interstate commerce. Surprise, surprise. And at that point Congress is worried that it might have a whole lot of laws out there that affect interstate commerce, and it doesn't want those laws to affect insurance. It doesn't want, in other words, to be taken by surprise.",
       "time": "00:05:57.77"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So Congress simply says, look all these laws out there that we've passed, general laws affecting interstate commerce, all right, they don't preempt State insurance laws unless we specifically said so by directing limited insurance, end of the matter, period, and the only purpose that the word impair is doing there is that sometimes you could in effect impair... sorry. You could in effect preempt the State law by so wrecking it through your preemptive interpretation that although it's still on the books it's severely impaired. In other words, impair does almost nothing, not completely nothing but almost nothing, and now, if that is so, you have the purpose achieved of what you think was ordinary. What's the evidence that what I just said is not the case?",
       "time": "00:06:23.83"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It couldn't have said when it would apply. I don't mean to cut you off, but obviously the tax laws, for example, don't specifically mention insurance, but they apply. I mean, thousands of Federal laws apply to insurance, like everything else, so Congress couldn't have meant just, we have to say specifically when Federal law applies.",
       "time": "00:07:44.61"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Colbert, what is your authority for saying that Nevada does not allow punitive damages where they would threaten the solvency of the insurance company?",
       "time": "00:09:16.92"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is it a case from the Nevada supreme court?",
       "time": "00:09:36.54"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It isn't in your brief?",
       "time": "00:09:47.03"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well--",
       "time": "00:10:05.26"
     },
@@ -195,13 +199,13 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--we'll struggle even harder if we can't find the case. [Laughter]",
       "time": "00:10:06.04"
     },
     {
       "turn": 26,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "As far as your brief presentation is concerned, the Nevada punitive damage provision has no cap and that's it. That's all you put before us. I mean, that's all that you... that is before us on the parties' presentation. Never mind the friends, but the parties have one treble damages, one punitive damages with no cap, no cap in the statute, right?",
       "time": "00:10:08.79"
     },
@@ -213,7 +217,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And your position about the... you keep saying Nevada doesn't have to prove this or that. It's slightly uncomfortable for you to be such a stalwart champion of the State when we have the National Association of Insurance Commissioners, which includes Nevada's commissioner, saying, this is a harmonious provision. This RICO harmonizes with our statute. It doesn't impair it.",
       "time": "00:10:37.38"
     },
@@ -225,7 +229,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Some insurance commissioners would like to have stronger State insurance regulation laws.",
       "time": "00:11:16.56"
     },
@@ -237,7 +241,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but your argument, it seems to me, on impair talks about impairing the business of the insurance companies, not impairing any law. McCarran Ferguson says no act of Congress shall be construed to invalidate, impair or supersede any law enacted by the State.",
       "time": "00:11:43.18"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And what law enacted by Nevada was impaired by this?",
       "time": "00:11:58.83"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And are those laws still rendered unlawful notwithstanding the application of RICO?",
       "time": "00:12:24.44"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well then, how are they impaired?",
       "time": "00:12:30.34"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but the remedies provided in those provisions may be enforced to the letter as far as the Nevada legislature is authorized.",
       "time": "00:12:40.70"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The... in other words, the Nevada laws can be fully enforced, notwithstanding the enforcement of RICO, and that's... for that reason it's hard for me to see how those laws have been impaired.",
       "time": "00:12:50.51"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but even if it did, and they'd say for that reason we've decided there's going to be a cap on all State law causes of action, you may still enforce the State law cause of action 100 percent, and therefore, how is it impaired?",
       "time": "00:13:20.15"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, it's not an idle act. If you sue in the Nevada courts you can only get those damages. It still... it defines the scope of the Nevada remedy, and the Nevada remedy is precisely the same, whether or not RICO is on the books.",
       "time": "00:13:43.93"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh, I'm not sure that's right. I think they also have an interest in protecting policyholders and the general public. It's not just to protect the industry.",
       "time": "00:14:03.44"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 50,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what--",
       "time": "00:15:23.32"
     },
@@ -357,7 +361,7 @@
     },
     {
       "turn": 52,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Mr. Colbert, what if a Nevada trial judge had before him a case like this and the insurance company says, well, the recovery... we don't want you to charge on punitive damages because the recovery might threaten our solvency. What sort of an inquiry would the trial judge make to decide whether or not to allow punitive damages?",
       "time": "00:15:24.63"
     },
@@ -369,7 +373,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If that's so, that's what... the kind of thing that convinces me that impair can't mean impair, or it must mean something quite weak. On your theory, suppose Nevada passes the following law: On good legal advice we've learned that the Federal Government law can't impair ours, and on that assumption we pass a law that all insurance companies will pay a 5 percent corporate tax, and we pick this number 5 because we know they won't have to pay any more Federal tax once we pass this law, because we think for them to pay the Federal business tax, you know, under ordinary corporate tax law, we'll really impair what we're trying to do here, which is to raise 5 percent. And they write it out as much as you want, and every Federal trial judge in Nevada says, that's their purpose all right. This whole law of theirs is wrecked, impaired, if they have to pay under the general Federal law the ordinary corporate tax.",
       "time": "00:16:07.69"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But why not? It's a general law. Why Federal tax law one wit more or less than Federal RICO law?",
       "time": "00:17:10.30"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, yes, they find it does. They say, as you've just said, we don't want to hurt the company's position and how much money it has, and they don't have enough money for both, and we've picked a rate here that just works perfectly and, boy, the company will be down the drain if they have to pay not only our rate, but also the Federal rate. I can draw it out as much as you want. We both could. But that's... once you see that, it seems to me impossible to say that they really meant that word impair literally the way you're taking it.",
       "time": "00:17:21.45"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, well, I'm... you know, I'm not sure you're really urging a different test from the test that your opponents argue, the way you describe it. You're asserting there's a conflict between the Federal Government's providing for treble damages and the State's desire not to have treble damages. I mean, does it make sense to fight this on the battlefield of whether we're going to have a conflict test versus a, quote, impairment test?",
       "time": "00:19:29.21"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can't comply with one law and comply with the other at the same--",
       "time": "00:20:09.59"
     },
@@ -429,7 +433,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well--",
       "time": "00:20:12.15"
     },
@@ -441,7 +445,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You're content to have that as the test, whether you conflict with the policy of the State?",
       "time": "00:20:24.88"
     },
@@ -453,7 +457,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:20:29.62"
     },
@@ -465,7 +469,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You're not saying there's any difference in substance, so does your whole case... do I understand correctly that your whole case turns on the treble damage feature of the Federal law, which you say is absent on the State side?",
       "time": "00:20:51.03"
     },
@@ -477,7 +481,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "No difference in substantive provisions?",
       "time": "00:21:03.54"
     },
@@ -489,7 +493,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And then if you're not right about the punitive damages... suppose we don't have this case that says we won't make the company insolvent. Suppose there's no lid on punitive damages. First, there's treble damages on the Federal side. Then is there an impairment?",
       "time": "00:21:07.37"
     },
@@ -501,7 +505,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So that RICO would be incompatible with any State law that didn't provide for treble damages.",
       "time": "00:22:27.55"
     },
@@ -513,7 +517,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are there other more general Nevada laws that could apply to insurance fraud?",
       "time": "00:22:58.51"
     },
@@ -525,7 +529,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And is that... is the application of that law somehow limited by the special provision governing insurers?",
       "time": "00:23:12.81"
     },
@@ -537,7 +541,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand that, but whether you're contravening some policy set forth in the State insurance law in particular is affected by whether that State insurance law is hermetically sealed, or whether in fact the insurance company is subject to a lot of other State laws anyway.",
       "time": "00:24:04.37"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about violation by the insurance company of that... the common law fraud provision?",
       "time": "00:25:02.14"
     },
@@ -561,7 +565,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would that come under the little RICO?",
       "time": "00:25:10.30"
     },
@@ -573,7 +577,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me give you another--",
       "time": "00:25:22.00"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Supposing your Federal statute authorizes a remedy for a RICO fraud that you can seize the assets of the company that have been used to perpetrate the fraud, but the Nevada statute does not have that remedy in it. Could you enforce the Federal remedy or not?",
       "time": "00:25:23.11"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You could not.",
       "time": "00:25:36.87"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:25:38.39"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, thank you, Mr. Colbert. We'll resume at 1:00. We'll resume the arguments in Number 97-303, Humana, Inc. v. Forsyth. Mr. Blakey.",
       "time": "00:25:40.64"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I didn't get that last point.",
       "time": "00:27:36.97"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The punitive damages exception for driving someone into insolvency does not apply to--",
       "time": "00:27:39.66"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Okay.",
       "time": "00:28:05.47"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 104,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do insurance companies go into ordinary bankruptcy if there's an insolvency proceeding under State law?",
       "time": "00:28:48.88"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, his point would be you would need a bigger insolvency fund, which means you would need higher premiums, and his point would be that the legislature has carefully calculated what a good level of premiums is, and it doesn't include the level necessary to pump up the insolvency fund enough to cover treble damages.",
       "time": "00:29:16.25"
     },
@@ -693,7 +697,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Through settlement, you mean?",
       "time": "00:30:50.99"
     },
@@ -705,7 +709,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You have treble damages, you can get a settlement that makes you whole?",
       "time": "00:30:52.62"
     },
@@ -717,7 +721,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is it common ground here among the parties that we do have before us a State law that's for the business of regulating... for the purpose of regulating the business of insurance?",
       "time": "00:31:19.40"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that is the Nevada law which prohibits the insurance companies to defraud their policyholders?",
       "time": "00:31:30.16"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't know that I agree with you, Mr. Blakey, on that. It seems to me impair could be having a lesser effect, short of invalidation or of superseding, but nonetheless impairing.",
       "time": "00:33:53.78"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you saying that each word means something different?",
       "time": "00:34:33.67"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, could you answer the question?",
       "time": "00:34:39.19"
     },
@@ -777,13 +781,13 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but you're explaining his view, and I think the Chief Justice asked you what is your view.",
       "time": "00:35:06.18"
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, I asked your view.",
       "time": "00:35:10.07"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And does each word, each of those three verbs have a separate meaning, do you think?",
       "time": "00:35:21.22"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm still a little puzzled, because is it... are you suggesting that a law could invalidate a State law without impairing it?",
       "time": "00:36:17.37"
     },
@@ -819,13 +823,13 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It still seems to me under your reading it is, too.",
       "time": "00:36:42.60"
     },
     {
       "turn": 130,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The same with yours.",
       "time": "00:36:44.74"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can you give me an example, under your reading, of a law that would impair the State law without invalidating or superseding it?",
       "time": "00:36:46.99"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then Mr. Blakey, when you say he, Humana I guess is a corporation, and your opposing counsel, is that who you're referring to?",
       "time": "00:37:41.81"
     },
@@ -861,7 +865,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I think it might be better to refer to him as counsel.",
       "time": "00:37:50.20"
     },
@@ -873,7 +877,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Blakey, my suggestion was that you refer either to the petitioner or--",
       "time": "00:38:24.82"
     },
@@ -885,7 +889,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--What... I'm having trouble what it does mean. I mean, the normal thing, if you're just looking to preemption analysis, you don't really... you normally don't look to what the State law's about except in a limited extent. You look to what the Federal law is about, and you ask yourself whether or not this State law... State law prevents... State law creates a direct conflict or whether or not this Federal law has a purpose that the State law significantly interferes with achieving. Now, is that all we're supposed to do here?",
       "time": "00:38:58.16"
     },
@@ -897,7 +901,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If the answer to that's yes, then all it says is, if the Federal law would preempt a State law, it doesn't.",
       "time": "00:39:32.05"
     },
@@ -909,7 +913,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, but that's exactly now the point, because conflict can take place in one of two ways. You put people under conflicting obligations, in which case it's easy. But the harder case is typically where the Federal law is trying to achieve a purpose, which purpose the State law interferes with achieving. Now, if we're just going... is it your view that the word impair applies only in that case, or is there something else, like you look to the State purpose and see if the Federal law interferes with achieving that purpose?",
       "time": "00:40:17.80"
     },
@@ -921,7 +925,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Your answer is the first, not the second.",
       "time": "00:40:57.34"
     },
@@ -933,7 +937,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Before you go on, Mr. Blakey, I wasn't aware that conflict preemption in the Federal scheme... you know, you mentioned the three types, field, and so forth. I wasn't aware that conflict preemption was limited to the case where you're put under conflicting obligations. I would think that a State statute could conflict with a Federal statute if it frustrated the purpose of a Federal statute.",
       "time": "00:41:21.69"
     },
@@ -945,7 +949,7 @@
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Blakey. Mr. Wallace, we'll hear from you.",
       "time": "00:44:15.81"
     },
@@ -957,7 +961,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You emphasized the word law when you read that. Does that mean to say that a common law decision of a court would not be regarded as law by you?",
       "time": "00:45:23.72"
     },
@@ -969,7 +973,7 @@
     },
     {
       "turn": 154,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think you don't impair a law if you impair the policy that the law seeks to further?",
       "time": "00:47:03.65"
     },
@@ -981,7 +985,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let's assume you had a prologue to the statute of the sort that was hypothesized this morning, where the State legislature says very clearly we don't think that insurance companies should be exposed to treble damages because we're concerned about their solvency and blah, blah, blah, blah, blah, okay, and then it proceeds to enact this thing. Would you say that even in that stark situation this RICO treble damage proceeding would not impair the State law?",
       "time": "00:47:53.60"
     },
@@ -993,7 +997,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, of course, that's just grammar. Suppose it just said no court in this State shall enter any judgment for punitive damages or for damages more than compensatory damages.",
       "time": "00:48:49.79"
     },
@@ -1005,7 +1009,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If that's the law, how do we then interpret the word impair to resolve that hypothetical problem?",
       "time": "00:48:58.93"
     },
@@ -1017,7 +1021,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But we have to... that is exactly the question. I mean, it could come up in writing the opinion. I mean, what you say in your brief is, you think that impair a law, that phrase connotes partial preemption, the displacement of some portion of a statute or its preclusion in certain contexts. So then isn't your answer, and explain if it isn't, to Justice Scalia's question, write anything in that preamble you want, including the very words that Justice Scalia suggested, and your answer would be no, RICO does not impair that statute, because the operate words of that statute are the same which are at present before us. Is that your answer?",
       "time": "00:49:43.74"
     },
@@ -1029,7 +1033,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So RICO would apply. RICO would apply in Justice Kennedy's example, RICO would apply in Justice Scalia's example, in your opinion.",
       "time": "00:50:42.11"
     },
@@ -1041,7 +1045,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, then, and if you don't have to go that far in this case--",
       "time": "00:50:56.24"
     },
@@ -1053,7 +1057,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--if I were writing the opinion and got to the phrase, the word impair means, and then there's a blank, how would you fill it in?",
       "time": "00:50:59.68"
     },
@@ -1065,7 +1069,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How is that different from supersede? Wouldn't that be--",
       "time": "00:51:12.16"
     },
@@ -1077,7 +1081,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--All right. Try invalidate.",
       "time": "00:51:20.33"
     },
@@ -1089,7 +1093,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you invalidated it only in part it wouldn't be an invalidation? I would think it was an invalidation.",
       "time": "00:51:36.23"
     },
@@ -1101,7 +1105,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why didn't they say, invalidates or supersede in whole or in part?",
       "time": "00:51:45.60"
     },
@@ -1113,7 +1117,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, that's only--",
       "time": "00:51:50.50"
     },
@@ -1125,7 +1129,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I suggest, Mr. Wallace, that the statute can be read to impair a State insurance policy that favors collective rate making without affirmatively commanding it, because clearly most insurance... and that that's exactly what they... well, the Congress wanted to preserve, even though it didn't invalidate any specific law in itself, but just conflicted with the policy. Do you understand what... my question's a little garbled, but--",
       "time": "00:51:55.35"
     },
@@ -1137,7 +1141,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But they did not want the Sherman Act to be construed to ban collective rate making by States where there was--",
       "time": "00:52:19.15"
     },
@@ -1149,7 +1153,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Wallace, if I were to ask you... we took this case because it's a purported circuit split, and we have the Ninth Circuit direct conflict. As far as I understand this case and your position is, you don't have... that's really academic in this case because these... this Federal law is in total harmony with the State law and so you don't have to decide in this case other cases that might present the more extreme example, or are you saying, yeah, pick one of these tests?",
       "time": "00:53:16.51"
     },
@@ -1161,7 +1165,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But in every State's law, or are we to look at this State's law and say, as far as what this... it doesn't provide just an administrative remedy. It provides for going to court, it provides for punitive damages, as far as Nevada is concerned?",
       "time": "00:53:56.35"
     },
@@ -1173,7 +1177,7 @@
     },
     {
       "turn": 188,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I think you've answered the question, Mr. Wallace. Thank you. Mr. Colbert, you have 4 minutes remaining.",
       "time": "00:54:29.33"
     },
@@ -1185,13 +1189,13 @@
     },
     {
       "turn": 190,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Colbert. The case is submitted.",
       "time": "00:58:11.56"
     },
     {
       "turn": 191,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:58:14.50"
     }

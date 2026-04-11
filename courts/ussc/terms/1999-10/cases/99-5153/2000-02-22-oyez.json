@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1999/99-5153/20000222a_99-5153.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "RITA LA LUMIA",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PAUL R. Q. WOLFSON",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 99-5153, Cornell Johnson v. the United States. Ms. La Lumia. Am I pronouncing your name correctly?",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "La Lumia. I stand corrected.",
       "time": "00:00:14.28"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's like Scalia. Right? Lumia. [Laughter]",
       "time": "00:00:19.73"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What... what do you mean or what do you think respondent... by the term retrospective?",
       "time": "00:01:20.13"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "From that offense.",
       "time": "00:01:54.84"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, the First Circuit, in an opinion by Judge Selya I believe, thought that the original statute, 3583(e) unmodified permitted the same thing. Isn't that right? That was the First Circuit position.",
       "time": "00:01:55.79"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So, if that were the case, it wouldn't matter that 3583(h) was enacted I suppose. There wouldn't be a change.",
       "time": "00:02:17.34"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So, if we were to adopt the First Circuit view, end of case.",
       "time": "00:02:28.65"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, except there was a split of authority and I suppose they wanted to deal with that.",
       "time": "00:02:39.80"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Because we hadn't.",
       "time": "00:02:45.58"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But we don't weigh the number. We weigh the persuasiveness.",
       "time": "00:03:07.46"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "We weigh the persuasiveness of the Court's reason, not how many were on one side versus the other. And O'Neil, as you conceded... if O'Neil was correct, that is the end of this case. So, please focus on why O'Neil was incorrect because at least I found it a fairly persuasive analysis.",
       "time": "00:03:11.75"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But they used the... the term revoke in (3) but terminate in (1). And it seems to me your position would be stronger if they had used the word terminate in (3) as well.",
       "time": "00:04:24.85"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Terminate has some sort of benevolent connotation and revoke doesn't?",
       "time": "00:05:13.61"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it's more than just unfavorable. Isn't it? I thought the strongest point for your case is that (3) goes on to say that the term... that the time he has already served in supervised release will not count towards his future prison time. And in order to prevent it from not counting towards it, the whole thing has to be revoked. It isn't just terminated. It's revoked as though... as though it never occurred, and... and the full amount of that supervised release time will now be served in prison.",
       "time": "00:05:51.75"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, I mean, that explains using revoked instead of terminated I suppose.",
       "time": "00:06:28.61"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Where... where does it say that you can't... sorry. What language is it? I've gotten a little bit lost. Which is the language that says... I thought that if you serve... suppose I impose a term of 5 years for a serious felony of supervised release.",
       "time": "00:06:32.82"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "2 years passes, and the guy violates 14 conditions. I thought that under Selya's reading of this, which I think makes sense to me and the others don't, to put... to say where I am at the moment... what you do is you say 5 years of supervised release. You violated what you were doing. Therefore, you're back to square one. I'll take that 5 years and I can divide it 3 years jail, 2 years supervised release. That's why they use the term part. And moreover, it makes sense. Why would you normally have a person adjust to the community but the person who's really worse because he's violated his supervised release, you'd say you're not going to have any adjustment period. Why wouldn't they want to leave that up to the judge? Divide it.",
       "time": "00:06:48.68"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know that. But, I mean, why wouldn't they have wanted it, as frankly I always they thought they did, from day one since there is no other reading that makes any sense? Now, that... that's... I'm putting that pretty strongly, but I want to... I want to get your answer. And I didn't think it said that you can't... if he's... if it's 5 years that you sentenced him to supervised release and he violated it after 4 years, I thought... but I might be wrong... you're back at square one. You can send him to prison for the whole 5 years. You can send him to prison for 3 years, whatever. Is that... am I wrong about that?",
       "time": "00:07:43.21"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm right.",
       "time": "00:08:18.79"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So, then why isn't Selya's... we're back there. Why isn't Selya's thing the common sense reading of it, and why isn't the common sense reading of it at least permitted by the language?",
       "time": "00:08:23.99"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But how can you maintain that when (h), which does take the position you would say prospectively only... that section also uses the term revoked, and then spells out that you revoke it, you go back to square one, and you can make the division, but not quite as you conceded before because (e)(3) says even if the term of that's revoked is 3 years of supervised release, you can put him back in prison only for 2 years for this category of offense. Isn't that so?",
       "time": "00:08:43.58"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, you... so, the extra year that's been revoked under your reading doesn't get made up. It just drops out.",
       "time": "00:09:23.35"
     },
@@ -323,13 +323,13 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I think--",
       "time": "00:09:48.99"
     },
     {
       "turn": 48,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Yes, but the word revoked... you can't put much weight on it when it's retained in the section that does say, Judge, here's the 3 years. You can divide it not more than 2 in prison, but then you have another year left over. You can put him on supervised release, using the word revoked. So, I don't see how you can... you can say the word revoke means one thing in (h) and something different in (e)(3).",
       "time": "00:09:49.89"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, that's what... it... it seems to me that you are better off with (h) because you can say (3) has this very strict reading and we.... But under your insistence, I think proper insistence, that we look at the statute at the time the offense was committed, (h) wasn't there.",
       "time": "00:10:28.72"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, I think we have to... I... I suppose we have to look at the statute as if (h) were not there, other than the Congress gives a reading which we may give some... some weight to because it seems to interpret the statute in a particular way. I don't... I don't think (h) helps you much.",
       "time": "00:10:47.91"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, although you'd like to use (h), I'm not... I'm not sure that you can. I should have said I think it does help you, but I'm not so sure that you can use it.",
       "time": "00:11:19.78"
     },
@@ -377,13 +377,13 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It doesn't have to.",
       "time": "00:11:52.31"
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. La Lumia, is... is Judge Selya's position, the Government's position here, that the only supervised release that can be imposed after the revocation is whatever had not yet been served? I mean, let's assume he had been given 5 years of supervised release. He... he violates the terms after 2 years, and is... is it... is it Selya's position and the Government's position that the court can impose an additional 5 years of supervised release afterwards or only 3 years?",
       "time": "00:11:53.13"
     },
@@ -395,19 +395,19 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The full 5 years. So, really what you need to get to Selya's very intelligent position, as Judge Breyer sees it, makes more sense. It probably does. But to get there, what you need is some authorization to impose a term of supervised release at this stage, and the only... the only authorization for imposing supervised release is 3583(a), which says the court in imposing a sentence to a term of imprisonment for a felony or misdemeanor may include as part of the sentence. At the original sentencing, you have authority to impose 5 years. I don't know where you get the authority to impose 5 years under (e)(3). Maybe... maybe you have authority to use the leftover... the leftover 3 years, but where do you get authority to impose the... the new 5? You're not the one who should answer that question, but the Government will answer it, I am sure.",
       "time": "00:12:35.30"
     },
     {
       "turn": 60,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, it's (e)(2). I mean, isn't the answer (e)(2)?",
       "time": "00:13:27.21"
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "(e)(2).",
       "time": "00:13:28.90"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "(e)(2) talks about extending a term--",
       "time": "00:13:32.78"
     },
@@ -431,43 +431,43 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--which has already been revoked.",
       "time": "00:13:38.21"
     },
     {
       "turn": 66,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, then the maximum was... was imposed.",
       "time": "00:13:39.02"
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, no. (2) can extend. See, (e)(2) allows you to extend the term of supervised release if less... if less than the maximum authorized.",
       "time": "00:13:41.35"
     },
     {
       "turn": 68,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Was... was previously imposed. I'm assuming he imposed 5 years and the guy... which is all that was authorized.",
       "time": "00:13:48.93"
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no. What he does is, first he extends it.",
       "time": "00:13:55.16"
     },
     {
       "turn": 70,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let counsel participate.",
       "time": "00:13:57.39"
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, counsel doesn't understand the question.",
       "time": "00:13:58.50"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Was that the maximum he could have imposed?",
       "time": "00:14:15.96"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:14:17.78"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes. So, what happened here on the... the additional order by the court? Did they stay within the original 5-year term?",
       "time": "00:14:52.83"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No, but an overall 5-year.",
       "time": "00:15:12.48"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Okay, and on revocation, what happened? I mean, what limitation was imposed after the revocation of the supervised release?",
       "time": "00:15:34.57"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And that's what was given?",
       "time": "00:15:52.15"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "All right.",
       "time": "00:15:58.55"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I know that's your position. What was imposed?",
       "time": "00:16:08.29"
     },
@@ -575,13 +575,13 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Counsel--",
       "time": "00:16:28.19"
     },
     {
       "turn": 90,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But the total... but the total supervised release was still under 3 years?",
       "time": "00:16:28.93"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How much supervised release had he served before he violated it and it was... and it was revoked?",
       "time": "00:16:35.50"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay, so--",
       "time": "00:16:42.02"
     },
@@ -617,13 +617,13 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--So, it was all within the statutory maximum.",
       "time": "00:16:46.76"
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All within the statutory maximum for supervised release at the original sentencing.",
       "time": "00:16:48.70"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right and now has another... another how many?",
       "time": "00:17:03.56"
     },
@@ -647,19 +647,19 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Counsel, would you please--",
       "time": "00:17:20.16"
     },
     {
       "turn": 102,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--No, but it was--",
       "time": "00:17:21.40"
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--clarify one thing which I think there's been some confusion about? As I understand your position, you are not contesting that if this judge said... if this judge said, I'm not going to put you back in prison, but the 3 years is revoked and it's restarted, that it would have been proper under the statute, as it existed before (h), to say start over on supervised release, 3 years of supervised release. I do not understand you to be disputing that. Am I correct?",
       "time": "00:17:21.85"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That the judge could have said, without regard to how much time he had served, you go back on supervised release for 3 years. Didn't the statute permit that?",
       "time": "00:17:57.15"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What did it permit?",
       "time": "00:18:10.97"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It required prison time?",
       "time": "00:18:20.06"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If it allowed prison time but didn't require it, wouldn't it allow supervised release to rerun on the idea that it's revoked and it starts over?",
       "time": "00:18:24.18"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "All or part.",
       "time": "00:18:54.40"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your position is all or nothing. Imprisonment, freedom, but no supervised release once it's revoked.",
       "time": "00:19:03.42"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it's all... all or nothing in the sense that it's rather odd to say that the judge can either... must either set him free or put him in prison and can't give him the lesser punishment. But that's... but that's your position.",
       "time": "00:19:20.24"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But your... as I understand it, your position is that whatever combination of imprisonment and supervised release, whenever imposed, that... the total amounts of those two components... the total lengths of those two components may not extend beyond the maximum date that... that would have been possible for those two components at the time of sentencing. Is that correct?",
       "time": "00:19:44.56"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But let me make it... let me make it simple. If at the time of sentencing... forget this... I don't know what it was in this case. If at the time of sentencing the judge had said I'm going to impose the maximum of... of imprisonment and release, and the maximum would have been 5 years... he could have, you know, given him 1 year in prison, 4 years of supervised release, or whatever, but the maximum is 5 years. Is it your position that at... at any revision, he may not impose anything that extends beyond that 5-year date? Is that your position?",
       "time": "00:20:19.32"
     },
@@ -779,19 +779,19 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't--",
       "time": "00:20:58.41"
     },
     {
       "turn": 124,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That and then some. You go beyond that.",
       "time": "00:20:58.86"
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But he's wrong on the statute. The statute is 5 years prison plus 3 years supervised release was the maximum. Wasn't it?",
       "time": "00:21:00.10"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, no, but I... I didn't mean in this case. But whatever the... the... whatever the total length of imprisonment and supervised release may be in any case, is it your position that at any subsequent recomputation under (c), the total of those two components may not extend beyond the date which would have been the maximum date at time of sentence? Is that your position?",
       "time": "00:21:09.27"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is your answer to Justice Souter that in your view, once there's been a revocation, there cannot be the second component at all?",
       "time": "00:21:36.22"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Oh, I... I realize that.",
       "time": "00:21:51.70"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I realize that, but if you lose on that point, is it then your position... is your fall-back position... that whatever the maximum date for the combination of those two components would have been at the time of sentencing is the maximum date for whatever the court imposes consisting of those two components at the... at the time of resentencing?",
       "time": "00:21:53.60"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:22:21.26"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. So, let's assume that there could only have been 2 years imprisonment, and whatever else there was could have been supervised release. You don't concede that, but let's assume it for the sake of argument. Is the date beyond which that combination cannot extend the same date beyond which such a combination could not have extended at the time of original sentencing?",
       "time": "00:22:45.98"
     },
@@ -875,13 +875,13 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:23:05.18"
     },
     {
       "turn": 140,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it won't help you in this case.",
       "time": "00:23:05.69"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It won't help you in this case. I mean, you--",
       "time": "00:23:08.90"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Because it... it didn't go beyond that. There was... what was it... 2 years, 5 months left.",
       "time": "00:23:11.25"
     },
@@ -917,19 +917,19 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, excuse me.",
       "time": "00:23:39.36"
     },
     {
       "turn": 147,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, you don't--",
       "time": "00:23:39.94"
     },
     {
       "turn": 148,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--The statute says without credit for time previously served on post-supervision release.",
       "time": "00:23:40.76"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It seems to me that those words say you can go back. You give him no credit for time previously served on posted... post-release supervision. You give him no credit for that. You can reimpose that whole 3 years.",
       "time": "00:23:46.71"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you said no when I asked a question before.",
       "time": "00:23:59.63"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I asked you if you... the judge is reading (e)(3) and he says, ah, this tells me he gets no credit for time previously served on post-release supervision. So, we go back and I'm going to give him the whole 3-year supervised release over again. No jail. No prison. Is that... was that lawful under (e)(3)?",
       "time": "00:24:02.97"
     },
@@ -977,19 +977,19 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Look. Wait. Your answer to Justice Souter couldn't be what you said, I don't think, if I understand it.",
       "time": "00:24:33.43"
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I don't think so.",
       "time": "00:24:38.43"
     },
     {
       "turn": 158,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Imagine it's a class A felony, not D.",
       "time": "00:24:39.01"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And suppose the statutory maximum is 5 years prison, 5 years supervised release. He serves 5 years prison. The sentencing date was 1990, July 1. It's now July 1995. He's finished. He then goes on supervised release. 4 years and 360 days later he violates all the terms. So, it is now the year 1999. The judge is perfectly free to give him 5 years of prison even on your theory, and therefore you could extend the term into 2004, even on your theory. But you're not denying that. You're denying that the judge, instead of giving him the 4 years prison, could give him 4 years of supervised release.",
       "time": "00:24:42.08"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Am I not right?",
       "time": "00:25:24.13"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, there are limitations. If it's a class D felony, you can't put him in for more than 2 years, and yours happens to be a class D felony. And they didn't put him in for more than 2 years. So, the whole thing comes down to the meaning of the word revoke.",
       "time": "00:25:28.05"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And your view is revoke means terminate and finish. And their view means revoke means call back, but you can still do it. Is that right?",
       "time": "00:25:40.85"
     },
@@ -1049,13 +1049,13 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right.",
       "time": "00:25:49.14"
     },
     {
       "turn": 169,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And why isn't (h) instructive at least to that extent, that Congress again used the word revoke? So, we can assume that it... when it used the word revoke, it meant call back. It meant it in (h) and it meant it in (e)(3).",
       "time": "00:25:49.51"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it's not inconsistent with interpreting the... the word revoke to mean call back because that's clearly what it means in (h).",
       "time": "00:26:18.00"
     },
@@ -1079,13 +1079,13 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Ms. La Lumia. Mr. Wolfson.",
       "time": "00:26:45.61"
     },
     {
       "turn": 174,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wolfson, may I make a suggestion before you start? I think perhaps your opponent didn't have a full time to develop her argument. Supposing the argument were phrased this way, that prison time and supervised release are different animals and that you cannot grant supervised release unless there's specific statutory authority for it and there is no such authority in (e)(3). What's your response to that argument?",
       "time": "00:26:49.66"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you do agree there's no express authority in (e)(3) for granting supervised release after a revocation.",
       "time": "00:27:28.50"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Tell me... do this for me.",
       "time": "00:27:39.73"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Tell me what the express language in (e)(3) is that authorizes supervised release.",
       "time": "00:27:40.86"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In prison.",
       "time": "00:28:01.40"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--served on supervised release.",
       "time": "00:28:04.87"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're talking about the originally sentenced term, not the authorized term, but the term to... so, you would agree that you can never sentence him to a new term of supervised release, a new 3-year term if that was the original limit. If he's already served a year of it, the most you can do is put him... according to your theory, is put him in jail for a year and then 2 years of supervised release, which is what would have been left.",
       "time": "00:28:18.66"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, he uses credit--",
       "time": "00:28:57.55"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--against the jail time for that.",
       "time": "00:28:59.15"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It doesn't say he loses credit against the... against the future... in fact, I guess it says nothing about the future supervised release time.",
       "time": "00:29:01.19"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Both--",
       "time": "00:29:14.76"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--both against prison and against a future supervised release sentence.",
       "time": "00:29:16.87"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:29:36.76"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:29:46.50"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where does it authorize him to spend part of it in supervised release? The old sentence of supervised release has been revoked. I assume you need some new authority to prescribe a new term of supervised release. Where did you get that from?",
       "time": "00:30:18.74"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It does... I wonder... actually this is a point I had not at all focused on. But let's imagine a person who isn't violating anything. That person was sentenced to 5 years in prison, followed by 1 year of supervised release or 2. Let's say 2 years of supervised release, and he never does anything wrong. Now, I have always thought that under (e)(2), not (e)(3), the prosecutor or someone could come in and say, I'm sorry. I don't think that 2 years is enough. I would like his term extended to 4 years, all within the statute. It's an A felony.",
       "time": "00:30:59.40"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I would have thought that (e)(2), since it gives the authority of the judge to extend, as well as to cut down in the same way, it says, that we used to do that with parole. It says that right in the statute. I would have thought that gave him the authority to extend or cut back or impose new conditions. It's like parole. It's just another word for parole. Now, I thought that that was so, but I'm not positive.",
       "time": "00:31:37.13"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's relevant for this case in the following way. It's relevant to this case because the person who was sentenced to less than the maximum that violated his condition could be called in. The judge would then extend the term to the maximum and then, having done that, revoke it and divide it between prison and supervised release. Now, I'm not... I'm putting this to you to get your reaction. I'm not certain that that's the right way to read it.",
       "time": "00:32:25.68"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I think Justice Breyer's example was no violation. They just changed their mind and wanted to up the sentence a little bit.",
       "time": "00:33:09.92"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But the reason you say that is that it... I take it, that it would make no sense or it wouldn't make much sense to say that upon revocation the sentence may be to all or even a portion of the original period of supervised release, unless Congress had meant that if the court sentences only to a portion, there would be at least the balance of supervised release to be served as supervised release because that only... that's the only reading that would be consistent with the theory of what supervised release is there for.",
       "time": "00:33:57.73"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the... the answer is pretty easy to that, that you have a tough law and order of Congress that says we want people on supervised release to know that if they revoke... if they violate a term of... of their condition, their release can be revoked, and they must now do prison time. And that's exactly what the plain language says.",
       "time": "00:34:57.09"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And... and we don't want... we don't want some bleeding heart judge to... to refuse to give them the full time in prison by giving him some of that time back on release which they've just violated.",
       "time": "00:35:13.83"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We don't want that to happen. The only option we're going to give these judges is to send them to prison.",
       "time": "00:35:25.33"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, that makes some sense. You don't have to agree with it, but it makes sense.",
       "time": "00:35:31.19"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, there's no doubt about that being a very sensible policy. The question is whether the literal reading of the statute is so nonsensical. Frankly, I think it would be unwise to read it that way. But is it so unwise that we can't believe Congress really intended what it said?",
       "time": "00:36:43.43"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because the only... and... and to answer it, they could have spelled it out, but they could also say, well we've given the judge... judge his four options in (e)(1), (2), (3), and (4). In option (3), he can really throw the book at him, put him in prison up to the time of... spent on authorized supervised release. But that's his only option. They... they could have said that and it would not have been irrational.",
       "time": "00:36:59.61"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "All they would have had to do was say, to serve in prison or on an additional period of supervised release. Then all the rest would read the same way. That's what they should have--",
       "time": "00:37:37.76"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--That's what it means.",
       "time": "00:37:45.39"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--the language. Yes.",
       "time": "00:37:53.83"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The reason... the reason you say it would be illogical to deny that, I take it, is that supervised release is supposed to increase the odds of the prisoner succeeding in working his way back into society without further trouble. And... and it would be illogical to suppose that Congress meant to jettison that policy for somebody in your hypothetical.",
       "time": "00:38:23.29"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Except that the guy had already forfeited his entitlement to that by violating the conditions once. Why is it irrational to say, you know, we tried to help you out, but you know, you... you ingrate, you violated the terms of it. We're not going to give you another... another round of the same thing so you can go... go off and... and rob another grocery store, you know, whatever--",
       "time": "00:38:47.72"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--If we're speaking metaphysically, I guess metaphysically the term of supervised release must still exist, for otherwise how could you serve all or part of it?",
       "time": "00:39:43.33"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I think if you're speaking non-metaphysically--",
       "time": "00:40:01.74"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I guess you have to read into those words about supervised release, former term of supervised release. But if they're saying former term, serve part of it in prison, you could as easily imply and serve the rest of it where he's supposed to spend it, on supervised release.",
       "time": "00:40:04.05"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Are we speaking metaphysically or non-metaphysically or what?",
       "time": "00:40:22.14"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm asking that because I think where she's right... your opponent... is that you do have to do a little bit of twisting of this language. So... so, I would guess what is the best non-twisting that you could do and come up with the result that you think... and I agree with you... makes sense?",
       "time": "00:40:56.23"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--literally.",
       "time": "00:41:13.69"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, but the First Circuit calls upon a meaning of revoke as given by Sheridan approximately, which... which I think is at least an unusual meaning and other than Sheridan, it might be tough to find examples. Or have you found them?",
       "time": "00:41:21.78"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's true, but we don't seem to use it in that way. We seem to use it in the sense of call back and cancel, except for this time revoked and so forth.",
       "time": "00:41:39.24"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What do you want us to say about (h)? The less, the better, so far as you're concerned?",
       "time": "00:43:17.95"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the district court thought it was relying on (h) and that it was going to apply it retrospectively.",
       "time": "00:43:45.24"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It does seem to me from one standpoint that if your construction is correct, they would have gone back and... and amended (h)... pardon me... and simply amended sub (3).",
       "time": "00:44:13.55"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And they did... and they did change (3).",
       "time": "00:44:36.96"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And instead of it being... the limitation being the period of supervised release originally imposed, it's the statutory maximum that now governs under (e)(3).",
       "time": "00:44:45.25"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Wolfson, what about... what about the rule of lenity? Now that... now that whatever (3) originally meant doesn't matter, since we have (h), isn't... doesn't the rule of lenity counsel that we interpret (3) the way petitioner would have it rather than the way you would because hers will... will come down less hard on--",
       "time": "00:45:05.03"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Oh, you don't think there's a true ambiguity here.",
       "time": "00:45:37.35"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You argue that your position is not... is not only right, but it's not even the resolution of an ambiguity?",
       "time": "00:45:38.84"
     },
@@ -1649,13 +1649,13 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let's assume I have no trouble with that. Let's assume I have no trouble with the proposition that it is at least... at least... ambiguous if not contrary--",
       "time": "00:45:53.61"
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Your answer I suppose, Mr. Wolfson, is you look at the rule of lenity before a statute is amended. The question is which would be the more lenient reading of (e)(3) without (h) having been subsequently enacted.",
       "time": "00:46:00.38"
     },
@@ -1667,13 +1667,13 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It's hard not to confuse that--",
       "time": "00:46:27.13"
     },
     {
       "turn": 272,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, I thought you... I thought that your answer might have been it is an odd rule of lenity that says that all of these prisoners have to serve in prison and can't get... and can't get--",
       "time": "00:46:28.99"
     },
@@ -1685,7 +1685,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Maybe they would in the case of her client.",
       "time": "00:47:03.38"
     },
@@ -1697,19 +1697,19 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's no doubt true if you... if you apply the rule of lenity as of... as of the time the statute was enacted, but interpreting the statute currently, there is no doubt which interpretation is more favorable to defendants.",
       "time": "00:47:23.52"
     },
     {
       "turn": 277,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Really? Why? Why... why is it not--",
       "time": "00:47:38.09"
     },
     {
       "turn": 278,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I think to any defendant. I... I don't see how any defendant could be disadvantaged by the interpretation that petitioner asserts today. Any defendant today can be--",
       "time": "00:47:42.47"
     },
@@ -1721,7 +1721,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Is that right? You know, I mean, this is a part that... imagine the class of people who were sentenced under this prior to the ones... the Ex Post Facto Clause. Now, if you sent those back for sentencing--",
       "time": "00:48:05.67"
     },
@@ -1733,7 +1733,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and you cut away the option of putting them for 7 months on supervised release, the judge might say, well, I can't give him a supervised release. I'm going to throw him into prison for the 7 months.",
       "time": "00:48:17.93"
     },
@@ -1745,7 +1745,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So, how do we know which way it will cut?",
       "time": "00:48:29.53"
     },
@@ -1757,7 +1757,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The offense date is no problem because--",
       "time": "00:48:37.37"
     },
@@ -1769,13 +1769,13 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--but we're only talking about the class of people who committed their offense prior to (h). And as regards that class, I honestly don't know, which is why I'm mentioning it because you may know. I don't know what will happen to that class of people under an interpretation that says the judge can't give them any supervised release but has to either give them imprisonment or nothing.",
       "time": "00:48:39.02"
     },
     {
       "turn": 289,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you... you would apply (h) to those people even if the offense was committed before (h) was adopted. (h)... there's no problem in applying (h) to those people today if it... if it provides more liberal treatment for them. Don't you think that even for offenses committed before (h) was enacted, (h) can be applied nowadays? Is... is that the Government's position that (h) only applies to prisoners--",
       "time": "00:49:03.38"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--who committed their offenses after (h) was enacted?",
       "time": "00:49:27.15"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but (h) is part of a statutory amendment that made (e)(3) more severe because (e)(3) under the new amendment imposes... authorizes a longer period of imprisonment than (e)(3) under the old statute.",
       "time": "00:49:38.63"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, that statute as a whole could, in some cases, be more severe.",
       "time": "00:49:51.10"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that depends on how one reads (e)(2) because (e)(2) doesn't speak in terms of violations of supervised release. And if it did, then you'd have to have a Morrisey against Brewer hearing and all the rest of it.",
       "time": "00:50:22.68"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Either that or it might be double jeopardy to be adding... imposing a higher sentence later on.",
       "time": "00:50:33.28"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There are a lot of problems with--",
       "time": "00:50:42.37"
     },
@@ -1859,7 +1859,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Wolfson, as I read your brief, you were relying specifically on (e)(3) and the reading of that, as Judge Selya did, and you were not infusing this section (e)(2) that was first introduced into this colloquy by Justice Breyer. Your brief seems to concentrate on (e)(3) and the meaning of that.",
       "time": "00:51:03.46"
     },
@@ -1871,7 +1871,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And... but... and I think you would have to concede, would you not, that there is some ambiguity, otherwise how could you account for this circuit split that is lopsided the other way?",
       "time": "00:51:43.58"
     },
@@ -1883,7 +1883,7 @@
     },
     {
       "turn": 307,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Wolfson. Ms. La Lumia, you have 3 minutes remaining.",
       "time": "00:52:54.91"
     },
@@ -1895,7 +1895,7 @@
     },
     {
       "turn": 309,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But under (e)(3), it's clear the court could, if it wanted to, impose additional imprisonment, isn't it? I mean, that isn't what the ambiguity is about.",
       "time": "00:53:41.62"
     },
@@ -1907,7 +1907,7 @@
     },
     {
       "turn": 311,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The question is whether it can impose another term of supervised release or more supervised release.",
       "time": "00:53:58.89"
     },
@@ -1919,7 +1919,7 @@
     },
     {
       "turn": 313,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, a judge is faced with the alternative, either you send the guy to prison or he goes free.",
       "time": "00:54:14.85"
     },
@@ -1931,7 +1931,7 @@
     },
     {
       "turn": 315,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about the benefit of supervised release in enabling someone to reintegrate into society?",
       "time": "00:54:32.50"
     },
@@ -1943,7 +1943,7 @@
     },
     {
       "turn": 317,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but surely prison is a restraint on liberty too.",
       "time": "00:54:52.37"
     },
@@ -1955,7 +1955,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I don't why that's the proper comparison because you're denying the district judge under the old law the ability to say I won't send them to prison at all, but I am going to reimpose supervised release.",
       "time": "00:55:12.46"
     },
@@ -1967,7 +1967,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, but even I agreed with you about that, you are saying it's got to be the maximum prison. The judge can't divide it up between the two. It's got to be the 2 years in prison, not 1 year in prison, 1 year supervised release.",
       "time": "00:55:40.21"
     },
@@ -1979,7 +1979,7 @@
     },
     {
       "turn": 323,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. La Lumia. The case is submitted.",
       "time": "00:55:57.20"
     }

@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1967/699/19680305a_699.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
       },
       {
         "name": "BENJAMIN E. SMITH",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ARTHUR KINOY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 699, John Earl Cameron et al., appellant, versus Paul Johnson et al. Mr. Kinoy -- Mr. Smith, you may proceed with your argument.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that the issue before the passing Civil Rights Act?",
       "time": "00:05:53.49"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:05:57.48"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Smith, what would be the issues in the injunction suit? I know that Mr. Kinoy is going to talk about Dombrowski but would that be -- would the question be whether the defendants in the state proceeding had violated the state statute? Would that play a part in it?",
       "time": "00:12:33.11"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Or would it just be whether the state statute is unconstitutional on its face, would there be any factual issues -- would any factual issues be relevant?",
       "time": "00:12:54.35"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And going beyond that, suppose the Federal Court or District Court decided that it was not unconstitutional on its face and it's not being used to what I'd call for brief of Dombrowski way to harass people. Does the Court go on to find out whether it was improperly applied or unconstitutionally applied –",
       "time": "00:13:34.67"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- separate things?",
       "time": "00:14:04.21"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But would those two things be involved as you said, whether the statute was being improperly applied to people who have been really violated?",
       "time": "00:14:09.59"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, I'm not sure there was in Dombrowski, maybe, but in any event, what you're saying then is that we're really trying a criminal case on the equity side of the court?",
       "time": "00:14:26.23"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That's about right.",
       "time": "00:14:39.59"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I understand. I had a look at the record and I understand what you're doing --",
       "time": "00:14:44.41"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- trying to get your view of it as a matter of theory. For example, in this case, an issue in the injunction proceeding would be whether these people did or didn't, might be that the Court got passed preliminary constitutional question, whether these people did or did not block access to the courthouse?",
       "time": "00:14:49.00"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are you arguing at all, Mr. Smith, that in any event, the declaratory judgment -- this federal district court should have given you declaratory judgment on the constitutional question?",
       "time": "00:16:25.00"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Apart from the injunction? I mean, the sort of thing that we dealt with in Cuder (ph).",
       "time": "00:16:37.79"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Cuder --",
       "time": "00:16:45.64"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, if that's so, then why do you get involved with 2283 at all in Dombrowski or Dombrowski --?",
       "time": "00:17:02.91"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you better be -- if you better be there, you should be in the Court of Appeals.",
       "time": "00:17:18.46"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you do suggest that perhaps the declaratory judgment in these circumstances might be of great service to you?",
       "time": "00:17:45.61"
     },
@@ -255,13 +255,13 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Cuder indicates that perhaps the Federal Court in any event ought to proceed to give it a declaratory judgment?",
       "time": "00:17:55.65"
     },
     {
       "turn": 38,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That is if it's -- if it's -- at least it it's on the face attack?",
       "time": "00:18:02.71"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If you get a declaratory judgment of unconstitutionality on its face, I expect that the defense of the prosecution if they proceeded with it, you wouldn't be badly off, would you?",
       "time": "00:18:18.21"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In Jeannette, this Court refused to authorize an injunction even though the statute had been declared unconstitutional that very day. Now, let's assume that there was a declaratory judgment action in the District Court brought by you. There's a declaration that the statute is unconstitutional. At that point, would there be any reason for entering an injunction against the state court?",
       "time": "00:18:32.14"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But your challenge here is facially to this --",
       "time": "00:19:35.69"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 46,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Kinoy?",
       "time": "00:21:44.30"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you a question?",
       "time": "00:29:09.59"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You said, which I remember this Court has dissented. Do I understand you to say that every member of this Court has conceded that a state is without power, constitutional power to prevent people marching round and round the building on the street?",
       "time": "00:29:11.78"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose it has not, what is the relief you ask?",
       "time": "00:30:36.72"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We will recess now.",
       "time": "00:32:39.97"
     },

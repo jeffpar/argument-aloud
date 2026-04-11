@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2005/04-1495/20060110a_04-1495.delivery.mp3",
     "speakers": [
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "EDWIN S. KNEEDLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PATRICK F. MCCARTAN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We'll hear argument now in 04-1495, Hartman against Moore. Mr. Kneedler, whenever you're ready, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I'm... I'm not sure why... why we should make the classification that you did, that... that retaliatory is simply a species of... of malicious. I mean, I... I can see the similarities, but we've also got an entirely separate First Amendment value here which just is not part of the... the analytical mix when you're talking about malicious prosecution. So I'm not sure why we should... we... we should classify it as you argue.",
       "time": "00:01:59.75"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But it's... it's a peculiar, if you will, a peculiar malice with its own set of constitutional values, and I don't know of anything comparable in... in malicious prosecution generically.",
       "time": "00:02:36.12"
     },
@@ -79,13 +79,13 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, of course, here--",
       "time": "00:04:08.43"
     },
     {
       "turn": 8,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose there is probable cause for a prosecution, but the prosecutors are extremely busy and they... they have to select their cases and they select one in which they bring the prosecution against the defendant on account of his speech. Is that a violation of the prosecutorial duty?",
       "time": "00:04:08.64"
     },
@@ -97,7 +97,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes.",
       "time": "00:04:33.32"
     },
@@ -109,7 +109,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm... I'm asking is it a violation of the prosecutor's professional obligations and his professional duties?",
       "time": "00:04:39.78"
     },
@@ -121,7 +121,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Just going back to the hypothetical, if... if you acknowledge... and I think you must... that there's a violation of the prosecutorial duty in... in the instance I suppose, then why shouldn't the law recognize it and... and give force to that sanction and give force to that rule?",
       "time": "00:05:34.21"
     },
@@ -133,7 +133,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. Well, then we'll just change the hypothetical to make it the investigators. The investigators select their case based on this speech that they consider unwelcome.",
       "time": "00:06:09.95"
     },
@@ -145,7 +145,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, does he have a right not to be singled out because of his speech?",
       "time": "00:06:48.15"
     },
@@ -157,7 +157,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I asked does he have a right not to be singled out because of his speech.",
       "time": "00:07:01.64"
     },
@@ -169,7 +169,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In other words, you... you would advise law enforcement officials that they can single out persons for prosecution based on distasteful speech.",
       "time": "00:07:09.80"
     },
@@ -181,7 +181,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What I want you to do is to agree. I... I think you have to concede there is this principle in the law, and I think your answer has to be even though there's that principle, there are a lot of problems with enforcing it because there are going to be too many suits, it's hard to... it's difficult for the Government to defend, and... and so forth and so on.",
       "time": "00:07:25.56"
     },
@@ -193,7 +193,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And you're not disputing either, as I understand it. As the case comes to us, we assume the prosecution would not have been brought but for the retaliatory motive.",
       "time": "00:07:51.30"
     },
@@ -205,7 +205,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But don't you assume that for the purposes of your argument?",
       "time": "00:08:05.18"
     },
@@ -217,7 +217,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's the only argument.",
       "time": "00:08:11.20"
     },
@@ -229,7 +229,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the... one of the differences... am I not correct, that at common law the prosecutor did not have absolute immunity?",
       "time": "00:08:16.70"
     },
@@ -241,7 +241,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now does, but not at common law.",
       "time": "00:08:35.28"
     },
@@ -253,13 +253,13 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr.--",
       "time": "00:09:25.64"
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, they're not totally identical because you didn't have the First Amendment interest involved in those cases, whereas you do have a First Amendment interest at stake here.",
       "time": "00:09:26.07"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Kneedler, may... would you clarify just one point about this probable cause? There was a grand jury that indicted this man, and then there was a trial judge who said, I'm throwing this out at the close of the Government's case. There is not enough evidence here to convict this man. Are you saying that as long as the grand jury indicts, there can be no Bivens claim because in order to indict, the grand jury would have had to find probable cause?",
       "time": "00:09:56.98"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, tell me about now, not at the common law.",
       "time": "00:11:06.62"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the grand jury did find probable cause. So what would the plaintiff have to show to overcome... to... to negate that finding of probable cause?",
       "time": "00:11:17.90"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The case that comes closest, as far as I can see, is probably United States v. Armstrong, and in that case, this Court said in the ordinary case, so long as the prosecutor has probable cause to believe the offense was committed, the decision to prosecute or go before a grand jury rests entirely in his discretion. But, of course, the discretion is subject to constitutional constraints, the equal protection component of the Due Process Clause. The decision whether to prosecute may not be based on an unjustifiable standard such as race, religion, or other arbitrary classification. And the standard the Court articulated there was the defendant must present clear evidence--",
       "time": "00:12:02.00"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--to the contrary. Now, that's different from your proposition of probable cause.",
       "time": "00:12:57.33"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Based on race.",
       "time": "00:13:09.67"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So why should that be different than the First Amendment violation?",
       "time": "00:13:14.02"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you're willing to acknowledge... and... and the Government concedes that you can have a different standard when the... the basis for the selective prosecution happens to violate the Constitution from the standard you apply where the basis for the selective prosecution doesn't violate the Constitution, such as I'm prosecuting him because he was mean to my brother in law. Okay?",
       "time": "00:13:48.70"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would you apply a different standard there than you would apply where... where the reason is some First Amendment reason?",
       "time": "00:14:18.19"
     },
@@ -379,19 +379,19 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But that doesn't--",
       "time": "00:14:49.24"
     },
     {
       "turn": 58,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But would you answer my question?",
       "time": "00:14:50.16"
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Yes.",
       "time": "00:14:51.06"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It would be a different criterion... you... you say it's going to be different for the First Amendment and the... and... and the Equal Protection Clause, at least where race is involved. What if there's no constitutional violation at all, but I just selectively prosecute him just because I don't like this guy or because he was mean to a relative of mine?",
       "time": "00:14:53.42"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is there going to be a different standard--",
       "time": "00:15:12.58"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Exactly, and would you apply a different standard because there isn't a constitutional claim?",
       "time": "00:15:18.22"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--a malicious prosecution claim. You'd have a malicious prosecution claim.",
       "time": "00:15:24.38"
     },
@@ -451,13 +451,13 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, Mr. Kneedler, I understand your argument to be they should be treated just like a malicious prosecution claim, which is no distinction between a constitutional basis and a common... and just that he hated his brother in law. I think you're saying they're the same. That's what I understand Justice Scalia to be asking you.",
       "time": "00:15:36.35"
     },
     {
       "turn": 70,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's what I'm asking.",
       "time": "00:15:53.91"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which places no weight at all on the fact the Constitution is involved.",
       "time": "00:15:57.18"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's how you'd get at least as much protection as if it was an ordinary malicious prosecution claim, but you don't get any more under your view.",
       "time": "00:16:12.26"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But you really want three things. You say we want the protection, number one, of there... if you're... if there's probable cause, that's the end of it. Number two, if you're trying to show there wasn't probable cause, you have to bear clear and convincing evidence, and number three, we also have qualified immunity. And I guess, number four, you have to prove the whole thing by clear and convincing evidence.",
       "time": "00:16:32.08"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It sounds a little bit like the person who has the overcoat, turns up the heat, you know, five or... what about one?",
       "time": "00:16:53.96"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about this one? And I want to know... you simply say you need clear and convincing evidence that that was the motive and it wouldn't have been brought otherwise. And the existence of probable cause is a strong factor, maybe even a presumption, that suggests to the contrary. Now, have States and other places tried things like that without the world collapsing?",
       "time": "00:16:59.63"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So as far as you know, every State and every jurisdiction where... and investigators if they don't have absolutely immunity, whatever... in all those jurisdictions, nobody has ever said that even a constitutional violation, if there's probable cause, that's the end of it.",
       "time": "00:17:34.81"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, I'm not focusing.",
       "time": "00:17:53.37"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I want to know--",
       "time": "00:17:54.38"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--if--",
       "time": "00:17:55.09"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--We have no experience. We don't know. Okay. As your... as far as you can tell. The other question I have, which you might want to be brief about, is in looking through this record, as far as I could see from the briefs, they went ahead and prosecuted this man with only two pieces of evidence. The first evidence was that he tore some pages out of his notebook. But he introduced lots of notebooks to show he always tore pages out when he gave them to his secretary. And the second was that he told some witnesses be very careful and answer the question. Now, you know, he said a few other things, but they all seemed like the kind of things that people would always say to witnesses. Now, if that's the only evidence, except for the fact he owns the company, how is there probable cause here?",
       "time": "00:18:21.65"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, I didn't see any in the brief.",
       "time": "00:19:02.39"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I saw a lot about other people in the brief, but not about him.",
       "time": "00:19:03.59"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "There are all kinds of things about other people.",
       "time": "00:19:12.58"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I didn't--",
       "time": "00:19:15.70"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I would like you to limit yourself to what I didn't concede. I concede it's his company. I concede that he tore some pages out of his notebook, and I concede that he told... which he did a lot of times. And I concede that he told witnesses answer the question, et cetera. Now, is there anything else connecting him, not his company?",
       "time": "00:19:33.91"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Kneedler, I know you're responding to Justice Breyer's question, but I think for purposes of our decision, we're not supposed to decide whether there was probable cause or not, but we're to give you the opportunity to prove there was if... if you win on your--",
       "time": "00:20:39.30"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But that's a disputed issue, and we don't have to decide the probable cause issue. Is that not correct?",
       "time": "00:20:57.49"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But because the other side is arguing that even if there is probable cause, the burden shifts when they prove the retaliatory motive, and you have to prove that you would never... you made... you would have brought the prosecution even if there had been no retaliatory motive. That's what we're arguing--",
       "time": "00:21:10.63"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And the question I would ask is why should this be different from a wrongful discharge case in which there's ample cause to discharge and the issue boils down to whether or not he would have been discharged anyway. Why isn't it the same... same situation?",
       "time": "00:21:29.93"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Wouldn't... wouldn't all those considerations justify a rule that makes the burden of proving the retaliatory motive very high, say, maybe it has to be by clear and convincing evidence or something like that? But once you have it acknowledged... I don't know if they're really acknowledged here, but there's strong evidence of retaliatory motive... why shouldn't the burden shift just on that, on the basis of that proof?",
       "time": "00:22:21.07"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if you had a--",
       "time": "00:22:47.77"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--if you had a heavy burden of proof at that stage of the proceeding, wouldn't that protect the interests that mainly concern you?",
       "time": "00:22:48.00"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Kneedler, the defendant here is not the prosecutor. Right?",
       "time": "00:23:26.06"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just someone who provided information to the prosecutor that... that was erroneous and allegedly maliciously motivated.",
       "time": "00:23:29.22"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Allegedly maliciously motivated, at least. I don't understand how you would apply the test, would... you know, would you have prosecuted anyway, when... you know, but for the malicious motive, when the person you're... you're suing is not the prosecutor. It wasn't up to this person whether there would be a prosecution.",
       "time": "00:23:40.05"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Kneedler, the D.C. Circuit, looking at this case, looking at the record closely, typed it one in which the evidence of retaliation was strong and probable cause weak. This is on 28a of the appendix to the petition for cert. That was the appraisal of the D.C. Circuit panel. And I think you've been arguing that that is not the case, but at least for our purposes at this posture, don't we... shouldn't we accept that that is the picture here, weak evidence of probable cause, strong indications of retaliation?",
       "time": "00:25:07.08"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. McCartan.",
       "time": "00:27:07.88"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. McCartan, how does... how does your standard work? The same question I asked Mr. Kneedler. The... the test you would propose is whether but for the retaliatory motive, the prosecution would have been brought anyway?",
       "time": "00:28:33.82"
     },
@@ -805,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:28:54.66"
     },
@@ -817,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, Mr. McCartan, I don't mean to interrupt you, but I thought the primary issue was not the qualified immunity issue, but whether we have a cause of action in the first place.",
       "time": "00:29:19.98"
     },
@@ -829,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And on that, they say you don't have a cause of action unless you're able to prove an absence of probable cause.",
       "time": "00:29:29.84"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. I think they would say absolute immunity, not qualified. I... I think they're saying if there's probable cause, the game is over.",
       "time": "00:29:52.76"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but there are two questions in the cert petition and it's the second one that's the qualified immunity issue, and the first one is whether there's a cause of action.",
       "time": "00:30:02.31"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But the difficulty I think we're all having with it is that the qualified immunity issue and the standard to which you are... are adverting responds to a question that doesn't arise unless we first assume that there is... that there is a constitutional violation.",
       "time": "00:30:27.75"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And our questions are what is the standard for determining the constitutional violation. Once we get that squared away, then we'll get to Harlow.",
       "time": "00:30:44.77"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If it is applied here, I... I thought we just granted question one. There were two in the cert petition. I... my notes say we just granted question one. And that means what they have is the screen. We're going to screen out absolutely any such claim as yours if there is probable cause. Now, the reason they advance for doing that is that in the... a reason is in the absence of a screen like that, here's what's going to happen. Every single case... not every one, but millions of cases or thousands, anyway... involving companies... well, companies are going to Congress all the time. They have ads all the time. They run into agency hostility all the time. The Hell's Angels? That's a pretty unpopular defendant. They say things all the time that investigators disagree with. And what will happen is in a vast number of cases the defendant will decide to bring a Bivens action, particularly if he gets off, and then we'll have discovery and we'll look into every statement that the... the investigator made to the prosecutor, and before you know it, we have a nightmare of tort cases. And they say that's unfortunate to cut off a claim like yours, but after all, the prosecutors totally cut them off because they have absolute immunity. Now, we're saying at least let's restrict them, where investigators are involved, to cases where it turned out there was no probable cause, otherwise the criminal process itself will be seriously injured. Now, I take it that's the argument. I'd like to hear your reply.",
       "time": "00:31:23.09"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, but are you going to... I mean, is there any light you could shed? And that's why I asked in my question initially. I thought maybe there were some jurisdictions somewhere that... that survive without the rule they want, but maybe I'm wrong. And... and how do I judge this? I would be concerned. I don't... the... after all, these other cases you mentioned are civil tort cases and... and they don't involve the criminal process. And when we get into criminal prosecutions, we have rules on selective prosecution that are designed to screen out all but the very worst.",
       "time": "00:33:10.05"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And that's what he's arguing for here.",
       "time": "00:33:42.41"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Leaving... is there anything you can say before I give up on this? And maybe the answer is no. Is there anything you can say that would relieve my concern, which is completely practical at the moment, that if I decide in your favor, there suddenly are going to be large numbers of criminal cases where defendants will say the reason I was prosecuted was because of something I said? I was advocating motor cycles. I was advocating beating people up. I was advocating a congressional change of something. Many, many such cases. They'll all get at least discovery, and the prosecutor's door will become open to the world. Now, that's what's concerning. Can you say anything to relieve that concern?",
       "time": "00:33:59.48"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But if this Court opens that door, don't you think we might see a different problem?",
       "time": "00:34:53.99"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which opinion was that? I missed that.",
       "time": "00:35:18.00"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which opinion are you talking about? I missed it... missed it.",
       "time": "00:35:19.13"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Okay.",
       "time": "00:35:22.23"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This wasn't addressing... this wasn't... didn't involve prosecution, though. It didn't involve unlawful prosecution.",
       "time": "00:35:41.73"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It... it was a suit against a prison.",
       "time": "00:35:45.50"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, but... but we treat prosecutions quite differently. We do not give, for example, absolute immunity to the wardens of prisons as we give absolute immunity to prosecutors.",
       "time": "00:35:50.61"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is a specially dangerous area in which to allow litigation.",
       "time": "00:36:01.35"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. McCartan, I... I still don't entirely understand what you would want the Government to prove under your system in order to... in order to... to win this case. They would have to prove what? That... that--",
       "time": "00:36:37.65"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--And it would not be enough to show that the prosecution would have gone forward anyway.",
       "time": "00:36:58.55"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes.",
       "time": "00:37:11.12"
     },
@@ -1069,7 +1069,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:37:14.88"
     },
@@ -1081,7 +1081,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You see now in... in the employment cases where... where somebody is dismissed for a... a racially discriminatory reason and... and you have to prove that the same action would have been taken anyway, you ask the person who fired them with the discriminatory motive whether that person would have taken that action anyway. Whereas here, the person who brought the prosecution is not in this case. It's somebody who gave information to the prosecutor. I don't know how that person could... could possibly establish that the prosecution would have been brought anyway. It wasn't up to him.",
       "time": "00:37:25.98"
     },
@@ -1093,7 +1093,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It had nothing to do with--",
       "time": "00:37:59.56"
     },
@@ -1105,7 +1105,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, they did, but wouldn't you have to prove under your standard not that they would have procured or tried to procure it anyway, but that in fact the prosecutor would have prosecuted anyway? In other words, that's the distinction between the... the normal case and... and the case that we're dealing with here--",
       "time": "00:38:14.24"
     },
@@ -1117,7 +1117,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--with a prosecutor who has absolute immunity.",
       "time": "00:38:35.56"
     },
@@ -1129,7 +1129,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No. All right--",
       "time": "00:38:47.11"
     },
@@ -1141,7 +1141,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But would it... would it have been a complete defense? Suppose the prosecutor, who is immune, gets on the witness stand and says, well, I know all about this... the First Amendment stuff, but I was going to bring this prosecution anyway because it seemed to me there was a serious crime here. That's all he says. Wouldn't that be the end of the case?",
       "time": "00:38:57.46"
     },
@@ -1153,7 +1153,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But... but the question is the motivation for his decision to bring the case.",
       "time": "00:39:16.77"
     },
@@ -1165,7 +1165,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And he says I... I would have brought it anyway.",
       "time": "00:39:23.06"
     },
@@ -1177,13 +1177,13 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Why--",
       "time": "00:39:33.52"
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Do you think the defendant can subpoena the prosecutor?",
       "time": "00:39:34.12"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why? I thought the prosecutor had absolute immunity.",
       "time": "00:39:37.57"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You say he... he can't be brought into court to defend his own... his own judgment, but he can be brought into court when... when an investigator is sued in... in order to take his testimony as to what would have happened?",
       "time": "00:39:42.28"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, he may have done it voluntarily here, but I find it hard to believe that he could be subpoenaed, when... when he has absolute immunity from suit against himself, to testify in a suit against somebody else. It seems to me a very strange kind of a--",
       "time": "00:40:06.60"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So he's a witness. Suppose his testimony--",
       "time": "00:40:25.11"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Suppose that the person is convicted.",
       "time": "00:40:27.39"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes. Can you bring your Bivens claim anyway?",
       "time": "00:40:32.26"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Really? So that's a... but it's not a civil case.",
       "time": "00:40:37.64"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So you say that if he's convicted, after all, he may have been convicted but it may be because of the retaliatory motive.",
       "time": "00:40:42.26"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:40:53.60"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So you... so you say--",
       "time": "00:40:56.54"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--if he's convicted, that's the end of it--",
       "time": "00:40:57.82"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--whether there was a retaliatory motive or not.",
       "time": "00:41:00.24"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, that's 1983.",
       "time": "00:41:18.66"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So what he does is he--",
       "time": "00:41:34.64"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--he brings his action and he says here I am 20 years in prison and I agree I'm guilty, but they never would have prosecuted me without the fact that they hate the Hell's Angels and they, in fact, criticize everything that we say.",
       "time": "00:41:35.74"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because?",
       "time": "00:41:54.12"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no. He's saying I was... I was guilty, but the... all right. Anyway--",
       "time": "00:41:56.97"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I won't force you into that.",
       "time": "00:42:02.55"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'll take basically virtually never if he's convicted. They concede that you could bring this kind of action if there's no probable cause. So we're talking about that range where there was probable cause but acquittal. That's what we're talking about here.",
       "time": "00:42:04.68"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, you're... you're in the cases, but I'm... I'm trying to pursue this. You've given me another idea--",
       "time": "00:42:38.96"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--which is I would like to say one word about this. I'm sorry to interrupt your train of thought here, but look. I'm looking for other screens. Is there... is there... the particular point that they're worried about is you say we want to establish the retaliatory motive. That's what's worrying them because they see, in that establishment of the retaliatory motive, discovery, and discovery means you not only talk to the investigators, but you're also talking to, as a witness, the prosecutors to find out who said what to whom in order to see if you could establish that they didn't like the speech of the defendant. Now, can you give me any screen, not your case, but any kind of a screen that will help--",
       "time": "00:42:41.68"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--weed out the sheep from the lambs--",
       "time": "00:43:32.84"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--the goats from the sheep or whatever--",
       "time": "00:43:35.82"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--in that area?",
       "time": "00:43:37.64"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--So the... the screen, in effect, is--",
       "time": "00:44:07.43"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--the qualified immunity screen.",
       "time": "00:44:09.17"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Have there been cases where in the context of the prosecution, there's been a motion to dismiss the prosecution because it was brought in retaliation for the exercise of the First Amendment right?",
       "time": "00:44:20.82"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Have there been cases in the other courts?",
       "time": "00:44:36.04"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but it did in the Armstrong--",
       "time": "00:44:40.92"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But in the race context, it is a dismissal of the prosecution itself. Isn't it?",
       "time": "00:44:44.02"
     },
@@ -1555,13 +1555,13 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--with Harlow here.",
       "time": "00:44:50.92"
     },
     {
       "turn": 254,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "My... my question was directed to the First Amendment.",
       "time": "00:44:51.64"
     },
@@ -1573,7 +1573,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well... well, surely the prosecution--",
       "time": "00:44:59.74"
     },
@@ -1585,7 +1585,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Surely the prosecution would go ahead if there were probable cause. No? I mean, suppose it was brought up during the prosecution.",
       "time": "00:45:01.99"
     },
@@ -1597,7 +1597,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You mean to say if there was... if there was perfect probable cause for the prosecution, that you can stop the prosecution in its tracks by... by an allegation of the First Amendment violation?",
       "time": "00:45:11.25"
     },
@@ -1609,7 +1609,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But that... that's true. I now think we're making some progress. I don't think it is quite a qualified immunity. I think it's possible and don't... I'm putting words in your mouth and deny them if I am. One, he's convicted, no case. Two, no probable cause, everybody agrees there's a case. Three, now there is probable cause, but he's acquitted. Okay?",
       "time": "00:45:48.38"
     },
@@ -1621,7 +1621,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "In that circumstance, suppose you say we cannot even allow discovery. You don't even get to discovery on your retaliatory motive unless you show clearly, question mark, or unless you show likely, question mark, that the investigator not only retaliated, but he retaliated under conditions where any reasonable person would have known that what he was doing was contrary to the Constitution.",
       "time": "00:46:11.01"
     },
@@ -1633,7 +1633,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And if you don't show that as a... as a threshold, you don't even get discovery.",
       "time": "00:46:44.28"
     },
@@ -1645,7 +1645,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But if you turn the Harlow standard around... I mean, you're... you're making the... the negation of the Harlow standard the screening device--",
       "time": "00:46:57.68"
     },
@@ -1657,7 +1657,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--in Justice Breyer's example.",
       "time": "00:47:05.84"
     },
@@ -1669,7 +1669,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:47:06.79"
     },
@@ -1681,7 +1681,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. McCartan, what was the 1887 case or 1880--",
       "time": "00:47:11.23"
     },
@@ -1693,13 +1693,13 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yick Wo.",
       "time": "00:47:16.44"
     },
     {
       "turn": 277,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I thought you said Armstrong.",
       "time": "00:47:16.85"
     },
@@ -1711,7 +1711,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yick Wo.",
       "time": "00:47:19.41"
     },
@@ -1723,13 +1723,13 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought it was--",
       "time": "00:47:21.82"
     },
     {
       "turn": 282,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Let... let me ask you this. Suppose the law enforcement official... the postal inspectors bring the prosecution to the prosecutor because of their disagreement with his First Amendment views. The prosecutor said, I don't care about the First Amendment views. I'm glad you brought this to me. I'm going to prosecute because there's probable cause here and this is a bad actor. What results?",
       "time": "00:47:22.02"
     },
@@ -1741,7 +1741,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's why--",
       "time": "00:47:48.79"
     },
@@ -1753,7 +1753,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Suppose the prosecutor said, you shouldn't have brought this to me because you... you're... you're motivated by the First Amendment. But now that it's here, I have my own independent interest in going ahead.",
       "time": "00:48:03.56"
     },
@@ -1765,7 +1765,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And if the burden does shift that way--",
       "time": "00:48:26.51"
     },
@@ -1777,7 +1777,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--wouldn't it be consistent with the screening mechanism that Justice Breyer suggested and... and that you accepted? Wouldn't... wouldn't the... the... when the burden shifts, wouldn't the obligation be on... on the point of substance, as opposed to the point of... of screening, not to show that the... that the prosecutor would have brought the prosecution anyway, but to show that the investigator would have acted to procure that prosecution anyway? So you would have parallel standards.",
       "time": "00:48:29.34"
     },
@@ -1789,7 +1789,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:49:02.39"
     },
@@ -1801,7 +1801,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. But just... I just want to nail this--",
       "time": "00:49:05.20"
     },
@@ -1813,7 +1813,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--to make sure I understand it. So you're... you're modifying your position of a minute ago in which you said the standard would be would the prosecution have been brought anyway, and you're now saying, which I think would be consistent with your answer to Justice Breyer, the... the question is would the investigators have tried to procure the prosecution anyway. And do I understand you correctly, and... and have you changed your position?",
       "time": "00:49:07.80"
     },
@@ -1825,7 +1825,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Right, because the prosecutor could have gotten a lot of other information from other people.",
       "time": "00:49:43.36"
     },
@@ -1837,13 +1837,13 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you're not going to throw out the prosecution just because this one piece of information was bad.",
       "time": "00:49:46.55"
     },
     {
       "turn": 301,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So it's a dual--",
       "time": "00:49:51.34"
     },
@@ -1855,7 +1855,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I go back to one question Justice O'Connor asked you earlier? To what extent are there... is there precedent out there in other courts that have decided this very issue? Are there... is there precedent for what you're asking us to do?",
       "time": "00:50:40.42"
     },
@@ -1867,7 +1867,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But a violation of First Amendment rights or--",
       "time": "00:51:02.80"
     },
@@ -1879,7 +1879,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And... and were those cases in which the prosecution itself was brought to a halt, or were they post prosecution damage actions?",
       "time": "00:51:11.58"
     },
@@ -1891,7 +1891,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The conviction.",
       "time": "00:51:25.19"
     },
@@ -1903,7 +1903,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But is there any precedent for a damage action of this kind?",
       "time": "00:51:26.00"
     },
@@ -1915,7 +1915,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but not quite. Bivens isn't exactly like that. This is Fourth Amendment. So is there... is there precedent for a damage action brought on the theory that the prosecution was brought for... to retaliate for First Amendment speech?",
       "time": "00:51:30.86"
     },
@@ -1927,7 +1927,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not either.",
       "time": "00:51:47.51"
     },
@@ -1939,7 +1939,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Now, that... that means one of two things, either what you're arguing for is not going to bring a flood of litigation, or everyone has assumed that probable cause is a... is a requirement.",
       "time": "00:51:52.12"
     },
@@ -1951,7 +1951,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but... but I'm not sure that that proposition has been established in the cases.",
       "time": "00:52:13.34"
     },
@@ -1963,7 +1963,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Neither... neither does absolute immunity for the prosecutor distinguish between whether the prosecutor was acting just illegally or just acting unconstitutionally. I mean, yes.",
       "time": "00:52:21.21"
     },
@@ -1975,7 +1975,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You apply the same rule there.",
       "time": "00:52:32.57"
     },
@@ -1987,7 +1987,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, well, your... your point that... that there... there has to be a difference between whether there's a constitutional violation or not in this context seems to me not well taken because we don't make that distinction in the context of giving absolute immunity to the prosecutor. We don't say he doesn't have absolute immunity when... when he's been guilty of a constitutional violation.",
       "time": "00:52:37.91"
     },
@@ -1999,7 +1999,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, no. But the point remains that if in the prosecutorial context the immunity exists whether or not there's a constitutional violation, then that teaches us that the same rule should apply to this case. That was Justice Scalia's--",
       "time": "00:53:21.41"
     },
@@ -2011,7 +2011,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question? Maybe I should ask Mr. Kneedler. But I am correct in assuming that even if you should lose on the issue that we're faced with today, the case would, nevertheless, go forward because you would still seek to prove an absence of probable cause?",
       "time": "00:53:53.24"
     },
@@ -2023,7 +2023,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but the case wouldn't be over if you lose here.",
       "time": "00:54:10.45"
     },
@@ -2035,7 +2035,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I wouldn't worry a lot about that, Mr.--",
       "time": "00:54:24.66"
     },
@@ -2047,7 +2047,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'd like to ask you one other question. Suppose you win on this on the grounds we've been discussing. What happens in the middle of the trial when a defendant wants to say the same thing? Can he avoid conviction by showing the same thing?",
       "time": "00:55:57.41"
     },
@@ -2059,7 +2059,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What happens when the same claim is made in the middle of a trial that I... whether I'm guilty or innocent? I haven't been convicted yet, and I want to show that this prosecution wouldn't have been brought in the absence of the retaliatory motive. Can he make that claim in the middle of trial or not?",
       "time": "00:56:09.73"
     },
@@ -2071,7 +2071,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, no, he believes it.",
       "time": "00:56:27.25"
     },
@@ -2083,7 +2083,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no. He's not acquitted.",
       "time": "00:56:34.82"
     },
@@ -2095,7 +2095,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "He's in the middle of trial and he wants to say--",
       "time": "00:56:37.75"
     },
@@ -2107,25 +2107,25 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--It's the criminal trial.",
       "time": "00:56:42.89"
     },
     {
       "turn": 346,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--It's a criminal trial.",
       "time": "00:56:44.70"
     },
     {
       "turn": 347,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The original criminal trial.",
       "time": "00:56:45.41"
     },
     {
       "turn": 348,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "He's in a criminal trial, and what he wants--",
       "time": "00:56:47.63"
     },
@@ -2137,7 +2137,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--No.",
       "time": "00:56:50.49"
     },
@@ -2149,7 +2149,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They read our opinion which holds in your favor. Then the next thing is in... in the criminal cases the defense lawyers say, hey, I... I think my client wouldn't be here today were it not that the FBI had a retaliatory motive.",
       "time": "00:56:51.83"
     },
@@ -2161,7 +2161,7 @@
     },
     {
       "turn": 354,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because?",
       "time": "00:57:09.86"
     },
@@ -2173,7 +2173,7 @@
     },
     {
       "turn": 356,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, no. They're going to show exactly the elements that we write in our opinion.",
       "time": "00:57:12.71"
     },
@@ -2185,7 +2185,7 @@
     },
     {
       "turn": 358,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you very much, Mr. McCartan. Mr. Kneedler, you have 3 minutes left.",
       "time": "00:57:32.65"
     },
@@ -2197,7 +2197,7 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But we're not talking about prosecutors there--",
       "time": "00:58:48.99"
     },
@@ -2209,7 +2209,7 @@
     },
     {
       "turn": 362,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--How about the judge granting a motion to quit at the close of the Government's evidence? Why isn't that objective?",
       "time": "01:00:05.89"
     },
@@ -2221,7 +2221,7 @@
     },
     {
       "turn": 364,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I wasn't--",
       "time": "01:00:39.42"
     },
@@ -2233,7 +2233,7 @@
     },
     {
       "turn": 366,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Your opponent says... says there is no probable cause requirement. You are now on there's no objective test. It's all subjective. I suggest that there could be an objective test. This is not going to the probable cause question. Objective test? Was this case thrown out at the close of the Government's evidence?",
       "time": "01:00:43.49"
     },
@@ -2245,7 +2245,7 @@
     },
     {
       "turn": 368,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Kneedler. The case is submitted.",
       "time": "01:01:12.94"
     }

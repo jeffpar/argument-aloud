@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1978/77-1172/19781127a_77-1172.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "MYRON P. GORDON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "STUART A. SMITH",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We’ll hear arguments first this afternoon in National Muffler Dealers against The United States. Mr. Gordon you may proceed, whenever you’re ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you say Mr. Gordon that, that would be little bit like the union being organized when a non-union plant changes hands with the new owner?",
       "time": "00:01:48.20"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Gordon, I suppose it's irrelevant, but we have very much money involved here, tax violations and all.",
       "time": "00:03:20.72"
     },
@@ -83,13 +83,13 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I suppose, I should ask government counsel that question here because they have other cases presumably, but it didn't seem to me as --",
       "time": "00:04:07.36"
     },
     {
       "turn": 8,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Non-profit organization with a $1 million war chest?",
       "time": "00:04:14.73"
     },
@@ -101,7 +101,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you could get one?",
       "time": "00:04:24.86"
     },
@@ -113,7 +113,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When it refers -- had to drop toward non-profit?",
       "time": "00:04:40.59"
     },
@@ -125,7 +125,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Your clients get some dues and contributions from his members?",
       "time": "00:05:02.44"
     },
@@ -137,7 +137,7 @@
     },
     {
       "turn": 16,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would it make any difference to your case if they had $1 million or $2 million instead of whatever it is that they have?",
       "time": "00:05:22.54"
     },
@@ -149,7 +149,7 @@
     },
     {
       "turn": 18,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In this case, in this posture?",
       "time": "00:05:31.15"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 20,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That will be in some future case?",
       "time": "00:05:34.29"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Non Profitable -- you have to file the returns?",
       "time": "00:05:55.84"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Don't non-profit organizations have to file returns?",
       "time": "00:05:59.90"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So that’s easy way to check?",
       "time": "00:06:03.78"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If you run this case, will you have to file any returns?",
       "time": "00:06:20.83"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Your exempt from taxation?",
       "time": "00:06:26.10"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, is exempt from taxation?",
       "time": "00:06:33.08"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, but if you win this case, if you win this case --",
       "time": "00:06:44.27"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- will you continued to file returns?",
       "time": "00:06:48.97"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, more than that as an organization it comes under this particular statute.",
       "time": "00:06:59.65"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not just as any non-profit organization?",
       "time": "00:07:05.01"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, there is no general statute or statutory exemption for a non-profit corporations?",
       "time": "00:07:13.26"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And section one above 16 or 17 different sub/categories or groups that are exempted?",
       "time": "00:07:20.22"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What would you think about a baseball league under that statute?",
       "time": "00:08:27.99"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When with this regulation that you handed up adopted, do you know?",
       "time": "00:11:12.54"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The statute of regulation?",
       "time": "00:11:25.62"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What I’m trying to get at is the contemporariness of the regulation. To me what it have make a more of an impression if the regulation had been adopted simultaneously with the statute than if it were changed say forty years later, and you suggest it is, if it was --",
       "time": "00:11:41.92"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That certainly is reason to track down regulations were still --",
       "time": "00:12:15.63"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well certainly there are distinctions between a professional football league and a Chamber of Commerce?",
       "time": "00:14:47.93"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Has anyone shed any light on why basketball leagues and baseball leagues are not in the Act except that perhaps they didn’t lobby --",
       "time": "00:15:49.72"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It also true, years ago football teams weren't worth anything?",
       "time": "00:16:28.43"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Very well true --",
       "time": "00:16:35.82"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you would take the same position, if the regulation had always been like it is now?",
       "time": "00:19:08.41"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would --",
       "time": "00:19:14.61"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how long is the statute been interpreted and applied as the government is seeking to interpret and apply it?",
       "time": "00:20:25.48"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Only since 1929?",
       "time": "00:20:38.04"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let's assume from the very outset that it had interrupted and applied the law this way and the revenue code had gone through all the changes that it has gone through since then and the statute was never amended.",
       "time": "00:20:44.67"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well may be that if the Commissioner could have applied it the way -- from the outset the way he now wants to apply it that just at 1929 he changed his mind and you had a good many cases where government officials have changed their mind and both interpretations have been within the statute.",
       "time": "00:21:10.56"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well I know, but if he has power to issue regulations, he has power to issue regulations and his regulation reflects one view of the statute, doesn’t it?",
       "time": "00:21:47.95"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The Commissioner obviously never acquiesced --",
       "time": "00:22:47.69"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so in every other Circuit he was still applying the law the way he read it?",
       "time": "00:22:51.86"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Wasn’t that involved in the Dairy Queen case?",
       "time": "00:25:27.59"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Wasn’t that involved in the Dairy Queen case in the Second Circuit, I mean court – wasn't that point in there?",
       "time": "00:25:30.76"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, Mr. Smith?",
       "time": "00:26:38.56"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Smith you will comment on the form of the regulation prior to the 1929?",
       "time": "00:27:06.44"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You are not going to answer Mr. Justice Blackmun's question right now.",
       "time": "00:27:54.07"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I want to ask you a question but if you are going to ask -- answer his, I was not going to ask you mine, if you are not going to answer his now, I will ask mine.",
       "time": "00:27:58.85"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How about professional football?",
       "time": "00:29:48.86"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Why?",
       "time": "00:29:54.61"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Before you do Mr. Smith, certainly your footnote four is a blind footnote with respect to the pre 1928 regulations.",
       "time": "00:29:59.83"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You nearly recite the earlier regulations are and just giving their title, but without pointing out the seemingly opposing analysis on those prior regulations?",
       "time": "00:30:18.88"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I will discuss in detail in your brief, I take it not.",
       "time": "00:30:48.47"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "There is nothing particularly wrong with this. The commissioner frequently has done this and I would have hoped that your brief would point out the decision in the way collateral cases anyway that lead to the change as you do to degree on pages on 20 and 21.",
       "time": "00:31:51.64"
     },
@@ -677,13 +677,13 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I certainly was hung with your footnote 4, [Attempt to Laughter] it's brought to your embarrassing attention I would say.",
       "time": "00:32:14.26"
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Smith Congress takes a position that Chamber of Commerce is exempt because they are great for the country, then why wouldn’t General Motors be exempt when it was said that what was good for General Motors was good for the country?",
       "time": "00:32:20.79"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Your next answer would be why football?",
       "time": "00:32:49.05"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Any suggestion to Football league?",
       "time": "00:33:18.05"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Name some?",
       "time": "00:33:21.72"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "They have been given --",
       "time": "00:33:28.24"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They are not the constitutional case under the with the Fifth Amendment, the equal protection component of the First Amendment.",
       "time": "00:33:32.11"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Not after (Inaudible) gone there?",
       "time": "00:33:38.85"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now you are telling me that even though baseball leagues are not --",
       "time": "00:33:44.60"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I know, just a minute Mr. Smith.",
       "time": "00:33:50.44"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's – that – nevertheless they added football league especially, why?",
       "time": "00:33:53.37"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Don’t baseball leagues operate pension funds for baseball players?",
       "time": "00:34:36.64"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Under this regulation it would make no difference whether they do or do not have a pension plan, would it?",
       "time": "00:34:54.91"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But certainly a broad disclaimer whether or not they operate a pension plan?",
       "time": "00:35:16.76"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The football leagues operate for the beneficent purposes you described that are performed by Chambers of Commerce or to --",
       "time": "00:35:38.91"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well in 1966 it didn’t include the American Football League?",
       "time": "00:36:12.90"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well if it so easy, why don’t we have a baseball team?",
       "time": "00:36:18.58"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, no the District of Columbia. If it’s so easy.",
       "time": "00:36:23.91"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It’s feels a monopoly isn't it?",
       "time": "00:36:35.98"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was it worse than --?",
       "time": "00:36:39.33"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Even with a monopoly we can get a team I imagine, if we paid enough.",
       "time": "00:36:42.59"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Smith, if you finish out that third sentence in the regulation, after the words more lines of business, you go on to the language as distinguished from the performance of particular services for individual persons, which I take it is what is not permitted in exemption. What are some examples of the performance of particular services for individual person?",
       "time": "00:37:33.09"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And you say that the Muffler Dealers Association here falls under the head of performance of particular services for individual --",
       "time": "00:38:55.84"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is that a two-part test? I would have read that sentence as just meaning these are the kinds of things that fall on one side and these are the things that fall on the other, not that you have to go through both A and B in order to qualify.",
       "time": "00:39:20.07"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It's quiet difficult to read it otherwise?",
       "time": "00:39:36.56"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What reason do those courts give for the inclusion of the words as distinguished from, if they are correct in their reasoning?",
       "time": "00:39:58.57"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then that’s another two part test really. It’s just illustrative on the one hand and illustrative on the other?",
       "time": "00:41:12.60"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Couldn’t we talk on this record Mr. Smith, what would happened if one of these dealers decided to leave the Midas franchise and take of one of their competing franchises, could he still remain a member of this organization?",
       "time": "00:41:57.62"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, you would drop yourself as a member. There would be no possible reason for you belonging to the organization, would there? If it’s only the service, it would be of help to Midas franchisee.",
       "time": "00:42:58.39"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There would be no reason to continue to pay dues?",
       "time": "00:43:19.00"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Smith you have said the whole purpose of this organization was to improve the competitive position of the members vis-à-vis other muffler dealers. Your opponent argues that the purpose is to bargain more effectively with the franchisor, now they are quite two different concepts.",
       "time": "00:43:28.24"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And what is there in the record that supports your view of the relationship? I was quite persuaded that they basically, it was basically a bargaining organization something like a union to help them renegotiate the contract terms and handle problems on terminations and things like that.",
       "time": "00:43:43.27"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I thought your argument was quite different that you in fact interpolated the word entire into the regulation and said that it must not only be directed to improving business conditions in one line of business, but it must improve business conditions in the entire line of business and you then defined the business to be muffler dealer.",
       "time": "00:44:15.97"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In other words, you pretty much adopt the reasoning of Judge Kylie’s dissent of the Seventh Circuit?",
       "time": "00:44:34.10"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's only a fragment.",
       "time": "00:44:45.42"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The market study and the --",
       "time": "00:45:30.15"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There are a number trade associations that represent maybe 60%, 70% of an industry, they don’t have 100% membership because some of them emphasize certain aspects of the business, are they generally granted the exemption or not? You have said about 100% requirement.",
       "time": "00:45:55.70"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if everything they did would be beneficial to people in the muffler industry, but they happen to have their membership comprised just of the franchise dealers from Midas. Say in other words they took the lobbying position on tax legislation and things trade associations generally do, but their membership happened to be composed to just 20% of the industry and people all doing the same, handling the same product. Would that be disqualified because it's not broad enough base?",
       "time": "00:46:24.67"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Smith --",
       "time": "00:47:31.79"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Smith, what if you had a Ford Dealers Association, would that be denied the exemption because it excluded the Chevrolet dealers?",
       "time": "00:47:34.92"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So it has to be an automobile –",
       "time": "00:47:47.98"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But can for instance, Chrysler dealers or American Motor Dealers Association have quite different common problems than Chevrolet dealers?",
       "time": "00:48:04.46"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well I am surprised you haven't excluded automobile association because they don’t include the railroads.",
       "time": "00:48:30.00"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "This is even more on third question. [Attempt to Laughter] You weren’t around in 1966. Do you know why the government didn’t seek cert in Pepsi Cola?",
       "time": "00:48:54.44"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well you said --",
       "time": "00:49:08.44"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "If it had gone the other way would you will here petitioning for cert?",
       "time": "00:49:37.46"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is it (Inaudible) non-acquiescence in the Seventh Circuit?",
       "time": "00:49:49.95"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Am I not correct that you do grant the exemption to segments of an industry without being the whole industry that are arranged to bargain with the union for example?",
       "time": "00:50:51.10"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let say only 40% of the market gets together to do the bargaining with the union, that still would be exempt?",
       "time": "00:51:21.33"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, here the doors are open as far as I understand the record, but nobody wants to come in. They just like a Chevrolet dealer doesn’t want to join the Ford dealer’s organization.",
       "time": "00:51:30.24"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you feel they should have had affirmative action policy?[Attempt to Laughter]",
       "time": "00:52:04.54"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May be the line there but I have to confess I don’t see in terms of what they do in the business community? Why these people are significantly different from an industry wide trade association?",
       "time": "00:52:15.01"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the bulk of the industry doesn’t participate, but what you look it as quarter of an industry or half of an industry for example. Say they had the, also the Reco dealers joined up with them but then all other dealer stayed out and then they suddenly get – be entitled to the exemption I don’t understand why its any different and they get together and talk but how best to rearrange franchise terms and what to do when is a termination of franchise and all this sort of stuff, I just don’t see the difference.",
       "time": "00:52:32.10"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But its purpose is it to bargain with Midas, not to --",
       "time": "00:53:06.90"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We have farm groups that bargain with the farmers I mean you know milk dealers bargain with farmers over milk price.",
       "time": "00:53:20.49"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well it’s a big difference alright, but what does it have to do with collecting taxes, that what I don’t see. The tax policy of which group should pay -- you know to not have the file returns.",
       "time": "00:54:16.15"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well now how could Congress speak beyond the way it’s spoken? The question here is as I understand it whether not this petitioner comes within the definition of business league, isn't it?",
       "time": "00:55:49.86"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Isn't that the question?",
       "time": "00:56:04.03"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That’s the precise question, isn’t it?",
       "time": "00:56:05.82"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And, of course, the petitioner says Congress has spoken by excepting business leagues from taxation and that his client is a business league?",
       "time": "00:56:08.80"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I was saying Midas Muffler Dealer’s Association Inc.",
       "time": "00:56:29.21"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Definitely but here it hasn’t been, it’s quite general.",
       "time": "00:56:54.66"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if the regulations fill the gap for the baseball league?",
       "time": "00:57:07.40"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How did the regulation fill the gap to allow the exemption for the baseball leagues?",
       "time": "00:57:12.51"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But definitely baseball does have its own pension program, the league runs it.",
       "time": "00:57:46.95"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well it hasn’t here, I think everybody agrees with that.",
       "time": "00:57:58.65"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Can you tell us that under the football language they’ve included baseball if I understood you correctly?",
       "time": "00:58:15.42"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The only thing (Inaudible)",
       "time": "00:58:56.68"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, in any event the amendment by Congress which included football league did operate to deprive you of your noscitur a sociis?",
       "time": "00:59:03.38"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well if you put it aside then is still have the argument.",
       "time": "00:59:22.66"
     },
@@ -1511,13 +1511,13 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you forget about the football league.",
       "time": "00:59:36.57"
     },
     {
       "turn": 246,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Smith isn't really all that’s at stake in this case is that if your are right these associations have to be careful at the year end and adjust their dues periodically and avoid getting any income, isn't that all at stake here?",
       "time": "00:59:38.97"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Litigating over an awful trivial issue?",
       "time": "00:59:55.39"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further Mr. Gordon?",
       "time": "01:00:21.10"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. The case is submitted.",
       "time": "01:01:16.75"
     }

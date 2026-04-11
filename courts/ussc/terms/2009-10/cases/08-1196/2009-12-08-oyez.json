@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2009/08-1196/20091208a_08-1196.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "DONALD B. AYER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MICHAEL R. DREEBEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument next in Case 08-1196, Weyhrauch v. United States. Mr. Ayer.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So if the -- there were a State law that said you must disclose anything that could reasonably be viewed as a conflict of interest, then -- then you would lose?",
       "time": "00:01:29.22"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I mean, the mail fraud statute carries a very heavy penalty, and are you -- you are arguing that Congress intended to impose this penalty on individuals who breach some Federal or State disclosure requirement, even if that is viewed by the body that is responsible for the disclosure requirement as a very minor thing.",
       "time": "00:02:29.49"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But that's what you're asking us to do. I understand you are saying that -- that there cannot be a conviction without the violation of some duty. But if we agree with that, then we are going down the road of deciding what sort of duty suffices, and does it have to be a duty that is backed up by a State criminal sanction? What if -- what if it's a 1-year felony? What if it's a misdemeanor? What if it's a -- simply a civil penalty? What if it's simply some sort of precatory code of ethics--",
       "time": "00:03:26.18"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--for legislators?",
       "time": "00:03:54.62"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The real problem with your approach, which I take it is you have to find these duties in State law, is that some States will classify the same conduct as a felony that another will classify as a misdemeanor. So that line won't work. And then some States will make something criminal that other States won't. So you're going to have, depending on geography, people potentially subject to a 20-year term because of the particularities of -- of a -- the State law.",
       "time": "00:04:48.43"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you are asking us to say State law is the reference.",
       "time": "00:05:34.61"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you have no objection to what they call the quid pro quo theory; that is, I -- I want you to hire me after I leave the legislature, and in return, I'm going to see what I can do to keep the tax level low on the--",
       "time": "00:09:04.34"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's what the statute says.",
       "time": "00:10:21.01"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's what the statute says.",
       "time": "00:10:23.84"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It says \"honest services\".",
       "time": "00:10:26.34"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I understand them to be saying nondisclosure of a conflict of interest, so they are a little bit more--",
       "time": "00:11:33.27"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--So why don't you take them at their face, which is, they are saying it has to be a nondisclosure of a conflict of interest that's material?",
       "time": "00:11:47.45"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I think that's what--",
       "time": "00:11:55.92"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--So let's take it from there.",
       "time": "00:11:59.94"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why is that--",
       "time": "00:12:02.07"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--not a limiting principle?",
       "time": "00:12:03.75"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It's -- it's much easier in the public sector, I agree with you, to--",
       "time": "00:12:41.71"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--to talk about it in the -- I'm sorry. In the private sector, it's easier to talk about.",
       "time": "00:12:46.37"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm not sure that -- that whether he did it with disclosure or nondisclosure, what would make the nondisclosure more meaningful? Meaning, it's taking the bribe, whether he discloses it or not--",
       "time": "00:13:28.06"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--and if he gets up on the floor of -- of the legislature and says: You know, I am going to vote for this bill because somebody paid me money, he disclosed it. It doesn't make it any better.",
       "time": "00:13:40.93"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, I think they're saying -- which I am getting gradually--",
       "time": "00:14:14.60"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I think what he's saying is: First, we know what bribery is; we can deal with that one. Second, we know what kickbacks are; we can deal with that one. And what he means by the honest services other than that is, imagine a list of 5 million bits of honest service that a workman has to perform for his employer. Now, on that list, there might be 35 requirements to disclose something where the interest of the employer goes -- employee goes the other way. And he's saying it violates the statute not to do that in circumstances where the employee knows that the failure to disclose will, in fact, lead the employer, to whom he should have disclosed it, to make a significant decision; namely, that decision to avoid which was the reason he didn't disclose it.",
       "time": "00:14:18.79"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, I think what he is saying is that's rather precise. That fits with what was there before, and therefore, all the government is saying is: Now we have those three things. If you didn't quite -- I didn't quite get that out of the brief, but that may be my fault. All right? So anyway, it was probably there; when I go back, I'll see it. And those are the three things. So he's saying: You see? It doesn't matter the source as long as there is a clear legal obligation, which could come from corporation law, for the employee to disclose the conflict in this situation. I think that's what it is. Well, and so what's your response to that?",
       "time": "00:15:13.67"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You are saying, I take it, that there was no duty in Alaska criminal law, disclosure law, to disclose. I think you might find in a treatise on agency that there is a duty to disclose.",
       "time": "00:16:09.44"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Not even in the Uniform Commercial Code or the--",
       "time": "00:16:28.42"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me just ask you--",
       "time": "00:16:43.85"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I'm learning something about the case that I didn't understand before. Are you agreeing that if there were a duty to disclose exactly what happened in this case, that then the statute would have been violated?",
       "time": "00:16:45.41"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I thought you were arguing that a duty to disclose could never qualify.",
       "time": "00:17:14.10"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm trying to figure out what your position is, not what you could argue.",
       "time": "00:17:21.37"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if you then -- but if you do have some duty, would the statute have been violated on these -- on these facts?",
       "time": "00:17:28.27"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If there were a duty to disclose the negotiations of this prospective employer or--",
       "time": "00:17:34.56"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, it's a duty to disclose those facts to the legislature.",
       "time": "00:17:45.90"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I--",
       "time": "00:17:51.44"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But your position is not that there's no duty; it's that there is not a duty with sufficiently severe penalties? Is that what your position is?",
       "time": "00:18:00.64"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But that is not a -- your position is not that there be no duty to disclose; you are saying there is not a duty to disclose of sufficient moment to justify criminal penalties.",
       "time": "00:18:57.16"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "One of your arguments -- an important argument in your brief is the -- the Federal balance, apart from vagueness for a moment--",
       "time": "00:19:52.07"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--which was the lurking problem here. You say it should be State law, because then the Federal courts would at least tell States that they can't enforce their own law strictly enough. But if it's Federal law, then the Federal government tells the States: Well, regardless of your standards, we have our standards. I don't see much to choose from in this--",
       "time": "00:20:00.25"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--in those -- those two alternatives.",
       "time": "00:20:24.88"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You say if there's a State law prohibition--",
       "time": "00:20:31.45"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--then this statute applies. But then -- then the Federal government is telling the States: Well, we don't like the way you enforce your laws; we're going to do it.",
       "time": "00:20:35.89"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So it seems to me there's not much to choose between -- between the two arguments.",
       "time": "00:20:42.58"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But then I don't understand your question presented. I thought the question presented is: Must the government prove the defendant violated a disclosure duty imposed by State law? What you've been arguing isn't in sync with what I thought the question presented was: Must you look for the duty to State law?",
       "time": "00:21:14.31"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you are asking for a State law reference, and that brings up the problem of the variety of State law. And we do have in the mail fraud property area a decision, the Cleveland decision--",
       "time": "00:22:12.88"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--that says: Don't look to how the States define property.",
       "time": "00:22:28.84"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There should be a uniform Federal definition. Why -- if we have done that, the mail fraud statute in -- in connection with property, why shouldn't we do it also with honest services?",
       "time": "00:22:36.80"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What if there's a statute that prohibits a legislator from engaging in certain conduct and attaches a significant penalty to it, but there is no statute that requires the disclosure of the conduct?",
       "time": "00:24:44.91"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me give you this example: Take the Judge Holzer case we all know about. Suppose, in 49 States, it always violates State law, but there's some State that has a special rule that, unless the bribery exceeds $1,000, there's no violation. Would -- could he be prosecuted in the 49th State?",
       "time": "00:25:18.86"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if it's not illegal--",
       "time": "00:25:46.70"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--in the State I'm asking you about?",
       "time": "00:25:48.66"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It does not have to be Alaska law, then?",
       "time": "00:25:58.15"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In this case, it does not have to be Alaska law, then?",
       "time": "00:26:00.57"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I'm just trying -- if it's -- it's illegal in 47 States, but not in the State in which the prosecution is brought, you say the Federal rule could not apply?",
       "time": "00:26:19.07"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Dreeben, welcome back.",
       "time": "00:27:05.92"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Before we do that, Mr. Dreeben--",
       "time": "00:27:46.62"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Dreeben, I would like to ask you about this case particularly: One thing that the prosecutor did, one thing that the Ninth Circuit did. So before we get to your larger theory of anything, we have a particular case to deal with. We have an Assistant U.S. Attorney who came to the judge and said, we have alternate theories of this case. One is the quid pro quo theory; the other -- and I am reading from 42 of the appendix -- is that \"a public official can be found guilty of honest services fraud, irrespective of whether the public official took any act thereafter. \" Just the bare nondisclosure. That was what the Assistant U.S. Attorney was asking for.",
       "time": "00:27:49.08"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then you must agree that the Ninth Circuit was wrong, at least in this particular -- this -- I'm now reading from 19a. One is bribe, and that's -- everyone seems to agree that that could come within the statute. The second is (2) nondisclosure of material information. Period. That's got to be wrong.",
       "time": "00:29:40.15"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. I have been trying to find out what you were referring to on pages 68 to 69.",
       "time": "00:30:44.57"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes.",
       "time": "00:30:59.13"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But this is an opinion that's going to govern district judges in the Ninth Circuit. So I take it that your answer is that nondisclosure of material information certainly is not enough--",
       "time": "00:31:57.44"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What if he had voted against the legislation?",
       "time": "00:32:49.87"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So it's not merely the taking official action; it's taking official action that benefits him?",
       "time": "00:32:59.83"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I imagine -- I'm sorry. I imagine legislators must vote on all sorts of things that have a -- an impact on their own financial interests or the financial interests of their family or associates. For example, suppose this -- the Petitioner was a practicing attorney. Suppose he's voting on an overhaul of the rules of civil procedure, and some of them may benefit him and his practice. Or suppose he's voting on a new tax code, and the provisions may benefit him or his family or his associates in a -- in a variety of ways. Don't you need some kind of a disclosure code to separate the things that have to be disclosed from the things that don't have to be disclosed, because they are just too common?",
       "time": "00:33:06.88"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And this is supposed to be something that the average citizen who works there just knows all about?",
       "time": "00:34:15.61"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "He intended not to disclose something, right.",
       "time": "00:34:57.03"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay, okay. I see.",
       "time": "00:35:13.39"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But what if -- what if that external standard imposed penalties vastly different from the mail fraud statute? For example, what if Alaska had a law here that said you must disclose this, and if you fail to disclose it, you are subject to 6 months in jail or a $500 fine?",
       "time": "00:35:25.18"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It's a light sentence because the disclosure obligations are confusing, but -- and then the Federal prosecutor comes along and says, well, you -- you are going away for 20 years because this violates 1346.",
       "time": "00:35:42.15"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes, he knows that he should disclose this, and--",
       "time": "00:35:56.47"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Yes.",
       "time": "00:35:59.17"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So, you have no problem with the idea that the State law, the source of the duty to disclose, imposes a penalty of 6 months, and the Federal law you say you can still go after him not only 20 years but an additional 20 years?",
       "time": "00:36:11.31"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Please articulate it again for me. I -- I am -- I don't think I'm being thick. I'm trying to understand exactly what that duty is, because I think I just heard something that doesn't make sense to me. You are saying if there's a State duty to disclose, a Federal duty to disclose, if they are legal duties, that would violate it, and now something else?",
       "time": "00:36:36.53"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask you right at that point: Does the prohibited action, namely, voting -- does that vote have to be contrary to -- serve the interest of the other party?",
       "time": "00:37:58.63"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So, now -- now think of that answer -- complete that answer, if you can.",
       "time": "00:38:16.11"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, go back to -- I'm trying to get you back to your general answer that you wanted to give. And I -- I -- remember my list of 6,000 things--",
       "time": "00:38:47.61"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--which I made up, and these are all the things that--",
       "time": "00:38:57.97"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--an employee owes an employer.",
       "time": "00:39:00.40"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, some of them -- you have taken out three -- no bribes, no kickbacks and no conflicts of interest where that's defined in the narrow way you've defined it. You have to know you are not disclosing, you know you have the obligation, you know action will be taken on it, and the action will be taken to help somebody else or to the detriment of the employer or something like that. Right?",
       "time": "00:39:03.29"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Something like that. Okay. [Laughter] So, now, I think, well, I go back to Justice Scalia's language of that statute. And I say, oh, my goodness, why did you pick these three? I mean, I can easily -- I make up comical examples because they illustrate the point.",
       "time": "00:39:26.73"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I don't mean them to be comical. Look, think of a person who is really angry at his employer and he changes all the direction signs around in the building to mislead him so that the employer will miss the key meeting and make the wrong decision.",
       "time": "00:39:42.44"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, why not that one?",
       "time": "00:39:54.45"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no. That's not my point. I don't believe the way you've interpreted the statute that you could or would -- could prosecute what I just made up as a funny example.",
       "time": "00:40:03.19"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I can make up thousands of examples from the list, and I think Justice Scalia's original point was something like, well, you've taken some words, 28 words that cover 6,000 things, and out of those 6,000 things, you have picked, perhaps randomly, 3 which--",
       "time": "00:40:13.91"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--you say it covers.",
       "time": "00:40:34.72"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, you picked them -- all right.",
       "time": "00:40:37.53"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why didn't Congress say that instead of -- instead of -- of setting up this mush of language that doesn't even mention McNally, does not use a phrase that any opinion pre-McNally used? That -- that phrase does not appear, as I understand, it in any of the cases.",
       "time": "00:42:03.83"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What is a citizen supposed to do? He's supposed to go back and read all those pre-McNally cases?",
       "time": "00:42:33.12"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why would it have been so difficult for Congress to say no bribes, no kickbacks, and -- and -- and the third thing, however you want to describe it? [Laughter] I mean, I think it's -- if -- if -- if you have a -- a principle that the citizen is supposed to know when he's violating a criminal statute, this is -- I mean, it is just too much.",
       "time": "00:42:37.23"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought there was a principle that a citizen is supposed to be able to understand the criminal law that was around even before Justice Scalia.",
       "time": "00:43:27.30"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I thought the principle was that a citizen has to be able to understand the law, and if he can't, then the law is invalid.",
       "time": "00:43:45.51"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Number one, I am -- I am not going to draw any generalities from the civil rights statutes. I mean, this is an area unto itself, and, number two, the Sherman Act explicitly -- \"explicitly\" -- clearly confers upon courts a common law, a common law ability to define the crime. And that doesn't appear from this statute.",
       "time": "00:44:23.57"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, the Sherman Act criminalizes price fixing. You see, I can say that in two words, intentional price fixing. Do you think what we have been talking about this morning can be reduced to anything like those two words?",
       "time": "00:45:03.88"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There's no such thing as a vague law, so long as this Court says, oh, what the law -- the law -- it's absolutely unclear what the law means, so long as this Court says, oh, we think the law means -- what do you want to pick -- bribery, then -- then it's okay. Right?",
       "time": "00:45:56.59"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that the system we have, that Congress can say, nobody shall do any bad things?",
       "time": "00:46:12.02"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And it comes to this Court, and this Court says, bad things means bribery. And that law is a valid law, right?",
       "time": "00:46:17.62"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The principle that you're arguing for, that -- that a law that is, on its face, inherently vague can somehow be rendered valid to the citizens by a decision of this Court?",
       "time": "00:46:28.65"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that's a familiar common law term. \"Honest services\" is not.",
       "time": "00:46:58.25"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm not remembering. Was the phrase \"honest services\" used in Lemire?",
       "time": "00:47:21.24"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Okay.",
       "time": "00:47:29.66"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you say it was a body of law. It wasn't about a body of law. We said it was wrong. So Congress is not here referring to some established common law crimes at all. It's referring to a mistaken series of decisions by the courts of appeals.",
       "time": "00:47:30.03"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that's quite different from -- from harking back to a common law term, such as fraud.",
       "time": "00:47:49.23"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--The problem is that -- that, even if the U.S. attorney got it right in the end, if the U.S. attorney could think that all that's involved is nondisclosure, even if no action is taken thereafter, the U.S. attorney could write that down twice, that suggests that this statute is open to a high degree of interpretation.",
       "time": "00:48:41.22"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it's -- it's not -- it's not just one. One of the briefs in one or the other of these cases describes the great variety of \"pushing the envelope\" prosecutions that the Justice Department has, indeed, pursued, and they are all over the place. And if the Justice Department can't figure out what -- what is embraced by this statute, I don't know how you can expect the average citizen to figure it out.",
       "time": "00:49:32.07"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, let me ask a quick question here. I notice, in the Skilling case, the first question is whether the statute requires the government to prove the defendant's conduct was intended to achieve private gain, et cetera, and if not, whether the statute is unconstitutionally vague. Now, does that first question give the government an opportunity sufficient to say whatever it wants in its brief about the constitutional question?",
       "time": "00:52:59.36"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So we could assume that, if you need time, at that time, you could ask for whatever you wanted to ask for?",
       "time": "00:53:36.86"
     },
@@ -1311,13 +1311,13 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I have one--",
       "time": "00:54:11.62"
     },
     {
       "turn": 212,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you this question? You -- you have described the issue in this case as not merely a nondisclosure, but as you spell it out, it seems to me it is actually a quid pro quo theory.",
       "time": "00:54:11.92"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but you say that in order for the violation to be complete, he must follow up by voting in the interest of the company rather than the polls?",
       "time": "00:54:40.90"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it has to be a specific kind of official action.",
       "time": "00:54:52.79"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You -- you say he violated State law? I -- I thought that the -- that the court found that he didn't. You say he violated State law when he voted.",
       "time": "00:55:08.97"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought they -- I thought it was accepted in this case that -- that there was no violation of Alaska law.",
       "time": "00:55:24.91"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I -- I see.",
       "time": "00:55:34.70"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:55:42.96"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, even--",
       "time": "00:55:48.86"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Even after he discloses he still couldn't vote that way, so he's supposed to vote against it even though he thinks it's a good thing for the State to do?",
       "time": "00:55:49.99"
     },
@@ -1425,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, what if a public official -- you said in response to Justice Stevens that this actionable conduct has to benefit the defendant's interest. What if his interest is a particular policy contrary to that of his employer? In other words, he is a subordinate official. His employer says, I want you to do this and this to advance our policy. He doesn't like the policy, so he does something you can characterize as dishonest that undermines the policy or advanced a different policy that he agrees with.",
       "time": "00:56:03.62"
     },
@@ -1437,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Why? Because it doesn't involve tangible--",
       "time": "00:56:35.20"
     },
@@ -1449,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Financial.",
       "time": "00:56:39.44"
     },
@@ -1461,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It has to involve financial--",
       "time": "00:56:40.29"
     },
@@ -1473,7 +1473,7 @@
     },
     {
       "turn": 238,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Well, where does the right to honest services say \"financial\"?",
       "time": "00:56:51.66"
     },
@@ -1485,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes.",
       "time": "00:57:14.86"
     },
@@ -1497,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Now, Mr. Ayer, you have 3 minutes remaining.",
       "time": "00:57:35.12"
     },
@@ -1509,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're saying that you'll win on the facts, not the theory.",
       "time": "00:58:54.19"
     },
@@ -1521,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But that's not what we have to decide.",
       "time": "00:58:57.96"
     },
@@ -1533,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question? We might then say the theory that they described there is inadequate. But would we then send the case back and say decide it on the theory that Mr. Dreeben has explained today?",
       "time": "01:00:47.31"
     },
@@ -1545,13 +1545,13 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:01:12.36"
     },
     {
       "turn": 251,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10 a.m..",
       "time": "01:01:13.66"
     }

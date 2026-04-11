@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1959/229/19600420a_229_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "EBERHARD P. DEUTSCH",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "GEORGE B. MATTHEWS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 229, Continental Grain Company, Petitioner, versus Barge FBL-585 et al. Mr. Deutsch.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But -- and -- and do they go that far?",
       "time": "00:03:15.19"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:04:02.93"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Purely, when they tried -- they tried 1404 and as I understood the respondents here, tried 1404 to the statutory -- statutory venue provisions standing by themselves.",
       "time": "00:04:04.16"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I didn't quite under -- I didn't' quite understand what you said, Judge Magruder said in In re Josephson.",
       "time": "00:05:02.13"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I suppose he could've meant, to me, that the very making of the motion by the defendants constituted a waiver.",
       "time": "00:05:50.64"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well --",
       "time": "00:05:59.78"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He actually didn't have that case before leaving, Mr. Deutsch?",
       "time": "00:06:22.96"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Is -- for my information, tell me please, is that liberally is settled, that the owner who comes in and signs his principals of bond just to release the boat is not a party to that libel suit, is not thereby made a party?",
       "time": "00:10:23.22"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are those -- all the three cases involved general considerations of the policy which were rendered applicable not because there was an identification between the owner and the vessel --",
       "time": "00:13:22.94"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- but because the policy also apply --",
       "time": "00:13:37.06"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) together.",
       "time": "00:13:41.02"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, all I'm suggesting is that the respectable documents.",
       "time": "00:13:43.42"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Before you leave that, I just --",
       "time": "00:13:56.27"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- want to be sure I understand what you're telling us. Take the case of a -- of a vessel plying Mississippi River, the Ohio, Mississippi River system up and down. It's part of the New Orleans. Now that vessel owes -- that the nature of things likely to be in a different federal judicial district everyday isn't like -- and as the -- does the question of where a suit maybe brought in rem depend exclusively on -- where the vessel happens to be at -- at a moment in time?",
       "time": "00:13:57.41"
     },
@@ -223,13 +223,13 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:14:44.15"
     },
     {
       "turn": 32,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well, it is in navigable -- would have been physical control of a tangible thing?",
       "time": "00:14:44.79"
     },
@@ -241,7 +241,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This is a -- therefore, sort of conferring jurisdiction by consent of the defendants, isn't that it?",
       "time": "00:15:42.60"
     },
@@ -253,7 +253,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of both parties.",
       "time": "00:15:52.15"
     },
@@ -265,7 +265,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, the bond is deemed to be in place of -- the bond is -- is identified with the vessel.",
       "time": "00:15:53.16"
     },
@@ -277,7 +277,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Fulfilling the function of what seizure of the vessel it dealt with.",
       "time": "00:16:00.50"
     },
@@ -289,7 +289,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But until or unless the vessel itself were actually subjected, there would be no requirement on the defendant to file a bond.",
       "time": "00:16:04.80"
     },
@@ -301,7 +301,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No bond was filed in New York?",
       "time": "00:17:18.30"
     },
@@ -313,7 +313,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Deutsch, am I wrong that -- is my recollection treacherous, New York is often arrayed between practice of filing a bond, knowing that the suit will be brought although the vessel is physically never seen?",
       "time": "00:17:39.63"
     },
@@ -325,7 +325,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If indeed --",
       "time": "00:17:56.61"
     },
@@ -337,7 +337,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "00:17:58.63"
     },
@@ -349,7 +349,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And my knowledge is limited --",
       "time": "00:18:00.65"
     },
@@ -361,7 +361,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- in the local area.",
       "time": "00:18:02.14"
     },
@@ -373,7 +373,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Surely, I think been done out of time. And my -- I'm out of -- mind in New York which has a little admiralty purpose.",
       "time": "00:18:11.67"
     },
@@ -385,7 +385,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is a clear indication and I'd overlooked the -- that -- that the transfer maybe made by the -- on the motion of the plaintiff, doesn't it?",
       "time": "00:20:28.32"
     },
@@ -397,7 +397,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is -- plainly, that is -- plainly, that allows the plaintiff to move, doesn't it? What you've just read, Mr. Deutsch. If the United States is a party, then the United States maybe a party under the Vessels Act by a plaintiff.",
       "time": "00:20:39.80"
     },
@@ -409,7 +409,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "A party (Voice Overlap) --",
       "time": "00:20:57.86"
     },
@@ -421,7 +421,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes. The United States could be a plaintiff, yes.",
       "time": "00:20:59.28"
     },
@@ -433,7 +433,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The other way around, shows that the -- otherwise have no function at all?",
       "time": "00:21:08.11"
     },
@@ -445,7 +445,7 @@
     },
     {
       "turn": 68,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Matthews.",
       "time": "00:21:40.61"
     },
@@ -457,7 +457,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "You say, “might not this action.” Do you really not mean “might not an action?",
       "time": "00:25:53.85"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Yes.",
       "time": "00:26:02.56"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Yes. But the question of whether this action was filed in a later time when the barge has been removed from that place.",
       "time": "00:26:03.36"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you explain that --",
       "time": "00:26:40.24"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- would you explain what -- precisely what you mean by that?",
       "time": "00:26:42.08"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, that wouldn't -- Mr. Matthews, without -- without commenting on the validity of your argument of the -- of the conclusion, but the argument doesn't emasculate the statute. It merely says that with reference to admiralty, in rem proceedings, you're restricted to where the vessel is at the time that the -- monition is -- is without or whatever the he technical phrase is.",
       "time": "00:27:27.12"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Then that is an in rem case, yes.",
       "time": "00:27:58.38"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And that -- and that's the implication of your argument is, it might have been -- if that resulted in admiralty, we've got to reexamine as to what might have been needed?",
       "time": "00:28:05.72"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "That would be the case, I take it in every situation if the petitioner is right -- well, the action was one of a local character, an action in rem, isn't it? Not because to admiralty, but in every case where the action is more theory.",
       "time": "00:28:17.29"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "What was the (Voice Overlap) --",
       "time": "00:28:40.87"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Take -- take an action involving a land. To acquire title (Voice Overlap) --",
       "time": "00:28:45.52"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- land doesn't move around.",
       "time": "00:28:49.95"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I did -- I didn't quite --",
       "time": "00:29:17.22"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Excuse me, go ahead.",
       "time": "00:29:19.56"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I'm sorry. I didn't catch the point of that when you made it.",
       "time": "00:29:24.65"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:29:28.02"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "He has no jurisdiction.",
       "time": "00:29:43.72"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What you're telling us is, as I understand it then, that while there is an ancient history which seemed to give personifications of the vessels that an actual present practice does amounts to no more and no less than getting jurisdiction by attachment of personal property in ordinary -- ordinary lawsuit.",
       "time": "00:37:14.75"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, yes.",
       "time": "00:37:44.15"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Why couldn't this action have simply been brought in Memphis in personam?",
       "time": "00:38:27.43"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course it wasn't signed so I'm thinking (Voice Overlap) --",
       "time": "00:38:35.80"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "This would be probably true had the action been brought to one personam in Memphis, petitioner wouldn't have your bond, would he?",
       "time": "00:38:49.76"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "I don't know if I understand it and that bring us, and we're supposed to because that's (Voice Overlap) --",
       "time": "00:39:17.50"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Either that or the barge thing?",
       "time": "00:40:00.62"
     },

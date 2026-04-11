@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1989/89-640/19900416a_89-640.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN G. ROBERTS, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "E. BARRETT PRETTYMAN, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We will hear argument now in 89-460, Manuel Lujan v. National Wildlife Federation. Mr. Roberts.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But she also claimed about lack of access to information, didn't she?",
       "time": "00:01:24.25"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, it's in your case?",
       "time": "00:01:43.57"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But the court of appeals thought otherwise?",
       "time": "00:01:59.99"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Roberts, does the term South Pass/Green Mountains area have some connotation in the BLM's undertaking or was that just an area designated by Ms. Peterson?",
       "time": "00:04:31.48"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I know that, but is it anything more than just a geographical designation selected by the... by Ms. Peterson?",
       "time": "00:04:50.15"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Roberts, do we have to know exactly what's challenged by the plaintiffs below in order to answer the question of standing?",
       "time": "00:07:56.16"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I suppose one of the allegations, for example, is that the reclassification requires the preparation of environmental impact statements.",
       "time": "00:08:17.17"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And, of course, if the... if Ms. Peterson did have standing and was able to argue that point, then it would have an effect nationwide, I assume.",
       "time": "00:08:29.31"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, Mr. Roberts, it... it would have an effect nationwide, however, if all of the... if all of the actions taken nationwide were subject to this court of appeals rule of law. That is to say, if the Court of Appeals of the District of Columbia Circuit were to hold that you had to make the additional publications that are alleged to have been necessary in this case, and if the District of Columbia Circuit had jurisdiction over every order issued nationwide, then presumably the government would have to comply to that... with that order and... with that view of the law unless we took cert. of the case, right?",
       "time": "00:09:29.19"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand that.",
       "time": "00:10:14.30"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And if it doesn't, then... then presumably those that are challenged in the... in the District of Columbia Circuit will be governed by that rule, but the government can feel free to use its view of the law elsewhere?",
       "time": "00:10:20.20"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not really harmless error for the court of appeals to say, well, we really only have this one case before us but, nonetheless, it applies to all cases?",
       "time": "00:10:57.08"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just interrupt for a second? It seems to me that argument goes to the merits, the 31... I mean, maybe she has no right in Montana, but if she has a right even as to 4,500 acres we don't throw her case entirely out of court, do we?",
       "time": "00:12:38.38"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Or if there's some other record basis for standing.",
       "time": "00:12:59.04"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then... then you lose on the only issue that's before us here. The fact that there are millions and millions of other acres out there somewhere doesn't seem to me to have anything to do with the standing issue, does it?",
       "time": "00:13:02.38"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if it gets... your... your position doesn't get her one inch into the 180 million acres.",
       "time": "00:13:20.57"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then why do we have to talk about anything but that one inch?",
       "time": "00:13:27.38"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:13:34.30"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if we disagree with you on any one of those three theories, then we reverse... we affirm?",
       "time": "00:13:46.67"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And we have to sort through all of them and decide which ones--",
       "time": "00:14:20.26"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--That's the difference between being a trial judge and sitting here. [Laughter]",
       "time": "00:14:28.00"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Respondent says, Mr. Roberts, that it had had no reason to believe it would need anything further until the... until the court at the last minute suddenly decided to take seriously the... the challenges to standing which hadn't previously been... been even barely acknowledged by it.",
       "time": "00:17:06.00"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, suppose we disagree with you and think that there was an abuse of discretion. Do you... you don't suggest that those additional affidavits were insufficient to establish standing?",
       "time": "00:18:06.61"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, so you... you don't say that on their face they were deficient?",
       "time": "00:18:27.90"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So... but you would say that, nevertheless, if... even if they are sufficient they relate only to the specific area that they mention?",
       "time": "00:18:32.38"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was there an effort to depose the plaintiffs in the first part of the case?",
       "time": "00:18:47.95"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did the... did the court sua sponte reject the supplemental affidavits, or did you interpose an objection?",
       "time": "00:19:24.96"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you just help me out... get one fact straight in my mind again? These were filed in the briefs after the hearing? Is that when they were filed?",
       "time": "00:21:48.00"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It added these affidavits?",
       "time": "00:22:10.78"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if the respondent had submitted these affidavits at the oral hearing?",
       "time": "00:22:12.38"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If they'd come in a week before the hearing, they would have been timely?",
       "time": "00:22:29.16"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I had the impression they were several years late, but really they were only about six or eight weeks late.",
       "time": "00:22:37.27"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "During which time they apparently thought it wasn't necessary, because they'd been winning on standing up to that point.",
       "time": "00:22:46.29"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "When they realized they were in trouble.",
       "time": "00:22:59.97"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask... maybe this is a stupid question, but if there's no standing and you throw the whole case out as of now, is that with prejudice or without prejudice? Can they come back and file a new complaint with these new affidavits supporting standing?",
       "time": "00:23:19.63"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What would they be estopped for? There was no jurisdiction in that first case.",
       "time": "00:23:36.31"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if the individual affiants were to file a case?",
       "time": "00:23:50.82"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The thing that's running through my mind, if we take a look at these other affidavits... I know you say we shouldn't look at them... and we should conclude... say, we should conclude that it's perfectly clear these people have standing, are we perhaps generating a new series of lawsuits by saying well, we'll throw this case out and let these other people start all over again, as class action or some... with a different... not the National Wildlife Federation, but--",
       "time": "00:24:13.13"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I assume you are being logical and saying that standing is res judicata only as to this particular order of the agency, and not nationwide?",
       "time": "00:25:10.35"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Roberts. Mr. Prettyman?",
       "time": "00:25:29.83"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did you raise that point in your memorandum in opposition?",
       "time": "00:25:59.60"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're aware of the rule of Oklahoma City against Tuttle, as codified in our new rules, that any point that is not... does not go to our jurisdiction that should counsel against the grant of certiorari must be raised in the memorandum in opposition?",
       "time": "00:26:03.82"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well--",
       "time": "00:26:35.29"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Presumably the best time for the Court to have made that decision would have been at the stage were certiorari was being granted. That's the reason for the rule and for the statement in Oklahoma City against Tulsa... Tuttle, that if a case doesn't belong here, we would like to find out about it before we grant certiorari and not during the oral argument.",
       "time": "00:26:36.84"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I thought they were affidavits, Mr. Prettyman--",
       "time": "00:27:23.94"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Accompanying a memorandum?",
       "time": "00:27:26.99"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You said five supplemental memoranda.",
       "time": "00:27:29.94"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You mean the affidavits--",
       "time": "00:27:32.39"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--that accompanied the memoranda.",
       "time": "00:27:33.93"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That was several years... when was their affidavit? That... their affidavit had been some time before.",
       "time": "00:28:18.49"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How... how much before the time that they were updating it?",
       "time": "00:28:26.23"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the hearing was when?",
       "time": "00:28:36.74"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "'76 to '88?",
       "time": "00:28:42.22"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "'86 to '88, so you were using figures for two years earlier?",
       "time": "00:28:45.43"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, and--",
       "time": "00:28:52.78"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, Mr. Prettyman, I don't see what that has to do with whether the Peterson affidavit gives adequate standing to the plaintiff. I mean, there is some argument about the extent to which the government had proceeded, but it seems to me that may go to the scope of relief or something of that sort. I don't see why that determines whether the plaintiffs had standing.",
       "time": "00:29:03.80"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what if we disagree with you and think that since the rules don't permit post-hearing affidavits, therefore there was no abuse of discretion and we're left with the Peterson affidavit?",
       "time": "00:29:44.71"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so if they did, you did, too. Is that it?",
       "time": "00:30:17.27"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it may. It may. But if they did, you did, too.",
       "time": "00:30:23.76"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The district court held you to the rule, and you say because... did you object to their factual statements and their argument?",
       "time": "00:30:27.92"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did you advise the court at the time of the hearing that you wished to file supplemental affidavits?",
       "time": "00:30:44.14"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And so you did not advise the court at the time of hearing that there would be new factual matters?",
       "time": "00:30:53.47"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, the government's point had nothing to do with the standing. I mean, it was a totally different point. The government's affidavit had nothing to do with the standing issue we're talking about here, right?",
       "time": "00:31:14.49"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "With the case. With the case, but not with the standing issue that we're talking about here.",
       "time": "00:31:25.25"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How can you rule on the merits in ruling on standing? I--",
       "time": "00:31:52.06"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, no, he didn't. I mean, if the case was dismissed on standing he certainly didn't rule on the merits. He might have said something about the merits, but it's just not a ruling.",
       "time": "00:32:00.00"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, yes, but we... we don't review dicta, and if this case was dismissed on standing, you know that that's no precedent.",
       "time": "00:32:14.48"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So to rebut those affidavits. You came in and said there's standing, which is a totally different point. So you're saying there were two wrongs here. Would it suffice to... to remedy the injustice if, in reversing the court of appeals' decision here, our opinion said, moreover, when this goes back don't let the government's affidavit in, or you shouldn't have let the government's affidavit in?",
       "time": "00:32:37.28"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or you are sanctioned and reprimanded for letting... and then the inequity would be eliminated, I assume?",
       "time": "00:33:00.02"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The District of Columbia doesn't practice under the Federal Rules?",
       "time": "00:33:20.89"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but he gave you permission to file memoranda, not affidavits.",
       "time": "00:33:38.60"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, maybe he couldn't.",
       "time": "00:33:49.81"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But that isn't before us here. Here you have a district court judge that did not expressly authorize the filing of supplemental affidavits and that ruled that it wouldn't... they wouldn't be considered. So the question is whether that amounts to abuse of discretion.",
       "time": "00:34:02.38"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And that question is before us?",
       "time": "00:34:31.05"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right. So we have to look at it as... as the court of appeals should have looked at it at the time.",
       "time": "00:34:34.69"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why do we have to face it?",
       "time": "00:34:56.87"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but if... we don't ordinarily pass on questions that the court of appeals hasn't passed on. If we find there's no standing under the Peterson affidavit and that the court of appeals was wrong on the abuse of discretion point, presumably it would be open to the court of appeals on remand to consider whether there is informational standing or whatever you call it.",
       "time": "00:35:01.77"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes. If we didn't determine that, we would simply send it back, and it would be an open question?",
       "time": "00:35:36.24"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What you're talking... I don't know what you're talking about. That... those are the lands that were adversely affected, in your view, by the order that you're challenging?",
       "time": "00:36:05.51"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But what's relevant is what greater parcel were those lands contained in that were described in the affidavits, isn't that right?",
       "time": "00:36:18.35"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And... and that describes those 4,400--",
       "time": "00:36:35.03"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--And how many acres is the South Pass and Green Mountain area?",
       "time": "00:36:41.93"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:36:47.35"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it's 4,400 acres that are somewhere in 156,000 acres?",
       "time": "00:36:50.07"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it's in the vicinity of. I mean, that's an additional qualification.",
       "time": "00:36:55.01"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In the whole 150,000 acres, Mr. Prettyman, or just--",
       "time": "00:38:46.83"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--in whatever particular one of the 4,400 acres that these activities were going... going on in?",
       "time": "00:38:50.90"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right. But we don't know where that is among--",
       "time": "00:39:02.71"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--We know that it's somewhere in those, you say, 150,000 acres.",
       "time": "00:39:05.61"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In the vicinity of which this... this affiant said she recreated.",
       "time": "00:39:11.07"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's relevant is not whether we can tell from the Federal Register but whether we can tell from her affidavit. All she says is that she is in the vicinity of the 150,000 acres, and you're telling me that the government has acknowledged that somewhere on 4,400 acres in those 156,000, all of which she may not have been near, there has been an adverse impact.",
       "time": "00:39:24.04"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I thought... go ahead and finish your answer to Justice Scalia.",
       "time": "00:39:50.02"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It doesn't say she's in the vicinity of the 4,400 acres. She says she's in the vicinity of the 150,000... where does she say that she's in the vicinity of the 4,400?",
       "time": "00:40:09.10"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Read the portion of her affidavit that indicates that. Where will we find her affidavit, Mr. Prettyman?",
       "time": "00:40:17.14"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "191a. Not of the joint appendix, but of the--",
       "time": "00:40:26.38"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--the petition appendix. What page? 191a.",
       "time": "00:40:35.40"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, let's... before we take paragraph 6 take paragraph 3. \"I use the Federal lands including those in the vicinity of the South Pass/Green Mountain area of Wyoming for recreational purposes. \"",
       "time": "00:40:50.34"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And you say that the... the Federal lands that would be embraced within that area are no more than 150,000 acres?",
       "time": "00:41:06.32"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Those are the Federal lands that are included within that area?",
       "time": "00:41:21.18"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Suppose I said the... the Bureau is allowing mining in the United States. My... and then I track this... my recreational use and aesthetic enjoyment of the United States is affected by that mining that has been allowed. Would that... would that establish a standard?",
       "time": "00:42:08.09"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it's... you're saying it's the other side of 150,000 acres?",
       "time": "00:42:33.58"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "SCRAP... SCRAP was on a motion to dismiss.",
       "time": "00:43:33.63"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, SCRAP was a five... five to four opinion. It was on a motion to dismiss, and the court said that the standard might be different on summary judgment.",
       "time": "00:43:44.26"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but all the one person would have to say... I mean, all... all that would have been necessary is that paragraph 3 of the affidavit instead of saying generally I use the Federal lands, including those in the vicinity... in the vicinity of the South Pass/Green Mountain area, she could say I use the Federal land adjacent to and then just name one of the sites in this 150,000 acres that... that has been opened for mining. That's all she had to say. That... that's really not a big deal.",
       "time": "00:46:13.20"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No.",
       "time": "00:46:48.03"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The difference is in the vicinity of 150,000 acres.",
       "time": "00:46:49.54"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And in the vicinity of or adjacent to the particular acre of those 150,000 where mining claims have been filed or that have been opened for the filing of mining claims. That's the difference.",
       "time": "00:46:54.36"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it... it's... vaguer than that, I think, Mr. Prettyman, because the... the distance between South Pass and the Green Mountains in Wyoming is many... you know, what, 50 miles, something like that?",
       "time": "00:47:13.84"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, are you defending the court of appeals' rationale in finding standing or not?",
       "time": "00:48:53.49"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But they did.",
       "time": "00:49:05.73"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, they did, though, so... so they... on that basis you're saying you concede that they were in error--",
       "time": "00:49:09.64"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--That they applied the wrong rule of law in deciding standing.",
       "time": "00:49:16.69"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, they did and relied on it.",
       "time": "00:49:24.51"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, why should we have to do all that? If the court of appeals was wrong in... in... in arriving at its conclusion, why shouldn't they have to do the job that you are now suggesting we should do?",
       "time": "00:49:38.55"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you do part company with the court of appeals in that?",
       "time": "00:49:56.00"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's a pretty big instance, isn't it?",
       "time": "00:49:59.98"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How did you argue it in the court of appeals? Like you're doing now?",
       "time": "00:50:11.46"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how did... how was the case argued in the court of appeals, like you're doing it now?",
       "time": "00:50:16.51"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What is the government's evidence that you say showed that these activities of Peterson were definitely affected?",
       "time": "00:51:04.51"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I thought you said it was the government's evidence?",
       "time": "00:51:32.24"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right.",
       "time": "00:51:34.90"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, do these show that Miss Peterson was harmed? I don't understand what they show. How can they show that she was hanging around these mining claims?",
       "time": "00:51:46.94"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, well that's not controverted. I mean, that isn't the point. The point is whether it was causing harm to her, whether she was using those particular areas.",
       "time": "00:52:07.68"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Joint appendix 119?",
       "time": "00:52:19.24"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:52:45.46"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:52:47.36"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you made the statement that the government's own evidence showed that all other lands, or substantial other lands, I interpreted your comment to mean, were affected. This again refers just to the 4,400 acres.",
       "time": "00:53:09.17"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "We're right back to where we're started.",
       "time": "00:53:27.95"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the question is whether we can assume that her recreational use was on or in the 4,500 acres. That's the question.",
       "time": "00:54:11.32"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it's a little vague. That's the question before us. She doesn't say in the vicinity of the 4,500 acres. She says, in the vicinity of the Green Mountain/South Pass area--",
       "time": "00:54:31.73"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--which is a much larger area. Whatever... whatever lands she was talking about, she did allege that her use of those lands was adversely affected.",
       "time": "00:54:43.12"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Prettyman. Mr. Roberts, do you have rebuttal? You have four minutes remaining.",
       "time": "00:54:56.26"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't really contend that she must have alleged that she used the 4,500 acres in order to establish standing?",
       "time": "00:55:03.62"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Just answer my question. You do not say that?",
       "time": "00:55:14.82"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if... you know, if there's a mining going on in 4,500 acres and in order to mine there are a lot of... they have to build some more roads, there's a lot of trucks going back and forth all the time, it can certainly affect a very wide area.",
       "time": "00:55:23.06"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, isn't that right?",
       "time": "00:55:38.87"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that makes it even tougher for you, doesn't it?",
       "time": "00:55:49.23"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, they could be scattered all over that 150,000 acres, and trucks going back and forth to every one.",
       "time": "00:55:53.18"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How do we know that?",
       "time": "00:56:11.76"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, are we talking about discrete mining parcels in a single area, 4,400 acres, or are we talking about 4,400 acres, sum total, scattered over 150?",
       "time": "00:56:16.96"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So even greater than the 150?",
       "time": "00:56:35.79"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Prettyman says we should look at only 156,000 acres, I thought.",
       "time": "00:56:45.82"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask just one question? Can we tell by looking at the record if we find all the right pieces of paper where the 4,455 areas are?",
       "time": "00:57:23.71"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you agree we can look at the material your opponent described?",
       "time": "00:57:33.68"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there a map in these papers, or not?",
       "time": "00:57:39.68"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, can we tell there's... can we get the answer to Justice Stevens' question looking at these maps?",
       "time": "00:57:44.69"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, we can certainly read. [Laughter]",
       "time": "00:57:54.21"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does it tell you... does it tell you... can we plot it out on a map from what it says?",
       "time": "00:57:59.35"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Roberts. The case is submitted.",
       "time": "00:59:07.94"
     }

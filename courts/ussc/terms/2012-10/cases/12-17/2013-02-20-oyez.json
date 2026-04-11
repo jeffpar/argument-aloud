@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2012/12-17/20130220a_12-17.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
       },
       {
         "name": "DEEPAK GUPTA",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "E. DUNCAN GETCHELL, JR.",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument this morning first in Case 12-17, McBurney v. Young. Mr. Gupta.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When -- when was the first of those laws enacted, do you know? I think it's -- I think it's in my adult lifetime that Florida was the first to enact a sunshine law. Is that -- am I correct about that?",
       "time": "00:00:31.37"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In the '60s.",
       "time": "00:00:44.48"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you say that's a fundamental -- that's a fundamental right covered by a Privileges and Immunities Clause, which nobody had until the 1960s.",
       "time": "00:00:52.70"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But those -- those rights still exist in this State, don't they? Cannot you get records of deeds and whatever the common law would have covered?",
       "time": "00:01:16.56"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I'll ask him -- I didn't understand that to be their position, but -- but I guess we can ask them.",
       "time": "00:01:41.38"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Can you -- can you explain that business a little more fully than you did in the briefs? He's in the business of collecting records from all the States about tax assessments.",
       "time": "00:02:05.36"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And he -- and he does that for a client who could very well ask himself. So what is the service that's being performed?",
       "time": "00:02:16.48"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "All -- all he has to do is get somebody from -- from Virginia to ask for him, right?",
       "time": "00:02:59.33"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but you don't have to pay the person too much, he just has to write a letter saying give me these documents, right?",
       "time": "00:03:08.68"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, an increased cost of -- I don't know how much -- 100 bucks, right? Go -- write a letter, say you want these documents, and when they come to your house, give them to me.",
       "time": "00:03:16.92"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How much -- how much of an impact in fact does it have on his business? I mean, there are 47 States who will provide this information.",
       "time": "00:03:58.76"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Gupta, I -- I understand that the -- the reasoning of Virginia in not allowing out of State people to -- to get these FOIA requests is the following: That the purpose of these -- these laws -- and I remember it when the first ones were enacted -- government in the sunshine. The purpose of it was not to enable people to get information per se, it was to enable people to see how their government is working, so that they could attend to any malfeasance that is occurring in the process of government. It seems to me entirely in accord with that purpose of these laws to say it's only Virginia citizens who -- who are concerned about the functioning of Virginia government, and ought to be able to get whatever records Virginia agencies have. What's -- what's wrong with that reasoning?",
       "time": "00:04:40.88"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But -- but you don't need any personal or property interest under these laws. You can just -- out of curiosity, if you -- if you were a Virginian at least in Virginia, even though you have no interest in the matter at all, you can ask the agency for records about this or that. It -- it can't be based on -- on the traditional property interest. It's based on the ability of the citizens of the State to find out what the -- what the government of the State is up to.",
       "time": "00:05:48.86"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the point is that FOIA is tied to, as Justice Scalia said, the citizens should know what their government is doing. And you don't have to give any reason at all, if you were a part of that political community. Now, Virginia doesn't allow people from out of State to vote. They're not part of Virginia's political community. So why isn't this -- if you're not part of the political community, then you don't fall under FOIA, which is a peculiar statute, in that everybody who is covered by it can get whatever they want, and they don't have to give any reason for it.",
       "time": "00:06:26.90"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And is the only thing that's necessary -- excuse me -- is the only thing that's necessary that the law affect a few people commercially? I mean, how much -- how many of the requesters have to be engaged in some kind of commercial activity in order for your arguments to work?",
       "time": "00:07:44.75"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But this is not -- this is not a regulation of commerce. It's a State practice that may have an incidental effect on commerce, and the incidental effect may be disproportionate, depending upon whether you're State or local, but it's not a regulation of commerce.",
       "time": "00:08:38.28"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What if the State of Virginia says, as a policy, we want to help Virginia businesses and so we're going to open a business training, best practices institute where you're going to learn how to be a better business person, but the only people who can come in are -- are Virginia businesses.",
       "time": "00:10:00.65"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Under your theory, because that will have an effect, an incidental effect on commerce in a way that's discriminatory, is -- is that unconstitutional?",
       "time": "00:10:17.54"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that -- that just goes to the extent of the impact, not -- not on the principle. And you say extent doesn't matter. You say there's no such thing as a de minimis exception. So that -- that explanation doesn't -- doesn't seem to me to hold water.",
       "time": "00:10:49.33"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So what? Except to the extent that that bears upon how much of an imposition this is upon interstate commerce. It seems to me that's the only relevance of that point.",
       "time": "00:11:25.51"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And -- and you dismiss that relevance. You say it doesn't matter how extensive the impact is on -- on interstate commerce.",
       "time": "00:11:38.55"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is that -- when you're talking about impact, is that a Pike analysis?",
       "time": "00:11:58.64"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I thought if it was facial discrimination, you're not concerned about impact.",
       "time": "00:12:13.42"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I thought a question of talking about the effects on interstate commerce, that's the, you know, the Pike analysis.",
       "time": "00:12:17.75"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What's your closest case in support of the proposition that this is impermissible as a discrimination against interstate commerce? What's your best case?",
       "time": "00:12:40.64"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If -- if you -- you are arguing, as one of your arguments here, that this is discriminatory as to -- as to interstate commerce, as I understand your argument, what is the best case you have to support your position? What's the closest case?",
       "time": "00:12:55.75"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, my question is what's the best case you have for your argument?",
       "time": "00:13:17.68"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that wasn't a discrimination. That wasn't a--",
       "time": "00:13:33.19"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--That's just -- that goes to the question whether or not this is commerce.",
       "time": "00:13:35.64"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What is your best case to show that this is discriminatory in violation of our precedence?",
       "time": "00:13:39.38"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If I have to write the opinion, what case do I put down? I'm waiting.",
       "time": "00:13:54.35"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If I only have time to read one case--",
       "time": "00:14:08.28"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--or possibly two, which would you like me to read? I think that's basically the question.",
       "time": "00:14:10.29"
     },
@@ -451,13 +451,13 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. But I assume you don't want me--",
       "time": "00:14:19.80"
     },
     {
       "turn": 70,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's why you're here.",
       "time": "00:14:20.50"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Look at those. But I think the Commerce Clause basically has as its objective, insofar as it's dormant, to prevent a legislature or decisionmaker within its State discriminating in favor of their own state producers.",
       "time": "00:14:56.26"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, it's pretty hard for me to put this case into that mold.",
       "time": "00:15:11.85"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just Virginia media, though, isn't it? Isn't it only media that--",
       "time": "00:15:31.93"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--exists or is broadcast into Virginia?",
       "time": "00:15:36.75"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So that's consistent with their purpose that this statute is meant to assure good, honest government in Virginia.",
       "time": "00:15:40.54"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If it does what the -- I had exactly the same question for both parts of your argument, that, what it's their -- am I right in thinking that anyone can get any information -- anyone in any State can get any information that pertains to him or her? Is that right or not?",
       "time": "00:15:53.01"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that right or not?",
       "time": "00:16:14.54"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. That's what I wanted to know, whether it's separate or not.",
       "time": "00:16:17.79"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Anyone from Alaska to Hawaii can get any information that pertains to him or her. Second, that this has nothing to do with judicial records. There is a different statute that makes judicial records public.",
       "time": "00:16:19.55"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. So we're now talking about the class of information other than the two classes I've mentioned. And I then ended up, and I'd like you to add something to this, if you can, that really this is about, since getting information involves usually a benefit to the recipient, but sometimes harm to the person the information is about, that willing to run that harm and risk of harm is the interest in State good government, okay?",
       "time": "00:16:32.55"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, if that's the interest, that's an interest that probably a State has the right, just as it has the right to say other people can't vote in State elections. If that's the interest, then I guess it could take reasonable measures related to that interest. All right. Now, that is the -- the argument or the position that I would appreciate your addressing.",
       "time": "00:17:04.01"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if it costs for Virginia -- Virginia has to take care of its own, and if it has to service FOIA requests from all over, it's going to cost the State. It's going to have to hire people to do this. They're going to have to spend many hours going through these records. So the State doesn't -- it wants to conserve its resources for its own people.",
       "time": "00:17:52.52"
     },
@@ -613,13 +613,13 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, I'm having--",
       "time": "00:18:26.51"
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But they -- but they just don't want out -- they -- they don't want outlanders mucking around in -- in Virginia government. It's perfectly okay for good old Virginians to do that, but they don't want outlanders to do it. Why -- why is that unreasonable?",
       "time": "00:18:27.98"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Counsel, I'm -- I -- there is underlying your argument a sort of fundamental belief that you are entitled to relief -- pardon the alliteration simply because the statute discriminates between citizens and noncitizens. Is that your position?",
       "time": "00:18:54.87"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So if it's not, what are the two rights that you -- or what rights are it that you're claiming have been violated? You say privileges and immunities. What's the privilege or immunity?",
       "time": "00:19:14.84"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So is this an as-applied challenge to the--",
       "time": "00:19:41.81"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--All right.",
       "time": "00:19:45.36"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So this is an as-applied challenge.",
       "time": "00:19:46.23"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then you would be doing something very strange with this statute, because you would be saying Hurlbert has a right to this because it's his business. But the statute, the character of this statute is it doesn't matter what you want the information for. But you're saying the out-of -- the in-Stater, it doesn't matter. Out-of-Stater, is it your argument that if this out-of-Stater has a good reason for getting this and it's related to the out-of-State's business, so you -- you're changing the character of a FOIA statute which is it doesn't matter what you want it for.",
       "time": "00:20:03.86"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I -- I'm having a problem, and then I think it's Justice Ginsburg's problem, which is absent the statute, he can't demand that Virginia provide him with this information because that's how he wants to work, correct? So what's the added value that gives him a right to demand it merely because a statute exists? He doesn't have a right to the information.",
       "time": "00:20:48.70"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "He -- he has a very reasonable request in my view, but the question isn't the reasonableness of his request. The question's, you know, whether they can do it. And the -- the way -- the work -- the thing that's bothering me on the work part is this: It seems that the work is sort of tailored to the statute. It's in this way. I -- I have a job and my job is to study election processes. And I write reports and I find amazing things about differences among States. They're truly amazing. And I say, you know, it would help me a lot if I was actually a voter in each of these states. That would help my job. It would lend authenticity and I could learn things that I probably couldn't learn otherwise. Now, does that add anything to the argument? I mean, I don't think so, but it sounds a little bit like you're making that kind of argument--",
       "time": "00:21:21.51"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and -- and they either do have the right or they don't. And I don't know that it helps that I -- that I say, well, I really want it for my work.",
       "time": "00:22:17.31"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is this -- is this your Privileges and Immunities argument or your dormant Commerce Clause argument?",
       "time": "00:23:16.45"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So then it's not enough that this is a big deal to your client. It has to be something that is essential to hold the country together as a national unit. And it seems to me it's a bit of a stretch to say somebody gathering records about commercial -- under FOIA fits that description.",
       "time": "00:23:28.01"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, but see, they're just to get into those. Again, I think a lot of those examples you -- you do have access under other statutes. You're talking about mortgage rules and all that. Aren't those all--",
       "time": "00:24:01.29"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm still trying to tease out what your claim is. Let's suppose Virginia passes a statute that says: We'll let nonresidents have access, but they have to pay all the costs. Nonresidents don't. Would that satisfy you as valid?",
       "time": "00:25:01.70"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why isn't it just -- you just being costs them more?",
       "time": "00:25:44.39"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That was Justice Ginsburg's point, which is every time you've put in a request, you're costing them more money.",
       "time": "00:25:47.03"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, why? You were costing them more.",
       "time": "00:25:59.65"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Thank you, counsel. General Getchell?",
       "time": "00:26:35.39"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm not sure how you save administrative costs under this statute. They could go to any Virginia resident, it's not illegal, and probably will, it'll cost them something more, but not you, and get the very same information. So how do you justify this discrimination? Because it's so easily -- the administrative cost is going to be imposed anyway.",
       "time": "00:26:46.29"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So you want to give more businesses to Virginia citizens who will now charge out-of-State residents money to process their FOIA requests?",
       "time": "00:27:34.43"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So if I understood your answer to Justice Sotomayor, the only reason you don't let out-of-staters get these records is because of the added overhead costs?",
       "time": "00:29:07.89"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I know. But -- but -- so why don't you do it anyways? Just as I asked your friend, it doesn't seem like that big a deal. It doesn't seem like that big a deal for you either. If you can recoup overhead costs from people who request, and I'd assume you would be able to, why don't other people -- people from West Virginia may have interest in how Virginia government operates, too. And -- and again, what cost is there to you other than overhead? You don't want to keep how Virginia government operates quiet from outsiders when you let in -- its citizens get the access, do you?",
       "time": "00:29:23.44"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That's under the Privileges -- Privileges and Immunities argument.",
       "time": "00:30:18.66"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Okay. But what about the Dormant Commerce Clause?",
       "time": "00:30:22.76"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, I know -- I understand your argument. I'm just asking you why bother? I mean, what -- what's the -- and that's certainly pertinent to some of the Commerce Clause analysis. And I haven't heard anything other than the overhead costs. And I think you can recoup that from the requesters.",
       "time": "00:30:35.95"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Why not?",
       "time": "00:30:55.03"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, you've got to maintain and generate the database anyway for Virginia citizens who are going to ask for it. This is not an added cost. Other than -- it's an added cost if you have to hire an additional person to handle -- as far as I can tell, just these two people.",
       "time": "00:31:07.61"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the Virginia citizens pay for that database, right?",
       "time": "00:31:21.73"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the out-of-staters don't pay for the database.",
       "time": "00:31:26.47"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And besides, do -- do you -- is it the law that -- that the State of Virginia cannot do anything that's pointless? Only the Federal Government can do stuff that's pointless? [Laughter]",
       "time": "00:31:30.92"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You keep making that argument. But you don't stop residents for asking for the information from someone else. I mean, that's one of the points of your law, which is, they can hire a Virginia resident to get it for them. Most of the big people are doing that already. So you're not saving any money if they can get the information simply by paying someone in Virginia to get it for them.",
       "time": "00:31:58.69"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or even for commercial purposes. Don't you think if -- if those who created these government in the sunshine laws could have drafted them in such a way that inquiries for commercial purposes would not be allowed, but only those inquiries that are intended to look into the workings of State government and produce government in the sunshine, don't you think that they probably would have excluded commercial inquiries if they could? But you can't tell which ones are commercial and which aren't.",
       "time": "00:32:38.90"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It's no more complicated in the system if you let out-of-Staters have access, too. You say we want a simple system. It's going to be the same system whether you win or lose.",
       "time": "00:33:24.30"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's where he comes in with his argument. Because I -- I agree, you can -- you don't have -- let's say the most fabulous reason for doing this, but you have a reason. And so the question is, does it have to be better than that? And -- and they are saying yes. And as I heard it, what I would characterize as a strong argument, which sort of first of all strikes me as a stronger argument, is that, look, if we go back into history, out of State real estate people could always get information about property -- let's say they had a client who wanted to buy it. Now, you've protected that. But in today's world, it's important that we get statistics about this, too, because our economy is national. If we understand how States are taxing their real estate, we will know to what extent they increase the value, to what extent they increase the rate, to what extent they really get the money they are supposed to, to what extent they might get money or not get money in the future. And all of those things are nationally important so people can put them together and make, better than we have done in the past, predictions about what is likely to happen to States, and hence, the national economy. All right? That's -- that's the kind of argument he's making. So therefore, there is a national interest in the flow of this information. And that means you have to have a better than “ uh-huh ” kind of rationale. That's -- that's what he's saying.",
       "time": "00:34:14.13"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, to be fair, I -- I was sort of expanding it. [Laughter]",
       "time": "00:35:51.86"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But you don't deny that in general, this does affect out-of-State data collectors, people who are engaged in the kind of business that Justice Breyer was talking about. Is that right?",
       "time": "00:36:20.54"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Only in his Privileges and Immunities Clause claim. He claims that the Dormant Commerce Clause has been effected because he reads this statute as saying only Virginia recording companies have access. Out-of-State can't. And it's a fair reading of the statute. It only permits Virginia residents, which include commercial and noncommercial, to access the information. So assume hypothetically that the statute reads \"only Virginia commercial businesses have access to this information-- \"",
       "time": "00:36:50.89"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Well, that's the question I'm -- I'm raising the best argument for your adversary, okay?",
       "time": "00:37:49.95"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Because we could call it a direct -- he calls it direct discrimination, because commercial businesses are being permitted in Virginia but not noncommercial. You say it's indirect. How do we draw the line between direct and indirect when the bottom-line consequence is the same?",
       "time": "00:37:57.65"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Are you telling us that there is simply no commercial consequences to this statute at all, that Virginians find this to be of no commercial value in any instance?",
       "time": "00:39:01.24"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, you were the one with summary judgment. Maybe they didn't come forward with the information, but we interpret summary judgment in favor of the losing party. And so you say you are totally agnostic. I am concerned you are preventing them by the summary judgment from showing that their -- even with Virginians, there is a commercial value frequently to this information.",
       "time": "00:39:19.26"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's not just political.",
       "time": "00:39:48.39"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Let's talk about the Commerce Clause. You are saying you are agnostic. You have no idea whether or not there might be some commercial value to this information. I would think as an officer of the State of Virginia or as a matter of judicial notice we would take notice that there is.",
       "time": "00:40:08.47"
     },
@@ -1135,13 +1135,13 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it has--",
       "time": "00:40:39.11"
     },
     {
       "turn": 184,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You are saying that it's no more necessary for you to show that there's no commercial value to allowing out-of-staters to do this than it is necessary for you to show that there is no commercial value to your not allowing out-of-staters to hunt deer in Virginia.",
       "time": "00:40:39.79"
     },
@@ -1153,7 +1153,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You are saying that it's up to Virginia--",
       "time": "00:41:01.11"
     },
@@ -1165,7 +1165,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--whether out-of-staters can hunt for Virginia game.",
       "time": "00:41:03.31"
     },
@@ -1177,7 +1177,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And it's up to Virginia whether out-of-staters can have access to the State's records, that they have no interest in personally, under this law. It seems to me perfectly logical.",
       "time": "00:41:06.41"
     },
@@ -1189,7 +1189,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That assumes the question as to whether or not there is a general commercial interest in these -- in these -- in these documents. And you say, oh, you are agnostic. At least that means you are open to the possibility that there might be a commercial interest.",
       "time": "00:41:25.65"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If that's your argument on it, I reject it as Justice Kennedy does. I didn't understand you to be arguing that there is no commercial value.",
       "time": "00:41:53.82"
     },
@@ -1213,7 +1213,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah, that's what I thought.",
       "time": "00:42:05.47"
     },
@@ -1225,7 +1225,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can't say discriminatory regulation. What about tax? I mean, you can't tax discriminatorily, and I wouldn't call taxation in and of itself a regulation of commerce, would you?",
       "time": "00:42:22.53"
     },
@@ -1237,7 +1237,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even though it's -- even though it's not a regulation of commerce?",
       "time": "00:42:53.03"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. That's your argument then.",
       "time": "00:42:58.47"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, general, just indulge me with a hypothetical. Suppose that the backgrounds for these statutes was different. The statutes were the same, but in addition to talking about people's right to know about how their government works, the people spend a lot of time also talking about the economic benefits of a free flow of information in our country. Would that -- if that were true, and I want to put myself on record as not remembering when these statutes were passed-- [Laughter] But if that were true, would this case be different or would you still be up here saying the same thing?",
       "time": "00:43:15.89"
     },
@@ -1273,7 +1273,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "The statute does exactly the same thing. I'm just suggesting that there might be two interests behind the statute; one is about knowing the way your government operates and the other is about free flows of information in the economy. And if both of those things had gone into the mix to create the statutes of this kind, would you be up here saying the same thing or not?",
       "time": "00:44:02.09"
     },
@@ -1285,7 +1285,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--What else can Virginia do besides -- I don't know if there are elk in Virginia, but besides -- to reserve for its own -- for its own people? You say, this is -- good government in Virginia is for Virginians. Big game hunting, scarce resource, can be reserved for in-state people. What else can Virginia do?",
       "time": "00:44:44.92"
     },
@@ -1297,7 +1297,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I think the thing, general, that I was trying to get at, it seems to me you have a very good case that these statutes were meant for a different purpose. But in fact, it seems as though your friends there have a good case that these statutes have been taken over, to a large extent, across the country by economic enterprises doing economic things. And at that point in time, Virginia's -- and, you know, you are only one of two States -- Virginia's maintenance of this kind of -- no, it's Virginians, Virginia information for Virginians, looks very different from what it might have looked like when the statute was originally passed.",
       "time": "00:45:54.68"
     },
@@ -1309,7 +1309,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But Pike is not relevant here. Pike involves -- the Southern Pacific v. Arizona where there were melons -- where there were melons and Arizona wanted to make sure that you had labels and packing of the melons in Arizona. That was discriminatory against interstate commerce. That's not -- that's not Dormant Commerce Clause but that is discrimination, and there is discrimination here.",
       "time": "00:47:01.99"
     },
@@ -1321,7 +1321,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You -- you could say the same thing, we don't discriminate against Californians who want to come and pack their melons in Arizona.",
       "time": "00:47:48.19"
     },
@@ -1333,7 +1333,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It -- it would surprise me if an out-of-State investor who was thinking of putting a large plant in Virginia had absolutely no interest in Virginia's tax policies.",
       "time": "00:48:31.38"
     },
@@ -1345,7 +1345,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But there -- there -- suppose -- I think they have an argument, saying of course this information would be useful for gathering national statistics and helping the national economy. I think that's true. On the other hand you say, well, but look, there must be something left that the States can reserve to their own citizens. There must be something. They can't protect their own commerce; that's clear. They can't discriminate against people who want to come here and live here. That's clear. They can't do this and that and the other thing, but gee, there must be something. I mean can't they reserve at least their -- their beaches for their own citizens? No. Parking near their beaches? Well, maybe. And -- and maybe deer. And if not this, what? That's the end. Okay? So that's basically what you are saying. This is just an interest in trying to find out how State institutions work, and the voters have the main interest there, and this is other -- so you say the other one is attenuated, but not non-existent. He says the other is important, though he recognizes States should be able to do something. So if you were me, how would you decide? How would you choose? What is the standard, because you know the -- the Privileges and Immunities Clause is -- is considerably opaque, and there are very few cases on it. And so what -- how would you tell me to -- to resolve that -- that tension, because there is a tension.",
       "time": "00:48:58.62"
     },
@@ -1357,7 +1357,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We are talking about State-owned documents, aren't we?",
       "time": "00:50:58.14"
     },
@@ -1369,7 +1369,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There is not much that's as close to the sovereignty of the State as the possession and right to exclude people from its own records and its own documents, right?",
       "time": "00:51:02.90"
     },
@@ -1381,7 +1381,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So the -- the issue is, can the State allow its own citizens for purposes of seeing that the government is -- is being run on the up-and-up, have access to those documents without letting the whole world?",
       "time": "00:51:18.21"
     },
@@ -1393,7 +1393,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So why doesn't the dormant Commerce Clause affect the hypothetical I laid out? Because directly this permits Virginia commercial businesses to get something that out-of-staters can't. The State is putting this instrument into commerce. You say, I don't know that. But make the assumption that we think the record's clear enough on that point. I know you want to fight me on that, but it's hard -- it's a fight with no legs. Because you have to know that commercial enterprises in Virginia seek these records.",
       "time": "00:51:33.73"
     },
@@ -1405,7 +1405,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Tell us under our jurisprudence, the dormant Common Commerce jurisprudence -- I have colleagues who don't -- who don't believe it should exist. Take that argument out. Why is this not a dormant Commerce Clause case?",
       "time": "00:52:29.57"
     },
@@ -1417,7 +1417,7 @@
     },
     {
       "turn": 230,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, General. Mr. Gupta, you have three minutes remaining. REBUTTAL ARGUMENT OF DEEPAK GUPTA-- ON BEHALF OF THE PETITIONERS--",
       "time": "00:53:20.67"
     },
@@ -1429,7 +1429,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. The -- I -- I think what he's saying is: You don't have to pay the costs of developing and maintaining those records, which costs are paid by the citizens of Virginia, which gives them an additional interest in being able to get to those documents. You -- you don't claim that -- that you pay for the development and the maintenance of those records. You just pay for the incremental costs of giving it to you, right?",
       "time": "00:53:40.52"
     },
@@ -1441,7 +1441,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and Virginians pay for all the rest?",
       "time": "00:54:09.45"
     },
@@ -1453,7 +1453,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Are you leaving out--",
       "time": "00:54:48.68"
     },
@@ -1465,7 +1465,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Are you leaving it -- you -- you switched now -- and you were led there but you switched to the Dormant Commerce clause. What about your other client, McBurney? He doesn't have any Dormant Commerce clause claim.",
       "time": "00:54:50.61"
     },
@@ -1477,7 +1477,7 @@
     },
     {
       "turn": 240,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Thank you, Counsel. The case is submitted.",
       "time": "00:57:02.35"
     }

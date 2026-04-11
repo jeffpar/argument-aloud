@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1973/73-362/19740424a_73-362.delivery.mp3",
     "speakers": [
       {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "HARRY R. SACHSE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "HARRIS D. SHERMAN ",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "GENE E. FRANCHINI",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "We’ll now hear number 73-362, Morton versus Mancari and 73-364, Amerind versus Mancari. Mr. Sachse.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Aren’t there a good many on the Indian Reservation?",
       "time": "00:03:52.04"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you have any statistics on the comparison of the number of Indians with the number of employees in the Bureau of Indian Affairs?",
       "time": "00:04:46.29"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what I meant was the total number of employees of the Bureau of Indian Affairs, as compared to the total number of the Indians?",
       "time": "00:05:13.43"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:05:21.51"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So, a total of a million?",
       "time": "00:05:51.91"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of whom 600,000 are --",
       "time": "00:05:60.00"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I think about 600,000, as you see it, who are entitled to the preference --",
       "time": "00:06:17.30"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That’s the way they’re administering it?",
       "time": "00:06:41.86"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that [Voice Overlap]",
       "time": "00:06:48.53"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The statute maybe broader --",
       "time": "00:06:50.68"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that whether it is or not that issue isn’t here, I guess.",
       "time": "00:06:58.65"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Although, there was one sentence you didn’t quite finish, it was the last word “tribe.”",
       "time": "00:07:04.83"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I want to be sure what your position was and --",
       "time": "00:07:15.74"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Incidentally while I have you interrupted, the Equal Employment Opportunity Act has some exceptions in it, doesn’t it Mr. Sachse?",
       "time": "00:07:35.98"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But, it makes not exception for Indians or the Indian preference laws, do you have any explanation for that?",
       "time": "00:07:45.23"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The reduction that you just mentioned in land holdings, does that -- was that a total reduction in all lands held by any Indians, in any capacity or was that a reduction in tribal holdings?",
       "time": "00:11:59.95"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Reform?",
       "time": "00:12:20.52"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does the Bureau, Mr. Sachse, have much responsibility outside of the administration of tribal affairs? [Voice Overlap]",
       "time": "00:14:50.12"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And an allottee, if he meets the other requirements could qualify under the preference?",
       "time": "00:15:30.73"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course, the other side of that same coin is that if they had intended otherwise they would have relatively exceptions, written into the exceptions. [Voice Overlap] So, I think it cuts both ways really.",
       "time": "00:18:38.31"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "It seems to me, you are cutting right into it, when you made the up closing statement here?",
       "time": "00:19:20.13"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In United States you are speaking here with one voice.",
       "time": "00:19:42.09"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It isn’t quite as simple, as if they had a preference for farmers in the Agriculture Department? You know that presumably would raise very few equal protection arguments and perhaps I don’t -- [Voice Overlap]",
       "time": "00:22:26.04"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think you’ve got an easier case?",
       "time": "00:22:42.58"
     },
@@ -353,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Sterling, I am not sure that I understand what you say as being the same as what Mr. Sachse say about who qualifies for the preference. If you’re not on a reservation, let’s say you’re allottee, but you do trace your origins back to a federally recognized tribe, do you qualify for the preference?",
       "time": "00:29:56.47"
     },
@@ -365,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now that doesn’t you have to be in the reservation?",
       "time": "00:30:29.49"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And you have to be also, at least one-quarter Indian-blood?",
       "time": "00:30:36.03"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "(Inaudible) and this person who is a member of recognized tribe and one-quarter Indian-blood in an ordinary job, he has the protection of OEO?",
       "time": "00:31:43.35"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, he had both.",
       "time": "00:32:05.67"
     },
@@ -413,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, he has -- and he has more than the protection of OEO, a private employer can discriminate in his favor.",
       "time": "00:32:11.66"
     },
@@ -425,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Alright.",
       "time": "00:32:20.53"
     },
@@ -437,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Thank you. Mr. Franchini.",
       "time": "00:37:08.80"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Voice Overlap] those preferences are all limited to Indians, aren’t they??",
       "time": "00:39:06.10"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But to nobody else?",
       "time": "00:39:15.55"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And would you suggest there’s also a constitutional question about those services?",
       "time": "00:39:21.64"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you are here to argue that the constitutionality of a preference in employment for Indians --",
       "time": "00:39:34.79"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "A preference in the sense that they will hire only Indians for certain jobs?",
       "time": "00:39:44.32"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would not think of any constitutional question about furnishing schools only to Indians or the furnishing water or a lot of other services only to Indians?",
       "time": "00:39:52.24"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Anything wrong then, if there is a vacancy in the BIA then there are two applicants, one an Indian and one a non-Indian, to give the job to the Indian?",
       "time": "00:41:19.77"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I will just ask you again. You would not see anything wrong of giving -- with giving the preference to the Indian in every case?",
       "time": "00:41:38.14"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, no. So you do see something wrong?",
       "time": "00:41:52.93"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What rights has the non-employee got that’s being taken away from him by giving preference to the Indians?",
       "time": "00:41:58.21"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well I know but we are talking about, we are talking about vacancies. About non-employees who are applying for employment, what rights have they got to object to a preference given to an Indian?",
       "time": "00:42:16.62"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you say they have the right under the Civil Service Law?",
       "time": "00:42:40.52"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What do you do with veteran’s preference?",
       "time": "00:42:50.32"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Haven’t you heard that -- haven’t you heard that they exist?",
       "time": "00:43:05.29"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "[Voice Overlap] equally qualified people and the veteran automatically gets the preference.",
       "time": "00:43:12.97"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I am talking about those that are applying for the job?",
       "time": "00:43:39.67"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I know that. But I thought you were talking originally about --my brother White asked you about somebody applying for a job. That’s what I am aware of.",
       "time": "00:43:54.87"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don’t believe that the BIA could say as a matter of policy there is no civil service required?",
       "time": "00:44:18.33"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, we got -- in the BIA we got a $100,000.00 and these are small figures because I cannot understand big ones [Laughter] for water and health facilities and $100,000.00 dollars for employment. So far, the Government is concerned, they’re just two $100,000.00. You say they expend that $100,000.00 to the exclusion of everybody but Indian. One for the water --",
       "time": "00:44:32.47"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But the BIA says we are going to put a $100,000.00 into a water purification plant on the Jacob's reservation.",
       "time": "00:45:06.85"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And none of that water can anybody else than the Indian touch and that's solely for Indians, that’s okay?",
       "time": "00:45:17.51"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And if the BIA said we are pouring a hundred thousand dollars for employment of Indians only, that is wrong?",
       "time": "00:45:27.43"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why? It is still a hundred thousand dollars.",
       "time": "00:45:38.31"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "[Voice Overlap] about a hundred thousand dollars is all we are talking about the whole case is?",
       "time": "00:45:43.62"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And they knew it when they took the job?",
       "time": "00:46:14.76"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When was this preference act passed?",
       "time": "00:46:30.77"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, aren’t so many of these employees hired since 1934?",
       "time": "00:46:35.03"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This promotion is a new policy, isn’t it?",
       "time": "00:46:39.86"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It was always thought applicable to --",
       "time": "00:46:45.39"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Initial hiring but the --",
       "time": "00:46:48.30"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And because the statute seems to be so confined, does it not?",
       "time": "00:46:54.65"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I take it we do not have here any question about present employees being displaced at all. It is just the question of promotion?",
       "time": "00:47:00.82"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Franchini, did I understand you to say it would be unconstitutional for the Government not to apply the civil service rules to the Bureau of Indian Affairs?",
       "time": "00:47:27.43"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but certainly one argument I assume you make is that it’s close enough to a distinction based on race or color, so as to come under the Fourteenth Amendment. But supposing there were no Indian Preference Statute, but the Bureau of Indian Affairs was simply exempt it from the civil service requirements that you take a competitive examination to get in although most other government departments require that certain examination. There would be nothing wrong with that, would it?",
       "time": "00:47:50.84"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Franchini.",
       "time": "00:48:30.87"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "What about the change and added to within the part of the Bureau in 1972 as to promotions and things, what was it that triggered that?",
       "time": "00:48:32.11"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about the Indian Education Act that was passed in 1972?",
       "time": "00:54:23.50"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Franchini, you said there is a great difference between when the Preference Act was passed and the present time. Is there any of these records backing up on that?",
       "time": "00:55:49.65"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And what was the percentage when it was passed?",
       "time": "00:57:02.41"
     },
@@ -917,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You go ahead, but I am not interested in that. You say it is such a -- the Indians are somewhat better off now. I thought that’s what you are talking about.",
       "time": "00:57:32.50"
     },
@@ -929,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Oh, sure! So are you!",
       "time": "00:57:42.36"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I hope.",
       "time": "00:57:47.54"
     },
@@ -953,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is any movement to repeal the Preference Act or you want us to repeal it?",
       "time": "00:58:08.92"
     },
@@ -965,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought you said you wanted us to rule it unconstitutional?",
       "time": "00:58:20.19"
     },
@@ -977,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You came by one word in that Act that suggests it,right?",
       "time": "00:58:40.20"
     },
@@ -989,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There’s not one word in the Act that suggests the repealing.",
       "time": "00:58:46.20"
     },
@@ -1001,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The only word you have is the word of Senator Bird where he said, “all others” and you say that includes Indians.",
       "time": "00:58:53.69"
     },
@@ -1013,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don’t repeal Acts that way. You do not throw them all and say (Inaudible) repeal the whole and mess them at the same time. You are really serious that this repealed it?",
       "time": "00:59:06.88"
     },
@@ -1025,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I suppose the court below was very serious when they held it was repealed and now [Voice Overlap].",
       "time": "00:59:21.46"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:59:40.13"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:59:47.05"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:00:01.55"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And you were able to convince three New Mexico Federal Judges to that affect?",
       "time": "01:00:19.53"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:00:34.68"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I can read the opinion and I can disagree with it, can I?",
       "time": "01:00:40.74"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It depends on what they said in their opinion and they just said automatically it was repealed which is just what you said.",
       "time": "01:00:49.14"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Secretary of the Interior though does have an extraordinary amount of authority as I recall, over the lives of individual and that he can approve wills, he can approve payments of Tribal Attorney’s fees and surely, in those matters, he is advised by the Bureau of Indian Affairs, isn’t he?",
       "time": "01:02:44.25"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is Mr. Morton, is he the one that is petitioner in this case?",
       "time": "01:03:47.30"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But he is one of the appellants?",
       "time": "01:04:00.74"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And as I understood you just say he agreed with you.",
       "time": "01:04:04.22"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how can he be an appellant and be all your side too?",
       "time": "01:04:08.37"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well now, wait a minute. Now, a minute ago I think the other side admitted that for once, the United States government was in agreement on the case and now you say they are not even in agreement on this one.",
       "time": "01:04:13.51"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They are in agreement with you?",
       "time": "01:04:26.24"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In what issue?",
       "time": "01:04:30.29"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well I -- they agree that Indians are given preference in promotion?",
       "time": "01:04:52.47"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That’s what you mean?",
       "time": "01:04:57.27"
     },
@@ -1247,13 +1251,13 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "01:05:07.56"
     },
     {
       "turn": 202,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Franchini, I do not know if the United States still has mandate authority over American Samoa or not, but it did it one time. Would you think it unconstitutional for the secretary of the Interior in governing that island to give a preference in local employment, preference in promotion to Samoans?",
       "time": "01:05:07.92"
     },
@@ -1265,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is your point about the vote, therefore this preference should not be -- should not obtain with respect to employment on the Navajo Reservation for example?",
       "time": "01:09:47.54"
     },
@@ -1277,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what about --",
       "time": "01:10:01.70"
     },
@@ -1289,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if the preference is granted that in office of the Bureau of Indian Affairs in Albuquerque or in San Jose, not on the reservation. Let’s assume that is true. The exclusion would not apply, would it? I mean the preference would apply.",
       "time": "01:10:11.02"
     },
@@ -1301,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the vote on the reservation would be irrelevant. Well, where are these preferences? Where are these preferences at issue in this case? Where were they granted?",
       "time": "01:10:32.05"
     },
@@ -1313,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well then, the vote against it on the reservation is irrelevant?",
       "time": "01:10:53.13"
     },
@@ -1325,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:11:18.97"
     },
@@ -1337,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Alright.",
       "time": "01:11:41.16"
     },
@@ -1349,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The case is submitted. Do you have some more to say?",
       "time": "01:15:29.76"
     },
@@ -1361,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Inaudible)",
       "time": "01:15:51.32"
     }

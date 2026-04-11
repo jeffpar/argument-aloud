@@ -3,71 +3,71 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/85-1377/19860423a_85-1377.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "LLOYD N. CUTLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "STEVEN R. ROSS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL DAVIDSON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "CHARLES FRIED",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ALAN B. MORRISON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "LOIS G. WILLIAMS",
-        "role": "advocate"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The Court will hear arguments first this morning in Bowsher v. Synar and others. Mr. Cutler, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Cutler, if the Comptroller General were removed for any one of the four reasons... I think there are four reasons specified in the statute... is there any review by anyone of that action?",
       "time": "00:03:30.32"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would it be any different from a removal by way of an impeachment?",
       "time": "00:04:01.12"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You feel that the Glidden case is primary authority for your position here.",
       "time": "00:07:13.48"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Cutler, aren't we guided in determining severability if some portion of the statute is found to be unconstitutional by the expressed intent of Congress, which in this case would indicate that Congress had some fallback position which it articulated should be followed?",
       "time": "00:07:20.56"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but aren't we reviewing the 1985 act?",
       "time": "00:08:28.28"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what if we did follow your suggestion and decide that the removal provision of the 1921 act were invalid under the Constitution, how would that leave the position of the Office of Comptroller General as to removability?",
       "time": "00:09:29.68"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what would be the result?",
       "time": "00:09:55.83"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If you concluded that the Comptroller General were more like Myers than Wiener, then you would say that the President could remove him at will.",
       "time": "00:10:24.98"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It seems to me that you really risk interfering with Congress' intent far more when you tamper with the 1921 act than if you adjudicate the 1985 act.",
       "time": "00:10:38.83"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Cutler, the United States argues that the removal power by Congress is beside the point, that this officer may not perform these functions assigned to him unless the President has unrestricted power to remove.",
       "time": "00:13:10.83"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, did the District Court reject that argument?",
       "time": "00:13:30.81"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, do you think that issue is open here? Would that change--",
       "time": "00:13:45.13"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Would it change the reach of the judgment?",
       "time": "00:13:48.40"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Purely executive, and so that they may not be performed by this officer unless the President has--",
       "time": "00:14:23.82"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--power to remove at will.",
       "time": "00:14:30.31"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that... is that a broader... if we affirmed on that ground, would that be a broader relief?",
       "time": "00:14:35.71"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that's not broader relief on this particular judgment. That's just a more sweeping doctrine.",
       "time": "00:15:07.42"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it would foreclose, it would foreclose or make beside the point agreeing with you about the validity or invalidity of the 1921 act.",
       "time": "00:15:18.06"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Cutler, are there other officers of the United States removable by the Congress?",
       "time": "00:15:59.78"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Yes, by statute, for cause.",
       "time": "00:16:13.13"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Cutler, what about the Federal Reserve Board members?",
       "time": "00:16:17.68"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Cutler, do you take the position that the removal power in the '21 act is unconstitutional?",
       "time": "00:16:38.33"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, no, I understand that, but it's a different argument.",
       "time": "00:17:03.89"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I'm just asking independently, would you say the '21 act is constitutional or unconstitutional?",
       "time": "00:17:06.26"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it you are then somewhat at odds with your colleagues with respect to the validity of the 1921 provision?",
       "time": "00:18:56.57"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you suggesting that the '21 provision may be just partly or slightly unconstitutional?",
       "time": "00:19:40.43"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Ross?",
       "time": "00:20:05.71"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Ross, wouldn't you concede that the historic role of the Comptroller General is really that of an employee of the legislative branch, in effect? Hasn't he been considered an arm of the legislative Branch rather than the executive branch, historically?",
       "time": "00:24:52.38"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Comptroller gives opinions, though, on constitutionality of things, doesn't he?",
       "time": "00:26:15.54"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:26:22.36"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but based on my three years' experience in the Justice Department, my feeling was, you know, that if the executive branch wanted a favorable opinion, you went to the Attorney General; if Congress wanted a favorable opinion, you went to the Comptroller General. Do you think that is unreasonable?",
       "time": "00:26:44.68"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, in that connection, if his task is to review the expenditure of public funds, I take it he will perform that task upon request by either a congressional committee or an individual Congressman or Senator, is that correct?",
       "time": "00:27:10.00"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Will he do the same thing upon the request of the President?",
       "time": "00:27:32.83"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The same type of investigative checking on disbursements?",
       "time": "00:27:38.40"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What percentage of his work assignments do you suppose eminate from the legislature and what from the executive?",
       "time": "00:27:48.55"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it over 90 percent, would you say?",
       "time": "00:28:02.35"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What work does he do for the executive branch specifically?",
       "time": "00:28:05.69"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, Mr. Ross, you take the position that none of the functions assigned to the Comptroller General in the 1985 act are executive functions in nature?",
       "time": "00:29:06.36"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You wouldn't concede that there is any executive power component involved in the 1985 act powers given to the Comptroller General?",
       "time": "00:29:32.93"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But the bottom line, of course, is picking a figure or figures that will be binding on all agencies of the federal government for purposes of sequestration, for example.",
       "time": "00:29:55.36"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You mean the Comptroller General, sir?",
       "time": "00:31:31.15"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't there some tension between that suggestion and your earlier suggestion that he's just a guy with a green eyeshade?",
       "time": "00:31:59.39"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes. It seems to me you ought to... you have to choose between those two versions of what he is doing.",
       "time": "00:32:10.36"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How do you compare the Comptroller General's function under the 1985 act with the President's function in preparing the budget?",
       "time": "00:32:43.50"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, isn't that something like correcting the papers of both?",
       "time": "00:33:31.31"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that is your bottom... the bottom line in your argument, that he may perform these functions constitutionally?",
       "time": "00:34:05.84"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you defend the provision in the 1921 act.",
       "time": "00:35:05.12"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you defend assigning these particular functions to him in the '85 act.",
       "time": "00:35:10.68"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would you say that these functions could be given to an executive branch officer, Mr. Ross, under a scheme like this with Congress removal power?",
       "time": "00:35:36.41"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Could these... you say that the Comptroller General is an independent officer, so it's all right to give him the power that has been given. Could Congress give this power to a purely executive branch officer having Congress with the removal power that it has retained for itself with this officer?",
       "time": "00:35:57.34"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you think that somehow the Constitution provides for the creation of these independent officers.",
       "time": "00:36:45.64"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And how do you fit that doctrine into what we think of as the separation of powers concept that the framers of the Constitution had in mind?",
       "time": "00:37:09.69"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess the legislative branch has in fact restricted the power of appointment of Comptroller General to a degree, has it not, by limiting the appointment to people suggested?",
       "time": "00:38:31.24"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But he had to choose from just three candidates, didn't he?",
       "time": "00:39:04.48"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the statute provides just three candidates, doesn't it?",
       "time": "00:39:09.95"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And he must pick one of the three suggested. Am I wrong on that? Maybe I read it wrong.",
       "time": "00:39:17.11"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh, I see. So I am not wrong. But let me just ask you one question. I know the red light is on, but you said that they could constitutionally have given this power to the Secretary of the Treasury, but it would have been, as I understand what you said, a political impossibility, which seems to me again inconsistent with the notion that this is just a factfinding function. Why would it be a political impossibility?",
       "time": "00:39:24.14"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:39:54.41"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because there's some area of discretion in finding facts, I guess that's what you are saying.",
       "time": "00:40:11.59"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Davidson?",
       "time": "00:40:40.28"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But how was he appointed in the first place?",
       "time": "00:42:01.68"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That isn't entirely a courtesy, though, on the part of the Comptroller General, because the reason the executive branch authorities seek the Comptroller General's ruling is that they run the risk of being surcharged, don't they?",
       "time": "00:42:52.53"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If the Solicitor General... or, not the Solicitor General, but if the delegation argument were accepted and we didn't agree with you, would the judgment below be expanded or would that give the plaintiffs additional relief?",
       "time": "00:45:54.84"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right, right.",
       "time": "00:46:26.98"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the judgment would we really the same?",
       "time": "00:46:38.37"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:46:49.15"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you say that that objection was founded on the same objection to the line item vetoes? There's some resemblance there?",
       "time": "00:54:06.55"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what if we took the suggestion that Mr. Cutler suggests, that if the problem with the statute is the removal Power by Congress, which the district court emphasized, do you think that Congress would have passed this statute if it didn't have removal power?",
       "time": "00:54:35.82"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Don't you run the risk, if the removal provision of the 1921 Act is struck down, that you would leave the office simply removable by the President at will?",
       "time": "00:56:04.01"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Earlier, Mr. Davidson, you had made... at least I got an intimation that judges could make some kind of an appraisal of whether Congress would or would not have passed the '21 Act without the removal privilege. Where do we get our authority to try to make judgments of that kind?",
       "time": "00:58:41.54"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think that was a key factor in the Chadha holding?",
       "time": "00:59:21.18"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Solicitor General?",
       "time": "00:59:58.29"
     },
@@ -943,19 +943,19 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Fried, I'll confess you scared me with it.",
       "time": "01:01:44.91"
     },
     {
       "turn": 148,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "[Laughter]",
       "time": "01:01:48.44"
     },
     {
       "turn": 149,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So why don't you explain.",
       "time": "01:01:48.78"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that strikes me as kind of a novel doctrine you're espousing, and I can't quite put a finger on that approach in any of this Court's previous decisions. And I mean, can't it be said that the Federal Reserve Board, for example, through its powers basically affects the financial structure of every agency of the Government?",
       "time": "01:02:34.66"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Fried, you don't challenge the fallback position, do you?",
       "time": "01:03:56.79"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That if this order, instead of being given by the Comptroller General, were based on the recommendation of the Comptroller General and then enacted in a joint resolution of Congress, that then the President would have to obey it.",
       "time": "01:04:03.46"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "01:04:23.69"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And you don't challenge the delegation, do you?",
       "time": "01:04:28.46"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So if these functions had been assigned to the Secretary of the Treasury, you would say it was a perfectly good delegation--",
       "time": "01:05:04.10"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--just like you say it is here?",
       "time": "01:05:13.04"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Or the OBM?",
       "time": "01:05:17.76"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What about the management audits that the Comptroller General conducts? Do you think that's an improper use of that function?",
       "time": "01:06:40.01"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you suggesting, Mr. Solicitor General, that when the Comptroller General exercises that kind of a function he is calling attention as an overseer, calling the attention of Congress so that Congress the next time around on the budgets can deal with the problem that the Comptroller General has pointed out?",
       "time": "01:07:57.76"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if you're correct is he still an officer of the United States who must be appointed by the President?",
       "time": "01:08:45.32"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Solicitor General, would you be satisfied with a judgment that in performing these functions the Comptroller General is a purely executive officer, subject to the removal by the President at will?",
       "time": "01:12:11.22"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you're arguing that performing these functions do make him a purely executive officer.",
       "time": "01:12:35.34"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Aren't you? Isn't that your argument?",
       "time": "01:12:44.19"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it you-- --Then... excuse me. Then he would be removable by the President at will?",
       "time": "01:13:14.54"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you say that we... you would be satisfied with that judgment, I suppose, but you think that would be an imperfect judgment because that isn't what Congress would have intended?",
       "time": "01:13:36.66"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right, all right. But let me just ask, if I may at this point, if you're right that the assignment of these functions makes him pro tanto an executive officer, it seems to me then one would conclude that the Congress has in effect amended the 1921 Act and said, this is an executive removable by the President; the President could remove him and appoint the Secretary of the Treasury Comptroller General and go about his way. I don't know why that couldn't follow.",
       "time": "01:13:53.19"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Solicitor General, if I back up a minute, you paraded quite a few horrible things that could happen if Congress took over the job. Why is it not possible for the President to do the same? I mean, is Congress the only body in Government that does wrong?",
       "time": "01:15:48.38"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does that help me at all?",
       "time": "01:16:36.21"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I learned that in my first year of high school. Now can we get to something else?",
       "time": "01:17:01.16"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Fried, do you say that none of the other powers of the Comptroller General prior to this particular Act were executive powers in essence?",
       "time": "01:17:26.96"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If we agreed with your argument, we would be foreclosed from saying the district court erred in not striking the removal provision of the 1921 Act?",
       "time": "01:21:42.74"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you didn't cross-petition here or cross-appeal?",
       "time": "01:21:59.43"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Morrison.",
       "time": "01:23:08.26"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But they are at least factual, Mr.... or essentially in the realm of fact, Mr. Morrison, rather than policy that agencies have been given authority to enforce.",
       "time": "01:27:09.11"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "$30 billion or $60 billion as percentage of what?",
       "time": "01:28:32.27"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you are talking about 10 percent, 5 percent, something like that?",
       "time": "01:28:47.16"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Morrison, it is a fact, is it not, that in this particular... the experience we have so far, the congressional estimate, the executive estimate, and the Comptroller's estimate are all pretty close to one another?",
       "time": "01:31:32.03"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but the fact that they didn't have any consequences, it seems to me, would be more reason to anticipate wider variation rather than coming close to the target. I don't see how that cuts any ice on the way they went about doing their job. I assume they did it conscientiously, and they did in fact come out pretty much the same.",
       "time": "01:32:12.67"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Morrison, you may have noticed as a member of the bar that over the last 15 years on perhaps four or five occasions Congress has created special judicial panels and authorized the designation to those panels of judges already in office. Is your argument with respect to allocation of these duties to the Comptroller General... put it this way. Would your argument be that what the Congress has undertaken to do here is just as though they had asked that we assign these functions to some presently sitting judges--",
       "time": "01:34:20.52"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--who have no executive authority and no legislative authority, and who are not removable by the President?",
       "time": "01:35:10.45"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you say, you say these are legislative functions, so do you disagree with the Solicitor General that they are purely executive functions?",
       "time": "01:36:01.14"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, they can't be both.",
       "time": "01:36:12.69"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean the functions may be--",
       "time": "01:36:30.65"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--I see. That's why I suggested the question, the hypothetical of some of these judges who couldn't be removed if the--",
       "time": "01:36:35.56"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--But your conclusion would be that if they had made that assignment to these judges selected in that way, it would be just as improper as the one you are now challenging.",
       "time": "01:37:05.69"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And for the same reasons.",
       "time": "01:37:15.38"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Or similar.",
       "time": "01:37:18.00"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Similar reasons.",
       "time": "01:37:20.02"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Ms. Williams?",
       "time": "01:41:34.73"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, why does it... why does that follow? Are you arguing the delegation point? Is that it?",
       "time": "01:42:19.81"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But they could be... they still could be at least quasi-legislative functions and be delegated.",
       "time": "01:42:30.21"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And they wouldn't necessarily follow that they are executive functions.",
       "time": "01:42:39.35"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So just because they are delegated doesn't mean that they cease being legislative.",
       "time": "01:42:50.04"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Then why do you say that they have to be either.",
       "time": "01:42:57.31"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 241,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Well, that's what I was going to get at. Are you saying that he's impinging, he is not performing an executive function in the sense that the true executive does, but he is impinging upon the executive role?",
       "time": "01:43:40.64"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, then, absent the removal power by Congress, you would say this 1985 act is all right?",
       "time": "01:44:31.57"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but absent, absent... if there was no provision for congressional removal of the Solicitor General... of the Comptroller General, then this act would be all right?",
       "time": "01:44:54.68"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the Solicitor General is, as you know.",
       "time": "01:45:26.22"
     },
@@ -1555,7 +1555,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me just ask one question about the removal power which you regard as critical, as I understand it. Must we not presume that if Congress were to exercise its removable power, removal power, it would only do so for a reason specified in the statute, which would mean that it could not remove the Comptroller General because they didn't like the way he performed his functions under this statute?",
       "time": "01:46:37.15"
     },
@@ -1567,7 +1567,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But surely they could not remove him for, because they disagreed with his policy judgments on estimating rates of inflation or unemployment.",
       "time": "01:47:15.17"
     },
@@ -1579,7 +1579,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you suggesting they might regard that as inefficiency or neglect of duty?",
       "time": "01:47:25.40"
     },
@@ -1591,7 +1591,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you make the same argument if he could only be removed for committing a felony, say?",
       "time": "01:47:57.77"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, is this decision reviewable? Nobody's told us that.",
       "time": "01:48:06.70"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of the statute would be, but the... but I'm concerned about the exercise of it. Say they said we now determine he is inefficient or something.",
       "time": "01:48:16.73"
     },
@@ -1627,7 +1627,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "This is true although Congress has never made an effort to exert the authority?",
       "time": "01:50:38.60"
     },
@@ -1639,7 +1639,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It's still true?",
       "time": "01:50:45.52"
     },
@@ -1651,7 +1651,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We have been told in briefs and in the oral argument that the Comptroller General has described himself in effect as an arm, an agent of the Congress. Has that been true with all the Comptrollers General since 1921, if you know?",
       "time": "01:51:12.68"
     },
@@ -1663,7 +1663,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think in that analysis, do you think it's a more important element of the Comptroller General's independence from Congress' point of view that the President cannot remove him than that Congress can remove him?",
       "time": "01:52:54.46"
     },
@@ -1675,7 +1675,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It sounds to me like you're adopting the Solicitor General's argument that the officer must be removable by the President in order to perform this function.",
       "time": "01:53:50.13"
     },
@@ -1687,7 +1687,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It sounds to me as though you have adopted the Solicitor General's position that this officer must be removable by the President in order for the powers to be delegated to him. Do you adopt that?",
       "time": "01:53:56.41"
     },
@@ -1699,7 +1699,7 @@
     },
     {
       "turn": 273,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But in any event, he must not be removable by the Congress alone, is that your point?",
       "time": "01:54:14.51"
     },
@@ -1711,7 +1711,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Done enough with its legislative task.",
       "time": "01:57:08.69"
     },
@@ -1723,7 +1723,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you are arguing that there's an undue--",
       "time": "01:57:15.54"
     },
@@ -1735,7 +1735,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Yes.",
       "time": "01:57:23.55"
     },
@@ -1747,7 +1747,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so it is either... again, it is either... if it isn't legislative, it's executive. If it isn't executive, it's legislative.",
       "time": "01:57:27.41"
     },
@@ -1759,7 +1759,7 @@
     },
     {
       "turn": 283,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I take it there, Ms. Williams, I take it there you are relying on the fact that historically, for 199 years, these functions have been performed by the Congress.",
       "time": "01:57:39.81"
     },
@@ -1771,7 +1771,7 @@
     },
     {
       "turn": 285,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "With the cooperation of the President.",
       "time": "01:57:52.11"
     },
@@ -1783,7 +1783,7 @@
     },
     {
       "turn": 287,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Cutler?",
       "time": "01:59:32.38"
     },
@@ -1795,7 +1795,7 @@
     },
     {
       "turn": 289,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The Solicitor General?",
       "time": "02:00:44.02"
     },
@@ -1807,7 +1807,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But there's no doubt that Congress wanted postmasters and that it had no choice but to allow the President to appoint them. I don't see that it is quite the square precedent that you say.",
       "time": "02:04:17.31"
     },
@@ -1819,7 +1819,7 @@
     },
     {
       "turn": 293,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Counsel. The case is submitted.",
       "time": "02:05:42.47"
     }

@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1961/369/19620329a_369_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
       },
       {
         "name": "MILTON KRAMER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "E. FREEMAN LEVERETT",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Number 369, Milton Kramer against E. Freeman Leverett.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "What page is this?",
       "time": "00:01:35.67"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Kramer, where is Bibb County, which --",
       "time": "00:02:16.65"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Macon?",
       "time": "00:02:19.73"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Alright, thank you.",
       "time": "00:02:22.66"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I'm sorry, Mr. Kramer, perhaps you've already said something and I wasn't attentative. Was there any indication that these remarks of the judge in any way implicated the sheriff?",
       "time": "00:05:16.32"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Or (Voice Overlap) bad name or anything else?",
       "time": "00:05:30.11"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Through the sheriff, the petitioner?",
       "time": "00:06:01.61"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Presumably at least.",
       "time": "00:06:04.20"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, are -- but his prompt reaction, are we to infer --",
       "time": "00:06:07.73"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The sheriff is in elective office.",
       "time": "00:06:27.74"
     },
@@ -179,13 +183,13 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And so was the judge.",
       "time": "00:06:31.39"
     },
     {
       "turn": 24,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What's the term of the judge?",
       "time": "00:06:33.49"
     },
@@ -197,7 +201,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's the court of general jurisdiction.",
       "time": "00:06:44.77"
     },
@@ -209,7 +213,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Kramer.",
       "time": "00:08:36.86"
     },
@@ -221,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is Mr. Wood also a lawyer?",
       "time": "00:08:37.64"
     },
@@ -233,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Of the Georgia Bar?",
       "time": "00:08:41.19"
     },
@@ -245,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is he practicing?",
       "time": "00:08:42.42"
     },
@@ -257,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But, does this conviction --",
       "time": "00:08:46.72"
     },
@@ -269,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you to follow up Justice Brennan's question? What other grounds that disbars him under the laws in Georgia?",
       "time": "00:09:30.39"
     },
@@ -281,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How was he barred?",
       "time": "00:09:39.04"
     },
@@ -293,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What page is that?",
       "time": "00:10:36.90"
     },
@@ -305,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where is that amendment?",
       "time": "00:11:30.32"
     },
@@ -317,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes, the added counts.",
       "time": "00:11:34.38"
     },
@@ -329,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What page is that in the record?",
       "time": "00:14:39.17"
     },
@@ -341,13 +345,13 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "47.",
       "time": "00:14:41.74"
     },
     {
       "turn": 51,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Kramer, is there anything at all in the record regarding the duties of a sheriff in Georgia in relation to the courts and the county (Voice Overlap)?",
       "time": "00:14:43.25"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather that -- perhaps I better ask you a question, was the support for this holding, in part, based upon the fact that, as sheriff, he was an officer of the Superior Court?",
       "time": "00:15:06.81"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what -- isn't there something in the Supreme Court opinion? It's been a while since I've read it as to that effect though that --",
       "time": "00:15:31.38"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what I'm getting at is whether the support from the conviction rests at all on his being sheriff or would this have happened if he'd just been a plain citizen and not a sheriff.",
       "time": "00:15:55.42"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The petition for contempt makes anything of the fact that he held the sheriff office at the time?",
       "time": "00:16:41.02"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What did you mean a while ago when you said it was in the middle of the campaign?",
       "time": "00:17:20.16"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Primary campaign?",
       "time": "00:17:25.70"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "When was the date of the election at the time?",
       "time": "00:17:28.15"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "The charge was in June.",
       "time": "00:17:34.49"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "And the contempt is before or after the election?",
       "time": "00:17:37.33"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "July 7.",
       "time": "00:17:42.00"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And were these judges running for reelection?",
       "time": "00:17:48.46"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I mean, in that particular primary?",
       "time": "00:17:51.89"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But you don't know whether any of these judges were then running.",
       "time": "00:17:58.97"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But they probably -- I don't know, they probably have overlapping here.",
       "time": "00:18:10.97"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Grant that is so --",
       "time": "00:18:15.87"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Supposing this exact situation that there is minus one factor, namely that what the charge had been was improper alleged duty of bloc voting without reference to Negroes. What would your position be as to the validity of this conviction?",
       "time": "00:18:17.86"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "In other words, the essence of your position is that this is a racial case.",
       "time": "00:19:02.64"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Kramer, I asked you earlier whether the Supreme Court had rested at all on the fact that he was sheriff. At page 34 of their opinion, in the petition for certiorari --",
       "time": "00:19:33.70"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The opinion seems to be (Voice Overlap)",
       "time": "00:19:50.22"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "34 of the petition for certiorari. Perhaps the opinion is in the record but I have it here on appended to the decision. Those last several lines and all these carried on by the sheriff, an officer of the law and of the court, at times during which the grand jury properly had before it the consideration of charge of court. We can only conclude that the sheriff's intent for his actions constitute contempt. That's what I have reference to this --",
       "time": "00:19:52.07"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Affirming to the contempt conviction as part at least by the Supreme Court rested on that fact.",
       "time": "00:20:28.41"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it might be significant as the case is before us whether they rested this on the fact that as sheriff and officer of the court.",
       "time": "00:20:42.66"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Where is that statute, Mr. Kramer?",
       "time": "00:21:33.03"
     },
@@ -635,13 +639,13 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Yes, I understand. (Voice Overlap) Yes, I have the brief in my possession.",
       "time": "00:21:39.29"
     },
     {
       "turn": 100,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Does the sheriff wait on the court? By that, I mean the sheriff stand to the court?",
       "time": "00:21:42.10"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "When the court is sitting while he waits on the court and acts as an officer there who would maintain order while the sheriff is before it, a bailiff would call --",
       "time": "00:21:58.84"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Going back to Justice Brennan's --",
       "time": "00:22:15.81"
     },
@@ -677,13 +681,13 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What (Voice Overlap)",
       "time": "00:22:20.51"
     },
     {
       "turn": 107,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The bailiff (Inaudible)",
       "time": "00:22:21.00"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Going back to the court's opinion, Justice Brennan asked you this last sentence to be a part of it where the court says “we can only conclude that the sheriff's, the sheriff's intent or his actions constitutes contempt and the conviction on counts 1 and 3 were processed.”",
       "time": "00:22:26.40"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What did he do with the other count?",
       "time": "00:22:55.49"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible) What would you say of the remark of the court (Inaudible)",
       "time": "00:23:24.99"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:24:07.21"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Suppose they didn't dismiss him, but (Inaudible) the sheriff.",
       "time": "00:24:10.52"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "By the court, by the legislation?",
       "time": "00:24:22.91"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "I can assure you I think that in most cases (Inaudible) what you said?",
       "time": "00:24:29.14"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible)",
       "time": "00:24:43.60"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "On that point, the bailiff, was that a deputy sheriff?",
       "time": "00:25:20.47"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "In other words (Inaudible)",
       "time": "00:25:26.94"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I ask you briefly, Mr. Kramer.",
       "time": "00:26:12.88"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose the sheriff is (Inaudible) suppose the sheriff has said that all (Inaudible)",
       "time": "00:26:15.37"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:26:43.93"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:26:52.79"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:26:59.49"
     },
@@ -875,13 +879,13 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:27:01.41"
     },
     {
       "turn": 140,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "00:27:06.09"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:27:27.16"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:27:44.97"
     },
@@ -917,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand (Inaudible)",
       "time": "00:27:48.73"
     },
@@ -929,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What (Inaudible)",
       "time": "00:30:40.66"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:31:27.10"
     },
@@ -953,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was it with reference to somebody who has too much (Inaudible)",
       "time": "00:31:40.32"
     },
@@ -965,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was it with reference to a person or a group then before the court or --",
       "time": "00:31:45.48"
     },
@@ -977,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:31:52.08"
     },
@@ -989,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:31:54.55"
     },
@@ -1001,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This was made while the grand jury was deliberating.",
       "time": "00:32:18.92"
     },
@@ -1013,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's no charge.",
       "time": "00:32:22.03"
     },
@@ -1025,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "It was sent to the grand jury.",
       "time": "00:32:26.02"
     },
@@ -1037,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Wasn't the communication sent to the grand jury?",
       "time": "00:32:27.93"
     },
@@ -1049,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose a member of the grand jury hadn't accepted that (Inaudible)",
       "time": "00:32:39.30"
     },
@@ -1061,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) would that have been a --",
       "time": "00:32:44.21"
     },
@@ -1073,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "00:32:46.82"
     },
@@ -1085,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes, if he --",
       "time": "00:32:50.16"
     },
@@ -1097,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes, either way.",
       "time": "00:32:52.23"
     },
@@ -1109,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "00:32:54.09"
     },
@@ -1121,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you know whether or not, in Georgia, the grand jury is the most (Inaudible) what other grand juror say, what they actually know, have they done away with that old common law rule?",
       "time": "00:33:04.08"
     },
@@ -1133,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you say that because the grand jury (Inaudible)",
       "time": "00:33:18.56"
     },
@@ -1145,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not saying he was. I'm just asking if he requested that the test of whether outside (Inaudible)",
       "time": "00:33:38.97"
     },
@@ -1157,13 +1161,13 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I said outside. I didn't intend to use or to draw the test if we may have to formulate when the case is over. I was simply asking you the fact that the law --",
       "time": "00:33:57.48"
     },
     {
       "turn": 187,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:34:08.57"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It depends on what the court holds as to that law.",
       "time": "00:34:22.04"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Or what members of the court can hold it, one or the other.",
       "time": "00:34:25.97"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "One -- one statement that you made in the course of your -- giving us the facts interested to me. You say they have segregated voting.",
       "time": "00:34:43.60"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You're not -- you mean by that only that in certain localities the voting is predominant?",
       "time": "00:34:58.78"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Probably Negro population?",
       "time": "00:35:04.59"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The same voting rights --",
       "time": "00:35:15.96"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "People from the same precinct or ward?",
       "time": "00:35:24.58"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The same ballots?",
       "time": "00:35:31.15"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well (Inaudible)",
       "time": "00:35:42.32"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "White witnesses and the Negro.",
       "time": "00:35:54.76"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You don't have to get the meaning in the record of that.",
       "time": "00:35:57.36"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:36:01.45"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You filed -- did you file a brief, a separate brief under (Inaudible)?",
       "time": "00:40:05.39"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:40:12.67"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "The blue?",
       "time": "00:40:15.59"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about the (Inaudible)",
       "time": "00:40:18.08"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It's this (Inaudible)",
       "time": "00:40:22.58"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Kramer, (Inaudible)",
       "time": "00:40:28.80"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He was (Inaudible)",
       "time": "00:41:06.38"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Would you think that conviction of count 2 would've been sustainable?",
       "time": "00:42:22.23"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:42:54.92"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So that I understand, Counts 1 and 3 were both news releases.",
       "time": "00:43:55.39"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Count 2 was the so-called open letter to the grand jury.",
       "time": "00:43:59.05"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Thank you.",
       "time": "00:44:02.88"
     },
@@ -1463,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Supposing a lawyer instead of the sheriff that's involved here, a lawyer whose client was being subject to – was being investigated by the grand jury, had issued this press release, do you think he would've been subject to discipline?",
       "time": "00:46:43.68"
     },
@@ -1475,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "The lawyer knows that his client is involved in the grand jury investigation of this alleged bloc voting and he issued these press releases, would he be subject to discipline?",
       "time": "00:47:07.09"
     },
@@ -1487,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What if the lawyer didn't have a suggestion (Inaudible) would he then have been convicted on that count?",
       "time": "00:48:07.49"
     },
@@ -1499,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "That was their ground.",
       "time": "00:48:28.39"
     },
@@ -1517,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Leverett.",
       "time": "00:50:33.07"
     },
@@ -1529,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How does that make it a nonfederal ground? I don't follow.",
       "time": "00:52:09.61"
     },
@@ -1541,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You mean that then would remove the federal constitutional question he raised?",
       "time": "00:52:26.78"
     },
@@ -1553,7 +1557,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, would it still leave any federal constitutional question even if this was a disciplinary matter?",
       "time": "00:52:41.36"
     },
@@ -1565,7 +1569,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "I don't understand that.",
       "time": "00:52:59.33"
     },
@@ -1577,7 +1581,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, he had -- wasn't Sawyer, I forgotten that. I should remember but I don't. Sawyer was a lawyer --",
       "time": "00:53:47.36"
     },
@@ -1589,7 +1593,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Who made a speech?",
       "time": "00:53:53.79"
     },
@@ -1601,7 +1605,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And we reversed a contempt conviction there.",
       "time": "00:53:55.69"
     },
@@ -1613,7 +1617,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I just want to be clear. We'd still have a constitutional question --",
       "time": "00:54:02.77"
     },
@@ -1625,7 +1629,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What are the terms of the judge, six years?",
       "time": "00:55:17.00"
     },
@@ -1637,7 +1641,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What about Bibb County?",
       "time": "00:55:23.71"
     },
@@ -1649,7 +1653,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Bibb County.",
       "time": "00:55:26.98"
     },
@@ -1661,7 +1665,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Was it overlapped or what? I mean, with standard terms. They don't all -- they won't all three run every four years or --",
       "time": "00:55:29.55"
     },
@@ -1673,7 +1677,7 @@
     },
     {
       "turn": 272,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Leverett, is there any concluding practice in Georgia as to (Inaudible)",
       "time": "01:00:49.61"
     },
@@ -1685,7 +1689,7 @@
     },
     {
       "turn": 274,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Inaudible)",
       "time": "01:01:21.57"
     },
@@ -1697,7 +1701,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I didn't get that.",
       "time": "01:01:51.92"
     },
@@ -1709,7 +1713,7 @@
     },
     {
       "turn": 278,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) Negro bloc voting?",
       "time": "01:02:11.93"
     },
@@ -1721,7 +1725,7 @@
     },
     {
       "turn": 280,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:02:19.21"
     },
@@ -1733,7 +1737,7 @@
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Inaudible)",
       "time": "01:02:33.02"
     },
@@ -1745,7 +1749,7 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Inaudible)",
       "time": "01:02:49.71"
     },
@@ -1757,7 +1761,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "When was the primary?",
       "time": "01:02:55.30"
     },
@@ -1769,7 +1773,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "The sheriff was not a candidate?",
       "time": "01:03:05.64"
     },
@@ -1781,7 +1785,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "He now seems to run possibly for the public.",
       "time": "01:03:13.32"
     },
@@ -1793,7 +1797,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Were the judges candidates?",
       "time": "01:03:17.24"
     },
@@ -1805,7 +1809,7 @@
     },
     {
       "turn": 294,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Leverett (Inaudible)",
       "time": "01:03:27.04"
     },
@@ -1817,7 +1821,7 @@
     },
     {
       "turn": 296,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:03:49.57"
     },
@@ -1829,7 +1833,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible) does that mean that the state concludes that what he is charged does not effect?",
       "time": "01:03:59.99"
     },
@@ -1841,7 +1845,7 @@
     },
     {
       "turn": 300,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:04:05.58"
     },
@@ -1853,7 +1857,7 @@
     },
     {
       "turn": 302,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Wasn't it under oath?",
       "time": "01:04:16.58"
     },
@@ -1865,7 +1869,7 @@
     },
     {
       "turn": 304,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:04:34.62"
     },
@@ -1877,7 +1881,7 @@
     },
     {
       "turn": 306,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What the counsel have said in response under oath and the petitioner had stated (Inaudible) that everything that he just said was true (Inaudible).",
       "time": "01:04:54.28"
     },
@@ -1889,19 +1893,19 @@
     },
     {
       "turn": 308,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where does that appear in the record? Would that be in (Inaudible)?",
       "time": "01:05:28.87"
     },
     {
       "turn": 309,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Page 38.",
       "time": "01:06:39.45"
     },
     {
       "turn": 310,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Page 38.",
       "time": "01:06:40.22"
     },
@@ -1913,7 +1917,7 @@
     },
     {
       "turn": 312,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Inaudible) for further evidence to show that the purpose of issue (Inaudible) was simply to face the general public on what (Inaudible) verily and sincerely believed the other side of the issue created by the charge of the grand jury.",
       "time": "01:06:42.51"
     },
@@ -1925,7 +1929,7 @@
     },
     {
       "turn": 314,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It was before that when it says (Inaudible)",
       "time": "01:07:12.47"
     },
@@ -1937,7 +1941,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "01:08:15.43"
     },
@@ -1949,7 +1953,7 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you think that had any relevance to the conviction that -- to the formulation of the law based on --",
       "time": "01:08:30.19"
     },
@@ -1961,7 +1965,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Was he convicted on the tax return?",
       "time": "01:08:55.20"
     },
@@ -1973,7 +1977,7 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Which one did convicted him? (Inaudible)",
       "time": "01:09:06.45"
     },
@@ -1985,7 +1989,7 @@
     },
     {
       "turn": 324,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I gather, from the opinion, I thought it was not. Maybe I'm wrong.",
       "time": "01:09:14.05"
     },
@@ -1997,7 +2001,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What is the limit, 20?",
       "time": "01:09:32.82"
     },
@@ -2009,7 +2013,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible)",
       "time": "01:09:39.66"
     },
@@ -2021,7 +2025,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "The statute.",
       "time": "01:09:42.60"
     },
@@ -2033,7 +2037,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What is the limit?",
       "time": "01:10:00.14"
     },
@@ -2045,7 +2049,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What's the sentence?",
       "time": "01:10:02.91"
     },
@@ -2057,7 +2061,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "01:10:14.92"
     },
@@ -2069,7 +2073,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "01:11:12.58"
     },
@@ -2081,7 +2085,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "01:11:35.99"
     },
@@ -2093,7 +2097,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "01:11:40.20"
     },
@@ -2105,7 +2109,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The what? I'm sorry.",
       "time": "01:11:50.07"
     },
@@ -2117,7 +2121,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So therefore it cannot be bound by that (Inaudible)",
       "time": "01:11:54.35"
     },
@@ -2129,7 +2133,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "01:12:03.55"
     },
@@ -2141,7 +2145,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "01:12:29.13"
     },
@@ -2153,7 +2157,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "01:12:43.55"
     },
@@ -2165,7 +2169,7 @@
     },
     {
       "turn": 354,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "01:12:50.65"
     },
@@ -2177,7 +2181,7 @@
     },
     {
       "turn": 356,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "01:12:56.36"
     },
@@ -2189,7 +2193,7 @@
     },
     {
       "turn": 358,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is the later case that was referred after this?",
       "time": "01:12:58.95"
     },
@@ -2201,7 +2205,7 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "01:14:45.71"
     },
@@ -2213,7 +2217,7 @@
     },
     {
       "turn": 362,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible)",
       "time": "01:15:29.88"
     },
@@ -2225,7 +2229,7 @@
     },
     {
       "turn": 364,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible)",
       "time": "01:15:50.50"
     },
@@ -2237,7 +2241,7 @@
     },
     {
       "turn": 366,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Well, that means he is indicted (Inaudible)",
       "time": "01:16:01.53"
     },
@@ -2249,7 +2253,7 @@
     },
     {
       "turn": 368,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did they make a report?",
       "time": "01:16:09.96"
     },
@@ -2261,7 +2265,7 @@
     },
     {
       "turn": 370,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "01:16:13.81"
     },
@@ -2273,7 +2277,7 @@
     },
     {
       "turn": 372,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What group?",
       "time": "01:16:24.28"
     },
@@ -2285,7 +2289,7 @@
     },
     {
       "turn": 374,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "White or Colored?",
       "time": "01:16:34.21"
     },
@@ -2297,7 +2301,7 @@
     },
     {
       "turn": 376,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about the charge made (Inaudible)?",
       "time": "01:16:45.81"
     },
@@ -2309,7 +2313,7 @@
     },
     {
       "turn": 378,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible) on page 65?",
       "time": "01:18:18.53"
     },
@@ -2321,7 +2325,7 @@
     },
     {
       "turn": 380,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But before the claim (Inaudible) was here, this charge does not reflect on the judgment of that motion. (Inaudible)",
       "time": "01:18:58.65"
     },

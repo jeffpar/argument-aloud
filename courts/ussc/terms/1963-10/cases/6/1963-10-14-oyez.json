@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1962/6/19631014r_6.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ARTHUR J. GOLDBERG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "JOSEPH L. RAUH, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE GOLDBERG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT C. MURPHY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "William L. Griffin et al., Petitioners, versus Maryland. Mr. Rauh, you may proceed with your argument.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "And they have previously parked the picket line?",
       "time": "00:01:33.46"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They needed tickets for that, didn't they?",
       "time": "00:01:44.37"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They had them.",
       "time": "00:01:46.61"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Wasn't there an intervening episode? Before he arrested them, he consulted with the park owners --",
       "time": "00:03:29.07"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- on the warrant of arrest?",
       "time": "00:03:36.13"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You call him Lieutenant Collins. What was he a lieutenant in?",
       "time": "00:04:32.67"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Rauh, do you consider any significance that when he swore to the complaint, he swore to it as a deputy sheriff or --",
       "time": "00:04:48.74"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "You concede though that he was acting out instructions of the management.",
       "time": "00:05:23.82"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Mr. Rauh, though there maybe or though there is.",
       "time": "00:06:47.86"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Just so I can get your second point. When you talk about discrimination, are you limiting it to racial discrimination?",
       "time": "00:07:51.20"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You're not talking about a person's right to be discriminating.",
       "time": "00:08:01.27"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I understand.",
       "time": "00:08:17.71"
     },
@@ -207,13 +207,13 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Racial discrimination.",
       "time": "00:08:32.97"
     },
     {
       "turn": 28,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Rauh, are you going to suggest any view of the Solicitor General's approach to this thing?",
       "time": "00:08:33.87"
     },
@@ -225,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are you going to suggest any view on your part of the Solicitor General's approach to this case?",
       "time": "00:08:39.39"
     },
@@ -237,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "The part of your argument, part of your brief, the second page of your argument in which it overrules the rights maybe.",
       "time": "00:09:10.01"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Hold on. Before you do that, on either point that were mentioned, you refer both on reporting to them. Are we, therefore, to distinguish a fortiori in the Thirteenth Amendment of the indictment?",
       "time": "00:09:47.14"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Rauh, isn't it accurate to say that what was vindicated in Shelley against Kraemer was the right of the owner of property to alienate it, deal with it as he wished in defiance of a racially restrictive covenant and what is involved here on the part of your opponent, as it is asserted, is the right of the owner of property to deal with it if he wishes?",
       "time": "00:12:21.74"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Who were the -- who were the parties in Shelley against Kraemer? Who was Shelley and who were -- who was Kraemer?",
       "time": "00:13:54.10"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The -- but the Negro buyer was not a party in Shelley against Kraemer, was he?",
       "time": "00:14:27.30"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Was the seller?",
       "time": "00:14:32.42"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And was the seller a party, the landowner?",
       "time": "00:14:35.18"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Against the buyer.",
       "time": "00:14:44.49"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "But it was amended. The warrant was subsequently amended.",
       "time": "00:15:48.97"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "That conforms to the language in effect.",
       "time": "00:16:09.73"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Well, that's what he was.",
       "time": "00:16:25.21"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Do you have a right under Maryland law that you have to carry the badge, the sheriff badge, to make this arrest.",
       "time": "00:16:59.98"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But you have to have that into Maryland.",
       "time": "00:17:13.90"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Now, before you leave assuming Shelley v. Kraemer is fairly different when, in Shelley v. Kraemer, the man who owned the property was (Inaudible) and, therefore, he has the right to make the decision to be engaged in a business deal of this kind, not enforcing the covenant which has been given to them? They're very different.",
       "time": "00:18:28.05"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "It doesn't (Inaudible) automatically goes and decide this case.",
       "time": "00:18:51.79"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "And now you talk about this issue before you said there is no private right to discriminate at a place of public accommodation.",
       "time": "00:20:39.63"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible) will you reach it though?",
       "time": "00:21:00.97"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Are you (Inaudible)?",
       "time": "00:21:17.86"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What constitutional provision do you rest on to draw that distinction?",
       "time": "00:21:41.26"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What part of it?",
       "time": "00:21:47.53"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How about the church? What about a church?",
       "time": "00:22:03.68"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does the constitution forbid the church--",
       "time": "00:22:20.36"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- to choose who will belong to it and who it won't?",
       "time": "00:22:23.04"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If by a state.",
       "time": "00:22:40.74"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You extend it, however, to pri-- to property owned by people, either an association or an individual.",
       "time": "00:22:43.93"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's the reason I asked you upon what specific constitutional provision--",
       "time": "00:23:00.81"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- you rested for those distinctions. Only, they did not come from the heavens but from the constitution.",
       "time": "00:23:05.82"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it didn't-- the state didn't create the covenant. The parties did.",
       "time": "00:25:13.78"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Your argument would mean that, assuming that there -- assuming that there is a private right of discrimination virtually--",
       "time": "00:26:21.37"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There would be a right of self-power to enforce that right. The constitution permits-- forbids the creation of judicial remedy and plays itself out.",
       "time": "00:26:32.57"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I take it, the hornbook interpretation.",
       "time": "00:26:59.09"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, now, even under your second argument, you didn't suggest that the property owner couldn't put people off the property.",
       "time": "00:27:13.97"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You say that he fre-- someone a-- then, you are suggesting that other people have the right and privilege of entering the property and, if they're prevented from doing it, then they have a cause of action against the property owner.",
       "time": "00:27:28.84"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It would follow under your second argument then, Mr. Rauh, would it not, that if there's no right on the part of the owner of Glen Echo to discriminate, then there is a correlative privilege on the part of anybody who wants to enter to get state enforcement of his right to enter?",
       "time": "00:28:09.28"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Who was discriminated against because of his race?",
       "time": "00:28:31.15"
     },
@@ -657,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not for a--",
       "time": "00:28:34.81"
     },
@@ -669,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So it would have followed that these petitioners could have gone, and probably should have gone, to the Maryland courts and brought an injunction action against Maryland.",
       "time": "00:28:58.35"
     },
@@ -681,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, you do have that under your second argument.",
       "time": "00:29:26.58"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:29:29.51"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Supposing the Glen Echo owner then so prosodically said “I'm going to exclude all people with red hair.” Would he have the constitutional right to do that?",
       "time": "00:30:21.27"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But only so far at least in the realm of state action.",
       "time": "00:31:13.73"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's just a roundabout way of saying that the state action isn't required.",
       "time": "00:31:49.02"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Rauh, just please sit down and, confining ourselves to your-- this-- your second argument. I am correct, am I not, in my understanding that great many states have statutes forbidding racial discrimination in places such as Glen Echo?",
       "time": "00:32:37.35"
     },
@@ -753,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "30. Now, under your second argument, all those statutes are entirely redundant, aren't they?",
       "time": "00:32:54.84"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Mr. Rauh, it would not be hard under state action concept, I believe it is a Thirteenth Amendment issue because there is quite a difference between the (Inaudible).",
       "time": "00:33:59.67"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "To go farther out in the argument on the Fourteenth, as you've recommend, the Fourteenth was then basically (Inaudible), and therefore, I would as say that chapters Thirteenth and Fourteenth both seem to pick the same thing that the (Inaudible).",
       "time": "00:34:32.82"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "May I ask you one question about Maryland law. May I ask you one question about Maryland law? Most of the states provide that when a trespasser is on a man's property, the owner of the property can use such force as maybe necessary to eject him. Is that the law of Maryland?",
       "time": "00:34:58.15"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And suppose that the owner had ordered these people off and he had said if -- he assaulted them and maybe done something pretty bad. In many cases, most of us are familiar with, assault has been pretty serious. The defense has been “well, he was on my property and wouldn't get off.” Could that Maryland law be unconstitutional in this case, if the owner had assaulted him and been tried for the assault or could the court have charged the jury, he had a right to use such force as necessary even to put him up-- putting him off by taking his life, if necessary to protect his property? Would that be unconstitutional under your argument?",
       "time": "00:35:20.97"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And we've held that unconstitutional, haven't we?",
       "time": "00:37:02.91"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I am -- but we've held that --",
       "time": "00:37:07.29"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- unconstitutional.",
       "time": "00:37:09.72"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But you were wrong about the-- but you were wrong about the constitutional distinction between the home and place of business or church and so forth. You happen to be wrong about that. What help would a man who had a home have could he get from the government to eject somebody that was in his house he didn't want?",
       "time": "00:37:26.98"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Which ones?",
       "time": "00:37:52.22"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But the constitution--",
       "time": "00:37:58.10"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The constitution -- wrote a law for this country not based on the common law.",
       "time": "00:37:59.46"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But you can't find anything in the Fourth Amendment, can you, to support your position you're taking here?",
       "time": "00:38:31.80"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The Fourth Amendment draws that distinction, doesn't it?",
       "time": "00:39:29.70"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But it protects-- protects the home from unreasonable search and seizure--",
       "time": "00:39:40.48"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- but does not protect the place of business?",
       "time": "00:39:44.03"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The legal system--",
       "time": "00:39:58.30"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The courts have to treat it according to the proper interpretation of the Constitution, do they not?",
       "time": "00:39:59.25"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you if you see no difference between a-- you've said several times, about Shelley and Kraemer, that this-- I don't think this point has been discussed. Do you see no difference between allowing a man to make a contract which, in perpetuity, ties up the property of everybody so that those who buy it and pay for it cannot sell it and the right of a man to exercise ownership over his home or his property at an exact time when he's claiming to a right that's being invaded?",
       "time": "00:40:06.00"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- that was going 50 years old.",
       "time": "00:40:45.80"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, there the facts of your argument has to be, hasn't it? And I'm not saying it's not right, but your argument has to be the owner of a place of business that you would say, as distinguished from the owner of a home or the owner of some other unknown things like churches and things like that--",
       "time": "00:41:32.89"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The private clubs, you draw distinction and--",
       "time": "00:41:51.91"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Your argument gets down to this that the constitution forbids the owner of this property in this country to exercise the power of saying “I don't want certain people on it because of their color.” That's where it finally gets to, doesn't it?",
       "time": "00:41:55.54"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's the basic issue, isn't it?",
       "time": "00:42:22.32"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's the basic question. Here, he didn't open it to all the public. He opened it to all the public except Negroes.",
       "time": "00:42:28.69"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Well, according to the (Inaudible) the adoption of the Fourteenth Amendment as a rational basis of discrimination--",
       "time": "00:42:58.82"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the Court has never announced any such broad suite of doctrine that you're suggesting, that irrespective of state action, race is the one thing that's taboo. We've never said anything like that or ever approaching it.",
       "time": "00:43:14.47"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, then--",
       "time": "00:43:35.76"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Am I right in thinking that, since this conviction took place, the owner has changed his policy and now the facilities-- the park is desegregated?",
       "time": "00:43:59.54"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand that.",
       "time": "00:44:10.76"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, or without any compulsion either.",
       "time": "00:44:15.21"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I understand that, without any legal compulsion.",
       "time": "00:44:22.89"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Persuasive or compulsive?",
       "time": "00:44:31.09"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Murphy.",
       "time": "00:44:41.48"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "So, you don't say that all that this Court has acquired is some affirmative action in order to show a state action, do you? Couldn't the state action (Inaudible) --",
       "time": "00:46:29.59"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "And what of state (Inaudible) suppose the sheriff would stand by (Inaudible).",
       "time": "00:46:46.33"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Yes.",
       "time": "00:46:55.60"
     },
@@ -1197,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "For state action?",
       "time": "00:47:06.61"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "That failure to do something plainly called for (Inaudible) the right for inaction.",
       "time": "00:47:12.28"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Nevertheless, do you view the form (Inaudible)?",
       "time": "00:47:20.46"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:47:37.34"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:47:49.38"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What have they got to do with this case since they're complicated enough on their own? [Laughter] I don't-- I honestly don't understand what (Inaudible) --",
       "time": "00:48:09.59"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Those were equal protection cases.",
       "time": "00:48:29.44"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Those cases arose under the Equal Protection Clause.",
       "time": "00:48:31.05"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:48:34.84"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "As did these two.",
       "time": "00:48:37.04"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What was the state action in Marsh against Alabama?",
       "time": "00:48:41.67"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You mean that the state had permitted a group there to run the state as part of the common public affairs of the state. That simply permitted it. Had they taken any direct positive action in that case?",
       "time": "00:49:19.17"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The owners of the property did that, didn't they?",
       "time": "00:49:44.51"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It would be hard to find any-- that what you usually think of is direct, own, frank public action on the part of the state, which barred these individuals to admit, except the enforcement-- enforcing the law.",
       "time": "00:50:01.47"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Total proscription by the company?",
       "time": "00:50:23.69"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Well, do you regard to read that what you were quoting from the State of Maryland with regard to recreational facilities for the city?",
       "time": "00:50:38.84"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Well, do you have anything in Maryland like the Ferris wheel of the (Inaudible)?",
       "time": "00:50:49.81"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Have you believed it to be a comparable public park?",
       "time": "00:51:08.19"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Even running an amusement park, just about anybody said, that when a park is given to (Inaudible) on a purely private function, can it?",
       "time": "00:51:14.63"
     },
@@ -1425,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "I don't doubt that, but that doesn't mean that (Inaudible) as a smack of some public character where state says they can do it with the public.",
       "time": "00:51:36.67"
     },
@@ -1437,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "That is (Inaudible).",
       "time": "00:51:55.24"
     },
@@ -1449,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Well, the question to decide would only be that (Inaudible) distribution process, is it (Inaudible)?",
       "time": "00:51:58.25"
     },
@@ -1461,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "It could be that the law on the public (Inaudible).",
       "time": "00:52:27.59"
     },
@@ -1473,7 +1473,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "But it may be that, in those instances, there's also the public involvement, wouldn't you say?",
       "time": "00:52:42.50"
     },
@@ -1485,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Murphy, in advertising for people to use this facility, did the company advertise generally to the public and invite everybody to the public or did it, in its advertisements, say “for Whites only”?",
       "time": "00:52:53.47"
     },
@@ -1497,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Generally for the public?",
       "time": "00:53:15.50"
     },
@@ -1509,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did it have any signs on its property, posted on its property, to prevent Negroes from--",
       "time": "00:53:22.93"
     },
@@ -1521,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Could it be because they weren't there?",
       "time": "00:53:47.54"
     },
@@ -1533,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Were there any fences or anything to prevent the public generally from coming into the--",
       "time": "00:54:03.59"
     },
@@ -1545,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- into the place?",
       "time": "00:54:09.65"
     },
@@ -1557,7 +1557,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And there was no limitation then on who could come in there until they got to one of the-- one of the facilities.",
       "time": "00:54:11.74"
     },
@@ -1569,7 +1569,7 @@
     },
     {
       "turn": 254,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I understood there were no gates.",
       "time": "00:54:31.69"
     },
@@ -1581,7 +1581,7 @@
     },
     {
       "turn": 256,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, I think-- I think I understand what your situation is.",
       "time": "00:55:04.30"
     },
@@ -1593,7 +1593,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "00:56:01.13"
     },
@@ -1605,7 +1605,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "In any of the--",
       "time": "00:56:08.01"
     },
@@ -1617,7 +1617,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "One of the reasons why (Inaudible).",
       "time": "00:56:17.03"
     },
@@ -1629,7 +1629,7 @@
     },
     {
       "turn": 264,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, there's really no difference between you and Mr. Rauh on the premise of would this case must be argued --",
       "time": "00:56:25.68"
     },
@@ -1641,7 +1641,7 @@
     },
     {
       "turn": 266,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- state action.",
       "time": "00:56:33.11"
     },
@@ -1653,7 +1653,7 @@
     },
     {
       "turn": 268,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, he doesn't argue with that.",
       "time": "00:56:34.89"
     },
@@ -1665,7 +1665,7 @@
     },
     {
       "turn": 270,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, that doesn't involve state action.",
       "time": "00:56:40.65"
     },
@@ -1677,7 +1677,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "With all respect to my colloquy, a state action, that's not the point. Obviously, this is a state action. This was a state conviction. It's not state action that decides whether or not this is under the Fourteenth Amendment or whether or not there was state discrimination.",
       "time": "00:56:46.60"
     },
@@ -1689,7 +1689,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Exactly.",
       "time": "00:57:04.71"
     },
@@ -1701,7 +1701,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's always state action every time there is a conviction in a state court.",
       "time": "00:57:05.83"
     },
@@ -1713,7 +1713,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, the state denial of rights under this.",
       "time": "00:57:13.64"
     },
@@ -1725,7 +1725,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are you going to answer the argument to the effect that your statute neither made crime nor did you charge the crime to be that this person stayed on the premises of another after he was ordered to get away?",
       "time": "00:58:38.32"
     },
@@ -1737,7 +1737,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "The state, first of all, pleaded and then the court adjourned.",
       "time": "01:00:45.86"
     },
@@ -1749,7 +1749,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible) would concede the colloquy to be a very visual statement that the (Inaudible).",
       "time": "01:00:51.07"
     },
@@ -1761,7 +1761,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "01:01:14.49"
     },
@@ -1773,7 +1773,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "On an additional ground, and I assume, we have (Inaudible) condition that it has to consist with the (Inaudible).",
       "time": "01:01:22.45"
     },
@@ -1785,7 +1785,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible) he brought the petitioner out there and he accused a man of violence and (Inaudible).",
       "time": "01:01:44.12"
     },
@@ -1797,7 +1797,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Yes. As the records supply (Inaudible).",
       "time": "01:01:55.70"
     },
@@ -1809,7 +1809,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "(Inaudible)",
       "time": "01:02:03.08"
     },
@@ -1821,7 +1821,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "They're very well seen in the record where the road goes. Does the record touch upon (Inaudible)?",
       "time": "01:02:07.61"
     },
@@ -1833,7 +1833,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "They just go to the parking area, do they not?",
       "time": "01:02:19.17"
     },
@@ -1845,7 +1845,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "As I remember, I took my grandchildren out there several times. The roads do go to a parking area where you park your car and then you walk from there to the park.",
       "time": "01:02:23.35"
     },
@@ -1857,7 +1857,7 @@
     },
     {
       "turn": 302,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Are all the policemen of this agency deputized?",
       "time": "01:03:37.24"
     },
@@ -1869,7 +1869,7 @@
     },
     {
       "turn": 304,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Who was?",
       "time": "01:03:50.42"
     },
@@ -1881,7 +1881,7 @@
     },
     {
       "turn": 306,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That's on this property?",
       "time": "01:03:52.41"
     },
@@ -1893,7 +1893,7 @@
     },
     {
       "turn": 308,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Supposing the owner, in this particular instance, say “(Inaudible) here to my segregation policy, but I like to go and see this go on. I don't want you to arrest them.” Would the officer have been obligated notwithstanding that--",
       "time": "01:03:57.63"
     },
@@ -1905,7 +1905,7 @@
     },
     {
       "turn": 310,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- to arrest them?",
       "time": "01:04:19.82"
     },
@@ -1917,7 +1917,7 @@
     },
     {
       "turn": 312,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, then if his primary loyalty wasn't to the park, the manager didn't have the right to command him to do this thing now.",
       "time": "01:05:11.12"
     },
@@ -1929,7 +1929,7 @@
     },
     {
       "turn": 314,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "He exercised his own judgment in putting these men off the court--",
       "time": "01:05:32.38"
     },
@@ -1941,7 +1941,7 @@
     },
     {
       "turn": 316,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- notwithstanding any orders that he might get from the manager.",
       "time": "01:05:36.12"
     },
@@ -1953,7 +1953,7 @@
     },
     {
       "turn": 318,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "He what?",
       "time": "01:05:41.51"
     },
@@ -1965,7 +1965,7 @@
     },
     {
       "turn": 320,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, but he was not obliged to follow them.",
       "time": "01:05:44.87"
     },
@@ -1977,7 +1977,7 @@
     },
     {
       "turn": 322,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon?",
       "time": "01:05:51.51"
     },
@@ -1989,7 +1989,7 @@
     },
     {
       "turn": 324,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Why would--",
       "time": "01:06:10.66"
     },
@@ -2001,7 +2001,7 @@
     },
     {
       "turn": 326,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Why would an agency like that want to deputize these men if they didn't give them the-- some power of the state?",
       "time": "01:06:11.66"
     },
@@ -2013,7 +2013,7 @@
     },
     {
       "turn": 328,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Who hasn't?",
       "time": "01:06:29.33"
     },
@@ -2025,7 +2025,7 @@
     },
     {
       "turn": 330,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:06:31.33"
     },
@@ -2037,13 +2037,13 @@
     },
     {
       "turn": 332,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:06:33.84"
     },
     {
       "turn": 333,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Is this your last thing that implies the state, the one before that (Inaudible)? Doesn't it apply to the state if you amend this warrant to the new statute in (Inaudible) and the owner?",
       "time": "01:06:35.95"
     },
@@ -2055,7 +2055,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "If he was agent of the owner, he'd want to defend the (Inaudible).",
       "time": "01:06:52.59"
     },
@@ -2067,7 +2067,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "In other words, (Inaudible) the purpose of exemption.",
       "time": "01:07:09.90"
     },
@@ -2079,7 +2079,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Can I ask you this. Am I correct that the demurrer adopted a public accommodations law?",
       "time": "01:07:16.44"
     },
@@ -2091,7 +2091,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "And, what constitutional authority do you seem to have it based?",
       "time": "01:07:24.00"
     },
@@ -2103,7 +2103,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Therefore, the law will divide the public (Inaudible) of carrying out the state's purpose to present discrimination.",
       "time": "01:07:40.54"
     },
@@ -2115,13 +2115,13 @@
     },
     {
       "turn": 345,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You don't exactly agree with that, do you?",
       "time": "01:08:44.76"
     },
     {
       "turn": 346,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Pardon me. I thought you suggested earlier this arrest was not authorized except by virtue of his being a deputy sheriff, Collins with the state power to arrest.",
       "time": "01:08:46.64"
     },
@@ -2133,7 +2133,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Murphy, you said also that the reason the man was deputized was to give him some police power?",
       "time": "01:09:23.70"
     },
@@ -2145,7 +2145,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What powers-- what powers did they want the man to have as a-- as a deputy that the owner didn't have himself?",
       "time": "01:09:38.70"
     },
@@ -2157,7 +2157,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You say, the owner could've arrested in any event. So, what powers did they want the man to have that the owner wouldn't have had?",
       "time": "01:09:46.41"
     },
@@ -2169,7 +2169,7 @@
     },
     {
       "turn": 354,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I assume then from what you say that there was something that they wanted him to deputize for. You have, on the property, some man with some powers that the owner wouldn't have himself.",
       "time": "01:10:23.34"
     },
@@ -2181,7 +2181,7 @@
     },
     {
       "turn": 356,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Probably.",
       "time": "01:10:36.69"
     },
@@ -2193,7 +2193,7 @@
     },
     {
       "turn": 358,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the state was willing to put that sort of a person on the property?",
       "time": "01:10:38.31"
     },
@@ -2205,7 +2205,7 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but the fact remains that he was deputized.",
       "time": "01:10:49.24"
     },
@@ -2217,7 +2217,7 @@
     },
     {
       "turn": 362,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And, he wa-- and, if a police officer has some powers that an owner wouldn't have himself, he had it. He has those powers.",
       "time": "01:10:53.03"
     },
@@ -2229,7 +2229,7 @@
     },
     {
       "turn": 364,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And he had them by virtue of the state having deputized him?",
       "time": "01:11:02.57"
     },
@@ -2241,7 +2241,7 @@
     },
     {
       "turn": 366,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Does he clearly know (Inaudible) making the arrest in seeing the action here?",
       "time": "01:12:10.73"
     },
@@ -2253,7 +2253,7 @@
     },
     {
       "turn": 368,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Did he see the misdemeanor committed in his presence?",
       "time": "01:12:27.13"
     },
@@ -2265,7 +2265,7 @@
     },
     {
       "turn": 370,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You mean just in the first part that a misdemeanor has been committed--",
       "time": "01:12:30.45"
     },
@@ -2277,7 +2277,7 @@
     },
     {
       "turn": 372,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The question I asked is, certainly, it would be (Inaudible) and says “I would like someone to be arrested.”",
       "time": "01:12:35.29"
     },
@@ -2289,7 +2289,7 @@
     },
     {
       "turn": 374,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "He knew the police of the park.",
       "time": "01:12:50.72"
     },
@@ -2301,7 +2301,7 @@
     },
     {
       "turn": 376,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Before he discussed it with the owner, he told the people to leave in five minutes, is that right? Is that the chronology?",
       "time": "01:12:57.68"
     },
@@ -2313,7 +2313,7 @@
     },
     {
       "turn": 378,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "When did the officer approach the owner?",
       "time": "01:13:10.65"
     },
@@ -2325,7 +2325,7 @@
     },
     {
       "turn": 380,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "That's before the officer approached to these petitioners?",
       "time": "01:13:46.84"
     },
@@ -2337,7 +2337,7 @@
     },
     {
       "turn": 382,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "And then he returned and told them to leave in five minutes?",
       "time": "01:14:06.01"
     },
@@ -2349,7 +2349,7 @@
     },
     {
       "turn": 384,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Which was the instruction of the owner.",
       "time": "01:14:09.98"
     },
@@ -2361,7 +2361,7 @@
     },
     {
       "turn": 386,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But, do you believe, Mr. Murphy, that the state has the right to put its police officers in every or any place of business for the purpose of enforcing segregation?",
       "time": "01:14:35.11"
     },
@@ -2373,7 +2373,7 @@
     },
     {
       "turn": 388,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, then, aren't you faced with that problem here?",
       "time": "01:14:48.66"
     },
@@ -2385,7 +2385,7 @@
     },
     {
       "turn": 390,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Certainly, the sheriff knew of these difficulties that were going on at the park for a long time. Everybody else knew it. It was in the press, wasn't it, so far as to this? So, he must have known that this deputy sheriff was in there enforcing a power.",
       "time": "01:15:38.07"
     },
@@ -2397,7 +2397,7 @@
     },
     {
       "turn": 392,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, I know, but he's--",
       "time": "01:15:58.55"
     },
@@ -2409,7 +2409,7 @@
     },
     {
       "turn": 394,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But the deputy sheriff was a deputy sheriff in the eyes of the law.",
       "time": "01:16:00.29"
     },
@@ -2427,7 +2427,7 @@
     },
     {
       "turn": 397,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, you may have that much.",
       "time": "01:16:27.63"
     },

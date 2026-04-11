@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1977/77-5549/19780327a_77-5549.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "J. VINCENT APRILE, II,",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "GUY C. SHEARER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Taylor against Kentucky. Mr. Aprile, I think you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would your constitutional issues be different if there had been ten witnesses on each side?",
       "time": "00:03:24.89"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did the indictment go the jury room?",
       "time": "00:05:32.70"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In this jurisdiction, is any criminal case ever tried without the essence if not the exact contents of the indictment communicated to the jury?",
       "time": "00:05:50.22"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How does the jury find out what the charge is?",
       "time": "00:06:01.58"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I do not mean given, but someone tell us the jury what the crime --",
       "time": "00:06:12.39"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you think that that would be more important, more critical in the situation where as in some jurisdictions the indictment goes to the jury room with the jurors along with other pieces of paper that are evidence?",
       "time": "00:07:06.00"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you challenging the instruction given by the Trial Court on the question of reasonable doubt?",
       "time": "00:11:21.15"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If it is not bankrupt as you say and not constitutionally deficient, what business does this Court have addressing itself to it?",
       "time": "00:12:02.85"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the Kentucky Appellate Court and your petition for certiorari do not raise that as a separate point, does it?",
       "time": "00:12:39.50"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There are thousands of cases like that. You are the one who steps on all of these.",
       "time": "00:13:56.21"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You are the one to set a special rule where there is only one witness on the side, do you?",
       "time": "00:14:02.55"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Then why do you keep pushing that point?",
       "time": "00:14:08.60"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That was not in constitutional terms, Mr. Aprile and that leads me to ask you a question that has troubled me from the time I read the briefs in this case. I was unable to find that what you say as the first question presented by the petitioner was deprived of his constitutional right to due process of law by the refusal of the Trial Court to give it instruction under the presumption of innocence when petitioner’s counsel requested and intended such an instruction. I was unable to find that that issue was ever raised in this case in the Trial Court or in the Appellate Courts of Kentucky. I have looked at the requested instruction of that transcript. I do not find that that was ever asserted as a constitutional claim. I looked at the opinion of Judge Howard for the Court of Appeals of Kentucky and I find that he says that in answer to the contention, the well established law of Kentucky has been that as long as the Trial Court instructs the jury on reasonable doubt, an instruction on the presumption of innocence is not necessary. Well, that would be no answer whatsoever to a constitutional claim and yet it seems to be in the view of the Court of Appeals of Kentucky, the complete answer to whatever defense counsel’s claim was. I do not find any evidence except it mentioned once in Judge Wilhoyt’s dissenting opinion of the phrase due process that this was ever tendered as a constitutional issue to the Kentucky Courts.",
       "time": "00:14:52.21"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You do not have any control but unless it is raised at the first opportunity to raise it which in this case was in the Trial Court, then it is not before us?",
       "time": "00:17:02.66"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is a matter of our jurisdiction, we decide that.",
       "time": "00:17:41.12"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They think that two of them together cannot give us jurisdiction?",
       "time": "00:17:49.55"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, where is this?",
       "time": "00:18:33.92"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There is no mention whatsoever the constitution of the United States. In the opinion of the Court of Appeals of Kentucky, their sole answer as a matter this is the established Kentucky law and of course that would be no answer whatsoever to a constitutional claim?",
       "time": "00:19:13.01"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is a matter of fact is, it not, in some cases it is and in some cases it is not and I am asking, I am not arguing where if at all was it raised in this case?",
       "time": "00:19:41.84"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did the Court have to consider it?",
       "time": "00:19:55.86"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They did consider it but did it have to. You are stuck with that are you not?",
       "time": "00:20:00.94"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, they did not talk about your constitutional issue?",
       "time": "00:20:27.86"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The indictment.",
       "time": "00:20:41.81"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So they could not possibly have been talking about the federal issue when they talked in terms of the established law of Kentucky, that is no answer whatsoever?",
       "time": "00:20:52.69"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That is not addressing itself whatsoever to any sort of a federal constitutional claim?",
       "time": "00:21:04.37"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It was not raised in the Trial Court and as a matter of Kentucky procedures, is that sufficient ground for the Kentucky Appellate Court to disregard the claim under Kentucky law?",
       "time": "00:21:21.97"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That would be the general rule of many states. That if a litigant does not raise something in the Trial Court then the Appellate Court is not required to consider it?",
       "time": "00:21:35.89"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does the Kentucky Constitution have a due process clause in it?",
       "time": "00:22:27.76"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So even with respect to your second point, that is referenced to due process of law, could be referring to the state constitution, could it not?",
       "time": "00:22:41.64"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There is no mention of the Fourteenth Amendment throughout this opinion or the dissenting opinion.",
       "time": "00:22:58.23"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The constitutional issue was not raised in the Trial Court. The Court has to be given an opportunity to consider whatever claims counsel has to make and if he does not make them, then he has waived them generally.",
       "time": "00:23:19.73"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it is not moving to such a point. That is the established law.",
       "time": "00:23:36.40"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They did not mention due process in the Trial Court. State or Federal --",
       "time": "00:23:46.46"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your response suggests that if they mentioned due process in treating the evidentiary value of the indictment, but not with respect to your other issues that perhaps if your are right that they used due process in the federal sense, they felt they were treating a federal question in one instance, but not in the other?",
       "time": "00:24:06.23"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It certainly is a very usual rule in Appellate Courts, however, that at least the Court need not deal with questions that were not properly presented in the Trial Court. Now, is that the law of Kentucky or is it your submission that Appellate Courts in Kentucky will always consider a constitutional issue even though it is raised there for the first time?",
       "time": "00:24:52.96"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So then the question would be whether in fact the Kentucky Appellate Court had passed on the constitutional question?",
       "time": "00:25:36.53"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is your brief in the Court of Appeals part of the record?",
       "time": "00:26:00.74"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We can find in it then the question as you presented it to the Court of Appeals.",
       "time": "00:26:09.75"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But neither the court’s opinion nor the dissenting opinion makes any reference to the federal constitutional claim, does it?",
       "time": "00:26:14.76"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In dissenting opinion Judge Wilhart says I believe he expresses the view that the Supreme Court of Kentucky would now reject the old line of cases relied upon by the majority and the understatement for that is the Kentucky cases.",
       "time": "00:26:37.66"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the Court obviously did not consider your claim because it simply relied on the line of Kentucky cases. I am looking at page 55 of the appendix. The well established law of Kentucky has been that as long as the Trial Court instructs the jury on reasonable doubt, an instruction on the presumption of innocence is not necessary. Now, that would be no answer whatsoever to your claim.",
       "time": "00:27:15.94"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And obviously, it was not considered.",
       "time": "00:27:44.00"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It is the same case, we ought to send back to the Court of Appeals of Kentucky and ask them as we have done in Krigder (Ph) v. California, did you decide this federal constitutional question or did you not?",
       "time": "00:28:02.81"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Not only that but they do not cite too, they certainly were aware of Estelle v. Williams and other cases that you now rely on but not any reference to them?",
       "time": "00:29:03.58"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "For them to answer a federal constitutional claim by saying it is well-established state law. That just poses the question, that does not answer it.",
       "time": "00:29:25.90"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Shearer?",
       "time": "00:30:10.59"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now, jury has settled all these issues so the only issue before the court is the --",
       "time": "00:32:39.69"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Shearer may I interrupt you with one question please.",
       "time": "00:33:56.17"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you dispute the fact that the defendant comes in the court with a clean slate as far as the jury is concerned? I did not understand your argument about the clean slate?",
       "time": "00:33:59.70"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You argued that the instruction that the defendant tendered was not correct as I understood?",
       "time": "00:34:11.64"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And why is that? Why does not the defendant come into court with a clean slate?",
       "time": "00:34:20.91"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But is it not true that for purposes of the matter on trial he was presumed to be innocent and presumed to come in with a clean slate.",
       "time": "00:34:46.04"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As far as his charge was concerned did he not have a clean slate?",
       "time": "00:35:06.16"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "As long as we have had common law courts, we have had the presumption of innocence -",
       "time": "00:35:39.79"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Attorney General is it the practice in Kentucky if a man has the kind of clean slate where he has never been on probation or parole or anything at all then does he get the instruction? If this man had had the kind of clean slate you have in mind?",
       "time": "00:36:12.93"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even if he had it completely clean slate?",
       "time": "00:36:32.04"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, and that is not what the Court of Appeals of said. The Court of Appeals said, “If the court gives a reasonable doubt instruction the court does not have to do anymore.” So that is the law of Kentucky.",
       "time": "00:36:42.20"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Up till now?",
       "time": "00:36:59.54"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "According to your brother these were not brought up for the first time here, but were brought up in the Court of Appeals of Kentucky in its brief, its constitutional arguments. Do you agree with that sir? Did they make their constitutional claims in the Court of Appeals of Kentucky?",
       "time": "00:39:59.14"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, that they argued that Kentucky Law was unconstitutional under the federal constitution?",
       "time": "00:40:21.92"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You said they did not argue that in the Court of Appeals?",
       "time": "00:40:29.10"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You talked about one witness in this case recalls to my mind the range of Latin legal maxim two that witnesses are weighed not counted and the weight in this case was what they were trying to circumvent through tendering an instruction that could have been a good instruction if it would have just not that two or three words in it and in the rewrite the instruction previously given by the Court.",
       "time": "00:40:39.20"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Shearer, am I right in thinking now that the Court of Appeals of Kentucky is an Intermediate Appellant Court?",
       "time": "00:42:09.28"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your highest court is now called the Supreme Court and I notice at page 59 of the record, there is an order by the Chief Justice of the Supreme Court denying what is the denominated discretionary review. Does the Supreme Court have absolute discretion to deny a petition on whatever the grounds of the petition for it is?",
       "time": "00:42:19.50"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Even if it is a federal constitutional claim, it has discretion to deny it, does it?",
       "time": "00:42:47.86"
     },
@@ -835,13 +835,13 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "00:42:53.68"
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would they be granting, would they place that in a case like this on the grounds that it was the Federal constitutional claim was not preserved in the Trial Court, that would be one of the basis of discretion?",
       "time": "00:42:54.69"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It has been a long time.",
       "time": "00:44:05.45"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is the record of the voir dire here in this case in the record? Does the transcript of the voir dire appear in the record before?",
       "time": "00:47:36.39"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, Mr. Aprile you have about one minute left.",
       "time": "00:52:07.75"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, you relied greatly, I have just glanced through your brief in the Court of Appeals of Kentucky, you were lying greatly on these three Federal Case, Coffin, Holt, and one of 218 U.S. 245 none of which was a constitutional case?",
       "time": "00:52:29.07"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You do talk about it. I simply pointed out that would you agree that these three federal cases are not constitutional cases?",
       "time": "00:53:00.50"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. The case is submitted.",
       "time": "00:53:33.32"
     }

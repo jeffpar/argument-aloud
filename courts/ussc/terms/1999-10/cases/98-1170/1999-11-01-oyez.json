@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1999/98-1170/19991101a_98-1170.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "ANDREW ZWERLING",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JONATHAN E. NUECHTERLEIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "BEVERLY VAN NESS",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this morning in Number 98-1170, Leonard Portuondo v Ray Agard. Mr. Zwerling.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Zwerling, would the prosecutor have been entitled to a jury instruction that the jury could draw an adverse inference by virtue of the fact...  as to guilt by virtue of the fact that the defendant had sat in the courtroom the whole time?",
       "time": "00:00:48.30"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just interrupt? I'm not sure you answered Justice O'Connor's question. You said he could get a different question, but could...  would the prosecutor be entitled to the instruction that she suggested, that they may draw an adverse inference from the fact?",
       "time": "00:01:24.42"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Could the prosecutor make that remark without correction from the district...  from the trial judge if the defendant's testimony on the stand was in all respects consistent with the testimony...  with his previous statements that he'd given to the police, et cetera?",
       "time": "00:01:52.29"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes. He said, now, ladies and gentlemen, you know, this man's been here, and so his testimony is pretty well rehearsed. If...  would it be proper for the trial judge to say, ladies and gentlemen of the jury, I just want you to know that the testimony he's given has been consistent with his previous testimony. Could the trial judge interrupt to that effect?",
       "time": "00:02:11.61"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It has to be a factual predicate?",
       "time": "00:02:44.18"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The prosecutor wouldn't have much incentive in the case proposed by Justice Kennedy. I mean, that argument is not going to go over with the jury if you say, look, this guy was sitting here all the time and was able to tailor his testimony, and yet his testimony is entirely consistent with all the other witnesses.",
       "time": "00:03:11.38"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if it is...  I'm going to give you a really hard one, Mr. Zwerling. What if the prosecutor knows that his testimony, that the defendant's testimony is entirely consistent with a confession that was given earlier and that has been excluded?",
       "time": "00:03:31.65"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I'm saying it was excluded and...",
       "time": "00:04:01.54"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But that wasn't the question, Mr. Zwerling. As I understand your position, you seem to be qualifying it, but I'm not sure, that in any case where the defendant takes the stand, so he's putting his credibility in issue, in any such case...  you said something about the peculiar facts of this case, but I thought your position was, defendant takes the stand, the prosecutor legitimately in summation can say, ladies and gentlemen of the jury, please take into account that defendant was the only witness who sat through this entire trial and therefore could conform his testimony to what others said.",
       "time": "00:04:22.80"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Zwerling, in New York I take it there's a statute that requires the defendant to be present at his trial.",
       "time": "00:05:26.58"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That isn't true in every State, I assume.",
       "time": "00:05:33.84"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, then, how do you deal with the Doyle case?",
       "time": "00:05:39.43"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not a different issue. It's just an additional argument. I mean, he has raised the issue of the improper comment by the prosecutor.",
       "time": "00:06:02.53"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But your argument is a little extreme in the situation where, by State law, the defendant has to be there, and any time the defendant testifies, even if it's totally consistent with his prior but excluded confession, you say the prosecutor can nonetheless get up in summation and try to use his presence at the trial against him.",
       "time": "00:06:43.02"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I mean, that's...  how do you justify...",
       "time": "00:07:10.81"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say it's pretty much like...  I think you've already said, like the trial judge's charge, you may take into consideration the interest of every witness in the outcome of the proceedings, and that would apply to the defendant as well as to any other witness.",
       "time": "00:07:46.64"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Zwerling, there was an interested witness charge in this case, wasn't there?",
       "time": "00:08:20.69"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So this is doubling, underscoring, or putting it in bold face, for one witness only. The interested witness charge in this case covered the defendant, as it might have covered other witnesses.",
       "time": "00:08:25.44"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, but in answer to the Chief's question you equated the two, and now you're telling us, well, they are indeed different, and you are entitled, rightly, to both.",
       "time": "00:08:54.52"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Were there witnesses other than the defendant in fact sequestered in this case?",
       "time": "00:09:25.98"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Were sequestered, yes.",
       "time": "00:09:33.61"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, with respect to the exposure to the others, I'd like you just to go back to Doyle for a minute. One of the strands of reasoning in Doyle was that the defendant's post Miranda silence was...  I think it was ambiguous. I forget what adjective was...  insolubly ambiguous, I think was the phrase that the court used. Don't we have an insoluble ambiguity problem in the predicate for the comment in issue here, because to the extent that the testimony of the defendant is, in fact, congruent with that of other witnesses save at some, you know, crucial exculpatory point, we don't know, and I presume in the absence of some affirmative evidence going to the truth or falsity of particular statements, there's no way for a jury to know whether in fact that congruence is the result of truth or the result of tailoring. So that if a comment like this, let alone an instruction on this point, is given in the absence of some affirmative reason in the evidence to think that there was particular tailoring on a particular point, it sounds to me as though the ambiguity, as in Doyle, would simply give the jury kind of a wild card. What's your answer to that?",
       "time": "00:10:08.91"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, that's true, but whether we're dealing with something that goes to impeachment or whether we're dealing with something that goes to guilt, there is the problem of ambiguity, and it's the ambiguity that's bothering me.",
       "time": "00:12:14.85"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't understand why...  maybe I've got the assumption wrong, but are you conceding that there was no cause on the part of the prosecutor to mention this? I mean, I counted six or seven times in which the defense attorney emphasized the word consistency, three times in which he said...  or maybe it was two or three, the defense attorney says, the defendant told a totally consistent story. He didn't use the word totally, he says a consistent story, and about three or four times in which he said the prosecuting witness' story was inconsistent, so the prosecutor gets up and says, sure it was consistent, he heard all the witnesses. I mean, is this...  are we supposed to decide this case on the assumption there was no cause for the prosecutor to say, well, he heard the witnesses, that's why he was consistent. He just heard the defense attorney say he was inconsistent. Well, you know, how are we supposed to decide this case? I don't understand.",
       "time": "00:12:40.99"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, am I not supposed to look at the specifics of the case when I decide the legal question?",
       "time": "00:13:39.32"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Is that...  then why aren't you arguing that?",
       "time": "00:13:50.17"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But on that point the Second Circuit disagreed with you and said, if there had been in this case an attempt to show that particular pieces of information were tailored, so be it. But you were making a generic claim, and you answered in response to me that that is your position, that in every case where the defendant takes the stand, that is the rule the prosecutor can bring out in summation, and now you seem again to be retreating from that. But I got from your brief, I got from your arguments up until now that you are taking that position, defendant testifies, it's legitimate for the prosecutor to bring out that he heard all the witnesses.",
       "time": "00:14:34.26"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He doesn't have to be invited, you're saying.",
       "time": "00:15:31.07"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Am I right that in New York a defendant has no right to bring out on rebuttal prior consistent statements that the defendant made before he heard the witnesses?",
       "time": "00:15:56.45"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, when would that be in a case like this?",
       "time": "00:16:09.83"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is there any reason why the constitutional doctrine here should follow the niceties of the law of evidence on when you can impeach witnesses?",
       "time": "00:16:17.42"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "This is not a rule of evidence. This is prosecutorial misconduct in his comments, in argument. No evidentiary question is presented, is it?",
       "time": "00:16:43.16"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not sure.",
       "time": "00:17:11.62"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Zwerling. Mr. Nuechterlein. Do you pronounce your name Nuechterlein, or Nuechterlein.",
       "time": "00:17:21.38"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Nuechterlein, okay.",
       "time": "00:17:31.11"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Nuechterlein, do you take the position that there's just a per se rule, that in every case where a defendant testifies, that it's all right for the prosecutor to make this kind of comment?",
       "time": "00:18:07.15"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is there a...  but you take the position that it would be proper in every case. Is this something that is commonly done by Federal prosecutors, to your knowledge?",
       "time": "00:18:27.95"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think that an instruction to the jury would be appropriate...",
       "time": "00:18:53.30"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "reinforcing this statement?",
       "time": "00:18:58.79"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "My concern is, is that if we adopt your position, which is not without some strong reasons to recommend it, that although that's...  this comment is not usually made now, a year hence it will be standard. It will be in every prosecutor's manual, and then the trial judge will have to say, now, ladies and gentlemen of the jury, it would be an extraordinary occurrence were the defendant not present at all phases of the trial. He must be present in order to assist his counsel and be apprised of the charges against him, and therefore you cannot hold that against...  and so we go back and forth.",
       "time": "00:19:15.76"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, excuse me, I don't understand the defendant here to be asserting what those...  that judge's instruction would have told the jury, that you therefore can't take it into account.",
       "time": "00:20:15.37"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, that's not at issue in this case.",
       "time": "00:20:31.55"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Isn't it agreed by both sides that the jury can take account of the fact that he's been sitting in court during the entire argument?",
       "time": "00:20:34.31"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the jury is not entitled to an instruction, as it is with regard to the right, of the Fifth Amendment right of nonincrimination. The jury is not entitled to an instruction that you should not take...  you should not take the defendant's refusal to testify to be an admission of guilt.",
       "time": "00:20:42.73"
     },
@@ -595,19 +595,19 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I suppose a trial judge could go on and say, if you find he altered his testimony by reason of his presence you can take that...",
       "time": "00:21:03.17"
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but...",
       "time": "00:21:11.34"
     },
     {
       "turn": 93,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "into account. But the whole point is, it just seems to me that this is a new area in which we're going to have comment, countercomment, instructions...",
       "time": "00:21:12.17"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, when you get into the area of instructions by the trial court, you also get into the question of whether a defendant would request a particular instruction. I know when I practiced, long ago, the defense attorney, criminal defense attorneys were split on the question of whether it was an advantage to the defendant to have the judge charge that he was not required to take the stand and they weren't to hold it against him. That was certainly the constitutional law, but it also called the jury's attention to the fact that the defendant hadn't taken the stand, and maybe made it worse. So I don't think you should think in terms of automatic charges by the judge. Often, they have to be requested or could...  if a defendant didn't request them, they wouldn't be given.",
       "time": "00:21:36.40"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Don't you think the Doyle case cuts against your position somewhat?",
       "time": "00:22:46.78"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "On the other hand, in the Doyle facts there is some inconsistency as a practical matter between the silence at the time of questioning and the contrived story at the time of trial, but here there's no inconsistency, there's just an opportunity, so it seems to me this case is a fortiori from Doyle, and I didn't agree with Doyle, as you may know.",
       "time": "00:23:28.77"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, here the prosecutor can make this comment even though there's no...  nothing in the record that would imply that there's some inconsistency between the testimony and the actual fact, whereas in Doyle, the fact that he was silent is in itself somewhat inconsistent with his having come up with a story later.",
       "time": "00:23:53.74"
     },
@@ -667,13 +667,13 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well...",
       "time": "00:24:30.32"
     },
     {
       "turn": 104,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Nuechterlein, if we applied Doyle here, we would again have to instruct the jury not to take account of the fact that he has heard all the testimony. It wouldn't be just a question of whether...  whether the prosecutor can invite the jury's attention to that fact. The jury would be entitled, if we are...  as I understand Doyle, if we are following Doyle, the jury...  the defendant would be entitled to an instruction that you shall not take into account the fact that he's heard all the testimony.",
       "time": "00:24:30.69"
     },
@@ -685,13 +685,13 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Nuechterlein...",
       "time": "00:25:11.64"
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one other verify brief question? You refer to all the State cases that's arisen. Am I correct in thinking all of those cases came to the view that this was improper comment?",
       "time": "00:25:12.63"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They didn't.",
       "time": "00:25:22.98"
     },
@@ -715,13 +715,13 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:25:28.14"
     },
     {
       "turn": 112,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Nuechterlein, you mentioned in distinguishing Doyle the risk there of the jury's confusing impeachment with proof of guilt. Isn't that risk equally great here?",
       "time": "00:25:28.30"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but the jury is going to go from mere presence to a suspicion of tailoring. Tailoring is lying, and as the old saw has it, a man who will lie will steal, or whatever. I mean, isn't that the risk, that the jury will sort of follow that sequence of reasoning?",
       "time": "00:25:55.18"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well maybe it would, but does it also eviscerate the line between Doyle and this case?",
       "time": "00:26:22.64"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is the estoppel point.",
       "time": "00:26:32.92"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Nuechterlein, may I ask a question about your position on brief that Chief Judge Winters' distinction was unworkable, because it seemed to me the Second Circuit worked it out very well in U.S. v. Chako the next time the issue came before them, when they said, look, it's different here. Here, there was a showing of tailoring, not merely opportunity to tailor.",
       "time": "00:26:36.43"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Nuechterlein. Ms. Van Ness, we'll hear from you.",
       "time": "00:27:28.89"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't understand them to concede that, Ms. Van Ness.",
       "time": "00:28:13.89"
     },
@@ -805,7 +805,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:28:21.53"
     },
@@ -817,7 +817,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I should add, we don't decide cases on the basis of concessions by the parties.",
       "time": "00:28:47.25"
     },
@@ -829,7 +829,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms....  more than that, Ms. Van Ness. If that is what this case is about, just a fight over whether in fact the prosecutor made an accusation of tailoring that had no possible basis in fact, you should have made that point, it seems to me, in your opposition to the petition for certiorari. If I had known that's all the case is about, I don't think I would have taken it. We're not interested in deciding that factual question. The question presented makes it very clear that it's talking about a much more broader, much broader and more important issue.",
       "time": "00:28:53.64"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it's a little late to put it now.",
       "time": "00:29:30.88"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We rarely go off on alternate grounds for affirmance unless there's some very obvious reason why we can't decide the issue that is presented in the question presented, which is whether Griffin should be applied to this case.",
       "time": "00:29:37.57"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you're always speculating as to whether the witness is telling the truth or not, and you speculate on the basis of various considerations, and you're usually allowed to call those considerations to the jury's...  what if the witness' eyes are shifting all around the courtroom during the testimony. He looks very much like a person who's lying. Can the prosecutor call attention to that?",
       "time": "00:30:31.44"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course he can.",
       "time": "00:30:51.21"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but it's an important possible explanation. Suppose in this case the prosecutor did not make this argument and, after an hour of deliberation, the jury sends a note to the judge and they say, dear judge, we know the defendant probably should be present at the trial, maybe he has a constitutional right to be at trial, but we think that in this case his presence enabled him to tailor his testimony, can we hold that tailoring against him. What's the judge supposed to do?",
       "time": "00:31:01.71"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I'm not sure why the prosecutor really argued anything different here.",
       "time": "00:31:35.67"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So your position is really...  is really, I was erroneous when I said I didn't think either side, that you were making...  you are making the contention that the jury...  not only may the prosecutor not call the jury's attention to it, the jury may not consider it, and presumably you would be entitled to an instruction, ladies and gentlemen of the jury, you should take no account of the fact that the defendant has been sitting here listening to all the testimony, because I don't see any other evidence of tailoring.",
       "time": "00:31:48.94"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You're saying in effect that a juror cannot sit in the jury room and say, you know, this guy was very smooth, and the reason he was is because he was there, and that's the way I think. You don't think the jury could do that.",
       "time": "00:32:31.60"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's astounding.",
       "time": "00:32:46.90"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but isn't the point, when the question...  when Justice Kennedy's question says, this guy was very smooth, wouldn't that be, in fact, an evidentiary basis? I mean, the suggestion is, sounds a little too smooth, and I don't know that your position requires you to say that that would be inappropriate. Why do you say that is inappropriate?",
       "time": "00:32:52.27"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you're in effect saying that if the testimony is, shall we say, unrealistically smooth, that that may not be considered? He's a very good witness, therefore he must be lying. I mean...",
       "time": "00:33:23.12"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That...  I really don't think that facing that issue is what you necessarily have to do in this case, but maybe I misunderstand you.",
       "time": "00:33:41.98"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Oh, that...",
       "time": "00:34:00.27"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You know, that goes to the, you know, the insoluble ambiguity point, but when you start talking about sort of unusual smoothness, I think we are outside...  or at least as I'm using the term, I think we're outside of the kind of testimony which is insolubly ambiguous, and don't you...  isn't that a distinction that can be drawn? It may be a fine line to draw, but isn't that a distinction that can be drawn?",
       "time": "00:34:02.16"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right, so all you're saying I think is that it would be...  put it this way. Put it in terms of instructions. You're saying that it would be improper for the court, or you're implying that it would be improper for the court to say, because the defendant in any criminal case has the greatest interest of anyone in the courtroom, or any witness in the courtroom, you should devalue the defendant's testimony for interest greater than you'd devalue the testimony of other witnesses who may be interested. You're...",
       "time": "00:34:46.34"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. What about the position in which the court gives this instruction. People who are in the courtroom and hear other witnesses can tailor their testimony. The defendant has a right to be in the courtroom, as he has done. Therefore, you should devalue the defendant's testimony for that reason, period.",
       "time": "00:35:20.41"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You would say that was a wrong instruction.",
       "time": "00:35:41.05"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And you would say it was a wrong instruction because, as I've given the hypothesis, there's no particularized basis in any evidence for applying that rule of devaluation, isn't that your point?",
       "time": "00:35:43.16"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. If there is a particularized basis, whether the eyes are going back and forth in Justice Scalia's example, or whether there is an impression of oily smoothness in Justice Kennedy's example, then it seems to me we are outside the realm of pure speculation. Wouldn't you agree?",
       "time": "00:35:56.45"
     },
@@ -1069,19 +1069,19 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Certainly, and the court of appeals would decide whether the Constitution has been violated or not presumably, under what you've accepted, by deciding whether, in fact, the defendant was smooth or too smooth. Is that going to be the critical constitutional fault line, whether he was just smooth smooth or oily smooth?",
       "time": "00:36:16.88"
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:36:40.25"
     },
     {
       "turn": 172,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that seriously the distinction?",
       "time": "00:36:40.49"
     },
@@ -1093,7 +1093,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And are you accepting the premise that what is wrong in a judge's instruction is also wrong in a prosecutor's argument? Is everything that a prosecutor says in final argument appropriate for a judge to say in instruction?",
       "time": "00:36:46.31"
     },
@@ -1105,7 +1105,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The prosecutor surely has greater latitude than a judge.",
       "time": "00:37:05.75"
     },
@@ -1117,7 +1117,7 @@
     },
     {
       "turn": 178,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But what about the traditional charge about the interested...  interested party? Now, it seems to me in your answers to Justice Souter's questions, some of your other statements, would you allow that to be given in the absence of any showing that the defendant was not telling the truth?",
       "time": "00:37:20.20"
     },
@@ -1129,7 +1129,7 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, supposing that the defendant had been sitting through all the trial but there were two other witnesses, two, for some reason, who had also sat all through the trial and had not been sequestered...  all the other witnesses had been sequestered...  so that the charge, the prosecutor's comment could then be directed to two witnesses as well as the defendant. Would that make any difference?",
       "time": "00:38:13.43"
     },
@@ -1141,7 +1141,7 @@
     },
     {
       "turn": 182,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But how about the generic comment? It no longer singles out just the defendant. It singles out the defendant and other witnesses who have sat there through the proceedings and not been sequestered.",
       "time": "00:38:44.64"
     },
@@ -1153,7 +1153,7 @@
     },
     {
       "turn": 184,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I've certainly sat in cases where there was some reason for a particular witness not to be sequestered, and it wasn't the defendant.",
       "time": "00:39:00.98"
     },
@@ -1165,13 +1165,13 @@
     },
     {
       "turn": 186,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Okay, but...",
       "time": "00:39:23.05"
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask on that question whether you think it would be fundamentally unfair for the prosecutor at the end of his cross-examination of the defendant, who's the last witness in the case, say, to ask questions...  you were sitting in the courtroom throughout the trial, weren't you, you heard all the testimony, make the point through cross-examination? Would that be permissible?",
       "time": "00:39:23.67"
     },
@@ -1183,13 +1183,13 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You've...  I'm sorry.",
       "time": "00:39:59.35"
     },
     {
       "turn": 190,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that wouldn't authorize him to use prior consistent statements though, I don't think, if they were after he'd been arrested.",
       "time": "00:40:00.20"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm talking about the defendant. I'm just asking you if you think, instead of saving the point for argument, closing argument, the prosecutor makes the point at the end of his cross-examination of the witness, of the defendant who's the last witness in the trial, would that create the same constitutional problem?",
       "time": "00:40:10.31"
     },
@@ -1213,7 +1213,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:40:31.67"
     },
@@ -1225,7 +1225,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, he doesn't add the latter part. He just says, you've been sitting here in the courtroom during this whole trial, and you listened to all the prior witnesses as they were testifying before you came up here to tell this story, is that right.",
       "time": "00:40:39.95"
     },
@@ -1237,7 +1237,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's all he says.",
       "time": "00:40:53.12"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, so that...  all right.",
       "time": "00:40:57.56"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, I don't understand the directly assailing your constitutional right. If...  you cannot put any burden upon the assertion of the constitutional right?",
       "time": "00:41:06.41"
     },
@@ -1273,7 +1273,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I just want to understand your answer. So you're saying that the question Justice Scalia proposes is proper. The counsel's very sarcastic. It was, now you've been here for 3 days, and you've heard all of these witness...  that's why you're telling the story you're telling.",
       "time": "00:41:38.26"
     },
@@ -1285,7 +1285,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's improper?",
       "time": "00:41:56.55"
     },
@@ -1297,7 +1297,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, in other words, it's objectionable. You can raise an objection to that question.",
       "time": "00:42:05.09"
     },
@@ -1309,7 +1309,7 @@
     },
     {
       "turn": 210,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Under the Constitution.",
       "time": "00:42:11.95"
     },
@@ -1321,13 +1321,13 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Van Ness...",
       "time": "00:42:22.84"
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because it impedes his constitutional right. What about his constitutional right to testify. Is that constitutional right impeded by cross-examining him?",
       "time": "00:42:23.77"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you pay the price for exercising that constitutional right. If you testify, you're subject to cross-examination.",
       "time": "00:42:33.14"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you're present at your trial, you're subject to having the fact that you're present at your trial being pointed out.",
       "time": "00:42:41.13"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course it isn't.",
       "time": "00:42:59.04"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course it isn't, but that's a question for the jury. It...  you know, it's a factor...",
       "time": "00:43:01.27"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "that would enable him to tailor, and the prosecutor's just telling the jury, this is a factor that would enable him to tailor, but take that into account along with everything else.",
       "time": "00:43:05.38"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What sort of evidence would one ever get that the person had tailored their testimony?",
       "time": "00:43:23.69"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So the mere fact...  even the mere fact that he changes his testimony is not adequate in your view. You'd have to show that he...  somehow the prosecutor during the trial would have to show that he changed his testimony because he was sitting...  he was sitting there and heard the witnesses?",
       "time": "00:44:13.43"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What's the constitutional right? I'm having a problem to know how to decide this. I counted the word consistent appearing 11 times in a rather short summation by the defense about half divided between my client's story is consistent, the complaining witness' story is not consistent. The State of New York said that under those circumstances, no rule of evidence in New York is violated. Now, what in the Constitution of the United States says New York's rule of evidence there is wrong? I mean, don't we have to decide this on the basis of 11 appearances of the word consistency in a short closing argument, and don't we have to take into account the fact that under New York law of evidence, under those circumstances, no rule of evidence is violated?",
       "time": "00:44:47.79"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, my question is, what is the question before us? If New York's law says it is not a violation of the law of evidence to make this comment, of course his story's consistent, he sat there and heard the witnesses...  that's the law in New York, all right. Now, what part of the Constitution does that violate? Why?",
       "time": "00:45:40.14"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Ah. I have...  I couldn't find...  New York apparently just didn't say. They didn't discuss it.",
       "time": "00:46:06.99"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, the law of evidence, not...",
       "time": "00:46:15.64"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The law of evidence in New York is that under these circumstances no law of evidence is violated.",
       "time": "00:46:18.03"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, then they made a mistake about that. Well, why did the New York courts affirm this conviction?",
       "time": "00:46:28.79"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, let's assume Justice Breyer is right. Let's assume Justice Breyer is right that this is permitted under the law of New York. Then what is the answer to his question about the constitutional issue as you would put it, precisely?",
       "time": "00:46:39.09"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because? Look, I mean, what I'm driving at is fairly simple. I'm sure that the prosecution would like a universal law that you could make this comment even no matter what, just make it out of the clear blue sky, and what I'm driving at is, the record before us is not the clear blue sky, at least as I read it, and I'm not using a doctrine of invited error, I'm using a doctrine of no error.",
       "time": "00:46:58.32"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Good. I've read the record. I think they're wrong about that. I found 11 instances in which it uses the word consistent. I won't repeat myself. You heard what I said.",
       "time": "00:47:40.76"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, I thought that was what you were going to say. I haven't been understanding Justice Breyer's question. You seem to understand it. I don't see what telling a consistent story has anything to do with whether you've heard the prior witnesses and tailored. You can have a consistent story that contradicts the prior witnesses, or you can have a consistent story that is in accord with prior witnesses. Consistency has nothing to do with whether you're tailoring, does it?",
       "time": "00:47:56.99"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "He didn't say...  they didn't use the word tailoring. I thought what they said was, in a very complicated factual story the lawyer says, look, my client's been consistent, the complaining witness wasn't, and what the prosecutor says is, sure, he sat here, why wouldn't he be consistent?",
       "time": "00:48:24.23"
     },
@@ -1555,43 +1555,43 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I suppose he would be consistent if he had listened to himself testify.",
       "time": "00:48:57.09"
     },
     {
       "turn": 252,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:49:02.09"
     },
     {
       "turn": 253,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That would enable him to be consistent.",
       "time": "00:49:02.38"
     },
     {
       "turn": 254,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "She didn't use the word...",
       "time": "00:49:04.44"
     },
     {
       "turn": 255,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But I didn't understand that he was listening to himself testify while he...",
       "time": "00:49:05.43"
     },
     {
       "turn": 256,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What she actually said was, use your common sense. You know, ladies and gentlemen, unlike the other witnesses, he has a benefit, the benefit he has is, he gets to sit here and listen to the testimony of the other witnesses. That's...  all right. Now, she said that in response, I gather, to the defense lawyer saying nonstop, my client's story was consistent, the complaining witness wasn't. I'll stop, because...",
       "time": "00:49:07.54"
     },
     {
       "turn": 257,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May I add one thing to that, because it seems to me we're losing what the Second Circuit decided. As I understand Judge...  Chief Judge Winters' dispositive opinion, it isn't a question of whether, but when. He narrowed his decision, the Second Circuit's decision to the prosecutor's springing this for the very first time on summation and distinguished and left unanswered. Had it been brought up on cross, when the defendant would have a possibility of rebuttal...  but there was no such statement made in the cross-examination. It was reserved for when the prosecutor spoke last, and that was all that the Second Circuit addressed, is this proper to make on summation, and we're getting into cross-examine. That was an issue that the Second Circuit explicitly did not decide.",
       "time": "00:49:33.83"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why does the constitutionality of this conduct in...  under the Griffin analysis depend on whether it was brought up on cross-examination or whether it was urged on closing argument?",
       "time": "00:50:28.07"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that doesn't sound like a constitutional argument. That sounds like something you say, the prosecutor shouldn't do that because it's unfair, and Griffin isn't based on unfairness.",
       "time": "00:50:49.23"
     },
@@ -1627,19 +1627,19 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about shifty eyes?",
       "time": "00:51:06.51"
     },
     {
       "turn": 264,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why couldn't your...",
       "time": "00:51:07.51"
     },
     {
       "turn": 265,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about shifty eyes? Can you bring that up in final argument, or you have to give him a chance to respond to that by bringing it up in cross-examination? I mean, he might say, you know, I have nervous tick or something.",
       "time": "00:51:07.85"
     },
@@ -1651,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does the prosecutor have to bring that up in cross-examine, or can he just say, ladies and gentlemen of the jury, you saw the defendant testify here, did you see the way his eyes darted around the room?",
       "time": "00:51:20.46"
     },
@@ -1663,13 +1663,13 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This looked like a man who was not telling the truth. Can he not say that?",
       "time": "00:51:30.33"
     },
     {
       "turn": 270,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I mean, he has to bring it up...",
       "time": "00:51:33.59"
     },
@@ -1681,7 +1681,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not as evidence. It goes to his credibility. It doesn't go to the substance of the crime.",
       "time": "00:51:50.43"
     },
@@ -1693,7 +1693,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It goes to whether he was an honest witness, just as shifty eyes do.",
       "time": "00:51:56.45"
     },
@@ -1705,7 +1705,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I think...  why aren't you entitled...  why aren't you fully protected by an instruction from the court, if you want to ask for it, say ladies and gentlemen of the jury, this defendant has an absolute right to be at the counsel table. He must be there to assist in the prosecution of his case. The mere fact that he's present alone you cannot hold against him. Now, if you think he tailored his testimony, if you find that, then that is relevant to determining his credibility. What's wrong with that instruction?",
       "time": "00:52:07.34"
     },
@@ -1717,7 +1717,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose he did.",
       "time": "00:52:43.73"
     },
@@ -1729,7 +1729,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. Then there is nothing wrong with the instruction as I gave it to you, that he has a right to be present, the mere fact that he is present cannot be held against him, if you think that he used his presence in order to tailor his testimony, then that...  then you may consider that. Now, if you want that instruction, then I suppose you can get it. I'm not sure you'd want it, according...",
       "time": "00:52:52.36"
     },
@@ -1741,7 +1741,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, don't you think that a jury is entitled to consider the interest of every witness who testifies, and the fact that certainly the defendant is always an interested witness. The defendant wants off the hook, and don't you think the jury can say, gosh, we listened to what the defendant said, but after all, the defendant doesn't want to be convicted, and can't the jury say to itself, and also, the defendant sat there the whole time and listened to everybody else. I think the jury can maybe reason from that in deciding which witness' testimony they want to give the greatest credibility.",
       "time": "00:53:32.29"
     },
@@ -1753,7 +1753,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the defendant has to...  if the defendant chooses to testify, and many don't, but if the defendant does, the defendant has to try to be as credible as possible on the facts during the testimony, but I would have thought that a jury could consider all of these things in weighing who to believe.",
       "time": "00:54:24.86"
     },
@@ -1765,7 +1765,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Van Ness, it seems to me what your principle boils down to is, it's okay for the prosecutor to do it if there is some...  enough evidence to think that there was tailoring, but he can't make this statement if there was not any evidence. This is a very dangerous constitutional principle, that the prosecutor cannot in his closing statement invite the jury to make any factual determinations, or credibility determinations that the evidence will not support. Is that a constitutional principle, that if the prosecutor goes beyond what the evidence will support, the whole case can be reversed?",
       "time": "00:55:05.07"
     },
@@ -1777,7 +1777,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Don't we give the jury a certain amount of discretion to reject stupid arguments?",
       "time": "00:55:44.25"
     },
@@ -1789,7 +1789,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, you're just saying there's not enough evidence in toto to prove that this defendant was tailoring. Therefore, the prosecutor could not suggest the possibility of tailoring.",
       "time": "00:56:00.84"
     },
@@ -1801,7 +1801,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ah, if there is evidence to support it. You condition it on that.",
       "time": "00:56:23.88"
     },
@@ -1813,7 +1813,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So going back to Judge Winters' point that Justice Ginsburg raised, if there had been a prior inconsistent statement here and that had been brought out, I take it you would agree that it would have been perfectly proper, even only at the last minute, in closing argument, for the prosecutor to make the tailoring argument here. The timing is not crucial to you, Judge Winters' seeming suggestion that it was the fact that this didn't surface...",
       "time": "00:56:38.96"
     },
@@ -1825,7 +1825,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "this tailoring claim didn't surface until the last minute in the prosecutor's closing argument, when it was too late for them to respond, that is not crucial, I take it, in your view.",
       "time": "00:57:05.71"
     },
@@ -1837,7 +1837,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "If there had been a prior inconsistent statement, the word tailoring and the tailoring argument had never come up until the prosecutor's closing argument, I take it on your view the argument would have been proper for the prosecutor, is that correct?",
       "time": "00:57:17.66"
     },
@@ -1849,7 +1849,7 @@
     },
     {
       "turn": 300,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Van Ness. Mr. Zwerling, you have 3 minutes left.",
       "time": "00:57:35.75"
     },
@@ -1861,7 +1861,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Zwerling, we're going so far beyond what the Second Circuit decided. They didn't talk about instructions at all. They spoke only about what was proper for the prosecutor to do in light of the Sixth Amendment and Fifth Amendment.",
       "time": "00:58:42.25"
     },
@@ -1873,19 +1873,19 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, I'm not...",
       "time": "00:59:33.85"
     },
     {
       "turn": 305,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, do you...",
       "time": "00:59:34.34"
     },
     {
       "turn": 306,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm not sure that that's right, given the Second Circuit's follow-up decision, in which they pointed out that when that happened the judge repeatedly offered to give a curative instruction simply informing the jury that the defendant had not only a right but an obligation to be there. Defendant rejected that curative instruction, and the Second Circuit said, too bad, but then the distinction between the defendant, who has a constitutional right to be there and a statutory obligation under New York law to be there, that distinction is presented to the jury, so they get the whole picture of the difference between the defendant, his right and obligation, and other witnesses.",
       "time": "00:59:34.90"
     },
@@ -1897,7 +1897,7 @@
     },
     {
       "turn": 308,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Zwerling. The case is submitted.",
       "time": "01:00:28.01"
     }

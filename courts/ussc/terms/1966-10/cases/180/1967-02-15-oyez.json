@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1966/180/19670215a_180.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "NORMAN DORSEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "A. L. NEWBOULD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 180, Norman See, Appellant, versus City of Seattle. Mr. Dorsen.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It says anything except dwellings?",
       "time": "00:01:21.94"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well --",
       "time": "00:01:25.05"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Did any -- did anybody live in this building?",
       "time": "00:04:55.17"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Or occupied it in?",
       "time": "00:04:59.20"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Except that employee?",
       "time": "00:05:01.09"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Was there anything in this building as the record show?",
       "time": "00:05:04.05"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "For all we know it might have been a vacant building?",
       "time": "00:05:08.90"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And would your position apply to that even if it is vacant?",
       "time": "00:05:13.23"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You mean this --",
       "time": "00:05:17.99"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Even if it were a vacant building?",
       "time": "00:05:18.79"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And it's on --",
       "time": "00:05:32.66"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That's solely because of the factor of ownership though.",
       "time": "00:05:35.45"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Suppose this was a -- open business for people who'd come and go, would you still say they have no right to go in and inspect it?",
       "time": "00:05:58.33"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose they had the books that they were -- in the part of the building that's open to the public, do they have the right to seize those books without a search warrant?",
       "time": "00:06:37.63"
     },
@@ -223,31 +223,31 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Books with the effects under the Fourth Amendment?",
       "time": "00:06:54.43"
     },
     {
       "turn": 32,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's correct.",
       "time": "00:06:55.88"
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Wouldn't it?",
       "time": "00:06:57.16"
     },
     {
       "turn": 34,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes, Mr. Justice. In our reply brief, we say, summarizing the position we urged upon this Court that there must be some judicial barrier to the exercise of unchecked discretions by administrative official, this is on page 3, who are seeking to gain admission to private premises. There must be some rational means of assuring a private citizen that his property is being opened as part of a rational inquiry of authorized representatives of local government.",
       "time": "00:06:58.11"
     },
     {
       "turn": 35,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, suppose this were an open field and you have an inspection statute, does the -- does the Fourth Amendment apply that?",
       "time": "00:07:25.87"
     },
@@ -259,13 +259,13 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes. Pasture not even a cow?",
       "time": "00:07:40.74"
     },
     {
       "turn": 38,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "As the Hester case maybe?",
       "time": "00:07:43.59"
     },
@@ -277,7 +277,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, how does that differ?",
       "time": "00:08:41.28"
     },
@@ -289,7 +289,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, and that suppo -- suppose I don't know what this ordinance, if I administer that, I gather nothing, that's what --",
       "time": "00:08:59.26"
     },
@@ -301,7 +301,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- you said. But suppose that had a provision comparable to that in the San Francisco that there's an annual inspection according to some routine plan of inspecting all of the buildings of -- kinds of buildings in this?",
       "time": "00:09:04.98"
     },
@@ -313,7 +313,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Dorsen, what if you have this particular statute but you have an administrative arrangement, a set of regulations issued by the health people saying where every year we do -- we do -- and it turns out that this inspection in this case was a routine annual inspection according to the plan.",
       "time": "00:09:39.65"
     },
@@ -325,7 +325,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you would say he could get this warrant?",
       "time": "00:10:17.07"
     },
@@ -337,7 +337,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I take it -- I take it, if there was a warrant before him that the warrants could issue on the complaints on specific cases?",
       "time": "00:10:42.31"
     },
@@ -349,7 +349,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you -- would you agree with that? Would you agree with that?",
       "time": "00:11:12.95"
     },
@@ -361,7 +361,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather Mr. Dorsen that essentially what you're saying is that something less than a showing in a criminal case would suffice a part of that it's absolutely essential if -- if the proper entry demand of that there be the intervention of a judge before someone enters.",
       "time": "00:11:23.70"
     },
@@ -373,7 +373,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's -- aren't you --",
       "time": "00:11:53.61"
     },
@@ -385,7 +385,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Aren't you -- aren't you not only subverting but cheapening and degrading the values of the Fourth Amendment when you say that the reasonable cause could be shown just by the desire to make a spot check?",
       "time": "00:11:55.37"
     },
@@ -397,7 +397,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Those periodic inspections, certainly, you can't do that of the -- under the Fourth Amendment?",
       "time": "00:12:06.36"
     },
@@ -409,7 +409,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No. No, not in real cases. It's ever been decided --",
       "time": "00:12:13.32"
     },
@@ -421,7 +421,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- by this Court under the Fourth Amendment.",
       "time": "00:12:15.68"
     },
@@ -433,7 +433,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Certainly is.",
       "time": "00:12:20.10"
     },
@@ -445,7 +445,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Something -- something other than probable cause, is that it?",
       "time": "00:12:24.30"
     },
@@ -457,7 +457,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it's seems to me that if you can just show, we haven't inspected this place for a year. And if that's enough under the Fourth Amendment then you're completely subverting the values protected by the Fourth Amendment.",
       "time": "00:12:44.48"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, now with -- it was just a spot check, a periodic random spot check be a reasonable plan. That's certainly a very accepted way of operating in -- in areas like checking (Voice Overlap) --",
       "time": "00:13:10.75"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Just to keep -- kept precious random spot check.",
       "time": "00:13:22.84"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And be easily --",
       "time": "00:13:28.16"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If the Fourth Amendment requires nothing more than a -- an automatic rubberstamp on a piece of paper, we're not talking about it very much in this case, are we?",
       "time": "00:15:09.73"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Dorsen what if there's a legislative judgment in the statute or in an ordinance that says -- that says ins -- inspect every year because we think within the period of a year that enough can happen to a dwelling that requires inspection. Then there's a legislative judgment that's possibly can -- would -- would justify in inspection, would that be enough reason for you?",
       "time": "00:15:31.60"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, I mean -- that's what I mean. That it'd be enough to give a warrant of?",
       "time": "00:15:59.10"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And the fact here is, as long as the plan is as you call it that was a -- your real answer is that there has to be a judicial intervention that that's with the Fourth Amendment?",
       "time": "00:16:03.71"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What if it was Abel?",
       "time": "00:16:38.27"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What would you do if the Court's decision in Abel?",
       "time": "00:16:40.07"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, I mean on this point of judicial intervention the Court's there as I recall it find --",
       "time": "00:16:50.02"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But there -- there of course because there was the need in that.",
       "time": "00:17:04.18"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it seems to me if the problem would be really if -- if somebody comes to your door under the warrant you have very little choice about whether or not you would let him in. And if he comes there simply as an inspector under a statute you perhaps have more choice. You can -- about finding out whether he really is an inspector or if he's an impostor.",
       "time": "00:17:46.13"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Then you can say, “I'm sorry, I'm not going to let you in until you show me that you are a member of the Fire Department.”",
       "time": "00:18:07.12"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not if I say, if somebody comes to your house with a warrant which you say can be -- as I understand you can be issued by a magistrate at simply upon the showing of the Fire Department that we're making a random irrational spot check of various building in the city, and this is one of the buildings and then the warrant issued and you show up at that building and that person hasn't got any choice but let you in.",
       "time": "00:18:31.04"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "He has a duty to let you in then.",
       "time": "00:18:56.32"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Whereas if the -- at any time of the day or night and no matter how convenient it may be for him.",
       "time": "00:18:58.90"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, my -- my question was this, that if you're right that all that's required is a warrant then you come with a warrant and the person has a duty as you say to let this man in if he has a warrant --",
       "time": "00:19:44.94"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- whereas under the existing statute without a warrant, it would seem to me, he has no such duty. He can say, “I don't know whether or not you're a member the Fire Department besides that I'm having dinner, come back at some other time.”",
       "time": "00:19:55.96"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well. Mr. Newbould.",
       "time": "00:20:44.74"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Under your argument, it's reasonable to give them a right to inspect?",
       "time": "00:24:36.20"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, how do you know that Mr. Newbould?",
       "time": "00:25:06.61"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "An implication of reasonableness where there is constitutional requirement or just as the matter of statute --",
       "time": "00:25:09.04"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I don't quite follow that. You mean that they implied this in, in the interpretation or the ordinance or --",
       "time": "00:25:16.04"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do you feel there's constitutional difference between your situation here and the one who are at -- was a dwelling?",
       "time": "00:25:55.81"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But on that -- is there a constitutional difference. You made a point of the fact that this could not apply to dwellings. That it only applies to businesses. Now, by that, do you -- do you think that there is a constitutional deference between the two?",
       "time": "00:26:10.93"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Could you answer that?",
       "time": "00:26:33.85"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No. Is there are a difference or isn't there?",
       "time": "00:26:36.30"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It's what?",
       "time": "00:26:47.69"
     },
@@ -805,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You mean it's not a search. It's something called an inspection?",
       "time": "00:27:07.99"
     },
@@ -817,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But so far -- far as we are concerned then there is no distinction between your case and the case we just have heard. Because one has to do with a dwelling and this one has to do purely with a business.",
       "time": "00:27:14.79"
     },
@@ -829,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, possibly we do that -- we do that because of our constitutional questions, don't we?",
       "time": "00:27:47.41"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And this one is the issue because it doesn't have that constitutional question, is that right?",
       "time": "00:27:57.89"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it doesn't become difficult if you say this is not a search but an inspection. And that's something called an inspection not being a search as outside the -- the provisions of the Fourth Amendment.",
       "time": "00:28:22.39"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It doesn't matter whether it's a private home or a public building.",
       "time": "00:28:33.27"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Suppose you would agree that here in Washington where there are good many people nowadays concerned with the increase in the prevalence of crime that the Commissioner couldn't pass a resolution saying with a lot of warehouses about the increase of crime and until the police thereby or therefore are hereby authorized to enter any house at random. They spot checks to see if there's any criminal activity going on.",
       "time": "00:28:58.95"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What's the --",
       "time": "00:29:31.71"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What's the prevalence if there's a danger of increasing fires and --",
       "time": "00:29:33.07"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Suppose he'd got a lot of paper, pay a lot -- lot of his personal papers that are lying around near an open fire?",
       "time": "00:30:11.60"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I understand.",
       "time": "00:30:36.66"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "If he says, “You leave me alone. They're my personal papers,” the Fourth Amendment applies to them.",
       "time": "00:30:40.49"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, I suppose also though that if you found that this fire hazard was caused by him in violation of law, you might arrest him for it, wouldn't you?",
       "time": "00:31:22.92"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Let's say in a fire hazard there was a lot of ammunition and bombs in there, what would you do?",
       "time": "00:31:35.13"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do you say that under those circumstances could they arrest him for any violation of -- of the Building Code, when they found those violations under inspection?",
       "time": "00:32:32.59"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon.",
       "time": "00:32:47.33"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What provision of your law prohibits them from doing it? Aren't there some violations that subject the man to punishment for those things?",
       "time": "00:32:50.49"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 162,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that doesn't decide the point what I asked you about.",
       "time": "00:33:19.65"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I said, could you?",
       "time": "00:33:24.61"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "This doesn't say you can't. What you just read certainly doesn't.",
       "time": "00:33:26.70"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do you have any ordinances that say if a man does so and so in violation of the building code that he shall be -- he shall be prosecuted and if convicted, punished?",
       "time": "00:33:38.81"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. Now, what is it that -- that says that those provisions are not valid that -- that you can't do it in that matter?",
       "time": "00:33:51.73"
     },
@@ -1069,7 +1069,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, your statute says that if a man does certain things in violation of the Building Code he is guilty of a misdemeanor. Now, what is it that says that he can't be prosecuted thus a misdemeanor if it's found in one of these inspections?",
       "time": "00:34:05.79"
     },
@@ -1081,7 +1081,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Any inspection.",
       "time": "00:34:23.22"
     },
@@ -1093,7 +1093,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that's what I'm trying to get. You -- so you can't say that -- that he goes in there to inspect, he's just going in there to see if everything is alright and if it isn't alright to tell the man to make it right, because if he doesn't, violations in there that there were both deliberate. Isn't he subjected to the penalties to those arguments as you just mentioned to me?",
       "time": "00:34:43.80"
     },
@@ -1105,7 +1105,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but now -- what about -- lets us say he gives the notice of deficiency. Then when he comes back he wants in again. Then in -- then -- the Chief Justice question is certainly pertinent to --",
       "time": "00:35:25.53"
     },
@@ -1117,7 +1117,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So why should he be able to get him in the next time without a warrant?",
       "time": "00:35:45.97"
     },
@@ -1129,7 +1129,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, in this -- in this term said.",
       "time": "00:35:52.76"
     },
@@ -1141,7 +1141,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you really you get -- you say you can get in the second time?",
       "time": "00:36:06.78"
     },
@@ -1153,7 +1153,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Not even in -- can -- can he get a warrant?",
       "time": "00:36:12.99"
     },
@@ -1165,7 +1165,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, the point is as I understand it that the evidence observed by the Fire Chief or his agent after entering the -- the premises and would be used against the man in a criminal prosecution? And --",
       "time": "00:36:19.74"
     },
@@ -1177,7 +1177,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- you say the fireman, the inspector would come inside and testify that he made an inspection on the premises and that in the course to that inspection and he saw the -- this condition which was in violation of the code and then was notified to be corrected and he didn't correct it. That's one reason why I'm having a little difficulty with your -- what I understand to be your distinction.",
       "time": "00:36:42.75"
     },
@@ -1189,7 +1189,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- between inspections and a criminal investigation and you take it the other way around. Let's suppose that the police go to Mrs. Smith and say, “I want to go through your house because we think Johnny has been stealing.” She says, “No or you can't enter in my house.” And they say, “Well -- well we won't prosecute you.” And so they give her some -- some kind of immunity and they don't in fact prosecute her that they go through the house and obtained some evidence which they subsequently used against Johnny, her son. And suppose there's no doubt in your mind that that's a violation of the Fourth Amendment.",
       "time": "00:37:09.56"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "She did not consent them. They just said they're not going to use it against her.",
       "time": "00:38:03.93"
     },
@@ -1213,7 +1213,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now (Voice Overlap) --",
       "time": "00:38:35.43"
     },
@@ -1225,7 +1225,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "It's your analysis as I understand that requires us to face up with that, perhaps I don't follow you precisely then --",
       "time": "00:38:37.48"
     },
@@ -1237,7 +1237,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- if I do, it does require, in effect, to face up to this problem.",
       "time": "00:38:46.53"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 202,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Newbould, may I ask you on -- under the ordinance, you do not have the right to inspect a -- a dwelling in the same manner in which you do a business. And your argument provides that they must have probable cause in order to investigate it or to inspect a building. And as I understood your Supreme Court has held that that means they have to have a warrant if they want to inspect this, is that correct?",
       "time": "00:39:33.97"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg pardon.",
       "time": "00:40:13.34"
     },
@@ -1273,13 +1273,13 @@
     },
     {
       "turn": 206,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But I -- I -- I didn't state that that's a fact",
       "time": "00:40:40.03"
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I understood either your counsel to --",
       "time": "00:40:42.56"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- the statement that the Court had interpreted it that way.",
       "time": "00:40:44.91"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:40:54.49"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "As far as you know that's the only evidence, we only -- the court law there is on the subject, is that right?",
       "time": "00:41:05.57"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So your position is contrary to the dicta in this case if I correctly followed you.",
       "time": "00:41:24.25"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And your position is that that's an inspection that it doesn't make any difference than it's a dwelling so far as Fourth Amendment is concerned. And so far as Fourth Amendment is concerned that it is “inspection” that the Fire Chief can go in to it as Justice White puts it, if it's a dwelling or a place of business?",
       "time": "00:41:30.68"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And not a warehouse.",
       "time": "00:41:53.91"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "No --",
       "time": "00:41:56.66"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I'm talking about Fourth Amendment, isn't that your position?",
       "time": "00:41:57.40"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Does the State of Washington recognized that under this ordinance a homeowner has the right to demand an ordinance, demand a -- a warrant?",
       "time": "00:42:07.50"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But what's the practice?",
       "time": "00:42:20.63"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, the fact that they were entitled to demand the warrant would mean that every household you would have to present a warrant to every businessman or every household within it then we would go to them and say you want to inspect. Then I suppose 99 out of a 100 people which says they always have that “Go ahead and inspect.” But if a person did demand one, well then you could have the -- the search warrant and -- and that he wouldn't have any right to say and if that was any more severe than otherwise, would he?",
       "time": "00:44:11.85"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Are you saying that you -- I beg your pardon. Are you saying that you do make up such a mimeographed form?",
       "time": "00:47:24.95"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "If you were to do that?",
       "time": "00:47:33.22"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that would at least show, I presume, the -- the fact that the search was a -- was authorized and I suppose that if -- would you designate the -- the warrant would designate the extent of the search. I suppose that if the city had a -- have a -- an ordinance based upon the experience of the city to the effect that certain things were fire hazards and they were very common in the city and they were investigated in. I suppose when a -- if a man demanded a warrant, search warrant and the Court issued a search warrant, then one issued was a warrant for a general search of the -- of a house, it issued a warrant for the purpose of inspecting it in order to determine whether or not certain fire hazards existed there. And that would be the end of it and he wouldn't be able to go in and look in drawers or doors and -- and things of that kind in his -- in his search, would he?",
       "time": "00:47:37.97"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But the -- the extent of -- of the home -- of the building would at least know, would he not? What the extent of the authority was that they gave them a search warrant?",
       "time": "00:48:58.72"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 239,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We're not taking just this man, we're taking -- we're taking people in their homes and in their -- in their businesses and they don't know how many -- how many -- how many inspections you say you have? I have forgotten, it was mentioned, wasn't it? How many you have in the City of Seattle or was it in the city of a --",
       "time": "00:49:14.21"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 241,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- San Francisco? How must an own -- owner know what they're looking for when they come in -- into his -- into their homes? But if they have a search warrant says, “This man is a -- is a -- a fire marshal. He's -- and they're going to your home for the purpose of determining whether there are the electrical fixtures are -- are properly installed or whether there are any fire hazards.” And if he starts looking at some place else, you're going to have to say to them, “Well that --that isn't included in this warrant. You're looking for that.” But if a fellow just comes in and said, “Here I'm -- I'm here to inspect your home.” He walks in and has quite blank to -- to look for what he wants and the owner doesn't know, it isn't limited by -- by any authority that's given to him that the owner knows anything about, how can he protect his rights?",
       "time": "00:49:35.93"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 243,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well. Mr. --",
       "time": "00:51:06.58"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 245,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- Dorsen.",
       "time": "00:51:13.29"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Dorsen, I suppose your argument would lead to our requirement that a meter reader would have a search warrant to come in and read the water meter. If he were a public official of the city -- city water system.",
       "time": "00:52:15.21"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the -- the search warrant, in order to get a search warrant how -- would you have to allege as simply that you haven't read the meter in a month?",
       "time": "00:52:30.55"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What possibly is then is the purpose of the warrant?",
       "time": "00:52:38.32"
     },
@@ -1555,7 +1555,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that has nothing to do with probable cause.",
       "time": "00:53:28.67"
     },
@@ -1567,7 +1567,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That has to do with the householders' convenience. And as --",
       "time": "00:53:30.52"
     },
@@ -1579,7 +1579,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- suggested to you that the -- the present statute from the point of view of householders' convenience gives much preference to a warrant because a man armed with a warrant can come in despite the householders' inconvenience.",
       "time": "00:53:32.54"
     },
@@ -1591,7 +1591,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Will the meter readers, for example, have a right to enter your house? Is there any statute or ordinance?",
       "time": "00:53:55.50"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In New York, I gather, you don't have them?",
       "time": "00:54:08.95"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's for water, -- but I'm-- I'm hypothesizing a city water system where the meter itself usually belongs to the water company but it's located inside the -- the four walls a house.",
       "time": "00:54:12.63"
     },
@@ -1627,7 +1627,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:54:31.05"
     },
@@ -1639,7 +1639,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Then he presents is credentials and (Voice Overlap).",
       "time": "00:54:32.07"
     },
@@ -1651,7 +1651,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, we're not talking about breaking into house --",
       "time": "00:54:41.30"
     },
@@ -1663,7 +1663,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. Dorsen, suppose the inspector had known the magistrate, sworn that there was a local ordinance or statute which permitted him to make periodic inspections in the interest of safety, would you think that would be sufficient ground to issue a search warrant?",
       "time": "00:54:51.06"
     },
@@ -1675,7 +1675,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I suppose you said that.",
       "time": "00:55:25.81"
     },
@@ -1687,7 +1687,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What the what?",
       "time": "00:55:33.80"
     },
@@ -1699,7 +1699,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you think he'd have to say anything about it's being a wooden frame house?",
       "time": "00:55:48.64"
     },
@@ -1711,7 +1711,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Another way of what I'm asking is that, do you think that in order to get a search warrant, it is sufficient to rely upon the judgment of the legislative body that periodic to the inspection one each year or two each year are necessary, and that in order to comply with that part, that that's our law, the inspector must now be allowed to inspect in this house.",
       "time": "00:55:54.59"
     },
@@ -1723,7 +1723,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would that in your judgment authorize a search warrant?",
       "time": "00:56:22.10"
     },
@@ -1735,7 +1735,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "00:56:37.07"
     },
@@ -1747,13 +1747,13 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well I -- I'm assuming that.",
       "time": "00:56:37.63"
     },
     {
       "turn": 286,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought you'd said yes to this particular --",
       "time": "00:56:39.58"
     },
@@ -1765,7 +1765,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- case before this?",
       "time": "00:56:41.71"
     },
@@ -1777,7 +1777,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Now, assuming that to be the case, why would an ordinance which permitted the search -- search without a warrant but on the probable cause that -- creation of the periodic right to search, to inspect why would an ordinance be invalid?",
       "time": "00:56:48.01"
     },
@@ -1789,7 +1789,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Which did the same thing that would be done in case of the issuance of the search warrant.",
       "time": "00:57:12.47"
     },
@@ -1801,7 +1801,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But it's just limited to the city. You've got a right to make the search in order to discover fire hazards under an ordinance and you'll search, and you'll enter into the house. And that that's what he wants to get in there for?",
       "time": "00:57:58.03"
     },
@@ -1813,7 +1813,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But well if that's the case. Why is an ordinance invalid which provides for certainty in inspection upon the basis that periodical searches are necessary?",
       "time": "00:58:16.85"
     },
@@ -1825,7 +1825,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why would he be if all he has to swear is precisely the facts upon which the legislation obeys?",
       "time": "00:58:47.66"
     },
@@ -1837,7 +1837,7 @@
     },
     {
       "turn": 300,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suppose on the same argument, you are urging the Fire Chief saying that this time, he's making the periodic inspections and he shows that he's authorized to do so and that he's entitled do on A, B, C, D, E, would that suggest it?",
       "time": "00:59:26.13"
     },
@@ -1849,13 +1849,13 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That is exactly the same concept I'm suggesting that the search warrant would grant him to do that.",
       "time": "00:59:47.12"
     },
     {
       "turn": 303,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Dorsen, wouldn't it be one additional protection to the householder if he has a warrant? A warrant would -- would indicate to what extent the -- the officer had a right to be in that house? I suppose the search warrant you'd say that he -- he was authorized to enter the house for the purpose of inspecting the premises to see if these safety factors was there or if he just comes in on his own and he wants to -- to inspect the -- the house and he goes rummaging around in other -- other things, the -- the householder would have no -- no way to stop him or to say, “You can't go any farther than that, you haven't got the authority to do it.” But if the warrant said that he could -- he could then challenge the man's right to do something that he wasn't entitled to under his inspection.",
       "time": "00:59:53.40"
     },
@@ -1867,7 +1867,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Exactly.",
       "time": "01:00:53.18"
     },
@@ -1879,7 +1879,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. Dorsen, may I ask you one other question. Suppose one should believe that the regular routine annual practice of inspecting a fire hazard is within the power of the state, that's enough to justify an entry into the house. How could he then say that the ordinance was invalid?",
       "time": "01:01:04.98"
     },
@@ -1891,7 +1891,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are the law?",
       "time": "01:01:38.86"
     },
@@ -1903,7 +1903,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What I mean is if -- if the legislature has authorized inspection will be done under a system which does not violate the First -- the Fourth Amendment, how could we hold that that ordinance is invalid?",
       "time": "01:01:44.33"
     },
@@ -1915,7 +1915,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is -- how would you say that?",
       "time": "01:02:16.07"
     },
@@ -1927,7 +1927,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That would be required suppose the occupant wanted him to have to have a search warrant?",
       "time": "01:02:43.05"
     },
@@ -1939,7 +1939,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Even though he could swear no more that the -- the best probable cause and the ordinance itself provided.",
       "time": "01:02:49.71"
     },
@@ -1951,7 +1951,7 @@
     },
     {
       "turn": 319,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "01:03:06.44"
     }

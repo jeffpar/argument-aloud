@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1975/74-206/19751007a_74-206.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "FRANK G. DICKEY, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "C. KILMER COMBS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in 74-206, Thermtron Products against Hermansdorfer. Mr. Dickey, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,13 +59,13 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where do we get any authority at all in view of 1447(d) that says an order of remanding a case to a State Court pursuant to that was removed pursuant to Section 1443 shall not be reviewable by appeal or otherwise?",
       "time": "00:01:49.76"
     },
     {
       "turn": 4,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And in connection with that I think it did not cite 1447(d) at all. So --",
       "time": "00:02:04.74"
     },
@@ -73,7 +77,7 @@
     },
     {
       "turn": 6,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why is it not just as possible to say that what 1447(d) contemplates is that Congress rather deliberately chose to avoid the danger of delay that would come from appealing an order of remand, even though that order was erroneous rather than to make sure that an erroneous order of remand was straightened out by the Court of Appeals every time.",
       "time": "00:02:46.70"
     },
@@ -85,7 +89,7 @@
     },
     {
       "turn": 8,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Would that not come up on the appeal from the final judgment?",
       "time": "00:05:05.32"
     },
@@ -97,7 +101,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, Congress certainly choose that unfortunate language in 1447(d), did it not?",
       "time": "00:06:29.53"
     },
@@ -109,7 +113,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Do you know -- to the other, some 28 actions which this judge remanded similar to this diversity action or they are just sitting there in the State Court or what has happened to them?",
       "time": "00:08:02.04"
     },
@@ -121,7 +125,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Page 26 of the appendix, I just want to --?",
       "time": "00:08:31.06"
     },
@@ -133,7 +137,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It has long been recognized, has it not, that constitutional provision is subject to the terms and conditions for diversity jurisdiction that Congress might specify?",
       "time": "00:10:34.47"
     },
@@ -145,7 +149,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Congress has specified, you say that a case such as yours, is clearly removable by your client to the District Court and Congress has further specified that an order of a District Judge remanding a case that has been sought to be removed is unreviewable by any Court. Now, are those not the terms and conditions that Congress has specified, both of them?",
       "time": "00:10:52.10"
     },
@@ -157,7 +161,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, the District Judge has told that, but assume you are quite right that the District Judge was acting quite erroneously when he remanded this, but Congress has simply said that one of the terms and conditions of diversity jurisdiction is that the action of the District Judge, however erroneous it may be, is unreviewable?",
       "time": "00:11:28.24"
     },
@@ -169,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It seems to say --",
       "time": "00:11:57.03"
     },
@@ -181,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That is what the -- that what seems to be said?",
       "time": "00:12:18.25"
     },
@@ -193,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What Congress seems to have said, is it not?",
       "time": "00:12:21.69"
     },
@@ -205,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that is one of the limitations on diversity jurisdiction, is it not?",
       "time": "00:12:24.01"
     },
@@ -217,19 +221,19 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Dickey --",
       "time": "00:13:12.44"
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The statute does say, is it not?",
       "time": "00:13:12.90"
     },
     {
       "turn": 32,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "For the first hundred years in this country that there were trials in the Federal Courts for criminal offenses, there was no appeal whatever beyond the District Court until 1889. If a District Judge or Circuit Judge sitting all by himself sentenced you to a hundred years in prison, there was simply no appeal from that and nobody ever suggested that even though it was very arbitrary, the particular action taken by the Court, that the Supreme Court had some inherent right of review over these sentences. Congress had not granted it and I would think that you would have something of an uphill argument on bringing your case the appealability of it under this 1447(d), conceded there was flagrant error in what Judge Hermansdorfer did, how do you get beyond his Court with it?",
       "time": "00:13:15.52"
     },
@@ -241,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does that mean, it is not reviewable language right out of the statute?",
       "time": "00:14:47.57"
     },
@@ -253,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did the statute not read differently then than it does now?",
       "time": "00:15:44.26"
     },
@@ -265,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "As has been suggested to you, every element of reviewability is a creature of Congress, it is a result of Congress defining it, so you have to point to specific statute, do you not, to use jurisdiction to review? You claim inherent power that -- is that not contrary to all the law we have had for a 180 years?",
       "time": "00:17:33.33"
     },
@@ -277,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I suppose what you are saying is that this decision below opens a way for the Federal Judiciary country-wide to do away independently with diversity jurisdiction?",
       "time": "00:19:00.42"
     },
@@ -289,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "This is the responsibility, is it not, for every Federal Judge to follow his example and just clear their calendars of diversity cases?",
       "time": "00:19:27.97"
     },
@@ -301,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And only remove -- of diversity cases –-",
       "time": "00:19:38.52"
     },
@@ -313,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Dickey, Congress could remedy and stop this with just one stroke of (Inaudible) --",
       "time": "00:20:34.28"
     },
@@ -325,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Just take the word “mandate” out of their provision?",
       "time": "00:20:42.18"
     },
@@ -337,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Right? Congress --",
       "time": "00:20:47.51"
     },
@@ -349,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is not the substance of your argument that we ought not comes to 1447(d) as literally written, but as limited in application to cases you regularly sent back under the 1447(c) on some reason that might be error? Is that not as you say happened here, the Court because it had a crowded calendar, sending it back and say go try at the state court, do not bother me with it?",
       "time": "00:21:03.75"
     },
@@ -361,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It is kind of odd to say that it is not reviewable with even though erroneous, unless the error is serious, what sort of a doctrine is that?",
       "time": "00:21:43.30"
     },
@@ -373,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:22:10.65"
     },
@@ -385,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that is what you always say on appeal or on mandamus. That is your substance of your case, but we are dealing with a procedural statute that Congress enacted saying that it is not reviewable, no matter how erroneous by appeal or otherwise and it is no answer to say to that statute to say yes, but this was erroneous?",
       "time": "00:22:47.01"
     },
@@ -397,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Where do we get that? This Court has the jurisdiction that was conferred upon it by the United States Constitution plus the additional jurisdiction has been conferred upon it by the Congress under the authorizing provisions of the United States Constitution. And that is it.",
       "time": "00:23:27.55"
     },
@@ -409,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You might be on solid ground if you argued that Section 332 Title XVIII gives Council of the Circuit that kind of authority, but where do you find the counterpart statute to Section 332 vesting this Court with such authority?",
       "time": "00:23:56.36"
     },
@@ -421,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But we are not the Judicial Council. The judicial Council consists of the judges of the Sixth Circuit?",
       "time": "00:24:27.11"
     },
@@ -433,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I gather that the Sixth Circuit was concerned about what the judge had done and was going to try that perhaps set them straight informally, that does not help you either?",
       "time": "00:24:45.22"
     },
@@ -445,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Dickey, looking through this Fourth Circuit Case that you cited a moment ago, the Traveler’s Protective Association case in 1934, the statute then apparently read that an order of remand shall be carried into exertion and no appeal or writ of error from the decision of the District Court, so remanding the cause shall be allowed. And in that case, the Fourth Circuit held yes, although you cannot have an appeal, you can have mandamus, but now your 1447(d) reads differently. It says by appeal or otherwise. Now, I am surprised frankly that you answered question that the statute was the same because it seems to me that is quite an important difference?",
       "time": "00:27:09.15"
     },
@@ -457,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the Fourth Circuit said differently certainly. I would think that the present proscription is broader than the one that was obtained in the 34 case?",
       "time": "00:28:25.43"
     },
@@ -469,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Combs?",
       "time": "00:28:52.79"
     },
@@ -481,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "May I ask Mr. Combs?",
       "time": "00:31:10.34"
     },
@@ -493,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Whether then on his docket any Federal Employer's Liability Act cases or Jones Act Cases that had been brought into Kentucky Courts?",
       "time": "00:31:12.26"
     },
@@ -505,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Yes or removed to this Court?",
       "time": "00:31:26.28"
     },
@@ -517,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Because I gather the Federal question cases such as those pending on the State Courts which were also removable might have been included in the remand, might they not?",
       "time": "00:31:31.61"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Even though they are Federal question cases?",
       "time": "00:31:46.37"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "There are other types of Federal question cases besides Federal Employer's Liability and Jones Act cases, are there not, that might also be removed?",
       "time": "00:31:51.41"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Yes.",
       "time": "00:32:06.21"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Will you not have in the Sixth Circuit pressures as other Circuits have to get all cases tried and off the docket and given priority to bring in visiting judges from other places to help clear up these old cases?",
       "time": "00:32:08.59"
     },
@@ -577,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I am just suggesting that there are other ways to clear a calendar than to (Voice Overlap)?",
       "time": "00:33:03.83"
     },
@@ -589,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "By state issues, you mean issues of state law?",
       "time": "00:33:34.91"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did you not say that he exercised his discretion?",
       "time": "00:33:42.11"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Where did he get the discretion?",
       "time": "00:33:46.60"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that not really the point is whether he did have any discretion?",
       "time": "00:33:49.72"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does that not support?",
       "time": "00:33:54.30"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You assume he had it.",
       "time": "00:33:58.44"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why that should be improvident?",
       "time": "00:35:25.36"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "As I understand in this case if he had less cases on his docket, it would have not been remanded, am I right?",
       "time": "00:35:33.32"
     },
@@ -685,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what is the reason because he had too many cases?",
       "time": "00:35:43.71"
     },
@@ -697,13 +701,13 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "(Inaudible)",
       "time": "00:36:12.13"
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But the right to remove, is that qualified in some way or is it an absolute right on the part of the litigants, the litigant claiming diversity?",
       "time": "00:36:13.62"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I could understand that better if the statute said improvidently or without jurisdiction?",
       "time": "00:37:00.06"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is about all diversity cases in the country?",
       "time": "00:37:11.38"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That would interfere with quite a few motions?",
       "time": "00:37:21.48"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Just to accommodate one court they --",
       "time": "00:37:27.17"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I know you get some judges to agree with you, but it would though?",
       "time": "00:37:32.61"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I understand that once the case is remanded, that is it and the only way you can do it is on jurisdiction. I understand that the rule, at least every case I read that is what it said?",
       "time": "00:37:38.51"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Just to maintain the interruption here, had you -- then your -- this case originally in the Federal Court it could not be remanded?",
       "time": "00:37:54.64"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Even though the same considerations might under into Judge Hermansdorfer's mind?",
       "time": "00:38:05.15"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why do we say “and,” I could take or and come out the same way. What case do you have on improvidently? What removal case do you have that took at improvidently?",
       "time": "00:39:24.37"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I did not think you did.",
       "time": "00:39:36.89"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "This is brand new?",
       "time": "00:39:41.87"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course, there were no hearing on that to hear, was there?",
       "time": "00:41:44.40"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But supposing in Kentucky, your Federal Jury is chosen from a larger geographical area than the State Court Jury, is it not?",
       "time": "00:42:39.35"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You said seven different places --?",
       "time": "00:43:07.82"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That is not really an issuer here. How could we evaluate an issue like that on this record?",
       "time": "00:43:52.14"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, the defendant’s right to remove is not conditioned on a showing of prejudice in an individual case, is it not?",
       "time": "00:44:35.61"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The statute does not say impartial tribunal, does it?",
       "time": "00:45:32.27"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The statute does not say that you have to give an impartial tribunal that is why you remove and do not say a word about that because it just says removal?",
       "time": "00:45:38.22"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What is the purpose, when it was passed it did not have a little while? You talked about thousands of cases in the Second Circuit. You are going through a lot, I do not know, I do not even know how many there are, that is why you want throw him out?",
       "time": "00:46:02.82"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you do, unless you want to exception for your district?",
       "time": "00:46:21.23"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And we cannot do that.",
       "time": "00:46:26.80"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In each case?",
       "time": "00:46:44.36"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "(Inaudible) the amount of judicial time spent if you had a hearing on each case that would cut down judicial time, is that what you are saying?",
       "time": "00:46:51.47"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "His basis it is that this judge is overloaded?",
       "time": "00:47:06.18"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Combs, this is not the issue that is before us at all, is it? The issue before us is whether or not the judge's order of remand was reviewable at all by mandamus in the Court of Appeals, that is the only issue, was it not, not whether or not it was correct or incorrect?",
       "time": "00:47:23.57"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That was not at all the basis of the Court of Appeals decision, was it?",
       "time": "00:48:05.38"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You have not a single, that is not what the statute says and that is not what any other case has ever held, is it?",
       "time": "00:48:38.93"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That is not issue before this Court. The issue is whether or not, even assuming it was a grossly erroneous remand order, whether or not it was reviewable?",
       "time": "00:48:45.47"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, a very strong authority, that says it is not, and that is an act of Congress.",
       "time": "00:49:05.11"
     },
@@ -1063,13 +1067,13 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That is what is before us whether or not that act of Congress means what it seems to say?",
       "time": "00:49:10.59"
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You could concede that Judge Hermansdorfer’s action was in itself improvident, imprudent and unauthorized and yet stand on the statute that Justice Stewart has just referred to which says that even if that is true, no Court can reveal it. Is that not the heart of this case that has been suggested to you several times?",
       "time": "00:49:16.36"
     },
@@ -1081,19 +1085,19 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Maybe you feel like we are more likely to decide that it is reviewable, if we feel that is grossly wrong and if we feel less that is grossly wrong, we are less likely to find it reviewable?",
       "time": "00:49:49.90"
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Or you just do not want to close that your client committed lawless act and there is no remedy against it?[Laughter]",
       "time": "00:50:04.09"
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In which the affirmative, the Congress has permitted a District Judge to engage in such an act without trying to characterize, same is true to some of us?",
       "time": "00:50:12.72"
     },
@@ -1105,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, it does not say the same thing of your case, had it been venued in the Federal Court the first place?",
       "time": "00:53:20.29"
     },
@@ -1117,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I suppose as the plaintiff in the case like yours has a good deal more incentive that get into an uncrowded court and get to a trial than a defendant does?",
       "time": "00:53:52.68"
     },
@@ -1129,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr.(Inaudible), you have about three minutes left, do you have anything further?",
       "time": "00:54:33.59"
     },
@@ -1141,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) It might as well apply to any removable case, including Federal question?",
       "time": "00:55:39.35"
     },
@@ -1165,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. This case is submitted.",
       "time": "00:56:44.28"
     }

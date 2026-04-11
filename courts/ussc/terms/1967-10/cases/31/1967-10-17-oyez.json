@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1967/31/19671017a_31.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "ALAN S. ROSENTHAL",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- and Company petitioners versus United States. Mr. Rosenthal you may continue your argument.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:01:57.88"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now they have a Bill in Congress now that deals with this specific -–",
       "time": "00:03:23.00"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is there an official statement that the legislation was intended to be only clarifying? Does it appear somewhere in legislation?",
       "time": "00:04:41.22"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well Mr. Rosenthal isn’t it true the earlier cases just didn’t deal with question about whether or not the sinking had resulted from negligence or not?",
       "time": "00:06:25.22"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And now with the government is limited to the, to an in rem recovery?",
       "time": "00:06:36.81"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The United Kingdom has a different statute, is it not?",
       "time": "00:08:09.93"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Question is here, the meaning of these statutes, here in the United States?",
       "time": "00:08:23.00"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Passed by our Congress?",
       "time": "00:08:30.45"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Also the law is quite different, the United Kingdom dose not own the beds of the rivers in the England as I understand?",
       "time": "00:08:36.87"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Was it based on any statute?",
       "time": "00:10:13.27"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You mean under the common law, a court made liability?",
       "time": "00:11:24.68"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What’s the position of the United States in respect to criminal liability in this situation?",
       "time": "00:14:05.23"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Knowing under Section 10 I suppose, I guess you rely on both 10 and 15 --",
       "time": "00:14:13.10"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "With the -- would you suggest that the that criminal liability would be just in this situation?",
       "time": "00:14:21.77"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yeah but that doesn’t and but that doesn’t mean that negligence is required at all, is it?",
       "time": "00:14:36.98"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Your common law of liability, it depends on negligence I gather?",
       "time": "00:14:47.21"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Statutory liability, your statutory liability argument does depend on --",
       "time": "00:14:53.42"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or --",
       "time": "00:15:15.47"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You say -- you take it under 10 (2), don't you --",
       "time": "00:15:29.90"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- that this is an obstruction?",
       "time": "00:15:33.59"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that hasn’t had any voluntary or careless?",
       "time": "00:15:36.65"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Like sinking in a storm?",
       "time": "00:15:57.10"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It’s almost everything that Section 10 talks about expressly or things that obviously people do on purpose like they build it here or they drop something in a river and things like that. But do you still think it would cover, Section 10 covers a negligent or innocent.",
       "time": "00:16:38.14"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would say that that triple liability lies in the situation?",
       "time": "00:17:24.10"
     },

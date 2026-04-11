@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/81-129/19821005a_81-129.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "ELLIOTT SCHULDER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "GARY H. MANULKIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments first this morning in Landon against Plasencia. Mr. Schulder, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Schulder, was the husband charged with any offense?",
       "time": "00:04:12.99"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I know that, but was he charged with any offense?",
       "time": "00:04:20.60"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Schulder, is it the government's position that assuming an exclusion proceeding is the proper proceeding, that the alien is entitled to due process at that hearing?",
       "time": "00:04:34.97"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And what process is due, do you think?",
       "time": "00:04:49.12"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think some specific period of time has to be given in which to prepare for the hearing?",
       "time": "00:05:07.92"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Schulder, Kwong Hai Chew just construed a regulation, didn't it? It didn't involve any constitutional holding.",
       "time": "00:05:32.57"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What about the language in Knauff versus Shaughnessy, that whatever the procedure authorized by Congress is, it is due process so far as an alien denied entry is concerned?",
       "time": "00:05:42.98"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it certainly didn't hold that.",
       "time": "00:06:03.09"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You treat that case as though it was a holding. Yes.",
       "time": "00:06:08.38"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Your practice is now--",
       "time": "00:06:16.51"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--You mean the implications of the case?",
       "time": "00:06:23.90"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think the Circuit Court of the District of Columbia can overrule the Knauff case?",
       "time": "00:06:38.40"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, of course, naturally, any procedure contrary to the due process would be struck down under the due process clause, but Knauff says whatever procedure Congress provides is due process.",
       "time": "00:07:09.84"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the Service has not, as I understand it, drafted separate regulations to cover the kind of hearing that is required for a returning permanent resident as opposed to a brand new person. I mean, you don't have anything other than deportation regulations and exclusion hearing regulations.",
       "time": "00:08:11.82"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that you don't in your actual rules differentiate between the two kinds of cases?",
       "time": "00:08:29.29"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, can we tell from its decisions, for example, the answer to Justice O'Connor's question? What kind of advance notice is the returning permanent resident entitled to receive before being put on trial? Ten minutes, or 24 hours, or what?",
       "time": "00:08:42.85"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It sounds like there is no requirement of advanced notice in advance of the hearings, if I understand you correctly. And here, what was the notice? I don't think we can even tell from the record. It may have been ten minutes.",
       "time": "00:09:34.27"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there any requirement that the person be advised of any right to be represented by counsel?",
       "time": "00:09:51.16"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How long in advance of the hearing?",
       "time": "00:10:08.89"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right at the outset of the hearing, is what happened here.",
       "time": "00:10:14.05"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does that advice include advice as to how to find a lawyer?",
       "time": "00:10:22.38"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "At the time of the hearing here.",
       "time": "00:10:30.30"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the hearing as conducted in this case did not comply with the regulations that you now have in effect. Would not have complied had those regulations been in effect.",
       "time": "00:10:36.68"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt once more? Is it the government's position that at this particular hearing, this person did receive due process?",
       "time": "00:15:18.32"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The due process point.",
       "time": "00:15:49.59"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What you really mean is, they got due process on this type of a hearing, but it wouldn't be due process on a deportation hearing. Are you arguing that there are different degrees of due process?",
       "time": "00:15:54.83"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that your position?",
       "time": "00:16:09.42"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You have different types of due process?",
       "time": "00:16:12.05"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Some are a whole lot, and some are a little?",
       "time": "00:16:18.75"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But as I understand you, you do concede that the process required in the exclusion of a permanent resident alien may be greater than the process required for an alien who is not a permanent alien.",
       "time": "00:16:36.10"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you also say that the process given here satisfies your concept of that intermediate level of process that the Constitution requires.",
       "time": "00:16:47.44"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What would the proper... you say the remedy isn't to require a deportation hearing.",
       "time": "00:17:09.22"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The remedy is to require sort of an intermediate hearing.",
       "time": "00:17:14.68"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now, how should that be done, assuming that we thought you were wrong on the adequacy of the process in this case? How should the rules for such a hearing be formulated? You are saying, well, they don't have deportation, and if you conceded that the exclusion rules were not adequate in this intermediate category, what is to be done in the government's view?",
       "time": "00:17:17.65"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought you said that they should improve the exclusionary hearing.",
       "time": "00:17:56.71"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, could we tell them what to do? Could we tell them what type of rules to set out?",
       "time": "00:18:11.59"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Conceivably, or could?",
       "time": "00:18:22.59"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The case has sort of a peculiar procedural history, because the alien was successful in persuading, I guess, both the magistrate and the district court and the court of appeals that she was entitled to a deportation hearing.",
       "time": "00:19:03.97"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So there really wasn't an occasion for her to say, well, in the alternative, if I don't get that, I should at least get something more than I received in this particular case.",
       "time": "00:19:14.26"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did she raise it?",
       "time": "00:19:25.71"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Schulder, just to clarify it, as far as the government is concerned, this Court could be asked to simply determine whether she was entitled to a deportation proceeding or an exclusion proceeding, and if it were determined that she were entitled to an exclusion proceeding, just remand it for that without attempting to spell out all of the requirements for that proceeding. Is that your position?",
       "time": "00:19:54.33"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one other question on the meaningful departure exception to the general rule? What point in time is relevant for determining the alien's intent when a criminal activity is disclosed as we assume was true here? Is it important whether the intent to engage in criminal activity was held at the time of departure, or is it sufficient if it is at the time of return?",
       "time": "00:22:30.64"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you would satisfy that clearly here even if... assuming your proof is correct.",
       "time": "00:23:02.92"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "On that point, on the gain, the trial examiner, the judge, whatever he was called, on Page 33 of the abstract asked one of the witnesses if it was the witness's understanding that he was going to pay the alien an amount of $200 after he arrived in Los Angeles, and he said yes, he had that understanding, although he didn't indicate whether it was based on conversation with the alien. One thing puzzled me in reading this. I wonder where the trial judge got the basis for that question. Does the trial judge look at affidavits during the hearing that are not made a part of the record?",
       "time": "00:23:25.34"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And would they be things that the trial examiner would look at in an ex parte fashion during a hearing of this kind?",
       "time": "00:24:12.19"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see. Thank you. Mr. Schulder, where is the Respondent now? Is she in this country?",
       "time": "00:24:24.43"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Manulkin.",
       "time": "00:24:44.12"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What by the way of notice, for example, would be greater in the deportation proceeding than in the exclusion?",
       "time": "00:25:49.33"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes. Wouldn't she have had more notice in order to meet the problem she was facing?",
       "time": "00:26:07.57"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I am not talking about the number of days. The content of the notice.",
       "time": "00:26:24.62"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So that she would know what it was she was being charged with.",
       "time": "00:26:29.33"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Manulkin, getting back to what the government said, suppose the rule is changed which says simply that at an explusion hearing you have the exact same as the deportation hearing. Would you be here?",
       "time": "00:29:44.84"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You just want to rewrite the statute.",
       "time": "00:30:24.33"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Or rather, you want us to rewrite the statute.",
       "time": "00:30:32.29"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don't really want us to do that, do you?",
       "time": "00:30:38.55"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What more can we do than say that they must give due process?",
       "time": "00:30:51.26"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Chew had simply taken passage on an American ship, hadn't he? He hadn't deliberately left the country the way your client had.",
       "time": "00:31:24.79"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, on an American ship.",
       "time": "00:31:38.19"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But he didn't deliberately leave for foreign soil, the way your client did. And he didn't bring back illegal aliens, either, did he?",
       "time": "00:32:13.81"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Manulkin, if we could go back to the Chew case for a minute--",
       "time": "00:32:43.48"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--would you agree that the Chew decision does not give returning resident aliens a right to treatment that is identical to that of a continuously present resident?",
       "time": "00:32:46.97"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You don't agree.",
       "time": "00:33:03.44"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, all that shows is that the District of Columbia Circuit agrees with the Ninth Circuit.",
       "time": "00:33:52.78"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Chew was actually decided prior to the Immigration Act of 1952, when the Congress codified all of these immigration policies. The concept of entry before 1952 was purely a judicial one. It was codified in 1952.",
       "time": "00:34:01.52"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but it didn't purport to construe the 1952 Act.",
       "time": "00:34:29.57"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, are you suggesting that Chew when the 1952 Act wasn't before the Court, attempted to cast doubt on the 1952 Act?",
       "time": "00:35:07.76"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You say it is possible?",
       "time": "00:38:08.53"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Manulkin, if the alien had been out of the country for five years under your theory, would that alien be entitled on coming back in to say, it isn't true, I contest this, and therefore be entitled to a deportation hearing.",
       "time": "00:38:45.47"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Sure.",
       "time": "00:39:06.26"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Comes back in and says, no, no, that is not true, I want a deportation hearing.",
       "time": "00:39:07.63"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What is the difference?",
       "time": "00:39:10.95"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But under your theory, those facts should be determined at a deportation hearing. What is the difference?",
       "time": "00:39:26.23"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why shouldn't the government be entitled to proceed at an exclusion proceeding, as the statute might well indicate, and simply afford the alien whatever process is due?",
       "time": "00:39:55.15"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How long since she undertook to the United States?",
       "time": "00:42:11.86"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How many years have passed since this episode occurred?",
       "time": "00:42:15.09"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The episode, coming across the border with aliens.",
       "time": "00:42:20.89"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No, how many years ago did this occur?",
       "time": "00:42:26.12"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So now it is seven years.",
       "time": "00:42:30.99"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now, if you prevailed here, could any criminal charges be brought against her?",
       "time": "00:42:35.58"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The statute of limitations has run.",
       "time": "00:42:47.26"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What about a deportation proceeding, the full-scale proceeding that you would like?",
       "time": "00:42:49.53"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That could be brought?",
       "time": "00:42:55.50"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The evidence is seven years old now, isn't it?",
       "time": "00:42:57.11"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How long had she lived in the United States before?",
       "time": "00:43:53.03"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, she's got three children that are getting ready to go in the Army.",
       "time": "00:43:59.68"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did she bring those children with her?",
       "time": "00:44:15.05"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought you said they were American citizens.",
       "time": "00:44:17.61"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Oh, I guess I misunderstood you.",
       "time": "00:44:22.24"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why couldn't I... I could personally distinguish on the fact that he wasn't importing illegal aliens?",
       "time": "00:45:07.56"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that is a distinguishing proposition, isn't it?",
       "time": "00:45:17.66"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Chew also simply construed a regulation. It didn't make any holding on any constitutional issue. When did it construe the 1952 statute?",
       "time": "00:45:33.70"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The footnote discusses it in two sentences.",
       "time": "00:45:47.73"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Not in the long discourse which you are suggesting.",
       "time": "00:45:50.48"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Doesn't Chew contain the statement that all we are doing is construing this regulation and saying it wasn't authorized by statute?",
       "time": "00:46:17.30"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I thought it quite successfully limited it. I don't think Justice Bergman was incapable of limiting an opinion like that.",
       "time": "00:46:25.25"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But here, the statute clearly authorizes what was done, and in Chew they simply held the statute didn't authorize what was done.",
       "time": "00:47:03.09"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How would that help her on her exclusion?",
       "time": "00:48:19.24"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The government might at that time have decided to prosecute him and not her, if she was excludable and excluded.",
       "time": "00:48:43.34"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Wait a minute. Let me understand you correctly. She is now free. You want us to order her arrested?",
       "time": "00:50:29.77"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You said you want her held for deportation. You want us to say that she should be held for deportation?",
       "time": "00:50:37.52"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, does your client agree with you?",
       "time": "00:50:50.73"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No.",
       "time": "00:51:07.56"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Schulder?",
       "time": "00:51:09.32"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:55:21.60"
     }

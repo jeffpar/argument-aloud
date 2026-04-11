@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1956/304/19570304a_304.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
       },
       {
         "name": "LEONARD B. SAND",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BURTON",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "RAYMOND J. BRADLEY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "United States of America versus Victor Calamaro. Mr. Sand.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does a writer only work for one bank?",
       "time": "00:05:45.68"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the pick-up man works for one writer and one bank?",
       "time": "00:05:52.02"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What I meant was the pick-up man doesn't work for banks and writers generally. He works with the two elements of the single operation.",
       "time": "00:06:21.21"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Sand, in order that I may know exactly what your position is, I suppose this pick-up man delivers these documents regularly to someone who worked for the bank, whether it be the bookkeeper or -- or some other official of the bank. Now, do you consider that the person to whom he delivers those records is also subject to the Act and then to carry it down farther through the secretarial force or -- or is there an end of the liability when the pick-up man gets it down there?",
       "time": "00:08:55.39"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "And if you stand behind the regulations of the Department and go as far as they go against --",
       "time": "00:10:59.79"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But not the people who process these things after they get to the bank. You don't contend that they are in the same positions, the pick-up man?",
       "time": "00:11:05.55"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "All right.",
       "time": "00:11:18.34"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That's all I want to know.",
       "time": "00:11:18.90"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Under your view, I suppose the writer is also subject to this tax as a receiver of a wager?",
       "time": "00:14:24.97"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And then the -- you say the pick-up man is, but you say the clerk of the bank who receives the slip from the pick-up man and puts it down on a ledger or whatever record they keep would not be liable for receiving the wagers.",
       "time": "00:14:33.29"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's your theory?",
       "time": "00:14:54.06"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Mr. Sand, they don't have the situation here or this operated in the suburbs and the central city you might have a relay of these receivers and might be two or three have to pay this tax, is that right?",
       "time": "00:17:06.85"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You're really more interested in registration than tax, isn't that the plain truth to it?",
       "time": "00:20:05.31"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Bradley.",
       "time": "00:21:56.68"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you claim that the banker is or is not subject to the receiving tax?",
       "time": "00:30:12.51"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How about the payoff man? That is the individual who distributes the winnings to the few people who, I understand, sometimes win in this game?",
       "time": "00:34:24.14"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, who brings the winnings to the writer?",
       "time": "00:34:40.96"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, suppose he didn't? Suppose he had an intermediary like this pick-up man? Is that intermediary who brought to the bank the proceeds, deliver to the writers, deliver to the winners would -- may be subject?",
       "time": "00:34:46.88"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I suppose he would on the theory that anyone who participates --",
       "time": "00:35:05.58"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I think as a chap is, I gathered in some States, both the chap who distributed and the chap who the pick-up man would be a bookmaker for the purposes of bookmaking statute, wouldn't it?",
       "time": "00:35:44.80"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In States.",
       "time": "00:35:55.74"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:35:56.82"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "For real -- really, a very unreal way of looking at it, wouldn't it?",
       "time": "00:37:00.33"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This is really an unreal way of looking at it whatever may have been said there. This wasn't one of Secretary Humphrey's means of balancing the budget, was it?",
       "time": "00:37:04.87"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right. Now, you talk about (Inaudible)",
       "time": "00:37:13.32"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, by that -- the -- the very fact that it was not one of the Secretary's means of balancing the budget indicates that Congress had a broader purpose on the -- just the excise operation. And why wouldn't it be submersed in the proposition that they wanted everybody registered when they could put their fingers on, connected with this?",
       "time": "00:37:19.35"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Sometimes Congress doesn't use the precise language, perhaps the --",
       "time": "00:37:48.90"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Where are you reading from?",
       "time": "00:38:32.57"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, as realistically though, is it actually placed with the banker until he has it in his hands for recording?",
       "time": "00:39:11.97"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, I'm speaking now to this reference in the --",
       "time": "00:39:21.95"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- is that the report?",
       "time": "00:39:27.41"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But until the banker gets it in his hands, how is that placed?",
       "time": "00:39:36.26"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it -- certainly, it does this much, doesn't it? It interposes the wall, really, between the writer and the actual banker?Though as to make more difficult the detection of the banker, doesn't it?",
       "time": "00:42:07.86"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that a -- is that a convenient way, the fellow who stock -- the one with the slips on him and he's merely a pick-up man, unless not required to take out this title, this license on it, makes it rather an easy way doesn't it to defeat the whole intention of the statute?",
       "time": "00:42:22.77"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, he may but --",
       "time": "00:42:46.44"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But the transaction disappears, doesn't it, as soon as he turns the slips over to the pick-up man?",
       "time": "00:42:50.10"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I don't know that I'm trying to say anything. I'm just suggesting if --",
       "time": "00:43:07.66"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- it makes it an easy way, doesn't it, to -- to do the very thing that the statute was aimed at accomplishing which was that make it easy to find out who it was within this business.",
       "time": "00:43:10.94"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's -- that's the argument, isn't it, for the position that everybody connected would be ought to be required to register?",
       "time": "00:44:14.91"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is somewhat ought to being but I was just interested. Do any of these people register?",
       "time": "00:44:36.04"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Perhaps, the Government?",
       "time": "00:44:45.59"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In both --",
       "time": "00:44:48.42"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "How much was that? You happen to know how much has been collected under this statute?",
       "time": "00:45:28.46"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's just inquiry of curiosity.",
       "time": "00:45:33.31"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What do you do if Senator Kefauver's statement, who is somewhat of an expert on this subject at that time. The Government quotes page 19 in their brief.He says that under these proposals, bookmakers, the numbers operators, their agents and runners would register with the Internal Revenue?",
       "time": "00:45:49.36"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The runner means the writer, does it?",
       "time": "00:46:19.99"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I thought he was a stationary, probably just -- is there to receive bet?",
       "time": "00:46:25.66"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's not -- that's an illustration of he who runs may write?",
       "time": "00:46:54.94"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But I thought -- I thought in the legitimate stock exchange business, a runner is not what you said a writer, isn't it? When he run -- the chapel runs around from brokerage house --",
       "time": "00:46:59.96"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- to brokerage house.",
       "time": "00:47:16.31"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "He's a runner but he's a pick-up man and that -- that runner have a different connotation in this bank than it does in the stock exchange?",
       "time": "00:47:23.23"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, but you just did. I thought you just answered Mr. Justice Harlan that in this game a runner is a writer?",
       "time": "00:47:32.42"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I -- I would've suppose that Senator Kefauver was using runner in the sense that they used runner in the stock exchange game, which is a pick-up man.",
       "time": "00:47:47.15"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes. A rather liberal attitude towards the legislative history, isn't it, to find out what was in Senator Kefauver's mind and put that in the Act?",
       "time": "00:48:23.99"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible) isn't it?",
       "time": "00:48:32.20"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And also considering he wanted to defeat gambling too, didn't he?",
       "time": "00:48:44.96"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Sand.",
       "time": "00:52:39.28"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It curves go up or down?",
       "time": "00:53:21.37"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Down?",
       "time": "00:53:26.43"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It shows the country's morals are improving, does it? [Laughter]",
       "time": "00:53:27.34"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "This is the occupation tax?",
       "time": "00:54:01.14"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Yes.",
       "time": "00:54:05.10"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "But how much? How much?",
       "time": "00:54:08.62"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are -- are you citing those figures to suggest that really the statute was aimed at getting more revenue?",
       "time": "00:54:21.36"
     },
@@ -815,13 +815,13 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, I didn't ask that. I didn't ask that. I ask whether -- asking as on the basis of those figures to agree that this was a measure aimed at increasing revenue in any substantial way?",
       "time": "00:54:36.70"
     },
     {
       "turn": 132,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You draw that inference from the fact that it was the standard of taxing measure because, presumably, taxing measures are passed in order to produce revenue.",
       "time": "00:54:55.26"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what do you do with the fellow who carries the winnings to the writers? They passed on to the people who were supposed to get them? What's the --",
       "time": "00:55:59.77"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I know. That is he -- he receives the moneys that were placed in bet. But the winnings, you suggest that would give you difficulty?",
       "time": "00:56:54.67"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I would suppose you'll have to if that's the basis on which you say we ought to hold the pick-up man. Isn't basically the Government's argument that anybody connected with the operation, say those clerks and others who are excluded by the regulations are required to register?",
       "time": "00:57:11.38"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Thank you, Mr. Sand.",
       "time": "00:57:59.66"
     }

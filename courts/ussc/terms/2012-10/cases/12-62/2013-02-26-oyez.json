@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2012/12-62/20130226a_12-62.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
       },
       {
         "name": "STEPHEN B. KINNAIRD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ERIC J. FEIGIN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 12-62, Peugh v. United States. Mr. Kinnaird.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. A mandatory schedule?",
       "time": "00:01:03.84"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A mandatory schedule, you say?",
       "time": "00:01:06.56"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, okay.",
       "time": "00:01:13.61"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, let's say you prevail and the case is remanded for resentencing. Is there anything that would prevent the district court from saying, you know, before the promulgation of the new guidelines, I thought the range in the old guidelines was about right for this offense. But now that I've seen the new guidelines, I think that those really fit best under the factors that I have to consider under the statute in determining the correct sentence, so I'm going to reimpose exactly the same sentence. Not because it's required by the guidelines, in fact, I'm going to go outside the guidelines. I just think, with the enlightenment that the new guidelines have provided me, that that's the best sentence. Would that be -- would there be an ex post facto problem there?",
       "time": "00:01:53.75"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not a change of the law if -- if the law does not require the guidelines to be imposed. Your -- your case rests upon the proposition you stated at the outset, which is that the Ex Post Facto Law applies -- prohibition applies -- if there is a substantial possibility of -- of a higher sentence -- was that the language you used?",
       "time": "00:02:55.16"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Significant risk. Suppose -- suppose the district judge for the Federal district in which somebody's crime was committed was a -- a bleeding heart judge. He always gave the lowest sentence possible, and everybody knew that. And he is replaced. He retires after the arrest, after the crime, and he is replaced by Maximum John, who everybody knows gives the highest sentence every time. Ex post -- ex post facto violation?",
       "time": "00:03:20.29"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Is that what your definition of legal consequence is?",
       "time": "00:04:22.27"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So you're taking -- you're disagreeing with the proposition of our older cases that to -- for there to be an ex post facto violation, you have to have a legal consequence.",
       "time": "00:04:31.47"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, there's a -- there's the disconnect for me. Yes, I do accept that the district courts have to consider the guidelines, but how do you tie that to the requirement that the punishment has to be tied to the guidelines?",
       "time": "00:04:49.25"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Your real formula is significantly increased the risk of perform -- of prolonging the defendant's incarceration. That's the standard you would like us--",
       "time": "00:05:20.04"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--And is -- is the heart of your argument that there really isn't much difference at all in what district judges are doing now that the guidelines are discretionary than what they did when they were mandatory, that is, most of them will start with and stop with the guidelines. I think that's--",
       "time": "00:05:32.44"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your -- your -- your brief spent some time on statistics, how often this happens; but I take it you're not saying that our inquiry is a statistical one. You're simply saying that the statistics bear out that as an objective legal matter, the framework that you are explaining to us is and must be followed?",
       "time": "00:06:21.01"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about the statutes allowing relatives and friends of the victim to testify? Let's assume a crime committed before -- a horrible crime committed before that statute is enacted, does it violate the ex post facto law to give effect to that statute?",
       "time": "00:07:11.56"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why? Don't -- don't you think it creates a significant risk--",
       "time": "00:07:37.88"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--if the defendant will get a higher sentence? Don't you think that's the whole object of the law, in fact?",
       "time": "00:07:41.33"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What if you have a law that sentencing judges must consider these factors, and one of the factors is whether the defendant has strong family ties that will be, you know, jeopardized or whatever, if he's incarcerated. You don't want to take him away from his family, because that will penalize other people. And then Congress thinks that's not a good idea and they take that away. Is that an ex post facto violation? It increases the factors of -- or the risk that the defendant will get a higher sentence before he could take advantage of the fact that he had, you know, a particular family situation. Later, he could not. That's a change in what the sentencing court must consider and is to his prejudice.",
       "time": "00:08:03.76"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, under -- under our modification of the guidelines approach, isn't that just a list of factors that the Court should consider, or must consider?",
       "time": "00:08:56.99"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that -- is that what -- who says that they're the benchmark that you start with? Where is that writ?",
       "time": "00:09:25.12"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A court -- a court must begin with that.",
       "time": "00:09:35.93"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So what if the -- what if the law said the court must begin with a comparison of what the average sentence is across the country, okay? And the data collection over time becomes more sophisticated and they can give you a more accurate number for what the average sentence is. And it turns out it's higher than what their informal survey was before. Is that an ex post facto violation?",
       "time": "00:09:46.46"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, no. It'd be the same -- it'd be the same thing. One of the things that the Sentencing Commission considers is, of course, what the average sentences were around the country. And let's say that the law says that's something you have to consider, and the technology or the range of -- of judges that they can survey becomes more sophisticated, the number goes up.",
       "time": "00:10:19.63"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes.",
       "time": "00:10:42.04"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And so the answer--",
       "time": "00:10:59.50"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--And so the answer to my question is?",
       "time": "00:11:01.37"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry. Go ahead.",
       "time": "00:11:14.86"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So just getting more accurate information violates the Ex Post Facto Clause in the framework that you've set forth?",
       "time": "00:11:21.62"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What if the -- what if the statistics showed that nationwide only, let's say, 25 percent of defendants were being sentenced within the guideline range; would that change your argument?",
       "time": "00:12:08.31"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, I think there's a fair chance that as time goes by--",
       "time": "00:13:08.69"
     },
@@ -395,31 +395,31 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--we're going to see fewer and fewer sentences within the guidelines. As judges who began their careers during the guidelines, the mandatory guidelines era, leave the bench, new judges come in who never had to deal with the mandatory guidelines, I think we're going to see fewer and fewer guidelines sentences. And -- and the percentages in some districts are -- are really quite striking. I'm told that in the Southern District -- or the Eastern District of New York now, only 30 percent of the defendants receive within-guidelines sentences. So--",
       "time": "00:13:11.42"
     },
     {
       "turn": 60,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You're assuming that's changed over time.",
       "time": "00:13:41.16"
     },
     {
       "turn": 61,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--Well, when I was on the court of appeals we thought it was our responsibility to ensure that the district courts were complying with the Sentencing Reform Act. That might not have been true across the river, but--",
       "time": "00:13:42.88"
     },
     {
       "turn": 62,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It wasn't. [Laughter]",
       "time": "00:13:58.20"
     },
     {
       "turn": 63,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--Let's say this case comes back in 20 years and the statistics show that only a -- a distinct minority of defendants are being sentenced within the guidelines; would the case come out differently?",
       "time": "00:14:03.16"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Your -- your case depends, it seems to me, upon the proposition that significant risk is only applicable at the sentencing stage. And I'm not sure that that's true. I mean, what -- why -- why would that be so? What if -- what if you have a new law that permits evidence to come in, in a criminal trial that previously was not allowed to come in, let's say the testimony of a wife or whatever. I think the law is pretty well established that that change in procedure does not violate the ex post facto law. And your response to that is: Well, that's not sentencing; it's trial. So what? I mean, if -- certainly making a conviction more likely is -- is even worse than making a higher sentence more likely.",
       "time": "00:15:35.76"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And would it be ex post facto in -- in the hypothetical Justice Scalia gave?",
       "time": "00:16:43.81"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can you tell me the narrow rule that you would propose--",
       "time": "00:16:57.57"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--getting back to Justice Scalia--",
       "time": "00:17:00.55"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--which is procedures change risks. Having a victim testify at sentences -- at a sentence is likely, if you examined it statistically, to increase -- increase the sentence. So assume that's the set of hypotheticals. You change it, now victims can. Why is that not or is it an ex post facto change?",
       "time": "00:17:04.94"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So why is this not procedural?",
       "time": "00:17:35.78"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Give me the rule where I can draw a line between those changes that are permissible and those that are not, not the general statement you're making, because both increase the risk of a higher sentence.",
       "time": "00:17:38.48"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So it can't be that.",
       "time": "00:17:51.69"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But that was in the -- that Florida case was the mandatory, almost mandatory guideline, and I think our starting point is -- your starting point, too -- is that when the guidelines were mandatory it was ex post facto because our decision in the Florida case said it was. Is this sufficiently different now that the guidelines are advisory rather than mandatory?",
       "time": "00:18:07.16"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But saying that the sentencer has to consider testimony from the victim or from relatives of the deceased, that -- that change in sentencing law is okay?",
       "time": "00:19:06.87"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It pertains to sentencing. It -- it says what the sentencing authority, the judge or the jury, must consider.",
       "time": "00:19:25.42"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is evidence brought before the sentencer.",
       "time": "00:19:34.45"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't see any difference between that and saying that the -- the guidelines have to be considered by the sentencer.",
       "time": "00:19:37.57"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You're answering me differently now?",
       "time": "00:20:03.87"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You're answering me differently? I posed exactly the question that Justice Scalia--",
       "time": "00:20:06.01"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--I said the sentencing -- the assumptions I made were the sentencing law changes, victims must testify, judges must consider what they say, and after 5 years it's proven that when victims speak the sentences are higher. Is that a substantive or a procedural law?",
       "time": "00:20:11.31"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm asking you to draw it. So tell me what's the rule? Do you want something as broad that says even that kind of change can be an ex post facto? And if you don't, articulate how I draw the line?",
       "time": "00:20:45.42"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What does that mean to you, the number of years in jail?",
       "time": "00:21:06.55"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Is that as limited as you want it to be?",
       "time": "00:21:09.02"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, we know that's Miller.",
       "time": "00:21:18.01"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "This is not Miller.",
       "time": "00:21:19.37"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I would have thought you would have gone back to Calder v. Bull. And Calder v. Bull, which this Court refers to all the time in these kinds of cases, has four categories and the only one that fits this case is a law that changes the punishment--",
       "time": "00:21:26.38"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and inflicts a greater punishment than the law annexed to the crime when committed. So whatever these other hypotheticals are, they do not involve -- they are not laws that change the punishment. But yours is a law that changes the punishment.",
       "time": "00:21:43.26"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does it “ affix a higher punishment ”, in the words of Calder v. Bull?",
       "time": "00:22:02.63"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think that's a question at all. The answer to that is quite easy. It does not affix a higher punishment, does it?",
       "time": "00:22:06.47"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. Then rely on Garner, but not on Calder v. Bull.",
       "time": "00:22:24.83"
     },
@@ -743,13 +743,13 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I wouldn't concede that.",
       "time": "00:22:30.40"
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That doesn't help--",
       "time": "00:22:31.79"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Could you remind me -- it's in the briefs -- if a sentence is appealed, what is the review authority of the appellate court? It must begin with the guidelines as the framework?",
       "time": "00:22:52.37"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But isn't the important point, Mr. Kinnaird, that there's a presumption of correctness that attaches to guidelines sentences on appeal--",
       "time": "00:23:26.04"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--that does not attach to non-guidelines sentences?",
       "time": "00:23:33.42"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I mean, this is, one would think, great legal consequence.",
       "time": "00:23:37.69"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Do you know what the statistics are as to the number of below-guidelines sentences each year that are reversed by the courts of appeals on the ground that they are not reasonable?",
       "time": "00:23:59.26"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Yes. I mean, I think it's in the single digits.",
       "time": "00:24:26.24"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Counsel, who prevails? The government or the--",
       "time": "00:24:37.05"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Have you had -- are you aware of any circuit court case in recent time where a circuit has reversed the lower range than the guideline, basically because the deviation from the guideline was unreasonable?",
       "time": "00:24:51.03"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Thank you, counsel. Mr. Feigin.",
       "time": "00:26:39.58"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why are you fighting this proposition? Because the starting point doesn't matter. Why didn't you stick to your old position that judges should start from the old one and simply consider the new one? Why this whole Supreme Court case?",
       "time": "00:27:07.93"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Practically speaking, do you believe it makes no difference?",
       "time": "00:27:51.44"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This is a change -- your position is -- is a change, at least in the position that the Government took in -- in the Seventh Circuit case that started all this. The Government confessed error. The Government said the district judge should have used the guidelines that were in effect at the time the offense was committed, and the Government came to the Seventh Circuit and confessed error. So there was not even an argument until the Seventh Circuit and Judge Posner wrote the opinion that included all the hypotheticals that -- that were aired earlier about the victim impact statement and all of those are in that opinion. So it was only after -- after the Seventh Circuit opinion that the Government changed its position.",
       "time": "00:28:08.99"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The guidelines range gets a presumption of reasonableness at the appellate level.",
       "time": "00:29:47.05"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What is the reason that miscalculating a guideline is considered a procedural error?",
       "time": "00:30:35.12"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That begs the question. Obviously, if we hold it's a procedural error to miscalculate the guidelines, using the guidelines has some significant importance in the process.",
       "time": "00:30:56.21"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But what that suggests is that the guidelines serve as an anchor and are supposed to serve as an anchor, and that the reason why the miscalculation is error is because you've picked the wrong anchor and that's going to affect or -- or has a significant likelihood of affecting your ultimate decision. And isn't that really what we've suggested is the way the guidelines ought to work, and the way you think the guidelines ought to work, that it serves as an anchor for sentencing decisions. Yes, you can vary, you can deviate, but it's your anchor.",
       "time": "00:31:33.65"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I think I'm saying more than it's all in your head. I think I'm saying you start in a particular place, you have to get the particular place right. The appellate court looks at the particular place that you've started and if you -- if you've ended up there, has to grant a presumption of reasonableness. But the rules are all geared towards saying, yes, you can deviate, but you have to understand that there's -- that -- deviation requires some kind of thought process and some kind of reason. Otherwise, this is where you should be.",
       "time": "00:32:36.89"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, it isn't, but that I think is an undecided question at best. If you won the case on that ground, I would say that what the guidelines and the Sentencing Commission are best at, gathering information from across the country and saying a typical person who commits this crime in a typical way should be sentenced to the typical range that applies, let's say 18 to 24 months. That would be down the drain. And I think that Rita, in fact, and the other cases have at the very most left open and maybe decided against you the question of when a court of appeals gets the sentence from a judge who does not apply the guideline because he doesn't like the policy judgment. That's a different matter from when he applies it and when he thinks he shouldn't apply it because the person in front of him doesn't meet the policy conditions. Those are different. The commission has the expertise in the first, the judge in the second. And so there is at least a question as to whether the court of appeals should give more leeway to the guidelines in the first and more leeway to the judge in the second. Now, I think Rita is consistent with that, and I think every opinion we have written is consistent with that. And I'd hate to see that suddenly decided and changed in a way I think is inappropriate in this case. So have you all thought that through? And is the position of the Government now that we think the guidelines, even if it's a policy matter that they have gathered evidence on, are entitled to nothing if they run across a district judge who happens to think, though he was an outlier, that the outliers were right as a matter of policy, which of course will always be true. Every judge who is an outlier thinks the outliers are right. Otherwise why would he do it? You see? Now, I didn't know that issue was in this case and that changes the case dramatically for me. And I thought we could decide this just on the ground that this is a law that changes punishment. It's a law. It's a regulation. And Justice Scalia I thought was completely right. The question is whether it inflicts greater punishment. And there is a test on that and the controlling inquiry is whether retroactive application of a change in a law that affects punishment created a sufficient risk of increasing the measure of punishment attached. All right? And that's -- that's what I thought the framework of law was in this case. Now, this is sort of tough for you on oral argument because I'm just, perhaps, bringing it all up to get it all out there and see what you think.",
       "time": "00:33:36.78"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I disagree with all that, by the way. [Laughter]",
       "time": "00:36:25.36"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But when it comes to the court of appeals, it's different. The court of appeals begins with a framework of whether or not it's within the guidelines. That's how it begins to measure the exercise of discretion.",
       "time": "00:37:12.78"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I know there is a lot of dispute now about the child pornography sentences. Let's assume -- and this goes back to Justice Breyer's question -- a judge comes in and says: I know child pornography is criminal, but I don't think what the guidelines are imposing are fair to any defendant. So, 10 days in jail. Why would that be substantively unreasonable?",
       "time": "00:37:55.97"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "No, I'm giving you exactly what the judge says. You don't think that the appellate court would say that's substantively unreasonable because it's not giving due deference to the commission's assessment of the seriousness of this crime?",
       "time": "00:38:32.38"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I assume that the statute is one that permits 10 days, right? Sort of an unusual statute, but if the hypothetical is in the real world, the statute provides, you know, 10 days to life, okay? And the judge thinks 10 days is okay. I think that's the hypothetical.",
       "time": "00:38:59.04"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you disagree with -- getting back to what this case is about, the D.C. Circuit, in opposition to the Seventh Circuit said: \"It is enough that using the new guideline created a substantial risk that the defendant's sentence was more severe that it would have been if the guidelines in effect at the time of the crime were used. \" And it said, \"There is no doubt that this case fits that description. \" \"There was quite a substantial risk that the elevated guidelines would result in a more severe sentence. \"",
       "time": "00:39:38.25"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "He's saying that -- the question is which guidelines in this case? And he's saying it's the guidelines in effect at the time he committed the crime. We are not dealing with other -- I mean, it's quite a simple choice. Is it -- does the court start with the guidelines in effect at the time the crime was committed or does it start with the guidelines in effect at the time of sentencing?",
       "time": "00:40:46.45"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Now, we know that this district judge, he didn't want to get into any philosophical things about what was better or what was worse. He said, I want to follow the guidelines. So the question for him was only which guideline. He got his answer from the Seventh Circuit. They said the guidelines at the time of sentencing. A judge in the D.C. District Court will get the other answer, the guidelines in effect at the time the crime was committed.",
       "time": "00:41:25.04"
     },
@@ -1073,25 +1073,25 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It's not -- it's not a question of whether the judge thought that the one guideline was better than the other. He specifically said he wasn't interested in that question. The question was which guideline does he follow. What does he start with? And you recognize that you do start with the guidelines.",
       "time": "00:42:12.00"
     },
     {
       "turn": 173,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes, I agree with Justice Ginsburg's follow-up question. It seems to me you avoid the question. You said, oh, well, the judge looked at all this and selected the sentence he did. But he did so because he referred to the later guidelines and I think you have to recognize that.",
       "time": "00:42:33.58"
     },
     {
       "turn": 174,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think you are saying that it doesn't matter because they are advisory--",
       "time": "00:42:47.68"
     },
     {
       "turn": 175,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I'd like to finish. Unless I am wrong under the record.",
       "time": "00:42:51.05"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the district court was following orders. He was following the Seventh Circuit. The Seventh Circuit had said: You start with the higher guidelines.",
       "time": "00:43:33.05"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Feigin, you're sounding awfully like according deference to the guidelines counts as reversible error.",
       "time": "00:44:00.14"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It is reversible error, is it not, simply to blindly apply the guidelines without considering the factors in 3553? That's reversible, isn't it?",
       "time": "00:44:25.41"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But surely, you do not want judges living in a world where they think that they cannot give deference to the guidelines; isn't that right? You want them to give appropriate deference to the guidelines; isn't that correct?",
       "time": "00:44:37.06"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Was Judge Randolph wrong when he said, quoting the sentencing commission, that within-guidelines range, even after Booker, is the standard? Indeed, the actual impact of Booker on sentencing has been minor, and for that minor, he cites the sentencing commission.",
       "time": "00:45:58.55"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But this statement comes from Final Report on the Impact of the United States v. Booker on Federal Sentencing.",
       "time": "00:46:33.81"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I see -- I see now where you're going. What I think you're saying is whatever the sentence is -- I am the judge, I read the guidelines. Now, I may think that I am more likely to get reversed if I substitute a different view than the commission had on a matter of policy. That's all true. But still, I don't have to do it. No matter what it is, I can not use the guidelines. And if I get reversed on other grounds or the sentence is not reasonable, da, da, da, da, da. But there's no legal binding nature there. That's your point, I think.",
       "time": "00:47:06.11"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. If that's exactly your point--",
       "time": "00:47:42.62"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--But now I can narrow what the question I think is.",
       "time": "00:48:11.47"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but that -- that gets back to -- to your argument. You're -- I sense that you want me to leave the bench saying the guidelines just don't make any difference. Suppose -- suppose the district judge said, you know, if it were just up to me, I would give this lower sentence, but the guidelines are an important institutional part of our system. Uniformity in sentencing is -- is desirable. For us to take into account the experience of other -- of other courts and what the sentencing commission does is very important. Therefore, my discretion is guided by these guidelines.",
       "time": "00:48:27.73"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You don't want me -- you don't want me to say that.",
       "time": "00:49:05.12"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Feigin, take this example. Let's suppose that there's a crime and the punishment for crime is 5 years to life, all right? Now, Congress passes a statute and it says, no, we think this crime now is much more important than we used to, now it's 25 years to life, right? A -- a person commits the offense prior to that change. Absolutely obvious case, right, that you have to apply the -- the 5 years to life, right? Obvious, correct?",
       "time": "00:49:20.28"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Okay. Now, the Sentencing Commission does what the Sentencing Commission always does when there is a legislative change like this. It says, well, we have this guidelines that assumes 5 years to life. We have to change our guidelines because now it's 25 years to life. And it passes a guideline amendment which completely conforms to the legislative amendment. But you're saying, no, the 25-year-to-life guideline is the appropriate one to implement, even though the 5-year statute is the appropriate one to implement -- is the appropriate one to give effect to. Can that possibly be right?",
       "time": "00:49:50.92"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Feigin, I'm under the impression -- more than the impression I know -- that the Sentencing Commission can make a revision of the guidelines retroactive. Can it only do that for revisions that lower the -- the suggested penalty or can it do that for revisions that increase it as well?",
       "time": "00:50:55.59"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Only for lower, okay. Because if it could increase it, then it would be violating, according to your friend, the Ex Post Facto Clause.",
       "time": "00:51:20.56"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But your statement to me was -- and to us earlier -- was that there is no legal constraint on the exercise of discretion. I agree, the judge -- everybody knows the judge can go lower. But that overlooks the fact that discretion is defined by legal standards. That's how we begin to think about discretion. That's how appellate courts weigh discretion. And, again, you want to give the guidelines no effect in determining how that discretion is shaped, guided and exercised.",
       "time": "00:52:18.06"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Would you accept the fact that they define the discretion even though they don't constrain it?",
       "time": "00:53:06.81"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What if -- I'm sorry. Are you finished?",
       "time": "00:53:18.37"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "A good advocate. Let's say you had a statute -- not a guideline, a statute -- that said a sentence for a particular offense will be 5 years, but the judge can lower it to 4 years if he thinks it would be a manifest injustice to sentence to 5 years. That provision is later repealed. Now it just says that the sentence should be 5 years. Does that violate the Ex Post Facto Clause?",
       "time": "00:53:25.44"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No matter how narrow -- no matter how narrow the original grant of discretion is? In other words, only in the case of manifest injustice, or however dramatic you want to limit the available discretion.",
       "time": "00:53:58.68"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How would -- how would a Court--",
       "time": "00:54:22.86"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Right. How would a Court go about answering that question?",
       "time": "00:54:23.54"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So it's a statistical evaluation of the kind we were talking about. You look and you say, well, it's only once in a blue moon that the judge invokes the manifest injustice provision, so it's not increasing the risk. On the other hand, well, every four out of five judges do and therefore it is an increase. Is that how you--",
       "time": "00:54:42.09"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I think more goes into it than empirics. But there's this unbelievable chart really in one of the green briefs about -- you know, where there's one line which is what happens to the guidelines and there's this other line which is what happens to the sentence, and they follow each other identically, exactly. You can't get a chart that looks better from this than -- from Mr. Kinnaird's point of view.",
       "time": "00:56:23.13"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--You can finish your sentence.",
       "time": "00:56:53.20"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Kinnaird, you have 3 minutes left.",
       "time": "00:57:08.43"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:59:28.85"
     }

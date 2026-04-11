@@ -3,39 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1955/404/19560430a_404_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
       },
       {
         "name": "DIXON G. ADAMS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BURTON",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 404, Offutt Housing Company, a Corporation, versus County of Sarpy. Mr. Adams.",
       "time": "00:00:00.00"
     },
@@ -47,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you have any particular language of the consent on which you rely and printed in your brief the particular --",
       "time": "00:01:13.13"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Section 6?",
       "time": "00:01:38.15"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Do you regard the tax here to be upon the lease to hold interest on the lessee's interest or upon the profit.",
       "time": "00:05:45.27"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "And you're not taxing a lease hold interest as such.",
       "time": "00:05:55.80"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You claim the United States doesn't own a property.",
       "time": "00:06:03.15"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Suppose that -- suppose we will decide that a property was owned by the Government, would you have a different conclusion there?",
       "time": "00:06:11.07"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Pardon me.",
       "time": "00:06:27.34"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well have you -- have you taxed the leasehold interest here?",
       "time": "00:06:36.56"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You've taxed only the improvements.",
       "time": "00:06:42.81"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- the improvements --",
       "time": "00:06:47.46"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So those buildings are -- are the property of the Government who have no claim.",
       "time": "00:06:53.92"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I didn't understand your last sentence.",
       "time": "00:07:08.53"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, may I ask you --",
       "time": "00:07:20.17"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I found a little (Inaudible) in mere statement --",
       "time": "00:07:22.30"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- that the petitioner carried to my view, that if the petitioner is Nebraska could not pass the leasehold, meeting the value of the lease as personal property which I take it Nebraska (Inaudible) leasehold personal property.",
       "time": "00:07:26.15"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's the way I read it.",
       "time": "00:07:55.33"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Tell us what you say -- that you reject that?",
       "time": "00:07:58.46"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They, what is they?",
       "time": "00:08:17.40"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The lease -- what?",
       "time": "00:08:19.47"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But suppose -- I would like to have your view on this. Suppose without any of this -- without bothering by form and substance, suppose I were to conclude that -- that Offutt is a lessee in the ordinary conventional sense terms, is it your position if Nebraska could or couldn't show the Wherry Act taxed the words of that -- that Act --",
       "time": "00:08:22.54"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- leads to -- to an asset of the (Inaudible)",
       "time": "00:08:53.12"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well that certainly -- the power to class -- the choice in classifying whether it's to be treated as realty or personal is for the State in which the property is and therefore it cannot turn on whether Nebraska regardless if the person would be real -- perhaps it's really in with this -- this interest whatever you label which Offutt Company has in this effort. It's something that Nebraska can tax in view of its relation to governmental immunities.",
       "time": "00:09:15.69"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, then why -- why are you -- why does it seem important to you for you to differentiate your ground of support from what one reads or at least (Inaudible) as I read the opinion of Nebraska Supreme Court.",
       "time": "00:09:57.84"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, of course if somebody who has an interest to a property for a thousand years for practical purposes has dominion over.",
       "time": "00:10:31.45"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that all you mean? Or you mean something more esoteric to that?",
       "time": "00:10:40.10"
     },
@@ -347,13 +351,13 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right. I can understand that too.",
       "time": "00:10:44.99"
     },
     {
       "turn": 54,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Well I've always understood the billing build upon the land is part of the land. Is there something in the contract or circumstance of this case that severed these buildings on the land and make some chapters or make some -- some personal property?",
       "time": "00:10:47.05"
     },
@@ -365,7 +369,7 @@
     },
     {
       "turn": 56,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does that make them personal property?",
       "time": "00:11:12.50"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 58,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does that make them personal property?",
       "time": "00:11:15.75"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I was to build upon the 99-year leases and outlive the lease but I always understood it's part of the land.",
       "time": "00:11:25.73"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Adams, is this interest is that the neutral enough words that this monetary value that belonged to the Offutt in relation to this building. Is that (Inaudible) with the consent of the United States?",
       "time": "00:11:47.17"
     },
@@ -413,7 +417,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Under the lease. So that he got something of value.",
       "time": "00:12:07.58"
     },
@@ -425,7 +429,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And therefore (Voice Overlap) is whatever label Nebraska depends on, whatever the common law you maybe as to what a leasehold is. Whether that something in which you can get money tomorrow on the air force or whatever (Inaudible) whether that's taxable thing. Does it make any difference what (Inaudible) you based on it?",
       "time": "00:12:13.09"
     },
@@ -437,7 +441,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Because I dont understand --",
       "time": "00:12:34.59"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This is official now.",
       "time": "00:13:22.67"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:14:42.83"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What page is -- what page is that? (Inaudible) -- all right what is the case --",
       "time": "00:14:52.77"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It should be 831.",
       "time": "00:15:05.50"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "831?",
       "time": "00:15:08.71"
     },
@@ -509,19 +513,19 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's all right.",
       "time": "00:15:13.03"
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Inaudible)",
       "time": "00:15:13.72"
     },
     {
       "turn": 82,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Thank you very much.",
       "time": "00:15:14.32"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What are the petitions then to that application of constructive (Inaudible)?",
       "time": "00:19:13.51"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not yours but the petitioner (Inaudible)",
       "time": "00:19:25.99"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They -- they renegotiated to cover both the taxation of what (Inaudible) --",
       "time": "00:19:44.79"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that is going to happen to the Maryland case that -- I don't mean to imply but the failure of the Government to seek review and to determine the legal question but I'm curious to know what did happen to that decision.",
       "time": "00:21:22.19"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What happened after the Court of Appeals of Maryland?",
       "time": "00:21:36.97"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What's the date of that case?",
       "time": "00:21:40.61"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The Maryland case had no (Inaudible)",
       "time": "00:21:56.64"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:22:00.42"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 100,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How -- how many years (Inaudible)",
       "time": "00:22:05.03"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 102,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's Section 11 of this case.",
       "time": "00:22:24.21"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 104,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And that's the difference between the two cases.",
       "time": "00:22:27.27"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 106,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suppose you're going to comment to Section 11 later.",
       "time": "00:22:29.93"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:22:39.40"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What do you say you think that section means other than (Inaudible)",
       "time": "00:24:08.34"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The S.R.A. case (Inaudible)",
       "time": "00:27:03.53"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The brief would say --",
       "time": "00:27:10.63"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What -- what page is that?",
       "time": "00:31:14.42"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes, I see it.",
       "time": "00:31:19.38"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "When the Court signed (Inaudible)?",
       "time": "00:32:56.31"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "00:33:00.33"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What was that -- was there any finding to support the conclusion we read on that.",
       "time": "00:33:01.60"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What do you mean by the -- it was a lower court finding?",
       "time": "00:33:12.57"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Record what?",
       "time": "00:34:31.04"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What does the Government get -- what beneficial interest does it retain?",
       "time": "00:35:24.68"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's a kind of a restrictive company, isn't it?",
       "time": "00:35:50.53"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Like a restrictive company underneath?",
       "time": "00:35:53.30"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What are the terms and conditions on which the Government can get property there?",
       "time": "00:36:23.66"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "None at all.",
       "time": "00:36:32.50"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Condemn it.",
       "time": "00:36:34.86"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But they have to pay for it.",
       "time": "00:36:37.14"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Those are the full value of the property.",
       "time": "00:36:48.12"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that the only way the Government can get it back?",
       "time": "00:36:59.78"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In the event this is rather -- the -- some of these buildings are rented to civilians. It must -- do they get the benefits of the low rent too?",
       "time": "00:37:05.12"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What are the terms under which civilians can rent the property.",
       "time": "00:37:46.56"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What would happen if they close camp as they do in so many parts of the -- of the country, would it be open to unrestricted rentals then on the part of the civilians?",
       "time": "00:38:26.03"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes and -- would there -- would there be fixed rentals then or would they be freed from those -- those low rentals.",
       "time": "00:38:39.80"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 157,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There's a guarantee of the mortgage does it not?",
       "time": "00:39:00.41"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Could you do that in accordance with this general practice of insurance mortgages on property?",
       "time": "00:39:17.17"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Extend the general provision --",
       "time": "00:39:32.92"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 163,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Wasn't it -- wasn't it more than an extend? What was the language of the Act in directing or I what is the direction?",
       "time": "00:39:54.33"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well there's -- there's a difference between an authorization and a correction. It was the -- it was merely to give the Federal Housing Administration the power to insure?",
       "time": "00:40:12.88"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or was it a direction that they should ensure when asked to do so by the (Inaudible)",
       "time": "00:40:25.57"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Nothing but authority.",
       "time": "00:40:32.11"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No indication.",
       "time": "00:40:46.17"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And -- and they had that certification of course.",
       "time": "00:40:49.98"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Under those circumstances, they were compelled to insure?",
       "time": "00:40:53.19"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 177,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now (Inaudible) whether or not the Government has a responsibility over and above the parties of the land or whether they weren't making sure that the money that was put into it would in turn against the issue.",
       "time": "00:41:06.62"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there any difference in the way the Government handles this and the assistance it rendered under the Housing Act outside the fact that it is here, put it in the form of a lease of $50 to $100 a year.",
       "time": "00:43:30.43"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The General Housing Act provides a system to ensure mortgage and so forth. What differences in the way the Government handled this one, this place, the way it handled the other outside just one on the lease.",
       "time": "00:43:51.76"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does the Government under its General Housing Act provides for the kind of rental that must be accorded people who rent the houses? Does it reserve that right?",
       "time": "00:44:08.11"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So they formally did, have they stopped there?",
       "time": "00:44:25.26"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now.",
       "time": "00:46:09.24"
     }

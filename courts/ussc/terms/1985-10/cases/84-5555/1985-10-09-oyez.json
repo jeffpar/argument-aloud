@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-5555/19851009a_84-5555.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "RONALD J. ALLEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM DUNCAN LITTLE, III",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Heath against Alabama. Mr. Allen, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What would you say, Mr. Allen, if the record showed that there was a kidnapping and rape in one state, either Georgia or Alabama, and then another day the murder occurred? What would you... would your view be the same?",
       "time": "00:03:05.05"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The kidnapping and rape in, say--",
       "time": "00:03:28.51"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--and taking them across the state line and murdering the victim on the next day.",
       "time": "00:03:31.67"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, was there some offense in Alabama?",
       "time": "00:04:20.56"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about the contracts to kill the person?",
       "time": "00:04:34.59"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In Georgia?",
       "time": "00:04:40.05"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Allen, let me interrupt you again. Suppose the Alabama charge has been for only kidnapping. Would you be here?",
       "time": "00:05:04.32"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that an independent argument of your double jeopardy--",
       "time": "00:09:48.33"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--the jurisdictional thing? Is that just a... is that a due process claim, or what?",
       "time": "00:09:53.76"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, of course, I suppose the double jeopardy argument is really a due process argument, isn't it?",
       "time": "00:10:45.59"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:10:53.46"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "May I be unfair and ask you to explain to me your opponent's argument as to how Alabama gets sovereignty?",
       "time": "00:11:01.99"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I mean, I have a problem that there weren't two murders.",
       "time": "00:11:34.88"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's my problem.",
       "time": "00:11:43.51"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Wasn't the victim a resident of Alabama?",
       "time": "00:12:14.17"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But apart from the double jeopardy argument, is there any reason to think that normal minimum contacts rules don't apply in criminal proceedings as well as in civil proceedings?",
       "time": "00:12:50.97"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Which ones?",
       "time": "00:13:04.81"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When was that decided?",
       "time": "00:13:07.05"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, somewhat before International Shoe, then, wasn't it?",
       "time": "00:13:10.20"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I know, but I mean, we are not back in Pennoyer against Neff.",
       "time": "00:13:17.73"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't assert. I was simply asking you a question.",
       "time": "00:13:26.31"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why should... as a matter of principle, why should it be any different in a criminal case than in a civil case, if you are talking about \"jurisdiction\" apart from double jeopardy considerations?",
       "time": "00:13:56.14"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, let's take just the facts of this case. Supposing that on these facts, Georgia for some reason or other had said we just don't want to prosecute this case. We think the case is weak. We don't think a Georgia jury would convict. Would Alabama then be prevented from trying this particular defendant for murder on these facts?",
       "time": "00:14:36.73"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you don't have an unequivocal answer to my question.",
       "time": "00:15:34.70"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Allen, suppose the Alabama statute or the criminal statute said... named as one of the capital crimes a kidnapping in the course of which a murder takes place, and so they indict him for kidnapping, and they prove that a murder took place. Would you be making the same argument?",
       "time": "00:16:00.80"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In Georgia.",
       "time": "00:16:25.58"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why is that?",
       "time": "00:16:26.57"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought you said a while ago that you could use... you could use in the sentencing phase evidence of crimes that took place in Georgia.",
       "time": "00:16:30.24"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, that's a different argument.",
       "time": "00:17:02.65"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That wouldn't be... you wouldn't be arguing jurisdiction, then, would you?",
       "time": "00:17:08.25"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would be arguing double jeopardy.",
       "time": "00:17:11.74"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would be arguing something--",
       "time": "00:17:14.17"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I interrupt you there, because I have been trying to reflect about your multiple, whether that makes it better or worse. Supposing somebody starts out in Chicago and drives 100 miles an hour all the way up through Indiana into Michigan. Can he be prosecuted for speeding in all three states?",
       "time": "00:18:05.99"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing he forces someone against his will to ride with him. Can he be prosecuted for kidnapping in all three states in your view?",
       "time": "00:18:30.64"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He could?",
       "time": "00:18:37.54"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--planning to kill him when picks him up in Chicago and dumps him off in St. Joe when he does kill him, he can only be prosecuted in one state?",
       "time": "00:18:41.36"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In each trial you would want to prove the whole sequence of events, I am assuming. You decided to do it, you picked him up... I mean, if the prosecutor... you picked him up, drove him on this particular route, and then killed him and dumped him out.",
       "time": "00:18:54.49"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Isn't the only way you could analogize those hypotheticals with this one is that you kill him each state.",
       "time": "00:19:12.89"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if you cut his throat and he bled to death in two states, I suppose you could prosecute in both states?",
       "time": "00:19:24.17"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That may have been the purpose, but what would you say in that case, only one state?",
       "time": "00:19:55.06"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which one?",
       "time": "00:19:59.38"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But not two?",
       "time": "00:20:00.38"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What was that citation?",
       "time": "00:24:44.34"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "One seventy-three?",
       "time": "00:24:51.35"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that quite right? Didn't one of them permit it and the other prohibit it?",
       "time": "00:25:34.91"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You had two crimes.",
       "time": "00:25:40.06"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And by hypothesis they were dealing with an act that took place in a territory over which both had jurisdiction.",
       "time": "00:25:58.21"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Allen, I want to be sure, because I wasn't sure I understood one of your answers to Justice White. Do you view... is it critical to your argument that this be a capital case?",
       "time": "00:26:28.45"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So if it were just... if it were a non-capital offense, you would basically make the same argument.",
       "time": "00:26:39.08"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, suppose... you are not... your argument up here isn't the jurisdictional one. You say you aren't entitled to make it. Well, you say you are, but it wasn't raised below.",
       "time": "00:27:43.05"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And this is from the state court, and all that sort of thing. What if... what if this weren't a capital... weren't a capital case, and the act he committed in Georgia in the course of a kidnapping or in the course of something of a continuing crime wasn't a crime there. Now, would you be making the same argument that Alabama then couldn't--",
       "time": "00:27:53.27"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--I know, I know, but you wouldn't--",
       "time": "00:28:18.28"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--you wouldn't be making a double jeopardy argument.",
       "time": "00:28:21.22"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would be making a jurisdictional argument.",
       "time": "00:28:23.86"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you are not... so your argument you made, your fundamental argument here wouldn't apply in that case.",
       "time": "00:28:26.46"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Although your double jeopardy argument wouldn't apply.",
       "time": "00:28:33.82"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You said it wouldn't.",
       "time": "00:28:37.29"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You talk about my example.",
       "time": "00:28:42.86"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right. That is all I need to know.",
       "time": "00:28:47.71"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Little.",
       "time": "00:28:55.01"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Little, how did the murder in Georgia interfere with the sovereignty of Alabama?",
       "time": "00:36:46.76"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could you prosecute him for kidnapping in another state?",
       "time": "00:37:08.32"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how can you prosecute for murder in another state?",
       "time": "00:37:14.10"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But your real interest is, you want a killing.",
       "time": "00:37:36.22"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, he has been prosecuted for murder, and he has been convicted.",
       "time": "00:37:44.97"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And convicted.",
       "time": "00:37:53.34"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And sentenced.",
       "time": "00:37:55.60"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But he wasn't killed.",
       "time": "00:37:56.44"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you want to kill him.",
       "time": "00:37:59.87"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Little, let me see if I follow you. Suppose he had... suppose the death penalty had been imposed in Georgia but it had been delayed for some reason. Did I understand you to say Alabama would have prosecuted anyway?",
       "time": "00:38:33.56"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Are you conceding that the reason Alabama prosecuted is because he didn't get the death penalty in Georgia?",
       "time": "00:39:13.97"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, then your answer to my other question is probably in the affirmative, that you would have prosecuted anyway.",
       "time": "00:39:22.97"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--the death penalty--",
       "time": "00:39:31.98"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, you may... I suppose you insist that Alabama would have had the power to do it, but may not have exercised it.",
       "time": "00:39:45.04"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "The fact is, you weren't satisfied with a life sentence in Georgia.",
       "time": "00:40:11.11"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "The facts rather suggest it, don't they? Would one of Alabama's concerns be that under a judgment of conviction in Georgia, he might be out on parole in 12, 15 years, and Alabama wanted him in custody longer than that. Is that a factor that would be legitimate for a prosecutor? I won't... since you don't know whether that happened here, would that be a legitimate factor for the prosecutor in the state of Alabama?",
       "time": "00:40:16.96"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Little, you did argue earlier that one of the interests of Alabama was the death penalty. Didn't you say that standing where you are?",
       "time": "00:41:03.86"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But did you say that?",
       "time": "00:41:18.96"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In Georgia, when would he be eligible for parole, if ever?",
       "time": "00:42:42.76"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "When?",
       "time": "00:42:52.36"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Seven years.",
       "time": "00:42:54.89"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You assert, I take it, that Alabama or any other state so involved has the right to take that into account in deciding to prosecute.",
       "time": "00:42:56.55"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you one other question? Assume... we have been talking mostly about cases where there is some difference in the law, one, there is a death penalty that is imposed, and the other there isn't. Supposing we had a non-capital offense for a moment. Supposing the law of each state prescribed a mandatory ten-year sentence, no deviation up or down, and the same elements of the offense in both, but it had some kind of an interstate quirk, as this one does, and they prosecuted, sentence him to ten years, and he is serving his ten years. On your view of the double jeopardy clause, could your state go ahead and prosecute him again for the same offense and impose an additional ten years so he would get a total of 20?",
       "time": "00:44:49.86"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Allen?",
       "time": "00:45:50.49"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Allen, suppose that Georgia had arrested this... Alabama had arrested this man first. He ran to Alabama and they indicted him for murder, a murder that took place in Georgia but in the course of a kidnapping. Then you would be reduced to the jurisdictional argument?",
       "time": "00:45:55.33"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But then could Georgia have prosecuted him for murder?",
       "time": "00:46:15.10"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right.",
       "time": "00:46:25.17"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You say that is an invalid reason?",
       "time": "00:47:55.22"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You agree that this man would be eligible for parole in seven years under Georgia law?",
       "time": "00:48:08.88"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Average length of life sentence is 15 years?",
       "time": "00:48:21.27"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That is higher than the national average by far.",
       "time": "00:48:26.90"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And Georgia's statute that we dealt... new criminal code that we dealt with a few years ago was apparently one of the most generous in terms of short sentences of any in the country. Those two things don't add up.",
       "time": "00:48:30.86"
     },
@@ -1159,13 +1163,13 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:49:39.02"
     },
     {
       "turn": 188,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until Tuesday next at 10:00.",
       "time": "00:49:41.35"
     }

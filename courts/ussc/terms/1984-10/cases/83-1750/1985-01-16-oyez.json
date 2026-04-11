@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-1750/19850116a_83-1750.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "ANDREW L. FREY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JERROLD M. LADAR",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear argument first this morning in United States against Miller. Mr. Frey, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What you're saying is that the inflation of a claim could have happened without the phony burglary, but the phony burglary by itself wouldn't have stated any sort of a crime?",
       "time": "00:12:38.30"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, of course, once you get into the business of speculation, I suppose you could speculate that if the indictment was off three or four days as to the time, even though there was not a material variance, you know, one particular juror might have felt well, geez, it was a little longer ago.",
       "time": "00:13:25.52"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you agree that we should retain the concept of examining prejudice to the defendant?",
       "time": "00:14:15.70"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would the result be different if the indictment had not included paragraph 7?",
       "time": "00:14:35.16"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But how, then, would the defendant have known that he ought to prepare by having witnesses as to value and so forth?",
       "time": "00:14:51.14"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Oh, but there would be nothing to tip the defendant off under those circumstances that he ought to even be making an inquiry, would there?",
       "time": "00:15:08.07"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So you think the underlying purpose of the Fifth Amendment's grand jury indictment requirement is to put the defendant on notice?",
       "time": "00:15:36.03"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No?",
       "time": "00:15:47.15"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Frey, could I go back for just a second to your suggestion that the indictment would have been sufficient even without paragraph 7? Are you saying that assuming also that paragraphs 3, 4, 5 and 6 were omitted, or were you saying it would be sufficient to describe a conspiracy that seemed to depend entirely on the phony theft on the one hand, or one that was just a general description? I understand what you're saying, that if it were all left out--",
       "time": "00:16:51.45"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But would you say the indictment, this conviction could stand if the indictment included paragraphs 1 through 6 and not paragraph 7?",
       "time": "00:17:27.89"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because then there would presumably be no reason to ask for a bill of particulars, because he would have thought well, the issue is whether there was really a burglary.",
       "time": "00:17:47.22"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask you this also. Is there any relevance... I take it the indictment, this is different from Bain because there was not in fact a striking of the paragraph that turned out to be superfluous.",
       "time": "00:18:05.06"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But did the indictment itself go to the jury? They apparently knew what the entire charge was.",
       "time": "00:18:17.99"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's really what I was going to ask you... what your views are, would be with regard to the correct procedure when this problem develops. Would it not be better to simply strike the allegations entirely so that you only have the jury knowing that the government at least thought that this was a phony theft?",
       "time": "00:18:51.09"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, on that point, apparently there was some testimony before the grand jury, I gather, that there was an inflated burglary.",
       "time": "00:24:03.49"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "An inflated loss.",
       "time": "00:24:15.71"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the prosecutor's opening statement at trial referred to the inflated insurance claim?",
       "time": "00:24:59.35"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Frey, since you've mentioned the reply brief, I just want to mention one thing in that brief that troubles me a little bit. You have... on page 4 you say the Assistant United States Attorney who tried this case advises us that a month and a half before trial he provided exhibits and the like. I notice in several briefs the Solicitor General has filed in this argument session you have given us material that's not in the record, and I just wonder if it's a practice that you think should be followed by defense counsel and the Solicitor General and everyone, or should we try to stick to the record.",
       "time": "00:25:09.44"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Was it supported by the record, the suggestion that was made?",
       "time": "00:25:56.51"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it seems to me the correct answer to a contention that's not supported by the record is simply that the record doesn't support that contention, not... well, anyway I just want you to know I see this in a number of your briefs lately, this sort of thing.",
       "time": "00:26:32.14"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Very well. Mr. Ladar.",
       "time": "00:28:07.58"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I think you can assume we granted certiorari on the basis of the government's petition, your response, and the opinion of the Court of Appeals, which, of course, is written out and not necessarily on nuances that may not be apparent in those papers.",
       "time": "00:31:24.69"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I thought the government said it was not relying on it, and it did not ask us to consider that in rendering a decision. That's what I just understood Mr. Frey to be saying.",
       "time": "00:31:54.97"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In this Court I think the practice is if in writing an opinion one is... the author is going to rely for part of the conclusions of the opinion on something that isn't apparent in the record but, rather, is dependent on the statement of counsel, then that is footnoted in the opinion. I would assume the Ninth Circuit would do the same thing.",
       "time": "00:33:21.86"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, all we have before us is the written opinion of the Ninth Circuit.",
       "time": "00:33:55.77"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What's the difference between one and three? You say an inflated representation and then you say a grossly exaggerated. That's the same thing.",
       "time": "00:34:29.99"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but you are saying there are three elements that the government charged and one of them, you say, is the burglary, the alleged burglary. Now you say there are two other elements?",
       "time": "00:34:42.44"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't think you are either. missing page 31--",
       "time": "00:34:58.24"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--And without the effort to defraud the insurance company there's no mail fraud?",
       "time": "00:36:10.37"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And that's what's before us now... the correctness of their decision?",
       "time": "00:36:39.24"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And you never... did you make a challenge to the sufficiency of the evidence in the Ninth Circuit?",
       "time": "00:37:35.28"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And there was evidence of the increase in the insurance coverage?",
       "time": "00:38:09.23"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the mailing?",
       "time": "00:38:16.51"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, did the opening statement not focus on the exaggerated insurance claim to the exclusion of the reference to the phoney burglary?",
       "time": "00:39:42.18"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, wasn't that clear at that stage, that the government was talking just about the inflated insurance claim in the opening statement?",
       "time": "00:40:08.11"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, did you move... you say you were misled on that. Did you move for a continuance?",
       "time": "00:41:52.46"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What was faked was the insurance claim.",
       "time": "00:42:27.19"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me just interrupt you, if I may, there. Paragraph 7 is not. Paragraph 7 quite clearly alleges a grossly inflated claim, and it seems to me that would state a claim for a cause of action in civil terms if... even without the false burglary.",
       "time": "00:43:08.94"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And, therefore, it would seem to me you would have been on notice of the fact that the government was going to prove the copper was not worth $123,000.",
       "time": "00:43:28.93"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why not? I don't understand. It seems to me that full trial preparation would have required that you do everything you could to resist that claim as well as the balance of it. I don't understand why you--",
       "time": "00:44:10.25"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, I don't see paragraph 7 as an addition or a description. When they used the term \"grossly inflated\", that suggests that there was some amount other than the grossly inflated amount that would have been correct. In other words, I think when you use the term \"grossly inflated\" you're talking about not a non-existent burglary. You wouldn't describe a claim from that as grossly inflated; you would say it's absolutely false. \"Grossly inflated\" suggests there was some lesser claim that would have been true.",
       "time": "00:45:43.71"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why do you say no?",
       "time": "00:46:14.01"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but--",
       "time": "00:46:22.51"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Do you disagree with me that the term \"inflated\" suggests an upward shifting of value over an amount which would have been the true value?",
       "time": "00:46:25.08"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You disagree with me on that.",
       "time": "00:46:40.05"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your answer is yes--",
       "time": "00:46:41.91"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, you didn't read the indictment very carefully, then.",
       "time": "00:47:11.02"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it isn't the instructions that you rely on to put you on notice; it's the indictment.",
       "time": "00:47:51.47"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Even before the instructions, you could have cleared that up by more specific allegations in the indictment, couldn't you? Couldn't you have asked them what they meant by \"grossly\"?",
       "time": "00:48:24.38"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'm not talking about off-the-record discussions. I'm talking about motions and on-the-record discussions.",
       "time": "00:48:41.68"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Discouraged?",
       "time": "00:48:53.79"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My question is are you prohibited?",
       "time": "00:48:56.29"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is all of that in the record?",
       "time": "00:49:12.25"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I know it's not. Why isn't some of it in the record if you're relying on it?",
       "time": "00:49:14.45"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is a part of this difficulty that the Court of Appeals didn't send for this material on its own?",
       "time": "00:50:02.34"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, for instance, I assume counsel's supposed to do something.",
       "time": "00:50:07.57"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Ladar, on the supposition that some of us on this Court might read paragraph 7 in a way which you don't, apparently, do you plan to address the legal arguments involved, beginning with Ex Parte Bain and the issues that the Solicitor General addressed?",
       "time": "00:50:42.26"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you think that Stirone and Salinger and Ford and Bain are all easily reconciled with each other?",
       "time": "00:51:25.82"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Speaking to that point, Mr. Ladar, may I ask you, the motions you made before Judge Peckham were for judgment of acquittal, both before and after the verdict, I gather.",
       "time": "00:54:04.92"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And I notice that he says the ruling will be reserved, and he eventually denied it. Did he write an opinion?",
       "time": "00:54:14.91"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He did not.",
       "time": "00:54:20.91"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what if there is a multi-count indictment, grand jury indictment? Do you think that the government is precluded from offering evidence and convicting on only one of the multi-counts?",
       "time": "00:55:28.27"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you have anything further, Mr. Frey? You have two minutes remaining.",
       "time": "00:56:41.63"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:59:07.65"
     }

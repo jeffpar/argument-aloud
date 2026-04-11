@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2005/03-1238/20051003a_03-1238.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
       },
       {
         "name": "CARTER G. PHILLIPS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "THOMAS C. GOLDSTEIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "IRVING L. GORNSTEIN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The Court will now hear argument in IBP, Inc. vs. Alvarez and Tum vs. Barber Foods, Inc.-- Mr. Phillips.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I would have thought that, but we've held otherwise.",
       "time": "00:01:11.11"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, we've held that they're... that the principal activity consists of doffing... donning and doffing the clothes required, haven't we?",
       "time": "00:01:18.50"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, you think Steiner is irrelevant?",
       "time": "00:01:50.97"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, it is if we don't accept the continuous workday rule. If we do accept the continuous workday rule, why isn't it, in effect, the premise from which the conclusion for the other side falls?",
       "time": "00:02:00.63"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but your argument--",
       "time": "00:02:29.86"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--assumes that there is only one actual place. And their argument, which is consistent with the text of the statute, is that there may be more than one principal activity, and hence, more than one place. And if the... if the place of donning and doffing is such a place, then wouldn't it be at least administratively odd to apply the continuous workday rule immediately to exclude some walking time that follows that?",
       "time": "00:02:30.82"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So, you're saying that--",
       "time": "00:03:21.97"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--so called \"integral activities\" are not principal activities.",
       "time": "00:03:23.77"
     },
@@ -155,13 +155,13 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They felt otherwise.",
       "time": "00:03:30.25"
     },
     {
       "turn": 20,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Phillips, I... the Steiner opinion explicitly agreed with the lower court in that case, which said that the term \"principal activity or activities\" embraces all activities that are integral and indispensable.",
       "time": "00:03:30.40"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And if... if you think that putting on the clothes fall within that, then that covers walking, too--",
       "time": "00:03:48.71"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--after that.",
       "time": "00:03:56.64"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But, Mr. Phillips--",
       "time": "00:04:28.11"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--you're asking us to interpret the same words, (2) that was at issue in Steiner, and in sub (1), and then the clause that follows both of those. The same phrase is used. So if (2), why wouldn't the same follow for sub (1) and the following clauses?",
       "time": "00:04:29.22"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it is included if it's... once the workday begins, if there's a rotation, you walk from one station to the other. That walking time, I think it's conceded, would be included.",
       "time": "00:05:19.04"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, if your date... if the principal activity is donning and doffing, then the walking time thereafter would also be included.",
       "time": "00:05:32.63"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "\"Or activities\".",
       "time": "00:05:53.75"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But what do you think about the possibility, \"it depends on the clothes and depends on the equipment. \" so that, in Steiner and here, it's a lot of protective gear, it's really quite part of the job and special and unusual. In Mt. Clemens, it's a kind of uniform. It's just washing your hands, putting on an apron. So, where it's minor putting on clothes, as someone might in his house, doesn't come in substantial, doesn't come in integral and indispensable; but where it's quite a big deal, it does. And who decides? The agency.",
       "time": "00:06:32.52"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not necessarily excluded. It's really noncommittal on the point.",
       "time": "00:07:57.72"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But \"in certain\"--",
       "time": "00:08:13.61"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--that footnote... that's where I actually got the idea... it says, \"We reserve, in certain situations. \" To me, that meant sometimes it can be a major big deal to don clothing... protective gear; sometimes it isn't... an apron. And whose job is it? Now I'm repeating myself.",
       "time": "00:08:15.04"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The Secretary's.",
       "time": "00:08:35.52"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Phillips, can I call your attention to the text of Section 254(a)? It's in the red brief in the Alvarez case, at App. 1. What it... what it says is that you don't have to pay overtime compensation or minimum wages or on account of any of the following activities: (1) \"walking, riding\", blah, blah, blah. This is (1).",
       "time": "00:09:45.00"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--for the \"place of performance of the principal activity or activities which such employee is employed to perform. \"",
       "time": "00:10:16.51"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right. Okay.",
       "time": "00:10:25.72"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:10:27.55"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "(2) \"activities which are preliminary to or postliminary to said principal activity or activities. \" You're trying to sever (1) and (2), when the text itself joins them. The activities referred to in (2) are \"said principal activity or activities\". The (1).",
       "time": "00:10:27.99"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How can we possibly sever (1) and (2) and say that for purposes of one, it means one thing; for purposes of two, it means something else?",
       "time": "00:10:52.16"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But, Mr. Phillips, it says it... either something is before... preliminary; or after... postliminary. And if it's neither of those, then, it seems to me, it fits... it's not before the principal activity, and it's not after the principal activity, so what else is it, other than the--",
       "time": "00:11:57.35"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--principal activity?",
       "time": "00:12:20.85"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So, your approach introduces, really, a third concept. You have the principal activities in your... either preliminary or postliminary... and now you've got a third concept: integral. But the statute... that's nowhere in the statute.",
       "time": "00:13:07.76"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, unless they were saying those activities were, in fact, principal activities. If it's integral, if it's embraced by the principal activity, it is a principal activity, and that at least is more consistent with the statute in keeping it in two categories rather than inventing a third.",
       "time": "00:13:33.46"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, how does... how does your analysis apply? Let's say these employees had to change their equipment several times during the course of the day.",
       "time": "00:14:02.83"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yeah, I mean, the--",
       "time": "00:14:10.60"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--the equipment is only good for, you know, an hour, two hours, then they have to get new ones. They have to walk back to the place--",
       "time": "00:14:12.73"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--they have to doff the other equipment, don new equipment, and walk back. Wouldn't your analysis say that that walking time is excluded?",
       "time": "00:14:18.12"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Why not?",
       "time": "00:14:25.38"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But do you have compensated activities that do not begin the workday?",
       "time": "00:14:51.12"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What happens with the microchip or a laboratory with highly contagious viruses where there's got to be two hours of scrubbing and then there's a walk? What do you do with that?",
       "time": "00:15:09.93"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Two hours of scrubbing--",
       "time": "00:15:23.13"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But then there's... but then there's--",
       "time": "00:15:33.11"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--but then there's a walk. What about the walk?",
       "time": "00:15:34.40"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But the problem--",
       "time": "00:15:50.36"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Mr. Phillips, the problem I continue to have is that I thought Steiner embraced, explicitly, the notion that principal activity embraces all activities that are integral and indispensable. You take issue with that, but do you want us to overrule Steiner--",
       "time": "00:15:52.69"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--or make some changes in it? I just don't understand.",
       "time": "00:16:12.38"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What was--",
       "time": "00:16:29.90"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--so unusual about the facts--",
       "time": "00:16:31.06"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--What was so unusual about the facts in Steiner? They're pretty common.",
       "time": "00:16:33.91"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, but the--",
       "time": "00:16:45.37"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--the routine where you have to don, you know, safety equipment, and you have to shower when you're done, whether it's being... the meatpacking or the stuff at Steiner... that's a pretty common occurrence.",
       "time": "00:16:47.32"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But you're--",
       "time": "00:17:22.96"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--No, no, I didn't mean... finish.",
       "time": "00:17:25.32"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You would say that's--",
       "time": "00:18:21.11"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--so for all activities that are... that are integral and indispensable? What about sharpening tools?",
       "time": "00:18:22.27"
     },
@@ -701,31 +701,31 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, no, no.",
       "time": "00:18:36.80"
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But your--",
       "time": "00:18:37.05"
     },
     {
       "turn": 112,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that's... but suppose--",
       "time": "00:18:37.31"
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--but your time shouldn't start from then.",
       "time": "00:18:38.40"
     },
     {
       "turn": 114,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--that's not the hypothetical. Suppose you sharpen the tools outside, by your locker, and then you... then you go for a ten minute walk to get to the... and you carry the sharpened tool?",
       "time": "00:18:38.71"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but isn't your... in the answer that you just gave, and an answer which you have, in fact, consistently repeated, inconsistent with Steiner... Steiner didn't say there is a separate category of integral activities. Steiner said that activities which are integral are part of the principal activity. And isn't your argument premised on denying that identity?",
       "time": "00:19:07.31"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why is it--",
       "time": "00:20:36.08"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--why is it so dramatic, if we recognize that nothing begins until the donning and doffing... that is, the travel to wherever you don and doff?",
       "time": "00:20:37.27"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "None of that is included, even from the plant gate to the place where you don and doff.",
       "time": "00:20:47.88"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where is that advice contained, that you say was given to--",
       "time": "00:21:50.04"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Not--",
       "time": "00:21:59.04"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--not necessarily.",
       "time": "00:21:59.98"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you say that they operated on the assumption that it meant never.",
       "time": "00:22:05.22"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It seems to me they were on notice that, although it did not, necessarily, it might. I think you're--",
       "time": "00:22:11.13"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--you're exaggerating the effect of that statement.",
       "time": "00:22:16.89"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Right, they don't say... I mean, they exclude, for example, the canine cases, where you have to walk and feed the dog in the morning before you show up at work. So--",
       "time": "00:22:20.17"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--they're not saying only--",
       "time": "00:22:31.09"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "My problem with your argument is Steiner.",
       "time": "00:23:26.05"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, it doesn't.",
       "time": "00:23:51.02"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The only thing specifically included in (a)(1) is walking, riding, or traveling to and from the actual place of performance of the principal activity or activities. And once you assume that (a)(1) doesn't cover it.",
       "time": "00:23:51.24"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Phillips, may I just ask you a preliminary question about the IBM case... IP... IBP--",
       "time": "00:24:40.22"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--IBP case? As I understand it, whatever we do here is irrelevant to what the bottom line is going to be in that case, because the determination is going to be made only under State law. The court below said that's what it was going to do. And the employees are not objecting. So, it seems that that case, as distinguished from Tum, is really not anything that this Court should decide, because it would be academic.",
       "time": "00:24:49.61"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Could you give us a collateral consequence--",
       "time": "00:25:47.31"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Thank you, Mr. Phillips.",
       "time": "00:26:03.13"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Goldstein.",
       "time": "00:26:04.28"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But why isn't walking from the gate of the... of the factory to the... to the place where you're on the assembly line, why isn't that integral and essential to the performing of the activities?",
       "time": "00:26:41.92"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, no, but if... once you accept the theory that the principal activity includes those things that are integral, you can say walking from the gate of the plant to the assembly line is part of the principal activity. Now, walking to the gate may not be part of the... may not be part of the principal activity, but... I--",
       "time": "00:27:23.97"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, what about the dog grooming case?",
       "time": "00:28:29.62"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes.",
       "time": "00:28:40.01"
     },
@@ -1025,19 +1025,19 @@
     },
     {
       "turn": 164,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Your--",
       "time": "00:30:20.92"
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What if... what if--",
       "time": "00:30:21.55"
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--answer to Justice Kennedy said that the dog cases were distinguishable because there was a break in the principal activity. So, if we were to rule in your favor, all the employer has to do is make sure that the donning and doffing station's far enough away from the production line so that there will be a sufficient break between the two activities.",
       "time": "00:30:22.17"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What do you mean \"it would be\"... that's my question.",
       "time": "00:30:52.69"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Yeah, but why... if you're talking about efficiency, it may well be that the employees, instead of imposing upon the employer the costs of moving the donning and doffing location closer to the... to the place where the real work is being done, they might prefer, instead, to get a slight salary increase per hour. But... and that is... that is possible, under the petitioner's scheme, because it is left to private negotiation; whereas, what you say is that they must pay for that. They must pay for that walk from the donning and doffing. They cannot negotiate out of it, because if it's in the Fair Labor Standards Act, it is mandatory. So I... don't talk to us about efficiency. It seems to me that the efficiency arguments are on the other side. Leave it to the private sector. The employers... the employees can decide what they care more about.",
       "time": "00:31:55.73"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Goldstein, I just wanted to have a clear answer to the question Justice Scalia asked you. Is it so that collective bargaining could not trade off the compensation for the walking and the donning and doffing for some other benefit that the employees might prefer?",
       "time": "00:34:06.48"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, you say it's an open question.",
       "time": "00:35:05.07"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What--",
       "time": "00:35:09.59"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--about what gear qualifies? That is, here we have no dispute that this is protective gear. But it's not any changing that counts. So, how do we know whether this is the kind of donning and doffing that's compensated in... or the kind that isn't?",
       "time": "00:35:10.16"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can I ask you about a... the other part of the case? I mean, I think, as I've suggested, most of these things are up to the agency. They're minor things in the law, so... but it seems well established in the agency reg, as well as in Skidmore, the famous line about waiting being, \"Are you waiting to be engaged, or are you engaged to wait? \" So, assuming that this is just putting on and off clothes that are essential... so, assume you win on that part... when they wait to put on the clothes, you would think... if it's like an airport, sometimes you wait; if you're lucky, you don't. Well, under those circumstances, you wouldn't be engaged to wait. You're waiting to put on the clothes, not... you know, it's a... so, why would you win on that part?",
       "time": "00:36:28.11"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The... what happens... you win on the--",
       "time": "00:37:20.53"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--clothes. They're protected gear. That's the assumption. That's part of the job. The workday begins. But you have to get there, and you wait to get the clothes. On that--",
       "time": "00:37:23.69"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--one, why not Skidmore? Why not the reg? And, if so, why don't you lose on that one?",
       "time": "00:37:32.84"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But suppose sometimes you have to wait? Sometimes it's a minute, sometimes it's nothing. Is it like an airport? Or does the employer here say, \"You must show up seven minutes early, because there'll be a wait? \"",
       "time": "00:38:15.08"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that what the reg says?",
       "time": "00:38:35.42"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's surprising I didn't see that in the reg, if it says that.",
       "time": "00:38:37.66"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Where it's first in the day.",
       "time": "00:39:00.55"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "First thing--",
       "time": "00:39:01.63"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--in the day.",
       "time": "00:39:02.57"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought you would say that the whole principle of, you know, \"Are you engaged to wait, or waiting to be engaged? \" just contradicts the principle that was adopted in Steiner. I mean, are you putting... are you employed to put on your... to put on your clothes, or are you putting on your clothes to do your work? And Steiner essentially repudiates that. So, you know, let's forget about Skidmore.",
       "time": "00:39:04.13"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I understand.",
       "time": "00:39:31.85"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I--",
       "time": "00:39:35.05"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Right.",
       "time": "00:39:43.18"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That wasn't decided below, was it? It was just a question of walking and waiting, and they weren't specific about whether that included waiting or walking, pre donning.",
       "time": "00:40:28.05"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, perhaps we shouldn't reach a question that hasn't been aired and decided below.",
       "time": "00:40:55.31"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Goldstein, since you display such respect for the agency here-- [Laughter] --what do you do about the agency's footnote that flatly contradicts your theory of the case, and which says that the mere fact that donning and doffing may require compensation does not necessarily mean that travel between the clothes changing place and the actual place of performance would be excluded?",
       "time": "00:41:08.26"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I wasn't questioning that, so much as it is... it is extraordinary for this Court to take a case when the bottom line is going to be the same. And, since we have the identical issues, with no such preliminary question in Tum, if we decide in your favor in the Tum case, then the other case is taken care of.",
       "time": "00:43:13.82"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Goldstein. Mr. Gornstein.",
       "time": "00:44:28.55"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if I think that opinion was just flatly wrong, that Congress, when it referred to the \"principal activity or activities\", was talking about the cutting of the meat or whatever the employer hired the person to do? He didn't hire him to put on clothes. What if I think that? Why do I have to extend what I think to be an erroneous decision beyond its narrow holding?",
       "time": "00:46:39.14"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why can't I say that Steiner requires that interpretation of what constitutes a \"principal activity\" only for purposes of determining what is compensable, and that when we... when we come to examine the separate question, of when the workday begins, we can... we can apply, as far as precedent is concerned, a different interpretation of what is a \"principal activity\"?",
       "time": "00:47:46.56"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Gornstein, do you agree that just because it's a compensable activity doesn't necessarily mean that there isn't going to be a break in the workday? People have talked about the dog example, and there are others. I mean, and... so, all you're talking about is the determination that this is a principal activity. It seems that there's a separate... second question, such as, How do we tell if the space in time between two different principal activities, because they're two very different types of activities, is a break or part of the continuous workday?",
       "time": "00:48:47.95"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I take it you then agree that the answer for which you argue here follows not merely from the text of 4(a), but the text of 4(a) plus a continuous... some variety of a continuous workday rule.",
       "time": "00:50:40.50"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You've got to have both.",
       "time": "00:50:56.09"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah.",
       "time": "00:51:04.93"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But you don't... but you don't get the answer from simply the text itself.",
       "time": "00:51:17.76"
     },
@@ -1433,13 +1433,13 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did you say--",
       "time": "00:51:21.68"
     },
     {
       "turn": 233,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Gornstein, what about in the Tum case, the walking and waiting before the donning of the clothes?",
       "time": "00:51:22.31"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I'm talking about the--",
       "time": "00:51:44.09"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--these. The initial.",
       "time": "00:51:46.43"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You don't think that's covered.",
       "time": "00:51:48.03"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But the word--",
       "time": "00:52:07.24"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--\"# required\" is what I didn't understand in that. My airline example, what's required?",
       "time": "00:52:08.41"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "\"Required\" is... sometimes there's a wait, sometimes there's not a wait. Is that required?",
       "time": "00:52:17.11"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But he has to--",
       "time": "00:52:25.64"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--put on his uniform. And sometimes there's a wait, sometimes there's--",
       "time": "00:52:26.95"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--not a wait.",
       "time": "00:52:29.88"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that a required... or not? And, if it is, where does it say that in the regs?",
       "time": "00:52:30.88"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Goldstein acknowledged that that issue, the pre donning wait, was not decided below.",
       "time": "00:52:49.01"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it wasn't, obviously, decided in the first circuit, because they ruled against the employee's position.",
       "time": "00:53:09.24"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the... but the question of when... what waiting are we talking about? Before the principal activity or only after? That specific issue, as I understand it, was not aired below.",
       "time": "00:53:23.51"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Do we have to decide the second question? I think it's actually quite difficult. I can find a lot of authority that seems to me just a random--",
       "time": "00:53:54.95"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--No, no, no.",
       "time": "00:54:04.01"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't mean that.",
       "time": "00:54:04.93"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, is there... is there a basis in this record... will it make a difference? It's not really well briefed, I don't think.",
       "time": "00:54:06.12"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's a thorough brief.",
       "time": "00:54:12.37"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't do things on the ground--",
       "time": "00:54:19.26"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I'd like it or not.",
       "time": "00:54:20.95"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Gornstein, one thing I'm curious about. With all the trouble of various interpretations and famous footnote 49--",
       "time": "00:54:28.45"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--why, in all these years, hasn't the Department of Labor gotten rid of it? [Laughter]",
       "time": "00:54:36.02"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr.-- Gornstein. Mr. Phillips, you have four minutes remaining.",
       "time": "00:54:55.27"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was the pre donning waiting issue decided below?",
       "time": "00:56:18.36"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "They decided--",
       "time": "00:56:58.98"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--no waiting time. They didn't decide \"if\" waiting time... \"which\" waiting time. But they said no... it's irrelevant whether it's before or after, because waiting time isn't covered. So, I don't see how they specifically decided, yes, waiting time is covered, but not pre donning.",
       "time": "00:56:59.61"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, it seems the court below said waiting time isn't covered, so we're not going to engage in any debate about what... if waiting time is... were covered, which waiting time?",
       "time": "00:57:39.76"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Phillips. The case is submitted.",
       "time": "00:59:12.73"
     }

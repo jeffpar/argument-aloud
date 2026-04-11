@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1961/50/19611108a_50.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
       },
       {
         "name": "FRANCIS HOAGUE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "STUART G. OLES",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Teamsters, Chauffeurs, Warehousemen and Helpers of America, Petitioner, versus Lucas Flour Company. Mr. Hoague, you may continue your argument.",
       "time": "00:00:00.00"
     },
@@ -63,13 +67,13 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Hoague, I would like to have you at some time in the argument, discuss the question of whether or not this judgment doesn't rest on two bases, (1) tort and particularly, that is the face of the case which for me is troublesome.",
       "time": "00:01:06.81"
     },
     {
       "turn": 4,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If you -- well, I was going to speak to you myself about it.",
       "time": "00:01:26.23"
     },
@@ -81,7 +85,7 @@
     },
     {
       "turn": 6,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "You take your own time and do it in your own --",
       "time": "00:01:30.85"
     },
@@ -93,7 +97,7 @@
     },
     {
       "turn": 8,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "You do it in your own way.",
       "time": "00:01:37.48"
     },
@@ -105,7 +109,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "The contracts had an arbitration clause.",
       "time": "00:06:00.53"
     },
@@ -117,7 +121,7 @@
     },
     {
       "turn": 12,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I'm looking at it realistically, Mr. Hoague. Of what value is an arbitration clause if either party can use its economic power in defiance of the arbitration clause?",
       "time": "00:07:44.97"
     },
@@ -129,7 +133,7 @@
     },
     {
       "turn": 14,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But they could do it if they didn't have one, didn't they?",
       "time": "00:08:21.15"
     },
@@ -141,7 +145,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are you saying that if you have nearly an arbitration provision or an arbitration procedure, no more than that, that is equivalent as though they didn't say the foregoing arbitration procedure does not surrender the right to strike and it is conceded, of course, the right to strike you deserve. That's what you're saying aren't you?",
       "time": "00:09:42.05"
     },
@@ -153,7 +157,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not merely that there's an implication that there shouldn't be a strike, but there's an implication by not having a specific no-strike provision, you explicitly, for all practical purposes, it's what's written to the contract.",
       "time": "00:10:09.04"
     },
@@ -165,7 +169,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What was then in that contract from which he is charged at 65 could be implied?",
       "time": "00:11:25.08"
     },
@@ -177,7 +181,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was it the general rule that people at 65 were no good -- after 65 were no -- is that a physiological fact that people after 65 were no good?",
       "time": "00:11:30.84"
     },
@@ -189,7 +193,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Don't hesitate.",
       "time": "00:11:42.43"
     },
@@ -201,7 +205,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But there wasn't any -- there wasn't any specific provision from which that implication could be drawn.",
       "time": "00:11:52.49"
     },
@@ -213,7 +217,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Neither of these --",
       "time": "00:11:59.24"
     },
@@ -225,7 +229,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, no, there is no specific. What I'm asking you --",
       "time": "00:12:03.14"
     },
@@ -237,7 +241,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- of what -- of what clause could the restriction against firing or the permission to fire a man at 65, of what clause could that be drawn in any rational discussion? Was there anything in that contract?",
       "time": "00:12:06.59"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, but you think --",
       "time": "00:12:26.31"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, it may not be -- it may not be proper to imply it, but there were some starting point for it.",
       "time": "00:12:30.88"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was there any starting point in the other case?",
       "time": "00:12:38.79"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What was it?",
       "time": "00:12:41.25"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, then I go back to my question. There must be some implied -- some implication that 65 is a cause for discharge. Now that might be -- that might be -- has involved a college or university where it's rather a general rule to retire people at 65.",
       "time": "00:12:52.07"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or surgeons, if he was a surgeon, I could see the implication there, but what implication is there that we haven't yet arrived at the Court where 65 is against to the -- suspend -- suspend the individual.",
       "time": "00:13:11.13"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there much bargaining going on now in circles of collective bargaining in connection with surrendering the right to strike?",
       "time": "00:13:48.56"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are there any contracts provided for that now in the collective bargaining field that surrender the right to strike, pending something like arbitration?",
       "time": "00:14:03.84"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It is a constant source of bargaining there.",
       "time": "00:15:00.02"
     },
@@ -357,7 +361,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And it's the question of arbitration as a constant source of bargaining.",
       "time": "00:15:04.61"
     },
@@ -369,7 +373,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I would suppose maybe that your beginning on the --",
       "time": "00:15:32.30"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I would suppose -- maybe I misunderstood you that your argument is that there is no part of this contract against strikes. That's constantly -- to have constantly bargained on that subject and put them in. They have constantly bargained on the subject of arbitration and put that in, and you say that from that, it would -- you have argued that it would be a practical amendment of the contract to imply the existence of something which is well known in the bargaining field and is (Inaudible) guarded against as -- given they have the right to strike.",
       "time": "00:15:36.13"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What page is that? 208?",
       "time": "00:16:44.01"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now Mr. Hoague is that -- am I right that the court below didn't turn its decision that the strike was a violation of the contract upon the arbitration clause?",
       "time": "00:17:19.32"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So we haven't -- I gather you argue that this particular grievance came within the second paragraph (Voice Overlap) --",
       "time": "00:17:30.26"
     },
@@ -429,7 +433,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And it's not a matter -- well, now you say it's not a question, but does that conceded the --",
       "time": "00:17:39.96"
     },
@@ -441,7 +445,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Because we don't have the benefit of the lower courts' interpretation --",
       "time": "00:17:49.47"
     },
@@ -453,7 +457,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- of the agreement whether this particular grievance falls within the first which has a no-strike provision or the second paragraph.",
       "time": "00:17:52.84"
     },
@@ -465,19 +469,19 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "There's a (Inaudible) question about that.",
       "time": "00:18:05.53"
     },
     {
       "turn": 71,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It involves within what?",
       "time": "00:18:07.69"
     },
     {
       "turn": 72,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The first paragraph.",
       "time": "00:18:09.19"
     },
@@ -489,7 +493,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you mean what you've just read on page 208?",
       "time": "00:18:14.43"
     },
@@ -501,7 +505,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, but if they -- as you've just said, that these were grievance falling within the first paragraph and you're out despite that it's illegal.",
       "time": "00:18:40.32"
     },
@@ -513,7 +517,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are we going to have to decide where this grievance falls without any help from the lower court as to which paragraph that comes with it on this branch of the argument?",
       "time": "00:18:47.80"
     },
@@ -525,7 +529,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't quite understand you concession, because if you're going to stick in the (Inaudible) of the words -- I mean the words are there, if the words aren't there, there's no meaning there, which goes all against the wisdom of interpretation generally. It has merely said that there shall be no suspension of work during such arbitration.",
       "time": "00:19:04.60"
     },
@@ -537,7 +541,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it may mean the next day, it could be.",
       "time": "00:19:23.60"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And if you say it would, you'd be out. I don't follow.",
       "time": "00:19:26.04"
     },
@@ -561,7 +565,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't want to overstate it. I want to know what it is.",
       "time": "00:19:31.54"
     },
@@ -573,7 +577,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "How can I find out -- if you tell me I'm restricted to the words --",
       "time": "00:19:39.15"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What?",
       "time": "00:19:45.64"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well -- then the implications are opened up, even though it's a matter of bargaining. And you know, as well as I do or probably better that not one of the -- that one of the most frequent reasons for not putting in the no-strike clause is because they don't want to use those words.",
       "time": "00:19:47.45"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's common to me, if there's any.",
       "time": "00:20:05.12"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But how do we --",
       "time": "00:20:08.61"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How do we --",
       "time": "00:20:09.40"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How do we know that?",
       "time": "00:20:10.06"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How do we know that?",
       "time": "00:20:11.90"
     },
@@ -669,13 +673,13 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And that's the --",
       "time": "00:20:14.41"
     },
     {
       "turn": 105,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I confess that my brother didn't know it very well, but I was not familiar with that --",
       "time": "00:20:15.08"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You know it, don't you?",
       "time": "00:20:19.98"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You know it, don't you Mr. Hoague?",
       "time": "00:20:21.86"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, alright.",
       "time": "00:20:25.31"
     },
@@ -723,13 +727,13 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But they merely said during the arbitration and if -- if we're going to encrypt it, then if you've got a restricted suspension of striking, I should think the implication is that the restriction ceases when the condition ceases.",
       "time": "00:20:31.14"
     },
     {
       "turn": 114,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do I understand you to say that they -- you admit under the strong question of my brother, that it's a common practice for labor unions that then can't surrender the right to strike and say, “We're going to give you the right to strike, we recognize that, but we don't want to use the word, surrendering the right to strike.” Do I understand you concede that?",
       "time": "00:20:47.48"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Up in Boston?",
       "time": "00:21:22.46"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You mean they put it in to some other language --",
       "time": "00:21:34.79"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- which would mean the same thing, I can understand you.",
       "time": "00:21:37.71"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Because if it was language, I suppose, it's pretty clear and lenient, wasn't it? Do you mean that they (Voice Overlap) --",
       "time": "00:21:40.93"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Hoague, I don't want to ask any question unless that would be coercive. You seem to be able to take care of yourself. But if I may -- are you suggesting -- are you suggesting that Boston is the only place where everything like that takes place?",
       "time": "00:22:02.10"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes. Are you suggesting that's the only place where such things take place?",
       "time": "00:22:16.00"
     },
@@ -813,13 +817,13 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "00:22:20.68"
     },
     {
       "turn": 129,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well Mr. Hoague, may I get back to this case a minute? I just want to be clear about this. This strike occurred before any arbitration had begun.",
       "time": "00:22:21.23"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And therefore, I gather your concession goes to this, but if this was a grievance, subject to arbitration under the first paragraph of Article XIV, then the strike having occurred before the arbitration even began, you were guilty of a violation of the provision no suspension of work pending arbitration.",
       "time": "00:22:34.47"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But as to the facts -- as to the facts, the arbitration began only on a court order eight days or so after the strike started wasn't it?",
       "time": "00:23:04.58"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In other words, you didn't go to arbitration by voluntary agreements between yourself and the company, but rather under the compulsion of a court order that you should go to arbitration.",
       "time": "00:23:14.31"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So you called off the strike and went to arbitration?",
       "time": "00:23:39.43"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And not by force of the agreement?",
       "time": "00:23:52.77"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Oles.",
       "time": "00:24:37.28"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You don't mean that the Garmon case leaves it in Delphic Mystery?",
       "time": "00:25:28.43"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You don't mean that the Garmon left it in Delphic Mystery?",
       "time": "00:25:34.54"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How -- decided by what?",
       "time": "00:25:44.38"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you say stipulated?",
       "time": "00:28:18.62"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Everyone signed the same agreement.",
       "time": "00:29:07.23"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would that have any effect on the legal question?",
       "time": "00:29:22.18"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, there's not any challenge to the fact if the contract was made, does it?",
       "time": "00:30:26.35"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's right.",
       "time": "00:30:34.07"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Oles.",
       "time": "00:34:14.57"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I just ask? Was there a reason why you had a (Inaudible) tort rather than just on breach of contract?",
       "time": "00:34:15.93"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is the legal question as you see it here, different to the ones you've stated in your brief, on the question it presented? I frankly --",
       "time": "00:35:00.89"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- I do not quite understand yet the relevance of what you're saying with reference to the legal issue we have before us.",
       "time": "00:35:11.57"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But I can understand why that would be relevant but why would it be necessary to go into all these facts if that legal question is the one you're presenting, if they didn't raise that question early enough.",
       "time": "00:35:40.77"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But if -- I've been confused as to what you consider to be the legal issue frankly, that's the reason I'm asking (Voice Overlap) --",
       "time": "00:36:17.54"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You haven't -- unless I -- I was -- I was attentive, but I didn't hear the stipulation to which you refer.",
       "time": "00:36:30.70"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When was the suit -- when was the strike began?",
       "time": "00:36:47.40"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May.",
       "time": "00:36:51.21"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I take if the Court had before it the agreement which included --",
       "time": "00:37:34.33"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- which included an obligation of it.",
       "time": "00:37:38.84"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, does that mean prospectively or retroactively?",
       "time": "00:38:49.04"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What you're saying as I understand it is that this decision rendered, I don't know, six months after the bill was filed, after it is tried, this decision rendered that this man had been rightfully discharged, has to be accepted as a basis to decide whether the Court was originally right in issuing the injunction?",
       "time": "00:39:28.26"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That would deprive the Board of any right that it had even if it had a right before by reason of the -- there being an issue between them?",
       "time": "00:39:57.63"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But would that decide whether there was preemption at the beginning of the lawsuit --",
       "time": "00:40:17.60"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- before this issue was decided, when that was the question that the strike was about.",
       "time": "00:40:22.20"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But who had it -- who had it six months before when the strike started?",
       "time": "00:40:52.24"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's the time the strike started. Who had the right to pass on the contro -- labor controversy or labor dispute that was in (Inaudible), the Labor Board?",
       "time": "00:41:00.65"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Isn't that -- isn't that vital that – I can't – that's why I'd like you to tell why that is not a vital thing and (Voice Overlap) --",
       "time": "00:41:15.36"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- it's not.",
       "time": "00:41:23.33"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose the Board didn't found that there had been an unlawful discharge and that it had been done, I mean if arbitrators had found --",
       "time": "00:41:40.78"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would have been the -- what would have been the condition then? Would it still -- the strike have been justified, I mean, unjustifiable?",
       "time": "00:41:49.05"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "00:41:56.43"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was that ever suggested that he was discharged on that ground?",
       "time": "00:42:20.90"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, but when the – when the -- what is the date of the -- of your temporary injunction?",
       "time": "00:42:31.47"
     },
@@ -1299,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What is the date of the answer?",
       "time": "00:42:39.65"
     },
@@ -1311,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well in that –- in that answer, did they set forth that there is preemption because they claim that the discharge was in violation of Section 8?",
       "time": "00:42:56.86"
     },
@@ -1323,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What was the original answer?",
       "time": "00:43:33.73"
     },
@@ -1335,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- (Voice Overlap) the same preemption. What was their defense?",
       "time": "00:43:36.91"
     },
@@ -1347,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where is that? What was the defense they set up in there?",
       "time": "00:43:41.50"
     },
@@ -1359,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's 1959 --",
       "time": "00:44:01.42"
     },
@@ -1371,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'd like to ask --",
       "time": "00:44:08.72"
     },
@@ -1383,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'd like to ask about Mr. Justice Black's question. What was the basis of the defense in the summer of 1958?",
       "time": "00:44:09.55"
     },
@@ -1395,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What reason?",
       "time": "00:44:26.85"
     },
@@ -1407,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would that have been an unfair labor practice?",
       "time": "00:44:34.70"
     },
@@ -1419,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understand that but I haven't been able to make my -- clear my -- my thoughts. I haven't been able to make it clear. My inquiry is this, if at the time that the -- you started to enjoin this trial, they've claimed that there was an unfair labor practice which had brought this, could the jurisdiction of the Board be escaped to pass upon -- its preemption be refused or rejected because six months later, there was an arbitration which decided the facts in a way that the Board might or might not have decided.",
       "time": "00:44:56.33"
     },
@@ -1431,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Arguable afterwards, in the Garmon case?",
       "time": "00:45:48.04"
     },
@@ -1443,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I have no doubt about that.",
       "time": "00:46:09.57"
     },
@@ -1455,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The legal question that I'm talking about is --",
       "time": "00:46:11.74"
     },
@@ -1467,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Were they deciding something which had been decided the other way that would have been an unfair labor practice, and if that is true, why did not the Board's right to pre -- the power -- preempt state power at the time this proceeding was found?",
       "time": "00:46:15.25"
     },
@@ -1479,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I have --",
       "time": "00:46:36.49"
     },
@@ -1491,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- (Voice Overlap) we have to decide it, maybe I'm wrong about it.",
       "time": "00:46:37.17"
     },
@@ -1503,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They didn't say, there had been an unfair labor --",
       "time": "00:46:54.36"
     },
@@ -1515,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- practice by the company?",
       "time": "00:46:56.64"
     },
@@ -1527,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They said in fact, would you say, if true, would have shown an unfair labor practice.",
       "time": "00:46:58.78"
     },
@@ -1539,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Let me ask you this question. This case is here on the basis of the litigation of 1959, is it right? Is that right?",
       "time": "00:47:16.53"
     },
@@ -1551,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, could -- even assuming, assuming that if omnisciently Garmon too has been foreseen by counsel and has been raised in the pleading, and therefore, the matter should arguably have gone to the full. What I'm asking is this question. Could counsel by free willing stipulation or agreement not change the course of the litigation which arose in 1959?",
       "time": "00:47:25.42"
     },
@@ -1563,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't think that conferred jurisdiction, I understand that.",
       "time": "00:48:06.65"
     },
@@ -1575,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, no, no, I understand that, but couldn't facts or the ascertainment of fact have change, which changed the course of the litigation?",
       "time": "00:48:10.36"
     },
@@ -1587,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "What was the date? What was the exact date on which they raised the preemption issue?",
       "time": "00:52:02.46"
     },
@@ -1599,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "And the arbitration decision, the award has been made when?",
       "time": "00:52:20.68"
     },
@@ -1611,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The stipulation was in September of 1958, is that right?",
       "time": "00:52:30.14"
     },
@@ -1623,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, now when was the third amended complaint filed, Mr. Oles?",
       "time": "00:52:37.91"
     },
@@ -1635,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Or after –- after the coming down of the arbitrators award.",
       "time": "00:52:47.64"
     },
@@ -1647,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Oles, before you sit down, it occurred to me that here, unlike the freedom you have under the -- what you tell us as the Washington procedure, here in this case for us, you will have to differentiate between the contract and the tort claim so far as the 301 suability in a state court is considered.",
       "time": "00:53:23.26"
     },
@@ -1659,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Excuse me Mr. Oles, I wonder if this helps us on -- on the question I asked you at page 4 of the record. It's the second amended complaint filed on December 9 at page 8, paragraph 8 or recited the facts of the arbitration.",
       "time": "00:54:33.32"
     },
@@ -1671,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And the prayer is for permanent injunctive relief, and I gather this is the damages claim, 4781 with interest?",
       "time": "00:54:49.91"
     },
@@ -1683,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So that –- that –- then it's –- so this complaint to which the motion was addressed on preemption ground --",
       "time": "00:55:00.42"
     },
@@ -1695,7 +1699,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:55:10.07"
     },
@@ -1707,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This is an argument going to our jurisdiction --",
       "time": "00:59:57.59"
     },
@@ -1719,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- that this is not a final judgment?",
       "time": "01:00:00.02"
     },
@@ -1731,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Could you explain what your practice is in that respect?",
       "time": "01:00:11.91"
     },
@@ -1743,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I ask you this? Under your practice, if a rehearing is allowed before the -- what you call the intermediate -- if that's the name for which the panel --",
       "time": "01:00:59.05"
     },
@@ -1755,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The department. Thank you very much. Are rehearings -- may rehearings be granted before the department? May a petition for rehearing be filed before the department?",
       "time": "01:01:12.51"
     },
@@ -1767,7 +1771,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "My question is this, my question is this. Is this application to your Supreme Court en banc like a petition for rehearing? I take it, I don't speak by the book, but I do not think that it's necessary before a person comes here from a state court judgment to file a petition for rehearing even though such a petition is trialable I suppose in every country in the land.",
       "time": "01:01:37.36"
     },
@@ -1779,7 +1783,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, is this the same as a petition for rehearing?",
       "time": "01:02:03.32"
     },
@@ -1791,7 +1795,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That this can be reversed by a larger tribunal?",
       "time": "01:02:09.30"
     },
@@ -1803,7 +1807,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well now, suppose this case had reasoning in your court of -- United States Court of Appeals or Circuit -- what is your Circuit?",
       "time": "01:02:26.53"
     },
@@ -1815,7 +1819,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The Ninth Circuit. Suppose that this had been before a panel of the Ninth Circuit and there was then -- a person can come here directly on a petition from a three-judge panel of the Court of Appeals and it wouldn't be an answer to say you're the first to ask for a rehearing en banc would it?",
       "time": "01:02:37.86"
     },
@@ -1827,7 +1831,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, what is the difference?",
       "time": "01:03:01.20"
     },
@@ -1839,7 +1843,7 @@
     },
     {
       "turn": 299,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Final judgment.",
       "time": "01:03:14.97"
     },
@@ -1851,7 +1855,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "01:03:24.16"
     },
@@ -1863,7 +1867,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's -- it's the court that has the reversing power, as you have it there.",
       "time": "01:03:33.37"
     },
@@ -1875,7 +1879,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "We can -- of course, from the Court of Appeals, finality is not a requirement as you point out.",
       "time": "01:03:41.03"
     },
@@ -1887,7 +1891,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Have we had a question like this coming out from your state -- from your state?",
       "time": "01:04:17.88"
     },
@@ -1899,7 +1903,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Did you Shepardize our Garmon case to see if there has been any subsequent --",
       "time": "01:04:28.11"
     },
@@ -1911,7 +1915,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I detain you a minute longer. We've had some cases coming here from -- in fact there's one question in my mind that in this term from Washington, the decision is very (Inaudible). I don't mean Washington, I mean Missouri.",
       "time": "01:04:44.42"
     },
@@ -1923,7 +1927,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "My brother here didn't know it. But I think they withheld that you have to go through a -- through the whole thing.",
       "time": "01:05:01.21"
     },
@@ -1935,7 +1939,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Haven't you heard that?",
       "time": "01:05:08.89"
     },
@@ -1947,7 +1951,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "01:05:11.56"
     },
@@ -1959,7 +1963,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Can they still go there? Can they still make application before your (Voice Overlap) --",
       "time": "01:05:54.02"
     },
@@ -1971,7 +1975,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well then, if there are, do you mean --",
       "time": "01:06:06.29"
     },
@@ -1983,7 +1987,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- they should have gone there.",
       "time": "01:06:12.61"
     },
@@ -1995,7 +1999,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Like the decision of the Appellate Division in New York. Well, I have agreed to go to the Court of Appeals to be a justice, but I didn't.",
       "time": "01:06:17.15"
     },
@@ -2007,7 +2011,7 @@
     },
     {
       "turn": 327,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Does your court sua sponte ever -- take the case over?",
       "time": "01:06:27.94"
     },
@@ -2019,7 +2023,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "And after the opinion has been rendered?",
       "time": "01:06:44.68"
     },
@@ -2031,7 +2035,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did you say clear and understandable one?",
       "time": "01:10:59.11"
     },
@@ -2043,7 +2047,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did you say a clear and understandable distinction?",
       "time": "01:11:02.88"
     },
@@ -2055,7 +2059,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I've always had a little difficulty (Voice Overlap) --",
       "time": "01:11:09.06"
     },
@@ -2067,7 +2071,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I have no doubt if it's understandable, if he made it that way in order to (Inaudible).",
       "time": "01:11:28.41"
     },
@@ -2079,7 +2083,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- some controversy about what's remediable.",
       "time": "01:11:34.51"
     },
@@ -2091,7 +2095,7 @@
     },
     {
       "turn": 341,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Sure, if that's the --",
       "time": "01:14:12.10"
     },
@@ -2103,7 +2107,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did the arbitrators interpret it? I haven't looked at it carefully as I should. Did they interpret the contract meaning, any part of its meaning, that the right to strike would be full borne?",
       "time": "01:14:31.66"
     },
@@ -2115,7 +2119,7 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It was moot so far as future responsibility or consequences was observed.",
       "time": "01:14:57.72"
     },
@@ -2127,7 +2131,7 @@
     },
     {
       "turn": 347,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Which conduct?",
       "time": "01:16:14.30"
     },
@@ -2139,7 +2143,7 @@
     },
     {
       "turn": 349,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Which conduct, the strike?",
       "time": "01:16:15.73"
     },
@@ -2151,7 +2155,7 @@
     },
     {
       "turn": 351,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did the parties argue Lincoln Mills to the Supreme Court of Washington?",
       "time": "01:16:52.29"
     },
@@ -2163,7 +2167,7 @@
     },
     {
       "turn": 353,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And did they take any notice of the argument?",
       "time": "01:16:59.07"
     },
@@ -2175,7 +2179,7 @@
     },
     {
       "turn": 355,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if this judgment that can rest on tort, can we avoid all of these nice subtle questions?",
       "time": "01:17:36.60"
     },
@@ -2187,13 +2191,13 @@
     },
     {
       "turn": 357,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, the other way around to it, Mr. Oles, we can rest on breach of contract and the arguably protected -- prohibited argument --",
       "time": "01:17:45.84"
     },
     {
       "turn": 358,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I meant not to reference to that problem, in reference to the exclusive -- with reference to the --",
       "time": "01:17:55.33"
     },
@@ -2205,19 +2209,19 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- jurisdiction.",
       "time": "01:18:01.86"
     },
     {
       "turn": 361,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Oh yes.",
       "time": "01:18:02.69"
     },
     {
       "turn": 362,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You're quite right, Your Honor. Let me add this word on this subject because it -- I think it should be said. Are we going to hold that it is the law that a union can agree to a $3 wage to the employees, sign it solemnly, and the next morning call out its people and put up pickets demanding $4? Because this is exactly what this local is saying, it has the right to do without breaching the contract. Can it do so even though there is written into its contract an arbitration clause which says that matters in dispute shall be arbitrated? Incidentally, there's been some argument at all levels of this case that after all, the employer didn't demand arbitration to start with. Well, of course, all that the employer was doing was doing what he had an expressed right to do and do it to discharge a man. There's nothing in the labor contract that says you shall never discharge a man or I suppose sell some flour without arbitration. This reaches to absurdity. The point is that the union exercise economic power, overwhelming economic power, conclusive economic power in this instance to force an employer to do something or to refrain from doing something which he had a clear right to do. Or for that matter, could an employer agree to pay $3 an hour and cut the wages to $2. Now, if the man wouldn't agree, lock him out. Because again, this is exactly what this local says it can do without breaching contract. Now, I recognize that this Court is confronted daily with profound and difficult conceptual problems particularly in this empty blackness of jurisdictional lines to be drawn. I recognize that this Court has to deal with difficult relationships, but I also and reminded constantly in sitting here that this is the Supreme Court, the Highest Court. And we do have before us a question of something that is fairly fundamental, a right or wrong. Unless the Supreme Court of the State of Washington is upheld in this matter, in this case, a real and genuine injustice has been done. We are holding that in effect, this respondent has no remedy and no solution, unless he had what he did take by arbitration and subsequently in the courts. In other words, it is the duty of course of this Court to use its phrase to elucidate in litigation these difficult areas. It has of course also a higher duty. And we submit that in this case, it points very clearly to doing justice and equity in this case and thereby affirming this rather small and perhaps to this union a rather insignificant little judgement. Thank you.",
       "time": "01:18:03.02"
     },
@@ -2229,7 +2233,7 @@
     },
     {
       "turn": 364,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Hoague.",
       "time": "01:21:02.05"
     },
@@ -2241,7 +2245,7 @@
     },
     {
       "turn": 366,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's 1959.",
       "time": "01:21:33.32"
     },
@@ -2253,7 +2257,7 @@
     },
     {
       "turn": 368,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That was filed in 1959.",
       "time": "01:21:36.04"
     },
@@ -2265,7 +2269,7 @@
     },
     {
       "turn": 370,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, he said you didn't raise it until after the stipulation on September 1958.",
       "time": "01:21:44.95"
     },
@@ -2277,7 +2281,7 @@
     },
     {
       "turn": 372,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where is the language you were pointing out Mr. Hoague?",
       "time": "01:22:03.63"
     },
@@ -2289,7 +2293,7 @@
     },
     {
       "turn": 374,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Excuse me Mr. Hoague. You say the first day of trial was that on March 16, 1959?",
       "time": "01:23:06.79"
     },
@@ -2301,7 +2305,7 @@
     },
     {
       "turn": 376,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Proceedings that begin at page 19.",
       "time": "01:23:12.38"
     },
@@ -2313,7 +2317,7 @@
     },
     {
       "turn": 378,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Did I understand you to say Mr. Hoague that the -- the court would strike out a plea to -- challenging its jurisdiction?",
       "time": "01:23:16.00"
     },
@@ -2325,7 +2329,7 @@
     },
     {
       "turn": 380,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But it challenged the jurisdiction, did you do it -- did your court strike that?",
       "time": "01:23:36.41"
     },
@@ -2337,7 +2341,7 @@
     },
     {
       "turn": 382,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well, then how did you question the power of the Court?",
       "time": "01:23:48.14"
     },
@@ -2349,7 +2353,7 @@
     },
     {
       "turn": 384,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "How would you?",
       "time": "01:23:54.24"
     },
@@ -2361,7 +2365,7 @@
     },
     {
       "turn": 386,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did you raise it in answer to the complaint filed on May 27, 1958?",
       "time": "01:24:57.19"
     },
@@ -2373,7 +2377,7 @@
     },
     {
       "turn": 388,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, did you raise it before the thing went to arbitration in September of 1958.",
       "time": "01:25:06.35"
     },
@@ -2385,7 +2389,7 @@
     },
     {
       "turn": 390,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, the second complaint --",
       "time": "01:25:17.02"
     },
@@ -2397,7 +2401,7 @@
     },
     {
       "turn": 392,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- which I gather you did answer --",
       "time": "01:25:20.82"
     },
@@ -2409,7 +2413,7 @@
     },
     {
       "turn": 394,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- it was not filed in December 1958 and that complaint cited all the facts of the completed arbitration, isn't it?",
       "time": "01:25:22.41"
     },
@@ -2421,7 +2425,7 @@
     },
     {
       "turn": 396,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And as I understood Mr. Oles, his point is, that then, it was too late to raise this question because all of the facts have been decided and there wasn't any possibility of there being a matter for the National Labor Relations Board.",
       "time": "01:25:30.39"
     },
@@ -2433,7 +2437,7 @@
     },
     {
       "turn": 398,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was the --",
       "time": "01:26:07.42"
     },
@@ -2445,7 +2449,7 @@
     },
     {
       "turn": 400,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- protectiveness of the strike was the question of whether it was a protected activity, whether the strike was a protected activity, was the determination of that question unrelated to the discharge of Welsch?",
       "time": "01:26:08.65"
     },
@@ -2457,7 +2461,7 @@
     },
     {
       "turn": 402,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Welsch have nothing to do with the strike?",
       "time": "01:26:31.10"
     },
@@ -2469,7 +2473,7 @@
     },
     {
       "turn": 404,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well then --",
       "time": "01:26:35.73"
     },
@@ -2481,7 +2485,7 @@
     },
     {
       "turn": 406,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the quality of the discharge is on whether the strike was a protected activity, doesn't it?",
       "time": "01:26:50.52"
     },
@@ -2493,7 +2497,7 @@
     },
     {
       "turn": 408,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There is no connection.",
       "time": "01:27:02.31"
     },
@@ -2505,7 +2509,7 @@
     },
     {
       "turn": 410,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And he may not limit -- and the union may not limit its right to strike by its own voluntary action and say, “You're striking because -- you're striking because you're asking us to reinstate a fellow whom we admit was properly discharged.”",
       "time": "01:27:34.13"
     },
@@ -2517,7 +2521,7 @@
     },
     {
       "turn": 412,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well that is the question here.",
       "time": "01:27:53.88"
     },
@@ -2529,7 +2533,7 @@
     },
     {
       "turn": 414,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is the question here.",
       "time": "01:27:56.33"
     },
@@ -2541,7 +2545,7 @@
     },
     {
       "turn": 416,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Whether the -- whether the submission to arbitration to be bound by it, isn't the same thing as saying, “Yes we agree that Welsch was properly discharged.”",
       "time": "01:27:58.52"
     },
@@ -2553,7 +2557,7 @@
     },
     {
       "turn": 418,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't know the facts.",
       "time": "01:28:08.97"
     },
@@ -2565,7 +2569,7 @@
     },
     {
       "turn": 420,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All I'm saying is I'm --",
       "time": "01:28:10.08"
     },
@@ -2577,7 +2581,7 @@
     },
     {
       "turn": 422,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- just trying to find out what the issues are.",
       "time": "01:28:11.50"
     },
@@ -2589,7 +2593,7 @@
     },
     {
       "turn": 424,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose there had been, suppose they said after the litigation got underway, we agree that they had a right to discharge him, we agree he need not taken back, but we strike so that you should take him back. Isn't that relevant to our problem?",
       "time": "01:28:33.97"
     },
@@ -2601,7 +2605,7 @@
     },
     {
       "turn": 426,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It all depends because there was a provision in the contract that they may discharge a properly dischargeable employee. And if he was properly dischargeable and they agree that he had a right to discharge him and they then do not allow him to enforce that agreement, I don't see the difference between that and the $3 and $4.",
       "time": "01:29:14.58"
     },
@@ -2613,13 +2617,13 @@
     },
     {
       "turn": 428,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, that's the question. That's the issue.",
       "time": "01:29:37.52"
     },
     {
       "turn": 429,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Do you understand that the doctrine of preemption which allows the Board to determine questions is governed or controlled by how the Board or how someone may eventually decide the issue that the Board has a right initially to determine?",
       "time": "01:29:40.74"
     },
@@ -2631,7 +2635,7 @@
     },
     {
       "turn": 431,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you agree that the facts on which the -- if you agree that an arguable question has its underpinning, taken away because the facts aren't -- what the argument can be based on, do you think that's irrelevant to the question?",
       "time": "01:30:11.60"
     },
@@ -2643,7 +2647,7 @@
     },
     {
       "turn": 433,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Take it away.",
       "time": "01:30:43.23"
     },
@@ -2655,7 +2659,7 @@
     },
     {
       "turn": 435,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you mean, it had the jurisdiction to determine the facts?",
       "time": "01:30:44.00"
     },
@@ -2667,7 +2671,7 @@
     },
     {
       "turn": 437,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- (Voice Overlap) be taken away because someone determined those facts one way or the other later on.",
       "time": "01:30:49.71"
     },
@@ -2679,13 +2683,13 @@
     },
     {
       "turn": 439,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The parties couldn't agree that the -- the practice -- the parties couldn't agree that white is -- isn't black, was it? Because, once the Board has jurisdiction, that's been usable, this -- that must persist through all its synergy.",
       "time": "01:31:01.97"
     },
     {
       "turn": 440,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Hoague, if you would like about three minutes to sum up your argument, to point to any other portion of your brief, you may do so.",
       "time": "01:31:19.35"
     },

@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1991/91-367/19920331a_91-367.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CLARENCE THOMAS",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD LYNN DUCOTE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PAUL S. WEIDENFELD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE THOMAS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 91-367, Carol Ankenbrandt v. Jon A. Richards. Am I pronouncing your name correctly?",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ducote... Mr. Ducote. You may proceed.",
       "time": "00:00:56.67"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, we could go further, could we not, Mr. Ducote, in saying what the case is not about, in saying that it is not about a decree of divorce, it is not about child custody, it's not about probate... something like that?",
       "time": "00:03:08.57"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but you... in your earlier answers to the chief justice you seem to be saying that well, if it were a family matter, that would be a different question. As I understand, your position is if it were probate, if it were any traditional family matter, there would still be no basis for the Federal court staying out, right?",
       "time": "00:04:42.87"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's right.",
       "time": "00:05:10.20"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you can sue in Federal court for divorce.",
       "time": "00:05:24.51"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what if a husband sues for a divorce and requests a property settlement agreement, saying that the amount of controversy, our property, amounts to several hundred thousand dollars. Would that meet the jurisdictional amount for diversity?",
       "time": "00:05:47.21"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We really don't have to decide that question, do we, to rule in your favor? There could be a domestic relations exception which embraced divorce, child custody, and still did not extend as far as your case.",
       "time": "00:06:20.68"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about a suit for the partition of real estate in another State? I mean, that, like divorce, has been considered traditionally a nontransitory cause of action, so you had to sue within the State where the property was. If you sued in another State's courts you couldn't get it, but your position is you can sue in any Federal court for it.",
       "time": "00:06:38.68"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Don't you think that that congressional mandate took into account accepted notions of transitory causes of action and nontransitory causes of action so that it was entirely understood that to get a divorce you could only sue in the court of the State where the people are resident?",
       "time": "00:07:34.25"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're not defining their own. They're just assuming that the congressional grant of jurisdiction, if not the constitutional grant of jurisdiction, took into account ordinary notions of nontransitory causes of action that could only be brought in certain courts. What about criminal jurisdiction? Can Federal courts try for State crimes? The traditional notion is that no sovereign enforces the criminal laws of another sovereign.",
       "time": "00:08:55.22"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can a State attorney bring in Federal court a prosecution for a State crime?",
       "time": "00:09:17.91"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In some of our cases, Mr. Ducote, we've said that when Congress enacts a jurisdictional measure it takes it with knowledge of any judicial gloss on it, so to speak, such as Canon v. University of Chicago. Now, this Court has been speaking about domestic relations exceptions to diversity jurisdiction since the turn of the century, and the Congress has revisited the diversity statute several times and never made any addition to it indicating that it disapproved of that exception. Doesn't that suggest that your analysis is a little bit two-dimensional when you simply say well, we just look at the statute?",
       "time": "00:09:54.50"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is there any suggestion that that was done in the light of this Court's statement about the domestic relations exception?",
       "time": "00:12:02.50"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but these cases, speaking of the domestic relations exception, have been on the books... our books for a long time. Are you saying we should overrule them?",
       "time": "00:12:29.99"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Absolutely right, and one could easily say that those cases referred to things like seeking a decree of divorce, child custody, other nontransitory causes of action, and that therefore your case is not governed by them, but when you get into the more general area, it seems to me you're arguing for just a rather sweeping clearing of the brush, so to speak, which I'm not sure isn't inconsistent with all our cases.",
       "time": "00:12:46.66"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Counsel, before you get to that point, suppose that in this case the mother was involved in the proceedings in the Louisiana domestic court and the court made findings of fact that the abuse had not occurred? I take it that that would have operated as issue preclusion in the suit that you're bringing now.",
       "time": "00:14:38.67"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It would not.",
       "time": "00:15:07.60"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I think that in other States it would, although I'm not sure of that, and if that's so then my next question would be if there would be issue preclusion going back the other way, if the tort were tried first, I assume it would not be a violation of due process at least for a domestic court, say, that this has already been litigated and it's going to accept those findings.",
       "time": "00:15:15.67"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Ducote, was there any equitable relief sought in this case?",
       "time": "00:17:32.89"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It might be a different case if there were equitable relief. I mean, would you have any problem with the Federal court using its power to decline to exercise equitable jurisdiction on the basis that family law matters, even more broadly than divorce and status and affiliation and so forth, shouldn't be addressed by Federal courts?",
       "time": "00:17:39.61"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Counsel, I'm interested from a practical point of view. What is the great attraction for you of a Federal court in Louisiana?",
       "time": "00:18:37.25"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Ducote. Mr. Weidenfeld, we'll hear from you.",
       "time": "00:19:36.20"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Weidenfeld, you just use the word abstention. Did you mean exception?",
       "time": "00:20:07.15"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course, that general proposition doesn't give us the answer to this case, yet.",
       "time": "00:20:56.15"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Weidenfeld, do you think the exception which you would have us continue to recognize is based on the Constitution, or is it something statutory? Can Congress change it?",
       "time": "00:21:33.19"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So you don't think Congress could directly address this, and for instance in the parental kidnapping case direct Federal courts to have jurisdiction of certain family related matters?",
       "time": "00:22:10.45"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes. Would you answer, though, the question I asked? Do you think Congress can enact laws such as the parental kidnapping case and give Federal courts jurisdiction over matters that do relate, in a sense, to family matters?",
       "time": "00:22:39.93"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes or no.",
       "time": "00:23:00.26"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--you're pressing for an exception to Federal jurisdiction. Would it be correct to say that we're really talking about abstention rather than exception?",
       "time": "00:23:41.22"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, they certainly are different, but I'm wondering if all through the years we're really speaking of the Federal courts abstaining from getting into this area rather than formulating a nonstatutory exception, so to speak, to diversity jurisdiction.",
       "time": "00:24:17.68"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, isn't it dangerous to read into the Constitution what isn't there, to wit, a domestic relations exception to Federal jurisdiction, and aren't we on sounder ground if we were talking about abstention, as maybe the Court should have done over the years?",
       "time": "00:25:12.73"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that really is a question of what law is applicable, isn't it, rather than whether there's jurisdiction? I mean, if that is the rule in Louisiana, presumably the same result will obtain on the merits no matter whether it's in the State court or in the Federal district court?",
       "time": "00:26:44.99"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, we may have deferred to it, but it doesn't make it jurisdictional, does it?",
       "time": "00:27:32.63"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you think it's... your criterion of what is domestic looks to the State law of capacity, is that what you're saying?",
       "time": "00:28:13.01"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So in any case these are sort of pointers as to what presumably the Court may have had in mind and Congress may have had in mind perhaps in ratifying what we did, but you're not making the argument that every State law with respect to capacity is jurisdictional--",
       "time": "00:29:28.76"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--With respect to Federal jurisdiction.",
       "time": "00:29:43.60"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If a wife kills her husband somehow in violation of Federal law is it your position that a Federal criminal court could not entertain the suit because that involves domestic matters?",
       "time": "00:30:27.34"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I know you haven't. That's why I asked you the question.",
       "time": "00:30:47.92"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If a wife kills her husband in some manner that violates Federal law, using a handgun that's been carried interstate or something like that, is it your position that there can be no Federal prosecution because it's a domestic matter?",
       "time": "00:30:53.66"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, why is that different from a tort in which a wife hits her husband, and then the next question is going to be why is that different from a tort in which a father hits his son?",
       "time": "00:31:08.14"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is not a spouse-killing Federal crime, it's a general Federal criminal statute. You cannot... you know, any crime committed with the use of a handgun that's been carried interstate, and it so happens that a wife kills her husband in violation of that statute. It's not a specific Federal spousal statute.",
       "time": "00:31:40.97"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you, among these cases... I'm just not as familiar as I should be with the earlier cases. How many of the earlier cases was jurisdiction sought to be invoked on the basis of diversity of citizenship? Are there some?",
       "time": "00:32:26.57"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They were... under the Popovici case they were trying to... suing under Bassett or something or something like that, wasn't it?",
       "time": "00:32:44.73"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:33:01.66"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What is your answer if a child is battered, receives severe injuries and sues for medical payments, sues the father through a next friend?",
       "time": "00:33:07.39"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes.",
       "time": "00:33:25.12"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes.",
       "time": "00:33:31.61"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "This is a child suing the parent.",
       "time": "00:33:34.91"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Weidenfeld, a few minutes ago you were asked by Justice Stevens whether there had been any cases sounding of diversity jurisdiction in which this statement as to the domestic relations exception had been announced. What do you conceive the basis of the Federal jurisdiction to have been in the case of Barber v. Barber?",
       "time": "00:36:29.79"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, and that certainly suggests that even back then, December term 1858, that the Court saw definite limits to the domestic relations exception, doesn't it? I mean, didn't they allow there the enforcement of a New York judgment for alimony?",
       "time": "00:36:58.86"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But Mr. Weidenfeld, the State court is through with this case. It's awarded custody to the mother, the marriage is terminated, only money damages are sought. It seems to me this is a perfect case for Federal diversity jurisdiction.",
       "time": "00:38:29.54"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "In Louisiana, is it open to a third party stranger to come in and reopen a question like that?",
       "time": "00:40:38.74"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In another sense that doesn't help you, though, because if the Federal court enters a judgment making certain findings as, let's say the child abuse did occur, if the proceeding is always open in Louisiana and if Louisiana does not give preclusive effect to that determination, the jurisdiction of the Louisiana court remains unfettered and unconstrained by the Federal judgment.",
       "time": "00:41:04.95"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But the State court is just as free as it would have been if there had been no Federal proceeding at all, as I understand both your submission and that of your opposing counsel.",
       "time": "00:41:53.28"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, couldn't... are you agreeing that you could not claim collateral estoppal, an offensive use, let's say, of collateral estoppal in a State court if the State proceeding is left open and there has been a determination and judgment in the Federal proceeding?",
       "time": "00:42:07.11"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, the other way around. Let's... I thought you were saying the State proceeding is never closed, so there's no judgment and therefore no preclusive effect running from the State proceeding binding on the parties in the Federal proceeding, but if the Federal proceeding goes to judgment and the State proceeding is always open, one could make, I presume, either offensive or defensive use of collateral estoppal if one reopens the State proceedings based on findings of fact made in the Federal tort action.",
       "time": "00:42:28.19"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:43:00.91"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But Mr. Weidenfeld, there are a lot of tort actions that could have an effect on a custody decree. I mean, a tort action by a total stranger against the mother who has been given custody on the ground that she was a drunken driver and injured... or on the ground that she was violent and whipped the plaintiff's child, I mean, that would be an indication in the State courts, wouldn't it, of the mother's incapacity or unsuitability to have custody of the child? Now, is that tort suit to be disallowed in Federal courts as well because it might have a collateral estoppal effect on the State custody proceeding?",
       "time": "00:43:34.96"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I know that's your test because it fits your case, but I don't know why the one is any more logical than the other.",
       "time": "00:44:28.23"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But for Younger, even in the criminal context there has to be a pending proceeding, doesn't there, a pending proceeding in the State court?",
       "time": "00:45:03.07"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, we don't need a domestic relations exception then, if we have that sort of an abstention doctrine. It's to accomplish exactly the same purpose.",
       "time": "00:45:30.82"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "Counsel, one question for clarification. Let's assume that the domestic relations exception applies to the father, respondent Richards. How does it apply to his companion, respondent Kesler?",
       "time": "00:46:10.61"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Weidenfeld. Mr. Ducote, you have 11 minutes remaining.",
       "time": "00:48:08.25"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "He could never get custody back.",
       "time": "00:49:03.39"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, most... all of us I guess react by where our own practice was. Where I practiced, you could... you would... a father who was denied custody could have some years later come back in and moved to reopen that saying look, the mother is not proving to be a good custodian, there are new facts available, the money is situated differently, the child is now 14 years old and expressed a desire to live with me, and the decree would be reopened. That doesn't happen in Louisiana.",
       "time": "00:49:39.64"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would you be here making the same argument if instead custody had been awarded to the mother but no termination of parental rights? Would you still think that the Federal courts should entertain the tort action?",
       "time": "00:50:42.76"
     },
@@ -855,13 +855,13 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Ducote. The case is submitted.",
       "time": "00:51:56.56"
     },
     {
       "turn": 136,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:51:59.88"
     }

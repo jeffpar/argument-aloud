@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1979/79-198/19800219a_79-198.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "MARSHALL COLEMAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ELLEN BROADMAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in Supreme Court of Virginia against the Consumers' Union. Mr. Attorney General, I think you may proceed whenever you're ready now.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did you concede, General Coleman, that the Supreme Court of Virginia is a person under 1983?",
       "time": "00:03:03.88"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I'm not talking about judicial immunity. I thought that immunity was a defense that one raised. I think, in order to have a lawsuit under 1983, you have to show that the person you are suing is a person for purposes of 1983 as defined by Congress under Monell and related cases.",
       "time": "00:03:19.45"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there any connection between Mr. Justice Rehnquist's question, the subject he's bringing up, and the fact that the party named was -- the named parties are the Supreme Court, presumably as an entity, and Lawrence I'Anson, the Chief Justice?",
       "time": "00:04:15.95"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Clearly, he is a person. He --",
       "time": "00:04:35.65"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Ms. Broadman.",
       "time": "00:14:05.53"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Broadman, I take it, you do contend that the Supreme Court of Virginia, as an entity, is a person under Section 1983 and 1941?",
       "time": "00:14:35.40"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But did the chief justice promulgate these rules?",
       "time": "00:15:01.64"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It was the court.",
       "time": "00:15:05.26"
     },
@@ -151,13 +151,13 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, but he didn't --",
       "time": "00:15:08.56"
     },
     {
       "turn": 20,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He's not all of them.",
       "time": "00:15:10.37"
     },
@@ -169,7 +169,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "He was an appropriate defendant alone in this case, was he?",
       "time": "00:15:13.01"
     },
@@ -181,7 +181,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Suppose that you had sued just as the Supreme Court of Virginia. Do you think the Supreme Court of Virginia, as an entity, is a person within 1983?",
       "time": "00:15:16.75"
     },
@@ -193,7 +193,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And what happened to-- was there a damages claim in this case?",
       "time": "00:16:47.21"
     },
@@ -205,7 +205,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But, I suppose if -- I suppose that if you win, they could have and would -- and should be entitled to damages under 1983?",
       "time": "00:16:52.70"
     },
@@ -217,7 +217,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right.",
       "time": "00:17:22.04"
     },
@@ -229,7 +229,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what about attorney's fees for the injunction?",
       "time": "00:17:24.21"
     },
@@ -241,7 +241,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But not damages.",
       "time": "00:18:08.58"
     },
@@ -253,13 +253,13 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then, Judge Stump, I take it, in Stump against Sparkman, would have been liable for attorney's fees?",
       "time": "00:18:15.83"
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But not damages?",
       "time": "00:18:22.12"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but they r --",
       "time": "00:18:33.77"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But they got sopped by immunity.",
       "time": "00:18:34.88"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you -- and I suppo -- and I think you say that -- and you say that action, on judicial capacity, a judge is immune for, at least from damages -- for damages.",
       "time": "00:18:39.86"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:18:53.70"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:18:57.00"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What do you rely on if a -- other than the citation to the string of cases in the committee report that the Congress, in enacting the Civil Rights Attorney's Fee Act, intended to at -- abolish damages?",
       "time": "00:19:11.76"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Certainly, there's nothing in the Act itself that suggests that persons who have had immunity in the past should be liable for attorney's fees, is there?",
       "time": "00:19:44.80"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Until -- people who have had, say, a judicial immunity.",
       "time": "00:20:01.59"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I don't know that Pierson against Ray, for example, broke it down that way. They just said the judges have been traditionally immune.",
       "time": "00:20:10.70"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that's in a House report, not in the statute, right?",
       "time": "00:21:05.67"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The underlying lawsuit here was under Section 1983.",
       "time": "00:21:11.66"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And its -- in which the Plaintiffs prevailed?",
       "time": "00:21:15.87"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And is the validity of that lawsuit now being attacked or the validity of that judgment or the validity of bringing a 1983 action against --",
       "time": "00:21:21.59"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- the court and its chief justice?",
       "time": "00:21:32.83"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's not either --",
       "time": "00:21:38.70"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's neither here nor there. You could -- the Plaintiff could hardly sue a state legislature for passing concededly unconstitutional law, could it?",
       "time": "00:21:39.85"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Under 1983?",
       "time": "00:21:51.36"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Could it?",
       "time": "00:21:53.67"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Could a plaintiff sue a state legislature under Section 1983 for enacting a law that was allegedly and concededly unconstitutional?",
       "time": "00:21:55.63"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well--",
       "time": "00:22:08.84"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Couldn't he --",
       "time": "00:22:10.18"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "-- couldn't he sue each one of them officially as you did here?",
       "time": "00:22:10.85"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes.",
       "time": "00:22:17.75"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you sued each one of these judges, you say --",
       "time": "00:22:22.00"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "-- in their official capacity.",
       "time": "00:22:25.41"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And that's okay. Well, why couldn't you sue each of the members of the legislature “in his official capacity”?",
       "time": "00:22:27.86"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Also, a le -- a state legislature might not be a person within the meaning of 1983.",
       "time": "00:22:41.49"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's a separate issue.",
       "time": "00:22:47.85"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was -- I don't see how you can make the court a person and can't make the legislature a person.",
       "time": "00:22:49.48"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, my --",
       "time": "00:23:01.63"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Going back to my original question, before we got a little feel --",
       "time": "00:23:02.69"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- on my behest. Is the validity of the 1983 judgment itself here under attack?",
       "time": "00:23:05.35"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Any --",
       "time": "00:23:26.05"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Any pre -- quite apart from attorney's fees which are --",
       "time": "00:23:26.52"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- auxiliary to this --",
       "time": "00:23:31.17"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Although, arguably, it could have defended on -- the defendants could have defended on basis of judicial immunity, they could have defended on the basis on the fact that the defendants named were not a “person” within the meaning of 1983 --",
       "time": "00:23:50.39"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- or by the other defenses?",
       "time": "00:24:03.76"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They did not --",
       "time": "00:24:04.95"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Defend this --",
       "time": "00:24:05.41"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you suggesting that the three-judge district court has review authority over the Supreme Court of Virginia?",
       "time": "00:24:32.00"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you mean the administrative acts?",
       "time": "00:24:49.76"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, now, let's just assume the Virginia Supreme Court decides the case that your clients were involved in and you happen to think it's -- it had been decided wrong under the federal constitution and, the su -- that Supreme Court ordered some relief against you.",
       "time": "00:24:59.74"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Can you go into a three-judge court and --",
       "time": "00:25:19.80"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Get an injunction?",
       "time": "00:25:21.50"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you just said to Justice Rehnquist you could.",
       "time": "00:25:22.93"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that may be. So, your answer to the question is, no, the three-judge court does not have reviewing authority over this --",
       "time": "00:25:33.35"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Virginia Supreme Court.",
       "time": "00:25:41.19"
     },
@@ -835,13 +835,13 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You mean --",
       "time": "00:25:46.06"
     },
     {
       "turn": 134,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you mean where there's a right to appeal?",
       "time": "00:25:46.38"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let's assume that -- let's assume there's a decision in the Virginia Trial Court against your client.",
       "time": "00:25:56.67"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And, there's a right to appeal under the Virginia Supreme Court, you don't appeal and you come to the three-judge court. You want to --",
       "time": "00:26:02.85"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of res judicata?",
       "time": "00:26:16.02"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it just stops there. It didn't go up to the highest court, but it's been finally decided in the Virginia Supreme -- Virginia court system.",
       "time": "00:26:19.34"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What doc --",
       "time": "00:26:29.93"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What doctrine are you talking about?",
       "time": "00:26:30.51"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's really your answer, isn't it? That's your basic submission that this is an administrative act, not a judicial act.",
       "time": "00:26:56.96"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, there's no question of judicial immunity.",
       "time": "00:27:02.74"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you just said quite the contrary, just the contrary, just three minutes ago.",
       "time": "00:27:18.87"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's say that the Virginia Supreme Court performed a judicial act.",
       "time": "00:27:26.86"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Finally.",
       "time": "00:27:31.01"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, are you going to go into a three-judge court and get a declaratory judgment against them?",
       "time": "00:27:32.63"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Wha -- on what?",
       "time": "00:27:38.97"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "To where?",
       "time": "00:27:43.48"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I hope that's not your strongest argument.",
       "time": "00:28:05.80"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would you call it a legislative act then?",
       "time": "00:28:38.41"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Because of --",
       "time": "00:28:43.36"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Because of Tenney against Brandhove?",
       "time": "00:28:43.85"
     },
@@ -1069,7 +1069,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, su --",
       "time": "00:29:19.29"
     },
@@ -1081,7 +1081,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Supposing you have a case like the Chief Justice wrote in 1970 or 1971 involving the Rapley proceedings in the Wisconsin legislature where there the Wisconsin legislature had rules bringing somebody before the bar of the legislature and asking them questions or ordering them confined until the end of the session. Would you say that was a legislative act?",
       "time": "00:29:20.72"
     },
@@ -1093,7 +1093,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, no. The --",
       "time": "00:29:49.52"
     },
@@ -1105,7 +1105,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They were telling him that he was going to have to either desist from certain conduct or -- I don't remember the particular facts, but it was an action of the legislature enforcing its own rules.",
       "time": "00:29:51.97"
     },
@@ -1117,7 +1117,7 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you saying that a legislative body doesn't have the right to -- and the power to protect the integrity of its own proceedings? This is what Father Rapley was cited for, contempt for interfering with the proceedings of the legislature. Are you -- do you say that's something --",
       "time": "00:30:18.56"
     },
@@ -1129,7 +1129,7 @@
     },
     {
       "turn": 182,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That's not a legislative act --",
       "time": "00:30:34.76"
     },
@@ -1141,7 +1141,7 @@
     },
     {
       "turn": 184,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "When they found someone in contempt?",
       "time": "00:30:37.75"
     },
@@ -1153,7 +1153,7 @@
     },
     {
       "turn": 186,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Congress of United States, until recent times, enforced its contempt determinations by decreeing confinement of the person in contempt. Because it was such a burdensome thing, they finally passed a statute giving that authority to the United States courts. But, if they enforce that, if they enforce contempt orders, do you say that's not a legislative act?",
       "time": "00:30:50.49"
     },
@@ -1165,7 +1165,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But did you ju – I -- didn't you just attack these rules on their face, or not?",
       "time": "00:32:01.54"
     },
@@ -1177,7 +1177,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You said this rule that you've passed is unconstitutional.",
       "time": "00:32:08.72"
     },
@@ -1189,7 +1189,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the court had either inherent or delegated power from the legislature or from the vir -- state constitution to pass these rules.",
       "time": "00:32:14.30"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, it had a brand of legislative power?",
       "time": "00:32:23.56"
     },
@@ -1213,7 +1213,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it may not be, but you do say that these weren't judicial acts.",
       "time": "00:32:30.86"
     },
@@ -1225,7 +1225,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "These were something. What do you say they were?",
       "time": "00:32:37.63"
     },
@@ -1237,7 +1237,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Administrative, they made some rules.",
       "time": "00:32:41.62"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that's part of the administration -- administrative?",
       "time": "00:32:44.19"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What would be -- suppose the Congress passes a law and you sued all 100 senators, for example, for having passed an unconstitutional Act which you claim is unconstitutional. Would they have immunity from defending that suit?",
       "time": "00:32:52.43"
     },
@@ -1273,7 +1273,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does your characterization, if this is administrative ver -- and not judicial and not legislative, is that motivated in any way by our cases of Pierson against Ray and Tenney against Brandhove and Butz versus Economou?",
       "time": "00:33:14.59"
     },
@@ -1285,7 +1285,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what if the Virginia legislature had passed exactly this same set of standards governing lawyer conduct in the state. Could you sue the members of the Virginia legislature?",
       "time": "00:34:03.35"
     },
@@ -1297,7 +1297,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose one easy way of -- one certainly surefire way of raising the validity of the rule is if the Virginia court moved against somebody to enforce the rule.",
       "time": "00:34:32.86"
     },
@@ -1309,7 +1309,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but I --",
       "time": "00:34:48.33"
     },
@@ -1321,7 +1321,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but let's --",
       "time": "00:34:49.39"
     },
@@ -1333,7 +1333,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's assume --",
       "time": "00:34:50.24"
     },
@@ -1345,7 +1345,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's assume that the Supreme Court was enforcing the rule against some lawyer. He could certainly raise then the constitutionality of the rule.",
       "time": "00:34:51.16"
     },
@@ -1357,7 +1357,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He could resist on the grounds that it was unconstitutional.",
       "time": "00:34:59.91"
     },
@@ -1369,7 +1369,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And, I suppose, he -- I suppose, if he want, he could get attorney's fee.",
       "time": "00:35:03.89"
     },
@@ -1381,7 +1381,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That's what happened in Bates.",
       "time": "00:35:31.45"
     },
@@ -1393,7 +1393,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In other words, Arizona attorneys are more enterprising than Virginia ones?",
       "time": "00:35:35.09"
     },
@@ -1405,7 +1405,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Ms. Broadman, I understood you to say in answer to Justice White's question, if you had the procedural question you had in Bates that the lawyers could get fees from the court, I don't understand that to be the case.",
       "time": "00:35:50.67"
     },
@@ -1417,7 +1417,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's sort of ironic that where you have a clear case of standing, the lawyers get no fees when they have a less clear case as they do here, I'm not saying it's adequate, they do get fees.",
       "time": "00:36:05.70"
     },
@@ -1429,7 +1429,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, even against the bar association. They resisted a disciplinary proceeding. This was not a 1983 action or a federal action. It was a state disciplinary proceeding.",
       "time": "00:36:24.64"
     },
@@ -1441,7 +1441,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And they --",
       "time": "00:36:34.22"
     },
@@ -1453,7 +1453,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They did not, I don't know what basis they could get fees in that--",
       "time": "00:36:34.88"
     },
@@ -1465,7 +1465,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, Hutto on which you rely very heavily is a case in which, I suppose, it would have been appropriate to award damages against the -- if the -- against the prison officials, but I think you concede no damages could be awarded here.",
       "time": "00:36:47.50"
     },
@@ -1477,7 +1477,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "To the extent that Hutto analogized the free recovery to punitive and all the rest of it, it analogizes that the damages, it seems to me, cuts against you to a certain extent.",
       "time": "00:37:11.31"
     },
@@ -1489,7 +1489,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because, here, I think you must concede that you could not get damages because of judicial immunity.",
       "time": "00:37:21.51"
     },
@@ -1501,7 +1501,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You do concede that, don't you?",
       "time": "00:37:27.60"
     },
@@ -1513,7 +1513,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Wel l--",
       "time": "00:37:30.07"
     },
@@ -1525,7 +1525,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Do you concede that you couldn't?",
       "time": "00:37:30.67"
     },
@@ -1537,7 +1537,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That basis of the opinion cuts against you, the basis of fees, as part of cost, cuts for you.",
       "time": "00:37:44.48"
     },
@@ -1549,7 +1549,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I -- as I understand your brief, you do rely primarily on the federal statute, the Attorney's Fee Award Act.",
       "time": "00:38:20.34"
     },
@@ -1561,7 +1561,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In which --",
       "time": "00:38:26.04"
     },
@@ -1573,7 +1573,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In which reliance, you don't have to recover damages in the question of bad faith, and all the rest of it is totally irrelevant.",
       "time": "00:38:26.70"
     },
@@ -1585,7 +1585,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well --",
       "time": "00:38:34.93"
     },
@@ -1597,7 +1597,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If the Supreme Court of Virginia moved against a particular lawyer for violating one of its rules and the lawyer defended on the ground that the rule is unconstitutional. He lost, the final judgment against him in the Virginia Supreme Court. Then, your organization brings a suit against the individual justices of the Virginia Supreme Court for an injunction. You sue in the federal court asking that those judges be enjoined from deciding cases that way because they're wrong. Could -- would those judges -- would they be immune from that kind of a suit?",
       "time": "00:38:36.82"
     },
@@ -1609,7 +1609,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you --",
       "time": "00:39:23.89"
     },
@@ -1621,7 +1621,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You'd say we want – we --",
       "time": "00:39:24.66"
     },
@@ -1633,7 +1633,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Your rules are unconstitutional and, therefore, you must not decide --",
       "time": "00:39:27.20"
     },
@@ -1645,7 +1645,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "This is a --",
       "time": "00:39:31.94"
     },
@@ -1657,7 +1657,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is. It's --",
       "time": "00:39:38.14"
     },
@@ -1669,7 +1669,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it submits it's -- it issued a final judgment that the fellow violated the rule. Now, can you su -- are they immune then in your suit in federal court?",
       "time": "00:39:40.41"
     },
@@ -1681,7 +1681,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you make the same claim as you do here. Judge -- you just upheld this --",
       "time": "00:39:55.29"
     },
@@ -1693,7 +1693,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Rule of yours and you're wrong. We're going to enjoin -- we're going to enjoin you from deciding cases like that anymore.",
       "time": "00:40:04.64"
     },
@@ -1705,7 +1705,7 @@
     },
     {
       "turn": 278,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now, let me ask you a question that relates somewhat to that. It's clear that you brought the action against the Chief Justice I'Anson, including him because the court had adopted and promulgated this rule. Is that correct?",
       "time": "00:40:45.29"
     },
@@ -1717,7 +1717,7 @@
     },
     {
       "turn": 280,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now, suppose Chief Justice I'Anson had dissented from the rulemaking and the other justices were the only ones that were responsible for putting it into effect, could you have a joined Chief Justice I'Anson in this action?",
       "time": "00:41:02.65"
     },
@@ -1729,7 +1729,7 @@
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And he had a perfect defense that he had no part of this --",
       "time": "00:41:22.28"
     },
@@ -1741,7 +1741,7 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "“Wrongful act.”",
       "time": "00:41:25.79"
     },
@@ -1753,7 +1753,7 @@
     },
     {
       "turn": 286,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then, how would you get here? Where would be the person?",
       "time": "00:41:30.10"
     },
@@ -1765,7 +1765,7 @@
     },
     {
       "turn": 288,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You didn't bring -- you didn't bring that kind of an action here, did you?",
       "time": "00:41:39.32"
     },
@@ -1777,7 +1777,7 @@
     },
     {
       "turn": 290,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Because the named party is the Supreme Court, not the --",
       "time": "00:41:43.51"
     },
@@ -1789,7 +1789,7 @@
     },
     {
       "turn": 292,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes, I know, but the name -- the other justices are not named, are they?",
       "time": "00:41:48.85"
     },
@@ -1801,7 +1801,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Ms. Broadman.",
       "time": "00:42:16.97"
     },
@@ -1813,7 +1813,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Back up a minute. You asked lawyers to take legal action on this on their own and they refused to.",
       "time": "00:42:18.14"
     },
@@ -1825,7 +1825,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Right.",
       "time": "00:42:28.57"
     },
@@ -1837,7 +1837,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Now, suppose they did advertise in your directory and they were ordered to be disbarred, and they sued the Supreme Court that disbarred them; one, could they sue the Supreme Court in the federal court?",
       "time": "00:42:29.23"
     },
@@ -1849,7 +1849,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could the lawyer.",
       "time": "00:42:51.68"
     },
@@ -1861,7 +1861,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The man that's involved is the lawyer.",
       "time": "00:42:54.03"
     },
@@ -1873,7 +1873,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But, my case is he had been disbarred. The question is can you sue in the United States District Court in Virginia --",
       "time": "00:42:59.29"
     },
@@ -1885,7 +1885,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The lawyer, he can't sue?",
       "time": "00:43:10.45"
     },
@@ -1897,7 +1897,7 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And, number two, therefore, he can't get counsel fees.",
       "time": "00:43:13.80"
     },
@@ -1909,7 +1909,7 @@
     },
     {
       "turn": 312,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how does it so happen that you can?",
       "time": "00:43:18.59"
     },
@@ -1921,7 +1921,7 @@
     },
     {
       "turn": 314,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, but --",
       "time": "00:43:37.68"
     },
@@ -1933,7 +1933,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Justice Marshall's question is those procedures were all over and he's been disbarred.",
       "time": "00:43:38.97"
     },
@@ -1945,13 +1945,13 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No.",
       "time": "00:43:49.56"
     },
     {
       "turn": 319,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes.",
       "time": "00:43:50.51"
     },
@@ -1963,7 +1963,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And then, he goes into the United States District Court of Virginia.",
       "time": "00:43:51.53"
     },
@@ -1975,7 +1975,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there any other reason he can't do it?",
       "time": "00:43:56.40"
     },
@@ -1987,7 +1987,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Comity?",
       "time": "00:44:00.77"
     },
@@ -1999,7 +1999,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, could he have filed the --",
       "time": "00:44:06.40"
     },
@@ -2011,7 +2011,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could he have filed an action in the district court originally before he was disbarred?",
       "time": "00:44:08.56"
     },
@@ -2023,7 +2023,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My new question is he wasn't disbarred. He heard he was about to be disbarred. So, he went into the district court and asked for everything - damages, injunction, declaratory judgment, and that all things they used to have, enact the procedure, anything else the court, out of its good heart, would give him.",
       "time": "00:44:23.78"
     },
@@ -2035,7 +2035,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My point was would he -- win or lose, would he get counsel fees?",
       "time": "00:44:55.75"
     },
@@ -2047,7 +2047,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I said win or lose.",
       "time": "00:45:04.80"
     },
@@ -2059,7 +2059,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But if he wins, he gets counsel fees.",
       "time": "00:45:09.09"
     },
@@ -2071,7 +2071,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My point is that -- aren't you asking us the only door where anybody can do what a lawyer can't do?",
       "time": "00:45:26.12"
     },
@@ -2083,7 +2083,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But comity doesn't apply to you.",
       "time": "00:45:49.20"
     },
@@ -2095,7 +2095,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I'm going to get just straight out. If we agree with you this is an administrative action by the court and there's no immunity, therefore -- then you can get attorneys' fees, you could also get damages.",
       "time": "00:45:57.43"
     },
@@ -2107,7 +2107,7 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But just no judicial immunity.",
       "time": "00:46:27.49"
     },
@@ -2119,7 +2119,7 @@
     },
     {
       "turn": 347,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Just administrative -- the standards for administrative would apply.",
       "time": "00:46:30.43"
     },
@@ -2131,7 +2131,7 @@
     },
     {
       "turn": 349,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But it's really a qualified immunity that you would then grant.",
       "time": "00:47:06.08"
     },
@@ -2143,7 +2143,7 @@
     },
     {
       "turn": 351,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Attorney General?",
       "time": "00:47:14.50"
     },
@@ -2155,7 +2155,7 @@
     },
     {
       "turn": 353,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:49:19.94"
     }

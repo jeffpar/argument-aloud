@@ -3,59 +3,63 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1997/96-643/19971006a_96-643.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "SANFORD M. STEIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID A. STRAUSS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "IRVING L. GORNSTEIN",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 96-643, Steel Company, also known as Chicago Steel and Pickling Company, v. Citizens for a Better Environment. Mr. Stein.",
       "time": "00:00:00.00"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Let me ask you a question, please, if I may, Mr. Stein. What if it were the EPA that were coming in asking for penalties to be imposed after the fact of a cure, so to speak, after the forms were actually filed, but the EPA then comes in and says, well, they should have been filed on X date and they weren't, and they've now filed them, but we want a penalty for every day of the nonfiling. Under the statutory scheme, is that permissible?",
       "time": "00:01:13.53"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the citizen's suit provision I suppose is designed to be a sort of private attorneys general approach, and to let citizens pick up the slack if the EPA doesn't do it, and is there any reason why the citizens suit shouldn't have the same authority, then, to come in and seek a penalty for the failure to file on time?",
       "time": "00:01:58.07"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What about the attorneys fees and costs that the claimant might have incurred in investigating the claim and filing it?",
       "time": "00:03:57.76"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "They can recover those costs if the violation is not cured after 60 days and the suit proceeds and they prevail, can they--",
       "time": "00:04:17.57"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, but then it seems to me there may be a... you have a statutory argument. I don't see the Article III argument.",
       "time": "00:04:29.86"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And what is the proposition... what is a case for that?",
       "time": "00:04:48.29"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That was just whether or not there was an interest in being a prevailing party per se. I'm not sure if it said that Congress couldn't create a cause of action for attorneys fees or investigatory, preparatory fees legitimately and in good faith incurred.",
       "time": "00:04:53.31"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, then it's not an Article III question. It's just a statutory question.",
       "time": "00:05:17.02"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So on your view, then, if the compliance came after the 60-day period, let's say the time sequence is 60-day period runs, suit is filed on day 70, the defendant comes into total compliance, files all the back forms, the suit would be moot at that point, if I follow your reasoning.",
       "time": "00:05:37.07"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're asking us to read the provision in such a way that nobody would have an incentive to file suit. If you say that... even when suit will properly lie, according to you, initially, that is, suit is filed before the defendant comes into compliance, you're saying that suit will be washed out when the defendant complies.",
       "time": "00:06:28.78"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why would anybody file a suit? I can't understand it.",
       "time": "00:06:51.77"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why shouldn't we say that... I guess we don't have to decide that issue in this case, but why couldn't the situation be that so long as you have not filed before... after the 60-day period and before suit is filed against you, you are liable for the penalty that's set forth in the civil provision. Would that contradict your theory of this case?",
       "time": "00:07:17.34"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you file after suit, and after the 60 days, if you come into compliance with the law after the suit is filed and after the 60-day period, why isn't it reasonable to say that the Federal Government intended to give these private attorney generals the right to the penalties accruing?",
       "time": "00:07:46.23"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You say it's mooted as soon as--",
       "time": "00:08:12.05"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--The penalty alone cannot suffice to sustain a suit, the right to the penalty alone.",
       "time": "00:08:23.42"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mm-hmm.",
       "time": "00:08:31.45"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mm-hmm.",
       "time": "00:08:34.69"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Assume no possibility of further violations, it's your position that the plaintiff's entitlement to the penalty alone wouldn't make any difference?",
       "time": "00:08:45.49"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Would the penalty ever go to anyone other than the Government?",
       "time": "00:09:08.21"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But even if there were mootness, after the 60-day period ran as a result of compliance there would still be entitlement to attorney's fees, would there not, because the mootness didn't come about until after the case was in court.",
       "time": "00:09:18.62"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, you're putting in this phrase, retain jurisdiction, and I... maybe Justice Scalia thought you answered his question. I still... I'm still not sure of the answer to that question. Let's assume that after the 60 days has run, the suit is filed, then it's cured, then it comes before the judge, the judge says there's nothing more to do, I'm going to give no... I'm going to terminate my jurisdiction now, there's no necessity for me to issue some ongoing injunction, but I am going to award attorney's fees. Can he do that?",
       "time": "00:09:57.06"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, from the standpoint of mootness and Article III, the precise analysis would apply if the violation were cured before the 60 days.",
       "time": "00:10:49.24"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what if it is before the 60-day period that the company files the reports, but the plaintiff believes and is prepared to show that the company is likely to be a repeat offender?",
       "time": "00:11:19.44"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Even though it had been completed and filed, the forms?",
       "time": "00:11:45.62"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you say that's possible, and you don't tie that to any language of the statute.",
       "time": "00:11:55.75"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't the significant point there's no such allegation in this case? They don't allege, if I remember the complaint, that there's a likelihood you will not comply.",
       "time": "00:12:05.78"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The complaint does not allege a concern about future violations.",
       "time": "00:12:21.24"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, why... no, I mean, there was for 8 years no filing, and then it was called to their attention. By the way, when there was a filing, was it for all the past years or only the most recent year?",
       "time": "00:13:00.88"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Stein, can I ask you, with regard to attorneys fees and the like, they ask in their complaint for all costs in connection with the investigation and prosecution of this matter, including fees, attorneys fees and expert witness fees. Now, do you agree that the statute authorizes the award of the investigation costs before suit was filed, or when they were trying to make up their mind whether to file suit?",
       "time": "00:13:52.37"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm asking, if they are a prevailing party, you agree they get the pre-suit investigation.",
       "time": "00:14:22.39"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But the statute says under (f) that the court may award costs of litigation. That's what the statute says, so I guess they are entitled to investigatory costs only if those are part of the costs of litigation. Is that right? I mean, what we're... I mean, what I would interpret the question to be is, is there something special here by way of costs that are being awarded in this case that are not normally present whenever a statute provides a winning party with costs of litigation?",
       "time": "00:14:32.95"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Stein, may I ask you this question: one of the arguments that is being made here is that if standing is not found, with the opportunity to go forward with penalties and, of course, get counsel fees and investigatory fees and so on as a result of that, no one is going to have really an incentive... no citizen is going to have an incentive ever to commence one of these proceedings. My question... with that in mind my question is this: is there any requirement that when a citizens organization starts the 60-day period running it must then have concluded that it can prove a case, or could a citizens group simply come forward and say, we don't know of any reason why this particular company should not have been filing these reports. It looks to us as thought they're covered by the law. So we're going to put them on notice that we think they should comply and simply wait and see what happens. In that latter instance if, at the end of 60 days, there hadn't been any compliance, then at that point the citizens organization could decide whether to go ahead and in effect make an investment in legal fees and investigatory fees to see whether it would really be worthwhile to bring action. So that's why I ask the question. Can they simply put them on notice, as it were, on the basis of a good faith claim that they ought to be filing, or is there some requirement in the statute or regulations to the effect that they must in effect be ready to establish probable cause, or some such thing, for a violation before they even give the notice that starts the 60 days running?",
       "time": "00:15:52.49"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So nobody has to make a big investment to get the 60 days running?",
       "time": "00:17:53.30"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, if that's so, maybe these organizations could just send out standard notices to everybody.",
       "time": "00:18:25.33"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why isn't an adequate explanation of the 60-day cure period that that's the period provided so that EPA itself might come in, instead of having the private plaintiffs do it?",
       "time": "00:18:59.37"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Had that provision not existed I would... I think it would be a very strong argument that the only possible reason for the 60-day period is to give the defaulting company an opportunity to make good, and if the company makes good, then suit cannot be brought after the 60 days, but there is another explanation for the 60 days, as you said. It's to allow EPA to come in.",
       "time": "00:19:49.51"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In Gwaltney, though, the case turned on fairly specific language in that act, the present tense of to be in violation, and the Seventh Circuit said they thought the language of this act was different.",
       "time": "00:20:35.79"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There is a temporal... to be in violation, you're currently in violation.",
       "time": "00:21:07.14"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Failure to do means you may have failed to do it in the past, and you failed to do it.",
       "time": "00:21:13.76"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even though you later made good that failure, you did fail to do it.",
       "time": "00:21:18.11"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That was a bad argument. This isn't a bad argument. [Laughter]",
       "time": "00:21:26.24"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I would like you to go back for a minute to this costs, getting your cost. What is your response to the following fairly simple argument that has to do with whether their injury is redressable, which I take it is the standing question? You'd say, well, how did this hurt you, their violation? Answer: you are an environmental group. The violation hurt you in that you were forced to live in a world without information, or you had to spend some money to cure the lack of information, and the spending of money involved putting the company on notice, and then they cured it. And so what we do in this statute is, we don't allow you in respect to past violations... we don't completely help you out, but we help you a little. Either they will be stopped in their tracks by the court because they didn't comply, or if they did comply, we will give you back some of the money you spent getting them to comply, and therefore we are redressing your harm, not all of it, but some of it.",
       "time": "00:22:05.78"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I have to worry about a different question. I take it one of the questions that I'd have to answer in this case is whether there is standing, and the reason you argue there is not is because their injury is not redressable insofar as they were injured, it was redressed. This lawsuit doesn't redress it. Hence my question. Is the lawsuit aimed at redressing a different part of their injury, namely, the cost of investigating the matter and bringing it to the attention of the company, and the lawsuit gives them some of that money back.",
       "time": "00:23:16.05"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You're saying the statute does not give them back their cost except insofar as they are related to this litigation, which took place as part of the litigation decision, not as the other decision?",
       "time": "00:23:56.98"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And how do I look that up?",
       "time": "00:24:09.80"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Stein. Mr. Strauss, we'll hear from you.",
       "time": "00:24:50.43"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I have three statutes that use the word, occur. One is CERCLA, one is RCRA, and one is TOSCA, and they all use in the venue provision the word occurred, and then in the liability provision... they're rather parallel to this one, aren't they?",
       "time": "00:25:36.48"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:25:52.42"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right, and so they're parallel to this one.",
       "time": "00:25:59.27"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, in violation of--",
       "time": "00:26:03.98"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--It couldn't have used that language here. I mean, if he complies... well, anyway, I'm sorry. I'll withdraw my question.",
       "time": "00:26:46.21"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Strauss, the violation here, the only requirement is that you file a form, so then it's logical to talk about failure to file or submit a form. In the other statutes, perhaps more encompassing, there would be a reason to use language, alleged to be in violation, because there were many things that could violate the statute.",
       "time": "00:27:01.01"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you don't have to read it that way. I mean, it does possibly suggest to you that if the form is completed and filed, it meets the requirement regardless of when.",
       "time": "00:27:40.73"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It's a little... it's open to that interpretation, isn't it?",
       "time": "00:27:53.33"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Because 312 is the statute that says the forms will be filed.",
       "time": "00:28:06.50"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but the 60-day notice provision has to be factored in, too. It must have been there for a purpose.",
       "time": "00:28:34.10"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But wasn't it more than that? Wasn't it simply that they didn't... that they violated it on one occasion, but wasn't there something built into that amending language that suggests that the person was a repeat violator?",
       "time": "00:29:09.64"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Such evidence would allow this suit to proceed anyway, on the theory that there's likely to be a repetition. Opposing counsel acknowledges that.",
       "time": "00:29:33.24"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I don't think... how you can agree with that, because the complaint doesn't allege that.",
       "time": "00:29:47.08"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--and so forth, but you don't allege there's any risk of continuing violations.",
       "time": "00:29:56.71"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then your burden, normally you have to make an allegation then try and prove it.",
       "time": "00:30:03.01"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well then, you don't have any cause of action.",
       "time": "00:30:08.04"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you must know something to bring a suit, and you don't know it, you don't have a suit.",
       "time": "00:30:09.83"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But that's fine. You could allege that they didn't do this on this one occasion. You say that's all that this statute required.",
       "time": "00:30:26.59"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought the question was, are you asserting a continuing violation, or any reason to project that there might be one, and I think the... your answer candidly is, the statute didn't require it and we didn't plead it.",
       "time": "00:30:32.04"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but it's relevant to the question of standing, because we're trying to focus on exactly what--",
       "time": "00:31:11.77"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--your injury is, and if your injury is a fear of continuing violations, you could allege that and presumably prove it, if they were people who didn't obey the law over and over again. But here, the facts don't seem to suggest that, and it's not alleged in the complaint. The only injury that you refer to in the briefs and all is a costs of investigation which you want to get reimbursed for, but you don't allege in your complaint you have any costs of investigation, either.",
       "time": "00:31:15.36"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No. You generally follow what happens in the environmental community. I don't think you allege you spent any money beyond your normal, routine expenses in investigating this company.",
       "time": "00:31:39.79"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't allege it, is what I'm saying.",
       "time": "00:31:51.58"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If it would suffice for standing for everybody to get the costs of bringing the suit, gee, everybody would have standing for any suit at all.",
       "time": "00:32:00.41"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You know--",
       "time": "00:32:11.34"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--whatever it cost you to bring the suit gives you standing to bring the suit.",
       "time": "00:32:13.55"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, isn't that a simple matter? As your opposing counsel said, it's on the Internet whether or not they filed the report. If the report had been filed, there it would be.",
       "time": "00:32:49.02"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So you find out they didn't file it.",
       "time": "00:32:58.62"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you don't need much of that. You know what the companies in the business-- --Is that-- --are doing. The gist of the action is failure to file the report, not trying to show the report is untrue.",
       "time": "00:33:15.21"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you say you would have benefited had they filed their report, because you wouldn't have had to dig out the information yourself.",
       "time": "00:33:39.62"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why did you-- --You dug it out for some independent purpose, not just to try to show that their report might be false?",
       "time": "00:33:53.36"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why do you need to dig it out in order to determine whether they failed to file a report?",
       "time": "00:34:05.32"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, what is your answer to Mr. Stein's point in responding to one of my questions that you didn't have to dig at all? If you had any reasonable suspicion that they should have filed a report, all you had to do was put them on the spot and say, we claim you should have, the 60 days are running, and if at the end of the 60 days they had not filed a report, then you could have... you would have had a basis for saying... or you could have made a decision at that point as to whether to invest something further into this investigation, but you didn't have to do the digging, according to him, that you claim you did. Is he wrong?",
       "time": "00:34:17.06"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, all you'd have to do is say, we think you're discharging certain substances into the air, you've filed no report, and we think you have a duty to do so.",
       "time": "00:35:08.73"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't have to know the details. Even if it's just an ounce there's a duty to file... maybe there's a minimum threshold.",
       "time": "00:35:24.56"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What do you say about Mr. Stein's answer to my question. He had a pretty good answer, I thought, that he said that the... as far as the harm goes in respect to your not having the report filed, well, that was cured, so this suit doesn't aim to get you that, and as far as the costs go, in paragraph (e) of your complaint what you actually ask for is to award the plaintiff all of its investigation and prosecution costs and others as authorized by section 326(f), and then he says, if I read section 326(f) I'll see that it authorizes litigation costs, pure and simple, and so it can't help you redressing that kind of harm without opening the door to Article III being no limitation on the lawsuits.",
       "time": "00:35:30.70"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think attorney's fees is narrower. I think it's broader. I mean--",
       "time": "00:36:33.31"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--litigation costs is a--",
       "time": "00:36:38.46"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, necessary to redress something, not necessary, as it were, in a circular fashion, merely to be in a position to claim attorney's fees--",
       "time": "00:36:44.45"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--or investigatory fees, so your claim is still tied to an obligation to come up with some injury that can be redressed by the suit, and number 1 there is no claim here that there's any further redress that you can get for the past failures. Everything that can be known is now known. There is no allegation, as I read it, that in fact there is a likelihood of violation in the future. Number 3, if you make your claim for the penalties, you don't get one red cent of that penalty money, as I understand it, so that the only thing that you can obtain that you do not now have is the attorney's fees or the investigatory fees, and they are tied, it seems to me, to litigation which has got to give you some other benefit. In other words, they alone cannot under the statute justify it. So I guess my problem is, if I construe the statute the way you want me to construe it, it seems to me there is a very serious Article III question, and it makes sense to construe the statute in a way which will not raise this Article III question. What's wrong with that argument?",
       "time": "00:36:53.00"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But you're not saying, are you, that the statute gives you a statutory right to that independent of the section that refers to litigation costs?",
       "time": "00:38:37.22"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:38:50.22"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You certainly could have at the time you filed your complaint, because they had already filed their reports which told you those facts.",
       "time": "00:39:08.70"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's when you have to file your Rule 11 statement.",
       "time": "00:39:13.74"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In other words, Rule 11 applies at the time you file the complaint. You had all the facts then.",
       "time": "00:39:20.42"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In fact, it also seems clear to me as we talk about it more that at the time you filed the complaint your principal injury, which was you were denied this information for a time when you were entitled to it, you had got the information by the time you filed the complaint.",
       "time": "00:39:26.93"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand.",
       "time": "00:39:42.83"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You are not going to get any redress in this complaint for harms caused by your failure to have that information 3 months ago. You don't get a remedy for, we had to close our windows to keep the odors out, or something like that. You don't get relief for that.",
       "time": "00:39:47.20"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--for which you are not redressed by this proceeding.",
       "time": "00:40:02.22"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Strauss, in attorney's fees provisions, I mean, there are many in many statutes, and I had thought that the Congress tried more or less to be careful about when it is talking about litigation fees, that is, fees generated post complaint, and fees that happen because of investigation, fees at the agency level, and when Congress speaks of litigation fees, that generally has meant while you're in court, and when it talks about fees before the agency or investigation, that's for that earlier period. But here, the term is litigation fees.",
       "time": "00:40:16.87"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but you're saying that this material is... I mean, it seems to me you're arguing that it's two different things. First you're arguing it is an independent damage and not associated with attorney's fees because we wouldn't have known what stuff was in the air. Then, you get damages for this by calling it attorney's fees, or litigation... which is it?",
       "time": "00:41:20.38"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did you do this investigation in order to bring the lawsuit, in which case you can't rely on that for standing, or, did you do it not in order to bring the lawsuit, in which case it's not part of your cause of action?",
       "time": "00:41:41.10"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It depends on why they were undertaken, why these investigations were undertaken. Were they undertaken in order to bring this lawsuit? In that case, the statute gives you a right to them, but I question whether you have standing--",
       "time": "00:42:04.43"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--have Article III standing. On the other hand, were they conducted not in order to bring the lawsuit, but just because you wanted to know what was out there in Hyde Park, or wherever, in which case you clearly would have standing, but you have no cause of action under this statute.",
       "time": "00:42:14.36"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because it relates to whether they constitute litigation costs. If you would have done this stuff anyway, they're not litigation costs, which is all that you've asked for.",
       "time": "00:42:50.10"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Another reason it relates is because, if you say that giving a person litigation costs is sufficient to create an Article III case, then there is virtually... I mean--",
       "time": "00:43:01.55"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--expanded... it's un... you know--",
       "time": "00:43:13.34"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 209,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Congress--",
       "time": "00:43:15.03"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--that's the problem. But if you read it the other way, it seems to make a certain amount of sense. Those instances where the company might not comply in the future, you allege that, ask for an injunction, and there you have no standing problem.",
       "time": "00:43:15.73"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "In those cases where there's no significant risk of that at all, you can't.",
       "time": "00:43:28.98"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But of course, then, there wasn't really a case.",
       "time": "00:43:33.11"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Strauss.",
       "time": "00:43:54.49"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Gornstein, we'll hear from you.",
       "time": "00:43:57.10"
     },
@@ -1375,7 +1379,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you also take the position in the case of suits against the Administrator? If the Administrator is given 60 days' notice, and then before the 60 days expires begins to take the corrective action, can the plaintiffs still sue and recover attorney's fees?",
       "time": "00:44:19.93"
     },
@@ -1387,7 +1391,7 @@
     },
     {
       "turn": 223,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Gee--",
       "time": "00:44:47.27"
     },
@@ -1399,7 +1403,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Well, if it's that, then how do you run across the problem here that they haven't alleged anything about recurrence?",
       "time": "00:44:49.52"
     },
@@ -1411,7 +1415,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It sounds as if what it's saying is their failure to file in the past will continue to hurt them in the future.",
       "time": "00:45:23.53"
     },
@@ -1423,7 +1427,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Oh, I'm not suggesting the... or, I didn't mean to suggest by my question that the statute should be interpreted so narrowly as to preclude standing if there were an allegation of either a continuing violation or the probability of a future violation, but I'm concerned about the interpretive question when there is no question of continuing violation in the sense that they file everything that can be filed with respect to the past, there is no allegation, and we'll leave the question of ambiguity aside for the moment, of the likelihood of a future violation, there is no penalty that can be recovered that will go into the pocket of the private plaintiff, and the only thing which is in issue is the issue of attorney's fees or investigatory fees for the time prior to the moment when litigation could be begun. That's the scenario in which it seems to me there is an Article III, a serious Article III question, and it's on that scenario that I would suggest it might be wise to interpret the statute narrowly to avoid having to reach that issue.",
       "time": "00:46:01.64"
     },
@@ -1435,7 +1439,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It's not in that language. It doesn't say that. Failure to complete and submit reports under section so-and-so.",
       "time": "00:47:37.13"
     },
@@ -1447,7 +1451,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it may, but do you agree that there is nothing further that can be done to redress the prior failure?",
       "time": "00:48:11.44"
     },
@@ -1459,7 +1463,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt you there, because it's quite important.",
       "time": "00:48:29.29"
     },
@@ -1471,7 +1475,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then you're saying the reasonable likelihood of recurrence is critical to the standing issue.",
       "time": "00:48:31.33"
     },
@@ -1483,7 +1487,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that is not alleged here.",
       "time": "00:48:36.69"
     },
@@ -1495,7 +1499,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you say, well, it might be in other cases, but assume it were alleged in another case but not proved. It's a very difficult thing to prove, if you have a company like this with a history of just an inadvertence and so forth. You are saying the plaintiff would have to prove there is a reasonable likelihood they would not file in the future.",
       "time": "00:48:39.51"
     },
@@ -1507,7 +1511,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They can allege it without proving it?",
       "time": "00:48:53.28"
     },
@@ -1519,7 +1523,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "All right.",
       "time": "00:48:59.04"
     },
@@ -1531,7 +1535,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why, any more than if the police engaged in a certain kind of tactic and were told that that's not good to do, that they're not going to do it any more? There are many cases where it's easy to allege continuing violation.",
       "time": "00:49:15.26"
     },
@@ -1543,7 +1547,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But there is a commencement of litigation.",
       "time": "00:49:37.76"
     },
@@ -1555,7 +1559,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's not Article III. That's entitlement to an injunction.",
       "time": "00:49:44.03"
     },
@@ -1567,7 +1571,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's mootness, and in a case called mootness... there was a case under the Constitution. There's no argument. Do you think those should be parallel? If they're parallel, I don't know what that's going to do to standing law. I haven't really thought that through. It never occurred to me that those two things were parallel.",
       "time": "00:49:49.16"
     },
@@ -1579,7 +1583,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So in any case in which the possibility of recurrence prevents mootness, in any such case, a plaintiff would have standing despite the absence of any... of any ongoing violation. That's a pretty broad--",
       "time": "00:50:04.51"
     },
@@ -1591,7 +1595,7 @@
     },
     {
       "turn": 257,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--What's the presumption-- --What's the argument for the presumption? --based on?",
       "time": "00:50:43.15"
     },
@@ -1603,7 +1607,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are they based on-- --All they show is that if there was originally standing, that there was... it was established that there was going to be a continuing violation. That simply does not eliminate the prior established standing. It's a huge leap from that to say that in and of itself it establishes standing.",
       "time": "00:50:56.73"
     },
@@ -1615,7 +1619,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I would agree with that if the complaint alleged before the voluntary compliance occurred that this person was in violation and would continue in violation.",
       "time": "00:51:45.65"
     },
@@ -1627,7 +1631,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, but let's allege it at least. I mean, look, this seems like the simplest approach is also the best approach. The simplest approach would say, in those instances where there's some likelihood of recurrence, the lawsuit's serving an excellent purpose. The lawsuit is. And in those cases where there is no likelihood whatsoever, the only purpose it's suing is perhaps through the litigation cost thing to give them some of their money back. Well, that would be the simple approach, and why not follow that simple approach?",
       "time": "00:52:07.24"
     },
@@ -1639,7 +1643,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What's the presumption based on? Is it based on our judicial notice that there's an empirical likelihood that when you violate something once, you'll violate it again?",
       "time": "00:52:43.76"
     },
@@ -1651,7 +1655,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why is that a likelihood here, when one of the problems is, is that this company just didn't have notice of the statute? It just didn't know about it?",
       "time": "00:53:02.00"
     },
@@ -1663,7 +1667,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Isn't this going to be a likelihood in a significant number of these early cases?",
       "time": "00:53:16.94"
     },
@@ -1675,7 +1679,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I don't know what your presumption is based on.",
       "time": "00:53:22.38"
     },
@@ -1687,7 +1691,7 @@
     },
     {
       "turn": 273,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Gornstein. Mr. Stein, you have 4 minutes remaining.",
       "time": "00:53:32.32"
     },
@@ -1699,7 +1703,7 @@
     },
     {
       "turn": 275,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But isn't it equally reasonable to think that it refers to in compliance with the provisions of, rather than just the statute by name?",
       "time": "00:53:56.70"
     },
@@ -1711,7 +1715,7 @@
     },
     {
       "turn": 277,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't think we need that case to tell us that. [Laughter]",
       "time": "00:54:11.04"
     },
@@ -1723,7 +1727,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--what was the name of that case--",
       "time": "00:54:15.56"
     },
@@ -1735,7 +1739,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--So you think if you filed a statement of emissions that was entirely wrong, all the elements and all the quantities are wrong, you'd... suit would not lie?",
       "time": "00:54:58.31"
     },
@@ -1747,7 +1751,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It would have been filed under that provision.",
       "time": "00:55:12.69"
     },
@@ -1759,7 +1763,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's just not in compliance with it, that's all.",
       "time": "00:55:14.87"
     },
@@ -1771,7 +1775,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's completed. There's no blank in the whole thing. He just writes in the wrong elements and the wrong quantities.",
       "time": "00:55:22.37"
     },
@@ -1783,7 +1787,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But the language certainly is open, and if it's open, why wouldn't it make a lot of sense to say, in the instance where there's some reason to think they'll do it again, they did it before, maybe they'll do it again. Or they didn't do it before, maybe they won't do it again. In such a case, it authorizes the suit.",
       "time": "00:55:38.03"
     },
@@ -1795,7 +1799,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, it could have used the language it did in all these other statutes, too. But what's your response to his argument when Congress amended the other statute in response to Gwaltney they just didn't adopt this route?",
       "time": "00:56:12.34"
     },
@@ -1807,7 +1811,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A later Congress' amendment doesn't necessarily show what the earlier Congress meant, anyway. I mean--",
       "time": "00:56:57.00"
     },
@@ -1819,7 +1823,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It's as reasonable to think the amendment was meant to change what preexisted as it is to think that it was meant to confirm what preexisted, isn't it?",
       "time": "00:57:02.44"
     },
@@ -1831,7 +1835,7 @@
     },
     {
       "turn": 297,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Stein.",
       "time": "00:57:15.83"
     },
@@ -1843,13 +1847,13 @@
     },
     {
       "turn": 299,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:57:17.41"
     },
     {
       "turn": 300,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:57:18.56"
     }

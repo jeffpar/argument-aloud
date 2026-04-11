@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2001/01-417/20020326a_01-417.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "THOMAS C. GOLDSTEIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LAURENCE E. GOLD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PATRICIA A. MILLETT",
-        "role": "advocate"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Goldstein.",
       "time": "00:00:09.37"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can I test your thesis that u are bound by a judgment, you are a party to it? I mean, there are cases where someone who has allied with a party and has used the same attorney and has maybe had some input into trial strategy, that that person will be bound by the judgment, but as far as I know, we have never allowed, no court that I know of has ever allowed such a person to take an appeal on the ground that well, since you would have been bound, you are a party.",
       "time": "00:01:20.50"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say that the judgment operates directly upon the class member, as if we are talking about some sort of physical thing, but how is that operation on the class member different from, say, what might be res judicata or collateral estoppel in some other case?",
       "time": "00:02:25.64"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You are bound because a judge determined that you had an adequate representative. I agree with you that every person in that class is equally affected and indeed there is no opt out of this class that we are dealing with. But the determination has been made that you are represented by someone who is an adequate representative of all members of the class who will fairly and adequately represent the class. So as long as the representative will fairly and adequately represent the class, why isn't it the end of it?",
       "time": "00:03:34.90"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Rule 23 what?",
       "time": "00:04:31.75"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And where do we find that?",
       "time": "00:04:35.63"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It's not in your brief?",
       "time": "00:04:42.23"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Whereabouts in the Constitution of Institutional Investors?",
       "time": "00:04:45.20"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you.",
       "time": "00:04:54.62"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But do you agree that you must intervene in the district court, or do you say you don't even do that?",
       "time": "00:06:22.83"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why not? That is, if this is open under the language, it seems to me there is no real difference between the parties as a practical matter, except you want to say the person all the time, no matter what, can bring an appeal, and they want to say what you should do is intervene and that gives the district judge a chance to act in an unusual situation as a kind of safeguard to make sure that it is fair. I mean, this person could be anybody under the sun. It could muck up the litigation for everybody else. The extra time involved might be important, and it might be totally unfair, given the prior history, to allow this individual to bring the appeal. So all they are saying is that the judge should have a chance as a gatekeeper to make that determination. Now why not, if it's open under the language, say there is a little more conservative position, gives us a chance to not get things mixed up?",
       "time": "00:06:33.69"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where are you reading, where are you reading from?",
       "time": "00:07:54.31"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And where are you starting on (a)(3)?",
       "time": "00:08:00.62"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if the court grants your motion to intervene?",
       "time": "00:10:12.06"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Could we, could we go back just one step. You don't have to intervene to be an objector. That's very clear, isn't it?",
       "time": "00:10:21.26"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And I thought that your basic argument was whatever your status is in the district court, that's what your status is on appeal. If you can go into a district court, which is extraordinary, usually the district court doesn't let anybody come in without having intervened, but to object to a settlement, you don't have to do anything except say judge, I'm an objector. You don't have to be an intervenor. And I thought that your basic argument was whatever status you have in the district court, that you can come in and object, then you have that same status on appeal.",
       "time": "00:10:30.63"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You have gained something. I mean, normally the judge would grant it, but let's say he didn't. It would be some pretty good reason. Maybe it would be very unfair, etcetera and you say well, he will just appeal that. That's true. But it's quite a different matter as an appellate court to decide whether the judge abused his discretion there than to have to go through what could be 15 years' worth of litigation to figure out whether this settlement nor the circumstances is a fair one.",
       "time": "00:12:24.13"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what discretion would the district court have if your theory is right, Mr. Goldstein, that an objector doesn't even have to intervene? I mean, in a very complicated case the objector simply says I object, I'm not a party. What can the district court judge do?",
       "time": "00:13:17.30"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of what rule?",
       "time": "00:13:37.71"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you are saying that I am reaching out and bringing you into the case in spite of the fact you haven't moved to intervene?",
       "time": "00:14:09.91"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How does he give jurisdiction over people that are simply on the outside; they are not parties; all they are doing is objecting?",
       "time": "00:14:43.18"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. Let's assume we agree with you. What does the judge then do? Does he say I'm going to let X and Y speak for the rest of you, and I will not hear separate objections from the others?",
       "time": "00:15:03.53"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "How... how can... I'm lost. How does he exercise gatekeeping on who appeals?",
       "time": "00:15:24.88"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but you are suggesting it as an alternative to Justice Breyer's suggestion that maybe to avoid chaos, you ought to have discretionary intervention, permissive intervention, and if you've got to avoid the chaos, then I assume the judge has got to be able in effect to limit what some parties objecting can do in favor of what other parties, letting other parties objecting speak.",
       "time": "00:15:41.14"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Goldstein, I was very surprised to hear you say you agree with Justice Souter when he used the word permissive intervention. I mean, even the Government agrees with you that if you must intervene, you would be an intervenor of right, not a mere \"permissive\", because you are bound by the judgment.",
       "time": "00:16:23.41"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I retract my adjective.",
       "time": "00:16:45.41"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Under your theory, any objector can appeal, I take it.",
       "time": "00:17:45.40"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And no matter how complicated the case in the district court, they don't have to intervene. You are going to have 15 or 20 appeals.",
       "time": "00:17:50.31"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How, in the Second and Third Circuits has, has the procedure been you can object, everybody lets you object, but you can then appeal without having intervened?",
       "time": "00:18:58.21"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Will your rule hold for certiorari petitions as well, so if, let's say, a named class member takes an appeal, but then the class petitions for certiorari, that any non-named class member can petition for certiorari?",
       "time": "00:19:43.29"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but your rule is that you are a party.",
       "time": "00:20:10.12"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But under your philosophy you are a party to the court of appeals because you are bound by the judgment.",
       "time": "00:20:21.72"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What you are saying then is not that he ceases to be a party, that the nonobjecting class member ceases to be a party in the court of appeals, but the nonobjecting class member has waived the right to be separately represented by himself, isn't it?",
       "time": "00:21:02.79"
     },
@@ -443,13 +443,13 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:21:16.79"
     },
     {
       "turn": 68,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the objection, of course he couldn't petition for cert because all he can do, he can't question anything else in the case except his objections to the settlement. That's all he can pursue.",
       "time": "00:21:17.24"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, what's wrong with the Government's position, which is you have the right to intervene for purposes of appeal? Indeed you don't even have to file your motion to intervene until after the settlement has been entered as a judgment of the court. Just to make it clear that you are not someone who isn't even a part of this class, isn't even legitimately part of this class, you are not just somebody that walked in off the street. Why isn't that a problem?",
       "time": "00:23:23.85"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The advisory committee could solve this either way, couldn't they, the Rules Committee?",
       "time": "00:24:39.10"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, why hasn't it? Why hasn't it decided this?",
       "time": "00:24:50.99"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Goldstein.",
       "time": "00:25:16.34"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But couldn't any member of the class say judge, you looked like a representative. I'm not adequately represented and at the point at which I'm not adequately represented, I have the right to come in and speak for myself. And isn't that exactly what's going on here? A representative of my class is fine, until the representative is together in a deal with the other side, and at that point, when I object to the deal, I'm not adequately represented.",
       "time": "00:26:51.09"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Gold, may I go back to the statement, you said something, you moved to intervene. If you have seen class actions in the Seventh Circuit and the Third Circuit, you can come in and object without intervening.",
       "time": "00:28:03.44"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And that, you come in and object and you say I object to the settlement. This representative is not adequate to represent me to the extent of the settlement.",
       "time": "00:28:20.90"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, then let me put it in your terms, and I'm reading from page 30 of your brief. Once a proposed settlement is reached, it is axiomatic that the named representative party who has negotiated the settlement does not adequately represent either the interests or the viewpoint of those class members opposed to the settlement. You say it's axiomatic and I was just saying well, you said yourself it's axiomatic that they, the representative at that point does not adequately represent the class member who is opposed to the settlement.",
       "time": "00:28:48.49"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Gold, if he is challenging the representative's fee, I think he is, which often is what the minority member of the class objects to, the large fee that the class representatives, the lawyers get. You can't say there is not a conflict there.",
       "time": "00:30:23.42"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, you are certainly not arguing that the lawyer adequately represents the person who is objecting to his fee either, are you?",
       "time": "00:30:52.85"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That was somebody who was not a member of the class, right?",
       "time": "00:32:06.41"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Here you are talking about members of the class and even in this case, people who are made to be members of the class even if they don't want to be because they can't opt out.",
       "time": "00:32:11.98"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "They don't want to be. All they want to do is to say, as Justice Stevens suggests, you made the settlement deal and the lawyers are getting the lion's share of it and I want to object to that, why can't they say that?",
       "time": "00:32:33.45"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But we're are not dealing with the merits of it. We are dealing with first you have a right to come in and object, and you have agreed that you do have a right to come in and object. Now, the question is, what more? And what I took to be the principal difference between your position and the Government's is the Government is very clear that there is a right to intervene. The objector would have a right to intervene for the limited purpose of pursuing the appeal. You seem to hedge on it. First you say it's axiomatic that there is a, no longer an identity of interest, but then I can't tell, and maybe you can tell me. The Government says of course they have a right to intervene, but we want them to be orderly so they make a motion, which must be granted. What is your view?",
       "time": "00:32:58.13"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you understand the Government to say it is intervention of right, not permissive intervention?",
       "time": "00:34:00.38"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm sorry. I'm sorry, Mr. Gold, I really don't understand what you are trying to convey because there are two kinds of intervention, intervention of right and permissive intervention. Intervention of right if you meet the terms, and in this case it would be when you claim an interest, which is the subject matter of the action, and you're so situated that the disposition of the action may as a practical matter impaired your ability to protect your own interests. So I give you one example is, well, this case. I will lose... my pension is going to be, the COLA is going to be dead and gone, so I want to protect that interest, which the settlement takes away. Isn't that, wouldn't that be, whether I have a good case on the merits is another question, but wouldn't I have a right to intervene?",
       "time": "00:35:44.30"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The, the Government as I understand it says yes you have a right to intervene and you have a right to appeal to the limited extent that you are contesting the settlement. That's the Government's position. And you are saying that's a wrong position. Is that--",
       "time": "00:37:32.77"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Mr. Gold, that's not the standard that applies to the right of a class member to participate in the district court proceeding, is it?",
       "time": "00:39:45.32"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "To intervene. I'm just asking to participate in the district court objecting to the settlement. Don't he have an absolute right to do that?",
       "time": "00:40:01.97"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But he has that right, whether or not the district court may view his objections as colorable or frivolous.",
       "time": "00:40:36.39"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And to have the court rule on the objection.",
       "time": "00:41:32.50"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh, you don't think that, they can file an objection, the court doesn't have to rule on?",
       "time": "00:41:37.31"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even approving the settlement in the face of an objection is the ruling that the objection is without merit. It seems to me. I don't know. Maybe you know something--",
       "time": "00:41:45.03"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--You disagree with anything the government said in its brief about the objector has a right to intervene, he can do so even after judgment within the time allowed?",
       "time": "00:43:26.37"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then you are disagreeing with the Seventh Circuit. Seventh Circuit, as I understand it, says you have a right to intervene, but you must exercise it when you know about the settlement, and it's too late after judgment. So you are disagreeing with that?",
       "time": "00:44:12.28"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It has. It--",
       "time": "00:44:47.01"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--No. The Seventh Circuit has said; it has dismissed. It said you have a right to be here, but you should have intervened when you knew that you were objecting to the settlement. It's too late to do so after the judgment.",
       "time": "00:44:55.17"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Gold. Ms. Millett, we'll hear from you.",
       "time": "00:45:12.36"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is that a purely formal disagreement, or are there some distinct practical advantages that you can tell us to your rule so that the district judge, I assume, can give some shape and direction to the appeal? Is that the point?",
       "time": "00:45:43.92"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Beyond the determination that they are members of the class, are there any further purposes served by the intervention rule you propose?",
       "time": "00:46:54.71"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You think under Petitioner's view that person would be able to appeal?",
       "time": "00:47:34.11"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, what is the practical difference? I mean, you take the position that intervention is of right, is that correct?",
       "time": "00:47:40.80"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. Then the practical difference is that if they move to intervene, they simply have to come physically before the court, so the court can flush out the objection, as opposed to merely filing an objection saying I object in which case the court may not see them? Is that the difference?",
       "time": "00:48:01.40"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, why cannot the same thing be accomplished by saying flush out your objection?",
       "time": "00:48:25.26"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Ms. Millett, I would be very impressed with the argument you are making now about having the thing run neat and tidy, but for two things. Are you aware of any experience in the Second or Third Circuit that creates these, this pandemonium that you are now describing? And second, when did the Government find out about the pandemonium? Because in Felzen, as I recall, you took the position that the objector can come in, object to the settlement, and can appeal for the limited purpose of challenging the settlement without intervening. What happened between Felzen and this case, and are you basing your prediction of pandemonium on any experience in the Second and Third Circuit that allowed objectors to appeal for years?",
       "time": "00:49:23.38"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "When was Felzen? How long ago was it?",
       "time": "00:50:55.82"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Felzen was three years ago. I was--",
       "time": "00:51:23.85"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--May I ask you, because your time is so limited, could you tell us what is the difference between your view of this case and Mr. Gold's view of this case?",
       "time": "00:51:44.48"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you under your view of the requirement of an intervention for purposes of appeal, could the district judge in this case, in response to the intervention motion that was actually filed, have granted that relief?",
       "time": "00:52:22.62"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:52:37.85"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you could deny it in court. You could say to the extent that they wanted to intervene to contest the settlement, fine, to the extent that they want to take discovery, it's not fine. But to say that because they asked for too much they are not entitled to anything, is, I would think the Government would say the judge was right to say they can't engage in discovery. The judge was right to say they are not entitled to an injunction. But to say that they can't intervene--",
       "time": "00:53:26.89"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--It denied the motion to intervene, which had many parts.",
       "time": "00:53:59.98"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So, should not the proper ruling have been yes, you can intervene, but only for this limited purpose, instead of saying motion denied?",
       "time": "00:54:09.16"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This district judge certainly thought that his wording on the objection, he twice said if you don't agree, appeal it. And the \"it\" was his appeal of the settlement.",
       "time": "00:54:30.17"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you disagree with the Seventh Circuit, which would require the motion to intervene to be made prejudgment?",
       "time": "00:54:57.21"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:55:07.58"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Millett.",
       "time": "00:55:16.41"
     },
@@ -1037,13 +1037,13 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that still before us, I mean, the denial of the intervention motion?",
       "time": "00:56:23.28"
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't think that was properly raised.",
       "time": "00:56:27.74"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that's not, I don't think a fair interpretation of the question that you have presented. The question is whether you have standing to appeal.",
       "time": "00:56:53.66"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, we'll decide that another time.",
       "time": "00:57:07.86"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, we take it the question you presented and your petition for certiorari, that's what we granted.",
       "time": "00:57:21.36"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why is it, has there been a problem the other way? The seventh circuits that have gone the other way?",
       "time": "00:57:41.39"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Goldstein. The case is submitted.",
       "time": "01:00:06.32"
     }

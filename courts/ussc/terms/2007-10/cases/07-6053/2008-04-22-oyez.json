@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2007/07-6053/20080422a_07-6053.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "MARILYN G. BURKHARDT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "DONALD E. DE NICOLA",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument next in Case 07-6053, Giles versus California. Ms. Burkhardt.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But he got... he got on the stand, and he said some very nasty things about her. I mean he painted her as aggressive, vengeful. Isn't there a legitimate rebuttal when he is painting her as the aggressor, and she has given a statement that suggests that he is the one who was aggressive?",
       "time": "00:01:33.43"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But could it have come in as rebuttal of his testimony, the same testimony by the police? Was it the police officer that--",
       "time": "00:02:08.26"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--took her statement? Okay. He gets on the stand, and he says all of these unpleasant things about her. And then the State says, okay, now we have our chance, and we are going to put in her statement through the testimony of the police officer to rebut what he has just said.",
       "time": "00:02:19.96"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I would think that the difference is that his statements about her were subject to cross-examination.",
       "time": "00:02:58.02"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And her statements about him were not.",
       "time": "00:03:04.34"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But we are not... well, but we are talking about the door... the door opening here at trial. Did he give notice that he was going to testify in California? Do they have some rule that if you're going to testify, you have to give notice?",
       "time": "00:03:06.58"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That tends to diminish somewhat, but not entirely, your, I think, quite proper response that this came in on direct not... not cross.",
       "time": "00:03:22.84"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Maybe they would be wrong... maybe they would be wrong in another case, but we have this case, and Justice Scalia has suggested, I take it, that this testimony could not come in even by way of rebuttal.",
       "time": "00:03:59.82"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Even by way of cross-examination. Do you... do you share that view?",
       "time": "00:04:17.83"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It may go to his credibility. He has just painted a picture of this woman which is quite different from what her statement to the police officer would portray.",
       "time": "00:04:33.42"
     },
@@ -179,13 +179,13 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, of course... of course, that's true. That is the reason for the confrontation... confrontation rule. But it does seem to me that this is responsive to his defense; and you say, well, it's his state of mind, and her testimony was general. I think it does go to his state of mind.",
       "time": "00:05:06.39"
     },
     {
       "turn": 24,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not following you. Is there... is there an exception to the hearsay rule so long as the hearsay is brought in, in rebuttal? Is there a rebuttal exception to the hearsay rule?",
       "time": "00:05:23.87"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But we are talking here about the definition or the contours of the equitable rule, the forfeiture rule, for confrontation. And I think perhaps what Justice Ginsburg was suggesting, and certainly what I was suggesting, is that when we are looking at whether or not there is a forfeiture, we are talking about equitable considerations. Now, it's true in this case we are presented with an instance that I've never seen, which is that the murder itself makes the declarant unavailable for purposes of the equitable exception. And it is true that that goes much further than the common law did.",
       "time": "00:05:39.53"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How much are we supposed to follow the common law, in your opinion, as it was in the 18th century or 12th century, or something? I mean suppose, to take a fanciful example... I mean... but suppose there was a common-law rule. And I know there wasn't, but suppose there was a common-law rule that said in cases involving witches you cannot admit any evidence because either the witch, the accused witch, came up out of the water when they were dunking her, and, therefore, she is guilty, so there is no need; or she is under water, which shows she is, you know, guilty, but you can't cross-examine a person under water. Now if there were a rule like that, would we now incorporate it into the Constitution of the United States? The answer is meant to be no. [Laughter]",
       "time": "00:06:37.62"
     },
@@ -221,25 +221,25 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, let's get more realistic. There are all kinds of rules--",
       "time": "00:07:27.36"
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He is thinking about Cambridge and not England. [Laughter]",
       "time": "00:07:31.59"
     },
     {
       "turn": 32,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Okay. So there are all kinds of rules of disqualification of witnesses in the 17th and 18th century. You couldn't testify. In this case there would have been no admission if she had been married to the man instead of being his girlfriend. You couldn't have a spouse; you couldn't have an interested party; you couldn't have a child who didn't understand the oath; you couldn't have a person who was an atheist; you couldn't have somebody who was a convicted felon. So now are we supposed to incorporate all of these things into the Confrontation Clause?",
       "time": "00:07:35.03"
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do any of them have anything to do with the Confrontation Clause?",
       "time": "00:08:05.18"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It doesn't have to do with the Confrontation Clause that you couldn't cross-examine person who didn't understand the meaning of the oath?",
       "time": "00:08:10.38"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what about a person who... the same facts that he could not... wasn't eligible to testify? At common law you never could have gotten that person to testify in court, no matter what. And, therefore, what? That's what I'm asking, if we are supposed to follow all of the contours of that rule.",
       "time": "00:08:30.38"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. But, now, does that make sense? For example, if this woman had been married, she could not. She... her testimony... whether your client deliberately procured her absence, accidentally procured her absence, whatever he did, that testimony could not have come in, is that right, if she was married to him?",
       "time": "00:08:49.67"
     },
@@ -287,13 +287,13 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but I think what Justice Breyer is saying--",
       "time": "00:09:21.07"
     },
     {
       "turn": 42,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm trying to drive at what the contours are. Which ones do we ignore, and which don't--",
       "time": "00:09:24.31"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But I think what Justice Breyer's line of questioning points out is that there were other provisions of the evidence rule followed in England which would not allow the testimony to come in, in the first place. In this case, we wouldn't even have the issue before us if the testimony were not admissible as an exception to the hearsay rule. It is admissible. Then we have to ask if it conforms with the Confrontation Clause, which is the issue we have. But because of the restrictions he points to, there was never the occasion for the common law to explore the boundaries of the forfeiture exception in the confrontation context.",
       "time": "00:09:40.31"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And besides which, the question that Justice Breyer was asking was already answered in Crawford; wasn't it?",
       "time": "00:10:17.22"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A case from which he dissented. But we did say that the meaning of the Confrontation Clause is the meaning it bore when the people adopted it.",
       "time": "00:10:27.93"
     },
@@ -341,13 +341,13 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I don't think I did--",
       "time": "00:10:37.96"
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "There was a dying declaration rule at the common law; wasn't there?",
       "time": "00:10:39.19"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that didn't require any inquiry into the intent of the person responsible for the death, or the imminent death, right?",
       "time": "00:10:45.00"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, if the dying declaration rule didn't require intent, why should yours?",
       "time": "00:11:12.33"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Instead of intent, the dying declaration rule required knowledge by the declarant that the declarant was about to die.",
       "time": "00:11:35.86"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right?",
       "time": "00:11:42.49"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the evidence of truthfulness was apparently that the person was about to enter the next world.",
       "time": "00:11:44.17"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And most of us don't lie at that particular moment. Whereas, in the Confrontation Clause situation you have a totally different situation.",
       "time": "00:11:52.94"
     },
@@ -431,19 +431,19 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I joined Crawford, and Justice Scalia would like to kick me off the boat, which I'm rapidly leaving in any event, but the...-- [Laughter]",
       "time": "00:12:01.96"
     },
     {
       "turn": 66,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You jumped off in Crawford, I thought.",
       "time": "00:12:10.03"
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right. But my question... I want to go back because what I'm finding difficult is... well, let's take the specific case. Suppose they had been married. If they had been married in 1789, I guess, or 1750, or 1400, or whenever, her testimony would not have come in regardless. I think I'm right on that.",
       "time": "00:12:13.01"
     },
@@ -455,13 +455,13 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, as a spouse. And, therefore, whether he procured her absence or not is beside the point. Now, do we follow that rule under the Confrontation Clause today?",
       "time": "00:12:38.69"
     },
     {
       "turn": 70,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I think your answer was that in Crawford that was the situation. It was a spouse; wasn't it?",
       "time": "00:12:52.25"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In Crawford.",
       "time": "00:13:01.08"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And it was the defendant who said he didn't want her to testify.",
       "time": "00:13:03.16"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Under the... the testimony of someone who heard her say something, was that admissible?",
       "time": "00:13:07.09"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No. Under the common law.",
       "time": "00:13:17.83"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Like in the case of an unavailable witness?",
       "time": "00:13:28.75"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There are some things that are not just testimonial. For example, suppose she left a sealed letter. She has been murdered, and the letter is to be opened only upon her death, and the letter says: If I was done in, go after him. Could that come into evidence?",
       "time": "00:13:38.04"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, is it? I'm just giving you--",
       "time": "00:14:10.31"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--So what's the line between what... I understand that she is accusing him to a police officer.",
       "time": "00:14:29.42"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So you say that's testimonial.",
       "time": "00:14:35.91"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If she is talking to a friend and saying that she is scared to death of this man--",
       "time": "00:14:39.17"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--the friend could testify?",
       "time": "00:14:46.25"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why?",
       "time": "00:14:50.02"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What's the difference? If this rule is going to separate the testimonial from the nontestimonial, you have to be able to tell when it's one and when it's the other.",
       "time": "00:14:54.46"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Could I ask you whether there is really anything involved in this case? Both the California Supreme Court and the Court of Appeals said it is inconceivable that any rational trier of fact would have concluded that the shooting was excusable or justifiable. Doesn't that virtually guarantee that if there was an error here, it was harmless error?",
       "time": "00:15:17.16"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "No. Is that correct? Weren't they concluding that, based on the independent evidence, it was virtually inconceivable--",
       "time": "00:16:09.16"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--No?",
       "time": "00:16:16.90"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How do we know in this case that part of his intent was not to prevent her from testifying at trial? I mean, it's obvious that he was upset about something else, but maybe in his mind he is saying, oh, boy, if she has talked to people about how I'm going to kill her, I'd better do it so that she can't testify.",
       "time": "00:16:18.52"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How are we ever going to know that in a typical case?",
       "time": "00:16:42.72"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, take a case like this, I don't understand how that finding could have been made. He knew that she had reported... that she had said to her friends he is going to kill me; he is going to kill me. And then he figures he'd better do it or it's going to... his self-defense claim is going to look a lot weaker.",
       "time": "00:16:52.09"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, I'm sorry it doesn't. It means that that may have been part of his motive, to kill her. Because I'm not just going to beat her up this time; I'm actually going to kill her because otherwise I'm going up the river. Here he gets a great benefit from murdering her which is that her testimony is not available. We usually under our system don't try to give benefits to murderers.",
       "time": "00:17:18.54"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I understand that, and you've said--",
       "time": "00:17:48.16"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Excuse me, Counsel. You've said that already. And what I'm saying is that I don't understand under the legal standard we might adopt, how that sort of finding makes sense. I mean, you don't ask him why did you kill her; was it to prevent her testimony or not? That's not available in the inquiry. So how can that sort of factual finding be made?",
       "time": "00:17:50.64"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the... here it's his own murder trial. So he didn't murder her so that she couldn't be a witness at the trial for her murder.",
       "time": "00:18:19.60"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But he might have murdered her because she had good grounds to get him indicted on criminal assault charges. Maybe he murdered her so that she would not be available to testify at such a trial.",
       "time": "00:18:40.09"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I had thought that the common law rule is that you have to have rendered the... intentionally rendered the witness unavailable with regard to the particular trial that's before the court. Not rendering the witness unavailable for some other litigation.",
       "time": "00:19:14.54"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you know of any case where it was some other litigation that--",
       "time": "00:19:34.53"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I didn't think so.",
       "time": "00:19:38.28"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Let's... let's assume that the only case on the books pre-1789 was Morley, in which the defendant did specifically intend to keep the witness away from the trial. But let's assume, contrary to fact, that the Morley case gave a... a very sweeping, expansive definition of the equitable forfeiture rule and said the defendant cannot profit by his own wrong. Could we take that general language pre-1789 and say that it supports the rule today, assuming we could find that in the Morley case or other aspects of the common law? Or would we be just confined, as you understand Crawford, to the specific holding of Morton that there has to be a specific intent?",
       "time": "00:19:40.30"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Please... please make the supposition.",
       "time": "00:20:48.19"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. Well, suppose we read the English authorities that it does not foreclose the expansion of the equitable forfeiture rule.",
       "time": "00:20:59.15"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I... I find that difficult to understand because the dying declaration rule came up in many instances when the confrontation rule was not involved at all.",
       "time": "00:21:25.83"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your dying declaration cases are not just murders, though.",
       "time": "00:22:19.93"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Pardon me?",
       "time": "00:22:23.92"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Really? I thought they came in, in civil cases all the time.",
       "time": "00:22:25.93"
     },
@@ -881,13 +881,13 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but I... I agree... I'll check the,... check--",
       "time": "00:22:37.97"
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the rationale for the dying declaration rule has nothing to do with who caused the death.",
       "time": "00:22:41.70"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it has to be imminent, too.",
       "time": "00:22:58.81"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He has to think it's imminent.",
       "time": "00:23:05.59"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But that's an entirely different rationale from the issue we have here, because it applies across the board to civil cases and all sorts of litigation.",
       "time": "00:23:09.30"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But the forfeiture rule is designed to suspend the operation of the confrontation rule. That doesn't mean that it comes in. You still need another hearsay exception which will allow it in.",
       "time": "00:24:03.88"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Ms. Burkhardt. Mr. De Nicola.",
       "time": "00:25:28.12"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it didn't put it in those very words, but I think a lot of... of the quotations from opinions cited by your friend seemed to me to say that. But why don't you start off by telling... by explaining to us why these many cases excluded the dying declaration of the murdered person when... if it could not be shown that the murdered person knew when the declaration was made that he or she was dying? If the rule that you're announcing was the rule at common law, all of those would have come in because that declaration said this Defendant killed me. And, therefore, it would have been true in all of those cases that this defendant procured the absence of the witness from the trial. How do you explain that. And there are many cases. It's not just a few. The requirement in the dying declaration cases that the... that the declarant be aware of impending death is uniform. Why even bother with that requirement if it could all come in under... under this procurement of the absence-of-the-witness rule?",
       "time": "00:26:04.20"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure you've answered my question. Why wasn't it enough for the prosecution to say: This dying person said that this defendant killed her; therefore, this declaration can come in because this defendant procured the absence of this declarant by killing her?",
       "time": "00:28:18.83"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Nobody even ever makes those arguments. They fight it out on whether the declarant was aware of impending death or not, but that would have been totally irrelevant if it all comes in under... under the rule that you're arguing for here.",
       "time": "00:28:44.76"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I understand the distinction you're drawing at the present time or at least since the Bill of Rights was adopted. We have two regimes. We have the constitutional condition and we have hearsay rules.",
       "time": "00:30:05.93"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But with respect to the common law as it stood at the time that the Bill of Rights was adopted, there wasn't such a distinction; was there? In other words, to the extent that the confrontation right is informed by the common-law antecedent, the common-law antecedents were not drawing the line that you are drawing; were they?",
       "time": "00:30:19.33"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And if that is the case, then it seems to me you haven't answered Justice Scalia's question. Because Justice Scalia's question says: Let's just talk about common-law antecedents for a moment; and, given common-law antecedents, why were people worried about the consciousness of death under the dying declaration rule if there was this broader rule which is supposed to inform our understanding of the confrontation right, which would have let it in simply because the crime had forfeited the right to object. And it seems to me that you still have not answered his question.",
       "time": "00:30:41.34"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If it was... if it was testimony. There are a lot of declarations that are not testimonial, and the rule is very important for those.",
       "time": "00:32:01.29"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "There are also declarations that are testimonial, in which case we look to the confrontation concept.",
       "time": "00:32:09.01"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I would suppose that there are a lot, a lot of situations in which a dead victim has made statements pertinent to the murder. So wouldn't your rule drive a pretty big hole through Crawford? This is not an isolated instance where the victim said something about the murderer. That would seem to be a fairly common situation, because most murders involve people who know each other.",
       "time": "00:32:53.56"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But to the extent that Crawford is confined simply to testimonial statements, any number of statements--",
       "time": "00:33:36.78"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--that will come in under the California evidence rule are simply not controlled by the Confrontation Clause anyway. It's just... it's a standard hearsay problem.",
       "time": "00:33:42.65"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does that mean, what you just said, that this is not a problem in States that have adopted the Federal Rules of Evidence? Because, as I understand it, there is an exception, the standard exception, for when the defendant procures the witness's absence for the very purpose of preventing the witness from testifying at a particular trial. That's the exception that's in the Federal Rules of Evidence. You don't have an exception, a hearsay exception, for just being responsible for the witness's unavailability. So practically, this couldn't come in under a hearsay objection in places that have the Federal Rules of Evidence; is that right?",
       "time": "00:34:23.71"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Doesn't it have to be interpreted that way? You don't contend it could be interpreted differently?",
       "time": "00:35:40.76"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just because it says so, I mean.",
       "time": "00:35:54.91"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can you give us one case from the common law, just one, in which the procurement of a witness's absence exception to the Confrontation Clause was applied where there was no intent to prevent the witness from testifying?",
       "time": "00:36:08.62"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think you do either.",
       "time": "00:36:37.55"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The reason, I think, is... I think, if I understand Justice Scalia's question, take ordinary hearsay?",
       "time": "00:36:49.04"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. There's a reason for keeping it out, though there are many exceptions. Now take that subset of ordinary hearsay where it was a statement made purposefully to go to trial. Now there is especially good reason for keeping it out, so like a double reason. And I think he finds it odd that we, under the common law, putting us back then, would say there's an exception where there's especially good reason for keeping it out, see, in the testimonial case, an exception where you go get the person murdered, but you didn't do it purposefully. But... but there is no exception in just where there's only the ordinary reason for keeping it out. It should seem to work the other way around. Now, to me that suggests that maybe we shouldn't follow completely the common law as it evolved in evidentiary principles. Maybe we have to assume an intent to allow the contours of the Confrontation Clause to evolve as the law of evidence itself evolves. Otherwise, we get caught up in these logical contradictions. What do you think of that?",
       "time": "00:36:56.02"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You wouldn't want us to get caught up in the limitations of the Confrontation Clause?",
       "time": "00:38:23.38"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Do you see what my question was? My question is the same question I asked your fellow counsel. My question is, since I led you to the point where you were willing to say maybe there is some flexibility here, what? That's where I'm having the trouble. What precisely are the principles I should follow to prevent my going back to look at they dunked witches, but allowing the heart of Crawford to be maintained. How do I do it? I don't know if you can answer that question, but that's the problem that I'm having.",
       "time": "00:38:54.41"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Does the record show what happened after the police went and received the statements by Ms. Avie? Did she ask... did she ask to have charges brought? Did the police file a complaint?",
       "time": "00:40:12.68"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "As far as the record shows, nothing happened? They took this statement and that was it?",
       "time": "00:40:30.23"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does the record show or did the trial indicate anything that he told the police on the prior occasion? They went into different rooms and they each gave statements?",
       "time": "00:40:38.89"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I think it's an astonishingly broad exception you're asking for. On the other hand, testimonial statements are all that's involved, and so that's a narrow class, and maybe that balances out. I'm not sure. But may I just ask and you can comment on it if you... may I ask: The defendant gave notice that he would testify?",
       "time": "00:41:33.55"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "California law requires that?",
       "time": "00:42:04.86"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Or it does not require it?",
       "time": "00:42:07.44"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right.",
       "time": "00:42:21.48"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose the unavailability is caused by the defendant's negligence. Defendant negligently runs over the victim.",
       "time": "00:43:39.36"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I mean over the declarant.",
       "time": "00:43:47.71"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose it's negligence.",
       "time": "00:43:54.21"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Isn't there a problem that was brought out in the briefs with... this man is standing trial before a jury that's going to determine guilt beyond a reasonable doubt, but if this testimony is going to come in, the judge has to make some kind of a preliminary finding that he killed her in advance of the jury making that determination.",
       "time": "00:44:55.90"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If that's a fault, it's a fault that also exists with the rule being argued by your opponent, isn't it?",
       "time": "00:45:58.53"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Maybe I have to take that back. Maybe it... it's very... it would be very unusual that someone would kill a victim in order to prevent her testifying at a murder trial which is not yet in prospect because you haven't murdered her. So these cases may be very rare. So maybe that is an advantage of her rule over yours, that you would very rarely have to find the defendant guilty of the very crime for which he's being prosecuted in order to apply the... the exception to the Confrontation Clause.",
       "time": "00:46:25.90"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:47:06.43"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It would be rare on her theory; it wouldn't be rare on yours. It happens all the time on yours, I would think.",
       "time": "00:47:11.19"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I would think these cases come in... this problem comes in with spousal abuse. Now, I don't know what the numbers are, but I bet you could find numbers. I suspect, but I don't know, that in many cases where there's a death in that kind of situation, maybe it is accidental. Maybe the... maybe the man who is beating up his wife didn't really want her to die.",
       "time": "00:47:29.48"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So that to me, I guess, suggests that that's in favor of your rule, I think. Isn't it?",
       "time": "00:47:53.13"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And so that would be true, whether it was intended or whether it isn't intended.",
       "time": "00:48:10.03"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Whether it's... I mean, I'm not sure how to even administer even a criminal/civil distinction.",
       "time": "00:48:16.04"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I think you're... it's certainly true that this issue would come up in domestic abuse cases--",
       "time": "00:48:45.09"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--but I'm not sure that it would be at all limited. I assume you have, you know, gang cases--",
       "time": "00:48:50.07"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--any case in which have you familiarity between the victim and the defendant, which, as I understand it, is the most typical case, but it's not simply in any way limited to the domestic abuse cases.",
       "time": "00:48:55.38"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, I know your rule wouldn't--",
       "time": "00:49:12.64"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--but the situation in which the case arises--",
       "time": "00:49:14.00"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--also would--",
       "time": "00:49:16.47"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--certainly not. It comes up quite frequently, I would assume--",
       "time": "00:49:18.14"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--because you often have an association with--",
       "time": "00:49:20.88"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Thank you, Counsel. Ms. Burkhardt, you have four minutes remaining.",
       "time": "00:53:14.11"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If you're right, it would go back on the harmless error question, right?",
       "time": "00:57:48.76"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Counsel. The case is submitted.",
       "time": "00:58:15.37"
     }

@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2013/13-298/20140331a_13-298.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
       },
       {
         "name": "CARTER G. PHILLIPS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MARK A. PERRY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "DONALD B. VERRILLI, JR.",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument this morning in Case 13-298, Alice Corporation versus CLS Bank International. Mr. Phillips?",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And just repeat, it is common ground between the parties that--",
       "time": "00:00:36.09"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Phillips, on the abstract idea, you know that the Bilski case held that hedging qualified as an abstract idea. So how is intermediate settlement a less abstract than hedging?",
       "time": "00:01:03.59"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, let me put it this way. If you describe that to a second-year college class in engineering and said here's -- here's my idea, now you go home and you program over this weekend, my guess is -- my guess is that that would be fairly easy to program.",
       "time": "00:02:29.21"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So the fact that the computer is involved, it -- it seems to me, is necessary to make it work. But the -- but the innovative aspect is certainly not in the creation of the program to make that work. All you're talking about is -- if I can use the word -- an “ idea ”.",
       "time": "00:02:48.96"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Or -- or a method or a process.",
       "time": "00:03:10.40"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why is that less abstract?",
       "time": "00:03:19.23"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why is that less abstract? I mean, imagine King Tut sitting in front of the pyramid where all his gold is stored, and he has the habit of giving chits away. Good for the gold, which is given at the end of the day. And he hires a man with an abacus, and when the abacus keeping track sees that he's given away more gold than he is in storage, he says, stop. You see? Or my mother, who used to look at my checkbook, when she saw that, in fact, I had written more checks than I had in the account, she would grab it. Stop. So what is it here that's less abstract that the computer says, stop?",
       "time": "00:03:21.11"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How is that less abstract than King Tut, if we had the same thing with a grain elevator, if we had the same thing with a reservoir of water, if we had the same thing with my checkbook? You see the point.",
       "time": "00:04:02.25"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Methodology is just that you said, stop.",
       "time": "00:04:18.11"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what we have different here is the computer stops rather than the abacus man stopping or my mother stopping or the guy that the grain elevator has that says stop. So just saying, what -- is that it? In other words, if you say, computer stop, you have an invention. Useful add -- but if you say, mother stop, you don't?",
       "time": "00:04:21.65"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Of course it's a caricature. It's a caricature designed to suggest that there is an abstract idea here. It's called solvency.",
       "time": "00:04:53.77"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And what you do is you take the idea of solvency and you say apply it. And you say apply it through the computer. Is that enough to make it not just the abstract idea? And now we're at the heart of why I used my exaggerated examples--",
       "time": "00:05:00.91"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--because you will tell me why--",
       "time": "00:05:20.97"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--this is enough.",
       "time": "00:05:22.96"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry. But -- but what it appears to be, it sounds like you're trying to revive the patenting of a function. You used the word “ function ” earlier, and that's all I'm seeing in this patent is the function of reconciling accounts, the function of making sure they're paid on time. But in what particular way, other than saying do it through a computer, is this something new and not function?",
       "time": "00:05:54.16"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why isn't it -- why isn't doing it through a computer not enough? I mean, was the cotton gin not an invention because it just means you're doing through a machine what people used to do by hand? It's not an invention. It's the same old, same old.",
       "time": "00:06:50.76"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why -- why is a computer any different in that respect?",
       "time": "00:07:07.29"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I'm not saying use a computer is -- is much of a novelty. I mean, that's -- that goes to whether it's novel or not. If you just say use a computer, you haven't invented anything. But if you come up with a serious program that -- that does it, then, you know, that may be novel. But that's a novelty issue, isn't it.",
       "time": "00:07:30.31"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And this is exactly the question I really would like to you to focus on for me. Why is it -- and I'm not saying this from a point of view, but it seems to me pretty clear that if what you did was take the idea of solvency -- remember King Tut. That's what I use the exaggeration -- and what you say is implemented by having the abacus man keep track and say stop, okay--",
       "time": "00:07:53.02"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Then we implement it by having somebody with a pencil and a piece of paper and this is all that they add, you see. Say: Have a man with a pencil and a piece of paper keeping track and saying, stop, or we say, implement it in the computer, which will automatically keep track and say stop, are they all enough? Are some of them enough? What's the rule? And you realize I couldn't figure out much in Prometheus to go beyond what I thought was an obvious case, leaving it up to you and your colleagues to figure out how to go further. Am I making enough -- making clear enough what's bothering me? And I'd really like to get your answer to this.",
       "time": "00:08:20.57"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But my -- my initial question, and I think I can work this into King Tut, is-- [Laughter] --is -- is whether or not you could have patented that system, idea, process, method, without attaching a computer program.",
       "time": "00:09:49.56"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose I thought -- and, again, it's just a thought because I don't have the expertise -- that any computer group of people sitting around a coffee shop in Silicon Valley could do this over a weekend. Suppose I thought that.",
       "time": "00:10:16.90"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes, right.",
       "time": "00:10:33.21"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, then -- then--",
       "time": "00:10:37.09"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Then why is the computer program necessary to make the patent valid?",
       "time": "00:10:40.13"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that's just an idea, hey, let's use a computer.",
       "time": "00:11:20.27"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Is your software copyrighted?",
       "time": "00:11:29.71"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There is no special software that comes with this -- that's part of this patent, is it -- is there?",
       "time": "00:11:35.20"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Phillips, could you -- could you disaggregate your argument for me? Because you just said, look, this Court has said it's not sufficient if you have an idea and then you say use a computer to implement it; right? So are you saying that your -- that -- are you saying that you're doing more than saying use a computer to implement it or are you saying that it's -- that the idea itself is more than an idea?",
       "time": "00:12:02.68"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Which part of what--",
       "time": "00:12:34.13"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--So putting the computer stuff aside completely--",
       "time": "00:12:53.03"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--you're saying that you've invented something or you--",
       "time": "00:12:55.73"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--There is something that you've patented that has -- that is not just simple use a third party to do a settlement.",
       "time": "00:13:00.70"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And what is that, putting the computer aside?",
       "time": "00:13:08.95"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can you in fact -- now, this is -- look, there are 42 briefs in this case. I actually read them and I found them very, very helpful up to the point where I have to make a decision, because they're serious. I mean, you know -- now, the problem that I came away with is the one that you're beginning to discuss, that if you simply say, take an idea that's abstract and implement it on a computer, there are -- you're going to get it much faster, you're going to be able to do many, many things, and if that's good enough, there is a risk that you will take business in the United States or large segments and instead of having competition on price, service and better production methods, we'll have competition on who has the best patent lawyer. You see where I'm going on that one?",
       "time": "00:13:54.85"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And if you go the other way and say never, then what you do is you rule out real inventions with computers.",
       "time": "00:14:48.23"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And so in those 42 briefs, there are a number of suggestions as to how to go between Scylla and Charybdis. Now, I would like to know -- I don't know if you can step back from your representational model. That's a problem. You're all we have now. And -- and from my point of view, I need to know what in your opinion is the best way of sailing between these two serious arms.",
       "time": "00:14:57.52"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Phillips, let me just stop you there, because four Justices of this Court did not read that legislative history the way you do. And it was -- was in Bilski.",
       "time": "00:16:18.21"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Justice Stevens went carefully through that and he said: Congress was reacting to a decision. It had -- it was not addressing 101. So there are at least four Justices who say -- who didn't buy that argument.",
       "time": "00:16:31.10"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And four is not five anyway, right?",
       "time": "00:17:00.32"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Four is not five.",
       "time": "00:17:02.88"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "By the way, we -- we have said that you can't take an abstract idea and then say use a computer to implement it. But we haven't said that you can't take an abstract idea and then say here is how you use a computer to implement it--",
       "time": "00:17:06.31"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--which is basically what you're doing.",
       "time": "00:17:24.70"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that's a little different.",
       "time": "00:17:27.25"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, how are you saying the how? Because I thought that your computers -- that your patents really did just say do this on a computer, as opposed to saying anything substantive about how to do it on a computer.",
       "time": "00:17:29.10"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If we say that there's no software patentability and agree with the Attorney General, do you lose in this case?",
       "time": "00:19:22.29"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is there any common ground between you and the government -- maybe a better question to ask the government -- a common ground between you and the government on something in the software area that's patentable, other than making the computer itself work? You understand the government to say no software patents.",
       "time": "00:19:51.63"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It was like -- there's a Bloomberg brief out here that was on this, that said, no, you can -- you can patent computer software when it's an improvement in the computer, when it's an improvement in software, when it's an improvement in a technology that is developed out of computers like robotics, when it is an improvement in a machine or technology, but you cannot improve it where it is simply an improvement in an activity that is engaged in primarily through mental processes. But what they mean by that is business, finance, and similar arts. That's -- I mean, that's -- it wasn't quite what -- I know. That's what I want to know what you don't agree with about that, because it's a little more refined than you suggested.",
       "time": "00:20:10.62"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I'm asking you -- I'm asking you, what about this one that I just mentioned? You see, I went through those five steps--",
       "time": "00:21:18.68"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and four of them you could patent and the fifth one you can't.",
       "time": "00:21:24.94"
     },
@@ -659,13 +659,13 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, you're doing a very good job of proving--",
       "time": "00:22:06.50"
     },
     {
       "turn": 104,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In Bilski, Justice Breyer did try to say that there wasn't that -- a whole lot of distance between the four who thought business methods were not patentable. But he -- he also said something else in -- in the other case, Mayo. Justice Scalia asked you the question about doesn't that go to novelty, but didn't Justice Breyer say in Mayo that novelty can be relevant to patent -- to patent eligibility? He said there's -- there's an overlap.",
       "time": "00:22:08.07"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Which of the -- which of the opinions below captures your position most accurately?",
       "time": "00:23:42.49"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And if we were to think your method claim is ineligible, do you agree that your systems and -- your medium and system claims fail as well? Do they rise and fall together.",
       "time": "00:23:53.37"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Can I give you a hypothetical, Mr. Phillips, and you tell me how it's different or the same. Let's say, you know, 30 years somebody took a look around the world and said, a lot of people seem to order products by mail. They get the catalogues in the mail and then they send back their return forms. And let's say that one of the founders of the Internet said, wouldn't this be an amazing system, we could actually do this by computer, and they had patented that. Is that the same?",
       "time": "00:24:37.90"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "No, but exactly. I mean, the claim would have said something along the lines of, you know, there's this process by which people order products and we want to do it over the Internet, we want to do it electronically, and we will use a computer to do that, to essentially take the process of mail order catalogues and make it electronic.",
       "time": "00:25:15.26"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Phillips. Mr. Perry.",
       "time": "00:25:52.30"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can I ask you at some point, not necessarily this second, to say in my -- this is just -- you know, you have an opinion for a court. Different judges can have different interpretations. All you're getting is mine, okay? But I think it's pretty easy to say that Archimedes can't just go to a boat builder and say, apply my idea. All right. Everybody agrees with that. But now we try to take that word “ apply ” and give content to it. And what I suspect, in my opinion, Mayo did and Bilski and the other cases is sketch an outer shell of the content, hoping that the experts, you and the other lawyers and the -- the circuit court, could fill in a little better than we had done the content of that shell. So, so far you're saying, well, this is close enough to Archimedes saying “ apply it ” that we needn't go further. Now, will you at some point in the next few minutes give me your impression of, if it were necessary to go further, what would the right words or example be?",
       "time": "00:27:43.45"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What do you think is a technological solution?",
       "time": "00:29:52.02"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How could they, if at all, written their patents to -- to make -- to make their software eligible? What would -- what do they need -- would have needed to have added?",
       "time": "00:29:55.29"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that's a little more complicated. He referred us to Joint Appendix Page 159, which is not a change in how computers work. But it is -- constitutes the instructions about how to use the computer and where it needs to be affected. And just looking at it, it looks pretty complicated. There are a lot of arrows and they -- you know, different things that go-- [Laughter] Well, but I mean, you know, it -- in different directions. And I understand him to say that in each of those places, that's where the computer is needed.",
       "time": "00:30:57.21"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Would you give me -- again, you already did it once -- an example of a business process patent -- of a business process idea and invention that is patentable.",
       "time": "00:32:57.57"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I -- I -- in my language, I've called that mechanical rather than process. Can you give me an example of process?",
       "time": "00:33:45.55"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that's how to make a -- that's how to make a machine work better.",
       "time": "00:33:59.06"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm asking you: Is there any business process, any business activity that is susceptible to a patent, a pure patent, innovations that deserve patents?",
       "time": "00:34:03.18"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can you give me an example.",
       "time": "00:34:23.66"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How about e-mail and just word processing programs?",
       "time": "00:34:49.07"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So you're saying no to e-mail and word processing.",
       "time": "00:35:31.15"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "They certainly have functionality and -- and improvement of functionality for the user.",
       "time": "00:35:35.89"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How?",
       "time": "00:35:48.60"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What if -- what if you can do it without a computer, but it's going to take, you know, 20 people a hundred years? In other words, theoretically, you can replicate what the computer does--",
       "time": "00:37:43.22"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--but it's impractical without looking to do it on the computer?",
       "time": "00:37:53.31"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah, but the trouble with that particular test is, as I think partly the Chief Justice said, how long, et cetera, and then add to that, though you could do it without a computer, what happens at the end of the line is the automobile engine goes off or it begins to sputter or it turns left. You see, it's possible to take Archimedes -- you know, I use that example purposely to call attention to the problem. You can take those things, and you're not just saying apply it, and you're not even just saying -- you are saying use the computer, but at the end of the road, something physical in the world changes and everybody would say, now, that's -- that will falls within, I mean, probably, I mean, my hesitation shows I'm looking for the right words.",
       "time": "00:38:30.57"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Perry, before we get back to these matters, you said to Justice Scalia if a patent sufficiently describes how a computer will implement an idea then it's patentable. So how sufficiently does one have to describe it? What do we want a judge to do at this threshold level in terms of trying to figure out whether the description is sufficient to get you past it?",
       "time": "00:40:14.20"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "You're not suggesting that specific code is necessary?",
       "time": "00:41:42.93"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The Federal Circuit in this case split in many ways, and it had our decisions to deal with. You said, given Bilski and Mayo, this is an easy case. What is the instruction that escaped a good number of judges on the Federal Circuit? How would you state the rule?",
       "time": "00:43:26.96"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Should we be concerned, Mr. Perry, that there are old patents that in fact could meet the test that you set forth but won't because they were written in a different time and so used much more general language?",
       "time": "00:44:54.64"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. General Verrilli.",
       "time": "00:46:05.83"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How do you answer the argument that your view would extinguish business-method patents and make all software ineligible for patent protection?",
       "time": "00:47:04.17"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why do we need to reach this in that -- reach software patents at all in this case?",
       "time": "00:47:46.18"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What's the necessity for us to announce a general rule with respect to software? There is no software being patented in this case.",
       "time": "00:47:51.92"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There's a systems.",
       "time": "00:47:59.94"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Do you think we have to reach the patentability of software to answer this case?",
       "time": "00:48:26.58"
     },
@@ -1049,13 +1049,13 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well--",
       "time": "00:49:18.96"
     },
     {
       "turn": 169,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Could -- could -- could you go on with that because you were just getting to the point where I think you say a computer improvement that, in fact, leads to an improvement in harvesting cotton is an improvement through a computer of technology, so it qualifies. But then I think you were going to say, or I got this also from the brief, a computer improvement that leads to an improvement in the methods of selling bonds over the telephone is not an improvement in technology reached by the computer. Am I right about the distinction you're making?",
       "time": "00:49:19.29"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What is your view? Yeah, what is -- how do we deal with just that problem?",
       "time": "00:49:57.75"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:50:04.92"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "We've got that. Yes, yes. We got the computer. But then it doesn't improve the computer, but rather, it improves through the computer the harvesting of cotton. Now you've got it in what you said was your second category, which is an improvement through the computer of a technology. And I thought in your brief you were distinguishing an improvement through the computer of a human activity that is not a technology and, in particular, to pick an example of that, something in finance or something in business. Now, am I right about the distinction you're making?",
       "time": "00:50:07.79"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If I'm not right, what is the distinction?",
       "time": "00:50:45.45"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And how is that justified?",
       "time": "00:50:49.34"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That -- that is Judge Dyk in -- in Bilski in the Federal circuit, 4 people sort of picked it up maybe, 5 didn't pick it up. Would you say a few words about it?",
       "time": "00:50:51.34"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is there an example that you can give us of a -- what we can call a business process that is patentable, a process that doesn't involve improving the workings of a computer?",
       "time": "00:52:35.14"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "General, I -- you mentioned a while ago the need for greater clarity and certainty in this area. And I'm just wondering, in your brief, you've got a non-exhaustive of factors to consider, and there are 6 different ones. And I'm just doubtful that that's going to bring about greater clarity and certainty.",
       "time": "00:53:47.00"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I have a question about how do you identify an abstract concept. The -- a natural phenomenon, a mathematical formula, those are easy to identify, but there has been some confusion on what qualifies as an abstract concept.",
       "time": "00:55:32.25"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, General. Mr. Phillips, you have four minutes remaining.",
       "time": "00:56:18.30"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Your adversary says that his -- the appendix to his brief are the only patents at issue, that the flow charts are not at issue in this case.",
       "time": "00:57:02.83"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "If we were to say that there are no business patents--",
       "time": "00:57:30.41"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--would your patent survive at all?",
       "time": "00:57:33.65"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Yes, he wants to say no business patents.",
       "time": "00:57:47.49"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:59:53.74"
     }

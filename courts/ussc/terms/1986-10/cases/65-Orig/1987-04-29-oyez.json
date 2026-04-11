@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/65%20ORIG/19870429a_65orig.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLOTTE URAM",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "MAX RENEA HICKS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We will hear argument next in No. 65 Original, Texas versus New Mexico. Ms. Uram, you on behalf of New Mexico, I understand, may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it New Mexico accepts the determination of the shortage--",
       "time": "00:01:39.12"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--or the shortfall?",
       "time": "00:01:43.79"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So we can start there.",
       "time": "00:01:51.13"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How would that be determined?",
       "time": "00:03:36.44"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but what would the interest rate be applied to?",
       "time": "00:03:46.57"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you do? You say 10 percent of 320,000 or so many acre feet?",
       "time": "00:03:58.44"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean the interest would be paid in water?",
       "time": "00:04:07.06"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or in money?",
       "time": "00:04:10.07"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why do you call this retroactive relief? I find that a curious terminology for this. In that sense any relief in an ordinary contract claim you would consider to be retroactive relief? You break a contract with me and I sue you for the breach, for the damages that I have suffered. You would consider that retroactive relief?",
       "time": "00:04:23.55"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't even say the same in a contracts case. I mean, sometimes you don't know definitely what your obligation was until there is a lawsuit and the court tells you precisely what it was. But you had it. It was there.",
       "time": "00:05:11.47"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But is your conclusion from that that you shouldn't have to pay it back at all?",
       "time": "00:05:43.21"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what good is a compact like this if, you know, you and Texas enter into an agreement that says you will only use a certain amount of water coming down the Pecos, and in fact New Mexico uses what it probably in good faith things it has a claim to but which later a master interpreting the contract says, no, you didn't have a claim to. Do you say, well, we will just kiss and make up, and from now on we will obey the compact?",
       "time": "00:05:53.25"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It is a considerable one.",
       "time": "00:06:21.46"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What is the relief?",
       "time": "00:06:45.47"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but suppose we said prospective relief is all you can get, and then New Mexico promptly doesn't deliver the water again?",
       "time": "00:06:50.23"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Then you are back in court, and you say only prospective relief.",
       "time": "00:06:57.32"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't see... well, with due respect, Ms. Uram, it is just like saying, if, you know, somebody's dog bites me and I try to sue and you say, well, you know, you will get relief, we will prevent him from biting you again. That is not relief for the first bite. You are saying here the first bite is free.",
       "time": "00:07:12.02"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Excuse me. It doesn't have to-- --That is true about a requirements contract or lots of other kinds of things that aren't in the area of interstate compact. Someone agrees to take all of his requirements. Now, there may be arguments what those requirements are. Ultimately a court may tell that person, your requirements were different than you thought they were, but the contract would nonetheless be enforced, don't you think?",
       "time": "00:09:26.68"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't really understand this point about New Mexico not knowing what... New Mexico is supposed to be pouring water into the river if the level isn't at a proper flow. The requirement was very simple. Don't take any water out of it by man's activities. Wasn't that the sum total of the requirements imposed on New Mexico?",
       "time": "00:10:00.88"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but as far as New Mexico's obligations were concerned, what obligations did New Mexico have other than not to take away from the river by man's activities any more than had been taken away by man's activities in 1947?",
       "time": "00:11:06.54"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, you don't. All you have to do is conduct no additional man's activities after 1947.",
       "time": "00:11:27.53"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Counsel, where is the language that says this is all prospective?",
       "time": "00:13:05.85"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Where is the language?",
       "time": "00:13:13.57"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it printed here before us?",
       "time": "00:13:23.88"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Where is it? Is Exhibit 1 in any of these volumes?",
       "time": "00:13:29.51"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don't know whether it is here or not?",
       "time": "00:13:40.63"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Pages what? You started to say and were interrupted.",
       "time": "00:13:45.23"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Exhibit Number 1?",
       "time": "00:13:50.85"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What about the payment of monetary damages in lieu of water itself for any amount found overused by New Mexico?",
       "time": "00:13:57.33"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Did you propose that or object to payment in kind in water below to the master?",
       "time": "00:14:20.73"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, did you suggest if the master wanted to impose retroactive relief that he consider monetary damages?",
       "time": "00:14:35.72"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You asked that he do so instead of giving water relief? You may have stipulated that he had authority to do so, but did you ask that instead of giving water relief, he give monetary relief?",
       "time": "00:14:54.51"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That is what Justice O'Connor was asking. You are asking us to... you are asking now to have damages given rather than water.",
       "time": "00:15:08.04"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The damages.",
       "time": "00:15:18.74"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Money.",
       "time": "00:15:21.06"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Where would you get the water to deliver this extra amount? Would you have to condemn it?",
       "time": "00:16:04.39"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you wouldn't have to if you went out and condemned some other water rights.",
       "time": "00:16:27.63"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, they would only cost you money, but then you would be taking the water away from maybe even priority users.",
       "time": "00:16:37.39"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Who will benefit from the water, the increased water usage? Suppose you delivered the extra 34,000 acre feet a year into Texas. Is that water distributed according to a water system in Texas, priority? Is that it?",
       "time": "00:17:02.51"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What about municipalities in Texas? Do they need water?",
       "time": "00:17:55.72"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Whatever they are going to use it for, it is hard to believe that they wouldn't accept a certain amount of money for the water instead. I mean, there is no reason you can't get out of this by paying money. It is just a question of whether you are going to have to buy the water from Texas or whether the special master is going to have to figure out how much a foot acre of water is. Did Texas stipulate to damages if the... or did they oppose... they want water rather than money. Is that right?",
       "time": "00:18:10.33"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, they will only have the extra water for ten years.",
       "time": "00:18:45.08"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They wouldn't accept any kind of... any amount of money for that water? That is hard to believe.",
       "time": "00:18:49.39"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That is very irrational behavior. Not many economists would think that that is a possible scenario. Of course, you can still settle monetarily, whatever we do here.",
       "time": "00:18:53.64"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is right.",
       "time": "00:19:05.95"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you two states have had a chance to settle this controversy over, I don't know, forever.",
       "time": "00:19:13.52"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You haven't been able to do it.",
       "time": "00:19:24.07"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "When you say we have tried to settle, you mean New Mexico or both of you?",
       "time": "00:19:39.61"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That is just what I can't believe. I mean, I don't care how much water they are getting. I am sure they will accept a monetary settlement for the water. It may have been in Texas's economic interest to get a water judgment first and then have New Mexico bargain with Texas about how much New Mexico will pay instead of the water, but I have no reason to believe that Texas would behave so irrationally as not to... if in fact the water is worth more to you than to them, I am sure they would come to an economic adjustment in dollars.",
       "time": "00:19:52.57"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, ordinarily if you breach an agreement you don't look so much at the hardship of the other party as the value of the performance of the person who breached.",
       "time": "00:21:38.94"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but specific performance is a form of equitable relief and it simply require you to do what you said you would do.",
       "time": "00:22:03.60"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did you make to the special master this argument that the compact didn't contemplate what you call retroactive relief?",
       "time": "00:22:51.47"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what did the special master say about it?",
       "time": "00:22:58.73"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx even if the contract contemplates specific performances, so to speak, it would be inequitable to order it in this case.",
       "time": "00:23:19.27"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but he said I don't have any authority about damages. But did you say that... did you make this argument that nobody knew what this obligation was until recently?",
       "time": "00:23:36.99"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the fundamental argument that went on for so many years when Judge Brightenstein was special master was, what was the 1947 condition.",
       "time": "00:23:54.11"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And there was a major difference between you two states, and that question came up here twice, didn't it?",
       "time": "00:24:03.18"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He found that they weren't due to natural causes.",
       "time": "00:25:59.06"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so you then say, well, those weren't due to natural causes, now let's have a hearing to decide what they were due to?",
       "time": "00:26:01.49"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is one of the possibilities other than man if it isn't nature?",
       "time": "00:26:12.96"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So there is a third category, unknown?",
       "time": "00:26:23.33"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I thought the master conducted a hearing on this very question, Texas had a burden of proof and submitted whatever it was, Exhibit Number 79 or whatever, yes, Texas Exhibit 79, which purported to account for the loss in water, and New Mexico didn't produce anything in opposition, and the master made his decision. What is the matter with that?",
       "time": "00:27:19.99"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That was what Texas put on. Ne Mexico put on nothing of its own, and the master made the decision.",
       "time": "00:28:06.62"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you needed that affirmative evidence, would there have been any need to compute the 1947 flow. What was the purpose of that?",
       "time": "00:28:35.50"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the conditions.",
       "time": "00:28:50.85"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But why? I mean, if each of man's activities has to be proven, you are wasting time to go Pack and figure out what the... the whole purpose of computing the '47 flow was to see if there is any decrease from that flow, and in order... and when you find a decrease you then find what was naturally caused, and the rest is man's activities. Otherwise you are going to have to show man's activities diverted so much water this year, man's activities diverted so much water the next year. If that must be proven, you have wasted a whole lot of time figuring out anal the '47 flow was, haven't you?",
       "time": "00:29:01.11"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Okay, tell me--",
       "time": "00:29:36.74"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I guess I am not making myself... why do you need that... it seems to me you have said that what Texas has to show is that man's activities diverted so many acre feet of water each year. If Texas has to show that, what difference does it make what the 1947 flow was? You are wasting--",
       "time": "00:30:02.18"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But you don't need a standard. If you have to prove each individual man's diversion one by one, you don't need a standard.",
       "time": "00:30:25.60"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it seems to me the whole purpose of the standard is to figure out what the natural flow of the river was, and then you can deduct from that standard whatever natural diversions had occurred in the interim and all the rest would be man's activities.",
       "time": "00:30:43.80"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Uram. We will hear now from you, Mr. Hicks.",
       "time": "00:31:57.64"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Hicks, do you say that the master can and that this Court can consider the equities involved in ordering any relief by virtue of the shortfall? Is this a case in which equities can be considered in determining what is to be done about the shortfall?",
       "time": "00:33:43.98"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What about the remedy stage?",
       "time": "00:34:25.68"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No, I am asking whether the Court in your view and the master have power to consider the equities in determining the remedies.",
       "time": "00:34:42.47"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "There isn't that much water in the river.",
       "time": "00:35:16.96"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "There isn't that much water in the river.",
       "time": "00:35:17.74"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I mean, let's suppose, and this isn't your situation, I guess, but let's suppose that we have existing, preexisting uses in New Mexico and land being farmed for many generations, and dependent upon the water, and we have land in Texas which has never received the water that it says it was entitled to receive, and it has no immediate consequence of a delay in receiving the shortfall. Now, is that a concern that we can be considering in determining what to do about it?",
       "time": "00:35:32.03"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I would have thought we had some residual equitable power to be concerned about this.",
       "time": "00:36:14.00"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Up to a maximum of 10,000 acres ready to receive it, right?",
       "time": "00:36:59.23"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How about monetary damages in lieu of water to make up the shortfall?",
       "time": "00:37:32.86"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why not?",
       "time": "00:37:42.29"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It has a value. It has a monetary value.",
       "time": "00:37:47.36"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course, it doesn't really solve that problem, because in fact giving you however many hundred thousand acre feet of water in 1995 is not the same as giving you the same number in 1933. It may be worth much more in 1995 than it was in 1932. I mean, superficially it looks as though the fairest way is to give you the water you didn't get, but in fact when you didn't get it back in 1952 it may not have been worth nearly what it is going to be worth when you finally do get it.",
       "time": "00:38:24.23"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May be.",
       "time": "00:39:00.02"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I was wondering about that. I thought Texans had had sort of a reputation of being enterprising, let's cut a deal kind of folks, and have you really said that you would not, no matter what, you want the water and you won't take any kind of money for the water? That seems--",
       "time": "00:39:12.11"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--That's what the French say, too. But the annual... forget amount the damages or forget about the payback. The amount that you are supposed to deliver under the compact, that was increased over, well, the 340... the annual delivery is higher than New Mexico thought it was by about what, 10,000 acre feet?",
       "time": "00:39:41.58"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right, let's take it that way. They are going to have to, even without the payback they are going to have to send more water down than they have been delivering.",
       "time": "00:40:19.57"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so they are going to have to get that somewhere.",
       "time": "00:40:29.36"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And where are they going to get that?",
       "time": "00:40:32.73"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Didn't the special master say that is about 10,000 acre feet?",
       "time": "00:40:39.21"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, I know, but it--",
       "time": "00:40:47.37"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--But that is what he said.",
       "time": "00:40:49.24"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, so--",
       "time": "00:40:53.47"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--They are going to have to start doing that right away, aren't they--",
       "time": "00:41:04.56"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--as soon as we affirm the special master if we do?",
       "time": "00:41:08.66"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That three-year grace period doesn't apply to that.",
       "time": "00:41:14.12"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:41:25.88"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Hicks, I gather that Texas doesn't want damages, it wants specific performance, doesn't it?",
       "time": "00:41:48.97"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And usually aren't equitable considerations appropriate in connection with the remedy of specific performance?",
       "time": "00:41:56.42"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I take it the master's time table, the three years and all the rest of it, smacks somewhat of equitable considerations, doesn't it?",
       "time": "00:42:38.98"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What are you going to do with 34,000 acre feet a year for ten years and then you won't have it?",
       "time": "00:43:04.58"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They may have to go on to Oregon. Is that it?",
       "time": "00:43:23.95"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As a matter of fact, that is not economically very efficient, to tell New Mexico farmers who will be able to use it after the payoff is done that they have to get out and come back 15 years later, or whenever the... 17 years later, okay, and to tell Texas farmers you can come in and farm for ten years but you've got to know you can set up this farm but after ten years there is just not going to be water for it. That just isn't very efficient and I wouldn't... I frankly wouldn't favor it if I didn't think that if it is that senseless it wouldn't be economically favorable for the two of you to get together and work it out in money.",
       "time": "00:43:31.84"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We could make up a money figure.",
       "time": "00:44:27.63"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There has to be a price.",
       "time": "00:44:38.61"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I take it that the special master has got some... for some things they are going to have to determine good faith.",
       "time": "00:44:47.47"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, good faith. Good faith.",
       "time": "00:45:02.96"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if it is possible to determine good faith, then I suppose it would be possible to say that anybody who isn't in good faith is going to be held in contempt.",
       "time": "00:45:10.43"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is wrong with... there is some way of... there is certainly some way of enforcing an injunction besides giving water, giving more water.",
       "time": "00:45:23.85"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Don't you think that has any force at all? That is usually the way courts enforce injunctions.",
       "time": "00:45:39.54"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is the remedy what does the special master recommend as a remedy if the State of New Mexico just doesn't deliver the underlying annual amount?",
       "time": "00:46:22.54"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's assume that 15 years from now New Mexico has paid back all the shortfall, and then it just begins not to deliver the annual amount that the decree calls for. What is the remedy then?",
       "time": "00:46:40.50"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right.",
       "time": "00:47:07.26"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:47:11.32"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, anyway, those are the normal ways to enforce an injunction.",
       "time": "00:47:19.21"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but if the payback were not in water but in money, then you would be starting out now from the point I hypothesized of 15 years later, and New Mexico would just have the obligation to pay the annual amount and if it didn't, you would have to find some way of enforcing the injunction.",
       "time": "00:47:39.14"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "We would know what they had thought about it if they had the choice of either doing it the way the special master recommends or paying an amount of damages that the special master might recommend.",
       "time": "00:48:19.51"
     },
@@ -1463,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What, on money?",
       "time": "00:48:43.38"
     },
@@ -1475,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, now, they said they stipulated that the master had that power.",
       "time": "00:48:55.31"
     },
@@ -1487,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the master said he didn't.",
       "time": "00:49:01.54"
     },
@@ -1499,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The master, though, as I read him in his recommendation, thought that he did not have the power, and I really read him, his report as wishing he did.",
       "time": "00:49:04.04"
     },
@@ -1511,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Did you have that impression, that the master thought he just lacked the power to consider money damages but wished he did? Would you agree with that?",
       "time": "00:49:25.38"
     },
@@ -1523,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wait a minute. You would be getting... the river would be coming up to the 47 agreement immediately. I mean, that part of all of this would be affirmed, right?",
       "time": "00:50:14.14"
     },
@@ -1535,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right, but the level would now be established and that would be squared away. You might be getting the money payment... let's assume you get the money payment five years from now, but you would get it all at once. You can consume all the money at once. You can't consume... the water, the final water payment you say won't be in until 17 years. Maybe you'd rather have all the money in five rather than the water trickled out, so to speak, over 17 years.",
       "time": "00:50:28.54"
     },
@@ -1547,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It isn't our water, it is--",
       "time": "00:51:10.03"
     },
@@ -1559,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--You wouldn't have any tougher time distributing money than you would the water. How do you know who is entitled to this water? What would you do with the money if you got money?",
       "time": "00:51:16.40"
     },
@@ -1571,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It would be a lot of money, would it?",
       "time": "00:51:48.84"
     },
@@ -1583,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It would be a lot of money?",
       "time": "00:51:50.40"
     },
@@ -1595,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I gather Texas could use it these days.",
       "time": "00:51:59.65"
     },
@@ -1607,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is there any claim on the part of individual landowners to this money, or can Texas just plant a bunch of tree farms over around Marshall with it if they want to?",
       "time": "00:52:07.99"
     },
@@ -1619,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, if it is too much money, of course, they could... I guess New Mexico could offer to sell you water from the Pecos River instead.",
       "time": "00:52:26.66"
     },
@@ -1631,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why not do what you did with the oil money in Alaska? They gave it to everybody.",
       "time": "00:52:48.59"
     },
@@ -1643,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, but they added it up, they got it.",
       "time": "00:52:59.47"
     },
@@ -1655,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I hesitate to say the ingenuity of people cannot find a way of spending money.",
       "time": "00:53:04.91"
     },
@@ -1667,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They may have put it that way but I think their real complaint was not that there was not a hearing, but that the hearing was not one at which the master said, okay, show me what man's activities have taken out of the river. Rather, the hearing was one in which he said, you show me why when you deduct all the natural diversions from the original flow everything else isn't man's activities. It is really a burden of proof complaint they have, isn't it?",
       "time": "00:54:20.52"
     },
@@ -1679,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It didn't have the opportunity in November, did it?",
       "time": "00:55:06.80"
     },
@@ -1691,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I thought the master said, we are just going to hear kind of oral argument from lawyers.",
       "time": "00:55:11.03"
     },
@@ -1703,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, in theory Texas had the burden of proof?",
       "time": "00:55:44.80"
     },
@@ -1715,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Texas wasn't the claimant below?",
       "time": "00:55:51.08"
     },
@@ -1727,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that how it was handled in effect?",
       "time": "00:56:00.36"
     },
@@ -1739,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Texas didn't shoulder the burden of proof on man's activities.",
       "time": "00:56:03.03"
     },
@@ -1751,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You did it in a negative sort of way. You said here are the natural causes, and everything else has to be a fortiori man's activities?",
       "time": "00:56:12.68"
     },
@@ -1763,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You didn't prove anything unless you proved it in the 1947 assessment, because all you came in and proved was the natural causes that you know of, but the natural causes that you know of, but the natural causes... that is nonproof.",
       "time": "00:57:21.02"
     },
@@ -1775,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Suppose you hadn't put on any natural causes. Then you would have proven even more man's activities, wouldn't you?",
       "time": "00:57:37.53"
     },
@@ -1787,7 +1791,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx any shortfall on the 1947 condition delivery, interest doesn't run on that, does it?",
       "time": "00:58:31.74"
     },
@@ -1799,7 +1803,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's assume--",
       "time": "00:58:42.75"
     },
@@ -1811,7 +1815,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--By what percentage did the determination of the amount owed under the compact each year under the '47 condition, by how much will that increase the flow at the state line? By what percentage? Half? How much--",
       "time": "00:59:22.50"
     },
@@ -1823,7 +1827,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Yes, on 10,000 acre feet. All right.",
       "time": "00:59:48.26"
     },
@@ -1835,7 +1839,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But then if you add on top of that adding 34,000 acre feet a year, 34,000 acre feet isn't far from half of the average annual flow.",
       "time": "00:59:50.87"
     },
@@ -1847,7 +1851,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You add ten onto that, so you are going to be... it is going to be quite a different river, isn't it, at the state line?",
       "time": "01:00:04.49"
     },
@@ -1859,7 +1863,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I am not making an argument. I am just asking for information.",
       "time": "01:00:54.67"
     },
@@ -1871,13 +1875,13 @@
     },
     {
       "turn": 305,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Hicks. The case is submitted.",
       "time": "01:01:05.70"
     },
     {
       "turn": 306,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Monday next at ten o'clock.",
       "time": "01:01:09.41"
     }

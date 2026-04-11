@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2010/09-1498/20110222a_09-1498.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "MATTHEW D. ROBERTS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JEFFREY L. FISHER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument next in Case 09-1498, United States v. Tinklenberg. Mr. Roberts.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, all that might be true. On the other hand, the statute does say \"delay resulting\". And under your approach, the time would be excluded even if delay does not result.",
       "time": "00:01:15.30"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But the Chief Justice says only if it -- it's really a circular argument -- only if it results in a delay. Well, suppose it doesn't result in a delay?",
       "time": "00:02:03.39"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that doesn't -- that prove the point that I think is the concern of the Chief Justice's question, that in some cases the delay -- there's a delay that results and in other cases there isn't.",
       "time": "00:02:59.42"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Roberts, is there -- is there any, anything to indicate that what Congress might have had in mind is that in criminal cases inevitably there are going to be motions, and so the trial judge is likely to set the trial date for after that period runs?",
       "time": "00:04:55.86"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You said at the outset that things have been working fine. Of course, the whole point of the Act was to hold district judges to a pretty strict standard, and the concern is that there might be a very complex case the judge just really wants to put off as long as possible and will continue to accept motion after motion. Is there anything I can -- I can read or consult to show that this has been working very well and that there's not a problem?",
       "time": "00:07:53.56"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, on that issue, do you accept the First Circuit's rule in U.S. v. Hood that if the government is found to be attempting to frustrate the operation of the Speedy Trial Act, that those motions and their delays won't be counted?",
       "time": "00:09:00.54"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It suggests that qualification?",
       "time": "00:09:26.94"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Sanctionable against the government, or--",
       "time": "00:09:58.87"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--How does that help a defendant whose speedy trial rights have been violated?",
       "time": "00:10:02.44"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You haven't answered my question. The rights that this statute protects are the rights to have your trial start within 70 days absent or extended to these exclusions. If the government frustrates that and makes the trial start later, why shouldn't a defendant have the benefit of the Act and have the indictment dismissed with or without prejudice?",
       "time": "00:10:15.50"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, I hope you won't sit down without addressing the (h)(1)(F) issue and explain why we shouldn't reach it, because the issue is, as I see it, one of law, not like Nobles, one of discretion. And although you say it's unimportant because of a change in Rule 45, how could any criminal conviction that's inappropriate be unimportant to the defendant or insignificant enough for this Court to address the question once the case is before us?",
       "time": "00:11:24.41"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Two? How many circuits are we talking about?",
       "time": "00:13:01.89"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If we were to decide this based on subsection (F) involving the counting of 10 days, wouldn't that render our decision on anything that we had to say about subsection (D) dictum?",
       "time": "00:13:09.15"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not part of the rationale. The rationale for our decision would be (h)(1)(D) alone, and all the other discussion would be perfectly gratuitous, because we're going to set this individual free anyway. To say, well, this other thing is not a good reason to set them free, but this one is, I mean, that -- the former is just utterly irrelevant to our decision.",
       "time": "00:13:48.14"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not disagreeing with you. I'm trying to help you.",
       "time": "00:14:27.11"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm sure it's not impermissible, but I'm also sure that if we do it, what we say about the ground for which we took the case would be -- would be the purest dictum.",
       "time": "00:14:44.09"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Courts of appeal--",
       "time": "00:14:57.60"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's their fault; they shouldn't follow dictum, you know?",
       "time": "00:15:03.25"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is it because, Mr. Roberts, as you pointed out, it's not a continuing problem since the amendment to Rule 45, it's calendar days, and so there's no problem, and so what you're suggesting is we would not have granted cert on that question?",
       "time": "00:15:08.21"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--It -- it may be pertinent on this question: Mr. Tinklenberg was designated for transfer to MCC in Chicago on November 10th. How was that done? Was that done by -- is that a court order or is that an administrative--",
       "time": "00:16:05.66"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--So the BOP did it, not a court?",
       "time": "00:16:38.55"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I don't know--",
       "time": "00:17:14.97"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--You seem to be getting into this. I just wanted to know if it was a court order on the 10th, and what you're telling me is the last court order before he was moved was on the 2nd.",
       "time": "00:17:17.51"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is -- is it right that the Rules Committee then changed it, and it basically said the way the defendant here thinks it should be is that's what it should be? Isn't that what happened?",
       "time": "00:17:27.82"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay -- now--",
       "time": "00:17:41.77"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--The Rules Committee said count calendar days.",
       "time": "00:17:43.61"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They changed the rule.",
       "time": "00:17:47.36"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And now you think that the Federal courts are right in saying, judge, when you have a Speedy Trial Act case, look to Rule 45; you think that's right to do?",
       "time": "00:17:50.31"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. So why shouldn't this defendant whose case was on appeal get the advantage of that?",
       "time": "00:17:59.92"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know it was under a different rule. But where -- normally with cases where you have a new rule come in, it does apply to the advantage of the people who were then on appeal. Is there something special about this, that Federal rules don't, or you just -- too bad, we thought it was a really erroneous thing that they had, we used to have, and we've corrected it, but just -- he's still on appeal, it doesn't apply to him? Is there some law on that?",
       "time": "00:18:09.52"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I understand. I understand they followed the rule at the time.",
       "time": "00:18:41.74"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They've changed the rule. His case is still on appeal. Why shouldn't he get the advantage of the new rule?",
       "time": "00:18:45.43"
     },
@@ -439,19 +439,19 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. You want to--",
       "time": "00:18:59.37"
     },
     {
       "turn": 68,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It wasn't anybody's fault. Why shouldn't we go back and say do it again, and now, let's -- since his case is still on appeal, it's the same question. What's the argument against doing that? Why can't we? I'm sure there's some rule out there that says we can't do this, but I want to know what it is because it seems fair.",
       "time": "00:19:00.91"
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--May I suggest that perhaps the reason not to do it is, assuming this person was treated entirely fairly on the basis of the law that existed at the time, the consequence of what Justice Breyer proposes is to set free someone who has been duly convicted of a crime.",
       "time": "00:19:18.62"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And to do that simply because, although the -- the process was perfectly fair when it was applied, there's been a change in the rule and therefore we don't redo it, but we let this person go; right?",
       "time": "00:19:39.02"
     },
@@ -475,13 +475,13 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And can't be tried again.",
       "time": "00:19:53.44"
     },
     {
       "turn": 74,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Any other reason?",
       "time": "00:19:54.54"
     },
@@ -493,19 +493,19 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, I'm thinking that we normally -- although all this is quite true, what Justice Scalia says, normally we do apply new rules to those who are on appeal at the time.",
       "time": "00:19:56.49"
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't -- I don't agree with that. Do you agree with that?",
       "time": "00:20:08.97"
     },
     {
       "turn": 78,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, maybe--",
       "time": "00:20:10.80"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Do you agree with that?",
       "time": "00:20:12.17"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Who wants the benefit of this new rule? Who wants the new rule? Does the government want the new rule or does the defendant want the new rule?",
       "time": "00:20:23.28"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel--",
       "time": "00:20:36.04"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--there's a lot--",
       "time": "00:20:37.67"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Counsel, there's a lot of discussion about the applicability or nonapplicability of this rule to this case. The rule by its terms applies to computing any period of time specified in these rules, any local rule or any court order. None of that includes the statute at issue here, correct?",
       "time": "00:20:39.04"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So this whole debate about whether the rule applies or not is irrelevant. The only question is what does the statute intend, correct?",
       "time": "00:21:05.31"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. So if what the statute intends hasn't changed--",
       "time": "00:21:13.49"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--between the old rule or the revised rule, correct? Congress hasn't--",
       "time": "00:21:19.82"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--made an amendment; correct?",
       "time": "00:21:25.08"
     },
@@ -625,13 +625,13 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But I think you don't.",
       "time": "00:21:28.51"
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Will you like the way we're going if I accept your proposition that when Congress uses 10 days, it really means 10 business days? I take words in a statute like that at their plain meaning. It says 10 days, not 10 business days. So--",
       "time": "00:21:30.02"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--But Congress has used 10 -- has used business days in other provisions, hasn't it?",
       "time": "00:21:59.94"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Let's go back to -- I don't think you should have been so happy with the way the argument was going-- [Laughter] --because -- because your view is, Rule 40 -- if it's always assumed that there be conformity between Rule 45 -- Rule 45, it was business days, and then rule 45 changed not only to say calendar days, but included statutes for the first time. So I think what you're saying is that the interpretation of the statute tracks with Rule 45, Rule 45 formerly was calendar -- was business days, it is now calendar days, there is conformity. And plus, 45, and that was at least laid on the table of Congress, so they know that it was there.",
       "time": "00:22:18.85"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So Congress changed its mind between the two rules?",
       "time": "00:23:43.67"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How do I know that? Where? Rule 45 doesn't apply to statutes.",
       "time": "00:23:53.32"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Where in the statute does it -- say, apply the criminal rules?",
       "time": "00:23:58.47"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "When you're trying -- when you're trying to figure out -- when you're dealing with procedural rules that involve filing things in court, it was once thought to make sense to exclude weekends because things couldn't be filed on the weekends, but when you're talking about transporting a prisoner. What sense does it make to exclude the weekend? Does this--",
       "time": "00:24:39.18"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--Do these flights of prisoners from one facility to another come to a stop when -- you know, when the whistle blows on Saturday -- on Friday afternoon?",
       "time": "00:25:01.61"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Fisher.",
       "time": "00:26:39.29"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Suppose the petition here had simply raised one question, and that is the question of how you count time under -- under a version of Rule 45 of the Federal Rules Of Criminal Procedure that is not -- no longer in effect and as to which there is no conflict in the circuits. How would you grade the chances of the Court taking cert on that?",
       "time": "00:27:40.29"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If I could just come back to where you started before you go on to these additional points. Your argument is that if the Government petitions for cert on one issue that's a legal issue on which there's a conflict in the circuits and the Respondent in a criminal case says that the -- asks to have the decision below affirmed on 15 other grounds, we -- and raises those in the bio, we take the case anyway, we are duty-bound to decide every one of those 15 grounds?",
       "time": "00:30:38.12"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why wouldn't Congress think, we have a bunch of statutes that have times and we have a bunch that don't and the ones that don't, they should be interpreted into the Federal rule, that Rule 45?",
       "time": "00:32:55.78"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Under the 2009 amendment, Rule 45 includes statutes it didn't before and now it does?",
       "time": "00:34:27.72"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're not relying on the 2009--",
       "time": "00:34:49.87"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You don't say -- you say this was wrong when it was decided?",
       "time": "00:34:52.99"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Regardless of the 2009?",
       "time": "00:34:57.24"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Congress thought about the Speedy Trial Act when it made those technical amendments, isn't it likely to have thought the courts had interpreted it as excluding the weekends up to that point?",
       "time": "00:35:39.08"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Didn't think about -- okay.",
       "time": "00:35:53.59"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And if we don't agree with you on your Rule 45 argument, you say we would have to reach this third argument, right?",
       "time": "00:36:49.76"
     },
@@ -859,13 +859,13 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, why aren't they trying -- why isn't the effect of what you're doing to prompt us to dismiss this case that the petitioner has improvidently granted? If we were to write an opinion that says that the -- the Sixth Circuit was wrong in its interpretation of subsection (f), and therefore, we're not going to get to -- and anything we then had to say about subsection (d) is just dictum, and that's the issue that we took the case to decide, why should we keep the case at all?",
       "time": "00:37:19.28"
     },
     {
       "turn": 138,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I think you would be very happy if we didn't.",
       "time": "00:37:47.72"
     },
@@ -877,13 +877,13 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But then you would have to -- we would have to wait for another case to decide this issue, one which is a split, that is, the delay resulting from. What does that mean?",
       "time": "00:38:09.21"
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And I can't stand the suspense. I -- I would like to hear about the delay point.",
       "time": "00:38:19.85"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry to interrupt you so early, but what about Justice Ginsburg's point, which I understood to be there's always delay resulting from these pretrial motions; it's just that the district judge takes that into account, says, well, I'm going to have a lot of the usual pretrial motions, so I'm going to set the trial date at this point. So that is delay, when the trial date might otherwise have been set, resulting from these pretrial motions, and then the -- the statute goes on to tell you how you count that delay.",
       "time": "00:38:55.19"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How would you ever know that? How would we ever know that, Mr. Fisher? A trial judge that has had a lot of criminal cases knows that there's going to be some motions as you get closer to trial, but how would we know whether the judge -- this particular judge took into account the likelihood of motions in setting the trial date or didn't?",
       "time": "00:39:57.48"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why -- why would the defendant stipulate?",
       "time": "00:40:51.57"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why would -- why would a defendant who would benefit from the clock running stipulate?",
       "time": "00:40:53.15"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "How do you reconcile your argument with the situation in which the motion is pending for 30 days, so that's the period from the filing until the prompt disposition, and as a result of that motion, the trial judge says this has caused -- this is going to force me, this is going to result in 10 days' delay in the date on which the case can begin, so the trial date is pushed back 10 days? Now, in that situation, how much time is excluded?",
       "time": "00:41:25.47"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Excuse me, but isn't that what the statute says? Meaning, if you look at (h), the beginning paragraph at (h), it says, \"The following periods of delay shall be excluded in computing the time within which the trial of any such offense must commence. \" It's not talking about the delay of the trial. It's talking about the computation of the start date for the trial. So if that's what that commands you to do, doesn't -- isn't only the Solicitor General's position consistent with that? It's telling you to take the periods of delay and compute the date the trial must start by excluding those. That's the language.",
       "time": "00:43:15.02"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's the--",
       "time": "00:44:27.75"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Well, but that's what (h) says; (h) says you compute the start date of the trial, when it must start, by excluding all of these periods of delay. It's defining it for you.",
       "time": "00:44:36.22"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So it doesn't matter how substantial and important a motion is, whether it was your motion to dismiss for Speedy Trial Act reasons or the administrative motions here that you say really didn't require time? It doesn't matter; all that matters is keeping track from day one, the commencement of the trial, as to when the Court is about to set the trial date, that it does it at the end of all the motions. That's the only time the court can do it.",
       "time": "00:46:01.33"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why wouldn't it matter?",
       "time": "00:46:40.96"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, actually it happens all the time. In the \"rocket docket\" in Virginia, the court sets a trial date, and you file whatever motions you're going to file. Under your theory, until that last motion actually delays the trial date, none of those motions exclude time.",
       "time": "00:47:14.94"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It matters because the trial judges have to know what to do, and while your reading might fit the language in ordinary English better, I think it does. It's also possible to read those words \"delay resulting from\" as simply referring to a period of time; and the statute is saying these periods of time are excluded from accounting. Now, the virtue of that is just what Justice Ginsburg started with; all the trial judges know how to do it; the lawyers don't get mixed up; and the problem with what you're arguing for, in my mind -- if you want to say anything more about it, do -- is that it seems very unworkable to strike trying to figure out what causes what.",
       "time": "00:47:43.70"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why do you think that--",
       "time": "00:50:37.82"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--your motion -- I mean, the government had administrative motions, but you had a Speedy Trial Act motion; and you say that doesn't count, either?",
       "time": "00:50:39.24"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, I don't believe I had a trial in my district court days where between the time I had the pretrial conference and the time trial started, there wasn't a slew of motions, because that's about the time counsel tends to wake up.",
       "time": "00:51:18.70"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Okay? And -- and decide that really now they've got to get ready.",
       "time": "00:51:35.99"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why should we care whether it's an administrative motion or simply to clarify the functioning of the trial? Why should we not exclude those times, because those -- those motions, whether they're administrative or not, will cause the trial to go faster, because issues that would otherwise consume the time of the court during trial are being resolved before trial.",
       "time": "00:51:40.28"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Fisher -- delay, you make an argument about the meaning of delay. I am troubled by the meaning of the \"from the filing of the motion. \" of that clause. You read that, I think, to mean delay resulting from any pretrial moment and not to exceed -- right -- the period from the filing of the filing of the motion to the conclusion of the hearing. Right? Isn't that right?",
       "time": "00:52:51.39"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, where do you -- where to you get that \"not to exceed\"? It doesn't say not to exceed; it says delay resulting from the filing of the motion.",
       "time": "00:53:19.22"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a funny way to say it.",
       "time": "00:54:01.05"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Roberts, you have 3 minutes remaining.",
       "time": "00:55:09.61"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So given the choice between a dismissal and an affirmance with good dictum about subsection (d), you would prefer the latter?",
       "time": "00:58:21.82"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Counsel. The case is submitted.",
       "time": "00:58:49.47"
     }

@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1960/495/19610504a_495_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN J. ABT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JULIUS L. SACKMAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 495, Communist Party, U.S.A., et al., Petitioners, versus Martin P. Catherwood, as Industrial Commissioner. Mr. Abt.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Had there been any new state legislation that --",
       "time": "00:03:32.85"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- vacated that opinion?",
       "time": "00:03:36.54"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Has there been any change in the -- this opinion was handed down in -- about a year.",
       "time": "00:11:56.69"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Had there been any change in the federal rulings as to the status of the Party under the Federal Act?",
       "time": "00:12:04.70"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I don't mean the Communist Control Act, I mean the Revenue Act, the --",
       "time": "00:12:12.71"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are you arguing that the Government is without power to do a way with the employment relationship if it wants to do so?",
       "time": "00:19:42.99"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I thought you --",
       "time": "00:19:54.88"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- I thought you're going on the basis of some kind of natural law on that theory.",
       "time": "00:19:56.60"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I didn't think it --",
       "time": "00:20:20.84"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I didn't think it was that's why I am asking you the question.",
       "time": "00:20:21.95"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I didn't think it was, and that's why --",
       "time": "00:20:25.35"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- I didn't quite understand your argument.",
       "time": "00:20:26.86"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But that again, it sounds to me like you're saying that the Government is without power to regulate --",
       "time": "00:21:00.73"
     },
@@ -215,13 +215,13 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- employment.",
       "time": "00:21:05.10"
     },
     {
       "turn": 30,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You have to change.",
       "time": "00:21:05.49"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You -- you say --",
       "time": "00:21:10.89"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You say it's an inherent power, I gather, that the Government has nothing to do with.",
       "time": "00:21:13.06"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Do we have here, Mr. Abt, a question of the right to employ? I know you've argued that.",
       "time": "00:21:30.73"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But may I ask you, isn't it true that neither the Federal Act nor the New York Unemployment Compensation Act covers all employers? Some may be and are excluded, isn't --",
       "time": "00:21:36.78"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "-- that true?",
       "time": "00:21:50.47"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Oh, I -- now, then, isn't the question whether there may be a proper classification to exclude the Communist Party from the status of an employer?",
       "time": "00:21:51.36"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "No --",
       "time": "00:22:16.91"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "No, but it is argued that that may be the effect of Section 3, isn't it?",
       "time": "00:22:18.25"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "For having that right, it would be within the sovereign's power if the classification was reasonable to say that particular employers were excluded from the status.",
       "time": "00:22:52.11"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Could I ask you one question?",
       "time": "00:23:16.93"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "As I understand the Court of Appeals' opinion rested wholly on their interpretation of the Communist Control Act, isn't that right?",
       "time": "00:23:18.20"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "No. I was trying to get to the basis of their holding.",
       "time": "00:23:41.23"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "There was no -- there was no provision of law, New York law --",
       "time": "00:23:47.19"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- independently as the Communist Control Act, it would've -- there was the basis of the Court of Appeals' decision.",
       "time": "00:23:51.47"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Abt, what political subdivisions do you think Congress had in mind when it used that language?",
       "time": "00:26:52.58"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, but I was wondering if -- if there were any other political entities other than the insular possessions in the territories that you --",
       "time": "00:27:30.39"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- could apply it to.",
       "time": "00:27:40.50"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:27:43.73"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Abt, if I may refer to the question that Justice Harlan put.",
       "time": "00:27:48.00"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If -- if or take your example, if the Attorney General of Virginia, as a matter of state construction-- as a matter of construction of a state statute with regard to Virginia as a subdivision of United States, there would be nothing in the Constitution of the United States so far. So that --",
       "time": "00:27:53.29"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- if New York has its own policy, and the Court of Appeals has its own policy, if you will flagrantly misconstrued Section 3 and made it state law, that'd be a different question, wouldn't it?",
       "time": "00:28:09.91"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not saying it did, as it --",
       "time": "00:28:24.80"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, because --",
       "time": "00:28:31.88"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, the state courts have construed their state laws in conformity with federal construction of federal tax laws although they're not bound to it.",
       "time": "00:28:33.94"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I'm not -- I'm-- I'm putting a hypothetical --",
       "time": "00:28:46.19"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- case and not this case.",
       "time": "00:28:48.77"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Where -- where do you find that, Mr. Abt?",
       "time": "00:35:49.83"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Sackman.",
       "time": "00:38:07.70"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would it upset the order of argument if you have planned it and dealt with the threshold question whether this is a determination of a state law, whether the decision of the Court of Appeals may be sustained as an adjudication on the state law would then in -- in its own -- in its own good time, may raise constitutional question but in all events, whether this can be sustained as a determination of what the Court of Appeals found to be valid state law rather than the compulsion of Section 3 of the -- of the Communist Control Act?",
       "time": "00:38:15.46"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "00:38:56.87"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "General enough, so that if you take the Communist Control Act out of it, there is nothing left in your case?",
       "time": "00:39:10.09"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But between -- you follow your own way but I merely suggest that between using a federal act to emphasize state action and inescapably depending on a construction of a federal law are very different things.",
       "time": "00:39:35.95"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, is there any excluded classification under which the petitioner would come --",
       "time": "00:41:24.98"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- on the statute?",
       "time": "00:41:31.59"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:41:36.57"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is there any -- is there any general clause in your Unemployment Insurance Act enabling the Commissioner to -- to broaden the -- to restrict the accepted class?",
       "time": "00:42:04.36"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What you say -- what you're saying is that existing legislation, both state and national, may impliedly broaden its power, at least, give in power to take people off the list, is that it?",
       "time": "00:42:21.88"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do you mean as individuals or as classifications?",
       "time": "00:42:40.72"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, can you -- can you give me one -- an illustration of one person other than the Communist Party whom the -- the Commissioner would have power to exclude from coverage where -- where that party is not included in one of these exemptions.",
       "time": "00:43:24.30"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Let me ask you, Mr. Sackman, does the statute which this Court sustained in -- in Zimmerman against Brian, the Ku Klux -- the Klan statute still in -- still on the books in New York? Do you know?",
       "time": "00:45:12.70"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That the statute to which it said they -- you can -- you must make full -- make all sort of disclosures. Now, assuming that that (Inaudible) exists, you -- your argument is that -- since that -- since the Klan would be operating illegally under New York law impliedly your Industrial Commissioner could --",
       "time": "00:45:27.27"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- regarded as not a -- as not an employer within the Act.",
       "time": "00:45:47.83"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's your --",
       "time": "00:45:50.97"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the Court of Appeals didn't intimate, as I read it, didn't suggest that this was an exercise of the discretionary part of the Industrial Commissioner not subject to judicial review.",
       "time": "00:46:36.00"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But surely, it was -- it was perfectly -- perfectly more than redundant to Chief Judge Desmond to be writing this opinion if only could've -- if it could've been thrown off on the ground, this is within the ambit of non-reviewable discretion by the Industrial Commissioner.",
       "time": "00:47:20.72"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, precisely, but unfortunately or not, if the Court could've gone off merely an exercise of discretion, they wouldn't have to -- they could've gone off on that. But both in the opinion and in the remittitur, they said what was involved and what was in issue was Section 3 of the Communist Party Control Act and its validity, isn't that true?",
       "time": "00:48:12.93"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't get the -- I don't get the direction of your argument. Are you suggesting -- then you tell us whether you are saying this rest on a state ground and more particularly, the state ground that the determination of the classification of those who fall within the State Unemployment Insurance Act is a matter vested by New York law in the Industrial Commissioner.",
       "time": "00:48:42.27"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you take that ground?",
       "time": "00:49:06.72"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All that means -- all that -- all I get from that statement is, that in the first instance, the Industrial Commissioner must determine whether (Inaudible) subject to the Act.",
       "time": "00:49:25.83"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "What was the issue before the Commissioner? What was the issue described?",
       "time": "00:50:35.73"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Referee.",
       "time": "00:50:45.31"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Sackman, you would help me greatly if you could answer this question. Do you agree or disagree with the proposition that the case before us that this Court must decide whether New York was compelled by Section 3 of the Communist Party Control Act not to admit the Communist Party as an employer under the New York statute?",
       "time": "00:51:53.75"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you think that is the question before it?",
       "time": "00:52:24.29"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Supremacy -- the Supremacy Clause of the United States Constitution require the Industrial Commissioner and the courts, more particularly the Court of Appeals, to find, to hold that the federal statute to which Section 3 of the Communist Party Control Act require this decision.",
       "time": "00:52:48.39"
     },
@@ -881,13 +881,13 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright. Now, I understand.",
       "time": "00:53:08.01"
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Are you prepared to -- to go one step farther and say that if it were not for Section 3 of the -- of the Communist Control Act, that in the circumstances of this case, your Commissioner would not have the right to exclude?",
       "time": "00:53:09.59"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well do would assert to this Court that he has a power or that he doesn't? You got to take one position.",
       "time": "00:53:31.38"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Which do you take?",
       "time": "00:53:37.97"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That you have said.",
       "time": "00:53:47.95"
     },
@@ -935,13 +935,13 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That would be a question of New York law.",
       "time": "00:54:14.74"
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:54:16.58"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "My question didn't say that. My question merely says that would be New York law. Whether it's valid New York law, it's a different story again.",
       "time": "00:54:27.04"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That -- that would be another lawsuit.",
       "time": "00:54:44.40"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Let me ask you then, as much as you rely on that, what is your state law that you rely on, either legislative or judicial?",
       "time": "00:54:48.53"
     },
@@ -989,19 +989,19 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "According to --",
       "time": "00:55:19.87"
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that -- pardon.",
       "time": "00:55:20.20"
     },
     {
       "turn": 160,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "(Inaudible) question on remittitur, that's the thing that puzzles me.",
       "time": "00:55:21.92"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Not only raised but necessarily passed upon.",
       "time": "00:55:46.68"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "As compelling the action (Inaudible)",
       "time": "00:56:07.36"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:56:10.53"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And if we agree further that that is the basis of the decision because if that is not the basis of the decision but if it can be found that it really went on New York law, then we have to pass on the validity of the New York law.",
       "time": "00:56:20.74"
     },
@@ -1061,13 +1061,13 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or, in the alternative as we've done in other cases, find out what the Court of Appeals really went on.",
       "time": "00:56:39.24"
     },
     {
       "turn": 171,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You haven't been able to discover that to yourself here (Inaudible) [Laughter]",
       "time": "00:56:46.32"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The court -- the court below doesn't seem to discover it but if you take it, may be we might.",
       "time": "00:56:51.27"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The -- the only privilege here, within the terms of this statute and as you construe it, would be the privilege of paying taxes, is that right?",
       "time": "01:02:47.47"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I thought that the Party here was claiming that -- that it owes taxes in the State and it's claiming that it doesn't.",
       "time": "01:03:08.89"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But why you're sure to answer that Mr. Abt says it mean something to his clients that they should be allowed to do this? The other -- they're claiming something.",
       "time": "01:03:30.69"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "01:03:40.39"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now, Mr. --",
       "time": "01:09:02.35"
     }

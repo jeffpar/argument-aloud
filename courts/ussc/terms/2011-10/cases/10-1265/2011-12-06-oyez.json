@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2011/10-1265/20111206a_10-1265.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "WARD A. CAMPBELL",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "SETH P. WAXMAN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 10-1265, Martel v. Clair. Mr. Campbell.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Was there some way that Clair knew that the court was just about to issue its decision?",
       "time": "00:01:05.03"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There was a deadline set for all submissions, wasn't there?",
       "time": "00:01:28.06"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But this petition had something new, the report that his investigator had turned up this evidence.",
       "time": "00:02:25.66"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "There has been some additional litigation regarding this physical evidence since this -- the time of -- of the unsuccessful substitution request, hasn't there been?",
       "time": "00:02:58.31"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Could you tell us what has happened with that?",
       "time": "00:03:08.49"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I'm sorry. Could you tell us what has us what has happened with that litigation?",
       "time": "00:03:11.67"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "That's what I was referring to.",
       "time": "00:04:02.42"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And what -- what has happened there? Was there -- was there testing of this evidence in connection with that?",
       "time": "00:04:03.79"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry. Can you remind me of what the outcome of that testing was?",
       "time": "00:04:30.41"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, as I read your briefs, I think you're making, perhaps, two different arguments. And I want to focus you in on which one you are really concentrating on.",
       "time": "00:05:09.48"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Which is, this presentation seems to be that, regardless of what standard we apply to the court of appeals review of what the district court did in denying the motion to substitute counsel, that it was wrong. And I presume that means it was wrong for the standard you are proposing and it was wrong for the interest of justice standard, am I correct?",
       "time": "00:05:26.61"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. As I read the Ninth Circuit's decision, assuming an interest of justice standard because that's the one they invoked, they said what happened here is that the district court didn't hold a hearing to determine itself exactly what the dispute was about, and so it was a process failure, basically is what they're saying. Now, you make assumptions based on matters that have come up since that hearing about what the dispute was about and -- but I still don't know what the Federal defender's position was as to whether or not communications had broken down with the client to a point where they thought, as they did on appeal, that they couldn't continue. So, tell me why, assuming we accept that an interest of justice standard applies, the circuit court has no power or applied it improperly by saying -- forget about the remedy -- has no power to say, district court judges, you have to at a minimum inquire and set forth your reasons based on the facts of that inquiry.",
       "time": "00:05:56.68"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But what does that have to do with \"I think they are doing a good? \" \"I mean, it -- it could well be that the judge later decides, after he hears from the Federal defender, I don't think that -- we don't think there is anything to be done, he disagrees. \" \"But he really never got an explanation from the Federal defenders. \"",
       "time": "00:07:46.58"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "He never got an explanation from the Federal defenders.",
       "time": "00:08:07.11"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What about a -- a possible Brady claim? Is there a disagreement about whether this physical evidence could have been tested at the -- and revealed anything at the time of the trial?",
       "time": "00:09:01.53"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What about an actual innocence claim?",
       "time": "00:09:47.16"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You are familiar with 3599(e), aren't you?",
       "time": "00:10:26.55"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Which requires counsel to participate in subsequent proceedings.",
       "time": "00:10:32.44"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Of a certain type and limited. Is it your position that if there is a complete breakdown of communications with an attorney, post habeas decision, that that is inadequate in the interest of justice or otherwise for a court to say, that could implicate proceedings after 3599, so I should substitute now?",
       "time": "00:10:39.59"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Oh, but you are presuming you are going to win.",
       "time": "00:11:35.53"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You are presuming you are going to win. I think 3599 applies to situations in which the habeas petitioner wins a remand or otherwise has something that's going to follow the habeas decision.",
       "time": "00:11:37.80"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose -- suppose the public defender had said to the district court what it said to the Ninth Circuit, and that is that the attorney-client relationship has broken down to such an extent that substitution would be appropriate, which wasn't asked. But suppose the public defender had given Would the district that answer to the district judge. judge still have rightly denied the motion for substitution?",
       "time": "00:12:14.50"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "If I understand your answers to some of these questions, you are not at all relying on the fact that the district court had made this decision 2 months earlier. You think that the answer would be the same had the district court not made an inquiry 2 months earlier; is that correct?",
       "time": "00:13:06.27"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So when is a district court required to engage in some kind of inquiry?",
       "time": "00:13:40.51"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, I -- I was, again assuming as Justice Sotomayor was, that if we're in an interest of justice world, if that's the appropriate standard, when is the district -- when does the district court have to make an inquiry, and what kind of inquiry does he have to make?",
       "time": "00:14:04.22"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, you're -- I thought that that test was an alternative to the interest of justice standard. I am positing that the interest of justice standard applies and you are giving me back those same three factors. Do you think that that is all the interest of justice standard is about?",
       "time": "00:14:41.42"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So this is sort of a made-up standard.",
       "time": "00:15:08.32"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can you point to one case in which this standard has been used by any district court or court of appeals?",
       "time": "00:15:11.45"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can you point to any inquiry by Congress in which such a test was discussed, considered in any way?",
       "time": "00:15:21.22"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where did you get it from?",
       "time": "00:15:33.12"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, so what you're suggesting is in noncapital cases, which are less serious, you are going to have a higher bar for a right that the statute gives a judge without any limitation. The capital limitation is that the judge on its own motion or a motion by defendant can substitute.",
       "time": "00:15:49.98"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So how about a standard that the courts are used to and one that has a basis in Congress's choice, like interest of justice?",
       "time": "00:16:34.02"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It doesn't have a fixed meaning. I mean wouldn't you think -- I suspect the answer is you do think -- that -- a district judge has a lot of power in many, many areas and in one of those areas some district judge sometimes could make a horrendous mistake that really wrecks a case, and in such a matter the court of appeals if it sees a really horrendous error will probably have the authority to say you went beyond whatever standard applies, at least here, at least -- okay, we agree on that one. So they use some words, \"effectiveness\" and whatever the words are, \"interest of justice\", just to reflect that fact. I mean, that's what I think what happens. And your complaint is he didn't abuse his -- he didn't really abuse anything, he made a good decision, the district judge. Isn't that what that comes down to?",
       "time": "00:17:35.34"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What's important?",
       "time": "00:18:31.75"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, so what's bothering you is the way they applied it.",
       "time": "00:18:47.11"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And they applied it in circumstances that you think -- the district judge actually, his decision was fine. You don't have the power to set that aside because it was within -- it's within the scope of any kind of standard you want to call it, including calling it \"interest of justice\". Am I right in thinking that, that that's really your concern?",
       "time": "00:18:51.13"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what you really want us to do is to look at the record of the case, go through it, and say, here, whatever words you want to use, the district court acted in his discretion in saying don't change the counsel? Is that what I'm supposed to do? I'm trying to get at what you want me to do.",
       "time": "00:19:26.50"
     },
@@ -503,19 +503,19 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, no, you don't want that. You don't want to stay whatever words you used.",
       "time": "00:19:44.85"
     },
     {
       "turn": 78,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No--",
       "time": "00:19:48.92"
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You want us to say the words to be used are the words that we use in deciding whether you have been accorded your constitutional right to counsel, right?",
       "time": "00:19:49.55"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I didn't mean literally \"whatever words you use\". I'm trying to figure out what you want me to do. One is to go back and search all the cases that use some words for a standard, which, as you can tell, I'm reluctant to think that that is meaningful in this case. The other is to look at the record to see if he acted within what you would normally think of as the district court's discretionary authority.",
       "time": "00:20:04.91"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I suppose you don't think that the standard of review is abuse of discretion, because if you do then I suppose you are assuming that the district court has discretion whether to grant the motion or not instead of being confined by a particular standard.",
       "time": "00:20:50.57"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but abuse of discretion doesn't mean that the judge operates in a vacuum. If we make -- issue an opinion and say, oh, well, the standard is an abuse of discretion, that doesn't tell people too much. Abuse of discretion based on what standards, what inquiries? And that's -- I would like to know what your position is on that, because it seems to me that at the end of the day it's going to be something very close to interest of justice.",
       "time": "00:21:31.75"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, could I give you an example? Beginning of the litigation, all right? Capital counsel is appointed. Capital counsel wants to raise challenges to the conviction and sentence, and defendant says: I don't -- I want to die. Is the district court entitled to substitute that counsel under your theory? Because you said to me it has to be counsel that's -- that counsel that has abandoned the client. Counsel doesn't want to abandon the client, counsel wants to prosecute the case. There is no conflict of interest. Counsel's not representing anybody else. And what was your third criteria?",
       "time": "00:22:31.27"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, this is Seth Waxman, sitting right next to you.",
       "time": "00:23:15.05"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I suspect that's the case.",
       "time": "00:23:21.63"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So beginning of the case, first decision, and defendant comes in and says: Substitute my attorney. What would be your argument under your test?",
       "time": "00:23:25.67"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So there are some decisions that the client controls?",
       "time": "00:24:03.06"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But that's not abandonment. That's an error. That's a problem. But it's not abandonment under your definition.",
       "time": "00:24:12.20"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, if I tell my attorney, follow these leads, that's a failure of an agent as well.",
       "time": "00:24:32.33"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Volunteer issue? What are you talking about? I'm--",
       "time": "00:25:25.36"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You call that a volunteer--",
       "time": "00:25:36.67"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Volunteer. Volunteering to be executed?",
       "time": "00:25:37.81"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Given my example, isn't it the case that under the interest of justice standard there will be situations in which a substitution like the one I just posited would be right, that wouldn't be right under your standard?",
       "time": "00:25:42.66"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Are you suggesting that for noncapital defendants Congress chose to give them more rather than less?",
       "time": "00:26:10.76"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But you are saying capital have lesser rights.",
       "time": "00:26:26.94"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Isn't delay one of the factors that courts routinely look at under the interest of justice standard?",
       "time": "00:26:37.33"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So we go back to Justice Breyer's point that, even under the interest of justice standard, you are claiming there was an error?",
       "time": "00:26:52.07"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Waxman.",
       "time": "00:27:07.18"
     },
@@ -755,13 +755,13 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Isn't he always--",
       "time": "00:27:46.15"
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So what if last week we get notice from Mr. Clair that he is dissatisfied with his Supreme Court counsel; that communication has broken down; that you plan to argue particular -- present particular arguments, and he doesn't want you to do that. Do we have an obligation to conduct an inquiry into his complaint?",
       "time": "00:27:47.07"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No. He says, I turned up new evidence, or I think this is a great argument, and my counsel has told me he is not going to raise it, and I want new counsel who will raise this argument. Will we have to say -- look at it and say, well, we have to figure out is that a good argument; is it better than the ones counsel are going to raise? Has communication broken down?",
       "time": "00:28:35.32"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I want to ask you about that. You mention that no fewer than six times in your brief. What is your point, that the judge altered his disposition of a legal matter before him for his personal convenience?",
       "time": "00:29:23.75"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Then what is the significance of the fact that he was going to retire?",
       "time": "00:29:35.38"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So you are saying--",
       "time": "00:29:56.19"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--So you are saying he violated his judicial oath for his own personal convenience, that he failed to do something that you say he should have done, because he was retiring?",
       "time": "00:29:57.87"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So why do you say six times in your brief that the judge was retiring the next day or retired the next day?",
       "time": "00:30:13.07"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "There's another judge.",
       "time": "00:30:28.59"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "There's another judge. She's available. I have to say it strikes me, frankly, as argument by innuendo that I think is very unjustified.",
       "time": "00:30:29.78"
     },
@@ -869,13 +869,13 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--Mr. Waxman, what--",
       "time": "00:31:10.91"
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm still trying to get to the point -- I'm sorry. I'm still trying to get to the point of the relevance of the fact that he was retiring.",
       "time": "00:31:11.36"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How does it go -- How does it go to the remedy?",
       "time": "00:31:21.81"
     },
@@ -899,19 +899,19 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that was the--",
       "time": "00:32:10.21"
     },
     {
       "turn": 144,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--Mr. Waxman--",
       "time": "00:32:10.54"
     },
     {
       "turn": 145,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "That would be pretty incredible. Maybe that's what's required. Why isn't this is a fair reading of what Judge Taylor did? As of April 29th, as I recall, there was not a problem with the representation. And the decision was made on June 30th. Now, on June 16th, that's the time when Clair sent his letter. By this point, the petition had been pending for a long time before the judge. The judge presumably was approaching the point where he was going to issue his decision. He saw the letter. He could not see any way in which the matters that were discussed in the letters could lead to a claim that would go anywhere. As to the physical evidence, if it couldn't have been tested at the time of trial, there would not have been a Brady obligation, and an actual innocence claim here would be quite far-fetched in light of the very incriminating statements that -- that Mr. Clair made in the tape recorded conversation. Had he substituted counsel, he would not have been under an obligation, I think, to allow substituted counsel to amend the petition, which had been pending for a long period of time. So he said: Counsel is doing a proper job; there doesn't appear to be a conflict of interest; and I'm going to deny this. Now, counsel could have been appointed and in fact was appointed to represent Mr. Clair going forward. Why isn't that a fair reading of what he did? And if so, what need was there for further inquiry?",
       "time": "00:32:10.83"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But we know what was in his thought processes, Mr. Waxman, because 14 days later he issued a 60 or 61-page opinion with -- dealing with 47 different claims, many of which, many of which, related to actual innocence, which was the gravamen of the letter of the complaint on the 16th. So you -- you can't consider the letter just in isolation from the 61-page opinion that's issued 16 days later.",
       "time": "00:33:54.64"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--And you are suggesting, Mr. Waxman, that he did not have to make an inquiry in every case, is that right? You are not saying that.",
       "time": "00:34:46.26"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So what -- when does a person have to make an inquiry?",
       "time": "00:34:53.31"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "What in this case required an inquiry on the judge's part?",
       "time": "00:34:58.52"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, I guess this goes back to Justice Alito's question, but suppose the judge says to himself, even if the response comes in, yes, relations are terrible because the client wants the lawyers to -- to investigate a particular thing and the lawyers don't want to investigate that thing, the judge knows, it doesn't make a difference either way, because he is ready to issue his opinion. And further investigation of this evidence is not going to change his mind as to any material issue. Why should the judge not reject the motion?",
       "time": "00:35:49.52"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The Ninth Circuit -- I see -- I think I see what they were trying to get at. They want -- they don't see anything practical here to do except to try to get the judge, the district judge, to focus on the question of whether the petition should be amended to assert this kind of claim about the new physical evidence; is that right?",
       "time": "00:37:25.66"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's where they were trying to go. Okay. Now, suppose you lose this case. Suppose they were to say -- suppose this Court said, well, to tell you the truth, that district judge was operating within his authority in saying that this counsel can continue to represent him. We know subsequently relations broke down and now there is a new counsel. All right? Can't the new counsel go back to the district court and say, judge, we would like to amend the petition so that you will consider, you know, whether it should be amended to include this physical evidence claim? Couldn't he do that?",
       "time": "00:37:47.55"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And what did--",
       "time": "00:38:35.99"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I think you answered this, but I can't remember the answer. What happened when he filed the 60(b)? Did they amend the petition or did they consider the thing or not?",
       "time": "00:38:37.28"
     },
@@ -1031,19 +1031,19 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So there is no -- so in other words -- what the Ninth Circuit in my view is trying to do is they've worked out some complicated way of trying to get the district court to consider the motion about the new physical evidence. And if that's right, then unless you -- there is no way to get there. I don't see how you get there under the law. That's my -- but--",
       "time": "00:39:40.02"
     },
     {
       "turn": 166,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mister--",
       "time": "00:40:03.23"
     },
     {
       "turn": 167,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I'd just like to know what he's thinking.",
       "time": "00:40:03.80"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--It has to go with the scope of the remedy that they did.",
       "time": "00:40:10.80"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Assuming, as I do and you just said, that what the Ninth Circuit said is there is -- he should have gotten a reason, an explanation, but now there is a new attorney anyway, so what do we do, isn't the normal thing to do just to remand it, to let the district court decide what steps it wants to take, including to decide whether or not it would have granted the motion for substitution if it had heard the explanation?",
       "time": "00:40:14.42"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Meaning, there was a new judge. But, that doesn't -- a new judge is never stopped from considering what has happened in the case.",
       "time": "00:40:44.78"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And to decide whether under the facts as they existed at the time.",
       "time": "00:40:53.65"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But it's not academic. It wasn't academic for the judge below, the new judge--",
       "time": "00:41:14.39"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--to say, what happened back then; I don't believe the motion was timely; I don't believe that you were foreclosed from doing other things; motion to substitute would have been denied; end of case.",
       "time": "00:41:18.70"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Counsel--",
       "time": "00:42:14.10"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--No. I'm trying to help you. I understood you to say you had an answer to Justice Breyer's question?",
       "time": "00:42:16.55"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Why don't you finish your answer to Justice Sotomayor and then go back to Justice Breyer.",
       "time": "00:42:31.04"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's like -- Mr. Waxman--",
       "time": "00:45:00.07"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Waxman, I thought this is a case that has been going on for, like, 12 years in the district court.",
       "time": "00:45:03.36"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And I thought that the basic disagreement between the client and counsel was counsel said: Our best shot is going to be to keep you alive, so we want to do everything we can to change the death sentence, and then -- and we don't want to detract from that by making a claim of actual innocence when the -- there'd be very slim basis for that. So, that's the judgment, and it's a strategic judgment, that counsel made: Our best shot to keep this man alive is to concentrate on the penalty phase.",
       "time": "00:45:07.29"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Counsel, if -- the interests of justice, does that include the available resources of the Federal Public Defender? I mean, those offices are notoriously understaffed. And here you have a situation where one lawyer has been representing an individual for an awful long time, and the defendant says, I want a new lawyer. It's obviously going to take that -- a new lawyer away from their work and put them in a position of having to get up to speed in a new case. And I just wonder if that's part of this -- I won't call interest of justice \"a standard -- it's an aspiration. \" \"But does that go into the calculus? \"",
       "time": "00:46:14.89"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that gets to my--",
       "time": "00:47:14.36"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Is the -- is the person in a different position with the new counsel than he would have been with the old concerning the standards about reopening things? In other words, do we say, well, what would the old counsel have been able to do with respect to reopening, and say, well, that's all the new counsel can do? In other words, new counsel doesn't allow you to circumvent the various--",
       "time": "00:47:18.76"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--the restrictions that you just talked about.",
       "time": "00:47:40.81"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And one of the things I think the district court would do in that situation with the same counsel is say: Look, this was a tactical strategic decision of the lawyer. You don't get to reopen something because of that. Now, does that same consideration apply with respect to the substituted counsel, or does the substituted counsel allow the defendant to get a leg up on the process, and make new arguments that the old counsel couldn't make?",
       "time": "00:48:19.07"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Waxman, the State contends that the interests of justice standard is not the right one. Why do you contend that it is? It doesn't appear in -- in 3599, even though it did appear in -- in the previous provision that used to cover these cases, which is 3006A(c). You want to carry it over from 3006A(c) to 3599. That -- that seems to me a little strange when they seemingly intentionally omitted it.",
       "time": "00:49:25.93"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But the interests of justice is such an open-ended test. If that is the test, doesn't it follow that it will only be in the rarest of cases that a district judge will have been found -- will be found to have abused his or her discretion in denying a substitution request? Why does that very broad standard help you here?",
       "time": "00:53:18.33"
     },
@@ -1283,13 +1283,13 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Does your argument--",
       "time": "00:54:20.72"
     },
     {
       "turn": 208,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I know you think there should be inquiry.",
       "time": "00:54:21.22"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Before your time runs out, how would the finger -- how would the fact that there were fingerprints at the scene that do not match anybody who was known to be in that house have provided evidence for -- provided the basis for any claim that could have established Mr. Clair's innocence at this late -- at this late date, in the face of the other evidence that was present in this case: the recorded statements?",
       "time": "00:54:23.38"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--Did -- does your argument depend on a notion that the evidence against the defendant was weak? In other words, if there were a great deal of evidence against the defendant, would you be making the same argument, that the judge still had a duty to inquire? Or are you asking us essentially to make a determination that this was an iffy case to begin with?",
       "time": "00:55:08.55"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, suppose defense counsel had introduced at trial fingerprint evidence showing that 10 people were present at some point in that house and they weren't people who lived there. That's -- it's weak exculpatory evidence for the defendant at best that there were unknown people in the house. It might have been the cable guy. Who knows who they were? So it doesn't help very much.",
       "time": "00:55:59.75"
     },
@@ -1337,13 +1337,13 @@
     },
     {
       "turn": 216,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Campbell, you have three minutes remaining.",
       "time": "00:57:39.46"
     },
     {
       "turn": 217,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can you tell us whether that testing has been done or not?",
       "time": "00:57:42.61"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry, no, you don't think it has been?",
       "time": "00:57:52.10"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "In the appendix.",
       "time": "00:58:01.56"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry. Then your answer is yes, Mr. Goh's prints don't match the prints found in the file.",
       "time": "00:58:15.48"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That doesn't worry your prosecutor's office?",
       "time": "00:58:46.32"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "If the fingerprints that were found at the scene of this crime matched Goh, that wouldn't give you pause?",
       "time": "00:59:02.28"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry, what?",
       "time": "00:59:15.27"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So why hasn't the test been done?",
       "time": "00:59:20.91"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You -- you don't think it's an iffy case?",
       "time": "01:00:05.95"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But all that's what -- what he told his girlfriend, right? There is nothing else. There is only that?",
       "time": "01:00:30.57"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:00:49.55"
     }

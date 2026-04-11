@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2002/01-1572/20030114a_01-1572.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "DONNAL M. LACH",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JUDSON H. MINER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MALCOLM L. STEWART",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 01-1572, Cook County, Illinois versus United States, Ex Rel. Janet Chandler. Ms. Lach.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Ms. Lach, on that point, am I correct in thinking that the Sherman Act does apply to municipalities?",
       "time": "00:01:49.62"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And isn't it true that in the original Sherman Act, imprisonment was authorized for every person who violates the act?",
       "time": "00:02:12.01"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the interpretation of the law on the civil side--",
       "time": "00:02:31.01"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--was not nullified because there was a provision that said, every person is subject to imprisonment.",
       "time": "00:02:34.22"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "My... my simple point is that by putting a clearly penal provision in the statute, that did not make municipalities out of the act, and I thought that's what you were arguing, that the 1863 act is penal in part--",
       "time": "00:03:20.03"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--and therefore, it could not have in... covered municipalities.",
       "time": "00:03:39.83"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But that's not true of the Sherman Act.",
       "time": "00:03:45.06"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Any more than this is a case of prosecution.",
       "time": "00:03:54.73"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, Ms. Lach, you don't dispute that the word persons extends to some corporations under the act, do you?",
       "time": "00:04:51.56"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, but there... there are also cases from about that time that say that a... a municipality is included in the... in the term, corporation, at any rate.",
       "time": "00:05:21.35"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, what about Louisville and Letson?",
       "time": "00:05:59.81"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Didn't... didn't we recognize it in the Amity case in 1826? We... we quoted Sir Edward Cook in including municipal corporations as... as persons.",
       "time": "00:06:20.94"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh, we... we thought otherwise in... in Monell, certainly. We said in Monell, and I'm quoting it, the Letson principle in 1869 was automatically and without discussion extended to municipal corporations.",
       "time": "00:06:53.45"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you think there was a... a major change between, when, 1863 and 1869?",
       "time": "00:07:16.67"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In that 6-year period, there was suddenly, whap, it applied to municipal corporations, before that it didn't? It seems to me most implausible.",
       "time": "00:07:25.39"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In 6 years?",
       "time": "00:07:39.30"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Ms. Lach, the decision, the opinion in Cowles was very brief, right?",
       "time": "00:08:08.79"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And it was sort of like, well, of course. If this was establishing something that hadn't been just taken for granted, don't you suppose the Court would have engaged in a little more reasoning?",
       "time": "00:08:16.92"
     },
@@ -271,13 +275,13 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Ms. Lach--",
       "time": "00:09:32.54"
     },
     {
       "turn": 40,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, if we think that it... that the word, person, includes municipal corporations, as, indeed, I think I do, based on Cowles and Monell, then what changed it in your view? Why would we now have a different view? Just because of the change in the punitive damages, the treble damages provision?",
       "time": "00:09:32.95"
     },
@@ -289,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:10:02.58"
     },
@@ -301,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, on that assumption, then what would change that?",
       "time": "00:10:05.59"
     },
@@ -313,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But without an accompanying change in the definition of person, right?",
       "time": "00:10:15.63"
     },
@@ -325,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it seems to me you would have a better argument if you simply said, the 1983 change does not impose punitive damages on local corporations, than to say it suddenly proscribes an entire escape hatch from any sort of liability at all.",
       "time": "00:10:51.58"
     },
@@ -337,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But it didn't make it clear at that time that the change made them punitive. It was only in the Stevens opinion that we decided they were punitive.",
       "time": "00:11:28.95"
     },
@@ -349,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Ms. Lach, didn't the Court also, I think in the context of the Clayton Act, characterize treble damages as, quote, remedial?",
       "time": "00:12:15.13"
     },
@@ -361,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Nonetheless, it used the word, remedial to characterize treble damages, and one of the difficulties that your... your argument that you're now making encounters is that this change in 1986, wasn't it a dramatic expansion of qui tam liability?",
       "time": "00:12:46.35"
     },
@@ -373,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And then... then you think that at the same time that Congress expanded it, it also cut back, without any indication at all?",
       "time": "00:13:13.18"
     },
@@ -385,13 +389,13 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm... I'm sorry, I didn't fully grasp the point you were just making. Were you suggesting that Congress was worried about fraud against municipalities, but it didn't think that fraud would be engaged in by municipal units? I mean, I remember... I'm from New York, and I remember Tammany Hall. I don't think it was altogether so different in Cook County, was it?",
       "time": "00:14:57.48"
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:15:21.99"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I ask whether you think that Cook County could bring a qui tam action?",
       "time": "00:15:51.03"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And there's no... there's no need to decide it here. I... I was just curious if you did have a position on it.",
       "time": "00:16:29.43"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Ms. Lach.",
       "time": "00:19:50.05"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Miner, we'll hear from you.",
       "time": "00:19:51.21"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Before that, they looked at the citizenship of the individual shareholders to decide whether or not there was diversity jurisdiction?",
       "time": "00:20:46.59"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, the fact that local governments were sued in these cases under some sort of common law theory, I take it, does not necessarily answer the question of whether statutory language using the word, person includes them.",
       "time": "00:25:20.45"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I'm sure that's true but why... why do you... why is it that, in your opinion, nobody apparently with... just, perhaps no exceptions, or one or two, has ever sued a local government before under this act?",
       "time": "00:26:01.84"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I mean, a handful, virtually no... none. It's--",
       "time": "00:26:18.74"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Since 1986, that's already 16 years, and there are billions and billions of dollars worth of Federal programs that go to cities, and--",
       "time": "00:26:28.84"
     },
@@ -511,13 +515,13 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--I imagine somewhere in those billions there are a few false statements being made by people.",
       "time": "00:26:38.35"
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:26:43.26"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why since 1986 have we seen virtually no suits brought against municipalities?",
       "time": "00:27:12.91"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "There are lots?",
       "time": "00:27:20.46"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Against 19... against municipalities?",
       "time": "00:27:23.40"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "See, what I'm worried about in the back of my mind is, if the... assuming that the history in the 1860s is fairly inconclusive, which is the impression the briefs have left me with, you can make a good argument one way or the other, then I'd be worried about suddenly unleashing potentially billions of dollars of liability as lawyers comb through the vast number of Federal programs that give aid to cities, looking for someone, somewhere, who has made a false statement, and I'm sure there are quite a few, at... at which point the cities would suddenly discover vast liability for treble damages that their... their citizens can't avoid. You can't sell a share in a city, and... and so that's the kind of thing that worries me practically, and I wish you'd talk about it a little.",
       "time": "00:27:24.85"
     },
@@ -577,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I grant you, if the history of this is clear, you win. Just in case, though, I'm left absolutely uncertain about what the right result is on the basis of what happened in 1863, I want to, just in case it's relevant, to have in my mind what's likely to occur in the year 2003.",
       "time": "00:28:28.38"
     },
@@ -589,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. I mean, if that's the only answer, though, I... I begin to think... I don't know how much money is involved, but I was trying to make a guess and say, leaving out social security, food stamps and that kind of thing, which are individuals, my guess is there... probably it's in the range of hundreds of billions of dollars that go to cities, leaving those things out, and you have a few bad actors in every program that maybe purposely make a lie in a statement--",
       "time": "00:29:40.26"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--to help preserve their job, I don't know why they do it, and... and there we have suddenly a huge liability imposed on citizens. Now, I'm overstating this perhaps, but I want you to tell me what the true dimension of that problem is.",
       "time": "00:30:06.40"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Don't paint too rosy a picture. I mean, if qui tam actions were as desirable as you assert, they would not have been eliminated in England totally, and vastly reduced in the United States, because they are an invitation to shakedowns. That's... that's why they've been largely eliminated from our law.",
       "time": "00:32:52.55"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you know, if... if loving qui tam actions is... is what you need to win your case, you're... you're--",
       "time": "00:33:14.97"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Most cases don't have a treble damage situation, and most... most cases don't deal with... well, as this one does, with municipalities, where it's really... you know, it's play money, right? It's not really money out of your pocket.",
       "time": "00:33:41.81"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So better to pay this fellow off and get on with the business of the city, and... I mean, those are problems with... with a qui tam action. Let's not... let's not minimize--",
       "time": "00:33:57.21"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Were there any grant in aid... I mean, it may be kind of an academic question if, in 1863, the Federal Government was not giving out money to municipalities.",
       "time": "00:34:54.09"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Miner. Mr. Stewart, we'll hear from you.",
       "time": "00:35:50.11"
     },
@@ -685,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There... that... that case, though, was dealing with a private corporation, was it not?",
       "time": "00:37:17.14"
     },
@@ -697,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, aren't you gilding the lily a little bit to say that Congress in 1863 contemplated that there would be massive Federal spending programs in the future?",
       "time": "00:38:13.12"
     },
@@ -709,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, we do have the presumption in the City of Newport situation of not treating punitives as applicable to municipal corporations.",
       "time": "00:40:04.87"
     },
@@ -721,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Does it give the Government any remedy that... suppose that you think that the particular qui tam action is causing a lot of trouble in a Medicare area, or Medicaid area, and there are hospital grants, or... you know, there are vast numbers of grants. Can you do anything about it?",
       "time": "00:40:51.22"
     },
@@ -733,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What?",
       "time": "00:41:07.86"
     },
@@ -745,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay, so then, in other words the city would have to come to you and say, this is a real mess here, there's nothing to it, and let's settle it, and then you'd have to get involved and... and deal with it.",
       "time": "00:41:19.40"
     },
@@ -757,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You could do it, though.",
       "time": "00:41:31.11"
     },
@@ -769,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, have there been a lot of cases since 1986 against municipalities?",
       "time": "00:41:34.61"
     },
@@ -781,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And settled, or--",
       "time": "00:41:50.47"
     },
@@ -793,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Do you have some dollar figures in those?",
       "time": "00:42:03.19"
     },
@@ -805,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You sort of federalized this action. I mean, you're going to let the private plaintiffs go out, sue all the cities, and if you think there's something wrong here, you will step in and deal with it?",
       "time": "00:42:20.68"
     },
@@ -817,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do any Government grants or contracts have attorney's fees provisions in them?",
       "time": "00:44:43.86"
     },
@@ -829,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, if it's a problem, you can put it in your grant.",
       "time": "00:45:04.90"
     },
@@ -841,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is a false statement a necessary prerequisite to an action under these qui tam?",
       "time": "00:45:47.90"
     },
@@ -853,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Stewart. Ms. Lach, you have 11 minutes remaining.",
       "time": "00:46:18.68"
     },
@@ -865,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Ms. Lach, there's one point that you didn't cover in your opening argument--",
       "time": "00:48:12.11"
     },
@@ -877,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--and I'm curious how you read this statute. With regard to Dr. Chandler, she claimed that when she blew the whistle, there was retaliation against her. There is a retaliation provision in the False Claims Act. On your reading of it, would she have recourse to that provision against the county?",
       "time": "00:48:16.30"
     },
@@ -889,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, whatever, the municipal employer, would... you say that there is no municipal liability for the allegedly ill-gotten gains, but what about retaliation against the whistleblower? Would the act apply against the municipal unit to that extent?",
       "time": "00:48:55.36"
     },
@@ -901,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If... if the employer... employee could do that, the... the retaliation provision refers to retaliation against an employee for conduct in furtherance of a False Claims Act action, so if there is no viable False Claims Act claim against a municipality, then I don't see how the retaliation provision could be available.",
       "time": "00:50:03.33"
     },
@@ -913,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But I'm talking about this very case.",
       "time": "00:50:39.75"
     },
@@ -925,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I mean, if you're right that there's no municipal liability--",
       "time": "00:50:44.39"
     },
@@ -937,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--especially by Dr. Chandler, do I understand from your last answer that you are saying, no, she's out of luck, the statute would not cover her?",
       "time": "00:50:48.85"
     },
@@ -949,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Under what law?",
       "time": "00:51:01.59"
     },
@@ -961,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And was that a private corporation?",
       "time": "00:51:16.50"
     },
@@ -973,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But as far as a municipal employer is concerned, a municipal employer, having retaliated, would be, on your reading of the statute, just as free from responsibility as it would be for the underlying qui tam action.",
       "time": "00:51:25.67"
     },
@@ -985,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's what I was asking you about.",
       "time": "00:51:54.51"
     },
@@ -997,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That's what one court has said. How does that court say that the employee's action was in furtherance of a False Claims Act action if there is no False Claims Act action?",
       "time": "00:51:55.79"
     },
@@ -1009,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Lach. The case is submitted.",
       "time": "00:55:22.98"
     }

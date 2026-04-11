@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1979/78-1654/19791204a_78-1654_part2.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "MARC L. PARRIS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID MACRAE WAGNER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Parris, you may continue.",
       "time": "00:00:00.00"
     },
@@ -59,19 +63,19 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Parris --",
       "time": "00:00:46.34"
     },
     {
       "turn": 4,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Whether --",
       "time": "00:00:46.62"
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "-- were -- were these people part time?",
       "time": "00:00:47.07"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Just part time.",
       "time": "00:00:51.00"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did they practice on this side?",
       "time": "00:00:53.32"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What is the -- is -- is your -- you -- you tell us as a matter of fact and of law that these people's employment automatically expired subjected to only to this ministerial certification of that fact.",
       "time": "00:00:57.98"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "At the time that the -- that -- that the public defender himself, left office.",
       "time": "00:01:15.22"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You say you'll --",
       "time": "00:01:52.40"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- you'll reappointment them, not (Voice Overlap) --",
       "time": "00:01:54.22"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do they receive --",
       "time": "00:02:00.50"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "When they're originally appointed, do they receive a document or a certificate, something like the one that the President gives to the members of his cabinet which ends with the words, “At the pleasure of the President?”",
       "time": "00:02:02.55"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "They don't get any piece of paper?",
       "time": "00:02:16.06"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the law says it.",
       "time": "00:02:18.06"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The law says it though.",
       "time": "00:02:20.19"
     },
@@ -215,13 +219,13 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That they serve at his pleasure.",
       "time": "00:02:22.26"
     },
     {
       "turn": 30,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No.",
       "time": "00:02:23.51"
     },
@@ -233,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What, is that a statute or an ordinance or what?",
       "time": "00:02:23.90"
     },
@@ -245,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is there an ordinance that says at his pleasure?",
       "time": "00:02:28.78"
     },
@@ -257,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So what does it say?",
       "time": "00:02:36.20"
     },
@@ -269,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Where do we find that in the record?",
       "time": "00:02:39.17"
     },
@@ -281,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes, that's what I have here.",
       "time": "00:02:41.77"
     },
@@ -293,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What did the District Court have to say on this subject, do you remember?",
       "time": "00:03:12.73"
     },
@@ -305,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:03:26.26"
     },
@@ -317,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, and then his -- his caption for that section of his opinion is \"Plaintiffs were not reappointed.\" But is there any -- beyond that, is there any -- are there any findings of the District Court in which you remember on this --",
       "time": "00:03:48.07"
     },
@@ -329,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- subject?",
       "time": "00:04:00.43"
     },
@@ -341,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Parris, could I ask you a question of you about this? You said that they would have to take -- your people have to take an oath in the new term. Well, this testimony doesn't say that and those statutes says if you call to it, why do you say they have to take a new oath?",
       "time": "00:04:03.75"
     },
@@ -353,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What --",
       "time": "00:04:19.18"
     },
@@ -365,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "-- what in civil service law says that? What if they just stayed on and nothing was done. As I understand, the way this is written, he -- he began the process of executing termination notices for six of the nine assistants who had served under Barone. I -- I thought you under -- he indicated if he had done nothing, they would have just continued on the payroll, wouldn't they?",
       "time": "00:04:20.13"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There's nothing in the law that says they would not have stayed on the payroll, is there, if he'd done nothing?",
       "time": "00:04:40.07"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, how do we know it's error?",
       "time": "00:04:48.82"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How do we know it's error? Your witness doesn't say that and the law doesn't say that and regulations don't say it.",
       "time": "00:04:50.61"
     },
@@ -413,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that you're required --",
       "time": "00:04:59.73"
     },
@@ -425,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "A requirement that you imposed, right?",
       "time": "00:05:00.62"
     },
@@ -437,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if you didn't impose that requirement at all and nothing at all was done --",
       "time": "00:05:05.96"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "-- is it not true they would continue just to get their paychecks in the ordinary routine to continue to do their work?",
       "time": "00:05:09.90"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But isn't that necessarily the predicate for the District Court's judgment that you couldn't fire them, that they couldn't be fired for the political beliefs. That their term lasted beyond the expiration of the term --",
       "time": "00:05:32.00"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- of a public defender.",
       "time": "00:05:45.64"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So don't -- don't you think the -- the -- don't you think the District Court read New York law and saying their term does not end with -- with the term of the public defender?",
       "time": "00:05:47.29"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, behind -- I know but we don't usually second guess district judges about state law.",
       "time": "00:05:58.40"
     },
@@ -509,13 +513,13 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Counsel, what -- what about page 32 (a) of the appendix. I -- I'm wondering how -- how semantically and how substantive this discussion we've been having as where you have Footnote 10, where Judge Broderick says, “The fact that plaintiffs are removable at the will of the public defender is of course irrelevant to the -- the determination of the constitutional issue prevented herein.",
       "time": "00:06:04.76"
     },
     {
       "turn": 79,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you see a -- substantive distinction between a person being removable at will and a person whose term expires at a given point?",
       "time": "00:06:30.62"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose that you could argue that reading -- that it's fair to read Judge Broderick's opinion as saying it doesn't make any difference whether it's a -- whether -- whether the term expired or not. That failure to reappoint is subject to the same constitutional rule as -- as if the term was held to extend until fired.",
       "time": "00:07:30.32"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I've -- if that is the -- and if -- if that poses a completely different question if he held that.",
       "time": "00:07:56.34"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I'm sure you -- you would say that.",
       "time": "00:08:07.03"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it didn't work --",
       "time": "00:08:31.07"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it didn't work.",
       "time": "00:08:33.63"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You -- you haven't mentioned anything yet and I hope you will at some point at your convenience, of the policy relationship that exists between the management of the office and all of the staff.",
       "time": "00:08:36.85"
     },
@@ -599,25 +603,25 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No. Do it at your own time.",
       "time": "00:08:52.82"
     },
     {
       "turn": 94,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "As -- as part time employees.",
       "time": "00:08:54.80"
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That's correct, yes. Also, historically, respondents had sought some people in this office that had been rehired and others that hadn't been. They both tried and used political friends to try to receive recommendations. It doesn't sound like someone with an objective expectancy --",
       "time": "00:08:57.01"
     },
     {
       "turn": 96,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well --",
       "time": "00:09:14.32"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could I as -- could I ask you? Suppose the terms did expire and the public defender -- a new public defender put out a notice on the wall and said, “Only -- only Democrats need to apply or only Republicans need to apply. I'm just not interested in hiring anybody but Democrats. Does Elrod cover a situation like that or not?",
       "time": "00:09:15.04"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, of course it wasn't alright --",
       "time": "00:09:41.05"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- was it?",
       "time": "00:09:42.38"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, are -- are you referring to the plurality in Elrod or -- or to the -- there was several separate opinions in Elrod.",
       "time": "00:09:44.28"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "As to -- in your response to my Brother White.",
       "time": "00:09:53.69"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let's -- let's assume that these employees, everybody agreed to these employees were -- were policymaking and confidential, let's just assume that they -- or that -- that they were not. Assume they were not.",
       "time": "00:09:57.80"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Policymaking or confidential and they put on -- you put on the sign on the wall, “Only Democrats need apply. We're -- we're in a process of rehiring and your terms have expired, but none of you who is an -- who is a Republican need apply.” Does Elrod cover that or not?",
       "time": "00:10:09.88"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, so you say, it doesn't.",
       "time": "00:10:30.86"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It doesn't --",
       "time": "00:10:33.13"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The -- the Elrod judgment was -- was supported by five members of this Court. Three joined in one opinion and which is -- I'd call them correctly, the plurality opinion and two joined the judgment based upon another considerably shorter opinion. And that second opinion joined the judgment only on the basis of the proposition that an employee cannot be discharged or threatened with a discharge from a job that he is satisfactorily performing upon the sole ground of his political beliefs. And if there is no discharge here, then as you say, you'd have to extend out if it's not covered by Elrod and -- and Elrod would have to be extended to cover it.",
       "time": "00:10:34.74"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is that correct?",
       "time": "00:11:20.60"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Could the public defender on his own decide that he does not want to have part time assistance anymore and just abolish the positions?",
       "time": "00:12:21.45"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The -- the legislation itself, fixes part time and full time?",
       "time": "00:12:34.36"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did you make that argument below?",
       "time": "00:13:59.96"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What's wrong with your arguing that kind of an issue is not also assuming this has -- is relevant. Would it not be equally relevant that this is related to the existence of a two-party system?",
       "time": "00:15:08.22"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The question still lands whether that's relevant to the issues in this case however.",
       "time": "00:15:33.68"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What happens to the point of independent lawyer who doesn't belong to either party?",
       "time": "00:15:42.13"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So he is --",
       "time": "00:16:05.95"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So the nonpartisan lawyer becomes a janitor?",
       "time": "00:16:07.75"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And end up a janitor?",
       "time": "00:16:16.48"
     },
@@ -869,13 +873,13 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Where is Rockland County?",
       "time": "00:16:21.93"
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "(Voice Overlap) I don't see why think the special privilege of party member?",
       "time": "00:16:22.12"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't see where you get that in the Constitution.",
       "time": "00:16:28.27"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I know of a very great prosecuting attorney in New York that had both parties endorsement every time he ran.",
       "time": "00:16:44.05"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, isn't -- isn't the real question not whether the -- the patronage system is desirable or undesirable or whether New York has chosen or not, but this was a civil rights action where Judge Broderick felt -- found that Rockland County's application of it violated the Federal Constitution. And unless it violates the Federal Constitution, New York is free to choose its bizarre system of promotion as it -- as it wants.",
       "time": "00:16:52.92"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So far as -- so far as the federal courts are concerned.",
       "time": "00:17:21.64"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:17:39.70"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Where is Rockland County, Mr. Parris?",
       "time": "00:18:08.47"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Northwest, is it only (Voice Overlap) --",
       "time": "00:18:15.21"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The Tappan Zee Bridge comes into Rockland County.",
       "time": "00:18:20.94"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "South of Bear Mountian Bridge.",
       "time": "00:18:25.66"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "U.S.--",
       "time": "00:19:42.09"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- U.S. Attorneys there, does their term expire when a new president is inaugurated?",
       "time": "00:19:42.88"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, there were some a little brouhaha, but in Philadelphia not so long ago.",
       "time": "00:19:53.86"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But --",
       "time": "00:19:57.83"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And in New York earlier, but -- but generally, they -- there is a change, isn't there and isn't the --",
       "time": "00:19:59.73"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- they're appointees of the executives or the Justice Department of the United States.",
       "time": "00:20:05.76"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But you don't know if their term expires.",
       "time": "00:20:10.87"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I guess they do some settling.",
       "time": "00:20:12.30"
     },
@@ -1091,13 +1095,13 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, the Commission of the United States Attorney as those famous last three words, “To serve at the pleasure of the President,” four words, at the --",
       "time": "00:20:14.79"
     },
     {
       "turn": 176,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it is a term of office.",
       "time": "00:20:25.00"
     },
@@ -1109,19 +1113,19 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, there's a certain inconsistency, isn't there? Be -- between the two facts which leads we, apparently believe to be the facts that you serve at the pleasure of an official for a term of four years --",
       "time": "00:20:35.01"
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Which is it?",
       "time": "00:20:54.03"
     },
     {
       "turn": 180,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In -- in --",
       "time": "00:20:54.63"
     },
@@ -1133,13 +1137,13 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "-- the U.S. Attorney I think it's both.",
       "time": "00:20:56.96"
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you have -- and the four years can expire and if you aren't reappointed, you're through.",
       "time": "00:20:59.40"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No. No, no --",
       "time": "00:21:06.61"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- the U.S. Attorney.",
       "time": "00:21:08.13"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The United States Attorneys.",
       "time": "00:21:10.15"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Proceed, counsel.",
       "time": "00:22:41.71"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, counsel, what do you make of Footnote 10 in Judge Broderick's opinion at page 32A of the appendix, the fact that the plaintiffs are removable at the will of the public defender, not for a cause but at the will of the public defender?",
       "time": "00:23:40.03"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, the very page of the record to which you referred us indicates of the awareness of the witness that he could be dismissed without a cause which means employment at will. I'm looking toward the bottom of the page there, the last question and answer.",
       "time": "00:24:08.51"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, I know that, but I was just indicating that this question and answer at -- and without more support, Footnote 10.",
       "time": "00:24:32.63"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And yet the District Court labeled the whole heading of its opinion on -- beginning on page 25A. Plaintiffs were not reappointed. And it's quite a different thing from being discharged and if two of the necessary -- of the five oaths necessary to support a majority judgment in -- in Elrod against Burns, limited themselves to the question of whether it was unconstitutional to discharge people because of their political beliefs. If these people were not discharged, then Elrod is not applicable.",
       "time": "00:25:29.97"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But Sindermann had a contract, didn't he, year -- year by year?",
       "time": "00:26:22.13"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And meaning for 10 consecutive years which, as I recall the courts not created an expectancy of continuation to -- at least that was a factor.",
       "time": "00:26:28.91"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, is that in the record somewhere?",
       "time": "00:27:05.23"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, no, his expectation that -- that this in fact, whatever the law was. In fact, this was a -- an appointment of indefinite duration. Is that in the record anywhere?",
       "time": "00:27:07.89"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Where is this?",
       "time": "00:27:22.66"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, on page 77, there's the question about the middle of the page, “Did you approach Mr. Barone about being retained in your position?” Answer, “No, he just continued me in office.\"",
       "time": "00:27:38.54"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the answer was, “He continued me in office,” not, I remained in office.",
       "time": "00:28:07.21"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, let me ask you this. Is your basic claim that this is a Perry against Sindermann and Roth versus Board of Regents type of case where even though the people had no job tenure claim, they were fired for the exercise of a constitutional right of free speech or an Elrod against Burns case, or do you see no distinction between the two?",
       "time": "00:28:35.02"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Evidence, said it made no difference --",
       "time": "00:29:15.63"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- even --",
       "time": "00:29:17.65"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- even if -- even if their terms expire, with the public defender's term, the failure to reappoint them for this kind of a reason was constitutionally wrong.",
       "time": "00:29:18.84"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And then that's the -- that's the judgment you're defending here?",
       "time": "00:29:28.65"
     },
@@ -1391,31 +1395,31 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But that's not covered by -- that's not covered by Elrod at all, is it?",
       "time": "00:29:32.96"
     },
     {
       "turn": 226,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As you were and that's not what the District Court said at all. At page 25A he said, “The third and final requirement of the concurrence in Elrod is that the attempt to remove plaintiffs from their jobs have been based upon the sole ground of their political beliefs, I find that this requirement has been satisfied. Is -- doesn't that a finding that the only reason that they -- for the removal was their political beliefs? That's the way the Court of Appeals interpret on page 2 (a). The Court of Appeals said, “Judge Broderick found that appellant had attempted to terminate their employment on the sole ground of their political beliefs.”",
       "time": "00:29:36.33"
     },
     {
       "turn": 227,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but the question is --",
       "time": "00:30:05.78"
     },
     {
       "turn": 228,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why would we concede something else?",
       "time": "00:30:06.29"
     },
     {
       "turn": 229,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you don't take any position -- you say the District Judge didn't take any position on whether it was a termination or a renewal. That's -- that's what you say.",
       "time": "00:30:08.02"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Exactly --",
       "time": "00:30:27.72"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you're -- so you're saying even if this was a failure to reappoint, even if their terms had expired and it -- and it was only a failure to reappoint, the fact that they -- that they've refused to reappoint because of their political beliefs is constitutionally wrong like the District Court concluded.",
       "time": "00:30:30.02"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You mean Elrod doesn't -- Elrod covers it if they're -- unless they're confidential or policymaking?",
       "time": "00:30:47.16"
     },
@@ -1463,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but that, then don't you have to argue here that or sustain the -- the holding below that these positions were not in fact confidential or policymaking?",
       "time": "00:31:03.69"
     },
@@ -1475,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, what about --",
       "time": "00:31:53.21"
     },
@@ -1487,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "-- what about a situation where the -- the new public defender comes in and says from the new policy of this office for which I am responsible will be that we will take no guilty pleas at all or alternatively, he says the policy of this office will be that your or to direct all your efforts to negotiate a plea. We've got to get this calendar moving. Now, does that not involve very high policy in terms of operating that office?",
       "time": "00:31:53.88"
     },
@@ -1499,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, but how -- how is the prosecutor or the public defender, the head of the staff going to follow what each one, was it nine assistants, is going to do on each specific case. In many instances, that assistant will be handling 10 or 20 cases in one day?",
       "time": "00:33:07.90"
     },
@@ -1511,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, my question -- my point was, is it possible, feasible, with the volume of cases you'd have in these relatively minor offenses to monitor what each one is doing or is he not entitled to have -- select a person of his own choice in whom he has confidence and sure knowledge that they'll carry out his policies.",
       "time": "00:34:03.62"
     },
@@ -1523,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that a factor in this case?",
       "time": "00:34:28.43"
     },
@@ -1535,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, I thought you had already -- I thought you had already conceded that there's quite a difference between the deputy sheriff and a lawyer.",
       "time": "00:34:41.23"
     },
@@ -1547,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Who said that?",
       "time": "00:36:38.89"
     },
@@ -1559,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought there were quite a few independent unregistered lawyers and I know personally that are pretty good lawyers and making a pretty good living. And he didn't have to join any party.",
       "time": "00:36:46.74"
     },
@@ -1571,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You could not say that and I don't believe that.",
       "time": "00:37:10.47"
     },
@@ -1583,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is the pay pretty good for these things in Rockland County and some parts of the country. It's pretty much pro bono almost --",
       "time": "00:37:46.78"
     },
@@ -1595,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do they work fixed hours or how's their time?",
       "time": "00:38:18.21"
     },
@@ -1607,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In the evenings?",
       "time": "00:38:31.92"
     },
@@ -1619,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think this is any different in some county rule that says where in the next year, we're probably going to have 10 public construction projects, but only Democrats or Republicans need -- need been on these -- or limit to bidding opportunities to Democrats or Republicans?",
       "time": "00:38:38.83"
     },
@@ -1631,19 +1635,19 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, if you made --",
       "time": "00:39:11.41"
     },
     {
       "turn": 266,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think a --",
       "time": "00:39:11.61"
     },
     {
       "turn": 267,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- the issue here, then it's not covered Elrod against Burns, is it?",
       "time": "00:39:11.98"
     },
@@ -1655,13 +1659,13 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well --",
       "time": "00:39:17.05"
     },
     {
       "turn": 270,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "A construction job isn't the same as -- as a confidential or policymaking assistant.",
       "time": "00:39:17.68"
     },
@@ -1673,7 +1677,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It may be, but for the reason hindered by -- suggested my -- by my Brother Stewart, I don't think the answer to the question about whether construction jobs are assigned only to Democrats or Republicans, answers the question of whether one may choose only Republicans or Democrats for confidential or policymaking position.",
       "time": "00:39:28.14"
     },
@@ -1685,7 +1689,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it does get you across the bridge that there's no difference between discharge and reappointment.",
       "time": "00:39:54.95"
     },
@@ -1697,7 +1701,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Wagner, on that point, your witness, Mr. Finkel, said he thought he had a permanent appointment. Did that mean until he reached retirement age or -- or what does it mean?",
       "time": "00:40:30.02"
     },
@@ -1709,7 +1713,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's a different -- that's a different point in saying I -- that's a much stronger expectation than saying, I serve at his will and he can fire me for any reason he wants to accept my political beliefs.",
       "time": "00:41:00.80"
     },
@@ -1721,7 +1725,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well that's -- that's a different -- still, nevertheless it's considerably different from what you have said.",
       "time": "00:41:17.01"
     },
@@ -1733,13 +1737,13 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's as far as you need to go, I guess.",
       "time": "00:41:26.93"
     },
     {
       "turn": 283,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You're saying he can only be fired for cause, is that the substance of -- of your view?",
       "time": "00:41:29.94"
     },
@@ -1751,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, couldn't he be fired to replace him with his brother? I mean that's not --",
       "time": "00:41:45.18"
     },
@@ -1763,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that's not for a cause, is it?",
       "time": "00:41:51.38"
     },
@@ -1775,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, yes.",
       "time": "00:41:56.34"
     },
@@ -1787,7 +1791,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you would -- you would say that if -- that he couldn't fire him because of his political beliefs.",
       "time": "00:41:57.76"
     },
@@ -1799,7 +1803,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Would he have an entitlement to a due process hearing before being fired, passing on that?",
       "time": "00:42:08.64"
     },
@@ -1811,7 +1815,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, yes.",
       "time": "00:42:21.72"
     },
@@ -1823,7 +1827,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "But constitutionally?",
       "time": "00:42:26.32"
     },
@@ -1835,7 +1839,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If -- if he -- if he had alleged that he was then fired for an unconstitutional reason, then --",
       "time": "00:42:32.52"
     },
@@ -1847,7 +1851,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- then maybe you --",
       "time": "00:42:39.08"
     },
@@ -1859,7 +1863,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why would you say that -- why would you say? You just concede -- what if he said -- what if he said, “Well, I was fired -- I was doing my job well, but I was fired because -- not because I didn't do my job well, but because he want to replace me with my brother.” He wouldn't get any hearing.",
       "time": "00:42:48.30"
     },
@@ -1871,7 +1875,7 @@
     },
     {
       "turn": 305,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I can see that.",
       "time": "00:43:08.26"
     },
@@ -1883,7 +1887,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "He's not entitled to be discharge only for a cause.",
       "time": "00:43:11.96"
     },
@@ -1895,7 +1899,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, and -- and what are those --",
       "time": "00:43:25.82"
     },
@@ -1907,7 +1911,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "-- that are involved in this case?",
       "time": "00:43:28.63"
     },
@@ -1919,7 +1923,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Okay. Then you've got to show in addition to that, that they were not confidential or policymaking officials.",
       "time": "00:43:44.99"
     },
@@ -1931,7 +1935,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well -- well, what if one of them comes into the public defender and says, I think we've got a real problem with judge so and so in such and such a precinct. And I think we ought to try to transfer all the cases we can out of that precinct to another one. Now, isn't there some sort of confidentiality there?",
       "time": "00:44:18.76"
     },
@@ -1943,7 +1947,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or that we're having trouble getting search warrants from the certain judge.",
       "time": "00:44:49.95"
     },
@@ -1955,7 +1959,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But faithfully, a confidential employee is the one who makes a recommendation to a policy maker and not in himself will recommend a policymaker. Isn't not so?",
       "time": "00:45:06.66"
     },
@@ -1967,7 +1971,7 @@
     },
     {
       "turn": 321,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think that the assistant sometimes give legal opinions to their superiors as to what should be done about a case?",
       "time": "00:46:19.00"
     },
@@ -1979,7 +1983,7 @@
     },
     {
       "turn": 323,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But if -- if he's doing that, he's in the relationship with the lawyer to a client essentially, is he not?",
       "time": "00:46:40.55"
     },
@@ -1991,7 +1995,7 @@
     },
     {
       "turn": 325,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, that's not --",
       "time": "00:46:56.36"
     },
@@ -2003,7 +2007,7 @@
     },
     {
       "turn": 327,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "-- that's certainly a confidential matter, isn't it, if -- if nothing else?",
       "time": "00:46:57.36"
     },
@@ -2015,7 +2019,7 @@
     },
     {
       "turn": 329,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, let's -- let's stay with this situation. An assistant says \"Let's keep away from Judge Jones. He just never will give us a warrant.\" Now, is that a confidential communication within that office?",
       "time": "00:47:12.34"
     },
@@ -2027,7 +2031,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He hopes it is.[Laughter]",
       "time": "00:47:28.14"
     },
@@ -2039,7 +2043,7 @@
     },
     {
       "turn": 333,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Don't you -- don't you think a defense council could throw a case as it were if you know what I mean by that --",
       "time": "00:48:51.38"
     },
@@ -2051,7 +2055,7 @@
     },
     {
       "turn": 335,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "-- that is -- and do it -- if he did it skillfully in a way that it would be very difficult to establish that fact?",
       "time": "00:48:57.98"
     },
@@ -2063,7 +2067,7 @@
     },
     {
       "turn": 337,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He's not very unpopular defendant and the community is aroused and wants that fellow to go to jail and the -- this assistant defenders politically ambitious and -- so he just lets his fellow go down the drain. It's -- that's a possibility, isn't it?",
       "time": "00:49:07.22"
     },
@@ -2075,7 +2079,7 @@
     },
     {
       "turn": 339,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think it's easy to -- to monitor that kind of thing?",
       "time": "00:49:28.13"
     },
@@ -2087,7 +2091,7 @@
     },
     {
       "turn": 341,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Parris? You have about two minutes left.",
       "time": "00:49:54.98"
     },
@@ -2099,7 +2103,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There are some, they don't.",
       "time": "00:50:16.37"
     },
@@ -2111,7 +2115,7 @@
     },
     {
       "turn": 345,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen, the case is submitted. We'll hear arguments next in Ford Motor Credit --You don not say that and I don't believe that.",
       "time": "00:50:48.20"
     }

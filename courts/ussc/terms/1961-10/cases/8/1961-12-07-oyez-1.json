@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1961/8/19611207a_8.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
       },
       {
         "name": "JOSEPH A. FANELLI",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "KEVIN T. MARONEY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 8, Norton Anthony Russell versus Unites States. Mr. Fanelli.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where -- where is that indictment Mr. Fanelli?",
       "time": "00:05:29.12"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did you ask bills of the particulars?",
       "time": "00:05:48.39"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Fanelli?",
       "time": "00:08:17.11"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "May I ask you to understand, when you say indictment is invalid, I take it is that you mean it is void?",
       "time": "00:08:17.74"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Is that what you mean?",
       "time": "00:08:26.93"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "And the reason is because the petitioner (Inaudible) statement of terms, the question under or subject under inquiry.",
       "time": "00:08:34.45"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "You mean that is not evidentiary?",
       "time": "00:08:48.32"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "May there'd be (Inaudible)?",
       "time": "00:09:40.28"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What did the District Court find that -- that the subject under inquiry was or didn't -- or wasn't there any subject?",
       "time": "00:15:42.31"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now, Mr. --",
       "time": "00:16:08.10"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "You're trying to raise the questions (Inaudible)",
       "time": "00:20:15.81"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible) he did?",
       "time": "00:20:24.47"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible)",
       "time": "00:20:29.15"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "That means to your witness?",
       "time": "00:20:36.67"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:23:39.27"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible) indictment (Inaudible) to establish is adequate to (Inaudible) in presence of deliberate (Inaudible)",
       "time": "00:24:14.06"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You say foot -- footnote on page 40, what?",
       "time": "00:25:07.34"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Your time is up but I'm going to give you five minutes to respond if you -- if you should wish it Mr. Fanelli and the Government may have five minutes. (Voice Overlap)",
       "time": "00:31:34.29"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Fanelli may not have the time. If I may miss -- the comment you were going to make about the bill of blank -- about the bill of particulars.",
       "time": "00:31:42.45"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I guess what I know whether -- may I ask this question and you can answer later? Would no bill of particulars cure, assuming you're right about the defect, is this is an incurable defect?",
       "time": "00:31:59.70"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I just -- just want to know what --",
       "time": "00:32:13.73"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, in -- in this case.",
       "time": "00:32:16.43"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't know if --",
       "time": "00:32:26.56"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But whatever difference there maybe between an opening statement, I suppose there were some difference between talk and the deliberateness of a bill of particular, but waiving that you say this is -- this was an incurable inadequacy --",
       "time": "00:32:45.30"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- falling short of the requirement of the constitutional provision?",
       "time": "00:33:02.13"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Maroney.",
       "time": "00:33:08.54"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What case is that?",
       "time": "00:34:32.99"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that cited in your brief?",
       "time": "00:34:35.26"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The Shelton brief?",
       "time": "00:34:41.98"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I suggest Mr. Maroney that you don't force us to -- to read two or three or more sets of briefs in order to know what your issues are in the -- in the case. I think if you -- if you at least give us a -- fair citations of your -- of your point on the brief that would be adequate and if you want to refer us further to other briefs, but don't -- don't leave us in a point where we position -- where we read this brief and we can't -- can't get your case from it unless we -- we go back to some other case that -- that isn't --",
       "time": "00:35:06.90"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- consistent with our rules, I think.",
       "time": "00:35:44.07"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But he asked you -- Justice Black asked you if this case was cited in your brief -- in this brief and you said, “No, it was cited in the Shelton brief,” but if you rely on it this case, why isn't cited here?",
       "time": "00:36:08.50"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Dayton?",
       "time": "00:44:52.97"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In Dayton?",
       "time": "00:44:55.63"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How far is the Yellow Springs from Dayton, 20 miles?",
       "time": "00:50:33.32"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:54:07.55"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:57:22.03"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:58:21.17"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:58:25.35"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:58:34.10"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Suppose the -- suppose the grand jurors that are complained off here were relatives of members of the Committee, would you have to -- would you have to prove those actual bias in their minds from something they had said or done before the validity of the indictment that they challenged?",
       "time": "01:00:46.88"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No I said if these were --",
       "time": "01:01:07.30"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, yes.",
       "time": "01:01:10.97"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But I -- I realize that that would be an actual -- actual bias, but suppose their employees of the Congress?",
       "time": "01:01:30.22"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would they -- would you have to show them that they were -- they had actual bias if it -- if it was demonstrated that they were employees of the Congress?",
       "time": "01:01:44.08"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Voice Overlap) the relationship to the prosecution, isn't that -- isn't that relevant?",
       "time": "01:02:05.88"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But suppose they were not employees of the Congress, but were employees of some department that was under programs that were initiated by and investigated by and -- and supervised by Congress.",
       "time": "01:03:12.43"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That was I -- that was I was getting at.",
       "time": "01:03:30.76"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, were those grand juries or trial juries?",
       "time": "01:04:26.30"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There you can have -- there you can have a voir dire and you can -- you can test a man's mind.",
       "time": "01:04:32.60"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You can find out what he's got in his mind, but here you cannot do it.",
       "time": "01:04:38.86"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Maroney, have we got any figures -- Government got figures to indicate the total potential jury qualified versus in the district and the total number of government employees that could be taken out of that pool?",
       "time": "01:05:57.66"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If it is -- if it's -- if it's very easy to get, would you mind?",
       "time": "01:06:23.19"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not making -- there's no (Inaudible), I'm just curious.",
       "time": "01:06:29.98"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I know (Voice Overlap)",
       "time": "01:06:38.43"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But what you're getting to a greatest social magnet for people who come here because it's such a wonderfully interesting place, with all the wonderful things going on, cultural center, 103 embassies, etcetera, etcetera, lots of leisured bias people now make it their home.",
       "time": "01:06:45.85"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Maroney, may I ask you just one other question on that -- on -- on that bias. Assume, let's just assume for the sake of argument that these 15 jurors who work for the Government were frightened then would be -- would be afraid of their jobs. For instance if they fail to indict at first in this -- in this area, let's just assume that they were, how could a man under your theory ever attack that and ever get it -- ever get it grand jury that would not be composed of people who were guided by those fears?",
       "time": "01:07:33.39"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But you wouldn't (Voice Overlap) -- you wouldn't let him have a hearing to determine -- to determine that.",
       "time": "01:08:27.77"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, I suppose here -- I suppose here their showing was that -- that these men do work for the Government, that there are these loyalty programs, that there are certain practices that -- that government employees are discharged at times on -- on confidential information that is not available to them and that they have no way of defending themselves on their jobs. And -- and so therefore, they say these people by -- by operation of law are biased and they want to show -- they want to show through -- through hearing where they would examine the jurors that fear does possess them.",
       "time": "01:09:09.50"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What else could they do, would they have -- would the man have to say -- would I tell somebody in the defense that I'm afraid and that's the reason I indicted your -- voted to indict your client?",
       "time": "01:10:00.81"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yeah, but in this kind of a case, there is nothing -- there is nothing open to him to defend on in your -- in your view, if -- if he actually refused to answer the questions, that's -- that's all you concede that he has a right to show at the trial.",
       "time": "01:11:05.26"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But the only elements of the crime were -- where that he failed to answer the questions and it seems to me that its -- there's no one he can cross-examine on the subject and if the -- if the grand jury was biased against him, he's -- he's guilty when he -- when -- when he goes into Court.",
       "time": "01:11:41.58"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "On this kind of a case, it's different (Voice Overlap)",
       "time": "01:12:07.19"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- case is different (Voice Overlap)",
       "time": "01:12:09.77"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- felony case or a -- or a murder case, but here what is open to him other than the fact that he wasn't the man who's there.",
       "time": "01:12:12.31"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yeah, but what -- what's -- according to your theory he's not -- he's not able to prove anything.",
       "time": "01:12:21.91"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Fanelli.",
       "time": "01:13:10.92"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I suppose Mr. Fanelli, your argument and (Inaudible) is that if indictment had specified what the subject that the inquiry was, the Government would be nailed down to that.",
       "time": "01:16:00.16"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But --",
       "time": "01:16:16.61"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I suggest the same -- the same restriction, the same confinement for maneuvering on part of the Government is served by the bill of particulars.",
       "time": "01:16:19.96"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I mean if you --",
       "time": "01:16:33.82"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- if you will list it, if you ask for bill of particulars, you may say that subject -- the scope of the inquiries asked him so the bill of particulars hold him to that, doesn't it?",
       "time": "01:16:34.76"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They say no?",
       "time": "01:16:46.86"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) bill of particulars.",
       "time": "01:16:48.92"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No. In other words the -- the specificity doesn't come from the grand jury, but so far as any fairness or unfairness, waving the question whether a grand -- an indictment can be amended. I appreciate that argument, but on the question of fairness, the bill of particulars has the same purpose.",
       "time": "01:17:05.58"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm -- I'm giving you notice. I'm giving you notice.",
       "time": "01:17:32.75"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In the -- in the Court of Appeals, in the interest of time of I'm interrupting you -- in the Court of Appeals, say although the bill of particulars bound into this. Although, the Government says the bill of particulars restricts are put to this, the Court of Appeals can go beyond that or differ from it?",
       "time": "01:17:48.16"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You state your other -- other quite quickly briefly because I wanted to hear it.",
       "time": "01:18:22.48"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible)",
       "time": "01:21:11.91"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible)",
       "time": "01:22:23.94"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understood you to say you proved it, did you say you proved what you are saying?",
       "time": "01:24:24.11"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where – where is the proof in the record if you will?",
       "time": "01:24:33.91"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So that -- is that affidavit of the court that you -- to which you refer?",
       "time": "01:24:56.39"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How far does that go now? I just want to know in fact the (Voice Overlap) affidavits?",
       "time": "01:25:10.38"
     },
@@ -1063,19 +1063,19 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I don't want to -- your time is up.",
       "time": "01:25:14.57"
     },
     {
       "turn": 172,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I know it is sir, Your Honor and if you begin with record number 12, 12 and 13 particularly and read the quoted material.",
       "time": "01:25:16.17"
     },
     {
       "turn": 173,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "01:25:26.92"
     },

@@ -3,43 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1977/77-369/19780417a_77-369.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "JOEL H. KAPLAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JUDSON H. MINER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Furnco Construction against Waters. I think we will wait a little bit until the stadium is cleared. Mr. Kaplan, I think you may now proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would you not have to add that of the fire bricklayers known to the superintendent that two Blacks on the list known to him were not hired?",
       "time": "00:02:59.24"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that not true?",
       "time": "00:03:11.55"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But after other White people who were not on the list?",
       "time": "00:03:39.23"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But he was not on the list?",
       "time": "00:04:19.98"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Kaplan, I want to be sure I understand your answer to Justice Rehnquist’s question. Are you saying that Smith and Samuels were on the list or that there was no list?",
       "time": "00:05:51.20"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand. Okay, let us take Smith.",
       "time": "00:06:03.62"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it correct that there were writings on pieces of paper and only names of White persons were on those writings?",
       "time": "00:06:48.44"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there any explanation of why he did not write his name down?",
       "time": "00:07:22.03"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Were any Whites hired who were not on the list?",
       "time": "00:08:41.15"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I suppose an employer could, in a market where there were 20% Blacks in the pool, have employed 30% and, nonetheless, if a Black came to him and sought employment and the employer told the Black “I am not going to hire you because you are Black,” the fact that he was above the pool ratio would not excuse him.",
       "time": "00:10:02.58"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would it have been better if he had a list of those Blacks?",
       "time": "00:11:18.31"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He did have a list of the White ones. It would have been wonderful if he had an integrated list. But since he had a White list, would it not have been better if he had all?",
       "time": "00:11:26.16"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Kaplan, let me just follow up if I may. I do not mean to suggest this is what the facts show, because the facts are rather quite confused in this case. But, assume that the evidence did show that the company hired what it regarded to as an appropriate quota of Blacks and it thought that it had met its affirmative action or obligation or something of that nature. Thereafter, would it be obligated with the remaining people it had hired, it would be obligated to take Blacks and Whites indiscriminately, would it not? What is your position on that?",
       "time": "00:12:08.87"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You are answering my hypothetical question by saying it is not this case. I just want to get your legal position. Assume that you did affirmatively hire, say 15 or 20 or whatever the percentage might be, and got that number of Black workers on the job. Having done that and, say, you have another 80% to hire. Would it be your view that you could then say “we will hire only Whites” in the other 80%?",
       "time": "00:12:58.81"
     },
@@ -219,13 +223,13 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I see.",
       "time": "00:13:21.87"
     },
     {
       "turn": 32,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you be taking a risk if you did, of having an attack made by the 80% that you were discriminating and using a quota system?",
       "time": "00:13:24.33"
     },
@@ -237,7 +241,7 @@
     },
     {
       "turn": 34,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is the important thing in this case not that you do not have to hire at the gate?",
       "time": "00:14:04.33"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 36,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is the important thing to you to sustain this case not as though the list were not there at all?",
       "time": "00:14:11.53"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 38,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Then if you lose the case on these two just because there was a list, that is not such a big deal for you, is it?",
       "time": "00:14:22.25"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 40,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If they were not discriminated against because the company does not have any obligation to hire at the gate and can have this key man-selection system, so to speak, that is one thing. But, its the only reason they were discriminated against is because the foreman had a list on which there were no Blacks, that maybe important to you but it does not undermine the --",
       "time": "00:14:42.21"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 42,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:15:10.24"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 44,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there an issue in this case that even if there had not been a list that you were discriminatory or your client was discriminatory? Is there an argument?",
       "time": "00:16:15.36"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 46,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does it make any difference that this finding by the District Court differed from that of the Court of Appeals because the Court of Appeals undertook and superimposed its findings on the record over the District Court?",
       "time": "00:16:46.16"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that a sufficient answer to a Title 7 claim if an employer refuses a Black a job specifically on the ground that he is Black, for him to say “Look, I am already 20% over the pool”?",
       "time": "00:20:03.31"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you not have two basically different kinds of cases? One is the Griggs case where you are talking about disparate impact, and the other is the McDonnell Douglas where you are talking about racially motivated refusal to hire.",
       "time": "00:20:25.42"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 52,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Blacks?",
       "time": "00:21:06.79"
     },
@@ -357,13 +361,13 @@
     },
     {
       "turn": 54,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Blacks?",
       "time": "00:21:09.05"
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, Whites.",
       "time": "00:21:09.66"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But did the Court of Appeals not say that a hiring scheme, hiring only employees known to the superintendent was too fraught with potential discrimination to be permissible?",
       "time": "00:21:29.01"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But did they hold that?",
       "time": "00:21:42.60"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Suppose there had been no petition for certiorari and you are operating under the Court of Appeals’ judgment and its opinion. Could you have maintained this system without a list, so called? After the Court of Appeals’ opinion, just told your superintendent to go hire but be fair.",
       "time": "00:22:00.40"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is what I am asking you.",
       "time": "00:22:25.76"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Under the Court of Appeals’ opinion.",
       "time": "00:22:26.93"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So there is an issue here. You are attacking that, I take it.",
       "time": "00:22:31.80"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suppose the other side is defending that.",
       "time": "00:22:36.63"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There must be an issue here then.",
       "time": "00:22:39.57"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, obviously, in order to prove a tenor of motive it is almost inevitably necessary to rely on circumstantial evidence.",
       "time": "00:25:08.23"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Kaplan, going back to the hiring at the gate point, I am just trying to remember. Does the evidence tell us when a man applied at the gate and was told “we do not take applications at the gate,” did the company tell them how he should apply?",
       "time": "00:25:41.98"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Was there any procedure for letting them know who they should write to or anything like that?",
       "time": "00:26:05.60"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Except when Smith showed up, Dacie said “Smithy.”",
       "time": "00:26:13.68"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "“Go home.”",
       "time": "00:26:17.37"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Miner?",
       "time": "00:26:26.13"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "This is not a class action.",
       "time": "00:28:12.20"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it your position that the company must take applications?",
       "time": "00:30:07.10"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suppose your answer is at least Furnco, after the Court of Appeals’ opinion any way, would be required and your position is that it must take applications.",
       "time": "00:30:35.26"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You are saying that any company that gives its superintendent Cart Blanche authority just to go out and hire his workforce. They tell him “we need 100 persons. Now, go out and hire them.” He just hires from people that he knows. It just so happens, that he hires 10 Negros out of 100. You would say that is an invalid system.",
       "time": "00:31:02.80"
     },
@@ -591,13 +595,13 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You can finish your response to that at 1:00, counsel. You were in the process of responding to Mr. Justice White. Mr. Miner, you may continue.",
       "time": "00:31:27.00"
     },
     {
       "turn": 94,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What was the question?",
       "time": "00:31:47.59"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think the Court of Appeals would agree with your answer?",
       "time": "00:32:27.04"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Court of Appeals gave this answer 13 years after the enactment of Title 7. Do you think it will be entitled to give the same answer, say, 23 years afterwards?",
       "time": "00:33:03.38"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But he did not hire only Whites.",
       "time": "00:33:28.87"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know but he hired Blacks and Whites.",
       "time": "00:33:34.48"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So what if he hired Whites off of his list and Blacks off of somebody else’s list? Can the Whites sue the other fellow?",
       "time": "00:33:39.97"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose he did hire Whites off of his list and Blacks off of somebody else’s list.",
       "time": "00:34:01.03"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which was what?",
       "time": "00:34:11.91"
     },
@@ -693,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose Dacies has a list of 100 Whites and his boss gives him a list of 100 Blacks. He says “we need 100 people. Go out and hire them. Hire the Blacks off of this list and Whites off of that list.” He went ahead and did it.",
       "time": "00:34:47.57"
     },
@@ -705,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How do you reconcile what you are saying now with the figures, the statistical factors, in this case? What I hear you saying makes me think I read a different record from the one that I should have read. What about the record in this case of actual hiring?",
       "time": "00:35:36.07"
     },
@@ -717,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What about this particular job that we are talking about?",
       "time": "00:36:05.13"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You are suggesting then that any particular Black or indeed all Blacks are to be considered for every particular position.",
       "time": "00:37:06.80"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But your evidence is that he just had a White list. Is that your basis for saying he was intentionally discriminatory?",
       "time": "00:37:38.31"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "From ‘58 to ’64 he was under no obligation to hire.",
       "time": "00:38:11.38"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Miner, are you arguing that the process if discriminatory is all that one must find regardless of the effect?",
       "time": "00:38:24.41"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let us assume that instead of ending up with 13.5% Black, the contractor has said “I want at least 50% Black. Mr. Superintendent, you go ahead and recruit your force anyway you think best so long as you meet that standard.” If he had met it in this case with, say, 50-50 in terms of ratio or portion with the labor market at a of figure of 10%. It obviously had an effect but not favorable. Would you say that was all right or not?",
       "time": "00:38:42.28"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even though 300 very highly qualified White applicants had also applied? You are just assuming all-Black applicants.",
       "time": "00:40:18.48"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are these figures that your friend gave us erroneous? Did he give us some wrong figures here today in his oral argument?",
       "time": "00:40:44.93"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What are the findings of the District Court in that respect?",
       "time": "00:41:12.55"
     },
@@ -825,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do we have to accept the findings of the District Court or did you bring that issue here?",
       "time": "00:41:27.79"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did you bring that issue here?",
       "time": "00:41:35.04"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "As I understand it, your colleague on the other side would seem to concede that Dacies had said to one of these fellows “I am just not ready to hire you yet. I am not just hiring Blacks. I just do not want to hire any Blacks right now.” Turned these people away and when they had not hired the Whites. That kind of intention of discrimination would not be cured by any kind of proportional hiring. Do you understand that?",
       "time": "00:42:48.31"
     },
@@ -861,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is this an argument over when there is a justifiable inference of an intentional discrimination?",
       "time": "00:43:15.44"
     },
@@ -873,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What the District Court find?",
       "time": "00:43:35.96"
     },
@@ -885,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What did the District Court find?",
       "time": "00:43:38.20"
     },
@@ -897,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did they find that there was no intentional discrimination?",
       "time": "00:43:52.38"
     },
@@ -909,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did the Court of Appeals itself make a specific finding that Dacies’ refusal to hire Blacks was racially motivated?",
       "time": "00:44:50.91"
     },
@@ -921,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That should not be a “think” question.",
       "time": "00:45:02.82"
     },
@@ -933,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Miner, the District Court found, and I am looking at finding number 15 on page 18, that Furnco’s hiring policies and practices, and I skipped a few words here, were neutral. Again, I skipped a part of it. There is no evidence that these policies and practices either way pretext to exclude Negro bricklayers. All had a disproportionate impact or effect on Negro bricklayers. Did the Court of Appeals conclude and state that there was no substantial evidence to support those factual findings?",
       "time": "00:45:36.58"
     },
@@ -945,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Was any specific finding by the Court of Appeals that the findings of the fact by the District Court were not supported by evidence?",
       "time": "00:46:48.91"
     },
@@ -957,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But a moment ago you said the Court of Appeals, at least inferentially, found that Dacies’ refusal to employ was racially motivated.",
       "time": "00:48:26.52"
     },
@@ -969,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And here, my brother Powell has pointed out to you a finding by the District Court that it was not racially motivated. So, the Court of Appeals did have to upset that finding in the District Court in order to justify your argument.",
       "time": "00:48:34.80"
     },
@@ -981,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It seems to be quite crucial to your position that there is something wrong and illegal about not hiring at the gate.",
       "time": "00:48:59.00"
     },
@@ -993,7 +997,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That brings us back to the objective evidence again on the statistics, does it not? You certainly have to put those two things together.",
       "time": "00:49:25.25"
     },
@@ -1005,7 +1009,7 @@
     },
     {
       "turn": 162,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It was true, as a matter of fact. There was no hiring at the gate of Blacks or Whites.",
       "time": "00:50:19.03"
     },
@@ -1017,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And Smith was hired.",
       "time": "00:50:25.16"
     },
@@ -1029,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But not at the gate.",
       "time": "00:50:27.32"
     },
@@ -1041,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Whites too, but he certainly did not hire them at the gate.",
       "time": "00:50:30.67"
     },
@@ -1053,13 +1057,13 @@
     },
     {
       "turn": 170,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He had knew a lot of Whites he did not hire at the gate.",
       "time": "00:50:34.23"
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:50:35.85"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But Dacies is not the defendant here, Furnco is.",
       "time": "00:51:26.55"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We are talking about the overall hiring by Furnco.",
       "time": "00:51:31.25"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is part of it.",
       "time": "00:51:40.27"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It was from Dacies’ list and part of it was from some other source.",
       "time": "00:51:42.24"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "When Dacies does it, it is Furnco’s action, is it not?",
       "time": "00:51:52.09"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Why the separation of Dacies and Furnco? It is all Furnco, is it not, no matter who does it? If you had 10 different men doing the hiring, if they are all agents and servants of Furnco, why is that relevant at all? You may be showing that Mr. Dacies has some wrong attitudes, but Furnco is the party in interest here.",
       "time": "00:51:57.32"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Where did this 16% come from?",
       "time": "00:54:36.14"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It does not say where he got it from.",
       "time": "00:54:44.18"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It came on there.",
       "time": "00:54:46.66"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How about Samuels?",
       "time": "00:54:55.70"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does Samuel’s case depend whether or not he was?",
       "time": "00:56:01.88"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Kaplan, do you have anything further?",
       "time": "00:57:35.90"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Kaplan, let me just interrupt. You said no reference to the list?",
       "time": "00:58:11.88"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 199,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the sentence is dealing specifically with Furnco rather than with society at large.",
       "time": "00:58:28.73"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the part of the sentence you left out was prima facie racial discrimination to refuse to consider the qualifications of a Black job seeker before hiring from an approved list containing only the names of White bricklayers, and that is talking about Furnco.",
       "time": "00:58:50.30"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 203,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that the history of the industry as a whole or Furnco?",
       "time": "00:59:06.51"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But there is evidence in the record about an approved list containing names of White bricklayers that Furnco had.",
       "time": "00:59:13.30"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Gentlemen. The case is submitted.",
       "time": "01:01:51.93"
     }

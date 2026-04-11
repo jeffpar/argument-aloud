@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1978/77-1465/19781128a_77-1465.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "KENT L. JONES",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ALBERT H. SENNETT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "JAMES BUCKLEY OSTMANN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will here arguments next in Director of the Office of Workers' Compensation against Rasmussen and the consolidated case. Mr. Jones, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I take it then that your entire case rests on 6 (d)?",
       "time": "00:03:25.38"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I suppose you must concede that Congress as is so often the case, could have drafted it a little more intelligently?",
       "time": "00:10:39.06"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Jones, while you are interrupted, where is Section 10 in the briefs you rely on this?",
       "time": "00:11:15.88"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's cited as 10 (f) there.",
       "time": "00:11:51.58"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you quote 10 (h) in your brief?",
       "time": "00:12:18.78"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "30.",
       "time": "00:12:24.09"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Page 30, footnote 15.",
       "time": "00:12:26.31"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I thank you.",
       "time": "00:12:30.19"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Jones, isn't it correct that if you are drafting the statute and you wanted to just substitute a different fixed, different maximum on death benefits, you would have put it in the new 9 (e)?",
       "time": "00:16:14.82"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't think they would have just put it back in the same place, it came out of before?",
       "time": "00:16:41.63"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me when I read 9 (e) as I was reading just left something else here if that's what you are meant?",
       "time": "00:16:45.80"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Sennett?",
       "time": "00:17:33.35"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, Mr. Ostmann.",
       "time": "00:22:31.86"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did the Commission distinguish between maximums and minimums for disability and maximum and minimums for death benefits?",
       "time": "00:27:58.03"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did they later make any distinguish between?",
       "time": "00:28:22.75"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't it true that a death benefit could be lost by a widow's remarriage in a fairly short period of time whereas a disability benefit could continue for a rather indefinite period of time?",
       "time": "00:30:31.98"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I am not sure what you want us to draw from that concept?",
       "time": "00:32:16.39"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Ostmann, on that point, if the person dies while he is receiving permanent disability benefits under the statute, the Section you just read, will that disability benefit be converted into a death benefit?",
       "time": "00:32:41.60"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And then if he was in a high enough weekly wage, here the benefit would rise?",
       "time": "00:33:06.74"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah.",
       "time": "00:33:11.93"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Ostmann, if the exclusion of temporary disability beneficiaries from the language of 6 (d) is intended to exclude them, why wouldn't the same rationale apply to the Section 10 as well because if that refers only to permanent and death and fails to mention temporary why wouldn't, why do you need the (d)?",
       "time": "00:36:48.05"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand that, but wouldn't 10 (f) of its own force exclude temporary disability recipients for any increases?",
       "time": "00:37:31.46"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Ostmann, if there is redundancy between the two sections, do you think that your case is demolished, can you live with redundancy?",
       "time": "00:38:07.94"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "It's a question whether we can?",
       "time": "00:38:20.83"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There is one strange thing about the 6 (d), it refers to determinations under this subsection?",
       "time": "00:38:41.21"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What subsection you understand that it referred to?",
       "time": "00:38:47.51"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would be a Section rather --",
       "time": "00:38:57.71"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I suppose counsel you have read some of the published articles of members of the Congress, which would hardly support your suggestion that the -- really members the Congress knew what was in the statute and how the statutory scheme worked. These experienced members of Congress have written published articles, they simply haven't the time to gather?",
       "time": "00:39:03.52"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, they couple that argument as I hear that either express or by implication that this tortured route takes them to what is the sensible and reasonable solution and did any other route does not produce the sensible and reasonable solution in light of the total purposes of the Act?",
       "time": "00:39:55.84"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Ostmann after hearing this before the revised 2381 or 2318 whichever it was proposed, how much testimony was there in support of the view that there should be no maximums at all, is there significant testimony?",
       "time": "00:41:03.87"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, what you are cutting through all the language, your basic position is that even though it doesn't appear in the legislative reports directly that there must been a compromise between the two facts and they said okay we will but the ceiling in -- keep a ceiling on disability and take it often and.",
       "time": "00:41:25.41"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if we would conclude that the statutory language is absolutely clear that disabilities do have maximums and death benefits do not, but we were also to conclude that we can't think of any conceivable reason why Congress would do that, should we affirm or reverse?",
       "time": "00:42:01.51"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Having no reason wouldn't be as bad as having an unreasonable reason?",
       "time": "00:42:48.54"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Either one, either way you can -- [Attempt to Laughter].",
       "time": "00:42:58.01"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was this part of the 1972 amendments were -- there were some trade-offs on both sides?",
       "time": "00:43:21.76"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So then why do you talk about this being beneficently construed and liberally construed toward a worker? It was a give and take thing with the unions on one side management on the other. There is no reason why this Court should favor one over the other, is there?",
       "time": "00:43:28.96"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well then, that may be true historically, but as I understand your response to my question there was just some pretty hard nosed bargaining in 1972 and management was on one side and labor was on the other?",
       "time": "00:43:49.45"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How should we construe the removal of the unseaworthiness doctrine, unseaworthiness doctrine beneficently, remedially?",
       "time": "00:44:13.37"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about the elimination of the unseaworthiness remedy, how should that be construed?",
       "time": "00:44:40.95"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Because it just didn't make sense.",
       "time": "00:44:58.32"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Sennett, can I interrupt you there? Supposing it would have been logically, some Senators, Senator Eagleton and others thought it would have been logical and take the ceilings off entirely, if there is a case got that position?",
       "time": "00:46:44.96"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But why is it totally irrational for a couple of Senators on opposite sides of the argument to say, well we split the difference and will take it off one, but not the other?",
       "time": "00:46:56.71"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but may be in a negotiation between the two they thought there are less dollars writing on death benefits than there are disability benefits and let's make this our trade-off.",
       "time": "00:47:20.26"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And with that 167, they would have to divide all the care for him?",
       "time": "00:48:39.50"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Just where we get this concept of a premium on death?",
       "time": "00:49:08.30"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The family was one one fewer persons to support and no medical bills gets almost three times as much as the family which still has the totally disabled father head of the household.",
       "time": "00:49:15.74"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That course is that you and the Solicitor General argued that reading of the statute just doesn't make any sense and Congress should not be considered to help. We intended that.",
       "time": "00:49:43.14"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. The case is submitted.",
       "time": "00:50:18.13"
     }

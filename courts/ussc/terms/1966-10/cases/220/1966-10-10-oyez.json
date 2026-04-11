@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1966/220/19661010a_220.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL A. PORTER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "DENNIS G. LYONS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "NEAL RUTLEDGE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "ALLAN MILLEDGE",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 220, Atlantic Coast Line Railroad Company et al., petitioners versus Brotherhood of Railway Trainmen, et al.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Porter.",
       "time": "00:00:14.95"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "00:00:38.83"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there another carrier designed to realign the (Inaudible)?",
       "time": "00:04:28.55"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The Southern and --",
       "time": "00:04:38.96"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What's the total area of the terminal?",
       "time": "00:09:04.73"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Where -- where's the so called FEC gate?",
       "time": "00:11:22.56"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:11:33.87"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Bay and Stewart?",
       "time": "00:11:39.42"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What was the --",
       "time": "00:12:44.05"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I don't see a Stewart Street.",
       "time": "00:12:46.77"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Which is west?",
       "time": "00:13:14.39"
     },
@@ -195,13 +195,13 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes.",
       "time": "00:13:19.43"
     },
     {
       "turn": 26,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Just where is that?",
       "time": "00:13:19.69"
     },
@@ -213,7 +213,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I notice in this map for a bay and riverside?",
       "time": "00:13:23.45"
     },
@@ -225,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, but where was it with respect to the intersection of bay and river side and the bay in Stewart bay to the right or to the left as you look at the map?",
       "time": "00:13:32.39"
     },
@@ -237,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "To the left. Far left?",
       "time": "00:13:40.75"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's where the green line is?",
       "time": "00:13:46.72"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is it between the Park then and riverside? You know this part and the riverside seemed parallel in one another?",
       "time": "00:13:50.76"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Between Myrtle and Park?",
       "time": "00:13:59.52"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes. About where the words STA tracks?",
       "time": "00:14:03.14"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that it?",
       "time": "00:14:08.30"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, we can't just -- could you pinpoint with relation to one of those red marks on that line of Ridge station tracks.",
       "time": "00:14:11.74"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Going left?",
       "time": "00:14:25.13"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Thank you.",
       "time": "00:14:27.96"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:14:30.01"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I want to ask you Mr. Porter. What's the total lapse time between the commencements of the picketing in the issuance of injunction?",
       "time": "00:14:39.53"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did the federal injunction precede or turn after the state injunction?",
       "time": "00:15:19.40"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, that as I recall it a restrain of picketing except that the FEC gave, is that it?",
       "time": "00:16:20.42"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, but I'm speaking at the terminal now.",
       "time": "00:16:41.22"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I thought the restraint ran against every place marked here as location of pickets except the FEC gate?",
       "time": "00:16:44.50"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that right?",
       "time": "00:16:51.44"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are these joint facilities terminal facilities are common phenomenon in the railroad industry?",
       "time": "00:19:36.09"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Lyons.",
       "time": "00:20:25.51"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "See Mr. Lyons, we were dealing in Cargo River with minor disputes.",
       "time": "00:22:00.91"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "For which Congress had provided a terminal procedure in effect in arbitration.",
       "time": "00:22:06.28"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You don't have that here, do you?",
       "time": "00:22:12.57"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did the pickets represent that they're signs or otherwise what dispute it was the location of their picket?",
       "time": "00:24:09.87"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's the answer to your suggestion that the union could've filed another under Section 6, isn't it? There's no dispute between the Brotherhoods and the -- and your client, is it?",
       "time": "00:25:56.39"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That dispute is with the Florida East Coast.",
       "time": "00:26:33.52"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They have none with your client?",
       "time": "00:26:38.90"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But it's not a -- but I think you said that your clients themselves would respond in case of notices filed under Section 6 that this was not a dispute within the meaning of that section.",
       "time": "00:26:56.62"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Lyons, would your position that such a situation would not constitute a labor dispute be consistent with what you're arguing to us today?",
       "time": "00:28:12.26"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But they're not going to you because they -- their position is identically to yours. They don't claim any dispute with your clients, any labor dispute.",
       "time": "00:29:09.42"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Perhaps I didn't understand their position but I didn't think that they had or that they claim to have any labor dispute with your carriers.",
       "time": "00:29:21.13"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I've been wondering why you're bear away from Justice Stewart's question as to whether you have any dispute with the unions, these other companies, why do you have to bear away from that?",
       "time": "00:29:58.35"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is that kind of a controversy contemplated under the Railway Labor Act?",
       "time": "00:31:00.48"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, in essence what you're saying is that Mr. Lyons that neither the Railway Labor Act nor the Norris-LaGuardia Act deals with this dispute that this is not a labor dispute under either act but a commercial dispute and in consequence equity is free to deal with it as you as have to do it.",
       "time": "00:31:20.67"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So, it's a non-presented situation --",
       "time": "00:31:52.08"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I mean the fact is that historically there's been industry-wide bargaining and an industry-wide settlements or at least regional in a railroad industry and there was against that background that this legislature was enacted and that Congress obviously didn't foresee the possibility of this Congress situation arising, wouldn't you agree with that?",
       "time": "00:32:00.23"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But not over -- not rates of pay and wages and working conditions.",
       "time": "00:32:34.60"
     },
@@ -657,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that's what we are talking about here.",
       "time": "00:32:38.98"
     },
@@ -669,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of grievances was on a property of an individual carrier but I'm talking about major industry.",
       "time": "00:32:40.91"
     },
@@ -681,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "An industry-wide bargaining and industry-wide settlements --",
       "time": "00:32:46.77"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think of this to be resolved under National Labor Relation Act (Inaudible)?",
       "time": "00:33:17.78"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We're dealing with a situation (Inaudible).",
       "time": "00:34:36.58"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you're dealing with a situation as to here, how would strike operates where the (Inaudible).",
       "time": "00:34:43.06"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Lyons does these petitioners among the road for the excepted the national setting?",
       "time": "00:40:33.42"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And the issue between FEC and the Brotherhood this proof is that FEC has not accepted the national setting.",
       "time": "00:40:38.46"
     },
@@ -753,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So, to that extent --",
       "time": "00:41:11.48"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- the Brotherhoods dispute for the FEC is different from the national dispute --",
       "time": "00:41:12.71"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that -- do I see somewhere in this record with these petitioners had an injunction against the non-operating union against interference of interchange?",
       "time": "00:41:21.96"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that a federal or a state?",
       "time": "00:41:49.66"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They're requiring them to interchange --",
       "time": "00:42:18.18"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Lyons, as I gather that your position wouldn't -- this isn't necessarily a picketing case as I gather in the injunction runs to get any kind of secondary --",
       "time": "00:43:54.53"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that even if the -- if all picketing stop and all patrolling stop and the officers of the Brotherhoods asked those employee of the other lines not to work the other line and they didn't, this injunction would --",
       "time": "00:44:08.48"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it's really general injunction if any secondary --",
       "time": "00:44:28.21"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, that under any other circumstances then where there was secondary activity involved, you would think an injunction would not be barred by any endorsement carrier.",
       "time": "00:44:57.93"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The general -- solicitor general, the exception in Norris-LaGuardia, no secondary activity is within the protection of --",
       "time": "00:45:13.64"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- accommodation.",
       "time": "00:45:31.69"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, let me see Mr. Lyons it would be further, if you focus on secondary activity or is your focus on this is not a labor dispute?",
       "time": "00:45:34.23"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They're both the same thing.",
       "time": "00:45:48.68"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Can I just (Voice Overlap) to indicate that it wasn't limited to this kind of conduct.",
       "time": "00:46:04.80"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I take it that the -- would you or wouldn't you permit direct appeal to the other employees?",
       "time": "00:46:22.18"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Other employees.",
       "time": "00:46:30.32"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if the -- what if the Brotherhoods just appeal to your client directly?",
       "time": "00:46:33.65"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You know can do it?",
       "time": "00:46:43.87"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may. Mr. Rutledge.",
       "time": "00:46:59.45"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What legality point, is that the constitutional?",
       "time": "00:48:03.99"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, except -- wouldn't you -- am I entirely wrong in thinking that this as a factual matter is rather unprecedented in the railroad industry because isn't it -- am I not correct in thinking that railroad labor disputes are generally settled on an industry-wide phases and that was true at the time this legislation was passed, National Labor Act.",
       "time": "00:49:00.42"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, Regional.",
       "time": "00:49:47.36"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course you're talking now about your dispute with somebody is not a party to this lawsuit.",
       "time": "00:52:34.18"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, doesn't that -- isn't that true all of the country in compass places, every time there's an interchange of east coast car they're doing business with another carrier?",
       "time": "00:56:43.66"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, you're talking about that place. My point are there not countless places where the Florida East Coast Railway in conducting its business so long as it is operating does business with other carriers every time there's an interchange of the car the Florida East Coast Railroad from that railroad to another in any places in the country as they're going on business between the two railroads.",
       "time": "00:57:29.72"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In yards the terminal and --",
       "time": "00:57:59.53"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's perhaps there's more that goes on it.",
       "time": "00:58:14.41"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But -- but that's not the place, there are many places.",
       "time": "00:58:16.90"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, for example could Chicago be one of those places?",
       "time": "00:58:30.01"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did not?",
       "time": "00:58:33.36"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And what you're really saying as I gather is that in -- and then NLRA language in the way that (Voice Overlap) says that for this is primary picketing.",
       "time": "00:59:16.28"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right across the board --",
       "time": "00:59:27.36"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- those secondary activity whatsoever and that was in, if these were subject for the NLRA this would be ruled primary picketing -- subject to injunction of your or damages under (Inaudible).",
       "time": "00:59:28.44"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Rutledge, we now know where that FEC gate is, how many employees on the FEC payroll, does the record indicate work in terminal?",
       "time": "01:01:09.72"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it must indicate that there are some FEC employees.",
       "time": "01:01:28.87"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I thought you just told Justice White that the distinction you draw between Chicago situation in this is that FEC operates with its own personnel a number of the activity within the terminal then surely then the record just tell us what the number -- who the FEC personnel on it.",
       "time": "01:01:47.88"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You mean they're just a train crew?",
       "time": "01:02:16.39"
     },
@@ -1197,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And is that all FEC has working in the train?",
       "time": "01:02:20.67"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, does the record show the FEC has an office or any kind in the terminal?",
       "time": "01:03:01.50"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How about switching is there anything in the record -- switching equipment, is there anything in the record about FEC switching equipment in the terminal?",
       "time": "01:03:41.85"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, do a lot of -- I take it a lot of passenger movements originate here for the FEC.",
       "time": "01:04:15.39"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And -- and then terminate?",
       "time": "01:04:25.76"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, how about trade?",
       "time": "01:04:28.45"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But by -- not by FEC employees I gather.",
       "time": "01:04:46.03"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, now, that's what I'm trying to get at here.",
       "time": "01:04:50.51"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In the acts to interchange is done by those on the train who came into that area, is that it?",
       "time": "01:05:18.74"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I get it.",
       "time": "01:05:26.07"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if in the ordinary labor dispute under the NLRA if I -- the unions got a dispute with the manufacturer, it's picketing the manufacture its gate and the manufacture is operating with replacements and producing goods and the goods come out at gate and they go down to street to a customer, to a processor and there's a sale transaction and you deliver to that processor. The union wants to picket that transaction between selling manufacturer with whom they have a primary dispute and the processor. And they go down there and picket the point of delivery I gather.",
       "time": "01:06:02.26"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And then how about going around to the other gate of the processor where the processor's employees come from?",
       "time": "01:06:47.80"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you're on a little bit of trouble, aren't you?",
       "time": "01:06:55.89"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, we're not talking about the garment industry.",
       "time": "01:07:07.38"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, the rules that you make about secondary or primary what the line between primary and secondary is may well depend on the industries.",
       "time": "01:07:21.48"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it may well depend on a particular practical aspect of either company relationship.",
       "time": "01:07:28.89"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's exactly what this argument about.",
       "time": "01:07:36.63"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If you can run it from the statute not upon -- it depends on a derivatively upon the industry. There's a particularized statute for the garment industry, isn't it?",
       "time": "01:07:41.45"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In response to the particular peculiarized need to that industry but it's the statute, it's not any court-made exception.",
       "time": "01:07:52.68"
     },
@@ -1425,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The exceptions, yes.",
       "time": "01:08:08.75"
     },
@@ -1437,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Done by the legislature?",
       "time": "01:08:11.22"
     },
@@ -1449,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are conceding Mr. Rutledge that --",
       "time": "01:09:46.39"
     },
@@ -1461,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are you conceding that you have a problem as somebody put this to the picketing secondary aspect?",
       "time": "01:09:48.78"
     },
@@ -1473,7 +1473,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think that -- do you think the Railroad Labor Act previews to -- wasn't it to disallow a secondary, honest to goodness secondary activity, secondary picketing?",
       "time": "01:09:59.14"
     },
@@ -1485,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Against the neutral or enacted prohibited appeals neutral -- to the employees of neutral employers. Now, is that what you're trying to do despite the Norris-LaGuardia Act?",
       "time": "01:10:14.70"
     },
@@ -1497,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If someone might picket it.",
       "time": "01:10:36.40"
     },
@@ -1509,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But why not?",
       "time": "01:11:05.77"
     },
@@ -1521,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why can't -- why can't do it -- it's under the FEC trains all if FEC come in and leave by one gate.",
       "time": "01:11:08.95"
     },
@@ -1533,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, why don't you -- why can't you just picket if it most to the FEC employees which are really the people you're making your appeal to. I mean, it force a -- if you really relying on the fact that is primary rather than secondary. I knew I got you're totally relying but is that what you relying on or what you really have to do is to say you're appealing to FEC employees, don't you?",
       "time": "01:11:19.03"
     },
@@ -1545,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why don't you just picket those gates where the FEC employees who really do that work in its premises?",
       "time": "01:11:44.95"
     },
@@ -1557,7 +1557,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "because they have know -- there apparently no other FEC employees for any significance better on it accept on those pay, why don't you just picket those gate?",
       "time": "01:11:54.92"
     },
@@ -1569,13 +1569,13 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what he could?",
       "time": "01:12:12.01"
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That is in the terminal is it?",
       "time": "01:12:13.48"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if he could?",
       "time": "01:12:22.80"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- wouldn't that be the limit, why wouldn't that be the limit of so called primary picket?",
       "time": "01:12:29.07"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You're saying you have a right to appeal to anybody who is regularly contributing to the running of the establish of which you have at primary dispute?",
       "time": "01:13:07.78"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And this is one of the places where the FEC has regularly nourished?",
       "time": "01:13:16.09"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Do you look just to the language of the Norris-LaGuardia Act and nothing else in Chicago River case would not and could not have been decided the way it was, isn't that correct?",
       "time": "01:19:53.60"
     },
@@ -1647,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, anyway Mr. Rutledge as I understand it the panel of your argument is you have no dispute with this section in any sense if it requires Section 6.",
       "time": "01:22:45.02"
     },
@@ -1659,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But your real dispute is with FEC and that derive from it is the authority legally to put the questions you are on these petitioners and that you're protected by Norris-LaGuardia against the injunction against that kind. Is that it?",
       "time": "01:22:58.22"
     },
@@ -1671,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I understand your -- the relative lines of defense of your argument to be that if we're persuaded that you're right about the Norris-LaGuardia Act effect in taking away any power of the federal court to issue an injunction in this case that -- then that's true whether or not this is secondary boycott, isn't that -- that is your argument, isn't it?",
       "time": "01:26:08.46"
     },
@@ -1683,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You -- you put them in summary in a different order but I understood your argument to be I so understand it that if you're right about the Norris-LaGuardia Act that is true even if this is a boycott which would be illegal under the National Labor Relations Act in an industry affected by that Act?",
       "time": "01:26:39.38"
     },
@@ -1695,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is that -- do I understand it correctly?",
       "time": "01:26:57.35"
     },
@@ -1707,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "01:27:00.38"
     },
@@ -1719,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But wouldn't the logic of your argument also say that there could be an injunction there by federal court?",
       "time": "01:27:33.52"
     },
@@ -1731,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What do you mean specifically to that to do kind of operation that goes on to Jacksonville namely of FEC train with FEC crews coming in?",
       "time": "01:28:07.00"
     },
@@ -1743,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Unless you don't have it in Chicago I gather.",
       "time": "01:28:15.66"
     },
@@ -1755,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I must say Mr. Rutledge I don't quite understand why the principle has any different depending upon whether FEC crews goes to the terminal or not. Why should that be different?",
       "time": "01:28:36.85"
     },
@@ -1767,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Incidentally, if you prevail what -- what's the position of the petitioners when respect to an injunction that FEC get against?",
       "time": "01:29:25.49"
     },
@@ -1779,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Rutledge, if the Atlantic Coast Line had a separate terminal through which if through train went and the Atlantic Coast Line used this terminal only for purpose of interchange with FEC and other railroads, you wouldn't claim the rights to go and picket Atlantic Coast Line separate terminal, would you?",
       "time": "01:30:26.93"
     },
@@ -1791,7 +1791,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you --",
       "time": "01:31:12.76"
     },
@@ -1803,7 +1803,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- you must admit though that within this terminal not only to FEC doing a lot of business but so of the other lines?",
       "time": "01:31:14.37"
     },
@@ -1815,7 +1815,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And also doing -- FEC is doing a lot of business in that terminal with has no connection with the other line and somewhere to the other line to do a lot of business at terminal absolutely no connection with FEC.",
       "time": "01:31:23.24"
     },
@@ -1827,7 +1827,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, this is addressed to the ordinary case of an injunction to where you seal off the primary employer from all the connection. Here, you're now in sealing off the primary employer of employer connection but -- has independent business in the terminal which you claim to have the right to inhibit also.",
       "time": "01:31:34.84"
     },
@@ -1839,7 +1839,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it's already admitted that you let the Atlantic trains to go there without any interruption.",
       "time": "01:32:01.01"
     },
@@ -1851,7 +1851,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you say this is really is the old common side of problem that the demands on the primary employer or had custom over the damage does --",
       "time": "01:32:10.58"
     },
@@ -1863,7 +1863,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that is the petitioners would embargo all FEC's staff.",
       "time": "01:32:37.22"
     },
@@ -1875,7 +1875,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What you want -- you want them to stop handling any FEC interchange?",
       "time": "01:32:45.98"
     },
@@ -1887,7 +1887,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But not an embargo? No?",
       "time": "01:32:56.45"
     },
@@ -1899,7 +1899,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If you're right Mr. Rutledge that you're under no -- there's no incentive at all for you to limit the impact of what you're doing if you're right if the Norris-LaGuardia Act would then say a federal courts from enjoining anything, whatever you want.",
       "time": "01:34:08.38"
     },
@@ -1911,7 +1911,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, but that's what you are doing.",
       "time": "01:34:56.64"
     },
@@ -1923,7 +1923,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Incidentally, Mr. Rutledge even if you we're not here don't you have a -- the most identical state court injunction?",
       "time": "01:35:10.73"
     },
@@ -1935,7 +1935,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Where is that case?",
       "time": "01:35:17.31"
     },
@@ -1947,7 +1947,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Where?",
       "time": "01:35:19.09"
     },
@@ -1959,7 +1959,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But what you said now, was it?",
       "time": "01:35:27.41"
     },
@@ -1971,7 +1971,7 @@
     },
     {
       "turn": 321,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Milledge.",
       "time": "01:35:32.39"
     },
@@ -1983,7 +1983,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it's the preemptive issue there --",
       "time": "01:39:12.75"
     },
@@ -1995,7 +1995,7 @@
     },
     {
       "turn": 325,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now.",
       "time": "01:39:51.67"
     },
@@ -2007,7 +2007,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The duties under the Interstate Commerce Act also aren't they are carriers?",
       "time": "01:44:22.14"
     },
@@ -2019,7 +2019,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How about the case of last term involving this railroad in this --",
       "time": "01:44:44.94"
     },
@@ -2031,7 +2031,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This predecessor in this tribunal?",
       "time": "01:44:50.52"
     },
@@ -2043,7 +2043,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I'm referring to the train particularly to that case with rule as to my question as to the duties of railroads -- of carriers under the Interstate Commerce Act to operate wasn't this some of lines in the opinion of the Court on that statute?",
       "time": "01:45:22.34"
     },
@@ -2055,7 +2055,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But in this whole grab bag of sometimes inconsistent statutes, that statutes is one of that to be thrown into I suppose, isn't it?",
       "time": "01:45:58.20"
     },
@@ -2067,7 +2067,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I -- I suppose that if that have an injunction is issue here against here union a damage action would lie also, wouldn't it?",
       "time": "01:46:29.07"
     },
@@ -2079,7 +2079,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But doesn't damage action is been forbidden under the same provisions because injunction can damage action sits down on the same two feet with respect to this activity there under the antitrust laws or guess maybe --",
       "time": "01:47:06.96"
     },
@@ -2091,7 +2091,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, we're dealing -- we're talking about damage is an injunction?",
       "time": "01:47:25.01"
     },
@@ -2103,7 +2103,7 @@
     },
     {
       "turn": 343,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Lyons.",
       "time": "01:48:06.05"
     },
@@ -2115,7 +2115,7 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How to issue an injunction?",
       "time": "01:48:36.16"
     },
@@ -2127,7 +2127,7 @@
     },
     {
       "turn": 347,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:53:08.26"
     },
@@ -2139,7 +2139,7 @@
     },
     {
       "turn": 349,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, what reason I didn't get that Mr. Lyons could you state that again-- do you -- you say you suspect the reason they didn't do it for something and I missed that?",
       "time": "01:55:25.77"
     },
@@ -2151,7 +2151,7 @@
     },
     {
       "turn": 351,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So that place in (Inaudible)f--",
       "time": "01:56:15.80"
     },

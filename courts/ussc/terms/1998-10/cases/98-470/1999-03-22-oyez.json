@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1998/98-470/19990322a_98-470.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES ALAN WRIGHT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CLIFTON T. HUTCHINSON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 98-470, Ruhrgas v. Marathon Oil Company. Mr. Wright.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wright, the majority in the court of appeals in this case reversed the district court, did it not?",
       "time": "00:03:58.64"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And the dissenters said that they would uphold... that they would affirm the district court.",
       "time": "00:04:08.91"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So it would have come out differently in the district court if the dissenters' views had prevailed.",
       "time": "00:04:14.27"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Wright, you're not arguing that the Constitution requires one approach or another, are you?",
       "time": "00:04:23.18"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "When we write the opinion, should we say that that discretion should be exercised in a way so that personal jurisdiction is usually decided after subject matter jurisdiction, all other things being equal?",
       "time": "00:04:53.81"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, should we?",
       "time": "00:05:11.00"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, is there not a value to Federalism in deciding subject matter jurisdiction first in an instance like this, so that in the event it does not exist, the State can address its own long arm statute?",
       "time": "00:05:36.10"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So long as you answer the hypothetical for me. [Laughter]",
       "time": "00:05:54.38"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, my question is directed to this. It seems that you give no weight at all to subject matter jurisdiction as having some sort of a priority over personal jurisdiction, assuming both are of equivalent difficulty. And isn't there a Federal interest in allowing the State in an instance somewhat like this to have the first opportunity to address its own long arm statute... assuming there's subject matter jurisdiction, personal jurisdiction... in the district court or questions of equal difficulty?",
       "time": "00:07:12.19"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Because you indicate there is some discretion, and I want to know what are the determinants in guiding that discretion?",
       "time": "00:07:51.02"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You go further, I take it, than the dissenters in the court of appeals. As I understand their position, it was the presumptively you decide the subject matter jurisdiction first, but it's not an iron clad rule. The majority said it's an iron clad rule. You would say basically just leave the whole thing up to the district court.",
       "time": "00:08:23.90"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And yet there are many authors who have distinguished subject matter jurisdiction as being the most basic from personal jurisdiction, which those authors have ranked along with, say, venue, as a merely dilatory defense, suggesting that there is a hierarchy here, and that subject matter jurisdiction is the more basic.",
       "time": "00:08:58.44"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I was quoting your text when I used the word dilatory.",
       "time": "00:10:05.45"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I take it the point of your hypothetical was that sometimes in deciding the subject matter case, whether removal was proper, a district judge would decide a host of State law questions, personal jurisdiction questions, all kinds of other questions.",
       "time": "00:10:12.80"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So who's to say? In other words, if your interest is in protecting the State, who's to say? It depends on the case. Is that the--",
       "time": "00:10:28.87"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Wright, as to the preclusive effect, imagine that this case had been dismissed for want of personal jurisdiction. Plaintiffs begin all over again in State court, and they say, State court, the first thing we want you to do is to give us a declaration that there is personal jurisdiction, and the reason that you're not bound by that Federal court is, they lacked subject matter jurisdiction, and that is open to collateral attack, so that your premise about the preclusive effect is wrong. The Federal court would be accomplishing nothing, because it wouldn't bind the State court.",
       "time": "00:11:20.86"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But how about Trinese v. Sunshine Mining. Didn't that say you could challenge basis of jurisdiction?",
       "time": "00:12:29.60"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That you could relitigate the issue of jurisdiction if the first court had not had jurisdiction.",
       "time": "00:12:38.93"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I'm not sure that's right, either. The-- --But all of those cases, in any event, involved a court that reached the merits, which assumes that it has jurisdiction. Here you have a court which never even assumed that it has jurisdiction. Even if your ordinary rule is that it can't be attacked collaterally where it has proceeded with an affirmance of its jurisdiction, it's proceeded to the merits. Here you have a case that doesn't fall into that pattern. You have a case where even the court issuing it says, you know, I don't really know if we have jurisdiction. Why should any subject... why should any later court... it decided the case on a different jurisdictional issue, and therefore never spoke to its own subject matter jurisdiction.",
       "time": "00:12:51.03"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But here, it is attacked in the first proceeding, and the court says, well, I can pick and choose. I'm not going to deal with subject matter jurisdiction, just personal jurisdiction. The State then says, fine, it's never been litigated, so we will litigate it and we will decide for the first time that there was no subject matter jurisdiction and therefore nothing else that was done in that action counts.",
       "time": "00:14:04.91"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you would have a delightful, quite parallel situation. The Federal court will have decided the personal jurisdiction question for the State courts, and the State courts will have decided the subject matter jurisdiction question for the Federal courts. I like it. [Laughter]",
       "time": "00:14:27.09"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But why isn't that exactly the respondents' point? They say this does show the intrusive effect on the State court system, which is why you have to reach subject matter jurisdiction, they say always first. Other people might say most of the time first. You seem to think that it doesn't make much difference.",
       "time": "00:14:57.55"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But why? Why is that?",
       "time": "00:15:31.35"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why should we usually consider subject matter jurisdiction first?",
       "time": "00:15:34.71"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What is the source... are you finished answering him?",
       "time": "00:15:50.84"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What is the source, which I've often wondered, of rules of law that say you always have to decide some question of a certain kind first, for example, jurisdiction before merits? I mean, I've never seen anything in the Constitution that says that. I don't think Madison wrote about it. I haven't seen a statute that says it. Is it from the brooding omnipresence in the sky? [Laughter] I mean, where does it come from?",
       "time": "00:15:55.67"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did we get that one right, in your view?",
       "time": "00:17:11.05"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I wasn't sure. [Laughter] There was some compelling practical consideration in that case, though, was there not? There had been an entire trial, and after the trial there was perfect diversity. It would have been I think strange to send that thing back to start from square 1.",
       "time": "00:17:15.08"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But in your view it need never be determined, because if the district court is right that she could dismiss for personal jurisdiction and that binds the State court, then subject matter jurisdiction is never determined, and properly so.",
       "time": "00:19:04.20"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Wright. Mr. Hutchinson, we'll hear from you.",
       "time": "00:19:45.64"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, he... Mr. Wright gave several examples of situations where courts, apparently properly and with our approval in some instances, have decided certain things other than subject matter jurisdiction before reaching the merits, and that have disposed of the case insofar as the Federal court is concerned. For instance, class certification--",
       "time": "00:20:30.70"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--as we've just heard. Now, what about those cases? And he recited several others, pendent jurisdiction, Younger abstention and so on.",
       "time": "00:20:55.04"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, without deciding, in some instances, like class certification, without even deciding whether there's subject matter jurisdiction.",
       "time": "00:21:22.96"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What if the subject matter jurisdiction issue turned on some fact finding that would take place at trial? What's the court going to do then, and yet here's a personal jurisdiction issue just sitting there, right there, that the court could decide. What's it going to do?",
       "time": "00:22:17.60"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So you say it would have to go to trial and determine these factual questions despite the lack of personal jurisdiction.",
       "time": "00:22:48.45"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what if we have the rare case?",
       "time": "00:23:08.44"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "In other words, you want to support a per se rule no matter what. You have no exceptions, in your view.",
       "time": "00:23:27.07"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you subscribe to that even when it is not a removal case, even when the alternative is not the same case proceeding in State court, or is it just in these removal situations?",
       "time": "00:24:00.07"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So in all cases, even if it's not a removal case, where there is a personal jurisdiction issue and a subject matter jurisdictional issue, you would say that the Federal court has to decide the subject matter jurisdiction first, or else it has no authority to pronounce on personal jurisdiction?",
       "time": "00:24:18.50"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Hutchinson-- --May I ask you this question about, there are two possible bases for challenging subject matter jurisdiction. One would be that the plaintiff does not have standing, and the other would be that the question is so frivolous that it doesn't merit review at all. Which must be decided first, as between those two?",
       "time": "00:24:59.24"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Constitutional standing and insubstantiality.",
       "time": "00:25:19.81"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No... well, okay.",
       "time": "00:25:33.43"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "There the court would have a choice, you'd say.",
       "time": "00:25:36.68"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, the--",
       "time": "00:25:51.64"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But Justice Stevens is correct that we do use what you might call an efficiency model whenever we allow a dismissal on jurisdictional grounds because the Federal claim is frivolous. I mean, you're... without looking into whether there is subject matter jurisdiction for... you know, for other reasons, we just say the Federal claim is frivolous, and as Steel Co. makes clear, that is regarded as a jurisdictional dismissal. What is there to be said for that except efficiency?",
       "time": "00:25:52.63"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but it's not looking to Article III jurisdiction, is it? It's looking to the statute, isn't it?",
       "time": "00:26:37.05"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, and if it does that, and if that is proper, then in effect we've already decided the issue as to whether the Article III point always and under all circumstances must take precedence.",
       "time": "00:26:45.72"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, we are saying in the first instance that it's a frivolous claim in relation to the statute under which it is brought. That may be a basis for that kind of an efficiency dismissal. You're not saying... excuse me. You're not saying it's not a case or controversy. You're saying the Federal basis for the controversy is so frivolous there was merit to it. The example, of course, is the census case we just decided. There's clearly a controversy there, but avoiding the standing issue the Court said, well, there's no merit to the Federal claim, so it dismissed for want of jurisdiction without reaching a jurisdictional standing question.",
       "time": "00:27:08.97"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it clearly had power to act over the case. It could have decided that case ahead of the other one. It surely had power before it decided the first case to decide the second case. You wouldn't deny that.",
       "time": "00:27:52.60"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how about Rule 12(b), the way it lists the various defenses. And number 1, of course, is lack of jurisdiction over the subject matter; number 2, lack of jurisdiction over the person, and it goes on, and that has not been treated necessarily as a hierarchical thing. It seems to me that gives the courts considerable discretion as to which of those defenses to take up first.",
       "time": "00:28:06.94"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Has it?",
       "time": "00:28:35.97"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well--",
       "time": "00:28:38.53"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Is there authority in case law to that effect?",
       "time": "00:28:49.70"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that res judicata here, too? [Laughter]",
       "time": "00:29:18.58"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Hutchinson, subject matter jurisdiction is preserved and it can be raised later and later, so it's the most holy one in that respect. But there is no... in Rule 12(b) it says, the only economy thing in the rule is, if you've got one, try to bring them all at the same time, except if you leave out subject matter jurisdiction and one or two others, that you could bring those up later, but that's all that Rule 12(b) says. It says, here are these pre answer defenses. You can bring these up by motion pre answer, and you should if you bring one, bring all the others that you have at the same time, except there are certain ones that you don't... that are saved out even if you don't bring them. That's all that Rule 12 says. It doesn't say that you must bring subject matter jurisdiction, and if you bring... you can't bring personal jurisdiction. It doesn't have any of that kind of ranking.",
       "time": "00:29:34.78"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, because there's always jurisdiction over the person by consent, so there's that difference, but how does it relate to the issue that's before us, and you have been talking largely in the abstract. One response that I give to your floodgates, oh, this is going to be deceptive, you're predicating rather dumb district judges. I mean, if subject matter jurisdiction is phony, the district judge is going to say, get rid of it. Send it back. I mean, diversity, is there diversity, is there a Federal question on the face of the complaint? Every... I thought everybody agreed that in most cases the lack of subject matter jurisdiction is clear, so you don't get this floodgate. On the other hand, there is what Justice O'Connor referred to as a rare case, which I looked at this case and said, well, maybe this is it, in that this party, Norge, that's alleged to be fraudulently joined as a plaintiff, that's all bound up with the merits of this case, so you may not be able to sort out whether there was a sham party there inserted simply to block diversity until you get to the merits and to see whether this Norge has any real substance.",
       "time": "00:30:49.44"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, let's not talk about policy, about specifics. The district judge said, gee, you can't create an absence of diversity in a phony way any more than you can create with... so I have to see whether there is really diversity, and there is really diversity if Norge doesn't belong in this litigation, but I can't tell that in this complicated picture till we get some kind of evidentiary hearing.",
       "time": "00:32:19.22"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, why was it so easy when the Fifth Circuit itself, the majority said, gee, we're a little uncertain about that panel that held there was no subject matter jurisdiction, so we think it better go back to the district court to decide? If it was all that easy, then the majority of the court of appeals surely would have said, yeah, the panel got it right, there's no subject matter jurisdiction. But they took the extraordinary step of saying, we're not going to go back to that panel decision. We want the district judge to explore all these questions, so if you were right about it was easy, then why didn't the panel decision stand?",
       "time": "00:33:05.92"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm talking about the court, the majority, not the dissenters. The court could have said, subject matter jurisdiction has to be handled first, and the panel had it right, there was no subject matter jurisdiction. Isn't that what the three judge panel decided, that there was no--",
       "time": "00:33:47.12"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I ask, just to understand the purity of your position, if the attack on personal jurisdiction had been insufficient service of process that challenged the way in which the process... would you still say that could not be decided before the subject matter jurisdiction issue? In other words, take this example. Supposing you have attack on the line item veto case, and you want to challenge the standing of the plaintiff, and the motion to dismiss has two grounds, one he doesn't have standing, all sorts of... secondly, they didn't leave the summons at the right person at the... wherever it should have been left. Must the judge decide the standing issue before deciding whether service was proper, in your view?",
       "time": "00:34:11.96"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why, just... I've always wondered this, and I'm not saying there's no answer to it, but if all these cases, indeed, where it's Article III power versus the merits, they all are cases in which it's arguable both ways whether there is or there isn't the Article III power. We're only talking about cases in which a district judge could be reasonably uncertain. So if this is so holy that you have to decide the question of power first, why don't you have to have an immediate appeal? I mean, suppose the district judge were to get it wrong? Suppose, horror of horrors, he were to think there is Article III power to hear this case, and he's wrong, there isn't; why is he permitted to go ahead with the merits before all that's finally resolved on appeal, perhaps by certiorari?",
       "time": "00:35:01.95"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why?",
       "time": "00:35:54.80"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why? In other words, why is it that it's absolutely incumbent upon the district judge to decide every difficult, no matter how difficult question of Article III power first, including yours here, before going on to another easy question, that it isn't incumbent upon the system to decide that question definitively first?",
       "time": "00:35:56.18"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Exactly. So why don't we have to have appeals and certiorari, and really get it solved before we can go ahead to the merits? It's a constitutional matter, after all. Why don't you have to have a full range of appeals first?",
       "time": "00:36:25.20"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Of course, you're not giving me the answer correctly that I'm looking for, which is it would be totally impractical. Now, is that relevant?",
       "time": "00:36:47.69"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But there's a constitutional principle that the defendant's asserting with reference to personal jurisdiction as well. Suppose you have somebody who's sued in Texas, who says I've never been in Texas, and they say, oh, you negotiated a deal there. No, I did that in San Francisco, just a factual determination. Was he ever in the State of Texas, was it in San Francisco or Houston where he had the one deal that he negotiated in the United States. He's from overseas. He says, you have no constitutional power over me. But you would say, well, we want you to go to Houston and spend hundreds of thousands of dollars on attorneys litigating subject matter jurisdiction first. That, it seems to me, is a serious abridgement of his personal right not to be subject to the jurisdiction of the court, and you just sweep that under the rug.",
       "time": "00:37:03.27"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but of course, you apply your rule across the board, even to nonremovable cases, so in my hypothetical you were sued in the district court originally and you still say he has to submit himself to the subject matter jurisdiction argument by hiring attorneys and making special appearances and so forth. That's not the rationale of the statutes that... of the constitutional provision that gives you protection against a court asserting jurisdiction over you if it has no personal jurisdiction under the Fourteenth Amendment.",
       "time": "00:38:08.46"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What authority do you have for the standpoint that Federalism takes precedence over personal freedom?",
       "time": "00:38:56.40"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What case do I cite when I write the opinion that has that--",
       "time": "00:39:05.05"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--statement in it?",
       "time": "00:39:09.61"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you to comment on another consideration that occurs to me as I think about the problem. Sometimes the jurisdictional issue, like the standing question, will raise a serious constitutional question, whereas the personal jurisdiction may merely be a matter of fact, or interpreting the provision of State law. What about commenting on our policy of trying to avoid constitutional, difficult constitutional questions when there's another principal basis for decision available?",
       "time": "00:40:56.62"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You'd say that even though there's no personal jurisdiction we have an obligation to address the difficult constitutional question.",
       "time": "00:41:36.53"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You must decide it before you--",
       "time": "00:41:45.48"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Then you're withdrawing from one thing you said in your brief, which I... you said, if the subject matter jurisdiction question is real tough... this is on page 18, 19 of your brief, if it's real tough, there's a simple solution. Remand. Don't decide it. So you said I think twice in your brief that subject matter jurisdiction doesn't have to be decided by the Federal court. If they find it a tough question, they should just send the whole thing back to the State court. I think you're... are you modifying that, because here you seem to say they must decide it?",
       "time": "00:41:49.08"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, what does that mean-- --I don't understand what you just said. --specifically? Does it mean that, as you seem to imply here, the court says, subject matter jurisdiction case, messy here, we maybe have it, maybe we don't, but resolve that doubts in favor of remand, remand. We decide nothing. Would that be a proper way for a Federal court to behave?",
       "time": "00:42:45.68"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, I don't understand what you're answering me, because I thought from your brief you say that when the question is tough, accordingly where the subject matter jurisdiction question is difficult, the Federal judiciary already has devised a simple but effective means of resolving the issue, remand. Now, that's not what the Fifth Circuit did. It sent it back to the district judge and they said, you figure out the subject matter jurisdiction question. But according to what you've just said, if the principle is resolve doubts in favor of remand, then the Fifth Circuit en banc was wrong to burden the district judge with deciding the issue.",
       "time": "00:43:55.65"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Instructed her to make it. It didn't defer to it. She said, I don't want to make it. I want to decide personal jurisdiction.",
       "time": "00:44:36.20"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, what you just argued is that the district judge should have resolved the doubts in favor of no jurisdiction and just remanded without any decision, saying it's a tough question, a tough question, we're going to remand.",
       "time": "00:44:49.63"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is that what that means? Does doubt, resolving doubts mean it's a tough question, we don't have to decide it, we resolve the doubt in favor of remand, and never decide subject matter jurisdiction?",
       "time": "00:45:08.98"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, let's take this question. Let's take the three bases on which Federal jurisdiction was asserted in this case. What should the district judge have done?",
       "time": "00:45:22.38"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "After deciding what?",
       "time": "00:45:33.98"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Grappling with each one of those three complicated--",
       "time": "00:45:39.66"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Well, you're saying it's all that easy, but certainly the Fifth Circuit didn't treat it that way.",
       "time": "00:45:51.59"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But no... the Fifth Circuit en banc wiped out the panel decision, which held there was no... if it had been all that easy, they should have let the panel decision stand, but they didn't. The majority didn't let a panel decision stand that said there is no subject matter jurisdiction. They said, this issue needs a thorough airing, and sent it back to the district court.",
       "time": "00:45:59.80"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Hutchinson, to me, at least, your position is a little stronger when you confine it to the removal situation. I want to be clear on one thing. Do you base your Federalism argument simply on the dignitary interest of the State in being able to take, in effect, first crack at subject matter jurisdiction if that's possible, or does your argument rest on a further suggestion that there is likely to be a different... difference in result depending on where the State courts or Federal courts decide the personal jurisdiction? Do you suggest that the State courts are more likely to find the personal jurisdictional prerequisites present?",
       "time": "00:46:32.63"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You're just saying in a close case in which courts could reasonably go either way, it's better to let the State court have the first chance if that's possible.",
       "time": "00:47:22.73"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So that's essentially a dignitary kind of argument.",
       "time": "00:47:32.44"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is there any sense among the practicing bar in Texas that the State courts are more likely to find personal jurisdiction than the Federal courts are?",
       "time": "00:47:36.26"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is the difference?",
       "time": "00:47:47.95"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that seems odd for some reason. Mr. Hutchinson, isn't that a Federal, the whole thing a Federal question? Here, the assertion is there is no power over me compatible with due process, and since the Texas statute goes the length of due process, we don't have to worry about it, we stop short of that. It's a question of due process, and yet you're suggesting that the State court could have a burden of proof that makes it easier for a plaintiff to assert jurisdiction over a defendant than in the Federal court. I would think that that, since it's a Federal constitutional question, would have to come out the same way with the same burdens in both courts, and if the Texas courts have said something different, the defendant has to negate jurisdiction, that's--",
       "time": "00:48:09.74"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--I think you've answered the question, Mr. Hutchinson. Thank you.",
       "time": "00:49:33.90"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wright, you have 10 minutes remaining.",
       "time": "00:49:37.70"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you acknowledge, Mr. Wright, that there's a stronger case for what Mr. Hutchinson proposes in the removal situation, or does it really come down to the same thing anyway, just a Federal court acting beyond its... allegedly acting beyond its subject matter jurisdiction?",
       "time": "00:53:00.96"
     },
@@ -1179,13 +1179,13 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Wright. The case is submitted.",
       "time": "00:54:40.01"
     },
     {
       "turn": 190,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:54:42.73"
     }

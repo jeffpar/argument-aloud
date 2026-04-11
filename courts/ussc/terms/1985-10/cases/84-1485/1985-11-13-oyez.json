@@ -3,59 +3,63 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1485/19851113a_84-1485.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "CONSTANCE L. MESSORE",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ANDREW L. FREY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ROBERT B. MANN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mrs. Messore, I think you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I suppose that's binding on us, isn't it?",
       "time": "00:05:46.07"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That he had not asked for one?",
       "time": "00:06:05.53"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "At any time?",
       "time": "00:06:12.68"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And at that state they said you have to have one.",
       "time": "00:06:20.72"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Now, the difference between them not producing the lawyer and insisting that he take a lawyer was the confession?",
       "time": "00:06:23.51"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, the police required a lawyer at the lineup--",
       "time": "00:06:40.53"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--following what judges have told them they must do.",
       "time": "00:06:43.75"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Even if they have waived a lawyer earlier.",
       "time": "00:06:50.22"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That was a three to two decision?",
       "time": "00:07:27.61"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mrs. Messore, do you think this case would be any different from your perspective if the defendant had actually engaged an attorney or had reached arrangements with someone specifically to represent him and the police acted as they did here in refusing to let the attorney see the defendant?",
       "time": "00:08:25.12"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Prior to the questioning, in any event.",
       "time": "00:08:53.20"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would your argument be the same regardless of the degree or extent of the deception by the police? Is there any point at which you would--",
       "time": "00:09:23.10"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, even if you're right on the Fifth Amendment point, what about the Sixth Amendment? And do the cases of this Court leave open, in your view, any question about whether the Sixth Amendment protects an established attorney-client relationship from state interference with it? Is that question open? You want us to assume there was an established attorney-client relationship here, do you?",
       "time": "00:11:37.81"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, how do you propose that we treat it for purposes of the Sixth Amendment, as though there is an established attorney-client relationship here?",
       "time": "00:12:25.29"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you're relying on Gouveia.",
       "time": "00:12:46.78"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you recognize that there could be an established attorney-client relationship before a formal proceeding in court?",
       "time": "00:12:49.09"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you think that the state at that stage is free to interfere with that relationship?",
       "time": "00:12:57.34"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Under the Sixth Amendment?",
       "time": "00:13:06.12"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I had thought those cases were dealing with when an attorney had to be provided, but had not decided the question of state interference with an existing relationship before that time if it existed.",
       "time": "00:13:25.18"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I'm still confused a little bit. Perhaps I didn't hear you correctly. Do you concede that there was an established attorney-client relationship here, or do you take the position that it has not been established.",
       "time": "00:13:55.28"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even though the prisoner didn't know it?",
       "time": "00:14:21.06"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, he didn't know he was available for this action.",
       "time": "00:14:40.57"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, he didn't even know he was available for this action. He didn't know whether the attorney would represent him for this purpose also, did he?",
       "time": "00:14:45.27"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He didn't know.",
       "time": "00:14:53.95"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Maybe his family did.",
       "time": "00:14:55.40"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You tell him in the Miranda that you will appoint a lawyer for him, don't you?",
       "time": "00:16:39.38"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When?",
       "time": "00:16:45.39"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You'll give him a lawyer right then, that day?",
       "time": "00:16:49.09"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, I mean when you first give him Miranda warnings, you will give him a lawyer if he wants one that day?",
       "time": "00:16:55.48"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don't give him one until he's being interrogated?",
       "time": "00:17:06.68"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't think interrogation was in Miranda at all. Go ahead.",
       "time": "00:17:12.94"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask just one question on that point. The First Circuit opinion cites several different state court opinions that generally take the same position. There are differences in the facts of the cases. Are there any states other than the Rhode Island Supreme Court that have taken the position that you advocate?",
       "time": "00:17:27.78"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Frey.",
       "time": "00:18:35.42"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, here we have an arrest and an interrogation and an attorney-client relationship.",
       "time": "00:19:02.01"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's important he understand he has a right even if he doesn't have a right; that's your point?",
       "time": "00:21:00.84"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or when they arraign him, or when the criminal prosecution is--",
       "time": "00:21:43.33"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--It's really started when they start the prosecution.",
       "time": "00:21:47.08"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Exactly. How about the lineup?",
       "time": "00:21:52.74"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Frey, were we not informed that a Rhode Island case holds that, or is it just a policy?",
       "time": "00:22:07.61"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I thought there was reference to a case.",
       "time": "00:22:13.83"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Frey, you take the argument to it logically conclusion, as your associate does also, I take it, that this is true no matter how serious the deception by the police to the lawyer might he?",
       "time": "00:22:46.94"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, there is concern about police deception. I mean, if you're right it would he preferable for the police to say, as they have in some cases: We know you're the attorney for Mr. Jones and we are in the process of interrogating him and you can't see him.",
       "time": "00:23:40.12"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If they have a right to say that?",
       "time": "00:24:08.81"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why would one condemn deception in reviewing a state proceeding unless there was something in the Constitution that prohibited it?",
       "time": "00:24:27.48"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are you going to include Escobedo in this?",
       "time": "00:25:28.89"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In Escobedo the lawyer was in the building trying to get to the man and they kept him from getting to him. Wasn't that Escobedo?",
       "time": "00:25:37.49"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's what I mean.",
       "time": "00:25:47.28"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I thought he said he wanted one. No.",
       "time": "00:25:56.31"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your argument is that even though that may be empirically true, it still doesn't doesn't make any difference as a matter of law, even if better advice might have caused him to make a different decision or better information? That's still too bad, because he had enough?",
       "time": "00:26:26.58"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which is precisely why the police don't want them to talk to them.",
       "time": "00:26:47.45"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why society establishes a rule that if voluntarily, even if we know perfectly well he would have made a different decision if he'd been fully advised?",
       "time": "00:26:57.48"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it would seem to follow from the fact that you don't need a lawyer to waive a lawyer.",
       "time": "00:27:11.99"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, there have been occasions in the past, I guess, when the Court has stepped in out of its concern about police deception under the rubric of due process. And you don't see that as being a source of any--",
       "time": "00:28:46.95"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--You say the Miranda warning itself is a lie. He tells him he's got a right he doesn't have. The whole thing is a charade.",
       "time": "00:29:25.92"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How many cases have we seen in which, after saying you can have a lawyer right away and he says I'd like a lawyer, how often does he get the lawyer right away? They just don't question him. They never provide him a lawyer.",
       "time": "00:29:48.54"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired, counsel.",
       "time": "00:30:10.72"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Mann.",
       "time": "00:30:13.84"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well now, Mr. Mann, would this case be different in your view if the police, instead of being deceptive, if they were here... I'm not sure, but if they were... if they had just said, we're talking to Mr. Burbine right now and you can't see him?",
       "time": "00:30:56.85"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What could she have done and what right, if any, would be violated, and why?",
       "time": "00:31:27.63"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:31:35.81"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And they said no, we're talking to him now, you cannot see him.",
       "time": "00:31:45.01"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was that a matter of prosecutorial grace, so to speak, or was it compelled by some constitutional provision?",
       "time": "00:32:15.87"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What?",
       "time": "00:32:30.46"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you find that under what clause, what provision of the Constitution?",
       "time": "00:32:40.41"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Who asked for him.",
       "time": "00:32:54.17"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I guess you think also that the remedy for this breach of right is to hold that his confession is involuntary?",
       "time": "00:33:46.17"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's usually the test: In the totality of the circumstances, is it voluntary? And you say that's a determinative fact?",
       "time": "00:34:10.91"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How many times did he waive and how many times did he confess here?",
       "time": "00:34:42.74"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where... at that point, since you emphasize that, where do you think they should have put him?",
       "time": "00:36:08.93"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, if an interrogation room is theoretically forbidding, isn't a cell block a little more forbidding?",
       "time": "00:36:24.35"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You mean that's generally known in the community?",
       "time": "00:36:38.03"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "To lawyers or to laymen?",
       "time": "00:36:42.38"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What if that call had come from a stranger instead of from his sister? Any difference?",
       "time": "00:37:47.87"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "A total stranger hearing about the circumstances could establish an attorney-client relationship between the--",
       "time": "00:38:04.90"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Do you think it's open to the First Circuit to make a de novo determination of voluntariness?",
       "time": "00:38:42.93"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it true that he never asked for a lawyer?",
       "time": "00:39:00.70"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Mann, could we go back for a minute to the fact that the state court made an express determination that there was no attorney-client relationship established. Now, the Court of Appeals for the federal review altered that finding. Was that finding a finding of fact or a finding to which the federal court should have deferred?",
       "time": "00:39:37.96"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It just seemed to me that it's kind of your classic case of a factual determination. Was there an attorney-client relationship?",
       "time": "00:40:21.32"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, even if it was a question of state law, why wouldn't the federal court defer to that? It just struck me as very strange that the federal court would take upon itself the right to overturn that.",
       "time": "00:41:15.21"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Supposing an attorney comes into state court and sues a client that he's represented in a criminal case in federal court, saying you promised me 10,000 lucks for defending you, you've never paid it. Is the relationship governed by federal law, whether... the nature of an attorney relationship, just because the suit took place in federal court?",
       "time": "00:42:09.86"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is that any different than saying it's a federal question whether or not there was an attorney-client relationship created?",
       "time": "00:42:54.47"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Mann, may I put a hypothetical, lets assume that a public defender office had enough lawyers so that it was able to call the police department in a city of modest size and say: We have enough lawyers to provide counsel in every felony case, and we put you on notice now that we want to be advised whenever you arrest a person charged with a felony, and we will send a lawyer promptly to represent him. Would that be different from your case?",
       "time": "00:43:09.81"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "In what respect?",
       "time": "00:43:49.30"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Had it begun in this case? It was about to begin, but it hadn't begun.",
       "time": "00:44:04.40"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "In my case the only difference is, instead of a sister saying that she had engaged a particular lawyer who wanted to be present for the interrogation, the public defender' soft ice said, we'll provide a competent lawyer to represent every felon and we put you on notice we want our lawyer to be present before any interrogation begins.",
       "time": "00:44:22.61"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Suppose a friend had called instead of a sister. Would that make a difference?",
       "time": "00:45:06.52"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't see that it matters at all, because you don't know who they talked to. They might have talked to the third janitor.",
       "time": "00:45:31.42"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When they called the police station, who did they talk to? They talked to a man who said \"detectives\". They don't know who they talked to. Until today we don't know who they talked to.",
       "time": "00:45:41.08"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So what difference does it make who called?",
       "time": "00:45:56.27"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:46:00.32"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There's nothing in this case that applies to this party, because you don't know who it went to. I would assume that you have to put this information in the hands of the detectives who were questioning him. You don't even get close to that. Am I right?",
       "time": "00:46:15.60"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "This call that was made advising the \"police department\" that he had a lawyer, right?",
       "time": "00:46:38.11"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, who was given that information? You don't know.",
       "time": "00:46:47.00"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And who was the somebody?",
       "time": "00:47:03.76"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "We don't know until today. So how can we hold anybody responsible for it?",
       "time": "00:47:07.13"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 193,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "To whom?",
       "time": "00:47:52.99"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does anybody else say to whom?",
       "time": "00:48:01.52"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "We don't know whom is yet, do we?",
       "time": "00:48:05.89"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if that's a finding of fact, why isn't the state court's finding of fact... why isn't it a finding of fact that there wasn't an attorney-client relationship at all?",
       "time": "00:48:08.54"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is it a historical fact or is that a judgment about the law?",
       "time": "00:48:33.57"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Suppose, instead of the facts you just recited, the policeman came into Burbine and said: There are five lawyers out here that would like to represent you; do you want one of them. Could that establish an attorney-client relationship, unless he said, yes, send in the oldest one?",
       "time": "00:49:02.67"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That's what he did say, didn't he?",
       "time": "00:49:32.19"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would think if this were really the case there would be some voluntariness cases before Miranda, and there were a whole lot of them about lawyers, weren't there?",
       "time": "00:51:46.74"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Have you got any case from that era that supports your position?",
       "time": "00:51:58.17"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. Mr. Mann, did I understand you to say that Burbine was put under intensive pressure by the police?",
       "time": "00:52:10.96"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Am I reading the right place? I think it's the district court opinion that says that: \"There is no suggestion here of political... of police brutality or of coercion, psychological duress, illicit inducement, intimidation, or the like. \" \"Burbine was not grilled for long stretches of time, nor in an unusually oppressive circumstance. \" It's on appellate 37... appendix page 37.",
       "time": "00:52:43.68"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Two prior occasions, what were those? You mean on another?",
       "time": "00:54:26.71"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, what's that got to do with this kind of a case?",
       "time": "00:55:50.22"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The fact that a big corporation may have 40 lawyers in their legal staff, of course they're getting legal advice all the time... but what's that got to do with this kind of a case?",
       "time": "00:55:55.95"
     },
@@ -1375,7 +1379,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think a waiver after being given Miranda rights would also constitute a waiver of any Sixth Amendment right he might have had?",
       "time": "00:56:49.84"
     },
@@ -1387,7 +1391,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All the assertion was that it wouldn't violate either the Fifth or the Sixth Amendments, what they did. They didn't say that it was proper conduct, didn't say that people who did that wouldn't be subject to discipline.",
       "time": "00:58:31.75"
     },
@@ -1399,7 +1403,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't get it. Outside of the fact that the police were questioning him, what other acts made it such a deception?",
       "time": "00:59:38.48"
     },
@@ -1411,7 +1415,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mean if the police said, we're through with you for the night, and then questioned you after that, that's deception?",
       "time": "00:59:56.36"
     },
@@ -1423,7 +1427,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now on the Court's time, not your time, would you tell me this. This crime was committed more than eight years ago.",
       "time": "01:00:11.28"
     },
@@ -1435,7 +1439,7 @@
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Where has this man been in the meantime?",
       "time": "01:00:18.69"
     },
@@ -1447,7 +1451,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you. Do you have anything further? You have one minute left?",
       "time": "01:00:28.16"
     },
@@ -1459,13 +1463,13 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:00:34.40"
     },
     {
       "turn": 236,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Monday next at 10:00.",
       "time": "01:00:37.08"
     }

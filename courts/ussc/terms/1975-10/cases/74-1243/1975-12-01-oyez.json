@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1975/74-1243/19751201a_74-1243.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN G. GILL, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "SCOTT P. CRAMPTON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Beckwith against the United States. Mr. Gill.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume there at 1 o’clock.",
       "time": "00:03:40.06"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Gill you may continue. You have 27 minutes left.",
       "time": "00:03:55.30"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How would that affect the merits of this case?",
       "time": "00:05:27.43"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You mean, he might just blurt out the truth?",
       "time": "00:05:48.88"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, an absent of violation of the Fifth Amendment which prohibits compulsory self-incrimination, I presume society has an interest in seeing guilty defendants incriminate themselves so long as it is voluntary.",
       "time": "00:06:25.71"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But certainly, the man has it within his power to say I do not remember, I do not know?",
       "time": "00:07:20.72"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And what you said, if anything that he disclosed is not supported by the government’s case in chief, perhaps it is not all that relevant is it?",
       "time": "00:07:30.47"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did we not hold that Kirby against Illinois that the critical stage did not begin until there was an indictment?",
       "time": "00:10:13.44"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Or specifically, I think the holding there might have been the explicit right to the assistance of counsel does not begin constitutionally until there is an indictment or other charge.",
       "time": "00:10:30.76"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I do not think it affected. I do not think it had much to do with the right against compulsory self-incrimination?",
       "time": "00:10:44.32"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It is always critical if something happen to hurt your case.",
       "time": "00:11:20.04"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "There is always a critical moment if at that moment something happens to prejudice to.",
       "time": "00:11:24.48"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Gill—",
       "time": "00:16:28.36"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Are you emphasizing the tax nature of this case, let us assume for the moment that the local sheriff had dropped in to this residence at 8 o’clock in the morning investigating for burglary? And the petitioner had been guest in the house and the sheriff said I am trying to find out who committed this burglary and I would like to know where you were in the night of the burglary. He gave no Miranda warnings. I suppose he did say what was said in this case. Of course, nobody has to speak. We have a Fifth Amendment right to remain silent. That will be a non-tax situation. Would you feel that is different?",
       "time": "00:16:29.59"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "In the case, I put there was certainly no custody. There was no custodial interrogation but you view this case as involving custodial interrogation because it is a tax case.",
       "time": "00:18:05.29"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Is there any other point that is relevant to whether or not this was custodial?",
       "time": "00:18:22.88"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But do you not have to read all those statements in light of the fact so the Miranda case that it was a police station and they all relate to those facts. Those are not general philosophical observations and opinion, are they?",
       "time": "00:19:23.96"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "On that theory then, one might claim that if a policeman stops you on the street with regard your walking and begins to ask you some questions that you are unaccustomed to talking to a policeman in a uniform with a badge and a gun, therefore, although Miranda warnings must apply before the policeman can have any conversation with you.",
       "time": "00:19:41.05"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes.",
       "time": "00:20:07.01"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There are other cases but you are taking some language that related to a police station and taking it out of context.",
       "time": "00:20:08.29"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What was the author of the opinion talking about? It was talking about a case in which the man was in the police station, was it not?",
       "time": "00:20:25.58"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, is that not out of context when you are taking out of a police station?",
       "time": "00:20:34.22"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Gill are you drawing any distinction between a call by an ordinary revenue agent if I may so describe him and a special agent in the intelligence division?",
       "time": "00:21:03.45"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it seems to me your entire argument though is directed to a tax consultation. Is there not as much fear and trembling when the first agent shows up and so there is one the second one?",
       "time": "00:21:15.10"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What specifically -- What prejudice did he suffer by the so-called defects in the warnings here?",
       "time": "00:22:14.34"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, specifically, what I like to have you answer is what was he entitled to that he did not get by way of specific questions here?",
       "time": "00:22:47.52"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "One is the fact he was not told he could remain silent.",
       "time": "00:23:00.04"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And yet he was told he could have counsel.",
       "time": "00:23:04.66"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What is the other given -- What other right was he entitled to be told about but he did not get?",
       "time": "00:23:53.17"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Any other rights?",
       "time": "00:24:10.10"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Any other rights?",
       "time": "00:24:17.02"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your not making any claim that he was entitled to an attorney, if he or to be told he could have an attorney if he could not afford it?",
       "time": "00:24:27.29"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there any claim of indigency here?",
       "time": "00:24:35.98"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is a paid appeal, is it not? Is not this is a paid appeal?",
       "time": "00:24:42.00"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But no claim of indigency anywhere?",
       "time": "00:24:48.50"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, if in a true Miranda situation in a conventional plain of a Miranda situation where person is in custody in a police station being interrogated by the police. The duty of the police to warn him that he is entitled to a lawyer at state expense if he cannot afford one is certainly not predicated upon a preliminary finding of indigency is it not?",
       "time": "00:25:21.89"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is an absolute duty under the Miranda case?",
       "time": "00:25:46.02"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Precisely.",
       "time": "00:25:50.74"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is the fact of life that every taxpayer is confronted with constantly?",
       "time": "00:27:22.01"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you need a warning just before you sign your tax return?",
       "time": "00:27:28.21"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you might be incriminating yourself?",
       "time": "00:27:33.37"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Like many people do incriminate themselves when they sign their tax returns do they not?",
       "time": "00:27:36.64"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:29:19.70"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) available?",
       "time": "00:30:45.96"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What you found out about Friday evening?",
       "time": "00:30:48.39"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Crampton.",
       "time": "00:31:04.41"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So General Crampton you say you think that is quite significant? You are not implying that you think that was constitutionally necessary, are you? That warning?",
       "time": "00:32:57.86"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well then why is it significant?",
       "time": "00:33:07.03"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well then are you implying that had that statement not been made to him there would have been a constitutional violation.",
       "time": "00:33:22.42"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well then why is it significant?",
       "time": "00:33:30.03"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well then it seems to me that you are implying that there is an obligation to comply with the philosophy of Miranda and I did not understand your argument to be that.",
       "time": "00:33:42.95"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well then I do not see why it is significant if I may say so?",
       "time": "00:33:54.96"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:34:04.15"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:37:16.29"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Crampton, if these agents gave him that usual feel that you tell me this so I can get it some other way.",
       "time": "00:38:07.58"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I am glad to see some government officers that work at 8 o’clock in the morning. They get up that early all the time. You know you could be waking the man up and dragging him in the room.",
       "time": "00:38:31.49"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Crampton, just as a matter of curiosity, what is the routine used today by special agents. Do they give Miranda warnings now in consultations before they start now?",
       "time": "00:40:54.13"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the build up of the Seventh Circuit line of cases has not changed that at all?",
       "time": "00:41:29.77"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about this administrative development that Mr. Gill told us about Friday evening?",
       "time": "00:41:42.98"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why was it news in the papers?",
       "time": "00:42:03.59"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, there are a couple of letters to the editor criticizing one newspaper’s treatment of it too were they not from the Head of the Administrative Procedure Commission and from the Former Commission of Internal Revenue?",
       "time": "00:42:18.82"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Gentlemen. The case is submitted.",
       "time": "00:42:41.21"
     }

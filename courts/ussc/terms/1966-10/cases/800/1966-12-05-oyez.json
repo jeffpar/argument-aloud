@@ -3,59 +3,63 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1966/800/19661205a_800.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "HAROLD N. HILL, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES MORGAN, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "EMMET J. BONDURANT, II",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Ben W. Fortson, Jr., Individually, and as Secretary of State of Georgia versus John Morris et al. But I should announce before counsel begin that the orders of the Court had been certified by the Chief Justice filed with the clerk and will not be announced in order. Mr. Hill.",
       "time": "00:00:00.00"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- circumstances by majority? And they elect between the two candidates by a majority vote or (Voice Overlap) --",
       "time": "00:03:42.23"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- or some other format?",
       "time": "00:03:56.37"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Hill, is you're suggestion that at least one of the briefs I made the Democratic legislator would be oath bound to vote for the Democratic candidate?",
       "time": "00:04:20.44"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You're saying that if that's not so that no Democratic legislator would be oath bound to support the Democratic --",
       "time": "00:04:42.96"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He is perfectly free to vote for the Republican.",
       "time": "00:04:50.99"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How do we strike the oath if we're going to let them invoke on it? If they have taken the oath and the -- now, how can we strike from their minds to the oath that they've taken?",
       "time": "00:05:10.78"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But we've said they're not bound by it in the situation in the effect.",
       "time": "00:06:02.56"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that was the question of the oath ways below -- Mr. Hill in the sense that it's argued in this brief?",
       "time": "00:06:11.80"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's not referred doing -- you've got so much stuff here, I haven't been -- unable to go through all of them but the -- is that the third one in the opinion of the three-judged court, is it?",
       "time": "00:06:27.39"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I assume you would say that no voter swore to vote for the -- one of the high men. If the legislature elected rather the people elected, so he would say that they took an oath to support the nominee of the party not to vote directly but that it did not apply to the election, special election that was to be held if they did not get a majority vote.",
       "time": "00:06:54.78"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Is this oath in the record somewhere?",
       "time": "00:07:43.65"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where would it be found? Could you refer us to it?",
       "time": "00:07:47.31"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "And it was inconclusive so I thought it was still going on.",
       "time": "00:08:50.70"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That's why this case is here, isn't it?",
       "time": "00:08:58.27"
     },
@@ -235,31 +239,31 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, as a matter of (Voice Overlap) --",
       "time": "00:09:19.46"
     },
     {
       "turn": 32,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Well --",
       "time": "00:09:19.91"
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They have had this election and elect to the new legislature convenes, can you?",
       "time": "00:09:20.38"
     },
     {
       "turn": 34,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That is correct, Your Honor.",
       "time": "00:09:25.30"
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that -- in other words, what -- if this power may be exercised, it has to be exercised by the legislature which was elected the same day of the -- of this contest?",
       "time": "00:09:26.52"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You say that they -- they performed thereafter, responded to the obligations by voting in the general election, and that's over?",
       "time": "00:09:42.05"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What would you think if there was a -- had to be a runoff between the Republican and the Democratic candidates for a Lieutenant Governor? I suppose the subject -- Georgia statute requires the -- which provides for a runoff in that respect there.",
       "time": "00:09:52.47"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know but the (Voice Overlap) was that the Georgia statute which relating to runoff?",
       "time": "00:10:12.99"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand that. I want to know -- what about a runoff to the candidates for Lieutenant Governor. Let's just assume that there was a runoff between Democratic and Republican candidates for Lieutenant Governor because of a writing, let's assume that. And then the demo -- and then the -- do you think the oath would reach that special election held to elect a Lieutenant Governor?",
       "time": "00:10:27.38"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- you almost have to take a runoff?",
       "time": "00:11:03.31"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, I see.",
       "time": "00:11:15.29"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What about the -- to what does the statute for a runoff election?",
       "time": "00:11:20.84"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or give me an example, what does it apply to?",
       "time": "00:11:37.76"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it does apply to what?",
       "time": "00:11:42.26"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right.",
       "time": "00:11:46.37"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But no statewide office?",
       "time": "00:11:48.18"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And does the oath apply to them? But does it -- does the oath requires support for the Democratic candidates or Republican?",
       "time": "00:12:01.39"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:12:19.19"
     },
@@ -427,31 +431,31 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Hill, you --",
       "time": "00:13:00.58"
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Inaudible)",
       "time": "00:13:01.60"
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Pardon me.",
       "time": "00:13:01.85"
     },
     {
       "turn": 66,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Excuse me, go ahead.",
       "time": "00:13:02.39"
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You said that their obligation under the oath that terminated if -- when the election was over and that this was a new proceeding, would you mind stating that again from my orientation please?",
       "time": "00:13:05.29"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Oh, yes. Oh, right. Then go.",
       "time": "00:13:29.95"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "With that instance the beginning of the state's history?",
       "time": "00:14:02.63"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But may I ask you this, is there any -- does any constitutional question arise to that, on the power of a state that have the legislature elects its Governor rather than the people?",
       "time": "00:15:10.40"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does Georgia do that to?",
       "time": "00:15:40.57"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Your position is that the Federal Constitution does not compel a state to elect its Governor by the people?",
       "time": "00:16:06.18"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Suppose here the affirmative that the legislature does it if no candidate gets the majority, is that right?",
       "time": "00:16:23.79"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Would it be constitutional for a state to provide that the legislature shall do it if no candidate gets two-thirds?",
       "time": "00:16:32.60"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "I understand.",
       "time": "00:17:17.86"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Well, yes. But this formula in its implications may therefore be a very mischievous thing. Because two-thirds it can be 80% or 80% to 90% --",
       "time": "00:17:26.72"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "For the political controls, squeezing out minorities, squeezing out non-orthodox party people?",
       "time": "00:17:39.96"
     },
@@ -583,13 +587,13 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "We got it this way. You could get it this way through the legislature.",
       "time": "00:17:57.07"
     },
     {
       "turn": 90,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But what's wrong with the State of Georgia if it wants to providing that to elect the Governor they require two-thirds. Does it -- can a question to the constitution gives us a right because we think that's mischievous to overturn it?",
       "time": "00:18:04.08"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does any state required more than a majority?",
       "time": "00:18:36.48"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Suppose a state provided in its constitution that the man who comes in second, I mean the Governor, the Governor's race will be the Governor with the -- do you think that that would be alright or is there something in the Federal Constitution that in the -- make that appear to be kind of awkward?",
       "time": "00:19:02.97"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So that what you really come down to here was clearly a -- do you say that the State Constitution may provide that the results of the election are in fact washed out --",
       "time": "00:19:31.33"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- if neither candidate gets a majority and then the legislature really without reference to the results of the election except in -- as if the election were a nominating convention, the legislature can then choose between them.",
       "time": "00:19:45.40"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes, I say it. As if I that were a nominating convention and served up these two names to the legislature and then the legislature has complete freedom to select the man who came in first and then came in the second.",
       "time": "00:20:08.36"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is that about the (Voice Overlap) --",
       "time": "00:20:22.20"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, aren't they -- do we have a question here though in these circumstances whether we have a case of controversy declared?",
       "time": "00:22:53.22"
     },
@@ -685,13 +689,13 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Voice Overlap) hope not but -- the reason the case is not -- the reason we have not any jurisdiction.",
       "time": "00:23:05.81"
     },
     {
       "turn": 107,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Pretty hard fight going on, isn't it?",
       "time": "00:23:13.41"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It's a pretty hard fight going on over, isn't it?",
       "time": "00:23:15.90"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That doesn't make a case a controversy. Well, lots of things or fights are going on about it. But you can't stipulate us into this?",
       "time": "00:23:18.89"
     },
@@ -727,13 +731,13 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That still doesn't answer it for us.",
       "time": "00:23:32.50"
     },
     {
       "turn": 114,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Are these returns sealed, is that --",
       "time": "00:23:34.52"
     },
@@ -745,7 +749,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Where did you get those figures if you quoted as, Callaway so much, Maddox so much?",
       "time": "00:24:17.67"
     },
@@ -757,7 +761,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Newspaper?",
       "time": "00:24:23.94"
     },
@@ -769,7 +773,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did you just say Mr. Hill that there variances as to some counties between those figures and what have been reported by the election officials?",
       "time": "00:24:33.06"
     },
@@ -781,7 +785,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well then I'll ask you again, where do we get a case of controversy?",
       "time": "00:24:42.68"
     },
@@ -793,7 +797,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Still, the declaratory judgment are not, there still has to be a case of controversy, doesn't it?",
       "time": "00:24:53.96"
     },
@@ -805,7 +809,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or do you say there was a -- let's assume that the -- we didn't decide this case this time and that the case went on and that the returns were opened in the legislature, an election was held. Do you suppose the election of the legislature could come in a way that would make these cases moot?",
       "time": "00:25:17.57"
     },
@@ -817,7 +821,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know but the -- but both of these -- you mean it became up -- you mean, if the defendants in these suits -- it wouldn't be moot for the defendants in these suits that came out one way.",
       "time": "00:25:50.56"
     },
@@ -829,7 +833,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Or the people?",
       "time": "00:26:05.38"
     },
@@ -841,7 +845,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are these people have joined them?",
       "time": "00:26:08.48"
     },
@@ -853,7 +857,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "When Georgia became a member of a union, what was the provision for electing a Governor?",
       "time": "00:27:45.66"
     },
@@ -865,7 +869,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That was the same one that had been in the 24, was it?",
       "time": "00:29:06.04"
     },
@@ -877,7 +881,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "By vote of the people?",
       "time": "00:29:16.11"
     },
@@ -889,7 +893,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Adopted by vote of the people?",
       "time": "00:29:18.36"
     },
@@ -901,7 +905,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know but the legislature of it's -- to elect this Governor, your provision of doctarine -- if the legislature that was elected or was it not under a claimant -- if the Three-judge District Court approved and which this Court affirmed --",
       "time": "00:31:34.32"
     },
@@ -913,7 +917,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- as a constitutionally elected legislature then its under a constitutional plan for the purpose, the election in this legislature.",
       "time": "00:31:51.73"
     },
@@ -925,7 +929,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that the legislature can -- makes the choice if your constitutional (Inaudible) is certainly for that purpose a constitutionally apportioned legislature, isn't it?",
       "time": "00:32:00.44"
     },
@@ -937,7 +941,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I assume -- you are saying there was a slight deviation from the correct apportionment and due to the fact I think this Court or the District Court held it to be invalid, isn't it?",
       "time": "00:32:50.02"
     },
@@ -949,7 +953,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "In order to be constitutionally --",
       "time": "00:33:10.73"
     },
@@ -961,7 +965,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- 18 -- 1969, I think, isn't it?",
       "time": "00:33:12.86"
     },
@@ -973,7 +977,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes.",
       "time": "00:33:23.11"
     },
@@ -985,7 +989,7 @@
     },
     {
       "turn": 156,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right. But I just want to be sure the plan that the -- under which this legislature was elected at the last election of the plan that for the purposes of that election. And they sit as the legislature till 1969 is approved by the Three-judge District Court and affirmed by this District Court, wasn't it?",
       "time": "00:33:33.27"
     },
@@ -997,7 +1001,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Were they right to perform their function within the legislature except as -- in order to the contrary?",
       "time": "00:33:58.13"
     },
@@ -1009,7 +1013,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, if it is a continuation of that election or they both would apply, would it not?",
       "time": "00:37:43.00"
     },
@@ -1021,7 +1025,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, that first election is completely over, isn't it?",
       "time": "00:38:09.07"
     },
@@ -1033,25 +1037,25 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, what -- (Inaudible) any room to talk about a continuation?",
       "time": "00:38:13.48"
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I thought it was over and this case wouldn't be here.",
       "time": "00:38:17.53"
     },
     {
       "turn": 166,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why wouldn't it be here? This is another election.",
       "time": "00:38:21.01"
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "That's a question if they decide --",
       "time": "00:38:24.47"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Morgan.",
       "time": "00:39:37.22"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:40:36.17"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I don't understand what the word is?",
       "time": "00:41:35.42"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are you suggesting in light of our affirmance with the three-judge order that this legislature taking office in January, is it constitutionally malapportionment?",
       "time": "00:41:37.96"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Because that had been fashioned by the -- a malapportioned legislature?",
       "time": "00:42:42.34"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:42:47.07"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I just have trouble, you concede -- extricating how you can characterize this new legislature as malapportioned when for the purposes of this election at least in this constitute as a legislative body. We affirmed as constitutionally permissible the plan under which it was elected.",
       "time": "00:43:37.56"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, do you urge that the -- with this legislature can perform no functions --",
       "time": "00:44:15.63"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- because it's malapportioned, (Voice Overlap) --",
       "time": "00:44:21.13"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What distinction do you make? What functions, character form or what (Voice Overlap) --",
       "time": "00:44:22.87"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Why don't you go the larger question counsel because I -- as I read your brief that you're merely emphasizing a malapportionment only aggravates --",
       "time": "00:44:30.53"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- what you deemed to be the unconstitutional features anyway.",
       "time": "00:44:39.59"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It's not an independent ground.",
       "time": "00:44:42.48"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you would be making the argument Mr. Justice Douglas indicates whether or not this legislature was not apportioned and you would also make the same argument if there was a tie --",
       "time": "00:45:15.16"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- within the popular vote and you would say that any provision over a -- or the legislature breaking a tie wherever, whatever the state -- whatever the apportionment would be unconstitutional in your --",
       "time": "00:45:26.31"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Because you have reached the (Inaudible)",
       "time": "00:45:48.00"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understood your complaint did raise it precisely as an alternative ground of the injunction?",
       "time": "00:45:53.00"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That this legislature was malapportioned (Voice Overlap) --",
       "time": "00:46:00.81"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- but not as a mere -- not an aggravation?",
       "time": "00:46:02.93"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Have you abandoned that part of your complaint?",
       "time": "00:46:06.39"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does that mean that you've abandon that part of your compliant? One would not have to -- we would not have to decide that --",
       "time": "00:46:14.17"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- if we decided the other against it?",
       "time": "00:46:21.36"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Oh, do you -- you would say that that has to be decided. That's one of your argument, it's an alternative ground you insisted that the election be enjoined?",
       "time": "00:46:32.15"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That the legislature is malapportioned?",
       "time": "00:46:42.08"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What you would say Georgia was compelled to do if it has two elections? One or two election fails to get a majority to compel to keep on having elections --",
       "time": "00:48:30.11"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- for the Federal Constitution?",
       "time": "00:48:42.86"
     },
@@ -1375,7 +1379,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Exactly.",
       "time": "00:48:54.18"
     },
@@ -1387,7 +1391,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I wanted to know is what do you say Georgia should do? If it holds an election, goes to the extents of a statewide election failed to get a majority, do you say the Federal Constitution bars it from letting the legislature elect?",
       "time": "00:49:08.40"
     },
@@ -1399,7 +1403,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, what would it have to do?",
       "time": "00:49:27.69"
     },
@@ -1411,7 +1415,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's the holding in the Federal Constitution regarding Georgia to elect its Governor by the people.",
       "time": "00:49:36.73"
     },
@@ -1423,7 +1427,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did -- do you find any sentence or words in Gray, in the Gray case indicating that its holding that Georgia is compelled to elect its Governors by the people?",
       "time": "00:49:43.83"
     },
@@ -1435,7 +1439,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Oh, certainly.",
       "time": "00:50:07.90"
     },
@@ -1447,7 +1451,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But did they filter their vote in this election?",
       "time": "00:50:08.87"
     },
@@ -1459,7 +1463,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Get it filtered to get a majority?",
       "time": "00:50:13.39"
     },
@@ -1471,7 +1475,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You're saying it'll be filtered if they elect by the legislature.",
       "time": "00:50:17.64"
     },
@@ -1483,7 +1487,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Runoff general election, of course they don't get a majority here.",
       "time": "00:50:35.02"
     },
@@ -1495,7 +1499,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They'll have another?",
       "time": "00:50:40.45"
     },
@@ -1507,7 +1511,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose you didn't get a majority?",
       "time": "00:50:59.89"
     },
@@ -1519,7 +1523,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Then, you'd have to have another, wouldn't you?",
       "time": "00:51:04.79"
     },
@@ -1531,7 +1535,7 @@
     },
     {
       "turn": 247,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not if there's a (Inaudible)?",
       "time": "00:51:08.86"
     },
@@ -1543,7 +1547,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But you -- you're representing the appellees who do not contend that there is -- writing should be?",
       "time": "00:51:16.05"
     },
@@ -1555,7 +1559,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "See, the District Court didn't reach the remedy?",
       "time": "00:51:29.61"
     },
@@ -1567,7 +1571,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But you don't claim here that there should -- direct in terms of remedy any more than a runoff between the two?",
       "time": "00:52:24.51"
     },
@@ -1579,7 +1583,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Pardon?",
       "time": "00:52:35.03"
     },
@@ -1591,7 +1595,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, the reason I asked you that there's a specific Georgia statute that deals with an alternative method of doing this, do you support that statute or do you have still a different way?",
       "time": "00:52:37.19"
     },
@@ -1603,7 +1607,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That's right. Now, you stand by that one do you?",
       "time": "00:52:54.93"
     },
@@ -1615,43 +1619,43 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I see, yes.",
       "time": "00:53:00.30"
     },
     {
       "turn": 262,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Will you make any difference in theory of this case as you view it if the Georgia Constitution had provided and in a situation where neither candidate gets a majority? The legislature shall select the Governor but the legislature shall vote on the basis of one vote per county and you see, you'd have the county unit system transferred to the legislature?",
       "time": "00:53:02.56"
     },
     {
       "turn": 263,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I don't think you can do that.",
       "time": "00:53:33.93"
     },
     {
       "turn": 264,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You don't think you could do that?",
       "time": "00:53:36.74"
     },
     {
       "turn": 265,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "No, sir. I don't. Not once you've opened up the electoral process to the voters and come down to the final conclusion.",
       "time": "00:53:38.67"
     },
     {
       "turn": 266,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You think that that same case that you're now arguing don't you?",
       "time": "00:53:44.81"
     },
     {
       "turn": 267,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is your view Mr. Morgan on the -- on whether or not if you win, if you win there is a special election where there will or will not be a write-in?",
       "time": "00:53:55.92"
     },
@@ -1663,7 +1667,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Would you -- you really don't care then do you whether there's a write-in or not?",
       "time": "00:54:46.36"
     },
@@ -1675,7 +1679,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Because if there is a write-in then you have to have one election after another, the present Governor will be in office?",
       "time": "00:54:56.21"
     },
@@ -1687,7 +1691,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And if there isn't a write-in of -- then somebody is going to win?",
       "time": "00:55:03.93"
     },
@@ -1699,7 +1703,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would be your position, the Constitution of Georgia still contained the exact provisions 1798 -- all it said was the Governor should be elected by the legislature?",
       "time": "00:55:11.72"
     },
@@ -1711,7 +1715,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And you don't think we could change their constitution because the developing idea that goes (Inaudible)?",
       "time": "00:55:43.31"
     },
@@ -1723,7 +1727,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But they didn't have any expanding view as to the right of state to select its officials or agency by appointment rather than by election, is it?",
       "time": "00:56:07.58"
     },
@@ -1735,7 +1739,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But what -- our decisions under the First, Fourth, Fifth, Sixth, Seventh, and Eighth Amendments certainly represented expanding view?",
       "time": "00:56:26.56"
     },
@@ -1747,7 +1751,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let's see Mr. Morgan, is this an argument that the -- this expanding view has now given a narrower definition to what constitutes a Republican form of Government?",
       "time": "00:56:36.52"
     },
@@ -1759,7 +1763,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, was that -- what?",
       "time": "00:56:48.61"
     },
@@ -1771,7 +1775,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You have to (Voice Overlap) --",
       "time": "00:56:50.86"
     },
@@ -1783,7 +1787,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Tell me, was -- of course this doesn't have to but just a matter of curiosity. I -- was Georgia one of the states that was readmitted by a congressional statute?",
       "time": "00:56:56.41"
     },
@@ -1795,7 +1799,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And at that time I gather the Georgia Constitution had this provision in it at the time of readmission if that's the right the word --",
       "time": "00:57:06.88"
     },
@@ -1807,7 +1811,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it did succeed with a constitution which included this provision?",
       "time": "00:57:21.46"
     },
@@ -1819,7 +1823,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or a provision that dates 1824?",
       "time": "00:57:26.48"
     },
@@ -1831,7 +1835,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But now how -- when do you -- do you suppose Georgia was admitted -- readmitted as you would call it before or after the induction of the Fourteenth Amendment?",
       "time": "00:57:30.08"
     },
@@ -1843,13 +1847,13 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "When the --",
       "time": "00:57:43.76"
     },
     {
       "turn": 300,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "As an adoption appointee?",
       "time": "00:57:43.91"
     },
@@ -1861,7 +1865,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So here it was in -- Fourteenth Amendment is which -- is what you rely on? Was -- it was ratified at the same time as Georgia was being readmitted with this provision on its constitution?",
       "time": "00:57:46.87"
     },
@@ -1873,7 +1877,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but this is respect to a state now. This is respect state procedures not federal procedures.",
       "time": "00:58:07.13"
     },
@@ -1885,7 +1889,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And also I suppose the Senators were elected by state legislatures until 1912. And I gather the readmission, I forgot whether -- does it formally or not but when Congress admits or readmits a state, isn't there a judgment whether the submissions -- submitted form of Government constitutes a Republican form of Government for purposes of Article IV --",
       "time": "00:58:15.87"
     },
@@ -1897,7 +1901,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- that depends on whether we have any power to pass on what's a Republican form of -- or were that exclusively for the Congress (Inaudible)--",
       "time": "00:58:44.66"
     },
@@ -1909,7 +1913,7 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Whether Congress did -- does it readmit Georgia, did it not with considerable discretion?",
       "time": "00:58:55.91"
     },
@@ -1921,7 +1925,7 @@
     },
     {
       "turn": 312,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "As to the validity of the Constitution which is presented and accepted it as its constitution.",
       "time": "00:59:00.99"
     },
@@ -1933,7 +1937,7 @@
     },
     {
       "turn": 314,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I suppose you would argue that a state could not adopt the Parliamentary form of a Government.",
       "time": "00:59:08.48"
     },
@@ -1945,7 +1949,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now --",
       "time": "00:59:29.80"
     },
@@ -1957,7 +1961,7 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I'm sorry, -- I have a (Inaudible) book by Albert Perry cite the Constitution on the history of Georgia, I don't know whether it's a reliable book or not, I'm not familiar with it. But I'd tell you that Georgia was the fourth state in the nation to ratify the Constitution. It ratified it in 1788 and at that time I'm -- according to this book, the -- nothing of the electing of the Government was that the House, Lower House submitted a list of three names to the Senate and the Senate was to choose the Governor from that list. Do you have any information on this?",
       "time": "00:59:30.73"
     },
@@ -1969,7 +1973,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And I suppose that one of the --",
       "time": "01:00:29.69"
     },
@@ -1981,7 +1985,7 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- the questions that may or may not be relevant, I suppose that the Georgia Constitution contain that system today and suppose if that were challenged, what would be the impact if any of the Constitution of the United States on the validity of that system?",
       "time": "01:00:32.77"
     },
@@ -1993,7 +1997,7 @@
     },
     {
       "turn": 324,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now Mister. Mr. Morgan, you may continue your argument.",
       "time": "01:02:40.12"
     },
@@ -2005,7 +2009,7 @@
     },
     {
       "turn": 326,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Are they in the record?",
       "time": "01:03:36.73"
     },
@@ -2017,7 +2021,7 @@
     },
     {
       "turn": 328,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What did the judge make a decision on?",
       "time": "01:03:40.15"
     },
@@ -2029,7 +2033,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible) forgive me because I haven't asked you but really so much of this stiff like (Voice Overlap) --",
       "time": "01:04:49.49"
     },
@@ -2041,7 +2045,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- the state. You're not the one who argued that results permits the legislator to --",
       "time": "01:04:56.04"
     },
@@ -2053,7 +2057,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you suggest that it does?",
       "time": "01:05:03.43"
     },
@@ -2065,7 +2069,7 @@
     },
     {
       "turn": 336,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, if this area -- this is a new proceeding and the election is over, is there any constitutional question involved as to whether they can have the legislature elect a Governor?",
       "time": "01:06:01.05"
     },
@@ -2077,7 +2081,7 @@
     },
     {
       "turn": 338,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that -- what -- are you going to address yourself to that?",
       "time": "01:06:16.50"
     },
@@ -2089,7 +2093,7 @@
     },
     {
       "turn": 340,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In your own time then.",
       "time": "01:06:21.29"
     },
@@ -2101,7 +2105,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There was nothing misleading about it if it turns out that the District Court in this case was mistaken in their judgment, was it?",
       "time": "01:09:21.20"
     },
@@ -2113,7 +2117,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you mean that argument that the Court should suppose that you have any -- dig up all the campaign arguments that were made, you can hold the law unconstitutional on account of something -- somebody have seen it, an opinion?",
       "time": "01:09:48.16"
     },
@@ -2125,7 +2129,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But what is its relevance?",
       "time": "01:10:26.08"
     },
@@ -2137,7 +2141,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But you think that we could make Georgia spend the money to hold another statewide election?",
       "time": "01:10:42.36"
     },
@@ -2149,7 +2153,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That was -- they decided to do it.",
       "time": "01:11:00.05"
     },
@@ -2161,7 +2165,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did you argue it, pointed to a (Inaudible) holding that the federal constitution bars a state pass an election law to prevent write-in obtained in majority?",
       "time": "01:13:19.05"
     },
@@ -2173,7 +2177,7 @@
     },
     {
       "turn": 354,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, yes but the -- that's the state jurisdiction. -- are you pointing out that the fact is one of our -- what we could hold if we affirm it is that they can prevent or not prevent write-in votes?",
       "time": "01:13:40.04"
     },
@@ -2185,7 +2189,7 @@
     },
     {
       "turn": 356,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "By the Federal Constitution?",
       "time": "01:13:56.02"
     },
@@ -2197,7 +2201,7 @@
     },
     {
       "turn": 358,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In a state election?",
       "time": "01:14:09.85"
     },
@@ -2209,7 +2213,7 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Even if the state wants to have it?",
       "time": "01:14:11.96"
     },
@@ -2221,7 +2225,7 @@
     },
     {
       "turn": 362,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "There's no medicine, isn't it?",
       "time": "01:14:15.50"
     },
@@ -2233,7 +2237,7 @@
     },
     {
       "turn": 364,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's the State Constitution.",
       "time": "01:14:27.34"
     },
@@ -2245,7 +2249,7 @@
     },
     {
       "turn": 366,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, that's a different thing, I was talking about the federal.",
       "time": "01:14:29.20"
     },
@@ -2257,7 +2261,7 @@
     },
     {
       "turn": 368,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you -- did I understand you to say that he contended the voters were not misled in the general statewide election?",
       "time": "01:15:44.28"
     },
@@ -2269,7 +2273,7 @@
     },
     {
       "turn": 370,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What does he --",
       "time": "01:16:24.41"
     },
@@ -2281,7 +2285,7 @@
     },
     {
       "turn": 372,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- he discussed?",
       "time": "01:16:25.93"
     },
@@ -2293,7 +2297,7 @@
     },
     {
       "turn": 374,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Maybe they had more common sense -- knowledge about the election than the (Voice Overlap) --",
       "time": "01:17:40.81"
     },
@@ -2305,7 +2309,7 @@
     },
     {
       "turn": 376,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Bondurant.",
       "time": "01:20:03.66"
     },
@@ -2317,7 +2321,7 @@
     },
     {
       "turn": 378,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How many do you have Mr. Bondurant?",
       "time": "01:21:47.73"
     },
@@ -2329,7 +2333,7 @@
     },
     {
       "turn": 380,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And this -- and the notification is to what effect?",
       "time": "01:22:01.31"
     },
@@ -2341,7 +2345,7 @@
     },
     {
       "turn": 382,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what was it that the Attorney General mentioned earlier about to being some discrepancies in figures?",
       "time": "01:22:29.29"
     },
@@ -2353,7 +2357,7 @@
     },
     {
       "turn": 384,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But what you now have represent the final figures from these 158 counties together?",
       "time": "01:23:17.50"
     },
@@ -2365,7 +2369,7 @@
     },
     {
       "turn": 386,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There are -- were there absentee ballots?",
       "time": "01:24:02.84"
     },
@@ -2377,7 +2381,7 @@
     },
     {
       "turn": 388,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Inaudible)",
       "time": "01:24:07.72"
     },
@@ -2389,7 +2393,7 @@
     },
     {
       "turn": 390,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They are included?",
       "time": "01:24:28.14"
     },
@@ -2401,7 +2405,7 @@
     },
     {
       "turn": 392,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That law may I ask you is not in effect, is it if the old provisions of the Constitution, State Constitution is constitutional?",
       "time": "01:28:20.55"
     },
@@ -2413,7 +2417,7 @@
     },
     {
       "turn": 394,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It's true what the law would be if this other law is unconstitutional?",
       "time": "01:28:32.81"
     },
@@ -2425,7 +2429,7 @@
     },
     {
       "turn": 396,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "There's nothing wrong with these ages, right?",
       "time": "01:28:57.09"
     },
@@ -2437,7 +2441,7 @@
     },
     {
       "turn": 398,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It's been (Inaudible) the constitutional code, doesn't it?",
       "time": "01:29:02.00"
     },
@@ -2449,7 +2453,7 @@
     },
     {
       "turn": 400,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It would divide as in -- indicates there's something wrong. You don't think that this thing has been in the Constitution for 142 years was put there in order to constitute a device by the people of Georgia, their votes?",
       "time": "01:30:50.37"
     },
@@ -2461,7 +2465,7 @@
     },
     {
       "turn": 402,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you think those are unrepresented? What do you mean by that if you are taking up the argument that this is bad because the state legislature is malapportioned?",
       "time": "01:31:30.37"
     },
@@ -2473,7 +2477,7 @@
     },
     {
       "turn": 404,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, the majority of states have a provision in their constitution, do they not that in case of a tie, selection shall be by the legislative body?",
       "time": "01:32:43.62"
     },
@@ -2485,7 +2489,7 @@
     },
     {
       "turn": 406,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, do you claim that they have that right under the Constitution of the United States to elect – to provide for the election of the Governor by the legislative body if it wants to?",
       "time": "01:34:06.88"
     },
@@ -2497,7 +2501,7 @@
     },
     {
       "turn": 408,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "That were the basic changed made in 1824, wasn't it, because under your Constitution of 1798 as I understand Georgia history, the legislature at that time chose the Governor?",
       "time": "01:35:17.26"
     },
@@ -2509,7 +2513,7 @@
     },
     {
       "turn": 410,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do I understand that you are arguing (Inaudible) or for anything else. That is this Section 5 is constitutional. Georgia still -- Georgia law still authorize the election by the people under all circumstance and forbid the election by the state legislature?",
       "time": "01:35:53.38"
     },
@@ -2521,7 +2525,7 @@
     },
     {
       "turn": 412,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "As I remember our cases in this field, Reynold, Sims, Lucas, Gray and Sanders, they dealt with on a statewide election by the people, is that right?",
       "time": "01:36:36.19"
     },
@@ -2533,7 +2537,7 @@
     },
     {
       "turn": 414,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If the Federal Constitution forbids the election of a Governor by anything but the people, how low down would that government offices, statewide offices in your judgment?",
       "time": "01:37:22.56"
     },
@@ -2545,7 +2549,7 @@
     },
     {
       "turn": 416,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What about (Voice Overlap) states, they'd audit?",
       "time": "01:37:38.23"
     },
@@ -2557,13 +2561,13 @@
     },
     {
       "turn": 418,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is this important, important for him as an officer? It mean that we forbid under the Federal Constitution of command of federal law that a state shall not select its officer, its Governor by a legislative body?",
       "time": "01:38:01.86"
     },
     {
       "turn": 419,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I suppose our question goes different. I suppose our question is whether or not this legislative stage is a part of this general election that we have held must be one person, one vote.",
       "time": "01:38:17.74"
     },
@@ -2575,7 +2579,7 @@
     },
     {
       "turn": 421,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I would suggest that its not the only question? I would suggest the question whether a state a right whether the Federal Government forbids the state to elect its Governor by the legislative body?",
       "time": "01:38:32.68"
     },
@@ -2587,7 +2591,7 @@
     },
     {
       "turn": 423,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In order words, if the Constitution has changed and it is no longer that law of the Constitution if the states and the people of states have all the powers reserved to them except those that are expressly forbidden.",
       "time": "01:39:08.88"
     },
@@ -2599,7 +2603,7 @@
     },
     {
       "turn": 425,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But we have a more immediate question than that and that is what do you mean in -- all these cases by saying one person, one vote?",
       "time": "01:39:42.74"
     },
@@ -2611,7 +2615,7 @@
     },
     {
       "turn": 427,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I suppose we meant one person, one vote in an election by the people?",
       "time": "01:39:52.21"
     },
@@ -2623,7 +2627,7 @@
     },
     {
       "turn": 429,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That's the question is then -- is this a part of the election?",
       "time": "01:39:56.74"
     },
@@ -2635,7 +2639,7 @@
     },
     {
       "turn": 431,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But it hasn't gone back, it hasn't going back? It's following the law which had been the law since 1824?",
       "time": "01:40:19.21"
     },
@@ -2647,7 +2651,7 @@
     },
     {
       "turn": 433,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Counsel, do you remember when the Fourteenth Amendment was adopted, was it after 1824?",
       "time": "01:40:32.39"
     },
@@ -2659,7 +2663,7 @@
     },
     {
       "turn": 435,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But wouldn't that be the right place to do it if he was in Georgia?",
       "time": "01:41:27.78"
     },
@@ -2671,7 +2675,7 @@
     },
     {
       "turn": 437,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, you don't suggest counsel then that Georgia could not constitutionally have the election of a good Governor by the legislature without any popular votes?",
       "time": "01:42:04.45"
     },
@@ -2683,7 +2687,7 @@
     },
     {
       "turn": 439,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know -- I personally don't think it's such an abstract question and irrelevant. I would think if – that if Georgia could say, from the very outset, we're going to have the election of Governor for -- by the popular vote but if it say also, “Well, we're going to have it that way every other year. And then the off years, we're going to have them in the legislature.” We'll also say that if there's a -- that if it say we're going to have a popular election as long as there's a pure majority. And there isn't a fair majority or if there's a tie. Say, there's a tie, the legislature is going to do the job just like it always did. What about ties by the way, counsel?",
       "time": "01:42:32.65"
     },
@@ -2695,7 +2699,7 @@
     },
     {
       "turn": 441,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand that, --",
       "time": "01:43:21.60"
     },
@@ -2707,7 +2711,7 @@
     },
     {
       "turn": 443,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know you'd -- you wouldn't like to reach any of these questions and I take it, they're very relevant.",
       "time": "01:43:22.85"
     },
@@ -2719,7 +2723,7 @@
     },
     {
       "turn": 445,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In your runoff elections, if you won, what's your answer to all the people who -- write-in votes would be thrown away? What about there votes on a one man, one vote basis?",
       "time": "01:43:58.31"
     },
@@ -2731,7 +2735,7 @@
     },
     {
       "turn": 447,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You're just saying if they must vote for somebody they didn't want to vote for in the first place and don't want to vote for now. If they don't want to vote now, stay home. That's your only answer.",
       "time": "01:44:10.19"
     },
@@ -2743,13 +2747,13 @@
     },
     {
       "turn": 449,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Very good then.",
       "time": "01:44:32.26"
     },
     {
       "turn": 450,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is Republican Government?",
       "time": "01:44:34.16"
     },
@@ -2761,7 +2765,7 @@
     },
     {
       "turn": 452,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is a Republican Government? You said that and I just want to know what it is?",
       "time": "01:44:39.43"
     },
@@ -2773,7 +2777,7 @@
     },
     {
       "turn": 454,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That was your idea.",
       "time": "01:44:47.43"
     },
@@ -2785,7 +2789,7 @@
     },
     {
       "turn": 456,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But you referred to it as the -- to give you a Republican Government. Now, what is that?",
       "time": "01:44:56.97"
     },
@@ -2797,7 +2801,7 @@
     },
     {
       "turn": 458,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In other words, the right of the people to elect their Governor, that's what makes it a Republican Government?",
       "time": "01:45:36.97"
     },
@@ -2809,7 +2813,7 @@
     },
     {
       "turn": 460,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, how many times would they have to hold separate elections? Why should they stop with – just with the top two? Why shouldn't it stop to -- first have one head problem and then another head problem and another problem --",
       "time": "01:45:49.96"
     },
@@ -2821,7 +2825,7 @@
     },
     {
       "turn": 462,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- we have five or six elections --",
       "time": "01:46:02.92"
     },
@@ -2833,7 +2837,7 @@
     },
     {
       "turn": 464,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But why shouldn't you have if you got to accommodate everybody who's candidate -- people who wanted to vote for?",
       "time": "01:46:36.77"
     },
@@ -2845,7 +2849,7 @@
     },
     {
       "turn": 466,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Even though it's in a tie and can't get it going?",
       "time": "01:47:09.93"
     },
@@ -2857,7 +2861,7 @@
     },
     {
       "turn": 468,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You say then it requires at least two shots, you've got to take shots for the – before they could – that the sort – select the Governor in some other manner?",
       "time": "01:47:15.12"
     },
@@ -2869,7 +2873,7 @@
     },
     {
       "turn": 470,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's an equal protection question, one man, one vote.",
       "time": "01:49:19.43"
     },
@@ -2881,7 +2885,7 @@
     },
     {
       "turn": 472,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Whether to make this by a primary election, by election, a vote?",
       "time": "01:49:26.13"
     },
@@ -2893,7 +2897,7 @@
     },
     {
       "turn": 474,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They lost them when they failed to get a majority, isn't it?",
       "time": "01:50:51.86"
     },
@@ -2905,7 +2909,7 @@
     },
     {
       "turn": 476,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Because they don't get a majority?",
       "time": "01:50:57.62"
     },
@@ -2917,7 +2921,7 @@
     },
     {
       "turn": 478,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What you are saying is its unconscionable not to elect the Governor?",
       "time": "01:51:10.98"
     },
@@ -2929,7 +2933,7 @@
     },
     {
       "turn": 480,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose it is, if – does this Court had power to fasten its judgment on the people of Georgia to add to the Constitution a provision because they think its unconscionable not to elect the Governor, if they're going to hold this law in the constitution?",
       "time": "01:51:16.69"
     },
@@ -2941,7 +2945,7 @@
     },
     {
       "turn": 482,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "There's nothing wrong with this age, is there?",
       "time": "01:54:19.83"
     },
@@ -2953,7 +2957,7 @@
     },
     {
       "turn": 484,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It doesn't have the same constitution?",
       "time": "01:54:29.88"
     },
@@ -2965,7 +2969,7 @@
     },
     {
       "turn": 486,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "We've had the same federal concepts and you were here under federal laws.",
       "time": "01:54:35.32"
     },
@@ -2977,7 +2981,7 @@
     },
     {
       "turn": 488,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "01:54:42.63"
     },
@@ -2989,7 +2993,7 @@
     },
     {
       "turn": 490,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That is since 1868 or whatever that is, the adoption.",
       "time": "01:54:43.69"
     },
@@ -3001,7 +3005,7 @@
     },
     {
       "turn": 492,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- when they amended the Federal Constitution.",
       "time": "01:54:55.06"
     },
@@ -3013,13 +3017,13 @@
     },
     {
       "turn": 494,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "When the people amended and not this Court? And --",
       "time": "01:54:57.93"
     },
     {
       "turn": 495,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "We have Baker versus Carr.",
       "time": "01:55:00.19"
     },
@@ -3031,7 +3035,7 @@
     },
     {
       "turn": 497,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Baker versus Carr rely on the Equal Protection Clause of the Constitution as between -- discrimination between individuals who are allowed to vote in an election.",
       "time": "01:55:05.00"
     },
@@ -3043,7 +3047,7 @@
     },
     {
       "turn": 499,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Bondurant, you have this provision I gather in the Constitution in 1870 as I understand it would be. That time we have the Equal Protection Clause to them – that Congress passed the legislation readmitting Georgia?",
       "time": "01:55:27.31"
     },
@@ -3055,7 +3059,7 @@
     },
     {
       "turn": 501,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Bondurant maybe you could help me. What's your explanation as to why the legislature of Georgia passed this provision for a runoff election in the face of the constitutional provision was this in anticipation of the new Constitution which would not have had this election by the legislature?",
       "time": "01:56:48.71"
     },
@@ -3067,7 +3071,7 @@
     },
     {
       "turn": 503,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why?",
       "time": "01:57:13.70"
     },
@@ -3079,7 +3083,7 @@
     },
     {
       "turn": 505,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it seems to us -- it seems to assume of course that it was necessary to change the constitutional provision in order to -- for them to be permitted to pass the runoff provisions.",
       "time": "01:58:05.59"
     },
@@ -3091,7 +3095,7 @@
     },
     {
       "turn": 507,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But until then there was no provision for a runoff for a Governor?",
       "time": "01:58:33.61"
     },
@@ -3103,7 +3107,7 @@
     },
     {
       "turn": 509,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Bondurant, the three-judged court enjoined the submission on that new Constitution of the electorate, is it not?",
       "time": "01:58:54.40"
     },
@@ -3115,7 +3119,7 @@
     },
     {
       "turn": 511,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the whole new -- I'm a little vague about this but didn't that issue come here?",
       "time": "01:59:10.26"
     },
@@ -3127,7 +3131,7 @@
     },
     {
       "turn": 513,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, we had taken -- if we advance that case, maybe you wouldn't be here today, isn't it?",
       "time": "02:00:00.30"
     },
@@ -3139,7 +3143,7 @@
     },
     {
       "turn": 515,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that -- what would you – do you suppose the legislature would be discharging its powers under the Constitution or its authority of it – itself, all the runoff election?",
       "time": "02:00:28.15"
     },
@@ -3151,7 +3155,7 @@
     },
     {
       "turn": 517,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Did you come across any explanation as to why 1824 amendment says that the General Assembly has to elect the Governor viva voce?",
       "time": "02:01:33.46"
     },
@@ -3163,7 +3167,7 @@
     },
     {
       "turn": 519,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "If there's any particular reason to become -- as justifying that?",
       "time": "02:01:48.85"
     },
@@ -3175,7 +3179,7 @@
     },
     {
       "turn": 521,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible) that plan were the purposes of election of the 1966 collegium?",
       "time": "02:03:31.29"
     },
@@ -3187,7 +3191,7 @@
     },
     {
       "turn": 523,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Hill.",
       "time": "02:05:09.19"
     },
@@ -3199,13 +3203,13 @@
     },
     {
       "turn": 525,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It's to preserve --",
       "time": "02:05:47.99"
     },
     {
       "turn": 526,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I mean it's the offset from a secret ballot?",
       "time": "02:05:48.23"
     },
@@ -3217,7 +3221,7 @@
     },
     {
       "turn": 528,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well what if he can't make up his mind?",
       "time": "02:06:29.59"
     },
@@ -3229,7 +3233,7 @@
     },
     {
       "turn": 530,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Justice?",
       "time": "02:09:13.03"
     },
@@ -3241,7 +3245,7 @@
     },
     {
       "turn": 532,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Hill is this -- do you think this is any different kind of a question that if some citizens came in and the -- wanted to enjoin the submission of a new Constitution to the people? And if you -- and one of them enjoined because the legislature was malapportioned and couldn't – be permitted to engage in these fundamental kinds of legislative act?",
       "time": "02:10:20.45"
     },
@@ -3253,7 +3257,7 @@
     },
     {
       "turn": 534,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did we set that order in time or no?",
       "time": "02:10:57.95"
     },
@@ -3265,7 +3269,7 @@
     },
     {
       "turn": 536,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How about -- what about -- is the order outstanding?",
       "time": "02:11:04.51"
     },
@@ -3277,7 +3281,7 @@
     },
     {
       "turn": 538,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The federal courts around the country have said that well, we'll permit an election to proceed or will let the legislature sit pending the election of a better one. But meanwhile if there are certain acts that it may doom, certainly that – it may not doom, federal courts have said that?",
       "time": "02:11:14.83"
     },
@@ -3289,7 +3293,7 @@
     },
     {
       "turn": 540,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, others have said it.I'll -- then --",
       "time": "02:11:42.26"
     },
@@ -3301,7 +3305,7 @@
     },
     {
       "turn": 542,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You would say that -- you would say that this malapportioned legislature will do anything a legislature can do?",
       "time": "02:11:46.41"
     },
@@ -3313,7 +3317,7 @@
     },
     {
       "turn": 544,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And it would be improper for a Court to restrict its activities in any event, in any respect.",
       "time": "02:11:56.92"
     },
@@ -3325,7 +3329,7 @@
     },
     {
       "turn": 546,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What about a new Constitution?",
       "time": "02:12:51.74"
     },
@@ -3337,7 +3341,7 @@
     },
     {
       "turn": 548,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "He must have had some help, he didn't do that all by himself?",
       "time": "02:14:02.15"
     },
@@ -3349,7 +3353,7 @@
     },
     {
       "turn": 550,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What is the difference in theory between this system that you're defending in the county unit system? Suppose that the Constitution in Georgia provided in any event that the voters did not cast the majority of the votes for statewide office for a particular candidate? Then the winner will be selected on the basis of a county unit vote tabulated in the form of county units, is it your contention that that would be valid? Or then it would be under the Federal Constitution invalid? What is it, that they submit --",
       "time": "02:14:08.53"
     },
@@ -3361,7 +3365,7 @@
     },
     {
       "turn": 552,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Then you have to abandon your earlier argument that this theory, this election by the legislature is not a part of the general election?",
       "time": "02:15:08.44"
     },
@@ -3373,7 +3377,7 @@
     },
     {
       "turn": 554,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But then, who does it then whether it's a legislature or other county Governments who select in case of --?",
       "time": "02:15:30.57"
     },
@@ -3385,7 +3389,7 @@
     },
     {
       "turn": 556,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I suppose you counted alright, let's take that then. Let's take a variant of it. Let's suppose you counted the votes of the Georgia legislature, waited on the county basis which would be possible as practical matter. Then were to say voters don't cast the majority votes for any particular candidate that then goes to the legislature. The legislators vote as between the top two candidates. The vote of the legislators is counted on a county unit system and waited in the accordance with the old Georgia system.",
       "time": "02:15:53.47"
     },
@@ -3397,7 +3401,7 @@
     },
     {
       "turn": 558,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, that's -- it seems to me that that's the logic of it that Gray against Sanders would apply. Now, the only difference here is that you have a legislature which is voting on a one legislator, one vote basis, is that right?",
       "time": "02:16:57.36"
     },
@@ -3409,7 +3413,7 @@
     },
     {
       "turn": 560,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That's the only difference.",
       "time": "02:17:16.39"
     },
@@ -3421,7 +3425,7 @@
     },
     {
       "turn": 562,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, the Constitution provides that the Governor in these circumstances would -- can be selected from the top two candidates on the basis of a majority of the legislators present in voting, is that right?",
       "time": "02:17:18.39"
     },
@@ -3433,7 +3437,7 @@
     },
     {
       "turn": 564,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So that you can have that number of the person in voting as to constitute a forum which I assume is a majority.",
       "time": "02:17:38.24"
     },
@@ -3445,7 +3449,7 @@
     },
     {
       "turn": 566,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So you could have a majority of a majority. The legislators which were -- could certainly be a minority of the population, in fact even a majority an absolute majority. The legislators could represent a minority and of the population on the voters of your state.",
       "time": "02:17:49.07"
     },
@@ -3457,7 +3461,7 @@
     },
     {
       "turn": 568,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And particularly isn't that true in view of what is a present malapportionment of a legislator -- of a legislature.",
       "time": "02:18:11.54"
     },
@@ -3469,7 +3473,7 @@
     },
     {
       "turn": 570,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But the --",
       "time": "02:18:37.11"
     },
@@ -3481,7 +3485,7 @@
     },
     {
       "turn": 572,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes.",
       "time": "02:18:39.97"
     },
@@ -3493,13 +3497,13 @@
     },
     {
       "turn": 574,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "This is a part of the general election, they are.",
       "time": "02:18:41.92"
     },
     {
       "turn": 575,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I would suppose you would have said in answer Mr. Justice Fortas' question to this being separate, wholly separate from the electoral part of this that the legislature could -- that the Georgia could provide that the votes in the legislature be cast at any basis of its Constitution to this?",
       "time": "02:18:45.86"
     },
@@ -3511,13 +3515,13 @@
     },
     {
       "turn": 577,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that's --",
       "time": "02:19:09.36"
     },
     {
       "turn": 578,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's what we're talking about? Could they have provided that the Governor be chosen by lot destroying -- destroying it by breaking the tie by lot?",
       "time": "02:19:09.74"
     },
@@ -3529,7 +3533,7 @@
     },
     {
       "turn": 580,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Kentucky does it? Is there anything unconstitutional about that? I don't see why you're so ready --",
       "time": "02:19:20.86"
     },
@@ -3541,7 +3545,7 @@
     },
     {
       "turn": 582,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- to concede with all respect to argument to your answer to Mr. Justice Fortas?",
       "time": "02:19:28.16"
     },
@@ -3553,7 +3557,7 @@
     },
     {
       "turn": 584,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So you're not suggesting that the legislature is acting here in any capacity other than as a legislature, are you?",
       "time": "02:20:10.02"
     },
@@ -3565,7 +3569,7 @@
     },
     {
       "turn": 586,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "In other words, you're not suggesting that the legislature here is exercising delegated -- their powers on the basis of a collegium or something like that?",
       "time": "02:20:19.71"
     },
@@ -3577,7 +3581,7 @@
     },
     {
       "turn": 588,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Its acting as the representatives of the people of the state, isn't that right?",
       "time": "02:20:32.82"
     },
@@ -3589,7 +3593,7 @@
     },
     {
       "turn": 590,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So that when you view the legislature is acting in that capacity perhaps their answer to me is correct and you do run into the Gray against Sanders problem. At least in a hypothetical situations when I put the --",
       "time": "02:20:39.55"
     },
@@ -3601,19 +3605,19 @@
     },
     {
       "turn": 592,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean to satisfy Gray you have to have three governors?",
       "time": "02:23:03.80"
     },
     {
       "turn": 593,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That's possible with each one of them having power proportionate to the number of votes which they received in the general election. We do appreciate the time of the Court. Thank you.",
       "time": "02:23:11.67"
     },
     {
       "turn": 594,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Okay.",
       "time": "02:23:23.21"
     }

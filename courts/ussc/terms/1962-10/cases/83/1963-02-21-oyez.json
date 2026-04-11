@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1962/83/19630221a_83.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ARTHUR J. GOLDBERG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
       },
       {
         "name": "PHILIP PRICE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GOLDBERG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ARTHUR R. LITTLETON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LEE LOEVINGER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- United States, appellant versus the Philadelphia National Bank Et Al. Mr. Price you may continue your argument.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:07:02.26"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "As I -- Mr. Price, I understood Judge Loevinger's point about the three banks, it was this, that this merger would result in one bank having about a third of the business in this four-county area and if that was right for these two banks, then it would be right for other banks. So you would end up with three banks in the four-county area, Philadelphia, assuming that the banks wanted to merge.",
       "time": "00:07:28.87"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "With the three bank point as I understood it?",
       "time": "00:07:57.53"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I suppose there are some communities, small communities in the nation where there is only one bank --",
       "time": "00:08:20.82"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:09:00.81"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:09:15.59"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:10:05.72"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:10:38.15"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:11:38.68"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Price, is there any evidence of exactly how many of these larger loans were lost in New York or Dallas or other banks?",
       "time": "00:12:44.09"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I mean these executives who testified?",
       "time": "00:12:58.98"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Could you clear up for me a question I asked Judge Loevinger yesterday, what's the significance of 36 out of area loans over $1 million?",
       "time": "00:13:23.10"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But I wonder does it mean that the Philadelphia banks now do attract the borrowers from some distance from the four-county area?",
       "time": "00:14:13.48"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That is not only for using local four-county businesses, but --",
       "time": "00:14:24.84"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It might be business in the Detroit area.",
       "time": "00:14:29.80"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I mean outside the four-county were used with businesses outside.",
       "time": "00:14:38.80"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Not the borrowers who may have offices outside the area, but clients within the area.",
       "time": "00:14:45.79"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well then, I gather, is it the hope that if the merger were approved, the larger loan limits would attract even more of this business from outside the area?",
       "time": "00:15:04.13"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, from that kind of business who but the banks would profit in the Philadelphia area?",
       "time": "00:15:41.23"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It would attract more deposits from those borrowers?",
       "time": "00:15:51.79"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You might hope that it would attract larger deposits from these borrowers of larger loans?",
       "time": "00:15:56.54"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's of some significance [Inaudible]",
       "time": "00:18:11.31"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I was wondering if this merger is permitted, would the argument that you are making today also apply in the event of this new merged bank sought to merge with the next largest bank in Philadelphia.",
       "time": "00:18:42.27"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, wouldn't there still be larger banks in New York that could loan still more money?",
       "time": "00:19:16.30"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Why wouldn't the same argument apply then if you took a next biggest bank?",
       "time": "00:19:23.06"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Why not if there is no area there in around Philadelphia, those four-counties don't constitute in the area, when you are in competition with New York, why couldn't you make the same argument to take the next biggest bank and then the next one after that?",
       "time": "00:19:47.48"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I thought you –",
       "time": "00:20:17.58"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I thought you said a little while ago that a third of your business was commercial business was outside of --",
       "time": "00:20:19.10"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:21:22.78"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Why?",
       "time": "00:21:59.04"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:22:53.87"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:27:15.75"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:27:45.83"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:28:21.73"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:28:31.62"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:28:48.45"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:29:07.66"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you one question relevant to that argument --",
       "time": "00:31:07.06"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Just as to the thrust of it? Are you -- is your argument that the new act of Congress repealed the Clayton Act insofar that it applies to banks?",
       "time": "00:31:10.09"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I mean the sections which you refer --",
       "time": "00:31:30.01"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "00:31:33.81"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You did not say that it didn't repeal the Sherman Act to that extent?",
       "time": "00:31:49.68"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Well, then what was the objection of the Federal Reserve Bank?",
       "time": "00:33:05.87"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Well, what -- is there a report in the record, I glanced through it and it's so large and [Inaudible] I was not able to find it. I wondered if there is a copy in the record?",
       "time": "00:33:52.47"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Yes.",
       "time": "00:34:06.34"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "You know the page [Inaudible] --",
       "time": "00:34:10.50"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "You probably would give it to me.",
       "time": "00:34:12.49"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:36:11.55"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's the page.--",
       "time": "00:36:25.89"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "28.",
       "time": "00:36:28.18"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Could you just say in a sentence and the fact what was the Federal Reserve report?",
       "time": "00:36:30.05"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "An adverse effect.",
       "time": "00:36:40.71"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "As you indicated is, there is no competitive disadvantage, would you mind telling us why the -- or what the Federal Reserve Bank said made it anti competitive?",
       "time": "00:36:46.97"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You say you'd judge that -- is that what they said?",
       "time": "00:37:13.15"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I gather these advisory -- are they ever conceded by their –-",
       "time": "00:38:28.95"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But they did not.",
       "time": "00:38:47.64"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:38:50.51"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:39:00.89"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:39:07.90"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:39:24.70"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:39:35.01"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:39:45.35"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:39:52.97"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:39:57.60"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:40:16.11"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:40:32.75"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:41:15.94"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Littleton, I'd like to ask you just one question about the Federal Insurance Deposit Corporation, did they express an opinion?",
       "time": "00:42:54.12"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible] [Laughter]",
       "time": "00:44:50.25"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you agree that he could ask the witness or just assuming the witness would tell us on some of the cities and say has this concentration in this bank reduce competition, and just asking that as a conclusion --",
       "time": "00:48:54.49"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How is he going to prove it?",
       "time": "00:49:11.39"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Isn't it always a question in an antitrust case? I'm asking because I just want to view as to whether -- to what extent competition has been reduced? Does it not necessarily follow that if you had 50 banks in a place and you suddenly merged all of them but six, the competition would be reduced whether anybody said it or not?",
       "time": "00:49:37.50"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well I understand it is not -- it's always a question of how many?",
       "time": "00:50:03.92"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And of course, that's the way it always starts and if you have -- how low do you get before it becomes the --",
       "time": "00:50:07.79"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I would have to say that it is unreasonable, well that's the problem.",
       "time": "00:50:15.58"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I'm not saying it is easy.",
       "time": "00:50:19.10"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose not?",
       "time": "00:50:27.02"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Maybe someone that knows something about these cities, who has lived in them or does live in them would know pretty well from having lived there or something, well that gave that bank [Inaudible] kind of runs that.",
       "time": "00:50:29.29"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "[Inaudible]",
       "time": "00:50:55.30"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "He favored it, didn't he? He favored reducing the number of banks, didn't he?",
       "time": "00:51:12.89"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, what did he said about competition?",
       "time": "00:51:18.05"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, he was a lender, not a borrower?",
       "time": "00:51:28.67"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I would say that --",
       "time": "00:51:42.82"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I would say that a banker would be sophisticated enough to know that we can reduce the number of lenders that he had to compete with, but he would have a more -- it would be easier for him to --",
       "time": "00:51:44.18"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "[Inaudible] he wanted.",
       "time": "00:51:54.63"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did he say anything about lenders, about borrowers?",
       "time": "00:52:15.99"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You would agree here that they would at some point at which it would have an effect on competition, wouldn't it?",
       "time": "00:52:46.44"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's right.",
       "time": "00:52:55.60"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That would be somewhat wouldn't it, like getting one of the automobile manufacturers and process where they -- being reduced from year-to-year, one of them to testify that he wasn't hurt by the fact that the competition was being reduced to fewer and fewer businesses.",
       "time": "00:53:39.60"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I'm asking you these questions, because I realize the difficulty of [Inaudible].",
       "time": "00:54:09.20"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How you prove it?",
       "time": "00:54:15.08"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Whether you have to have evidence and if so, what evidence?",
       "time": "00:54:16.75"
     },
@@ -1163,13 +1163,13 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well –-",
       "time": "00:54:40.80"
     },
     {
       "turn": 188,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I'm looking at page 18 and I notice that the one with the lowest concentration in any of these 110 cities is the one that you [Inaudible]",
       "time": "00:54:41.53"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But there is no one over 21% there and you already have 36%.",
       "time": "00:55:00.54"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, then if that doesn't have any affect on you, why do the rest of these figures or why are they so important that the New York --",
       "time": "00:55:11.60"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The New York figure that is your greatest competitor you say, the one that is taking all your business away doesn't have more than 21% concentration in any one of its biggest banks, why then do these others that have different percentages help you?",
       "time": "00:55:19.93"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Chicago only has 25?",
       "time": "00:55:59.44"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May it not be true, I realize the force of your argument, but look at Gary, Indiana, 88 and four-tenths of a percent, do you need much proof there to think that they might be [Inaudible]",
       "time": "00:56:53.71"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "From Gary, Indiana?",
       "time": "00:57:13.88"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "88 and four-tenths of a percent. What do they say about Gary? What is the population of Gary?",
       "time": "00:57:16.70"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did that include Gary?",
       "time": "00:57:57.27"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I would think if these figures might indicate to me that it has drawn influence that maybe the comptrollers has not been controlling them much, if they then done this by merger, if they've done this by merger -- [Laughter]",
       "time": "00:58:01.98"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's one on the list you showed me.",
       "time": "00:58:19.83"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Littleton is there any evidence in the record or the reaction of the other Philadelphia banks in this view?",
       "time": "00:58:38.66"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:59:10.87"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:59:13.58"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Mr. Littleton I understand [Inaudible] there is no controversy [Inaudible] in relevant market?",
       "time": "00:59:21.21"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "I take it then we should consider the four counties as relevant?",
       "time": "01:00:26.38"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well Mr. Littleton well if that is -- we can accept the premise that the market in the four county area, does that now hold at least for the Sherman Act problem we have decide, the issue be reasonable?",
       "time": "01:00:55.50"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I know, but why should we, if Judge Clary and you argue it here on the premise without quarrelling over it, why shouldn't we approach the decision and if we did then would we have to decide anything except the issues reasonably?",
       "time": "01:01:25.54"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Loevinger.",
       "time": "01:01:54.59"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you before you start?",
       "time": "01:01:58.92"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you agree that Section 7 of the Clayton Act does not apply to bank?",
       "time": "01:02:02.30"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I didn't understand the statement made, but you said that [Inaudible] just everybody knew that Section 7 didn't apply to banks.",
       "time": "01:02:36.93"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "[Inaudible]",
       "time": "01:02:45.17"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Loevinger if you are right. If your argument in the brief is right, certainly it's a different problem, isn't it, that Section 7 applies? [Inaudible] very different --",
       "time": "01:03:00.09"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, why discuss the other then?",
       "time": "01:03:17.93"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why discuss the other four under Section 7. I don't understand?",
       "time": "01:03:20.24"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But if we agree with your position then certainly the tendency too is a very different test.",
       "time": "01:03:31.25"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are you raising your claims under 7?",
       "time": "01:04:12.62"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You find the Sherman Act question [Inaudible]",
       "time": "01:04:17.00"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:04:37.90"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible] figures and you are asking us to overrule findings of the district court made [Inaudible] both sides?",
       "time": "01:05:04.83"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible] stand in this Court, it seems to me asking us to overturn findings made by the district court not on the basis of [Inaudible]",
       "time": "01:05:38.44"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "[Inaudible] he ever borrowed any money and [Inaudible]",
       "time": "01:06:22.53"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:14:01.45"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 256,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:14:12.23"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 258,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:14:35.84"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand that [Inaudible]",
       "time": "01:14:58.92"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:15:23.59"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is the percentage of the next largest bank?",
       "time": "01:16:16.86"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What you have is a combination of the two largest banks, is that it?",
       "time": "01:16:50.11"
     },
@@ -1649,7 +1649,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "This will leave two large banks.",
       "time": "01:17:11.94"
     },
@@ -1661,7 +1661,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How does that figure -- what's the relative figure or percentage?",
       "time": "01:17:16.78"
     },
@@ -1673,7 +1673,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's understandable with evidence of some of these other Philadelphia banks that this would be a good thing both for them and for their customers, is that it?",
       "time": "01:17:33.47"
     },
@@ -1685,7 +1685,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Was there any specific fact finding by Judge Clary on this subject?",
       "time": "01:18:22.21"
     },
@@ -1697,7 +1697,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did anyone of them testify that increased competition to the extent that the banks from which this man was testifying might have to lend money at a lower rate?",
       "time": "01:18:33.14"
     },
@@ -1709,7 +1709,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Would you agree -- I think Mr. Price told us, it couldn't have any effect on rates.",
       "time": "01:18:50.44"
     },
@@ -1721,7 +1721,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Maybe be I misunderstood Mr. Price?",
       "time": "01:18:57.85"
     },
@@ -1733,7 +1733,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What is the fact among the Philadelphia banks today, they all charge the same rates or?",
       "time": "01:19:20.82"
     },
@@ -1745,7 +1745,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:20:50.99"
     },
@@ -1757,7 +1757,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:20:53.22"
     },
@@ -1769,7 +1769,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:21:02.71"
     },
@@ -1781,7 +1781,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:21:21.90"
     },
@@ -1793,7 +1793,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:21:28.51"
     },
@@ -1805,7 +1805,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:21:44.16"
     },
@@ -1817,7 +1817,7 @@
     },
     {
       "turn": 296,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I ask you a question?",
       "time": "01:22:29.70"
     },
@@ -1829,7 +1829,7 @@
     },
     {
       "turn": 298,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You said yesterday [Inaudible]",
       "time": "01:22:30.94"
     },
@@ -1841,7 +1841,7 @@
     },
     {
       "turn": 300,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:22:39.60"
     },
@@ -1853,7 +1853,7 @@
     },
     {
       "turn": 302,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:23:28.33"
     },
@@ -1865,7 +1865,7 @@
     },
     {
       "turn": 304,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:23:36.40"
     },
@@ -1877,7 +1877,7 @@
     },
     {
       "turn": 306,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible] the effect on competition is pertinent?",
       "time": "01:23:51.35"
     },
@@ -1889,7 +1889,7 @@
     },
     {
       "turn": 308,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And those findings [Inaudible]",
       "time": "01:24:00.04"
     },
@@ -1901,7 +1901,7 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You mean in effect, we are going to have to struggle harder to hang on to what we have got?",
       "time": "01:25:04.17"
     },

@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1978/78-753/19790418a_78-753.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "EUGENE K. CONNORS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "STANLEY M. STEIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in 753, Great American Federal Savings and Loan Association against Novotny. Mr. Connors, I think you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I didn't quite follow your argument but I didn't read your Court of Appeals opinion is going quite that far, did you?",
       "time": "00:08:22.31"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "(Voice Overlap) the word equal in that.",
       "time": "00:08:29.10"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But does anybody ask us to do that?",
       "time": "00:08:44.26"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But what if we draw the line of to be the kind of thing that would be bad if it were done by a state agency in violation of Equal Protection Clause something like that, and that's sort of the thrust of what they say I think.",
       "time": "00:08:57.00"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "We realize the opinions here but we're passing on the judgments only.",
       "time": "00:09:29.83"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, wouldn't the Third Circuit's answer to that be that with respect to all persons employed by employers are 15 or more persons, it is a right to equal treatment?",
       "time": "00:13:18.03"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Two?",
       "time": "00:16:04.17"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought it was three or more (Inaudible)?",
       "time": "00:16:07.75"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Alright, I mean, it's not important to me I am --",
       "time": "00:16:14.97"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "(Inaudible)",
       "time": "00:16:18.51"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Would you -- suppose you would have needed the 1985 (3) at all in the Griffin case against Breckenridge? Couldn't the suits been brought directly under the -- since it has been brought directly asserting rights under the Thirteenth Amendment and the constitutional right to travel under state?",
       "time": "00:17:52.99"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I know it's not otherwise assertable. Look at the Bivens case, for example. Do you -- familiar with that case?",
       "time": "00:18:29.43"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, yes, yes. And that was a direct action under the jurisdictional -- general jurisdiction statute 1331, I guess.",
       "time": "00:18:39.78"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, but it was a direct action under a right directly given protection by the Fourteenth Amendment.",
       "time": "00:18:50.36"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That case is the Fourth Amendment.",
       "time": "00:19:00.35"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You're talking about rights conferred by the federal constitution?",
       "time": "00:19:05.09"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And among those rights is the Thirteenth Amendment right of Negroes that have to be treated differently from other people and the right of everybody to travel interstate without interference. Now those are two clearly established constitutional rights. Couldn't an action been brought in the Griffin case without invocation of 1985 (3).",
       "time": "00:19:09.70"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why? Because neither one of those involves or require a state deprivation. It's deprivation by anybody. The Thirteenth Amendment abolishes involuntary servitude and it doesn't say that the private people can carry on involuntary servitude after that but only the states are prohibited from doing it. And the interstate right to trouble is a right assertable against anybody not just against government.",
       "time": "00:19:36.16"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, then --",
       "time": "00:20:09.67"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you agree regardless that did research on that period that she didn't know what was going on when one man will say yes today and say no tomorrow and sometimes the same afternoon.",
       "time": "00:21:17.05"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "(Voice Overlap) When you could do it would be to measure it and putting it on two sides and how many times you said yes and how many times you said no?",
       "time": "00:21:28.94"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That court said so in the Brown case?",
       "time": "00:21:43.99"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Connors, do you take the view or do you believe that the two sections which are now 1983 and 1985 (3) protect the same bundle of rights?",
       "time": "00:22:12.01"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you're arguing that the party so injured language narrows the statute, I should think you would have argued that the plaintiff being male was not a member of the class that was injured but you didn't make that argument.",
       "time": "00:23:20.07"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, they really weren't persuaded by anything else.",
       "time": "00:23:41.05"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They also weren't persuaded by what I want to be mine.",
       "time": "00:23:55.65"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Connors, you haven't quite said it or if you have, I missed it. But is it in your position not that in some that 1985 (3) protects or authorizes the assertion only of constitutional rights, not statutory rights?",
       "time": "00:25:16.60"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Even if the statute is certainly passed to enforce the Constitution?",
       "time": "00:25:40.18"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Okay.",
       "time": "00:25:49.27"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "(Voice Overlap) expressly to enforce to stop the Constitution?",
       "time": "00:25:50.66"
     },
@@ -415,19 +419,19 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now.",
       "time": "00:26:00.25"
     },
     {
       "turn": 64,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you said --",
       "time": "00:26:00.68"
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- where do you say the statute says that? Excuse me.",
       "time": "00:26:00.70"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, nobody (Voice Overlap) --",
       "time": "00:27:02.57"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "-- that they had any censorship before the Fourteenth Amendment.",
       "time": "00:27:03.76"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Nobody had censorship before the Fourteenth Amendment.",
       "time": "00:27:07.66"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well at that time, a woman would insist? At least she couldn't vote.",
       "time": "00:27:16.50"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If a native born female would come under the stat -- the constitutional definition of the Fourteenth Amendment of a citizen.",
       "time": "00:27:30.26"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:27:38.35"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So if it's true, of course that Griffin versus Breckenridge did involve only constitutional rights to specific rights --",
       "time": "00:27:40.58"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And Collins against Hardyman involve an asserted constitutional right (Voice Overlap) --",
       "time": "00:27:49.77"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- right to petition? (Inaudible)",
       "time": "00:27:55.94"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right of (Voice Overlap) --",
       "time": "00:27:58.26"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right and that was it. So your submission is that 1985 (3) authorizes lawsuits only to protect only rights conferred by the Constitution?",
       "time": "00:28:00.40"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not by this Court.",
       "time": "00:28:40.55"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not by the respondent in this case?",
       "time": "00:28:42.59"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's what he tells us at the outset.",
       "time": "00:28:56.51"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired counsel.",
       "time": "00:31:26.60"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Stein.",
       "time": "00:31:33.33"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Stein, may I just interrupt with one question?",
       "time": "00:33:23.95"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You have alternative theories in the District Court one under Title VII and one other 1985 (3).",
       "time": "00:33:26.54"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you prove the facts you're just describing to us, you presume we would recover under Title VII, do you need to prove any less to recover under 1985 (3)? Is there any difference in the evidence that has to be presented by you to recover under one rather than the other?",
       "time": "00:33:32.27"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would you have proved that in order to recover against him for the man under Title VII? Don't you have to prove precisely the same thing?",
       "time": "00:34:05.76"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What do you mean by discriminatory animus?",
       "time": "00:34:38.76"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They have to prove their motive and sort of an evil motive against women?",
       "time": "00:34:58.78"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But you don't have to prove that on the Title VII case?",
       "time": "00:35:03.66"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The Title VII (Voice Overlap) --",
       "time": "00:35:07.24"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- is the easier of the two?",
       "time": "00:35:08.64"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Then why are you pursuing this one?",
       "time": "00:35:11.56"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In other words, the difference is you cannot hold the individuals responsible under Title VII?",
       "time": "00:35:28.49"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, under your theory of the case and assume you proved everything you have alleged.",
       "time": "00:35:38.32"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think the remedy is greater under Title -- 1985 (3)?",
       "time": "00:35:50.88"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What in the statute is your greater remedy? I don't see much in your --",
       "time": "00:35:55.12"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, in a word, do you think 1985 (3) provides a greater remedy than Title VII?",
       "time": "00:36:25.05"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I see.",
       "time": "00:36:38.83"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Stein, am I wrong in thinking that titles have the right -- you say it is created by Title VII is the substantive right which you are seeking to enforce under 1985?",
       "time": "00:36:43.07"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Certainly, that's what the Third Circuit said?",
       "time": "00:37:16.26"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, no one is challenging this Title VII remedy here. The question is whether the Title VII right is one that can be enforced not only under the Title VII procedure setup in 64 but it's also a subject to the procedures provided in 1985 (3).",
       "time": "00:37:34.28"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you agree then that your client could not vote directly to court as soon as the claim retaliation took place under 1985 (3) but would first have to go to the EEOC?",
       "time": "00:39:51.42"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But those who want who could assert on that?",
       "time": "00:40:08.90"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What's your -- the right that you're asserting in this case when you said Third Circuit that was the Title VII right?",
       "time": "00:41:03.84"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That you were using and --",
       "time": "00:41:11.93"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Voice Overlap) we're only assuming on the Title VII would have to wait for your right to sue letter, wouldn't you?",
       "time": "00:41:16.95"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But -- you suggest that you don't -- in order to enforce your Title VII right you don't need to wait at all if you just use 1985 (3)?",
       "time": "00:41:25.43"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And what statute -- just indicated you didn't have to wait.",
       "time": "00:41:37.04"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh, I know but you -- but your 1985 (3) suit in this case, I thought you conceded was to enforce Title -- your Title VII right?",
       "time": "00:41:50.04"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The substantive right that you're using 1985 (3) to enforce is your Title VII?",
       "time": "00:42:01.87"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There was a conspiracy to violate Title VII and your client --",
       "time": "00:42:16.15"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- was injured thereby.",
       "time": "00:42:19.93"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Connors, you have covered the signals there with your pad.",
       "time": "00:42:43.03"
     },
@@ -1003,19 +1007,19 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have your first signal.",
       "time": "00:42:47.17"
     },
     {
       "turn": 162,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It doesn't work.",
       "time": "00:42:49.14"
     },
     {
       "turn": 163,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Mr. Connors or Mr. Stein rather, the right -- Title VII right that you assert is it the same right that in 1985 (3) case is it would be in the Title VII case. The thing I'm trying to figure out is, is there a difference in the intent requirement in the 1985 (3) case? And if there is, does that indicate there is a difference in the substantive rule you seek to enforce?",
       "time": "00:42:50.12"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, you have to show it under the agreement the conspiracy though that got some mental element, hasn't it?",
       "time": "00:43:35.66"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "To violate Title VII though.",
       "time": "00:43:47.98"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "To deprive him of a Title VII right?",
       "time": "00:43:51.08"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Title VII?",
       "time": "00:44:06.41"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Title VII, so, -- okay. If they have to intend and --",
       "time": "00:44:07.42"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- deprive him of Title VII rights.",
       "time": "00:44:10.31"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, but I still don't think you've answered my question. I mean, we sure are trying to get it out as clearly as I can. Supposing the directors all agreed that their experiences that women are not as effective workers as men and maybe they're wrong and they have scary type views. But they just think women shouldn't be paid as much so they pay him 10% less. But they do it in good faith because they think they're not good employees. Is that a violation of Title VII? Yes.",
       "time": "00:44:12.22"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it a violation of 1985 (3)?",
       "time": "00:44:34.65"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why not then?",
       "time": "00:44:39.25"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "When they say -- we think this is in the interest of the company, it will save us money and women are (Inaudible); that violates 1985 --",
       "time": "00:44:49.58"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- Title VII but does not violate 1985 (3)?",
       "time": "00:44:58.24"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But that you are relying on a different substantive right then?",
       "time": "00:45:01.86"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There's an additional ingredient of the violation if I understand you correctly in 1985 (3)?",
       "time": "00:45:06.94"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, (Voice Overlap) -- do you not have to prove something additional to establish a violation of 1985 (3) and if you say yes, then what's the source of that right? It must be in the statute itself.",
       "time": "00:45:16.24"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, you think the position in 1985 (3) is not purely a remedial statute?",
       "time": "00:45:29.67"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Voice Overlap) but must you not argue that it is not?",
       "time": "00:45:40.06"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Must you not be arguing that it is more than a remedial statute?",
       "time": "00:45:42.45"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, (Voice Overlap) not because they didn't like women?",
       "time": "00:46:02.38"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Wasn't that part (Inaudible) before Title -- before the statute was passed?",
       "time": "00:46:07.76"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He -- well, he couldn't have brought it before Title VII but it could be viewed 1985 before Title VII was adopted?",
       "time": "00:46:16.65"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what would you rely on?",
       "time": "00:46:30.20"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You'd say -- if they need to be conspired they did not mean what?",
       "time": "00:46:33.51"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What would you say?",
       "time": "00:46:38.85"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What could you say the conspiracy were to deny on what right?",
       "time": "00:46:40.67"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, certainly 1985 didn't mean that?",
       "time": "00:47:11.77"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Certainly, it didn't mean that.",
       "time": "00:47:15.59"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Unless, you want to get through all four cases in 100 U.S.",
       "time": "00:47:18.73"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Stein as I read your complaint, all you've alleged is that they treated the women differently than they treated the men. You don't allege that they didn't like women.",
       "time": "00:47:23.93"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Treated women --",
       "time": "00:47:39.39"
     },
@@ -1375,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's the first case I gave you. They paid them less deliberately because they thought they weren't as good and it turns out they're wrong. I don't think you have alleged to know other than an intent to treat them differently.",
       "time": "00:47:43.41"
     },
@@ -1387,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now Mr. Wallace has now reclaimed you're --",
       "time": "00:48:12.40"
     },
@@ -1399,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "-- invading this time Mr. Connors.",
       "time": "00:48:14.68"
     },
@@ -1411,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Wallace?",
       "time": "00:48:19.96"
     },
@@ -1435,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Since you're an amicus, Mr. Wallace I presume you're not entitled to enlarge your or subtract the issues in the case?",
       "time": "00:51:26.03"
     },
@@ -1447,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course --",
       "time": "00:53:32.80"
     },
@@ -1459,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- it could (Voice Overlap) of Title VII?",
       "time": "00:53:33.86"
     },
@@ -1471,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What does -- what kind of a class-based discrimination must be alleged do you think Mr. Wallace? In this case it's against women?",
       "time": "00:53:59.00"
     },
@@ -1483,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And under that resulted in some injury to this employee?",
       "time": "00:54:09.52"
     },
@@ -1495,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the --",
       "time": "00:54:17.23"
     },
@@ -1507,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What protection --",
       "time": "00:54:19.05"
     },
@@ -1519,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "With respect to my Brother Stevens' question. Does it -- do you have to allege something besides just treating women as a class differently? They -- the intention -- you must say they have the purpose of treating them differently intentionally treating them differently.",
       "time": "00:54:21.50"
     },
@@ -1531,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Intentionally treating them differently.",
       "time": "00:54:37.12"
     },
@@ -1543,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it is a conspiracy.",
       "time": "00:54:58.60"
     },
@@ -1555,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is a --",
       "time": "00:55:00.01"
     },
@@ -1567,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Aggravated in the sense that it's a conspiracy?",
       "time": "00:55:06.18"
     },
@@ -1579,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Its animus. (Voice Overlap) animus, anything other than they treat them differently?",
       "time": "00:55:16.75"
     },
@@ -1591,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "For example, take the Manhart case which I'm sure you're familiar with. Would that -- would the action of the directors there to adopt different pay, the contributions for women and men, would that violate 1981?",
       "time": "00:55:20.94"
     },
@@ -1603,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, would if you have a pay scale, the women get 10% less than men even though you think they're 10% less efficient and prove that later you're wrong.",
       "time": "00:55:38.48"
     },
@@ -1615,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You violate 1985 (3), is that your position?",
       "time": "00:55:46.86"
     },
@@ -1627,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, you hold (Voice Overlap) --",
       "time": "00:56:15.24"
     },
@@ -1639,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- 1985 --",
       "time": "00:56:16.90"
     },
@@ -1651,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- (3) that high school diploma for shoveling coal would violate 1985 (3), the people --",
       "time": "00:56:17.87"
     },
@@ -1663,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- who decided to impose the --",
       "time": "00:56:22.87"
     },
@@ -1675,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But (Inaudible) I guess an equal impact would not be enough?",
       "time": "00:56:45.45"
     },
@@ -1687,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, on animus, a few years ago when this Court said women were entitled to sit on the jury, the Court was guilty of animus? I mean, I think the word is a very encompassing word.",
       "time": "00:56:56.84"
     },
@@ -1699,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did you understand your meaning that you don't have what you and I think of animus nor they?",
       "time": "00:57:11.04"
     },
@@ -1711,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Right, right.",
       "time": "00:57:19.68"
     },
@@ -1723,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "To put it more simply, a shared purpose to treat them differently from the members who are not in the class, that's the whole thing.",
       "time": "00:57:33.27"
     },
@@ -1735,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But 1981 rights don't depend in any way on Title VII?",
       "time": "00:58:49.40"
     },
@@ -1747,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The reason -- the right plan here does depend on Title VII.",
       "time": "00:58:53.95"
     },
@@ -1759,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But is there any reason to think that they intended the Title VII remedies where to be enforced in any other way than that provided in Title VII?",
       "time": "00:59:38.05"
     },
@@ -1771,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Wallace, what is the aggravation in this case under the bill of complaint beyond nearly preferring to employ men to women. Is that aggregation -- aggravation per se?",
       "time": "01:00:28.80"
     },
@@ -1783,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Wallace, it's certainly a pattern in the business life of this country and that's carried over into the Government of this country and right into this Court, that most of the secretaries of the justices and the presidents of corporations and congressmen are women. Now would that be the kind of shared purpose or some way, are all these people disfavoring men because we have found that at least we think we have found that women are more dexterous, they do a lot of things better than men do. So, I think for years and years there is two or three exceptions over this century all the secretaries of justices on this Court have been women.",
       "time": "01:01:07.97"
     },
@@ -1795,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Maybe they're just frightened away by the tradition?",
       "time": "01:02:06.17"
     },
@@ -1807,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well that terminates this. Thank you gentlemen. The case is submitted.",
       "time": "01:02:27.81"
     }

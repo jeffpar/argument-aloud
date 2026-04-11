@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2015/14-1146/14-1146_20151110-argument.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "CARTER G. PHILLIPS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DAVID C. FREDERICK",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "ELIZABETH B. PRELOGAR",
-        "role": "advocate"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 14-1146, Tyson Foods v. Bouaphakeo. Mr. Phillips.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, is that so? Because as far as I understand this, there was some donning and doffing that was common, that is, there was some sanitation and some protective gear that they all had to wear. And then there was a difference between the night -- knife wielders and the others, but they weren't all that different. So in one case, one wore mesh aprons, and in the other case, rubber aprons. It didn't seem to be that wide disparity.",
       "time": "00:00:45.76"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but you didn't --",
       "time": "00:01:34.91"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "-- the statistical mechanism of your own, you didn't have a Daubert objection to the testimony, and you suggest in your brief that uninjured plaintiffs are included in aggregate damages, but you were the one that objected to the bifurcated trial. And so far as uninjured plaintiffs recovering, that has to be determined on remand anyway. I -- I just don't understand your arguments.",
       "time": "00:01:37.07"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yeah, but once you lose that, you have also other defenses: Your own expert, a Daubert objection, et cetera.",
       "time": "00:02:11.99"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Phillips, I'm completely at a loss as to what you're complaining about. That's exactly what you did. And what this expert did -- I mean, as far as I could tell, between your expert that you used to calculate \"gang time\" and \"K-time\" did exactly the same thing this expert did. You came out with a lower number, but you used fewer people. At least their expert used hundreds of people instead of the few that you did. I'm -- I'm just completely at a loss. Would you suggest that if one plaintiff came into court, that he could not use the -- this expert to prove his case circumstantially to show that in fact, the average is this, and he doesn't really know how much time he took? When he does it now, it may be 12 minutes instead of 10?",
       "time": "00:03:05.32"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Oh, no, no. But they know what they worked. They know that people were working over 40 hours because there were time records with respect to that. What you're basically saying is that Mt. Clemens is completely wrong. You can't estimate your time when the employer doesn't keep records.",
       "time": "00:04:13.96"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There were time records to that effect here.",
       "time": "00:04:47.46"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "No. There were 200-and-something-odd people that their expert showed didn't work above 40 hours. The jury knew about those.",
       "time": "00:04:51.85"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Can we go back to Justice Sotomayor's basic question, that is, when the government sued Tyson or Tyson's predecessor and got an injunction --",
       "time": "00:05:27.58"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "-- what Tyson's did, it had its own industrial engineer observe the workers as they were donning and doffing their gear, and that expert averaged the times that they spent. And it seems to me that the plaintiff's expert here is doing exactly the same thing that Tyson's expert did when the government was bringing --",
       "time": "00:05:38.89"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Phillips, you say the question is whether it can proceed as a class. But it seems as though that's really not the question in this case because of Mt. Clemens; that what Mt. Clemens does is to suggest that certain kinds of statistical evidence are completely appropriate in FLSA cases generally, even if they're brought by the government, or even if they're brought by a single person. And so the question that you really are putting before us is not a Rule 23 question, it's a question of whether this sort of evidence complies with the Mt. Clemens standard; isn't that right?",
       "time": "00:07:24.23"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But the Rule 23 inquiry, Mr. Phillips, is always dependent on what the substantive law is.",
       "time": "00:08:18.26"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "That was true in Halliburton where we said, look, if we didn't have the basic presumption, we would think of this as very individualized.",
       "time": "00:08:23.73"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But we have the basic presumption, so the proof is not individualized. And the same thing, it seems to me, is true here because of the Mt. Clemens inquiry.",
       "time": "00:08:30.96"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Where it says if the employer hasn't kept the appropriate records, even a single plaintiff can prove the amount of work done through the use of statistical --",
       "time": "00:08:39.29"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I can't see how that account of Mt. Clemens would make most -- much sense. You're suggesting that a person past 40 can produce the statistical evidence, but if I worked 39 1/2 hours and all of this overtime is going to push me over 40, the Mt. Clemens presumption wouldn't be available to me?",
       "time": "00:09:18.88"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you've changed your theory. Question 2, as you presented in the petition for certiorari, whether the class may be certified if members were not injured. Then you changed that. Page 49 of your brief, you say that the plaintiff must demonstrate a mechanism to show that. So now you're talking about -- about the mechanism. So the -- so the case has been argued on different theories at -- at many points, and it seems to me Justice Kagan is precisely right. You said, well, I want to start first with class action. She said, no, no. The point is we start with Mt. Clemens. That's the substantive law for FSLA.",
       "time": "00:09:49.85"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right. So Mt. Clemens says exactly this. I'll read it. I think it's correct. \"Where\" -- \"Where an employee's records of time worked are inaccurate or inadequate\" -- that's your case, right? -- \"then the employee attempting to bring a claim can show time worked by producing sufficient evidence to show the amount and extent of that work as a matter of just and reasonable inference.\" That's what it says to do.",
       "time": "00:10:41.49"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And then it says the employer can't complain that the damages lack the exactness and precision of measurement that would be possible had he kept records. But he didn't. So they used some statistics to show it. What's wrong with that?",
       "time": "00:11:08.55"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah.",
       "time": "00:11:33.62"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, they did through statistics. I mean --",
       "time": "00:11:39.22"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, you say an antitrust case. Okay. Let's imagine an antitrust case. There's an agreement among sneaker manufacturers to use shoddy material. And large customers, distributors buy these shoddy materials. They're hurt. How much are they hurt? It depends on how many sneakers their employees used and when and so forth. There is no way people don't keep sneaker records, so what we do is we hire a statistician to use sampling. And if he's a good statistician and uses sampling correctly, we have probably a better measure than if we asked the employees to go back and remember how many sneakers they wore and what days and what hours 50 years ago.",
       "time": "00:11:41.37"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, some of them, it might turn out, actually did not wear sneakers during the period of time that the conspiracy has been shown to exist. But we didn't know that at the beginning because we thought we could prove a conspiracy from January to December, but we only ended up proving it from January until June. Now, there we have it. We put them in the class to begin with because we thought we could prove injury. As it turns out, we can't. Now, I -- I've never heard that you had to be able to know exactly how you're going to win your case when you form the class action because you don't know quite what the proof will be. I mean, isn't that how class actions work?",
       "time": "00:12:30.69"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why not?",
       "time": "00:13:10.96"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But why decertify the class? If we've shown or we do show the conspiracy lasted from January until June, not through December? Some people will recover; other people will not recover. Can't we wait until the evidence is presented before we tell the people who didn't --",
       "time": "00:13:31.02"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "-- buy the sneakers, then you don't recover?",
       "time": "00:13:50.60"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry. I'm having difficulty understanding your point. There are records, aren't there, of how many hours they worked without donning and doffing the equipment at issue, correct?",
       "time": "00:14:21.69"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. So I thought that Dr. Mericle's using those actual records figured out how many people worked over 40 hours.",
       "time": "00:14:34.92"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, you didn't have an expert to say that?",
       "time": "00:15:00.19"
     },
@@ -411,13 +411,13 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Is there any -- there any -- reject --",
       "time": "00:15:09.40"
     },
     {
       "turn": 62,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Is there any way at this point to determine which employees were actually injured and which ones were not? Because I -- I gathered because the jury rejected the full verdict that was requested by the plaintiffs, they did not accept Dr. Mericle's testimony regarding the amount of time needed to don and doff for employees in various categories. And without knowing that, I don't see how you can at this point -- I'll -- I'll ask Mr. Frederick the same question -- how you can separate the employees who were injured from the employees who were not injured.",
       "time": "00:15:10.30"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But the briefs are like two ships passing in the night on this point. The Respondent is going to say this is for remand, or am I wrong about that?",
       "time": "00:16:03.44"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Aren't there further proceedings?",
       "time": "00:16:15.03"
     },
@@ -453,13 +453,13 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Aren't there further proceedings in this case?",
       "time": "00:16:17.77"
     },
     {
       "turn": 69,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It -- it was a lump sum.",
       "time": "00:16:20.06"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And now that has to be distributed. So there are going to be further proceedings to distribute that lump sum judgment.",
       "time": "00:16:23.50"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that has to be determined in the trial court.",
       "time": "00:16:35.82"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that has to be determined in the trial court.",
       "time": "00:16:39.13"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Phillips --",
       "time": "00:16:44.48"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand. You -- you can get a class certified, some of whom have not been injured at all, and wait until the conclusion of the trial for the trial court to determine who has not been injured?",
       "time": "00:16:48.09"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "-- class to begin with.",
       "time": "00:17:05.44"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You have conceded that the initial certification was okay because at that time, we didn't know which ones --",
       "time": "00:17:10.98"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But didn't you say that in general, a class could be certified going in, even though at that point, we don't know?",
       "time": "00:17:36.53"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm still having the same problem. When I heard Justice Scalia's question, I thought the answer is of course you can put in your class people whom, it will turn out, are not hurt. I have a class of people who were hurt by a price-fixing conspiracy that lasted from January to December. That's what I said. I have good reason to think it. But I prove it only lasted until June. That's a failure of proof. Half of them were not hurt, okay? So we don't pay them.",
       "time": "00:17:51.77"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought that's the most common thing in the world. Am I wrong?",
       "time": "00:18:22.68"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's right.",
       "time": "00:18:35.67"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:18:46.60"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But there --",
       "time": "00:18:52.76"
     },
@@ -627,19 +627,19 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But, Mr. Phillips, there is a way.",
       "time": "00:18:54.76"
     },
     {
       "turn": 98,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Sotomayor.",
       "time": "00:18:55.97"
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why do you have standing? I mean --",
       "time": "00:18:57.23"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- the jury, obviously, rejected something. It obviously was told to exclude people who were not entitled, and it did it. You didn't object to a -- the failure to have -- you objected to proposing interrogatories. So this has invited errors; it sounds like invited error. But, finally, how do you have standing --",
       "time": "00:19:02.29"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- to argue that the issue of who gets part of that money?",
       "time": "00:19:26.42"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why?",
       "time": "00:19:36.54"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You tell me, except for those people --",
       "time": "00:19:49.84"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- who opted out, there are people who opted in?",
       "time": "00:19:51.94"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Opted in. So you know all of the people who are bound, all the people who've opt -- who were -- who opted in.",
       "time": "00:20:00.62"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So why do you have to know whether -- there can't be more.",
       "time": "00:20:07.75"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "They were allowed to participate; they just didn't opt in.",
       "time": "00:20:20.70"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I've never heard of a case where absent class members are somehow bound by a judgment in this case, when they didn't opt in. I hope that -- I thought that was the whole purpose of not opting in, so you're not bound by this judgment.",
       "time": "00:20:38.44"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Phillips, do you have -- do you have a theory as to why the jury awarded less than half of the damages that were requested? Did they -- I take it they didn't identify particular workers.",
       "time": "00:21:40.69"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Did they -- did they disagree with the 18 minutes, 21 minutes?",
       "time": "00:21:53.30"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "If I could go back to Justice Kennedy's question at the start, because it really was your decision not to have a bifurcated proceeding, where it would have been clear -- it would have been proved separately in a highly ministerial way which employees worked over 40 hours. And having made that decision, you're in a position now where you're saying, oh, there's one sum -- there's one lump judgment; we don't know what to do with it. But, in -- in essence, what's going to happen is that it's going to go back in remand, and the judge is going to do something that looks an awful like -- lot like the bifurcation that you rejected, which is, the Court will say, now we figure out in this highly ministerial way who worked more than 40 hours, and so who is entitled to share in the judgment.",
       "time": "00:22:38.97"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But it -- it absolutely helps with the question, your second question presented, which is this point that you are making that there might be some people who didn't work 40 hours, who would nonetheless get money. And it absolutely helps for that. It takes care of the entire problem. That leaves you with only your first question presented --",
       "time": "00:24:18.15"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- which is this question about was the class too varied. And on that, I have to go back to this -- to this issue of, it's not a class issue. It's an FLSA issue under Mt. Clemens as to whether this kind of statistical evidence could have been presented.",
       "time": "00:24:36.22"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Frederick.",
       "time": "00:25:30.02"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, there is no question the money can be divided up. The question is whether it can be divided up between those who were actually injured and those who were not actually injured. So suppose you have -- if you have three employees, one worked -- one was -- one was given credit for working 39 hours a week, one was given credit for working 38 hours a week, one was given credit for working 37 hours a week. Without knowing how much additional time the -- each employee is entitled to, you can't tell which one of those, which, if any, of them was injured, and you can't tell how much additional time the employees were entitled to without knowing what the jury did with Dr. Mericle's statistics. So that's why I -- I don't see how this can be done in other than a very slap-dash fashion.",
       "time": "00:26:07.86"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Counsel, we don't know why the jury reduced the requested damages by -- gave less than half. I mean, it could have been because they thought the evidence on the ones who just put on smocks or whatever as opposed to the ones who had the mesh Armour -- you see, I don't believe what you said about the ones who don't put on the mesh Armour, so we're going to give zero dollars on that. But I believe the -- the validity of your -- the experts' testimony on the ones who put on the mesh Armour, so we're going to award that. Or maybe they thought, you know, they would just discount the whole thing, or -- you know, we don't know why. So because they used average statistics over varying jobs with -- even your expert admitted varying times, depending upon the classes, there's no way to tell whether everybody who's going to get money was injured or not.",
       "time": "00:28:31.93"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, if you have -- you have -- I understand that, but you have a substantive answer because it's one thing for us to write an opinion saying this is a horrible problem, but they didn't ask for instructions, so don't worry about it.",
       "time": "00:29:28.12"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That's another thing. We need to know whether we should address the -- the mechanism by which this was presented to the jury, and then we can deal separately with the waiver issue.",
       "time": "00:29:38.83"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That sounds like the same answer you gave before.",
       "time": "00:30:07.21"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is there a substantive? Yes. We could say, okay, the problem is they didn't ask for a special verdict. They didn't divide it between the people who were engaged in different functions than the killers, stunners.",
       "time": "00:30:09.27"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I'm actually puzzled by the same thing. So put yourself in my puzzlement. The -- there is a green room, a yellow room, and a blue room, all right? Now, we discover with our statistical experts that in the green room, doffing and donning, those people on average -- some more, some less -- but the sampling shows it's half an hour. In the blue room, it's 20 minutes. In the yellow room, it's 10 minutes. So, we add those three numbers on to green room, yellow room, and blue room people. And we get a number. Now, that number in individual cases will be wrong, but that's what averaging is about. And if there is no other proof in the case, well, is that good enough?",
       "time": "00:30:34.54"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that the substantive issue?",
       "time": "00:31:24.36"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay.",
       "time": "00:31:27.08"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then skip it. (Laughter.)",
       "time": "00:31:28.00"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And I suppose some of them like to chat while they're putting on the equipment, and others are more down to, you know, let's get this on as quickly as possible. And -- and some of them have different sorts of jobs that require different sorts of equipment.",
       "time": "00:32:04.87"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, there was not evidence to support that they'd have different equipment that they put on?",
       "time": "00:32:21.14"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So -- so your -- your submission is that, in fact -- well, what -- what about 18 and 21? You must have thought there was some difference.",
       "time": "00:33:41.44"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So -- so the variation that is -- at least troubled some of us, 30 seconds, 10 minutes, you're saying it's not because the 30-second person is actually going to spend 9 1/2 minutes at the end of the walk, and the 10-minute person spent all the time at the beginning of the walk, and there's no difference between the people who clean up and the people who actually slaughter the hogs because the clean-up people are going to slaughter the hogs at four hours at the end of the shift. And the --",
       "time": "00:34:00.21"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So -- so we should -- again, there's a -- a basic issue that's presented, but you're saying in addition to avoiding it because of the objection is their lack of objections at all, we should not be reaching the substantive issue because, in fact, there was no variation in the time?",
       "time": "00:34:52.57"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is it an argument that if the employer wants to be quite conscientious about complying with FLSA, the employer has to take some averages. It has to say, we're going to give X minutes for donning and doffing on this line, X minutes -- and the second part of that question is, how much of this case turns on the fact that the employer did not keep adequate records?",
       "time": "00:35:21.90"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can the employer be charged with not keeping adequate records by not following every single person every part of that person's day? You spend four hours on this line, four hours on that line. You have to -- you have to put on a certain kind of doffing. Can the employer really keep records for every single employee?",
       "time": "00:35:56.79"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Many workers put on gear other than sanitary gear. What you say is true: The sanitary gear is the same for all workers. But some of them wear, what, chain mail to protect them from the knives, right? And -- and some of them wear other protective gear. And that's what is claimed to create the discrepancy.",
       "time": "00:36:54.61"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't -- I don't think your -- your friend will agree that it's basically the same gear.",
       "time": "00:37:43.49"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think that's his -- his point, that it's quite different gear.",
       "time": "00:37:49.77"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, the difference -- the question is not whether they're -- whether one protective gear is different from another, but it's whether protective gear is different from sanitary gear. That's the question.",
       "time": "00:38:18.04"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Wasn't there -- wasn't there -- for all of the workers, there was certain basic equipment. There was basic sanitary gear, but there was also basic protective gear. So the only difference comes up with the protective gear for the knife weld.",
       "time": "00:38:33.49"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The basic protective gear was the same for everybody.",
       "time": "00:38:51.66"
     },
@@ -1107,13 +1107,13 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What was that? What was that basic protective gear that everybody --",
       "time": "00:38:56.93"
     },
     {
       "turn": 178,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Hard hats, ear plugs or ear muffs, and boots.",
       "time": "00:38:59.74"
     },
@@ -1125,13 +1125,13 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What was it? (Laughter.)",
       "time": "00:39:05.55"
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Let's see if you remember what she said. What was it? (Laughter.)",
       "time": "00:39:07.82"
     },
@@ -1143,13 +1143,13 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And -- but the --",
       "time": "00:39:19.47"
     },
     {
       "turn": 184,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And boots.",
       "time": "00:39:19.98"
     },
@@ -1161,13 +1161,13 @@
     },
     {
       "turn": 186,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You left boots out. (Laughter.)",
       "time": "00:39:21.94"
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But -- but the knife wielders had a lot more than that.",
       "time": "00:39:24.07"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It seems -- it seems to me that you might concede that if this were simply a class action under 23, that these problems might be a barrier to certification, but that under Mt. Clemens you have a special rule; is that --",
       "time": "00:39:43.93"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is that correct? Do you -- do you concede that there is a strong possibility you might not be -- have this class certified under section -- under Rule 23, absent Mt. Clemens?",
       "time": "00:40:02.49"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. So that's exactly, perhaps, what I -- I read the question, the first question. I'm taking it literally. It said, \"Whether differences among individual class members may be ignored, liability and damages will be determined with statistical techniques that assume everyone is like the average.\" Now, I thought the answer to that question is yes, and it depends, of course; you have to be reasonable. I mean, that's why you use the four rooms. We don't know everybody in the room. What we do is we take an average in the room. If it's a good statistical average, why not? Now, I want -- I don't want you to agree with that if that isn't the law, but I don't see why it isn't.",
       "time": "00:40:29.65"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Frederick, I -- I'm not sure that you've answered the -- the two substantive questions that I see my colleagues asking, okay? With respect to whether you're a knife wielder or not, if you are assigned to -- to bear a knife during the day, you're going to be paid for that time anyway because you're on the start-to-end day, okay? So you're not going to get FSLA for that. So it's only the people who start out the day being required to don those outfits.",
       "time": "00:41:41.04"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right.",
       "time": "00:42:18.50"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Could I just ask you to clarify something before your time runs out, because it -- it's unclear to me from what you've said in your argument. Why did Dr. Mericle come up with one figure for employees on the processing floor and another figure for employees on the slaughter floor if, as I understand you to have said this morning, all of the employees basically do both of those tasks and spend an equal amount of time on them, so they can all be considered together?",
       "time": "00:42:52.54"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, that was the impression I got from what you said.",
       "time": "00:43:26.91"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Let me ask you this: If the Court is writing an opinion of reaching the result you want, what is the standard we put? Representative evidence? Average evidence of injury is sufficient if? What -- what do we write?",
       "time": "00:44:16.70"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that's -- that's a little bit too specific for the broad standard that I'm looking for. An average is possible if what, there's no other way to do it? If it's an FSLA case and has a special policy? Neither of those seem quite satisfactory to me.",
       "time": "00:45:01.09"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Don't you also have to say that the jury accepted the averaging? And that doesn't seem to have happened here.",
       "time": "00:45:33.91"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When the jury comes in with -- with less than half of -- of what the averaging would have produced, how can we say that there has been averaging?",
       "time": "00:45:41.24"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Ms. Prelogar.",
       "time": "00:46:22.61"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Do you think -- how do you know they relied on the representative evidence? The number was -- was more than 50 percent of what was asked. The expert was cross-examined. We don't know, for example -- they rejected the 18 minutes but accepted the 21 minutes. The fact that the jury did not give you the damages sought seems to me to call into question the significance of the statistics.",
       "time": "00:47:04.68"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but they -- they saw the evidence on which the calculations were based, right?",
       "time": "00:48:04.41"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "They saw the donning and doffing of the sanitary gear and the protective gear. Couldn't they have made judgments based on those actual differences to reject some of the representative statistics?",
       "time": "00:48:10.90"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And maybe you don't know because you're the -- in an amicus posture, but was the person who normally is, like, hosing down the floor paid as much as the person who performs the most intricate knifing operation?",
       "time": "00:49:52.36"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And yet, your -- both you and your -- your friend are telling me that, well, we shouldn't treat those jobs differently because they often switched back and forth.",
       "time": "00:50:09.51"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you concede that if this were a Rule 23 action and the FSLA were not involved that it would be a much closer, much more difficult case?",
       "time": "00:51:00.55"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You -- you agree it would be an extension of Mt. Clemens to apply it at the liability stage as opposed to the damages stage, right?",
       "time": "00:51:33.70"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm -- I'm going to try to phrase what I understand the question my colleagues have been posing that I don't think either counsel has sort of gotten at, or maybe it's so obvious that we're missing it, okay? Clearly, the expert here, Dr. Joy, said -- I'm using a hypothetical -- there's 10 minutes of overtime. And the figure that comes out with 10 minutes of overtime is a million dollars. Now the jury comes back with half a million dollars. How do you know that what they said is -- I half the time -- five minutes, or the jury said, I think it's eight minutes or -- for slaughterhouse and three for production line people. So it averages out to five now, okay? How do we know what -- how the jury calculated that half million?",
       "time": "00:52:45.83"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's what my colleagues are saying. So the question is, your adversary is claiming that there might be some people on the three-minute side who are going to come and collect a pro rata share who really weren't injured because they had worked 39 hours and 57 -- 56 minutes, something like that. So why is it that it's fair to distribute this -- this award pro rata?",
       "time": "00:53:49.43"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why would -- why would Tyson's care? They have to pay the same amount of dollars.",
       "time": "00:54:44.73"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What happened to the -- the government's action? I mean, the government started this against Tyson's or its predecessor and got an injunction. And then the government said that the solution that the -- the K -- whatever it was -- that Tyson's came up with wasn't good enough. And then nothing. What happened to the government's --",
       "time": "00:55:46.69"
     },
@@ -1455,19 +1455,19 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What do you think an employer --",
       "time": "00:56:36.77"
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No. Go ahead.",
       "time": "00:56:38.14"
     },
     {
       "turn": 237,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What do you think an employer should do about recordkeeping when the employer believes that certain activities need not be counted under the FLSA? So is the employer -- it may be that the employer is stuck with the choice that it makes, the legal judgment it makes. But is it supposed to keep two sets of -- of records so the amount of time that it thinks the employee is entitled to compensation for, and then this additional amount of time, that it might be argued that the employee is entitled to compensation for?",
       "time": "00:56:39.22"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Phillips, you have five minutes.",
       "time": "00:57:37.04"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah, but you're -- you're saying the district court made a finding that there were great dissimilarities.",
       "time": "00:58:56.94"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where is that?",
       "time": "00:59:04.08"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Basic activity is --",
       "time": "00:59:28.94"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Didn't they standardize walking time? That's what I thought they used.",
       "time": "00:59:41.83"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There's a standardized walking time because some people are faster than others, correct?",
       "time": "00:59:47.39"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:02:13.70"
     }

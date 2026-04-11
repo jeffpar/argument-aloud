@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2002/02-403/20030325a_02-403.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL D. CLEMENT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JAMES BOPP, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 02-403, the Federal Election Commission v. Christine Beaumont. Mr. Clement.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Clement, the Government does... does not challenge the exemption of this not-for-profit corporation from expenditure limitations?",
       "time": "00:01:36.40"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think after the decision in Massachusetts... the Massachusetts case, the NRWC would have a right to make independent expenditures?",
       "time": "00:02:45.23"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why... why is that an attenuated First Amendment right? Isn't that the right that enables the formation of political parties, people forming together in order to collectively give money to particular candidates?",
       "time": "00:05:13.65"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it may well be, but... but I... I wouldn't shrug off as inconsequential the importance of individuals being able to band together to support individual candidates. That's the whole basis for our... our party system.",
       "time": "00:05:35.75"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Can you summarize briefly what the enhanced disclosure requirements are?",
       "time": "00:10:41.56"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're talking about PACs. Right?",
       "time": "00:10:59.26"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And the donor is listed.",
       "time": "00:11:07.34"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Clement, is this... is this section 441b related or affected in any way by the McCain-Feingold legislation?",
       "time": "00:11:36.80"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But at least the issue here in this case is unaffected by that.",
       "time": "00:12:21.58"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What is the... what is the limitation of the PAC? How much can they contribute, say, to a Senator?",
       "time": "00:12:34.55"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "This... this... you're saying that this particular kind of organization can't contribute directly, but it could set up a... what you call a segregated fund, which I was thinking of as a PAC. And so if that segregated fund now wants to make a contribution to Senator Smith for his reelection campaign, is there a limit as to how much they can give? I'd think so.",
       "time": "00:12:44.85"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "$5,000.",
       "time": "00:13:08.86"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, could they have two members?",
       "time": "00:13:47.47"
     },
@@ -219,13 +219,13 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well--",
       "time": "00:14:22.34"
     },
     {
       "turn": 30,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--In Massachusetts Citizens for Life, there was a separate PAC?",
       "time": "00:14:22.50"
     },
@@ -237,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the Court did say for that type of... for that type of corporation, not a commercial corporation, that was burdensome and unnecessary because the risk of corruption for that kind of corporation was significantly less than for commercial corporations. And that would apply here as well. If the... if the evil is corruption, I'm buying the candidate by my dollars, then that risk is less for an advocacy organization. Is that... isn't--",
       "time": "00:14:40.38"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That was an assumption in the case. You don't... you don't... you don't assert that it was a holding of the case.",
       "time": "00:16:24.89"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You think whenever we distinguish a prior case in one of our opinions, that... that distinguishing has stare decisis effect.",
       "time": "00:17:02.46"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Clement. Mr. Bopp, we'll hear from you.",
       "time": "00:18:46.47"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I... I don't understand that. If... if I bribe somebody, a Senator, out of... out of political motivation because I'm an environmentalist or whatever, that's not corruption? It's only... it's only if I have some economic motive that it's corruption?",
       "time": "00:19:16.36"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I mean, I... it may well be, but I don't see that the distinction between whether it's an economic actor or a political actor has anything to do with whether there's corruption or not.",
       "time": "00:19:46.98"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but you can have an immense corporation formed to advance political ideas. I... I don't... this one happens to be a small one, but--",
       "time": "00:20:35.65"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--if you attract enough people, you can have an immense organization. What's the organization for... American Association of Retired Persons. I mean, that's an immense organization with... with a large amount of available money.",
       "time": "00:20:46.14"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Bopp, would you say that the AARP, which was referred to by Justice Scalia, the National Right to Work Committee, which was involved in that opinion, and Massachusetts Citizens for Life are all in the same boat?",
       "time": "00:21:12.90"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why not?",
       "time": "00:21:30.29"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Bopp, on that point I thought that Massachusetts Citizens for Life went further. It said having a policy against accepting corporate contributions, which is one difference between your organization and Massachusetts Citizens for Life. They said they would take no money from corporations. You accept money from corporations. You get very little from business corporations, but you don't have a policy of turning them away.",
       "time": "00:22:20.22"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, would you call AARP an ideological organization?",
       "time": "00:23:18.14"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'll bet the members also get benefits--",
       "time": "00:23:46.88"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--and... and that criterion would... would make it different from--",
       "time": "00:23:49.92"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But they could serve as a conduit for a very large donor, a very wealthy person, who wants to avoid the personal limitations on how much that individual could give.",
       "time": "00:24:32.89"
     },
@@ -417,19 +417,19 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What you do then... this is what I understand you to be saying. The... one of their justifications that has been advanced for this restriction on contributions I've interpreted as the following. We have five people. These five people each write a check to Candidate Smith for $2,000. They get annoyed. They think they should be able to give $4,000, which the law forbids. So they form a committee, a nonprofit corporation, called the $4,000 for Smith Corporation.",
       "time": "00:27:15.90"
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:27:53.75"
     },
     {
       "turn": 64,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And now each of them writes another check for $2,000, gives it to the corporation, and the corporation gives it to Smith. And I think the Government says, well, Congress wanted to stop that. It's not actually going to limit them to zero. They're going to be limited to $5,000 as a group provided they jump through certain hoops. All right. Now, what's--",
       "time": "00:27:53.95"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--what's wrong with that argument?",
       "time": "00:28:19.15"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know, but do you see what I'm saying? I'm saying Congress doesn't want to have groups called the $4,000 for Smith group even if they call themselves something different.",
       "time": "00:28:31.77"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They want to limit each of those members to $2,000.",
       "time": "00:28:44.63"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And that's what they do, though for a variety of other reasons, not directly relevant to my question, they've allowed those people to get together, jump through various hoops called the PAC hoops, and give up to $5,000 extra. So if Congress wanted to, they might say none.",
       "time": "00:28:48.49"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Now, that's their... that's basically the argument, and I want to get a straight, you know, direct reply to it.",
       "time": "00:29:07.90"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So now... is that--",
       "time": "00:29:50.41"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Mr. Bopp, isn't it also the case that the... that the corporation that Justice Breyer posits would not qualify as... as a 501 exempt organization if the only thing it's using its money for is to make contributions to political candidates?",
       "time": "00:30:35.24"
     },
@@ -525,13 +525,13 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm just trying--",
       "time": "00:30:55.84"
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It has to be... it has to be a relatively insignificant part of its overall activity.",
       "time": "00:30:56.76"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So these five people would had to... have to get together with maybe 100,000 other people so that their... their little portion is so watered down that it's not a significant part of the corporation's business.",
       "time": "00:31:07.69"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I didn't think there was a numerical limit. And my question which tried to eliminate extraneous points I think you understood perfectly well there. I mean a 503(c) corporation but... et cetera. But I want to go back to your answer. The... the... because I'm trying to get clear about this. And the... what you're saying is that Congress could take my group, with whatever else they have to do to qualify them... they could take my group and you're saying Congress could just say, very well, we will limit the corporation so that it can only give money from these five people insofar as they haven't met their $2,000 individual limit.",
       "time": "00:31:19.23"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And... and moreover, it could require reporting so we know who they are.",
       "time": "00:32:10.69"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Now, is that a less restrictive alternative than what Congress has actually done, which is to say, proceed through a segregated fund?",
       "time": "00:32:15.35"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because?",
       "time": "00:32:32.11"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, just before you go on, I don't see why your proposal doesn't have all of the same administrative inconveniences.",
       "time": "00:33:22.58"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Bopp, the Court basically decided this issue in National Right to Work Committee case, didn't it? You just want us to distinguish your type of nonprofit corporation.",
       "time": "00:34:27.95"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I think that's very hard to do. I mean, we dealt with this precise issue in that case.",
       "time": "00:34:44.60"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But the organization opted for the corporate form--",
       "time": "00:35:04.07"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--knowing about these limitations.",
       "time": "00:35:08.03"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it couldn't have been a holding in... in the Massachusetts case because there you were talking about independent expenditures rather than contributions.",
       "time": "00:35:29.77"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Certainly the Massachusetts case doesn't control the outcome here.",
       "time": "00:35:39.16"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Bopp, at least three times in the text of the Court's opinion in Massachusetts Citizens for Life, at least three times, it distinguishes direct contributions to candidates from expenditures, and each time it explains why it reached the result it did. It makes that distinction.",
       "time": "00:36:01.59"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And I think that... that that's so central to Massachusetts Citizens for Life. So if... if we just had this opinion shorn of all but however, remember that this is not a contribution to a candidate and then citing back to the... the earlier decision that Justice O'Connor mentioned, the National Right to Work Committee, to distinguish it from this case, but it just seems so all over Massachusetts Citizens for Life that it is drawing this bright line between contributions to candidates and independent expenditures.",
       "time": "00:36:25.80"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, but I'm... I'm talking about Massachusetts Citizens for Life and the line that Justice Brennan drew in the Massachusetts Citizens for Life between contributions to candidates. Every time he talks about the holding in this case, he said, remember, this is not contributions to candidates.",
       "time": "00:37:16.79"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Bopp, do you challenge the distinction for First Amendment purposes between restricting contributions and restricting expenditures?",
       "time": "00:37:54.81"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So... so you're... you're saying there is a distinction--",
       "time": "00:38:37.90"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--for... for valid First Amendment purposes between the... the contribution limit and the... and the expenditure limit, but that distinction is not strong enough to forbid an entire prohibition.",
       "time": "00:38:41.52"
     },
@@ -759,13 +759,13 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you can say... you can--",
       "time": "00:39:27.18"
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--I don't think any of our cases have sliced the onion quite that fine to get into these nuances that there's a difference between prohibiting a contribution and limiting it. I think our distinctions have been primarily that contributions may be quite substantially regulated, independent expenditures cannot be.",
       "time": "00:39:27.98"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But when you say can't give any, you are overlooking or saying the PAC doesn't count.",
       "time": "00:40:10.73"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It isn't an absolute no contribution. It is, if you do it, you have to do it through this arm that you create, this segregated fund, this 501... of the 501(c)(4) organization. You can... you can do it but you have to do it in a rather cumbersome way.",
       "time": "00:40:16.43"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So it isn't you cannot make any contributions.",
       "time": "00:40:35.49"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Not First Amendment activity in... in the Massachusetts case itself, as I just said. I don't want to repeat that except that Justice Brennan did repeat it at least three times.",
       "time": "00:40:53.97"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Bopp, that... that First Amendment right that you talk about as the associational interest, the... the ability to give at least a dollar will identify you with a... with the candidate, is that really a First Amendment interest that applies to the association, or does it apply to the members of the association? And as Mr. Clement pointed out, the individual members of the association remain free to give a dollar, indeed up to $2,000, to the particular candidate. All you're really talking about here is... is not the ability of individuals to identify themselves with a candidate, but the ability of individuals by pooling their resources to help a candidate significantly. It seems to me that that's the only interest at... at issue here.",
       "time": "00:41:46.59"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But among those reasons is not in order to identify myself with that candidate.",
       "time": "00:42:55.76"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To... to do that, all you have to do is reach in your pocket and give them a dollar.",
       "time": "00:43:02.11"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Bopp, it seems to me that your argument really would go just the same way to an amount limitation as to a total prohibition.",
       "time": "00:44:16.09"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Everybody can just contribute $10. Wouldn't that... would that be okay with you?",
       "time": "00:44:24.76"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Say the amount limitation was very low. As I understand it, you're trying to draw a categorical distinction between total prohibition and amount limitation.",
       "time": "00:44:34.03"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And I don't know... I don't see that your argument really is directed to that.",
       "time": "00:44:41.84"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it seems to me an amount limitation that's very, very low would have the same vice under your argument as a total prohibition.",
       "time": "00:44:56.84"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Bopp. Mr. Clement, you have 11 minutes remaining.",
       "time": "00:46:19.82"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Have we actually held, Mr. Clement, that in regulating contributions, the Government must find the least restrictive means?",
       "time": "00:48:49.78"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Clement. The case is submitted.",
       "time": "00:51:22.70"
     }

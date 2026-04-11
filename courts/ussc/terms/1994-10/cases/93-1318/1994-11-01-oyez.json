@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1994/93-1318/19941101a_93-1318.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LEONARD L. GUMPORT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 93-1318, Interstate Commerce Commission v. Transcon Lines. Spectators are admonished not to talk until you get out of the courtroom. The court remains in session. You may proceed, Mr. Wallace.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Wallace, could you clarify for me what this... what you've been calling the liquidated damages which the respondents call the bureau rate, when, other than in the context of liquidated damages for failure to pay on time, would this bureau rate apply, and in connection with that, what rate would apply to someone who is shipping these same goods on these same routes who pays on delivery, who doesn't get credit terms? That wouldn't be the bureau rate, would it? It would be some--",
       "time": "00:07:01.84"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But wouldn't... I'm positing no delay in payment. Wouldn't there be something even more favorable than the discounted rate? The shipper who pays on delivery, who's not asking even for 30 days, is that also--",
       "time": "00:07:49.07"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--So does the bureau rate... it certainly doesn't apply to one who pays promptly. Does it apply to anything other than this liquid... as a liquidated damage--",
       "time": "00:08:15.99"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, could the trustee, in an action brought by the shipper, raise this as a defense?",
       "time": "00:10:03.17"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I was going to ask you, do you have a position as to whether or not the defense is available in the action itself?",
       "time": "00:10:59.34"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if it's an invalid rate, then under our K Mart line of... under the K Mart case, it would seem to me that it's just a nonenforceable rate in the court, and it would seem to me that that would almost have to be the premise if you're to prevail here. I'm not quite sure why there should be a difference.",
       "time": "00:11:34.77"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Wallace, did that occur in the Ninth Circuit after reargument and fresh briefing, or when the response to Reiter--",
       "time": "00:23:04.07"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--and reargued before the same... not reargued, just rebriefed.",
       "time": "00:23:19.49"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Wallace, I'm not sure I quite understand what the Government's position is regarding provisions that are in rate filings because they are required to be there by these regulations. Is it your position that somehow they do not enjoy the protections that other provisions of the rates enjoy?",
       "time": "00:24:50.16"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Aren't there a number of things that might be optionally included in rates but do not have to be included in rates?",
       "time": "00:25:39.46"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you think that's because of enforcement discretion, because you could move against some and not against others?",
       "time": "00:26:25.01"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Wallace. Mr. Gumport.",
       "time": "00:27:00.70"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Not if you read the filed rate as the discounted rate, and the liquidated... what you call the bureau rate, what they call the liquidated damage provision, if you read that as simply a credit term, not... the filed rate, the rate is the discounted rate. Then, if you don't pay up on time there's this liquidated damage provision.",
       "time": "00:28:32.71"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why shouldn't the Commission's own rules be treated as a supplement to the tariff, since admittedly you can have this higher rate, bureau rate, liquidated damage rate, you can have it only by virtue of the credit provisions, so why not say, as a supplement to this tariff, we read in the ICC conditions, forgetting the liquidated damages, put it in the bill, 90 days passes, send them another notice... why shouldn't those ICC credit regulations in effect be treated as a supplement to the tariff?",
       "time": "00:29:43.81"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That was for the purpose of a defense by the shipper, isn't that right--",
       "time": "00:30:51.63"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--not for purposes of suit by somebody else. It seems to me it just can't be that the Interstate Commerce Act means anything that you put... you know, any provision you put in your rate filing has to be executable. I mean, suppose you say, you know, any shipper who doesn't pay within 90 days, the CEO shall be shot. You're going to say, well, there it is, it's in the filed rate, the ICC didn't get around to striking it down, so we have to go ahead and perform it. I mean, obviously it's unlawful and you can't perform it.",
       "time": "00:30:59.32"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But until it did that, you are entitled to go ahead and execute the contract, in fact obliged to, as you'd say, under--",
       "time": "00:31:38.00"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--How can you have criminal penalties for complying with Federal law? You're telling me that you're obliged to perform that contract by the legislation--",
       "time": "00:32:01.11"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--because it's there in the rate and it hasn't been set aside by the ICC?",
       "time": "00:32:09.42"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Surely... I mean, I think the law against murder is just a State law, and this is Federal law, which supersedes it. [Laughter]",
       "time": "00:32:13.72"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But here there is another rate, and that does make it different.",
       "time": "00:33:03.40"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Let me ask you just to clarify this point, which I think is clear, but if it's not, tell me. The only reason that you can have this two-track system, the discounted rate which applies originally and the liquidated damage rate, the only reason you can have that liquidated damage rate is because of the ICC's credit regulations.",
       "time": "00:33:07.32"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where do you get the authority to put in the two-track system, other than the credit regulations?",
       "time": "00:33:34.31"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Please clarify for me, then, the extent to which you disagree with Mr. Wallace, who said this was not possible until the eighties rulemaking. Until then, you got the interest for late payment, it was only that rulemaking that brought in the credit regulations, and one way of calculating the liquidated damages was having this additional tariff. Is it true that you had these two-track systems, the discounted rate and the higher rate, before there were any credit regulations?",
       "time": "00:33:57.05"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm sorry, I don't know that you've answered my question. Did you... were there these two-track tariff systems before the eighties rulemaking?",
       "time": "00:34:52.74"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't consider it a liquidated damages provision. It's just a rate.",
       "time": "00:36:29.89"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, indulge me. I mean, suppose I think it makes a difference what it's called. Is it liquidated damages or is it just a different rate?",
       "time": "00:36:39.57"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You say it's both.",
       "time": "00:36:55.27"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The credit regulations said one way of calculating liquid damages is what you have put in as the bureau rate, and you have followed that way of calculating liquidated damages, so was your answer to Justice Scalia that it's both?",
       "time": "00:36:57.95"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm curious abut the statute. Isn't there a statute here? I may not understand it correctly, but if I do, I thought that the... there is a statute that governs the tariff, and it says that you can't have a tariff that allows a person credit, except \"under regulations of the Commission\", so the statute seems to say the only reason you could have this provision in the tariff is because you will file, follow, regulations of the Commission. And now I take it what the Commission said is, you did follow regulations of the Commission when you put that in, you did follow regulations of the Commission when you accepted the freight on credit, but you did not follow the regulations of the Commission when you sought damages, because you can't seek damages aggregate, and you have to present your bill within 7 days, or something like that, under the regulations of the Commission.",
       "time": "00:37:37.58"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know. I'm asking about the statute. It seems to me there is a difference between this and the other cases, because here there is a statute that specifically governs. Now, maybe it doesn't. That's what I'm asking, though.",
       "time": "00:38:38.24"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Maybe I don't have it right. Mine says, \"governing the payment for transportation and service and-- \"",
       "time": "00:39:02.40"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yes, but I take it this was governing the payment for transportation.",
       "time": "00:39:08.99"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You mean their regulations are unlawful because they don't deal with discrimination?",
       "time": "00:39:45.41"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And that's simply because of the term... the statute says one of the things is preventing discrimination? You place all that weight on those two words?",
       "time": "00:40:35.26"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why shouldn't the Commission have considerable discretion in interpreting its own regulation?",
       "time": "00:42:04.32"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That seems to... I still think that just puts a great deal of weight, that it won't bear, on two words in a fairly long statute.",
       "time": "00:42:23.78"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I realize. I simply disagree with you on it, and you also rely very heavily on Maislin, but there have been two cases since then which suggest that Maislin, you know, is not the be-all and end-all in this thing.",
       "time": "00:42:36.84"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Gumport, can I just clarify one thing? Are you contending that the credit regulations are invalid?",
       "time": "00:43:21.78"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What... are there any valid applications of the regulations?",
       "time": "00:43:29.30"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the Commission's only remedy is to an injunction against future extensions--",
       "time": "00:43:47.43"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Let me just... I want to be sure I understand your position. You're not contending the regulations are invalid, merely the particular remedy is not authorized by the statute?",
       "time": "00:44:01.61"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The regulations on their face do command conduct that the ICC can command.",
       "time": "00:44:11.51"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And your client has not obeyed that command?",
       "time": "00:44:17.12"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is that true?",
       "time": "00:44:21.64"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Let me just shorten it a little. Are you contending that you complied with the credit regulations in all respects?",
       "time": "00:44:31.41"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Okay.",
       "time": "00:44:38.08"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What remedy is available today for the violations of the credit regulations by the carriers?",
       "time": "00:44:47.55"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, that's if the rate is... for violation of the credit regulations, what would the reparations be?",
       "time": "00:45:07.07"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Let's see about the \"if\". We--",
       "time": "00:45:26.13"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--We... it's conceded that the invoices when they were sent out did not have the credit terms. It's conceded that the 90-day notice was not sent out. Okay. Let's take those violations, Transcon now in bankruptcy court. What remedies does the ICC have for its admittedly valid credit regulations?",
       "time": "00:45:27.80"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Could it impose a penalty equal to the amount you seek to collect?",
       "time": "00:46:00.05"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, that's--",
       "time": "00:46:04.42"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--All right.",
       "time": "00:46:07.94"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, could it calculate a per-day penalty that would bring out that result and say, once you get to this limit, you can't collect anything more?",
       "time": "00:46:09.99"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the thing that I'm puzzled about is, there's a valid regulation out there that's been violated, and the Commission says they want this remedy, and you're saying, well, there's some other remedy, but the other remedy that you describe is the functional equivalent of this one, as I understand it.",
       "time": "00:46:27.97"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the only one who's here at the moment is the trustee, so the ICC practically... practically, what can the ICC do to say, here's our credit regulations plainly violated, and we want to do something that will realistically enforce these rules?",
       "time": "00:47:05.16"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How about the trustee, because of the bill... they were sent out with average balances instead of aggregating, instead of making a separate--",
       "time": "00:47:43.03"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--So the trustee gets the benefit of the sweep that Transcon did, it has this higher rate, but it's not saddled with any of the, even going to jail, that the Transcon people would have had.",
       "time": "00:48:40.80"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Gumport, why shouldn't it be considered impliedly part of any rate whatever the Commission's regulations demand with regard to that rate? Why shouldn't it simply be considered part of the filed rate? Even if you leave it out it's implied that, of course, the other conditions required by the Commission's regulations apply?",
       "time": "00:49:12.09"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Okay.",
       "time": "00:49:40.81"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If Transcon had put in--",
       "time": "00:49:54.12"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--No, no, no, that's-- --just copied into its tariff the ICC's credit regulations, then you would lose, is that right?",
       "time": "00:49:55.55"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I thought it would be discriminatory as applied even in that case.",
       "time": "00:50:04.88"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm still curious about... go back to the statute for one second. Regulations of the Commission governing payment for transportation and service and, you say, preventing discrimination.",
       "time": "00:51:01.74"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, fine. The Commission says we want notice given of these things because otherwise big shippers with big lawyers know and little shippers with little lawyers don't. We want to have no aggregate, because we think otherwise the people who are customers of the trustee in bankruptcy will have to pay, the other guys won't. We want to be certain, whatever the third one was, that you don't give, years later, notice, because we don't want them picking and choosing, all there to stop discrimination as well as transportation. How do you respond to that?",
       "time": "00:51:10.18"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Even the filed rate that discriminates, because it does discriminate, since it violates these regs.",
       "time": "00:51:53.43"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose the credit regulations were written into the statute. You already told me if they were written into the tariff you'd be... you'd have no case. Suppose they were written into the statute as distinguished from being regulations, would that make a difference?",
       "time": "00:53:07.76"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're a hard man, Mr. Gumport. [Laughter] You better seek counsel before you do that.",
       "time": "00:53:56.66"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Gumport. Mr. Wallace, you have 3 minutes remaining. Mr. Wallace, tell me why this is different from the case where... that Justice Ginsburg asked about. Even if the filed rate violated the statute, the filed rate doctrine would apply, and it would have to be set aside before it could be collected, and you're coming in and saying, ah, but if it violates a regulation, that's different.",
       "time": "00:54:34.45"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That doesn't seem to make much sense.",
       "time": "00:54:59.51"
     },
@@ -911,13 +915,13 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Wallace. The case is submitted.",
       "time": "00:57:24.71"
     },
     {
       "turn": 146,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:57:27.49"
     }

@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2005/05-7053/20060425a_05-7053.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "J. CRAIG JETT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "IRVING L. GORNSTEIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Dixon v. United States. Mr. Jett.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Jett, do I take it, from what you've just said, that you are recognizing this is a question of Federal common law and not due process, so that if Congress placed the burden on the defendant, there would be no constitutional infirmity? You're just arguing that this is the Federal common law?",
       "time": "00:01:11.91"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You... you... then you think that Congress could not say that the defendant has the burden on the question of duress.",
       "time": "00:01:45.24"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What do you do with Martin against Ohio?",
       "time": "00:02:05.12"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, there may be... there may be crimes where duress would vitiate an intent element, but there may be other crimes where it wouldn't. And... and I don't understand your argument to be... is it that in every case duress negates an element of a crime or only in some cases?",
       "time": "00:02:53.19"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Which is the easier of the two cases for the defendant? A, the case where the argument is a burden of proof should be on... on the... the state as a due process matter or a common law matter in an insanity defense and, B, in a duress defense?",
       "time": "00:03:28.86"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, either way.",
       "time": "00:03:53.39"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I would think that it's easier in... you know, we had... we had a... this term another case in which the argument is that you cannot have a separate insanity defense essentially and... and exclude from the mens rea element of a crime the... the lack of... of mental capacity to... to have that mens rea. This is the same thing you're arguing before us. And... and it seems to me that if it applies to duress, it applies even... even more strongly to... to insanity. How can an insane person form the intent to commit a crime that... that requires mens rea?",
       "time": "00:04:18.35"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but we've held, at least under the McNaughton version of the defense, that the state... that the burden can be put on the defendant to show that he was not insane under the McNaughton--",
       "time": "00:05:20.10"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--And as Justice Scalia said and as I was considering in asking my question, in your case we know that there was a conscious, knowing and intentional, in some sense, act when... when the person bought... bought the weapons. She says the intent, of course, was induced by... by the threat. It seems to me you have a more difficult case than in the insanity case.",
       "time": "00:05:35.23"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but doesn't vicious will mean simply the will to commit the crime?",
       "time": "00:06:29.63"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, what do you mean by vicious? I mean, that the person is... is nasty, that the person is antisocial or asocial?",
       "time": "00:06:45.51"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I don't know what the added element is.",
       "time": "00:06:54.62"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The phrase Justice Harlan used in the Davis case.",
       "time": "00:07:19.22"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But when you... when you say freely choosing, what you mean, I take it, is choosing with... without consideration of pressure from a third party. That's what you mean, isn't it?",
       "time": "00:07:22.39"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:07:35.88"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But if the... the third... the third party may, indeed, exert pressure, but I take it you would agree that it is still the decision of the defendant whether to cave in to that pressure or not, whether to commit the crime or not to commit the crime.",
       "time": "00:07:36.60"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I... I don't want to get lost in... in rhetoric here. Isn't it still the case, even on your theory, that the defendant in these circumstances makes a choice? It may be a troubled choice, a much more difficult choice to make than it would be otherwise, but the defendant still makes a choice as to whether to cave in to the third party's pressure or not, whether to commit the crime or not. Isn't that true even on your theory?",
       "time": "00:07:59.37"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:08:28.99"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It was her will to yield to the will of someone else. I mean, you can't blame somebody else for her making the choice.",
       "time": "00:08:43.63"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That may be a very intelligent choice on your part to do what the person with the gun at the head of your children tells you to do. But to say that it's not your choice, which is what you're arguing here, the only question is whether that has to be brought forward by reason of... of a defense of... of coercion or rather, whether it goes to whether you had the intent. That's all we're talking about here. And it seems to me you have the intent to yield to... to the demand of whoever has the gun at the head of your children. It's a separate question whether the law should punish your yielding like that.",
       "time": "00:09:04.12"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But... but you're telling us that you don't have the intent to... to yield and... and to do whatever criminal act that person tells you. Right? That just doesn't... I just don't think it's true.",
       "time": "00:09:37.94"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, what is the statutory... what is the mens rea under the statute for the offenses that the defendant was charged with? It's knowingly, isn't it?",
       "time": "00:10:02.79"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, counsel, under your view, how... how is the Government supposed to prove a negative in every case? How are they supposed to prove the absence of duress?",
       "time": "00:11:06.89"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But that's something that... but self defense is something that's often a... a factual element that you can discern from the circumstances of the crime. The... the other guy had a gun, you know, that sort of thing. So if it's going to be presented... so it's something that's within the control of either side. Duress is something that in this case the Government would have no reason to suppose that it was even implicated until it's raised, and then they have no way of getting at what the particulars are because they're always in the control of the defendant.",
       "time": "00:11:31.02"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But I thought the gist of her duress defense was not that she was under duress when she was purchasing the guns, but that she had reason to believe that her children were being threatened by accomplices or associates of... of this... this individual. And there's nothing in the facts of the... the scene that would lead the Government to have any access to that evidence.",
       "time": "00:12:58.73"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What... what is the threshold test that the defendant has to cross before the judge will give the instruction to the jury? Obviously, the burden of production is with the defendant. When can a judge say, well, you know, this... this is just too flimsy for a duress defense? I'm not going to instruct a jury on that.",
       "time": "00:14:10.67"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What is the... the methodology that you think we should follow in determining where the burden should be allocated under any particular criminal statute? Is it the... the majority rule at the time when that particular statute was enacted or at... is it... you don't think it's the... the old common law rule. What... what is the... at what point of time do we look at the... at what's going on throughout our country?",
       "time": "00:15:08.43"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So the burden would be different under different statutes?",
       "time": "00:15:59.49"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If we were dealing with a... with a much older criminal statute, the burden might be allocated differently?",
       "time": "00:16:02.50"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you have 21 States and how many circuits--",
       "time": "00:16:37.97"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--No. I'm saying how many are on the other side?",
       "time": "00:16:43.47"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's... that's sort of a horse race. I'm... I'm not sure, even if I agreed with your theory, that... that what the Constitution requires changes on the basis of an evolving common law. Of course, it can only change in one direction. Right? It can only change favorably to... to your client, favorably to the defendant. It can't change to be more harsh to the defendant because the Constitution prohibits that.",
       "time": "00:16:52.42"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right? So... so we have a one way... a one way altering Constitution.",
       "time": "00:17:16.33"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But even... even if I agreed with that, I'm not sure that, you know, 21 versus 14 is... is an overwhelming demonstration of... of the new common law.",
       "time": "00:17:21.54"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "29 versus 14.",
       "time": "00:17:35.41"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. But are you making the argument that this number indicates a congressional intent and that what we ought to do is come up with a rule because Congress intended it? Or are you making the argument that yours is the better rule, and as a matter of common law, which... which it is our responsibility to develop, we should see it your way? Which argument are you making?",
       "time": "00:17:42.04"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Jett, there's one piece of this picture that's different... that distinguishes duress from, say, self defense. If it's self defense, you take a snapshot on the scene. You know exactly what happened. No one taking a picture of these gun purchases would have any idea of all of this. And the judge, when asked to give... to allow the defense of duress, said, it's frankly a close call in my mind, but when it is a close call, better give it than not. Now, he thought that the defendant would have the burden of proof. Perhaps the judge would call that close question the other way if he thought he was saddling the prosecution with the ultimate burden of persuasion.",
       "time": "00:18:16.27"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Jett, a thought occurred to me, by reason of your agreement, that... that it's a one way ratchet, that when the common law changes in the... in the direction of favoring the defendant, it becomes the duty of the courts to allow that. But, of course, it can't change in the other direction because the Constitution would prevent it. You sort of agreed with that. But... but if... if you agree with that, how can you explain our... our 1895 decision in Davis which held that the insanity defense had to be proved by the Government which was then overridden by a Federal statute. How could... how could... if... if Davis was right about what the... what the common law required, how could Congress possibly have changed that by a statute? I would assume that all of the basic elements of the common law are picked up in the Due Process Clause. Why wouldn't... why wouldn't the necessity of... of proving the mental element of a... of a crime, even when that mental element is overcome by insanity, why wouldn't that have been embodied in the Due Process Clause so that the congressional statute would have been ineffective?",
       "time": "00:20:11.95"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. I'm not questioning whether we could do it. I'm questioning whether Congress could do it, whether Congress could overrule what we did in Davis. If Davis said that common law was that the Government has to prove... disprove insanity, wouldn't that have been part... become part of the Due Process Clause if it was the common law?",
       "time": "00:21:45.08"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:22:11.71"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it makes me suspect that Davis was wrong.",
       "time": "00:22:21.84"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, if... if you know, whether Congress has ever been asked to address this precise issue that we're debating today?",
       "time": "00:23:27.13"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What about a defense that I was on drugs and... and didn't know what I was doing because of that and couldn't form the requisite intent? Does the Government have to disprove that as well?",
       "time": "00:24:38.35"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How is the Government... how would the Government do that?",
       "time": "00:25:01.28"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "A person just says, I was... I was on, you know, PCP or whatever and... and I couldn't form the requisite intent.",
       "time": "00:25:03.51"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But that's based on the defendant's... the prosecution's conduct. The Government's conduct in entrapment concerns how the Government behaved.",
       "time": "00:25:26.11"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if the Government is out there trying to achieve that result, it's quite different from the Government having nothing to do--",
       "time": "00:25:45.61"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Gornstein.",
       "time": "00:26:04.88"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So there may be cases where the nature of the mens rea required would require the Government to disprove duress.",
       "time": "00:27:03.72"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The sort of crimes where... where your culpability depends on your motive. Right?",
       "time": "00:27:14.87"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It would be an easy example.",
       "time": "00:27:30.34"
     },
@@ -671,13 +671,13 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Good catch.",
       "time": "00:27:35.40"
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What about a... you know, a hate crime, a bias crime, you know, an act of violence done with a particular motive or intent? And the... and the suggestion is I didn't do this because of a particular motive. I did this because they had a gun to the head of my children.",
       "time": "00:27:35.92"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The Government wouldn't... wouldn't have to disprove duress in the hate case. It would just have to prove hate.",
       "time": "00:28:15.21"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And to the extent that duress undermines that, it would be a defense considered by the jury on the hate question.",
       "time": "00:28:21.15"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How does self defense fit into this equation?",
       "time": "00:28:31.18"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why is the number of decisions... number of States have gone one way or... or the other on the issue relevant? It's not an Eighth Amendment question, is it?",
       "time": "00:29:53.01"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What... what if you're a judge like me who... who thinks that any significant element of... of the criminal law, when the Due Process Clause was... was adopted, remains in effect and it doesn't change with the times as you seem... as your last comment seems to have said? What do I do with a case like Davis? Not a case like. What do I do with Davis? Davis tells me that this was the common law when the Due Process Clause was adopted.",
       "time": "00:30:20.36"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No?",
       "time": "00:30:54.10"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I know it was not a constitutional holding, but--",
       "time": "00:31:16.59"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I'll have to go back and look at it.",
       "time": "00:31:20.61"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:31:22.12"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is... is... I didn't mean to cut you off.",
       "time": "00:32:49.41"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I was... you have a tougher argument, don't you, when you... when you face the comparison between duress here and entrapment because it's... it's quite true in... in entrapment you're talking about the actions of a... of a third party which is causing something, but the... the ultimate determination that has to be made is a determination about the... in effect, the... the inclination, the willingness, the readiness of the defendant to have committed the act. And... and yet, I take it, it's... it's assumed that so far as the entrapment defense is concerned, the burden is on the Government. So if the burden is on the Government in what is a... a somewhat difficult issue for the Government to carry the burden on in entrapment, wouldn't coherence suggest that a fortiori it ought to be on... on duress?",
       "time": "00:32:52.00"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, the burden of going forward with evidence.",
       "time": "00:33:53.83"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You mean the burden of persuasion.",
       "time": "00:34:02.24"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You could almost argue that the other way. I mean, it... it seems to me on predisposition that the defendant knows more about it than the Government does.",
       "time": "00:35:00.42"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm not sure what the criteria are that I have to follow... that we have to follow in deciding the case. Just count up all the cases and--",
       "time": "00:35:34.71"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Let me ask... let me ask you this. Is... is there any evidence that... that we can take account of, commentary, law reviews, to show that the Government has difficulties in... in meeting a duress defense?",
       "time": "00:35:42.49"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, why is this worse in that respect? And lots of things in the case that you have to prove may be hard to prove because it requires finding out what someone said to the defendant over the telephone, what happened 4 years ago in a room where the defendant was the only one now alive present. There are lots of cases like that. Traditionally in the law, I take it, it's been that most instances where the defendant excuses his conduct on the ground he wasn't morally culpable, mistake, accident, self defense. Entrapment? Not... that's a different kind of ground. This one? Evidence mixed. But you have to prove lots of things where it's really in the hands of the defendant, and the defendant saying I'm so innocent because I'm not morally culpable. I was asleep. I was... you know, we can imagine. So I don't see why this is different.",
       "time": "00:36:20.10"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And that's going back to Justice Kennedy's question. I would look... I guess if we're supposed to get the better rule, the first place I'd look is what did the Model Penal Code think. They think you should have the burden. Then I think has this turned into a practical problem in the 29 States that have had it for 20 to 40 years. And you say we don't have any evidence to that effect. Now, I've listed about four things here, and I'd like your response to them.",
       "time": "00:37:23.48"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But if we're thinking of things logically, logically you're right. I can see that this is in the hands of the defendant. But I've wondered why hasn't this turned into evidence of a problem in the 29 States. And the following occurred to me, which I'll put to you to see what your reaction is. The defense has to do something if they are going to put duress in issue. They have to get the defendant to testify. So the prosecutor has something that the prosecutor doesn't ordinarily get. He has that defendant right on the stand, ready for jury evaluation. And that is something a... a prosecutor may want, and it's something the defense lawyer may not want. He has to choose.",
       "time": "00:38:43.85"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So when you get into the practicalities of it, I see things both ways, and I'd like to find some evidence of what's actually happened.",
       "time": "00:39:24.59"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If... if does that--",
       "time": "00:40:14.04"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--He has a few other things, the prosecutor. He has that defendant on the stand. There was an implication that you were in Chicago at the time.",
       "time": "00:40:15.91"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Where you on the night of such and such?",
       "time": "00:40:24.23"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And that's an advantage for the prosecutor.",
       "time": "00:40:26.45"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course, in the vast majority of criminal cases, there's no doubt that the person did the crime. And so the... the benefit to the Government is just carrying coals to Newcastle. The... the defendant would plead guilty but for the fact that he has a plausible coercion defense, and so he puts that coercion defense before the jury, and oh, sure, he does let the... the Government cross examine him. But the Government really doesn't need his cross examination in the ordinary case. Isn't that right?",
       "time": "00:40:45.15"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I... I guess the only way we could really tell what the consequences are, as Justice Breyer would... would like us to be able to tell, is to know how many people who have gotten off on the basis of this defense have gone on to continue a life of crime. And... and we don't have any stats on that--",
       "time": "00:41:18.19"
     },
@@ -1001,13 +1001,13 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--We never know the consequences of our decisions, by and large, do we? [Laughter]",
       "time": "00:41:42.98"
     },
     {
       "turn": 161,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that's why this is problematic.",
       "time": "00:41:47.57"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, I don't have the experience as a criminal lawyer that allows me to say whether it would be one way or the other. You're saying... and I'll repeat that. Is there anything at all I could look to try to figure this out? Because I think it is a question we're supposed to get the better rule. What did the Model Penal Code authors do? Did they take testimony--",
       "time": "00:41:52.36"
     },
@@ -1031,13 +1031,13 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do--",
       "time": "00:42:17.36"
     },
     {
       "turn": 166,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Did they have evidence or did they have... take testimony? Did they go around trying to find out how prosecutors and defense attorneys... you know. I don't know.",
       "time": "00:42:17.72"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Doesn't that come from an underlying principle that your position is not entirely consistent with, that is, that the defendant is presumed innocent? So it's not as Justice Scalia may have suggested that, well, he would plead guilty, but we're going to let him... we presume that the defendant is innocent. That's why the prosecutor has to have the burden on all issues. I thought that was the underlying principle.",
       "time": "00:42:36.44"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Before you get there, what... roughly speaking, how much of the Model Penal Code has Congress enacted into the criminal--",
       "time": "00:44:11.42"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Who... who develops the Model Penal Code? Is that the American Law Institute that does that?",
       "time": "00:44:30.91"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which once upon a time purported to simply be embodying the... the general law, the common law. But it doesn't even purport to do that anymore.",
       "time": "00:44:36.77"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There are a lot of law professors involved in it, aren't there?",
       "time": "00:44:49.71"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Some judges too. Right?",
       "time": "00:44:54.66"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "When was this... the underlying statute at issue here enacted?",
       "time": "00:45:26.28"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why not? Isn't it realistic to assume that Congress looked at the state of the law at the time it's passing a statute and presumably adopted what was the prevailing view?",
       "time": "00:45:56.22"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, a consensus view. It could still be the time of the enactment of the statute is what would be relevant, I would think.",
       "time": "00:46:11.19"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Gornstein, just out of curiosity, of the 29 States that have the different rule, in how many of those States was the different rule adopted legislatively and in how many States was it pronounced by the State supreme court?",
       "time": "00:47:07.50"
     },
@@ -1169,19 +1169,19 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is... is--",
       "time": "00:47:34.40"
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Maybe your... your friend on the other side knows.",
       "time": "00:47:36.35"
     },
     {
       "turn": 190,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Is the test proposed by the petitioner that... that you have to prove nonduress by beyond a reasonable doubt?",
       "time": "00:47:38.90"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And your test is that the defendant would have to prove it only by clear and convincing evidence?",
       "time": "00:47:52.06"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "More likely.",
       "time": "00:48:01.12"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you think a State could put a burden on the defendant beyond a reasonable doubt for entrapment, duress, insanity?",
       "time": "00:48:30.82"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Clear and convincing.",
       "time": "00:48:52.57"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about the insanity defense?",
       "time": "00:49:26.95"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about self defense?",
       "time": "00:49:48.74"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Gornstein, there are some old cases that draw a distinction between justifications and excuses. You carefully use the words excuse to describe that defense. Did you do so having in mind that distinction or just as a loose description of the... of the defense?",
       "time": "00:50:31.26"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about mistake?",
       "time": "00:51:05.18"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought it was a deer.",
       "time": "00:51:08.57"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And would you distinguish between instances of duress where it may a negative mens rea and instances where it may not?",
       "time": "00:51:24.65"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Gornstein. Mr. Jett, you have 4 minutes remaining.",
       "time": "00:51:53.16"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And three... three was what? Three States that have adopted it--",
       "time": "00:52:32.91"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--By statute.",
       "time": "00:52:37.55"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure it's less... less blameworthy. I mean, if somebody has a gun to the head of my child and I have a choice between doing a criminal act that he wants me to do and shooting him, you think it's... the less blameworthy is to go do the criminal act?",
       "time": "00:53:34.08"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I wouldn't kill him. I'd just wound him. [Laughter]",
       "time": "00:53:49.41"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you take into account that this was not something that occurred at once? This was a long term relationship. There were many opportunities in which she might have, when her children were with the grandmother, say, gone to the police.",
       "time": "00:54:27.83"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can the judge ask the defendant to produce evidence that there was no possibility to go to law enforcement officials, and if she does not produce that evidence, then refuse to give the defense?",
       "time": "00:55:37.72"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Jett. The case is submitted.",
       "time": "00:56:09.37"
     }

@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1987/87-654/19880329a_87-654.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "HERMAN SCHWARTZ",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "RICHARD C. FARRIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 87-654, New Energy Company of Indiana versus Joanne Limbach. Mr. Schwartz, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Schwartz, what if all we had in front of us was an Ohio statute that granted a tax credit to producers of ethanol in Ohio, no reciprocity provision. Would you be here, and would you think that posed a commerce clause problem?",
       "time": "00:01:59.31"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think that would be true if Ohio had a serious concern about its citizens' health problems?",
       "time": "00:02:25.75"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think it couldn't provide a tax credit to encourage the production and use of ethanol in Ohio?",
       "time": "00:02:34.53"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, let me ask you this. Do you think that Ohio could, instead of a tax credit, give some kind of bonus payment to producers of ethanol in Ohio?",
       "time": "00:02:57.14"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It could do that?",
       "time": "00:03:11.36"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You don't think that a tax credit is essentially the same thing as a bonus?",
       "time": "00:03:13.43"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess it's a little hard though to distinguish between an outright grant of state money and an extension of a tax credit?",
       "time": "00:03:40.35"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So you would just distinguish the Alexandria Scrap type situation based on the fact that this is within the tax structure?",
       "time": "00:04:50.51"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Schwartz, I'm not sure you'd really hold to that line. In the subsidy situation you were just addressing, it's assumed that the subsidy goes to the producer, no matter where the producer sells it. Suppose you had a state subsidy that applied to an in-state producer but only if he sells those products within the state, and he forgoes that subsidy to the extent he ships out of the state, would you say, well, that's not a tax so it's all right?",
       "time": "00:05:30.27"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You would.",
       "time": "00:06:03.15"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As long as it's not a tax, you can do whatever you like to--",
       "time": "00:06:05.61"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--So I can subsidize an in-state produce but only if he ships nothing out of state and as soon as he ships out of state, he looses the subsidy and that doesn't interfere with the Commerce Clause?",
       "time": "00:06:16.81"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "A volume-- --A volume of logic.",
       "time": "00:07:01.05"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "A volume of logic.",
       "time": "00:07:04.91"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "May I stop you on that point just for a moment. The Court did also adopt appellees' additional finding of purpose.",
       "time": "00:11:09.66"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And it isn't altogether clear to me whether or not there was an additional purpose to provide a cleaner and safer environment for Ohio citizens.",
       "time": "00:11:20.12"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If it was a purpose of the legislature, how does that affect the legal analysis?",
       "time": "00:12:03.78"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do we have cases which say that it's improper to try to influence the policies of other states'?",
       "time": "00:13:34.93"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So the objective itself is legitimate to try to influence the policy of other states?",
       "time": "00:14:39.39"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if Ohio felt that coal-fired energy plants in Indiana to the west of it were producing a lot of acid rain in Indiana. Could it instruct or regulate its utilities to tell them they couldn't buy from any coal-fired plant in Indiana?",
       "time": "00:14:47.78"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What's the leading case that you can think of that applies the least drastic alternative test in this situation?",
       "time": "00:15:14.35"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did that use the term, least drastic?",
       "time": "00:15:27.37"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I thought Dean used the reasonable alternative analysis, it said whether there's a reasonable alternative.",
       "time": "00:15:41.57"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, Mr. Schwartz, it's one thing to say you have to look at other alternatives.",
       "time": "00:16:51.86"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It's quite another thing to say you must employ the least drastic of these alternatives.",
       "time": "00:16:55.66"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Schwartz, before you go on to the new argument, will you tell me why this is different from what we have clearly allowed that is facially discriminatory and that is the assessment by a state of a compensating use tax. In that situation, the state is just equilibrating matters between itself and other states. It's worried that its sellers will be at a disadvantage because of its tax if other states don't impose taxes so it imposes a use tax on any imports. It seems to me the state here is doing the same thing. It's worried that its sellers will be at a disadvantage abroad, viz a viz, the sellers in the state that does not give the same credit that it does. So it's just making things even.",
       "time": "00:21:35.16"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right. And they're tax cases.",
       "time": "00:22:37.43"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that doesn't explain Alexandria Scrap, I don't think.",
       "time": "00:24:59.71"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I don't think so. The situation appears at least to be one where the state wanted to encourage disposal of the old auto hulks, just like Ohio might want to encourage the use of ethanol.",
       "time": "00:25:20.69"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Schwartz. Mr. Farrin, we'll hear now from you.",
       "time": "00:27:16.48"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "When under your view of it did Ohio enter the market, in 1981 or 1984?",
       "time": "00:30:21.79"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Farrin, do you really think it solves matters to simply say it's the application of a state subsidy? I assume, for example, that a state could if it chooses subsidize all of its domestic industries in a lot of ways, by tax credits, or even by giving them money. But do you think a state could subsidize domestic production by only charging a sales tax on out-of-state products and not charging a sales tax on in-state products. And saying, well, that's all fine because all we're doing is subsidizing in-state industry which is certainly a laudable and valid goal?",
       "time": "00:31:05.74"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I didn't ask either of those questions. I asked whether you thought that would be constitutional simply because it's the application of a state subsidy?",
       "time": "00:32:00.62"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So subsidy isn't the answer. I mean, it doesn't necessarily prove that this is okay.",
       "time": "00:32:22.64"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it's purpose is to insist that other states do it Ohio's way, isn't it?",
       "time": "00:33:49.77"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it did so in a way that penalized producers from one state and not others, and incidentally helped Ohio producers.",
       "time": "00:34:09.77"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it didn't hurt Ohio producers, did it?",
       "time": "00:34:31.35"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, there, the State was actually buying the hulks. Are you saying the State enters the market any time it imposes a tax?",
       "time": "00:34:53.08"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it's giving a tax credit which has the same economic effect as a subsidy, isn't that right?",
       "time": "00:35:20.97"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, have we ever applied the market participant theory to a tax scheme in a state?",
       "time": "00:35:36.77"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but isn't there a difference in Alexandria Scrap the hulks that they wanted to get rid of were all located in Maryland, weren't they? The procedure generally was to get rid of these hulks that were in the State? And it didn't really matter whether it was an out-of-state wrecking company or an in-state wrecking company that bought them as long as the hulk was in Maryland. But here your interest is in having the gasohol that is consumed in Ohio be less contaminated than regular gas, and it is immaterial where the gas comes from as long as you have an environmental interest. You'd get the same benefit if Indiana gasohol were used in Ohio.",
       "time": "00:35:48.93"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But what does Ohio care about whether ethanol's used in those states. If the ethanol produced in those states is consumed on Ohio, that's what Ohio cares about, isn't it?",
       "time": "00:36:48.22"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In Indiana? They're concerned about the clean air in Indiana?",
       "time": "00:37:07.89"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there anything in the legislative history to support this theory?",
       "time": "00:37:22.77"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is there anything in our precedents which says that one state can take action to influence the conduct and the policies of other states? I thought that's what the Commerce Clause was all about.",
       "time": "00:37:31.75"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You seriously think the '84 amendment actually would encourage industry as a whole rather than discourage it?",
       "time": "00:38:23.31"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It certainly wouldn't help it any in Indiana.",
       "time": "00:38:34.74"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, maybe Indiana has a better way of doing it. What if every state were to adopt the Indiana program of subsidizing the industry?",
       "time": "00:38:44.88"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why is one better than the other?",
       "time": "00:38:52.63"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what do you say to your opponent's argument that maybe the Indiana gasohol that no longer comes into Ohio has been replaced by lead gas rather than gasohol?",
       "time": "00:39:13.47"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's possible.",
       "time": "00:39:25.23"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "General Farrin, do these subsidy laws tend to predominate in those states that have a lot of air or those states that have a lot of corn? I mean, do you really think that that's what's going on here?",
       "time": "00:40:04.39"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They are corn growing, aren't they?",
       "time": "00:40:37.66"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There is a national market in corn, of course. You can take it from anywhere and the national market's going to help your domestic corn.",
       "time": "00:41:25.50"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Farrin, how do you distinguish the Hawaiian tax case on these exotic beverages they had over there, the tax credit for those local--",
       "time": "00:43:01.10"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--And that purpose is the health and environment purpose?",
       "time": "00:43:34.57"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, has the Court required a close fit, even if the purpose is legitimate? In other words, does the scheme have to fit very closely to that legitimate purpose? And does this kind of reciprocity provision meet that kind of requirement?",
       "time": "00:44:16.26"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that was because Maryland created a market that had not previously existed. And this is a market that exists quite without regard to the intervention of the State of Ohio.",
       "time": "00:45:10.14"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how about gasohol from other States?",
       "time": "00:46:07.26"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how does keeping out a seller from another state that doesn't grant reciprocity, that doesn't grant Ohio people a credit there, how does keeping them out serve the health's interest of Ohio?",
       "time": "00:46:57.70"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, here's an outsider that wants to, that apparently has enough product to sell in Ohio. And if he can't come in, why his share of the market's going to be taken up by another ethanol producer, either an Ohio one or a foreign one, or by gasoline.",
       "time": "00:47:38.41"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what difference does it make where the ethanol comes from?",
       "time": "00:48:10.53"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Looks to me like the more sellers of ethanol you've got in Ohio, the more service to your health's interest you'd have.",
       "time": "00:48:18.09"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you state it that broadly, I guess the Dean Milk case was incorrectly decided. Because there certainly was a legitimate health purpose in their regulation.",
       "time": "00:50:24.72"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How much Indiana ethanol is sold in Ohio when you have this particular situation? There isn't any, is there?",
       "time": "00:51:09.82"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "None at all. It's the equivalent of an absolute bar.",
       "time": "00:51:29.03"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but maybe Madison, Wisconsin, because if we really want to encourage everybody else in the country to have the same strict health regulations we have, too, the best way to do it is to have everybody adopt this kind of protectionist ordinance that no milk can be shipped--",
       "time": "00:51:39.05"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Not other ethanol, but meets the same physical requirements and health standards and all the rest but just that it's produced in states that adopt the same public policies of how to subsidize the industry that we think are the wisest.",
       "time": "00:52:25.07"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Farrin, this Court so far has invalidated all these reciprocity laws. It did so in Sporhase v. Nebraska; it did it in A&P Tea Company; it did it in Baldwin v. Seelig. Dean Milk. I mean, find some cases where we've upheld this kind of a scheme.",
       "time": "00:52:49.81"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I don't think the Court has distinguished between an absolute ban and a substantial burden on interstate commerce.",
       "time": "00:54:12.75"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you think that Ohio could impose a penny tax on all gasoline from states that don't subsidize ethanol? I mean, if it's, you know, the national scheme is in its interest, why does it have to limit its incentives to ethanol? Why can't it start fiddling with other imports into the state, subsidize some of them and tax others in order to induce other states to subsidize ethanol? Is there anything in the nature of your theory that would require Ohio to limit itself to ethanol as a device to get other states to go along?",
       "time": "00:55:05.10"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's scary, isn't it?",
       "time": "00:55:47.76"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would be the same purpose you have in this case, to encourage other states to adopt this kind of an ethanol policy.",
       "time": "00:55:58.64"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You could perhaps tax all imports from Indiana unless Indiana adopted this type of tax credit.",
       "time": "00:56:05.95"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I don't think it would, either, but I think your theory would.",
       "time": "00:56:25.41"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Farrin. Mr. Schwartz, you have four minutes remaining.",
       "time": "00:58:18.25"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Schwartz. The case is submitted.",
       "time": "00:59:09.20"
     }

@@ -3,43 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/83-2004/19851112a_83-2004.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "DONALD J. ZOELLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CHARLES F. RULE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "EDWIN P. ROME",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Matsushita v. Zenith Radio. Mr. Zoeller, I think you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Zoeller, in your view, is the evidence about what happened in the Japanese market entirely irrelevant?",
       "time": "00:07:48.61"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is the evidence about sharing the figures on production and inventories entirely irrelevant?",
       "time": "00:07:57.39"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I thought the production figures showed that they produced much more than they consumed in Japan.",
       "time": "00:08:10.32"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does the evidence explain why they exchanged this information about production and inventory?",
       "time": "00:08:48.08"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me just... You focus our attention on that page. The court says direct evidence of some kinds of concert of action like price fixing in Japan may be circumstantial evidence of a broader conspiracy. Do you agree or disagree with that statement of law?",
       "time": "00:10:51.58"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Zoeller, do you think the Cities Service case laid down a rule of inference drawing through summary judgment that's peculiar to antitrust law, or does it apply across the board in summary judgment?",
       "time": "00:12:55.28"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, to that extent then, if you just had an ordinary action for fraud and not antitrust, I suppose you would say Cities Service didn't apply because there's no harm in showing fraud.",
       "time": "00:13:52.07"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is it logically possible that you could win on the antitrust case and lose on the dumping part of the case?",
       "time": "00:15:18.52"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Then if the claim of government authorization of whatever conduct is alleged, if that is sustained, it also undermines the dumping case, is that it? Not necessarily, Your Honor, in that sense. It undermines any conspirational claim, and therefore it undermines it in the sense that it destroys the evidence of predatory intent. But if there were low prices not compelled by the Japanese government, we don't intend that a finding of sovereign compulsion would bar that. Well, the dumping case under the court of appeals judgment would still be tried, too, wouldn't it?",
       "time": "00:15:39.37"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you think that part of it should be reversed, too?",
       "time": "00:16:21.47"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think your questions presented, your petition, raises anything about the dumping charges?",
       "time": "00:16:32.81"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It would any joint predatory... it would undermine any finding of a joint predatory intent.",
       "time": "00:16:51.50"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Rule?",
       "time": "00:17:19.08"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Rule, perhaps I should have asked your opponent, but do I correctly recall that the district judge held a great deal of evidence inadmissible that the court of appeals said was admissible, so the court of appeals decided the case on a different record?",
       "time": "00:18:16.12"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But most of its opinion deals with evidentiary ruling.",
       "time": "00:18:35.18"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Have you reached all four facts?",
       "time": "00:21:09.05"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there more than one?",
       "time": "00:21:13.12"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Along with the five companies.",
       "time": "00:21:20.92"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Rome?",
       "time": "00:24:27.54"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Rome?",
       "time": "00:30:35.37"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "There's a certain tendency, I think, on the part of your briefs. They're going to pass in the night; namely, yours and your opponents'. In their... in your opponents' description of your case, they say that respondents alleged that from the mid-50s to at least 1977, you claimed seven Japanese television manufacturers and 17 other named defendants participated in a low price export conspiracy to destroy their competitors and take over the U.S. market for television receivers. Now, is that a reasonably accurate description of your claim?",
       "time": "00:30:36.81"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is it a necessary element of your claim that eventually these people would have to recoup their losses?",
       "time": "00:32:02.38"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But how does that bear on a claim of the American antitrust law?",
       "time": "00:32:25.16"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but supposing your evidence of what happened in this country shows nothing more than that these people constantly lowered their prices and met competition and tried to compete so heavily as to become the only people and the only suppliers in the American market? Now, if that proof... if there's nothing more than that, now can showing something that happened in the Japanese market fortify that case?",
       "time": "00:32:41.95"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what was their motive?",
       "time": "00:33:38.30"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But surely they didn't take over the U.S. market with the intent to just continue dumping and charging low prices, did they?",
       "time": "00:34:12.10"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But this is--",
       "time": "00:34:40.29"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Does that state a claim under the antitrust laws?",
       "time": "00:34:43.60"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Were the American companies selling in competition with the Japanese in Japan?",
       "time": "00:35:01.74"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If Japan had these inflated prices, couldn't the American producers have returned the compliments?",
       "time": "00:35:17.81"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I'm trying to get at the reason. What was the reason?",
       "time": "00:35:37.93"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "To sell in Japan, you mean?",
       "time": "00:35:54.01"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, what did you say was not at issue here?",
       "time": "00:35:57.89"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I suppose that if reversing the judges below with respect to the antitrust case nevertheless rubs off on the dumping case, then it--",
       "time": "00:36:28.50"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Well, the other side says it does, so you disagree on that?",
       "time": "00:36:49.62"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that's your view of the evidence. Of course, I gathered from what your opposition said that if you take away the conspiracy evidence, there's just no evidence of any kind of a predatory intent, individual or joint.",
       "time": "00:37:06.56"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, I know. That's your position about the evidence.",
       "time": "00:37:23.32"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So, I gather if we happen to, if we reverse the lower court on the antitrust case, you would... you think we should say that this has absolutely nothing to do with the dumping case?",
       "time": "00:37:38.52"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And if we don't agree with you on the predatory action, you can't win, can you?",
       "time": "00:37:54.51"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, how can you win when the only evidence is that they dropped prices?",
       "time": "00:38:03.82"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What effect did that have on the American market?",
       "time": "00:38:25.04"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What effect did it have?",
       "time": "00:38:30.20"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And it also drove down prices, too.",
       "time": "00:38:46.60"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "As a consumer, why am I worried about a drop in prices?",
       "time": "00:39:02.22"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And I'm worried about the prices in Japan.",
       "time": "00:40:08.97"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I ask this question?",
       "time": "00:40:41.51"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did I understand your competitor to say that your clients had not lost share of market over the past 15 to 20 years?",
       "time": "00:40:44.05"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But my question was whether or not your clients have lost share of market?",
       "time": "00:41:12.37"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You maintain the market share by cutting your prices to beat the predatory prices?",
       "time": "00:41:26.80"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's your position?",
       "time": "00:41:32.53"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did the court of appeals expressly find that?",
       "time": "00:41:33.81"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think that there has to be some fact finding with respect to that statement, or not?",
       "time": "00:42:47.31"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Zoeller?",
       "time": "00:53:04.18"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Zoeller, do you contend that recoupment is an essential part of the cause of action?",
       "time": "00:54:01.11"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would proof that sales were below cost tend to prove that conclusion?",
       "time": "00:54:23.36"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--thesis, is it true that some 17 or 18 companies have gone out of business in the American market?",
       "time": "00:55:23.92"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about the other plaintiff?",
       "time": "00:56:05.98"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about the other plaintiff?",
       "time": "00:56:08.13"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And even as to Zenith--",
       "time": "00:56:18.07"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--as I read the court of appeals opinion, they say that you conceded the fact of damage; that there was enough evidence. I don't mean you conceded on the merits, but that you didn't contend that the record was deficient with regard to proof of damage, is that right?",
       "time": "00:56:19.10"
     },
@@ -771,13 +775,13 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:56:49.84"
     },
     {
       "turn": 124,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable Court is now adjourned until tomorrow at 10 o'clock.",
       "time": "00:56:51.48"
     }

@@ -3,39 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1970/62/19701217a_62.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "EDWARD BENNETT WILLIAMS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "STANLEY M. BROWN",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Williams, you may proceed whenever you’re ready.",
       "time": "00:00:00.00"
     },
@@ -47,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How much was the verdict?",
       "time": "00:04:08.42"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The second -- the alternative part of the charge instructing the jury as to the conditions under which they could find liability if this were not a public libel did not, that part of charge did not purport to have any reference to the United States Constitution, did it? That was purely a matter of New Hampshire case law or statute law.",
       "time": "00:07:38.14"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The theory being I suppose that if it were that kind of a defamation it was -- the United States Constitution had no impact whatsoever upon it.",
       "time": "00:08:03.80"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suppose you contend the very least this time as a public figure not a public official.",
       "time": "00:10:33.10"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, he’s the one to bring in under the times rule?",
       "time": "00:10:53.33"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think Mr. Williams that there is a separate category for candidates as supplementing the distinction that’s been made between public figures and public officials?",
       "time": "00:10:59.37"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Public official or public figure?",
       "time": "00:11:38.13"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did I understand you to say that you see no real difference between the public figure and public official classifications or do you mean as it applies to this case?",
       "time": "00:12:38.51"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That really was the holding in Butts as to a “public figure” wasn’t it by virtue of I think a footnote in the opinion of Chief Justice Warren?",
       "time": "00:13:40.49"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The -- Justice Harlan wrote their prevailing opinion but that is that those four Justices were outgunned by that footnote.",
       "time": "00:13:51.07"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Williams you probably already said it but I guess I didn’t hear it. Was it a fact -- was it proved as a fact that this plaintiff had been a small-time bootlegger?",
       "time": "00:14:26.17"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, do I understand though that treating this as a private sector case as the trial judge did, it would not have been a defense that it was true?",
       "time": "00:15:07.23"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But suppose, the jury had found that was true would they nevertheless under New Hampshire go ahead been an action for libel?",
       "time": "00:15:42.58"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Williams you’ve spoken of New Hampshire law several times. Do you think the state law has a -- libel has survive the line of cases in New York Times and others or is the state law viable simply up to the point where it is in coalition with the First Amendment cases in this part.",
       "time": "00:16:05.80"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I thought that, I don’t quite understand that. I thought you’re theory would permit anybody to put that right into the public discourse.",
       "time": "00:18:58.95"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even though untrue would say this candidate for Senator has eight unsatisfied judgment.",
       "time": "00:19:06.11"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well anybody could put it in.",
       "time": "00:19:15.07"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "A columnist or anybody else.",
       "time": "00:19:17.14"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I thought you said.",
       "time": "00:19:22.11"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you not think that you probably suggesting an imaginary line?",
       "time": "00:20:08.33"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Of occurred politics? Do you think if there’s anything, if any man who runs for office has ever done as said have been charge with, it won’t be found out and become a part of the campaign?",
       "time": "00:20:13.71"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Because it would never find out anything about it.",
       "time": "00:20:53.50"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I couldn’t imagine that if it --",
       "time": "00:20:56.80"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So does your distinction depend upon the identity of the libeler that is if it’s done by a newspaper or --",
       "time": "00:21:00.98"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- by anybody publicly to the public.",
       "time": "00:21:08.39"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It’s protected by -- but on the other hand if it it’s just a private communication from a gossip to the candidate’s wife then it’s --",
       "time": "00:21:11.98"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Somewhat -- I’m confused. Let me see if I can clear up what you’re thinking is on this private libel. Let’s assume that in today’s atmosphere where pollution is a big problem, someone describes in a column, describes the person to the power company as one of the worst polluters of American life, something of that kind. Up to that time, nobody has ever heard about the president of the power company. He’s a candidate for office. He isn’t a public official. Is this the kind of -- is this a private libel?",
       "time": "00:21:52.47"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Even though his neither --",
       "time": "00:22:50.72"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Not a public figure, not a candidate, not any?",
       "time": "00:22:54.67"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Williams, I take it you would for -- if you should prevail on the basic law, you would foreclose the plaintiffs from attempting to establish the New York Times standard of malice from which you just said. Do you think he should be foreclosed if the case in fact was tried on the State standard?",
       "time": "00:25:02.19"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It was not.",
       "time": "00:25:28.69"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, going back to the alleged bootlegging activities.",
       "time": "00:25:52.75"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, imagine we have many bootleggers in a place where they allow whiskey to be sold illegally?",
       "time": "00:26:13.82"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I say, the mere fact that the Volstead Act was not in effect wouldn’t determine that, would it?",
       "time": "00:26:24.23"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Bootleggers in the section were the --",
       "time": "00:26:30.55"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Not only possible but it takes place all the time --",
       "time": "00:26:49.55"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "-- in the country.",
       "time": "00:26:52.69"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, we have a case like that in Massachusetts.",
       "time": "00:26:56.24"
     },
@@ -503,13 +507,13 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you Mr. Williams.",
       "time": "00:27:01.24"
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Well, the fact there was evidence that if he was a bootlegger was sometime in the early 1930s. There was some evidence of that was presumably being.",
       "time": "00:27:03.09"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, it wouldn’t require any brushes with the law to prove a fellow as bootlegger I suppose.",
       "time": "00:30:22.39"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that’s arguing the evidence. Could I ask you if it’s under the court’s instructions that it was essential? Absolutely essential and unavoidable for the jury to find this charge was false. This allegation was false in order to give him recovery?",
       "time": "00:31:03.04"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, as I understand your colleague, Mr. Williams and as I read the instructions of the court, the court said that if the jury found this was on the private side of the libel law that it wasn’t a public matter to which New York Times applied, that even if the matter were true, the defendant had to justify it. Is that -- that’s where the recent instructions. That’s -- is that the way you read it?",
       "time": "00:31:30.74"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Alright.",
       "time": "00:32:31.92"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the judge says to the jury that is the plaintiff and a private defamation is entitled to recover for the injury done to him unless the defendants establish justification. Justification if the matter was true and published for a justifiable purpose.",
       "time": "00:34:26.34"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well sure. If untrue then he can’t justify.",
       "time": "00:34:49.22"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And then he goes to conditional privilege.",
       "time": "00:34:52.97"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know but now what if the plaintiff. What if the jury finds in his own mind that this statement is true? The statement is true. Now as I read the court’s instructions the jury then does not automatically give a recovery even if he thinks it’s just defamatory.",
       "time": "00:34:55.35"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "New Hampshire law is?",
       "time": "00:35:36.28"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it maybe what New Hampshire law is but how about this case. We’re citing this particular case. And under the instructions if the judge said that even if it’s true, the plaintiff can recover. He said that to the jury. I suppose that the jury might have found that was true but still given a recovery because the defendant didn’t feel it was a justifiable motive.",
       "time": "00:35:38.32"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Alright. And that is -- does the Supreme Court opinion straighten this out or no?",
       "time": "00:36:44.60"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could I ask you another thing about the instructions? Do you think the instructions fairly left it to the jury to decide whether this was a so-called private matter or public matter?",
       "time": "00:38:23.04"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or was the overall reading of the instructions that -- or did the judge himself decide that this was a -- that he was a public figure or public official?",
       "time": "00:38:36.82"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That’s a different. That’s a different question.",
       "time": "00:39:16.15"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there any issue in the case with respect to whether -- was there any issue with respect to whether the plaintiff was a public figure or a public official?",
       "time": "00:39:21.63"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well then, so considered he is a public official or a public figure, to which the New York Times rule apply?",
       "time": "00:39:40.94"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:40:00.32"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you think that if that if a publication injures a public candidate a candidate for public office in the minds of voters injures his reputation in the minds of voters that it nevertheless can be held to be relevant and private?",
       "time": "00:40:13.73"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That’s your position, I take it.",
       "time": "00:40:37.29"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That is the constitutional requirement of trial by jury, in your State?",
       "time": "00:42:46.60"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that’s a matter of your State Constitution.",
       "time": "00:42:58.79"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Brown, on this private sector thing. I think I’m confused. Suppose they said that this was man was bootlegging last year, would that be in private sector?",
       "time": "00:46:10.11"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that’s what worries me is that the position of real court in the passage of time puts in the private sector. I mean the words the private gets me into trouble that a candidate for public office as a private sector.",
       "time": "00:46:49.04"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Maybe I’m quarreling with the word “private.”",
       "time": "00:47:08.57"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What’s the proper instruction with the court?",
       "time": "00:47:43.72"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On the proper instruction, that’s a part of the case.",
       "time": "00:47:45.65"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you Mr. Brown. Mr. Williams you have about three minutes left.",
       "time": "00:52:58.06"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What page are you in?",
       "time": "00:53:23.54"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But I didn’t understand that to be his argument. I thought his argument was that he concedes that New York Times v. Sullivan is fully applicable if this were defamation having to do with the -- these public figures of record as a public figure and relevant to his qualifications as a candidate. However, he argues that jury was entitled to find as the court instructed them in this case that the defamation had -- did not touch upon or was relevant in any way to his fitness for the office for which he was a candidate but had to do with his long forgotten past in which the public had no interest and then if the jury found that then the law of New Hampshire is applicable and what the law of New Hampshire is of no business to this Court whatsoever if you accept his hypothesis --",
       "time": "00:54:26.66"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- and the First Amendment has nothing to do with it.",
       "time": "00:55:19.50"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If you accept this bifurcation then (Voice Overlap) the law in New Hampshire is absolutely no interest to this Court.",
       "time": "00:55:30.19"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you Mr. Williams. Thank you Mr. Brown. The case is submitted.",
       "time": "00:56:34.03"
     }

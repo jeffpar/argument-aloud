@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2004/03-1601/20050119a_03-1601.delivery.mp3",
     "speakers": [
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "JEFFREY A. LAMKEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JAMES A. FELDMAN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "SETH P. WAXMAN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We'll now hear argument in the City of Rancho Palos Verdes against Abrams. Mr. Lamken.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Lamken, it's not as comprehensive as other schemes where the Court said, on that basis, we would not find a section 1983 cause of action, is it? I mean, it's... it's more spare.",
       "time": "00:01:03.71"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what... what--",
       "time": "00:01:38.60"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--What would you think of a case where the plaintiff alleges that the antenna zoning was the... was caused by racial discrimination against the applicant? Would there be a 1983 cause of action, do you suppose?",
       "time": "00:01:39.89"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what about... it... it... section 332 speaks of an award of all appropriate relief. What does that include? Could it include punitive damages? Could it include attorney's fees, do you think?",
       "time": "00:02:24.38"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr.... Mr. Lamken, the argument has been made that 4 years before the telecommunications act we're talking about was adopted, Congress adopted the Cable TV Consumer Protection Act. And in that act, it specifically limited the remedies to declaratory and injunctive relief. Here we face silence. Isn't that an indication that when Congress wants to limit relief to declaratory and injunctive, it will say so in the... in the measure?",
       "time": "00:03:40.66"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What's the... what's the source of the implication?",
       "time": "00:04:41.39"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You say by implication.",
       "time": "00:04:43.91"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So... so the... the implication, I... I guess, is that unless it specifically provides for damages, it implicitly does not.",
       "time": "00:04:58.85"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. Where... where are you getting the term, appropriate relief, from?",
       "time": "00:05:32.74"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right. But that's... that's not in the... that's not in the text of this statute, is it?",
       "time": "00:05:42.94"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And... and 1983 is not subject to that limitation.",
       "time": "00:06:35.98"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But are they only immune from damages action or are they immune from suit?",
       "time": "00:07:06.99"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, I mean, that proves too much because they... the statute obviously intends to eliminate that immunity. The immunity from suit is... is clearly--",
       "time": "00:07:15.70"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, it allows suit against either municipalities or States, State or local governments. Right?",
       "time": "00:07:43.68"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the States have immunity not just from damages but from suit.",
       "time": "00:07:49.52"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Unless they have chosen to waive it, which--",
       "time": "00:07:55.92"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--one must assume in this area they haven't.",
       "time": "00:07:57.49"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you have to regard this provision as intentionally overriding some provisions of State law in... inasmuch as they apply to... to immunity.",
       "time": "00:07:59.84"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. That's--",
       "time": "00:08:17.92"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--In for a penny, in for a pound.",
       "time": "00:08:27.13"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If they've... if they've waived--",
       "time": "00:08:29.19"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--If... if you acknowledge that it was intended to affect their immunity from suit, why... why would we suspect that it was not intended to affect their immunity from damages?",
       "time": "00:08:31.96"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does this action have to be brought in Federal court? It says any court of competent jurisdiction. Could--",
       "time": "00:10:08.35"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Would a State court be free to award damages or would that be preempted under the view you take of the statute?",
       "time": "00:10:24.49"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If the State court allowed damages... if... if the State system allowed... State law allowed damages, would the Federal court, in an action under this section, be allowed to award damages under that... under the State statute?",
       "time": "00:10:53.43"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if the State law authorized the recovery of attorney's fees? Would they be recoverable?",
       "time": "00:11:31.86"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if the State law authorized the recovery of attorney's fees?",
       "time": "00:11:36.46"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What would you do then?",
       "time": "00:11:40.34"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm not sure why that would be if you, in fact, see the statute as trying to impose an APA-like structure, saying to the States, you decide the substance, we'll give you minimum elements of form, which helps your position. Then if the minimum elements of form are not specifically stated in the statute, there's no reason to interfere with the States. Let them do what they want. Only those minimum elements are what you can't do. That works perfectly for you.",
       "time": "00:11:56.13"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's strongly supported in the history. It may lose your client the money. I don't know.",
       "time": "00:12:31.27"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So then you're only--",
       "time": "00:12:40.39"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Congress didn't care.",
       "time": "00:13:00.25"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Congress wanted to substitute a Federal judgment for the judgment of the States where it said so. And the reason you know that is because that is what is consistent with the purpose of the act and other things are either neutral or negative. Don't interfere with the State unless you have to.",
       "time": "00:13:01.44"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And what, Mr. Lamken, would be the normal procedure in the State? You make an application for a permit to a zoning board. What is the standard operating procedure under State law? Suppose we don't have any telecommunications act in the picture.",
       "time": "00:13:24.93"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the remedies being injunctive and declaratory.",
       "time": "00:14:31.64"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Are you saying that it's parallel to what APA review of an agency decision would be?",
       "time": "00:14:46.13"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It... it seems to me that the 30-day provision is inconsistent with the award of damages, but after I say that, I can't tell you why. [Laughter]",
       "time": "00:15:09.08"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, you may. Mr. Feldman.",
       "time": "00:15:54.98"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But it... the statute, though, is silent on the question of damages or attorney's fees, isn't it?",
       "time": "00:17:06.12"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Can we infer all appropriate relief? Do we?",
       "time": "00:17:17.17"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Attorney's fees are never appropriate, in other words.",
       "time": "00:17:41.90"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it has provided for them for a 1983 action, and if it's a 1983 action, it takes care of it.",
       "time": "00:17:47.10"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And this is kind of circular.",
       "time": "00:17:53.91"
     },
@@ -575,13 +575,13 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Feldman--",
       "time": "00:18:11.54"
     },
     {
       "turn": 90,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose Congress said specifically 1983 applies. That's all it says. Would that carry with it attorney's fees in your view?",
       "time": "00:18:12.00"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I take... you... you take the position that 1983 doesn't apply at all. It's not just attorney's fees. It's damages.",
       "time": "00:18:56.95"
     },
@@ -605,13 +605,13 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about damages?",
       "time": "00:19:29.58"
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you... do you think that any other provisions of the Communications Act are enforceable under 1983? I mean, we're talking about 332, but it's a big, complicated act. Are any of the other provisions enforceable?",
       "time": "00:19:30.33"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, this is really a more general proposition you're urging upon us then, that whenever Congress creates a cause of action that is... what... in any respect more limited than section 1983, the background action of section 1983 is not available.",
       "time": "00:20:05.63"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. How could that be? Wouldn't it depend on whether... when you look at the particular statute, the particular set of remedies that Congress has included in that statute could be absolutely independent of 1983 or dependent upon 1983 or leaning in favor or leaning against. It would depend on the particular statute. Why in general?",
       "time": "00:20:25.40"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Then how would you ever have a statute that... 1983 provides for relief when there's a violation of Federal law, statutory or constitutional. One of briefs in this very case says that your broad reading means that you were doing away with statute as a basis for 1983.",
       "time": "00:21:18.19"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, there... there are two situations. I mean, one can supplement without frustrating. I mean, you... you could say that in, you know... in some respects the 1983 will contradict the action that was provided, but one can conceive of a provided action that... that grants relief which 1983 would not grant.",
       "time": "00:22:24.58"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What... what about damages? Do... do you take any position on whether the Communications Act provision enables damages to be collected?",
       "time": "00:23:20.03"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You think it's unnecessary to decide this case.",
       "time": "00:23:33.84"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Feldman. Mr. Waxman.",
       "time": "00:25:38.10"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Waxman.",
       "time": "00:26:36.96"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Waxman, it seems to me that the... the best argument we've heard about incompatibility is the one... or at least I think the best... is the one that Mr. Lamken touched on at the tail end of his argument, and that is, he said there's... there's a 30-day provision in there, which in effect says Congress wants this litigation conducted fast and over with fast. And that is incompatible with a damage action because if you get into a damage action, you are going to get into the panoply of... of damages litigation, including depositions, and... and the one thing you can guarantee is that it is not going to be over expeditiously. What is your argument? What is your response to that incompatibility argument?",
       "time": "00:26:38.65"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, the other word is inconsistent, and is it... sorry. Were you... is it inconsistent if Congress didn't want it? And if that's insufficient to be inconsistent, then here, as I look at the statute, to get out my thinking, I think that it sounds like an administrative law statute. If I saw the maintenance and cure words, I'd think it was an admiralty statute.",
       "time": "00:28:10.60"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I see an administrative law statute. It sounds like that's the system they're imposing and therefore a system that is not consistent with the administrative law system fails and 1983 seems to fail.",
       "time": "00:28:38.67"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But it also requires expeditiousness on the part of the court.",
       "time": "00:29:39.11"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But do you... do you agree with this much, that if... if damages, in fact, are going to be allowed, what is going to count as expeditious is going to be a lot slower than what is going to count as expeditious if damages are not allowed.",
       "time": "00:29:51.20"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. And... and that--",
       "time": "00:30:19.19"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--that was a violation of the statute, wasn't it?",
       "time": "00:30:20.89"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So they turned the damage issue basically just into a separate remedial hearing at the end of the case.",
       "time": "00:30:42.89"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought that was just to decide in... in the... in the court of first instance... that tail end was not to decide whether in this specific case damages or attorney's fees were due. But the district court was deciding a question of law, that is, whether in this kind of review proceeding anyone could have damages, anyone could have attorney's fees.",
       "time": "00:30:51.89"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But was not making a rule for this case only. He was making a ruling of law.",
       "time": "00:31:25.32"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They... they don't necessarily disagree. The Government just says the... the issue doesn't have to be reached in this case.",
       "time": "00:32:02.62"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Waxman.",
       "time": "00:32:41.71"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Waxman, how do you... how do you get a reading of the 30-day limitation, which is applicable to the cause of action under the Communications Act, sucked into the cause of action under section 1983? I mean, if the suit is under 1983, it's under 1983. There's no 30-day limit there.",
       "time": "00:32:43.00"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, it doesn't.",
       "time": "00:33:31.13"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it doesn't require you to... to establish a cause of action under some other statute either.",
       "time": "00:33:32.24"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It does not at all. It's... it's self-contained. And do you know any case where we have read into, or indeed, it's even been urged upon us to read into, section 1983 limitations that somehow come from the statute that was violated and which forms the basis for the 1983 action?",
       "time": "00:33:38.56"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that's--",
       "time": "00:35:35.75"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--that's why I'm approaching it differently, and I... I want to get your view on it. I'm taking the word inconsistent and I'm using that as a guide back into the purpose of the statute. And once I do that, I find Congress here anxious, I think, to engage in what I'd call cooperative federalism. They could have run the whole show, but they said we don't want the FCC. We want each city and town to do what they want, subject to a few minimal procedural requirements. If that's right, that means all these damages questions are open. All kinds of things are open, but... and we'll decide them in a variety of ways, maybe deferring to the State, but one thing is true: 1983 doesn't apply because that is a different set of remedies.",
       "time": "00:35:36.66"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Waxman... Mr. Waxman, one of these provisions gives you an option to go to the FCC, the one having to do with emissions. Now, if you sought review from the local decision to the FCC, you petition for FCC relief, would the FCC have authority to give you attorney's fees?",
       "time": "00:37:11.90"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, isn't that an incongruity that Congress would say you have your choice? Complainant, you can go to the Federal agency, the FCC, or you can go to court.",
       "time": "00:37:46.28"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So if... if you have that choice, when you're dealing with the radio emissions, to go the... why would any litigant ever do that? Why would any attorney ever do that if you don't get fees at the FCC and you do get fees in court? Wouldn't the presumption be that it would work the same way whether you go to the agency, Federal agency, or Federal or State court, that you're in the same situation as respect to fees?",
       "time": "00:37:59.39"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, let's take the one, that... that one. Are you saying no attorney's fees there because you couldn't get them at the FCC, therefore you shouldn't get them in court?",
       "time": "00:38:40.50"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But isn't--",
       "time": "00:39:11.38"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They... they didn't provide for the normal administrative review because they were quite aware that under the State zoning systems, there would always be State administrative review before the issue even comes up.",
       "time": "00:40:03.88"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And so what this provides is what kind of judicial review there will be after the anticipated administrative review before the zoning board and whatever appeal from the zoning board exists.",
       "time": "00:40:18.81"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Final. Final action or failure to act is what--",
       "time": "00:40:55.86"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Final action or failure to.",
       "time": "00:40:59.74"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You haven't been injured until you've exhausted your--",
       "time": "00:41:17.94"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You... you really think that when there is a State provision available for review of the zoning board, you can commence an action under 1983 without even going through the administrative appeals?",
       "time": "00:41:21.49"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is really respecting the States, which is what the... the purpose of this... of this whole provision was.",
       "time": "00:41:41.55"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Which would be more burdensome? That enactment or subjecting municipalities nationwide to damages? Which would be more intrusive and burdensome on federalism--",
       "time": "00:42:22.05"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--and the abilities of local governments to function?",
       "time": "00:42:34.10"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I'm... I'm not so sure because you're arguing that even the smallest municipality can be liable for hundreds of thousands of dollars of attorney's fees.",
       "time": "00:43:00.11"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And I--",
       "time": "00:43:07.79"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Plus other... plus other damages.",
       "time": "00:43:11.13"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, cable... cable media companies may... may have Congress' ear more readily than... than... you know, than the municipality of whatever this is or any--",
       "time": "00:44:26.35"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But I... I wouldn't put a lot of money on it. [Laughter]",
       "time": "00:44:41.00"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But with respect to--",
       "time": "00:45:36.98"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr.... Mr. Waxman.",
       "time": "00:46:00.47"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There is in this legislative record a concern expressed by a Senator from California when there was a proposal on the table to make the FCC the Federal review forum. And that was rejected, if I understand correctly, because there was a concern that municipalities would have to travel all the way to Washington, D.C. to defend in the FCC's forum. And Congress did not want to saddle municipalities with the cost of transporting their representative to D.C. Well, that cost would pale compared to attorney's fees that would be awarded.",
       "time": "00:46:02.99"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That isn't the only--",
       "time": "00:48:25.20"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--The other... the other harm is there any evidence of because it's... it would also be harmful if local zoning boards, when faced with quite difficult decisions, because the... the antenna... they bristle up and you put them in the wrong place. They're environmentally harmful. They... there are a lot of bad things, as well as good things about them. And of course, it would be a bad impact if we discovered that the zoning boards were erring too much on the side of granting everybody's application, as well as too much on the side of not granting them.",
       "time": "00:48:40.98"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And so I... I don't know how... what the... there won't be evidence. How can we get evidence on such a thing?",
       "time": "00:49:13.82"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But I... I don't think we--",
       "time": "00:49:48.29"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--I don't think we usually think of... of judicial review of agency decisions in the ordinary course as being a deterrent.",
       "time": "00:49:50.07"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's an opportunity to elaborate reasons. It's a safeguard. It's not a deterrent. And you're saying it has to be a deterrent. And as Justice Breyer indicates, it... it means that there's... there's another voice in that... in that administrative hearing room. They're terrified of damages.",
       "time": "00:49:59.32"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And it's going to skew the decisions.",
       "time": "00:50:20.58"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question, Mr. Waxman? I don't know if it's really a legal question exactly, but I have the impression that most of the plaintiffs in this type of litigation are well-financed, large companies rather than the typical 1983 plaintiff. And therefore, you don't need the attorney's fee incentive to be sure these rights are protected. Is that a correct impression or is it incorrect?",
       "time": "00:51:28.07"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I can't imagine... I can't imagine, Mr. Waxman, that Congress wanted to impose damages plus attorney's fees upon municipalities without even giving the municipalities the chance to correct their mistakes, which is what you're saying.",
       "time": "00:52:27.90"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're saying the municipalities' appeal system, which is there for people to take advantage of, is just washed out. One mistake at the lowest level and you get damages and you get attorney's fees. That... that is extraordinary.",
       "time": "00:52:45.48"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Waxman.",
       "time": "00:55:45.38"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Lamken, you have about 4 minutes left.",
       "time": "00:55:46.29"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Lamken. The case is submitted.",
       "time": "00:58:00.22"
     }

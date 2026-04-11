@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2018/17-71/17-71_20181001-argument.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "NEIL M. GORSUCH",
+        "title": "JUSTICE"
       },
       {
         "name": "TIMOTHY S. BISHOP",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GORSUCH",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "EDWIN S. KNEEDLER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 17-71, Weyerhaeuser Company versus the United States Fish and Wildlife Service. Mr. Bishop.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Bishop, may -- may I offer you a hypothetical just to understand the scope of your argument, which is a bit unclear to me? So, in my hypothetical, there is a species which, like this one, is in only a single habitat, and for whatever reason, that habitat is no longer going to support the species. Disease has come, a predator has come, it's gotten too hot, it's gotten too cold, whatever it is. That single habitat no longer will be able to support the species. And there is no habitat that at the present moment -- there is no other habitat that at the present moment is capable of conserving the species over the long term. But there is a habitat that, with only slight improvements, what the government calls reasonable efforts, can support the species. Okay? So habitat A where the species is, no longer any good. Habitat B, it can't -- it won't conserve the species if left just as it is, but it only takes reasonable effort to conserve the species. Can the government designate that area as unoccupied, critical habitat?",
       "time": "00:01:08.76"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I understand that you think --",
       "time": "00:02:45.52"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- that it's much more than reasonable changes that would be involved here. But I'm -- in my hypothetical, that's why it's a hypothetical, I'm --",
       "time": "00:02:47.20"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- I'm stipulating --",
       "time": "00:02:54.40"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- that it's -- it's pretty minimal stuff. It's, you know, dig -- dig a few holes, plant a few trees, that sort of thing.",
       "time": "00:02:55.96"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But I want to --",
       "time": "00:03:26.24"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- I want to stick to my hypothetical, which is, you know, maybe something more than de minimis but -- but --",
       "time": "00:03:28.40"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- but what -- what the government views as reasonable changes, such to allow the land to support the species over the long term.",
       "time": "00:03:33.80"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And why is that?",
       "time": "00:03:45.48"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Where in the statute do you find that?",
       "time": "00:03:46.28"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But we know that habitat --",
       "time": "00:03:55.60"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- doesn't mean -- excuse me, I'm sorry. We know that habitat doesn't mean just where a species lives. I mean, that's -- that would be the common understanding of the word \"habitat,\" but this statute clearly goes beyond that, and we know because it says -- it's also where a statute -- where a species could live, right? It's out -- there are also habitats that are outside the geographical area occupied by the species.",
       "time": "00:03:58.76"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So we know that the statute is not using the kind of garden-variety definition of habitat.",
       "time": "00:04:26.80"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if you use the migratory bird example, then we have here the ephemeral ponds, which are supposed -- supposed to be ideal for breeding, so it's -- it's a habitat that is suitable for breeding.",
       "time": "00:05:11.76"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But is it -- is it -- is it true with -- in -- in the case of birds that they may stay at a place less than a month?",
       "time": "00:05:48.76"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "If I could go back to the -- the statutory basis for your position, because, to my mind, it is a counterintuitive result that the statute would prefer extinction of the species to the designation of an area which requires only certain reasonable improvements in order to support the species. That seems a counterintuitive result, and, as I say, it does not seem a result that's demanded at all by the statutory language, which contemplates that habitats will exist even beyond the areas where a species currently resides.",
       "time": "00:06:17.80"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Mr. Bishop --",
       "time": "00:07:02.04"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- do you agree -- I'm sorry. Continue.",
       "time": "00:07:03.92"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But I think that that was dealing with a very different problem. That was dealing with a problem where a species can reside in many areas outside of the area where it resided, and the statute was making clear that just because that's true, you can't go designate all of those areas habitat. But this is a different problem from the problem that we're talking about where there's only a single area that might conceivably prevent extinction of the species. And you're saying that, notwithstanding that it was -- it's only reasonable efforts that would allow it to conserve the species, that's not permitted.",
       "time": "00:07:18.28"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, do you -- Mr. Bishop, do you agree with the proposition that the choice in Justice Kagan's hypothetical is between designation of the land as critical habitat and extinction of the species? Are there not --",
       "time": "00:08:00.64"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- other options available to the federal government?",
       "time": "00:08:14.56"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But -- but I guess what strikes me about the statute, Mr. Bishop, is that really all over the place you get these references to the fact that habitat isn't just sort of there and perfect always, that habitat requires things to be done to it. You know, even in the definition of \"occupied critical habitat,\" it talks about special management that needs to be taken in order to protect the habitat. And, similarly, in the definition of \"conservation,\" it talks about, you know, the need for habitat improvement. So -- so all through the statute there's this idea of it's not just an on/off switch, that there is habitat that needs to be maintained, improved, and so forth in order to fulfill the function of preserving a species.",
       "time": "00:09:08.40"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May I ask you a preliminary question? And it concerns whether the landowner's claim is currently ripe. That is, you are not commanded to do anything. You don't have to do anything at all to -- to conserve the endangered species. And you can continue the -- what is it, timber farming that's going on. Now it may be that down the road you will want to do something else with the land, but wouldn't that be the appropriate time to seek exclusion?",
       "time": "00:10:08.64"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "This is a royal we. As I understand it, the only appellant before us is yours, who's the lessee of the timberland, who owns a de minimis amount of acres. So it wasn't the lessee of the timber cutting. It was the separate owner of the land who's incurred these expenses, and that's not an appellant before us, is it?",
       "time": "00:12:11.20"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But who are you representing? I thought the --",
       "time": "00:12:40.72"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can I go back to a question? As I was reading the evidence in this case, it appeared that there was a dispute as to whether this frog could, in fact, survive, maybe not as healthily as it does now, and maybe not for the very long term, but there was evidence that the frog was there for, I think, 10 or 15 years while timber cutting was occurring. There was some scientific evidence that there were stumps that the frog might be able to survive in, as opposed to the canopied forest. I -- I -- I know that the Fifth Circuit said that there was no dispute this wasn't currently habitable, but I think that depended on what definition you gave to habitable. If we give a different definition, what would be the minimum, if it didn't include the PCEs that you think are necessary? Because I don't know that unoccupied has to be an optimal survival place, and if it doesn't have to be optimal, what would otherwise be a minimum?",
       "time": "00:13:00.16"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But that -- but that definition was never provided?",
       "time": "00:14:59.92"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I think it's begging -- it's begging the question, which is I don't know that the circuit below actually accepted your definition or whether your definition, for the reasons I indicated just a few minutes ago, covered all of the conditions that could make for survival for the species. As I read the record, there were suggestions by some of the scientists that what -- what you admitted to Justice Kagan a little while ago, minimal work, this species could survive, albeit not robustly, but it could survive.",
       "time": "00:15:55.00"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Wouldn't that be enough?",
       "time": "00:16:38.84"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, I don't want to argue the record now. The question is, if I come away having reviewed it with a question about whether the Circuit actually addressed that question and defined what it thought the minimal requirements for habitat were, wouldn't be -- wouldn't the answer be to remand this case and let it make that determination?",
       "time": "00:16:42.96"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, that's your -- well, that's your adversary --",
       "time": "00:17:19.56"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Assuming what I said --",
       "time": "00:17:23.68"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- would a remand be appropriate?",
       "time": "00:17:26.36"
     },
@@ -451,19 +451,19 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Okay.",
       "time": "00:17:28.80"
     },
     {
       "turn": 70,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'd like to ask you, I've not -- one way of looking at the case, as I started looking at it, is this isn't about words, really, or definitions. Every time the word \"habitat\" is used, or almost every time, they talk about critical habitat, which is a defined term. But the key words that follow it are \"typically essential\" or \"necessary,\" so something like that. So, in thinking about it, I thought, well, air is necessary. We're going to be in real trouble without it. But it's not the only thing that's necessary. Water is necessary too. So you could have for mammals situations where they need air and they can't be submerged in a swamp. So this land will have the air, but it's a big swamp. But maybe we'll drain it. So, if we drain it, it's going to be fine. And if that's what the statute basically means -- you get the idea where I'm driving -- then this is a typical agency case, because, after all, if you can't drain the swamp, then the air is irrelevant. But if you could drain the swamp pretty easily, well, then the air is essential and you better be sure you have it. Now, on that, the agency has found, well, it's not that hard to drain the swamp. Good chance we'll do it. Good chance we'll do it. You say: Ha, they don't know what they're -- well, I mean, you're polite about it. (Laughter.)",
       "time": "00:17:29.44"
     },
     {
       "turn": 71,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And -- and so you don't -- isn't what we have to do, we look at the record, it's -- the discretion is given to the Secretary. That's a lot. And we say: Did they in this case, the Secretary, exceed the discretion that the statute gives him in thinking they could drain the swamp, i.e., they could make a canopy? Good chance it'll happen. Period. Typical agency case. Now is that how I should look at it?",
       "time": "00:19:06.96"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, we're looking at it the same way. You just want me to come out differently.",
       "time": "00:20:00.36"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, it is a \"may/if.\" But if the other conditions are met, it indicates, because of the use of the \"may,\" rather than the use of a \"shall,\" doesn't it, that the Secretary still has discretion? In other words, if the conditions aren't met, then the Secretary can't exclude. But if the conditions are met, the Secretary may exclude if he wants.",
       "time": "00:20:55.76"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Mr. Bishop --",
       "time": "00:21:46.12"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- if I --",
       "time": "00:21:48.60"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "No, not at all. Maybe you can help me out with this. Let's suppose for now that I would agree with you and that we could review this. What more would you expect the Secretary to say, or could say, given the state of scientific evidence before the Secretary? That's not clear to me. The Secretary says there's -- there's just not any evidence of the benefits of exclusion that I -- that I can put a number on. And isn't -- isn't the way the statute written put some burden of proof incumbent upon the landowner or lessee to come forward with something quantifying the benefits of exclusion?",
       "time": "00:21:49.52"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "And what -- what -- on that, my question is, what more would you ask the Secretary to do? The Secretary did quantify the economic benefits exclusion and then said, compared to the benefits of inclusion, they're indeterminate. And, therefore, the burden of proving exclusion has not been met. And that burden, it seems to me, rests with you. So suppose I -- there's some judicial review possible here. Do we need to get into how many angels dance on the head of that pin if you -- if you've got no real complaint at the end of the day with the adequacy of the Secretary's --",
       "time": "00:22:48.68"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- reasoning?",
       "time": "00:23:23.20"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Well, could you explain that to me?",
       "time": "00:23:29.16"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Bishop. Mr. Kneedler.",
       "time": "00:25:44.12"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It has to be -- your argument is that critical habitat doesn't have to include all of the elements for habitability because you could undertake some restoration that would provide whatever's missing?",
       "time": "00:26:21.52"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So the -- the draining of the -- of -- of the swamp. But, you know, if you have the ephemeral ponds in Alaska, you could build a giant greenhouse and plant the longleaf pines and the -- the frog could live there. In other words, there has to be presumably some limit on what restoration you would say is required.",
       "time": "00:26:34.60"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, reasonable -- reasonable efforts that the landowners would have to undertake voluntarily, right?",
       "time": "00:27:05.12"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But they've -- they've told you they're not going to do it.",
       "time": "00:27:19.00"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I don't understand. I mean, you -- you've said that it can be designated as critical if some restoration can take place. And as far -- where we are right now is the landowner's saying: We're not going to do the restoration you want.",
       "time": "00:27:47.04"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So you just say, well, we're going to designate it anyway, even though the restoration won't occur?",
       "time": "00:27:59.40"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "With the -- with -- with the change, right? Can this support the population if they make this change?",
       "time": "00:28:20.08"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but what's the limit? I mean, you could require, say, well, this -- this piece of property in -- in Canada could accommodate the species so long as you invested $100 million to put in ephemeral ponds, change the loblolly pines to longleaf and do all this.",
       "time": "00:28:25.72"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What's the definition of reasonable?",
       "time": "00:28:47.52"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "But why -- why --",
       "time": "00:29:09.96"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- why is that so, Mr. Kneedler, though? I mean, it might be a few more dollars to pull up the asphalt and then put down the ephemeral ponds. Why would a parking lot make the difference? Why would that be an unreasonable effort necessarily?",
       "time": "00:29:11.24"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "And where does all this come from in the statute? Where do you get reasonable efforts in the statute?",
       "time": "00:29:26.88"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Well, runs throughout. Can you show me where?",
       "time": "00:29:35.72"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I don't see reasonable efforts there.",
       "time": "00:29:45.64"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "It's not there.",
       "time": "00:29:48.52"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Oh, I don't doubt under Section 7 the government has enormous powers to help species, whether in critical habitat or elsewhere. All right? There's nothing preventing the government from purchasing land or taking other actions to protect an endangered species, whether on critical habitat or elsewhere, right?",
       "time": "00:30:03.12"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "It's a supplementary power, though, you'd agree?",
       "time": "00:30:33.36"
     },
@@ -787,19 +787,19 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Do you --",
       "time": "00:31:21.04"
     },
     {
       "turn": 126,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mister --",
       "time": "00:31:21.16"
     },
     {
       "turn": 127,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I think your argument requires you to provide some definition of reasonable restoration. Now this case is going to be spun, we've already heard questions along this line, as a choice between whether the dusky gopher frog is going to become extinct or not. That's not the choice at all. The question is, who is going to have to pay and who should pay for the preservation of this public good? Now it may be very difficult for a lot of people to shed tears for a big corporation like the one in this case, but let's suppose this is a -- this is a family farm and part of the -- the land is designated or a good part of it is designated as critical habitat. Now to what -- is there some formula, some percentage of the value of the family farm that would have to be required for this reasonable restoration be -- before that becomes unreasonable? Can you provide any guidance on that?",
       "time": "00:31:21.40"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that's --",
       "time": "00:32:37.12"
     },
@@ -823,13 +823,13 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, yeah, but that's -- that's -- now you're right at the point. I read this. I thought it's an easy case, not the result, but the concept's easy. The statute books are filled with words like reasonable. And right here it says that the Secretary, it says, a determination by the Secretary that such areas are essential. To me, that calls up is it reasonable or isn't it reasonable? It's not reasonable to say that this area is essential if the frogs will die anyway because there aren't enough trees. Okay? So let's look at the picture on page 57. And the picture on page 57 shows an area which has very few trees. And we also know that this is a logging company, and so probably they have lots of trees. They like trees, not forever, but -- (Laughter.)",
       "time": "00:32:43.84"
     },
     {
       "turn": 132,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "-- but they want a lot of trees planted there. And so what is it in this case -- and I thought the case was no more than that -- what is it -- what is it in this case that makes discretion -- statute books are filled with words like we give discretion to the Secretary -- that makes this within and not outside that delegated discretion to the Secretary to determine essentiality?",
       "time": "00:33:45.08"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But it's not the Act that I'm thinking of. I agree with you that it gives him lots of discretion. But the Chief Justice's first question was surely he can't require the building of hot air greenhouses in Nome, Alaska. That goes too far. And I'm not asking you to find it either. There are loads of places where it's not defined. I'm asking you to tell me what is in this record that suggests that this is within the Secretary's discretion and not outside of it.",
       "time": "00:34:19.72"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but the problem with that is, once you have the designation, you need probably federal permits to do things like logging companies typically do. And if you are asking for a federal permit, the whole point of the designation is you have to go through a fairly elaborate process. And you might not get it at the end. Well, you won't have to go through the elaborate process, and you probably get one if it weren't designated.",
       "time": "00:35:47.24"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Which is exactly what they want to do, right?",
       "time": "00:36:26.32"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Kneedler, in your brief, you give a meaning to \"habitat\" which, frankly, is very different than its dictionary meaning. Pages 27 to 28, you argue that \"habitat can include some areas where a species does not live and cannot ever live, even with restoration.\" That's very different than what you started your argument with today. It's very different than what you've done with the Santa Ana sucker, for example. If we disagree with you, where does that leave you in this case?",
       "time": "00:36:57.96"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm not -- we're not looking at that.",
       "time": "00:37:40.92"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Let's assume I take the dictionary definition of \"habitat,\" which is the kind of place that is natural for the life and growth of an animal or plant. That's a fairly simple, natural place. Could this -- is this a natural place for this frog to live? And, if not, do -- is the difference between you and your colleague whether some reasonable restoration can be made or not?",
       "time": "00:37:42.44"
     },
@@ -913,19 +913,19 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And was I all that --",
       "time": "00:38:55.28"
     },
     {
       "turn": 147,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Kneedler --",
       "time": "00:38:56.60"
     },
     {
       "turn": 148,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "We were just told that they were in a pond for less than a month.",
       "time": "00:38:57.40"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How -- how do you answer --",
       "time": "00:39:20.88"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you need -- you need a place for them to live outside the pond. And Justice Sotomayor brought up the question about whether the frogs could live in the area outside. You said yes, even though it's far from an ideal place. But Mr. Bishop said there is no showing that frogs could live there.",
       "time": "00:39:33.72"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "The frogs need the -- the frogs need the ephemeral ponds, and those are there. And there's evidence in the record that there are some stumps. But what about the -- the ground cover and the trees? Is there anything in the record that shows, that could -- that could show that the frogs -- there could be a sustaining population of frogs there without changes in the tree cover and, therefore, changes in the ground cover?",
       "time": "00:40:39.28"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So they -- they couldn't survive where they are now? I mean, the test can't be could you -- if you dumped a couple of frogs there and then you came back two weeks later or a month later, would any of the frogs still be alive? That can't be the test, right?",
       "time": "00:41:18.32"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "They would have to sustain themselves.",
       "time": "00:41:33.36"
     },
@@ -997,19 +997,19 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mister --",
       "time": "00:41:57.80"
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So if we were --",
       "time": "00:41:58.32"
     },
     {
       "turn": 162,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- Mr. Kneedler, suppose -- if we could just go back to Justice Alito's question, Justice Alito suggested that there were other things that the government is capable of doing to conserve these frogs. So what, consistent with Mr. Bishop's view of the statute, could the government do, is the government enabled to do, that would effectively conserve these frogs? Is there anything?",
       "time": "00:41:59.16"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And -- and this -- this statute presumes that the designation of critical habitat is often, almost always, going to be on private land, isn't that correct?",
       "time": "00:43:07.84"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Maybe I'll take down \"almost always.\"",
       "time": "00:43:17.68"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Often.",
       "time": "00:43:20.84"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Can't you do what you want on federal land?",
       "time": "00:43:45.16"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, so the only benefit to the federal government is that the Fish and Wildlife Service will sit down at the table with whoever else, whatever other government agency owns the land?",
       "time": "00:44:00.84"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "At some point, somebody in the federal government can say to the federal wildlife service: I want you to sit down with whoever it is, the Army Corps of Engineers. Right?",
       "time": "00:44:19.44"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You don't need a statute to bring that about.",
       "time": "00:44:27.16"
     },
@@ -1111,13 +1111,13 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Let's go back to my --",
       "time": "00:44:46.04"
     },
     {
       "turn": 180,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I guess what I was suggesting was -- was -- you know, Congress could have passed a statute which just said every time that there's a problem of this kind, the federal government has to purchase the land that will support an endangered species. It didn't pass that statute. It passed a statute that said that the Secretary could designate critical habitat regardless whether that habitat was on private or public land. And then the question is, where does this requirement of immediacy come from that Mr. Bishop wants to impose?",
       "time": "00:44:46.68"
     },
@@ -1129,7 +1129,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "You know, that it has to be -- that it has to be available to support the species exactly now without any further effort?",
       "time": "00:45:22.04"
     },
@@ -1141,7 +1141,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So that's -- all right, that's -- that's so. Land is around for a long time. We hope the frogs will be too. You're looking out into the future. Is there anything you want to add in words that I would write if I were writing this opinion that would distinguish the case the Chief Justice first brought up where the only way to save these frogs, in addition to the ponds, is to build special hothouses in Nome, Alaska? A decision resting on that I -- would strike me as far-fetched, from a situation where all you have to do in addition is drain six inches of swamp. If the decision rested on that, even if the owner said I'll never do it, I would say it was a reasonable decision. Okay. That's highly subjective. Are there any words that you could use that would distinguish those two instances?",
       "time": "00:45:37.92"
     },
@@ -1153,7 +1153,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, you see what I'm trying to get at --",
       "time": "00:46:36.32"
     },
@@ -1165,7 +1165,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "-- is very unlikely.",
       "time": "00:46:38.36"
     },
@@ -1177,7 +1177,7 @@
     },
     {
       "turn": 190,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So would you --",
       "time": "00:46:54.76"
     },
@@ -1189,7 +1189,7 @@
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That's your -- that's your requirement, the restoration has to -- has to be entirely in, what did you say, in sync or in --",
       "time": "00:46:57.52"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "turn": 194,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Okay. Well, but I know. But the question and the reason for the hypothetical is it seems to me that if you permit the designation of something as critical habitat that cannot be occupied by the animal, because you think they can do something down the road that will cure the problem, whether it's cut the trees or do anything else, that you ought to be able to articulate what the limit is on what you require down the road.",
       "time": "00:47:12.00"
     },
@@ -1213,7 +1213,7 @@
     },
     {
       "turn": 196,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So if you get to Justice Gorsuch's or whoever it was -- the asphalt thing, if what you have to do is just dig up the asphalt, that's -- the use of the area for a parking lot is not in tune with its normal whatever, so you couldn't do that under this statute?",
       "time": "00:47:59.96"
     },
@@ -1225,7 +1225,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So can we talk about -- I -- I see your point with talking about a kind of place, and it does seem logical that the frogs were there and they were there for a very long time. They were there during the timber cutting. But they left. They left or they were destroyed. So I -- what is it about the natural -- the native environment that still exists there and what is it that you think, with very little reasonable effort, that you could change to make it sustaining for a long period of time again?",
       "time": "00:49:47.96"
     },
@@ -1237,7 +1237,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "The PCEs, I know.",
       "time": "00:50:31.16"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's my point.",
       "time": "00:50:47.76"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But it's still the case that that would require consent of the owners, and they say they're not going to do it.",
       "time": "00:51:37.04"
     },
@@ -1273,7 +1273,7 @@
     },
     {
       "turn": 206,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You can't require them to do it, right?",
       "time": "00:51:43.68"
     },
@@ -1285,19 +1285,19 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But can you --",
       "time": "00:52:18.52"
     },
     {
       "turn": 209,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Suppose the missing --",
       "time": "00:52:18.88"
     },
     {
       "turn": 210,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "-- can you explain, suppose the proposed regulation is in effect. What would the Fish and Wildlife Service have to do differently if the proposed regulation were in effect?",
       "time": "00:52:19.88"
     },
@@ -1309,7 +1309,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:52:39.48"
     },
@@ -1321,7 +1321,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Could -- could this --",
       "time": "00:53:14.60"
     },
@@ -1333,7 +1333,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Let's -- let's assume for the moment that this isn't habitat and, therefore, couldn't be designated as critical habitat. Could the Secretary take other actions to identify this land as critical to the survival of the species, even if it isn't currently habitat? Is there anything in Section 7 or elsewhere in the statute that would prohibit that? The way I read the statute, it says that, you know, the Secretary has to take actions to avoid jeopardizing the continued existence of any endangered species, or result in the destruction of habitat, critical habitat. So there's -- there's an \"or\" there. And it seems to me, I -- I wonder, isn't the Secretary fully endowed with authority to take other actions, even if this isn't critical habitat, to identify this land as important to the future survival of the species?",
       "time": "00:53:22.36"
     },
@@ -1345,7 +1345,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Right.",
       "time": "00:54:16.20"
     },
@@ -1357,7 +1357,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "That's the operative --",
       "time": "00:54:21.32"
     },
@@ -1369,7 +1369,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- action part of the statute.",
       "time": "00:54:22.80"
     },
@@ -1381,7 +1381,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I -- if you can just answer my question --",
       "time": "00:54:33.44"
     },
@@ -1393,7 +1393,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- I'd be grateful. Is there anything that prohibits the Secretary --",
       "time": "00:54:34.92"
     },
@@ -1405,7 +1405,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Right.",
       "time": "00:54:38.40"
     },
@@ -1417,7 +1417,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "My question is: Why isn't it under the statute, given that language that says specifically that the agency -- the agency can take cognizance of the continued existence of any endangered or threatened species, quite apart from preserving its threatened habitat? It seems to me there are two duties that the Secretary has there, and this would fit neatly under at least one of them, if not the second.",
       "time": "00:54:43.00"
     },
@@ -1429,7 +1429,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "The agency --",
       "time": "00:55:48.92"
     },
@@ -1441,7 +1441,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "The agency does lots of things to protect species, endangered species, beyond protecting their habitat, doesn't it?",
       "time": "00:55:50.24"
     },
@@ -1453,7 +1453,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Bishop, you have four minutes remaining.",
       "time": "00:56:08.80"
     },
@@ -1465,7 +1465,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But that's only if it's designated critical habitat.",
       "time": "00:56:27.44"
     },
@@ -1477,7 +1477,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry. I'm sorry. I think I read that if these ponds are not designated, that there are no other ponds in the United States. So, to the extent that these ponds are not designated critical habitat, and don't survive, this frog won't, if there's a drought or other conditions in Mississippi.",
       "time": "01:00:05.44"
     },
@@ -1489,7 +1489,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But they don't have to.",
       "time": "01:00:45.52"
     },
@@ -1501,7 +1501,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "If it's critical --",
       "time": "01:00:47.16"
     },
@@ -1513,7 +1513,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- they can designate it and then a deliberate process goes on where they talk to the owners, and you come to an accommodation. That's what generally happens.",
       "time": "01:00:48.16"
     },
@@ -1525,7 +1525,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Briefly.",
       "time": "01:00:59.48"
     },
@@ -1537,7 +1537,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:01:28.40"
     }

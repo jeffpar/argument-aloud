@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/85-129/19861209a_85-129.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "JULIE S. LEVIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MICHAEL L. BOICOURT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "CHRISTOPHER J. WRIGHT",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The first case for argument this morning is Number 85-129, Linda Wimberly, Petitioner, versus Labor and Industrial Relations Commission of Missouri. Ms. Levin, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I ask, Ms. Levin--",
       "time": "00:03:50.46"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--I gather the State Supreme Court said that this disability was treated by Penney no differently than it treated any other disability that the woman suffered?",
       "time": "00:03:52.42"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what was the State Court's rationale, then?",
       "time": "00:04:17.30"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And as far as this case was concerned the employer did treat any disability the same as it treated the pregnancy?",
       "time": "00:04:38.53"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We don't know otherwise, though. It was not alleged... I mean, that was not the basis of the claim?",
       "time": "00:04:46.60"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And really, your challenge here is to the state's unemployment system, and is not to what J.C. Penney did?",
       "time": "00:04:52.84"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And do you dispute the... is it a fact that the Missouri Unemployment Compensation system is administered in a way so as to treat pregnancy as other similar disabilities are treated?",
       "time": "00:05:02.14"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is it a fact, because I'm not sure it is.",
       "time": "00:05:23.41"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Whatever might be the state rule, the federal law treats pregnancy specially and differently, is that it?",
       "time": "00:05:45.49"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Levin, suppose Missouri has a provision, as I understand many states do, that you are not entitled to unemployment compensation unless you are available for work. Now, that would mean that an individual who is incapacitated for some reason and cannot work would not be entitled to unemployment compensation?",
       "time": "00:06:27.65"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is it your assertion here that by reason of the federal statute, Missouri nonetheless as to pay unemployment compensation to a woman who was unavailable to work because she is in the last few weeks of her pregnancy?",
       "time": "00:06:51.38"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, how do you draw that line? I mean, it seems to me that you're treating pregnancy like other disabilities for the provision that I just described, and they are treating pregnancy like other disabilities for the provision that you are challenging here. Where in the federal statute does it say, only for reinstatement shall pregnancy mandatorily be treated differently from other disabilities?",
       "time": "00:07:13.20"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand what you're saying. The federal statute says no person shall be denied compensation, is what it says.",
       "time": "00:07:55.79"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what is... I mean, \"eligible\" is a very broad word. You are ineligible because you are not available for work. You are also ineligible because you voluntarily quit your prior job.",
       "time": "00:08:19.74"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You would say, then, that if someone is fired because of misconduct on the job which for some reason a woman could attribute to the fact of her pregnancy, all right, or termination of pregnancy, that that misconduct would have to be excused?",
       "time": "00:09:14.62"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "She claims some temporary mental condition due to post-partum depression or to the pregnancy.",
       "time": "00:09:45.69"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's right.",
       "time": "00:09:56.62"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand, typically, but this woman alleges that that's the case, just as the woman in this case alleges that the reason she quit was because of her pregnancy.",
       "time": "00:10:07.26"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You would logically have to say she couldn't be fired, wouldn't you--",
       "time": "00:10:16.83"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Why is it not clear? On the principle you're arguing, it has to be clear, doesn't it? You're drawing the line between disqualification and ineligibility. This is a disqualification.",
       "time": "00:10:27.50"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the language of the statute appears to speak in terms of the reasons that the state itself denies the unemployment compensation. It doesn't appear to relate to the reasons that went into the employee's decision to leave work voluntarily, does it?",
       "time": "00:11:00.47"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, solely on the basis is... refers to the denial by the state of the benefits.",
       "time": "00:11:39.93"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, suppose she came in and applied for unemployment compensation benefits and the employee working for the state said, did you leave for reasons related to the job or your employer, and she says no, and that's all the state knows and they denied benefits. Does that violate the statute?",
       "time": "00:12:00.28"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:12:25.66"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, how can it change because of what the state knows? You have to look at the language of the statute, and it refers to the state denying benefits on the basis of pregnancy. And if they deny it because she left work voluntarily, how have they violated the statute?",
       "time": "00:12:33.43"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They are not deeming it that. It is that. I mean, they didn't make that up. It is in fact, objectively, a voluntary quit for a reason that has nothing to do with the work, isn't it?",
       "time": "00:13:21.58"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, don't blame the state for putting it in that category. It is objectively in that category.",
       "time": "00:13:34.89"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But I thought you told Justice O'Connor that it would not violate the statute simply to dismiss somebody for a voluntary quit having nothing to do with the job, if that's all you know.",
       "time": "00:14:05.34"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And step two is that this is a voluntary quit unrelated to the job. Suppose the state has a reporting system that is set up in such a way that all it ever knows from the employer, or from the applicant, is that the person left the job for a reason unrelated to the job. It doesn't have any box that says, you know, nature of reason unrelated to the job. So long as the state doesn't acquire this knowledge that it's pregnancy, is it all right?",
       "time": "00:14:17.15"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, it's not an antidiscrimination statute; it's a discrimination statute in the sense that it does single out pregnancy for special treatment?",
       "time": "00:16:02.84"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It does, doesn't it?",
       "time": "00:16:13.16"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In your view--",
       "time": "00:16:15.79"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--For special treatment as compared with other... as compared with other disabilities which cause a lady to leave work?",
       "time": "00:16:19.95"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose the state takes your view and says, yes, we understand the federal statute to command this, and then some other woman with a disability who leaves her work for a while and then is denied workers' compensation, unemployment compensation, says that the state is violating Title 7, or a man leaves his work on a disability, because you're treating... because pregnancy is deemed to be discrimination based on sex, isn't it, in Title 7 now?",
       "time": "00:16:33.17"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, wouldn't this require the state to treat everybody else the same as they treat pregnant women?",
       "time": "00:17:20.73"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, wouldn't Title 7 require it to extend its compensation law to everybody else with a disability?",
       "time": "00:17:33.83"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Specifically excludes it, is that it?",
       "time": "00:17:47.74"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your view, then, is that Title 7 would address J.C. Penney's practices, but it doesn't address the State of Missouri's administration of its unemployment compensation?",
       "time": "00:18:33.91"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I have a question, if I may.",
       "time": "00:20:36.28"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did I correctly understand you to say that if the bill in its earlier form, which included the second clause about determinations under any provision and so forth, if that bill had been enacted, that you would have... your claim would fail?",
       "time": "00:20:38.34"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, if you concede that, it seems to me you're in trouble because the first clause of that bill is exactly the same as the bill that was enacted.",
       "time": "00:20:58.52"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think the addition of the words, \"or termination of pregnancy\"--",
       "time": "00:21:23.42"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--To change it from a discrimination statute to a preferential statute?",
       "time": "00:21:28.44"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I find that kind of hard to follow, frankly. Before you step down, could you clarify why it is that you think the legislative history establishes a distinction that you've drawn between ineligibility and disqualification... or even before that, a question. Suppose a state says, no person is ineligible for workers' compensation or unemployment compensation who is pregnant. No pregnant person shall be eligible for unemployment compensation. You say that the statute doesn't cover that?",
       "time": "00:21:35.13"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand, but I'm talking about a state that establishes a new eligibility requirement, you have to be non-pregnant.",
       "time": "00:23:09.92"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But then you have to answer my earlier question differently about why is it that a woman who can't work because she is pregnant is not entitled to get compensation. You said that the reason she's not entitled, just as all other people who are disabled from working are not entitled, is that you said, that was a disqualification rather than an ineligibility. Now, I'm making pregnancy an ineligibility and now the next time you tell me the ineligibility is covered.",
       "time": "00:23:21.58"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not confusing. It's inconsistent. It's quite clear but--",
       "time": "00:23:58.27"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--She is not ineligible. The state says it's not an ineligibility. It's a disqualification.",
       "time": "00:24:10.74"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, it does cover... well, I am sorry. You are insisting that it only covers disqualifications and not ineligibilities?",
       "time": "00:24:35.96"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Levin. We'll hear now from you, Mr. Boicourt.",
       "time": "00:24:56.37"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What did the federal statute... what troubles me about your case is that I don't see much that the federal statute did, if it did no more than prevent discrimination as you say. How many states had, prior to the enactment of the federal statute, singled out pregnancy as disqualifying somebody from unemployment compensation?",
       "time": "00:27:09.78"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How many of those statutes were changed after Turner and before this statute was passed?",
       "time": "00:28:39.25"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, do you think under this provision, a state could give preference to pregnancy over other disabilities?",
       "time": "00:32:07.74"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, it really isn't totally a nondiscrimination statute?",
       "time": "00:32:29.93"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Makes you worry, does it? [Laughter]",
       "time": "00:35:52.92"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that wouldn't be hard to... it would just require treating everybody else the same?",
       "time": "00:37:04.95"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question about the history? If the prior bill had been enacted, the one where the language was taken out, who would you say would win this lawsuit?",
       "time": "00:38:35.07"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's interesting that the Missouri Supreme Court seems to think it would have made a difference, but just the opposite difference--",
       "time": "00:38:53.45"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Boicourt. We'll hear from you, Mr. Wright.",
       "time": "00:39:57.66"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--legislative history that might undermine the Department's position, or do you say that a statute, ambiguous on its face, must be construed by this Court as the Department does despite the legislative history?",
       "time": "00:47:36.61"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wright, what is your understanding of the number of states in which this problem might arise, you know, the same kind of scheme that--",
       "time": "00:48:02.66"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Yes.",
       "time": "00:48:11.51"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Wright. Ms. Levin, do you have something more? You have six minutes remaining.",
       "time": "00:48:20.37"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, is that quite right? Had there been a job available, she would have received the job, wouldn't she?",
       "time": "00:53:31.22"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then she was not denied solely by reason of her pregnancy. It was her pregnancy, plus the fact that somebody else had her job.",
       "time": "00:53:43.21"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "When do you say she became unemployed?",
       "time": "00:53:58.63"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "She was also no longer pregnant.",
       "time": "00:54:09.32"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Her past pregnancy, of her former pregnancy?",
       "time": "00:54:18.80"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Plus the fact there was no vacancy?",
       "time": "00:54:20.70"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that true? If there had been a position available and they hadn't given it back to her, wouldn't it be a different case? She'd be ready, able and willing to work and they say, we're sorry.",
       "time": "00:54:41.56"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If there had been a position available and she came back and said, I want to come back, my leave of absence is over, and they'd say, well, we're sorry, we just don't think we want to employ you. Would she not have gotten compensation then?",
       "time": "00:54:56.24"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even if there is a job available?",
       "time": "00:55:29.04"
     },
@@ -919,13 +919,13 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "All right.",
       "time": "00:55:33.61"
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Levin. The case is submitted.",
       "time": "00:55:34.19"
     }

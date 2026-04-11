@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1987/86-939/19871103a_86-939.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "JEFFREY P. MINEAR",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ELIZABETH M. OSENBAUGH",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Minear, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Minear, have the two agencies, Interior and the Army, always agreed consistently on the proper interpretation of the Flood Control Act?",
       "time": "00:03:57.64"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "There was some suggestion certainly by the Respondents that they have not always agreed that the Army had maintained at one time that the Secretary of the Interior could not market water from Army reservoirs independently.",
       "time": "00:04:15.25"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, has there been some uncertainty of the position of the two agencies in the past? I have... apparently they have come together for purposes of this litigation, but I'm trying to get a candid assessment of what their position was before.",
       "time": "00:04:50.22"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Since I have you interrupted, let me ask you one other thing. Under Section 6, now, the Corps can market surplus water.",
       "time": "00:05:39.37"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, unused irrigation storage water can be marketed by Interior.",
       "time": "00:05:51.65"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, can it be the same water? What is surplus water as opposed to unused irrigation storage water? Is it the same water we're talking about?",
       "time": "00:06:01.72"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Could it be? Could it be the same?",
       "time": "00:06:12.74"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why not?",
       "time": "00:06:27.17"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Am I mistaken then in thinking that the Corps has changed its position so it now believes that it could have marketed the water in this case as surplus water?",
       "time": "00:06:35.04"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And supply it why? Because it becomes surplus?",
       "time": "00:07:57.93"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's nice, but what does surplus water mean? I thought it meant spill-over.",
       "time": "00:08:04.15"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What else could it possibly mean?",
       "time": "00:08:14.47"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's very desirable, but does that transform it into surplus water? That's the issue.",
       "time": "00:08:38.85"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it was addressing one aspect of problems of water that is not being used and making that water usable, but only one type of water that wasn't being used; that is, surplus water, which means spill-over water, that is not being reserved for irrigation, is not being reserved for any other use.",
       "time": "00:08:55.69"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You know, that's meeting one aspect of that problem, but to say you meet one aspect of the problem is not to say you intend to meet all aspects, including water reserved for irrigation that is not being used. You would not consider that surplus water, would you?",
       "time": "00:09:14.50"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the meaning of surplus water is quite relevant to the entire case, whether it... because it pertains not just to the Army's position but to what the two agencies can do.",
       "time": "00:09:39.29"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You represent both agencies.",
       "time": "00:09:55.61"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Minear,-- --Very ingenious position to be in.",
       "time": "00:09:59.60"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I share Justice O'Connor's historical concerns. It seemed to me that for awhile this was a turf battle between the Army and the Interior until it got under the jurisdiction of the Solicitor General and brought them together. Let me read one sentence from Judge Bright's dissent. \"It leaves the irrigation water stored in the main stem reservoirs without a governing agency or law. \" Do you agree with that, are you defending that, or is Judge Bright completely wrong?",
       "time": "00:10:05.78"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Partially correct.",
       "time": "00:10:43.12"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course, it's a strange thing that the 8th Circuit panel divided upper basin against lower basin judges, too.",
       "time": "00:11:21.76"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, wasn't this... this reservoir was designed to have... and built to include irrigation water?",
       "time": "00:11:29.31"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Quite a lot of it.",
       "time": "00:11:38.60"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the Secretary of Interior has found that that water... none of that water or at least all of that water is not needed for irrigation.",
       "time": "00:11:42.50"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And, so, there the water sits unused for irrigation anyway, and your claim is, I take it, that the Secretary of Interior has the power to use that water for some other purpose.",
       "time": "00:11:50.88"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, it's unused irrigation water.",
       "time": "00:12:05.02"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "For a coal slurry in Wyoming.",
       "time": "00:12:07.67"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Minear, getting back just for a moment to this business of the relationship between the Secretary of the Army and the Secretary of the Interior, certainly if the Secretary of the Army had joined in signing this contract, there wouldn't be any lawsuit at all, would there?",
       "time": "00:12:10.51"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it certainly would have answered the theory of the Court of Appeals decision,--",
       "time": "00:12:48.31"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--which was that it's a joint responsibility rather than a single responsibility.",
       "time": "00:12:52.13"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But they didn't sign it, did they?",
       "time": "00:12:59.11"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "This lawsuit would be over if the Secretary of the Army had signed this contract.",
       "time": "00:13:00.77"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Certainly, the Court of Appeals decision wouldn't have been written the way it was.",
       "time": "00:13:07.40"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Perhaps. But what was the vise in the agreement according to them that they didn't have the approval of the Army? That's the only vise according to the Court of Appeals.",
       "time": "00:13:12.06"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think that the case would have been the same if the Army had endorsed the contracts, we ratify and approve everything that's being done here?",
       "time": "00:13:37.19"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And then the states would make the same claim?",
       "time": "00:13:46.41"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, some other ground, certainly. But you're telling us that the Secretary of the Army agrees that the Secretary of the Interior has this authority but isn't willing to sign these papers. That's what the lawsuit is all about.",
       "time": "00:13:49.59"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, whether it was necessary or not, they could have avoided a lawsuit and a lot of judicial time if they had signed the contract.",
       "time": "00:14:04.44"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there any legal significance to their having been consulted and approved?",
       "time": "00:14:17.44"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then, the Secretary of the Interior does not have the authority to act independently.",
       "time": "00:14:23.48"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if, after the consultation, the Army says I've heard everything you've consulted me about, but I just think you're all wrong, I'd like to use this water for down stream purposes?",
       "time": "00:14:46.27"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then, the Secretary of Interior could not act independently?",
       "time": "00:14:57.81"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The Secretary of the Interior can act independently unless the Army objects?",
       "time": "00:15:03.35"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Strange law. Mr. Minear, the Secretary of the Army couldn't have signed this contract, could he, purporting to act under the Reclamation Act?",
       "time": "00:15:07.53"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He has no authority under the provision under which the contract purported to be executed.",
       "time": "00:15:17.95"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Nor is it clear that he had any authority nor is it clear that he even asserts to have any such authority under the surplus water provision of the Act which he is in control of.",
       "time": "00:15:24.21"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, there's no possible basis on which he could conscientiously have signed the contract.",
       "time": "00:15:36.37"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The most he could do-- --The Army-- --would be to agree with Interior that it was a good idea to do it, which he did.",
       "time": "00:15:40.83"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even if the Army decided that it had authority to execute a contract like this on its own, it would be pursuant to a completely different set of rules.",
       "time": "00:15:46.52"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which is of fundamental importance, I would think.",
       "time": "00:15:58.34"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The Army doesn't assert anything here because the Army is not here.",
       "time": "00:16:02.14"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is the Army here?",
       "time": "00:16:08.47"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is the Army here?",
       "time": "00:16:10.10"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you represent the Army?",
       "time": "00:16:14.56"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And the Interior?",
       "time": "00:16:16.60"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, which side should I take?",
       "time": "00:16:18.57"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Wasn't even ambiguous. I thought it was so clear that there was no room for doubt.",
       "time": "00:20:47.91"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I ask one other question before you get any farther into your deference argument?",
       "time": "00:21:23.37"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is the status of the contract right now? As I understand it, the project is not going to be used for the originally-intended purpose.",
       "time": "00:21:28.74"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But I thought ETSI had cancelled.",
       "time": "00:21:51.17"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it a matter of indifference to the Secretary of Interior what use the water is put to? Do you care what they do with the water?",
       "time": "00:22:03.83"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you don't know what they're going to do with the water?",
       "time": "00:22:13.32"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They were going to use it in some kind of coal slurry, weren't they?",
       "time": "00:22:24.25"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that purpose was approved, but you don't know what they really will do with it now?",
       "time": "00:22:27.88"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What are the terms? So, it would have to be used for coal slurry.",
       "time": "00:22:44.87"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's a matter entirely within the authority of the Secretary of Interior to approve of the purpose or disapprove?",
       "time": "00:22:58.10"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there an obligation to consult with the Army now?",
       "time": "00:23:06.96"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If I may ask one other question. I hate to keep interrupting. But supposing there was a dispute as to a given quantity of water, whether it was surplus water the Army had jurisdiction over, or unutilized irrigation water, to whom would we defer on that... on resolving such a dispute?",
       "time": "00:23:41.73"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That could be resolved in the Executive Branch if this one can't be?",
       "time": "00:24:06.07"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not sure why that dispute is resolvable within the Executive Branch any more than this one is.",
       "time": "00:24:10.95"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you're telling me that in this case, you wouldn't have solved the dispute by resolving that dispute and having the President of the United States tell them both, I think this water should be used for that purpose, I'd like you both to sign this contract? We'd still have this lawsuit?",
       "time": "00:24:31.54"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, another whereas clause, by virtue of authority given by that statute and by the authority given by Section 6 to the Army, we sell you this water.",
       "time": "00:24:51.38"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I know it wasn't mentioned.",
       "time": "00:25:01.61"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I was puzzled as to what disputes are resolvable within the Executive Branch and why you have to come to us about them.",
       "time": "00:25:04.82"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but Justice Stevens obviously would be correct if it were clear and if you acknowledged that the Army had authority, if it had jurisdiction over this water, to dispose of it, but that isn't clear.",
       "time": "00:25:19.57"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that not being clear, the only way to do it with assurance of lawfulness was through Interior.",
       "time": "00:25:35.55"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but it's perfectly clear that one or the other or both had the authority to dispose of this water, is it not?",
       "time": "00:25:43.33"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Either the Army or the Secretary or both clearly had the authority by virtue of a combination of Section 6 of one Act and Section 9.",
       "time": "00:25:50.09"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand that's your position, but nobody could contest the power to sell this water if they both agreed and invoked both statutes, that we won't try to define the water as either surplus or irrigation, because whatever it is, we want to dispose of it for this purpose.",
       "time": "00:26:00.85"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Minear. I will hear now from you, Ms. Osenbaugh.",
       "time": "00:26:22.47"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you help me with the problem I've had with your adversary? Would you agree that if the Secretary of the Army had said, well, we're not sure whether it's surplus water or irrigation water, but we join in the contract, would you still have an objection to this transaction?",
       "time": "00:27:14.36"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In other words, would you take the position that if you win this lawsuit, the Secretary of the Interior can't dispose of this water, then they said, well, we will now classify it as surplus water rather than that, you'd say they can't, and would you also say they couldn't sell it then either?",
       "time": "00:27:40.91"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, the answer is you would be opposed to that sale, too?",
       "time": "00:28:01.75"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me ask you another... put it a different way. Say the President of the United States thinks we ought to sell this water and he calls in the Secretary of the Army and the Secretary of the Interior and says, how can we do it, and they do all the paper work in the world on it, would you find any objection to their power to dispose of this water, if they all agreed they wanted to do it?",
       "time": "00:28:10.59"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I'm trying to get your position.",
       "time": "00:28:55.30"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What would you... would you have any objection to a contract that was signed by both the Secretary of the Army and the Secretary of the Interior and sought its authority in both statutes, said we don't want to worry about which... whether to classify it as surplus or extra irrigation water, we just want to dispose of this water for this purpose, would you say they had no power to do that?",
       "time": "00:28:57.04"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They didn't do anything except what they've done here. They've accommodated nothing else. They have all this very large amount of water in this particular reservoir. Would you say that given the facts we all know are true as of now and just recited them all in the contract, both the Army and the Interior signed the contract, would you have any valid objection to the contract, to the sale of the water?",
       "time": "00:29:26.15"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, they gave precisely the same protection that this contract gives. Well, if I understood it, if Interior markets it, all interior has to be concerned about is whether other irrigation needs are met, and it's not necessary for Interior to think about down stream users at all if they aren't using it for irrigation. Now, if the Army sells it as surplus, then it's my understanding that consideration must be given to the flood control and other possible power uses and other uses of down stream users above and beyond irrigation use, is that correct?",
       "time": "00:29:49.09"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And under this contract, the consideration to down stream users was not given because Interior was considering only irrigation and there wasn't any irrigation, isn't that right?",
       "time": "00:30:32.72"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Okay.",
       "time": "00:30:44.34"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But they can only... they only purport to reach that part of a reservoir's capacity that has been set aside for irrigation.",
       "time": "00:30:58.86"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but if the lake hadn't been built to irrigate also, it wouldn't have been built the way it was.",
       "time": "00:31:18.87"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It was built to have a specific amount of irrigation water capacity.",
       "time": "00:31:27.09"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "May I'm wrong. I thought I read that it was agreed between the two agencies that what the capacity of the lake would be, this reservoir would be, and that a specific amount of it was for irrigation.",
       "time": "00:31:39.16"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that right or wrong?",
       "time": "00:31:53.48"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let me ask you. Do you think there's water available for irrigation in this reservoir?",
       "time": "00:32:25.30"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And if there was a need for it, Interior could go ahead and sell it for that purpose?",
       "time": "00:32:30.06"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Without anybody's consent? I mean, without the Army's consent?",
       "time": "00:32:36.47"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, yes, but not Army's?",
       "time": "00:32:50.07"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They have control. There is irrigation water in that reservoir, and Interior has a responsibility for that water. It says it doesn't need it now.",
       "time": "00:33:08.70"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right, exactly.",
       "time": "00:33:34.64"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, so, you're saying... you're really saying, which is not what the Court of Appeals said, that Interior would never have any power to sell any water for industrial purposes?",
       "time": "00:33:47.10"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You just said that.",
       "time": "00:34:00.46"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, if they had irrigation works here, they needed water for irrigation and they developed whatever works were necessary and were using the water for irrigation but they said, well, there's a lot of other water that could be used for irrigation, could they sell that for industrial purposes?",
       "time": "00:34:27.98"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's a completely different rationale than the Court of Appeals, which may be quite right.",
       "time": "00:34:50.00"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What you're saying is, as I understand it, that the Interior has got no power whatsoever to sell unused irrigation water for industrial purposes.",
       "time": "00:35:03.43"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Exactly, exactly. But it's got power to take... to develop and use that water for irrigation right out of the Army reservoir, and I don't know that... and you would say that the only purpose that it can divert water from that reservoir is for irrigation. That may be right.",
       "time": "00:35:19.55"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you certainly wouldn't say that this kind of a project would be incidental to any kind of irrigation, would you?",
       "time": "00:35:51.37"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, you do have quite a different approach, and it may be quite right.",
       "time": "00:35:58.64"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Osenbaugh, when you say under Army control, you don't mean day-to-day management; you mean under Army jurisdiction under the statute?",
       "time": "00:39:13.97"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But what are the consequences of that control that you're referring to, so far as Interior's right to dispense water for... to use surplus?",
       "time": "00:39:33.90"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It says in the Pick Plan, the Pick Plan, I believe, utilization, utilization of storage reserved for irrigation in all multi-purpose reservoirs should be in accordance with regulations prescribed by Interior. Now, this is certainly utilization of storage reserved for irrigation. Now,... at least it's, you know, close enough for government work. It's certainly a reasonable meaning of that phrase and that's the meaning that Interior and Army have both chosen to give it. Why shouldn't we accept that?",
       "time": "00:42:33.96"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But 6 and 8 don't just apply to this dam; they apply to everything, right?",
       "time": "00:43:28.87"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But this Pick Plan only applies to this one facility and for this one facility, Congress did approve in the statute the Pick Plan. The broad outlines of it and it seems to me that's a broad outline, that utilization of storage reserve for irrigation shall be in accordance with the regulations prescribed by Interior.",
       "time": "00:43:34.71"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I agree. I can see arguments pro and con, both, but, you know, I don't think that either of them is so over-powering that I'm willing to ride over what both Interior and Army agree should be the accepted meaning of it.",
       "time": "00:44:32.03"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The Solicitor General submits.",
       "time": "00:44:57.36"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, isn't the Solicitor General representing the Army here?",
       "time": "00:45:05.16"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, do you question his statement of what the Army's position is?",
       "time": "00:45:10.71"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I still don't understand--",
       "time": "00:45:21.81"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--why if this water is so much under the control of the Army, how would Interior ever go about, without getting Army's consent, to utilizing this water for irrigation?",
       "time": "00:45:25.50"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That isn't what I asked you. I asked you how would Interior ever use the water for irrigation without Army's consent under your position?",
       "time": "00:45:58.38"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That may be. So, that wouldn't require any thing from the Army.",
       "time": "00:46:18.74"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, you're telling me that Interior cannot without Army's coordination use the water for irrigation purposes.",
       "time": "00:46:29.29"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the SG says we look to Section 9(a), not 8, that 8 is something else, and that Interior can proceed under Section 9(a) by administering reclamation aspects of the program, isn't that right?",
       "time": "00:46:40.99"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just ask another stupid question, probably? But is it your position that the water that would be supplied pursuant to this contract is surplus water within the meaning of Section 6?",
       "time": "00:47:58.36"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, the answer is yes?",
       "time": "00:48:33.98"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where does it go if the Interior lets the contract as opposed to the Army? The money the Army gets from it goes into the Treasury. Isn't there some other disposition if the Interior Department sells the water?",
       "time": "00:48:52.02"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right. Do you contest that, that there's a different disposition depending on which agency has it?",
       "time": "00:49:21.76"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, maybe not to Interior. If the SG were here just representing Interior, I might agree with you, but certainly Congress delegated to Interior and Army the decision of what their respective jurisdictions are as an initial matter. I mean, it's always ours in the last analysis, but as an initial matter, surely the division of jurisdiction between Army and Interior is a matter for Army and Interior to decide.",
       "time": "00:51:23.96"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, the theory always is that there is some real jurisdiction, but the initial decision as to what that real jurisdiction is is for Interior and Army, not Interior alone. If you said that, I'd agree with you. Interior might be impinging on Army's ground, but, here, you have both Army and Interior saying this is how we think the jurisdiction comes out. Now, it may be absolutely wrong, but at least you've got to say that that's the initial cut at it and that cut should be given some deference, shouldn't it?",
       "time": "00:52:02.82"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We give no deference on pure questions of law.",
       "time": "00:52:50.65"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you like us to affirm or would you like us to embrace all the reasoning of the Court of Appeals?",
       "time": "00:54:41.38"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the reason for it, that this is just not a reclamation project?",
       "time": "00:54:49.98"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Osenbaugh. Mr. Minear, you have five minutes remaining.",
       "time": "00:55:11.28"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What page?",
       "time": "00:55:51.32"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:55:56.28"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm sorry. I've got to go back to that finding. That finding was not necessary, though, under your theory of the case.",
       "time": "00:56:09.01"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it's not only consultation, but a finding similar to that requirement, no adverse effect down stream?",
       "time": "00:56:34.54"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Minear, what is your short answer or is it a long answer to why Section 8 is not applicable? Where it just says that if the Secretary of Interior decides that there's irrigation water available and if the Secretary determines.",
       "time": "00:57:34.53"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And this particular reservoir was the result of that kind of a consultation?",
       "time": "00:58:04.78"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is the only basis for your saying the Interior has the power to sell water for industrial use that provision in the reclamation law that says it may sell for irrigation and miscellaneous purposes?",
       "time": "00:59:25.27"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "To do what?",
       "time": "00:59:55.53"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And this industrial use is a miscellaneous purpose?",
       "time": "01:00:02.10"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Minear. The case is submitted.",
       "time": "01:00:05.04"
     }

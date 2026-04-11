@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1973/72-312/19731009a_72-312.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM H. ORRICK, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JOSEPH C. BARTON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Merrill Lynch against David Ware. Mr. Orrick you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Excuse me Mr. Orrick.",
       "time": "00:04:16.11"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "The other case you refer to is Frame.",
       "time": "00:04:17.91"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And I gather -- both I understand it from Division four, is that right?",
       "time": "00:04:21.67"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That is First Appellate District.",
       "time": "00:04:30.53"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And at least one judge was common to both panels.",
       "time": "00:04:33.56"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And we decided it months apart.",
       "time": "00:04:41.77"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Ware or Frame?",
       "time": "00:04:59.94"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you regard both of these aspects that is the arbitration clause and the retirement clause as part of the contractual arrangement?",
       "time": "00:05:45.39"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The arbitration clause is.",
       "time": "00:06:07.22"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Orrick, why is it important in your argument that the contract provider should be interpreted according to the laws of New York?",
       "time": "00:07:13.77"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't see what are the arguments you make here about in effect Federal preemption, if they didn't prevail as you make them, why it would make it improper for California as a matter of public policy to reject New York law?",
       "time": "00:07:59.71"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it's not enforceable under the State Arbitration Act.",
       "time": "00:10:05.79"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Certainly it's not enforceable under the State Arbitration Act. Does it? Because the California Court of Appeal ruled against it?",
       "time": "00:10:09.32"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What if this provision of the exchange rule was contrary to laws of New York? Let's assume that New York had a provision like California does or about this arbitration and this restrictive agreement.",
       "time": "00:12:10.71"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well then are you saying that it's just the agreement in the contract that invalidates the California provision, or are you saying that there is provision in the Federal law, which says that the validity of the exchange rules is to be governed by the law of the state in which it is located? If some other state that attempts to invalidate what is consistent with New York law, the Federal law prevents.",
       "time": "00:12:45.04"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And then you are arguing that if California, nevertheless attempts to invalidate a Stock Exchange rule which is consistent with the law of New York, it's the Federal law that prevents California from doing so.",
       "time": "00:13:41.64"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's the preemption that you called it, but it's a conflict in preemption?",
       "time": "00:13:59.60"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Putting in an argument that is the conflict.",
       "time": "00:14:06.37"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Putting it in another way, Mr. Orrick. If I understand it correctly. What you are really arguing is that by reason of the Federal statute section C, that statute makes California law inapplicable to the determination of this issue. Only New York law maybe tested to see, whether New York law, or whether these regulations went consistent with New York law.",
       "time": "00:14:08.59"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well if you are right about that, what's left to the case?",
       "time": "00:14:40.61"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, No. But then you won your case on arbitration.",
       "time": "00:14:47.06"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I mean that's the only issue, thing that's here. The only issue that's here is arbitration.",
       "time": "00:14:53.08"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well actually I suppose, the issue is whether this California Statute was properly applied to deny arbitration.",
       "time": "00:15:00.55"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Whatever they may be if you are right and your interpretation of section C of the Federal Statute and of the Supremacy of the Federal Statute, as applied here, we don't have to get into any California Statute.",
       "time": "00:15:17.67"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes. Mr. Barton.",
       "time": "00:15:35.27"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In California.",
       "time": "00:16:12.68"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "This was not a contributing plan, was it?",
       "time": "00:16:31.43"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How do we know that, is there a record of evidence on that subject?",
       "time": "00:17:03.98"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well under that, might not there be a showing that there was the use of customer list?",
       "time": "00:17:24.50"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well that's the question that whether a contract clause fixing the forum and calling for arbitration is valid. Isn't that what this case is?",
       "time": "00:17:57.52"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it's actually a question whether it can be enforced against the will of the forum state.",
       "time": "00:18:14.63"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Stock Exchange Commission.",
       "time": "00:18:33.21"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This argument arose in New York, I suppose the other things with the clause would have been enforced wouldn't it?",
       "time": "00:18:59.30"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, I am. Yes.",
       "time": "00:19:08.36"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I will ask it in another way then.",
       "time": "00:19:12.95"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I will ask you in another way. Your position in the case is that California law governs this case as to the enforceability of the arbitration.",
       "time": "00:19:25.54"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why isn't New York law applicable?",
       "time": "00:19:41.49"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Who brought the lawsuit?",
       "time": "00:20:01.93"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you based it on New York, on California law.",
       "time": "00:20:05.86"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, the case was decided by the court on the basis of California law. Wasn't it?",
       "time": "00:20:15.86"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the court below applied California law.",
       "time": "00:20:21.94"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, the area is whether or not the arbitration clauses to be enforced in this case?",
       "time": "00:20:30.81"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, I just. I don't want to go any farther than that.",
       "time": "00:20:38.83"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I am talking about the arbitration provision.",
       "time": "00:20:41.63"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The California law governed this, it was helping to govern this case.",
       "time": "00:20:44.86"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now let's assume that the arbitration clause was quite valid in New York.",
       "time": "00:20:53.78"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let's assume that it was. Now 6C says that the Stock Exchange rule, Stock Exchange may make rule, consistent with the law of state which they are incorporated in.",
       "time": "00:21:00.76"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now why should California be able to apply its law when the Federal law says the exchange rules are to be tested thereby, the law of the state in which it is located.",
       "time": "00:21:15.47"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let's assume that we decided here or some court decided that located means for the New York Stock Exchange, it means New York. Let's assume that.",
       "time": "00:21:39.17"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let's assume it for purposes of Section 6C, the Stock Exchange is located in New York then what?",
       "time": "00:21:50.05"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Contrary to what was the law that was applied in this case?",
       "time": "00:22:04.62"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, we will resume at that point after lunch.",
       "time": "00:22:15.52"
     },

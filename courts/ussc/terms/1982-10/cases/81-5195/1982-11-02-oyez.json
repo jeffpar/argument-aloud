@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/81-5195/19821102a_81-5195.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "SILAS J. WASSERSTROM",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOSHUA I. SCHWARTZ",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments first this morning in Jones against the United States. Mr. Wasserstrom, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Wasserstrom, you're not challenging, as I understand it, the initial commitment. The only question, if I understand your position correctly, that you raise is whether he must be released at the time that the sentence period would have expired under the criminal statute, is that right?",
       "time": "00:02:10.01"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you are not challenging, then, the standard or burden of proof at the time of his commitment?",
       "time": "00:02:40.57"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If his initial commitment is not punitive, then how is the statutory period of time that he could serve on the criminal charge relevant?",
       "time": "00:03:21.01"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And so for us to agree with your position we would have to conclude that his initial commitment was punitive?",
       "time": "00:03:45.04"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But hasn't this Court, as well as the United States Court of Appeals in the D.C. Circuit, said there's no rational connection between the possible sentence and the possible length of stay after an acquittal, not guilty by reason of insanity?",
       "time": "00:04:29.39"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Oh, the Court has said expressly that there's no connection, in one case some time ago. Well, excuse me.",
       "time": "00:05:14.06"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Does your position depend at all on whether or not the initial crime was a crime of violence? Suppose this had been a street mugging, for example?",
       "time": "00:05:46.04"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Is a maximum sentence the standard or the actual sentence?",
       "time": "00:06:07.02"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Right.",
       "time": "00:06:16.34"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Doesn't the statute say he should be there until he's \"eligible for release\"? Isn't that what the statute actually says?",
       "time": "00:06:25.93"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But isn't that clear?",
       "time": "00:06:36.24"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That doesn't say he automatically gets out in one year.",
       "time": "00:06:39.97"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I mean, he asked for this, didn't he? Didn't he plead guilty by insanity?",
       "time": "00:06:56.75"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, so then he says... I don't understand what the one year has to do with it. He agreed to the sentence, that he should be there until he could be released--",
       "time": "00:07:04.67"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--in very broad terms.",
       "time": "00:07:18.46"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, the law says... the law doesn't say any time that he shall be given this examination, is that right?",
       "time": "00:07:29.64"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, when do you say he must have a hearing?",
       "time": "00:07:45.40"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So you say he should have had a hearing four years ago.",
       "time": "00:07:57.36"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I know that. But your position is that's when he should have had it?",
       "time": "00:08:07.72"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Isn't your major point, perhaps, or a main point the matter of where the burden of proof lies at the time of that hearing?",
       "time": "00:08:16.29"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Of course, that was a civil case, wasn't it?",
       "time": "00:08:30.68"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Addington was a case where the person was being committed and it was suggested that he was insane for the first time. Here your client was the one who raised the insanity and persuaded the court that he was insane.",
       "time": "00:08:45.50"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but that didn't enter into the Court's assessment, I don't think.",
       "time": "00:09:06.07"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you think a different burden of proof would attach if he was being committed for the first time? Do you think that can be fairly derived from Addington?",
       "time": "00:09:15.32"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I thought the case mentioned one of the interests is not being stigmatized. Your client brought the stigma on himself by pleading insanity.",
       "time": "00:09:33.36"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It says there are two interests, one the one you've just described and one the stigma. I didn't realize it had treated them as disparate interests.",
       "time": "00:10:15.00"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think that Addington says that in so many words?",
       "time": "00:10:26.12"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, he invites that by pleading insanity.",
       "time": "00:11:03.96"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, but society can certainly take into account his behavior in the criminal trial and what he has asserted there in determining what should happen to him thereafter.",
       "time": "00:11:32.37"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Wasserstrom, he had the initial 50-day release hearing, did he?",
       "time": "00:12:23.66"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In any event, I gather at the conclusion of that that his confinement to St. Elizabeth's was continued?",
       "time": "00:12:51.85"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And was the second hearing six months later or some time longer after?",
       "time": "00:13:06.77"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did he initiate... did he request it at that time, after he had been confined over a year?",
       "time": "00:13:23.28"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:13:27.90"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And that is the... that actually then is the sequence before the case gets here?",
       "time": "00:13:48.62"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's six years ago. At the 50-day hearing, there was evidence taken, wasn't there?",
       "time": "00:13:58.21"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Who presented it?",
       "time": "00:14:11.97"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the Government assumed at least the burden of going forward with the evidence?",
       "time": "00:14:14.82"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And there was no contrary evidence?",
       "time": "00:14:22.69"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so the testimony of the psychiatrist--",
       "time": "00:14:29.26"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--psychologist was uncontradicted?",
       "time": "00:14:34.47"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And if you believed him and thought he was right, the burden would have been satisfied.",
       "time": "00:14:39.29"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Just by the testimony of a psychologist?",
       "time": "00:14:49.58"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think we're free to operate under that rule here and say, whatever the rule is, it was satisfied?",
       "time": "00:15:06.92"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Unless you think, unless you also think, which I suppose you do, that there should have been a jury trial.",
       "time": "00:15:18.62"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What should have happened at the hearing is that the Government shouldn't have put on anything?",
       "time": "00:15:51.14"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which hearing?",
       "time": "00:16:43.79"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, there was one stage in this proceeding, as I understand it, when the Court of Appeals agreed that he was entitled to a civil commitment proceeding.",
       "time": "00:17:27.03"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is there any reason this has all taken six years to get here?",
       "time": "00:17:44.04"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there anything in the record to suggest why no evidence was offered on his behalf? Was that a tactical move to sharpen the issue?",
       "time": "00:18:08.96"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Also, probably the average person doesn't have psychiatrists waiting around to testify for them, isn't that true?",
       "time": "00:19:05.04"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I mean, is there any organization of psychiatrists like legal aid?",
       "time": "00:19:18.08"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Psychiatrists aid or something?",
       "time": "00:19:22.22"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, there is in Massachusetts.",
       "time": "00:19:28.30"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me just ask one question about your legal theory. Are you primarily relying on the due process clause or the equal protection clause?",
       "time": "00:20:02.29"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The thing that troubles me about your due process argument, supposing we have precisely the same facts, say in Texas, and say in Texas they had a maximum sentence of ten years for this offense. I take it under your theory there would be no due process claim.",
       "time": "00:20:48.51"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But otherwise... different process is required depending on the length of the sentence.",
       "time": "00:21:05.52"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it seems to me if your case turns on a comparison between his treatment and the treatment of a person who is convicted of the offense, you're really in the final analysis relying on the equal protection clause.",
       "time": "00:21:32.74"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Suppose it were a life sentence?",
       "time": "00:21:49.41"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, unless the rationale you propose inevitably would at least be relevant to the claim, on the very moment that he is acquitted that he may not be committed without having a hearing in which the Government takes the burden of proof.",
       "time": "00:22:07.23"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If we agree with you, the next challenge will surely be the next day after the acquittal.",
       "time": "00:22:44.69"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But agreeing with you has a lot to do with deciding about those other rationales.",
       "time": "00:23:01.82"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because after all, the acquittal was based on the fact that at the time of the crime the person was insane.",
       "time": "00:23:15.88"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Not at the time that he was tried or at the time he's acquitted.",
       "time": "00:23:25.07"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But you're also asking... are you not also asking that the Government must maintain the burden of proof at all times?",
       "time": "00:24:01.42"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In other words, you'd like to have us import the civil standard into the criminal law?",
       "time": "00:24:18.37"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wasserstrom, if you rely on a comparison to the criminal proceeding to judge the adequacy of the insanity procedures, would it be constitutional to do away with the 50-day hearing that you now have and substitute a hearing at the time when the man first becomes eligible for parole?",
       "time": "00:24:41.71"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but I'm just thinking that the other side of the coin is, would it be permissible to govern the scheduling of potential release hearings by a schedule that just paralleled what would be appropriate if the man had not been found not guilty by reason of insanity?",
       "time": "00:25:33.34"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Schwartz.",
       "time": "00:26:22.80"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That was at the time of the crime.",
       "time": "00:34:37.79"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Schwartz, was that in effect an overruling of Davis against the United States by the Congress?",
       "time": "00:34:48.78"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So in effect it was an overruling of Davis.",
       "time": "00:35:18.05"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But \"temporary\" here in this case is six years.",
       "time": "00:38:25.71"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I am all ears.",
       "time": "00:38:43.41"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Schwartz, who had the burden at that hearing?",
       "time": "00:39:34.85"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Yet, according to the transcript of that hearing, Mr. Kraekoff... the attorney for the Government, wasn't he?",
       "time": "00:39:59.81"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--began by stating that the burden is on the Defendant.",
       "time": "00:40:09.06"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, I certainly would say so, in view of that comment.",
       "time": "00:40:19.96"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, on that basis the case shouldn't be here at all, I suppose.",
       "time": "00:43:40.39"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Schwartz, by way of background information, if you will, under the present statutory scheme is it still possible for an automatic commitment to be made of a defendant who doesn't himself raise the plea of not guilty by reason of insanity, but who is acquitted on those grounds, as occurred in the Overholser case?",
       "time": "00:44:40.10"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "All right. How about, then, a defendant who effectively establishes a not guilty by reason of temporary insanity? Is that an automatic commitment under this scheme?",
       "time": "00:45:08.50"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was there any... as I understand it, he was insane at the time of the crime, but he wasn't insane at the time of the trial?",
       "time": "00:46:08.68"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There is a difference?",
       "time": "00:46:23.44"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Can you be committed if you're incompetent?",
       "time": "00:46:27.62"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The question is, if you're incompetent, solely incompetent, can you be committed to St. Elizabeth's?",
       "time": "00:46:33.24"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could you in a civil commitment be put in St. Elizabeth's because you're incompetent? And the answer is no.",
       "time": "00:46:44.65"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But I understand that in this case they said that he was insane at the time he committed the crime.",
       "time": "00:47:01.67"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why was he committed?",
       "time": "00:47:12.62"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, there was no hearing at all about his competency at that time, was there? I mean, after he was found not guilty by reason of insanity, was there any other hearing held at that time?",
       "time": "00:47:20.60"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Before he was committed?",
       "time": "00:47:34.75"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that's what I'm talking about.",
       "time": "00:47:38.07"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So I'm talking about when he was committed, there was no hearing at all on whether or not he should be committed to St. Elizabeth's.",
       "time": "00:47:41.01"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What was the hearing?",
       "time": "00:47:56.38"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought the hearing was whether or not he committed the crime.",
       "time": "00:47:58.30"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But there was no hearing on that day? I've asked that three times now.",
       "time": "00:48:23.84"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On the day that he was committed to St. Elizabeth's after he had been acquitted, was there or was there not a hearing?",
       "time": "00:48:31.24"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was it a civil commitment or a criminal commitment?",
       "time": "00:49:03.67"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It's both?",
       "time": "00:49:23.44"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one question before you do. Do I understand, one of your positions is that the 50-day hearing in this case, it was equivalent to a hearing at which the Government sustained the burden of proof by clear and convincing evidence and therefore is tantamount to a civil commitment? Are you in effect arguing that?",
       "time": "00:50:14.72"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm still not entirely clear on what your view of the legal significance of that having been tantamount to a civil commitment hearing would be. Are you saying that his subsequent history has been the same as if he had been civilly committed?",
       "time": "00:51:32.54"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did he get the same periodic review by the head of the hospital and all that sort of thing?",
       "time": "00:51:52.64"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "There are some crucial procedural differences, aren't there?",
       "time": "00:52:20.09"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Doesn't notice go to the prosecutor and you have an opportunity to contest it, or something?",
       "time": "00:52:44.23"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Schwartz, he was entitled after the 50-day period periodically to further hearings, was he not? How long are those periods?",
       "time": "00:53:23.86"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, really what I'm coming to... I know your time is running, and I don't want to take it... is there a distinction between periodic hearings for civil committees and this kind of committee?",
       "time": "00:53:40.59"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, are the periods the same?",
       "time": "00:54:03.64"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well now, you suggested to my brother Stevens that he in effect had all the procedures that a civil committee gets on the occasion of the 50-day hearing, is that right?",
       "time": "00:54:31.58"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As if he had been a civil committee. Well, since that date has he been treated as a civil committee?",
       "time": "00:54:49.38"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is he entitled to demand a periodic review?",
       "time": "00:55:08.05"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As a civil committee or as a criminal committee?",
       "time": "00:55:16.64"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Schwartz, isn't this much true? It's awfully hard to get all these procedures in mind, but that if he were committed as a civil committee under the normal civil procedures he would be entitled to have every six months, at no less... no greater period than every six months, the chief of the hospital make an independent review of the status? He's not entitled to that. You don't say he's now entitled to that, do you?",
       "time": "00:55:58.06"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but don't you have to say something about it? If you're saying he's treated exactly as though he were a civil committee, don't you have to tell us whether that means he gets the same periodic review that a civil committee gets?",
       "time": "00:56:28.53"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what about particular respects? Let me get that straight. In this particular respect, is he entitled to the periodic review?",
       "time": "00:56:42.84"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Under your view of the law.",
       "time": "00:56:50.79"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Has he received that?",
       "time": "00:56:55.35"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Wasserstrom?",
       "time": "00:57:09.22"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You're addressing the weight of the evidence.",
       "time": "00:57:56.20"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that the real issue that we've taken this case for?",
       "time": "00:58:18.20"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question. I understand your position, there was not clear and convincing evidence at that hearing. But assume that we thought there was just for purposes of my question. Would there be anything left of your case? And assume not only that there was clear and convincing, but that the judge said, I think the burden is on the Government to prove by clear and convincing and I so find.",
       "time": "00:58:38.18"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:59:14.30"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask one more question, if I may, because I'm still not entirely clear on your position. Assume there were a 50-day hearing, clear and convincing proof, and I know this is not realistic, but there were also a jury trial. Are you complaining of any difference in the treatment of your client after that date and the treatment he would have received had he initially been committed in a civil proceeding?",
       "time": "01:00:02.89"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Difference in the sense of ability to obtain his release?",
       "time": "01:00:25.67"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you haven't really relied on them.",
       "time": "01:00:31.15"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So your case really boils down to the absence of what you consider to be a necessary predicate for indefinite detention, namely a clear and convincing showing in a civil hearing?",
       "time": "01:00:40.11"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:01:34.31"
     }

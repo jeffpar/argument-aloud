@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1967/630/19680328a_630.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "FRANK J. BARRY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "HOWARD A. TWITTY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No. 630, United States, et. al., petitioner versus Alfred E Coleman, et. al. Mr. Barry?",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well is that -- Do I understand that means that the Department standard is present profitable marketability, is that it?",
       "time": "00:08:04.84"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As opposed to the Ninth Circuit thought, if there was some future hope of profitable market, is that it?",
       "time": "00:08:13.51"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We will recess now. [Recess]",
       "time": "00:09:17.63"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Gross? Was that his gross?",
       "time": "00:10:24.97"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Lived off of the land?",
       "time": "00:12:00.78"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Barry, I notice that the Examiner and the Acting Director of the Bureau of Land Management, each of those in different ways, said that the necessary showing had been made with respect to certain of the 18 claims here.",
       "time": "00:20:11.15"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And the Secretary ruled that the requisite showing had not been made with respect to any of the claims. Now, is that still debated as to whether it's still a factual controversy as to whether necessary showing has made as to certain of the claims?",
       "time": "00:20:32.29"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:22:11.70"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Twitty?",
       "time": "00:24:28.69"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, Mr. Twitty, may I ask you this question? Does the mining claim, even one would relate to building stone have to be claim for valuable mineral deposits, translating that a “valuable deposit of building stone”?",
       "time": "00:28:18.41"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But does that mean that the building stone has to be valuable?",
       "time": "00:29:00.14"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, do you agree that that applies to building stone?",
       "time": "00:30:24.19"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So that -- and let me see if I will get a little more clarity on my own mind. Is there an issue which you are tendering? Now, this sort, do you contend that you don't have to show that the building stone is valuable but that the land is chiefly valuable for building stone; that there is a difference between those two standards?",
       "time": "00:30:55.76"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "In other words, that if the land is absolutely useless except for the building stone and the building stone in totality for the -- for all of the claims as worth a thousand dollars, you would say that's enough. You don't have to show that the building stone is capable of being mined and sold?",
       "time": "00:31:31.14"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And there's no precedent to your theory, is it?",
       "time": "00:31:59.59"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes.",
       "time": "00:32:11.28"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, the Solicitor, by correctly understand him, braced with that, doesn't he?",
       "time": "00:32:32.98"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I thought he said that test that they applied here was a prudent-man test; that is to say that it must be a deposit or in your case, in occurrence of building stone which the characteristics of which are such that a man of ordinary prudence would spend his time and money to develop it.",
       "time": "00:33:27.43"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And then you said that I understand them to say that that is to test him; that's test was applied here. What I'm trying to find out is whether we're really dealing, assuming we get beyond your first point which is that if the land is chiefly viable for building stone that then means some indifferent from our valuable deposit of stone. We get test and I don't agree with you on that. What I'm trying to get at is whether we then confront a difference between you and the Solicitor with respect to the standard to be applied or a difference between you and the Solicitor with respect to its application in this particular case.",
       "time": "00:33:48.35"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You’re saying that their brief, the government Brief says that present marketability is or is not the proper test.",
       "time": "00:38:34.35"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You're talking about their opinion or their brief in this Court?",
       "time": "00:38:52.17"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Brief in this Court.",
       "time": "00:38:55.71"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What is the Court below relies on in saying that the government used that test?",
       "time": "00:39:03.36"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Present marketability. Is there anything in the record to indicate what the Court of Appeals relied on in making a statement in its opinion?",
       "time": "00:39:14.22"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where was that case reported?",
       "time": "00:41:28.83"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] I thought was in this case. May be I haven't understood your –-",
       "time": "00:42:13.77"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Whether or not the Court side or whatever the stone is, is this common stone within that --",
       "time": "00:42:25.11"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now as I understand it, if we disagreed with the Court of Appeals on that issue, the case would be over with?",
       "time": "00:42:31.43"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Without -- its marketability and prudent-man arguments?",
       "time": "00:42:41.66"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that true?",
       "time": "00:42:46.65"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The government has two separate arguments here and one of them is this cut that building stone, that quartzite is common building stone and therefore is not patentable under the mining laws at all?",
       "time": "00:42:49.05"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And if we agreed with the government on that, we never reach all these other issues?",
       "time": "00:43:01.03"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Alright, would you argue on it?",
       "time": "00:43:07.13"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, anything in that opinion except to that effect as I accept the sentence that appears at the bottom, page 12 of the record – bottom of page 12 of the appendix that we have before us and that says that Coleman was required to show that by reason of all pertinent factors including the existence of a present demand before July 23, 1955, the deposit could be mined, removed and disposed of at a profit. Is there anything else in the opinion other than that that supports your position and that of the Ninth Circuit?",
       "time": "00:45:13.12"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, they are certainly saying that that is a pertinent factor and that's I -- it seems to me quiet clear that this is not a model of precision, this language that you and I have been discussing. And on the other hand, at page 12 of the government's brief, they take a position four square fair list is clearly in favor of the marketability test rather than the present market test.",
       "time": "00:46:41.28"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Page 12 of their brief. As distinguished, I would say I think it's fair to say as distinguished from or the rather unclear language in the acting -- in the Deputy Solicitor's opinion on the same issue.",
       "time": "00:47:18.94"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But there, they are talking about perspective marketability as they make clear, I think that was where in particular at page 12.",
       "time": "00:48:05.32"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Can I ask you one question?",
       "time": "00:53:38.41"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Assuming that you are correct, the Court of Appeals is also correct, is that [Inaudible]",
       "time": "00:53:40.18"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible] what?",
       "time": "00:54:11.90"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Barry?",
       "time": "00:55:02.38"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I don't believe that's quite --",
       "time": "00:57:18.69"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I don't think it's quite that, Mr. Barry. The question is whether what was the standard that you used in your opinion?",
       "time": "00:57:21.26"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And that the standard you used in your opinion, I have to say is -- was not expressed with the typical Interior Department clarity.",
       "time": "00:57:30.08"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "No, you didn't get it. You look at page 12 on the record and look at the first sentence to which Mr. Twitty called our attention to.",
       "time": "00:57:44.86"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "No, the record, the appendix of the record.",
       "time": "00:58:00.50"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I don't agree with you. Why do you say that?",
       "time": "00:59:06.94"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "It's quite conceivable as a theoretical matter anyway that no evidence could have been adduced to show that there was a market on or before July 1955 but that the evidence might have been present, showing that to a reasonably prudent man, this building stone might be saleable in a year.",
       "time": "00:59:09.97"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Isn't that conceivable?",
       "time": "00:59:34.78"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That's a very different matter, that's right.",
       "time": "01:00:04.13"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And I think that's what -- I think when you and I are talking about now is what true at the Ninth Circuit.",
       "time": "01:00:07.13"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:00:18.81"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:00:24.65"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:01:16.57"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] variety of stone.",
       "time": "01:01:28.18"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] Act?",
       "time": "01:01:34.36"
     },

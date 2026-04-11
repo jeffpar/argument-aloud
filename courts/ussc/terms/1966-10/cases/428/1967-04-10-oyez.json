@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1966/428/19670410a_428.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "THURGOOD MARSHALL",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "DANIEL J. MCCAULEY, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PHILIP A. LOOMIS, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 428, Securities and Exchange Commission, Petitioner, versus United Benefit Life Insurance Company. Mr. Solicitor General.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Solicitor General, is there a -- or is there not a legislation before Congress on this matter now?",
       "time": "00:02:15.06"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It doesn't touch this problem?",
       "time": "00:02:25.09"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No?",
       "time": "00:02:27.44"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I -- do I understand it correctly on your position General that part of this contract is subject to SEC regulations or part of it to a state regulation?",
       "time": "00:13:07.25"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Was there a -- is that result in VALIC have forgotten --",
       "time": "00:14:10.12"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What -- what the --",
       "time": "00:14:15.06"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- were the regulation the result there too?",
       "time": "00:14:16.94"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But they're not subject -- their contracts aren't subject to any kind of state regulations?",
       "time": "00:14:25.28"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I'm sorry I didn't --",
       "time": "00:14:35.97"
     },
@@ -167,13 +167,13 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may Solicitor, you may.",
       "time": "00:22:21.68"
     },
     {
       "turn": 22,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "General, may I ask you --",
       "time": "00:22:22.84"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- before you sit down, I suppose that under Investment Company Act, there are some things that the company would not be allowed to do than it would be permitted to do under the insurance regulatory schemes in --",
       "time": "00:22:24.46"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- in the state. And if that -- if that is so, if that is so, and I suppose that what we're faced with is a problem under the McCarran-Ferguson Act.",
       "time": "00:22:40.73"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, the McCarran-Ferguson Act says that no Act of Congress --",
       "time": "00:23:00.83"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- shall be construed to invalidate, impair, or supersede an insurance law of the state unless the law of Congress says specifically in terms of insurance. Well, this isn't.",
       "time": "00:23:05.64"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "The Investment Company Act is not. Now, the question is whether you fall within this prohibition in the McCarran-Ferguson Act when you say that a contract of this sort which has dual aspects, clearly as dual aspects, insurance and insurance aspect is subject to SEC regulation particularly when you take into account the hypothesis in a way that there are some things they could not do under the Investment Company Act that they would be allowed to do under the State Insurance Acts.",
       "time": "00:23:17.93"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, you've got two approaches there. When -- I suppose -- an approach is saying this is either insurance or its investment. The other approach is to say that this has aspects of both and to reach a conclusion if it's possible that the -- it's subject to dual regulation.",
       "time": "00:24:45.07"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Suppose you could do -- and analytically, you could proceed down either avenue, but if you proceeded down the latter you might possibly run into the McCarran-Ferguson Act.",
       "time": "00:25:09.74"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. McCauley.",
       "time": "00:26:27.73"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Am I -- am I incorrect in -- in thinking that there is legis -- bills before Congress dealing with this matter.",
       "time": "00:27:01.96"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How do you distinguish --",
       "time": "00:42:59.87"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- this contract from the -- (Inaudible)",
       "time": "00:43:01.37"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "In how many states does this company qualified as an insurance company?",
       "time": "00:45:11.58"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Had there been any rulings by insurance -- by state insurance commissions as to whether this -- these contracts are contracts of insurance?",
       "time": "00:45:52.66"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Are there some states --",
       "time": "00:46:12.53"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Are there some states who disapprove it?",
       "time": "00:46:20.09"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Are there some states that don't allow you to sell it as contract of insurance?",
       "time": "00:46:22.97"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, there's no -- no compilation of that state situation in your brief, is there?",
       "time": "00:46:51.75"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. McCauley.",
       "time": "00:47:02.34"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I -- I gather the purchaser of one of these may look to some accumulated values beyond this minimum guarantee, may he not?",
       "time": "00:47:03.71"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And I take that state regulation would deal only with the reserves necessary to protect the guarantee?",
       "time": "00:47:13.17"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well now what, what state makes provision for any protection of the purchaser?",
       "time": "00:47:23.87"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In the first of those who accumulated values incidentally if -- if there isn't a state insurance protection because they're not necessary to secure reserves to take care of the minimum.",
       "time": "00:47:30.93"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Let's make it up they're not regulated, if you prevail, then there would be any regulation of them at all, any protection for the purchaser of the accumulated value.",
       "time": "00:47:48.06"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well -- well what would that be?",
       "time": "00:48:01.26"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:48:03.29"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It is by --",
       "time": "00:48:13.41"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- the state insurance commission?",
       "time": "00:48:13.97"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "At that --",
       "time": "00:48:15.49"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Have they -- is that -- is that from your experience?",
       "time": "00:48:16.25"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What's a reserve part?",
       "time": "00:48:21.15"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Against the net?",
       "time": "00:48:28.57"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "No, there's above that?",
       "time": "00:48:34.29"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And that's on a different -- different accounting of the --",
       "time": "00:48:38.24"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- net premiums --",
       "time": "00:48:42.72"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- become separated from --",
       "time": "00:48:45.53"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I take -- I take it --",
       "time": "00:48:57.68"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "There's no question about that fund that's subject to state regulations, is it?",
       "time": "00:48:59.46"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That is subject and I -- I would expect the state insurance authorities would keep putting vigilant eye allotted to reserves and everything else. But now there's a -- the accumulated value that were speaking of is in a separate fund, was it?",
       "time": "00:49:05.04"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In a separate account?",
       "time": "00:49:19.42"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And you -- and you're telling me the state insurance authorities are watchful of that --",
       "time": "00:49:20.91"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- (Voice Overlap)?",
       "time": "00:49:24.92"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what -- what kind of controls on the investments on that separate fund do the states?",
       "time": "00:50:26.15"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well that is the same limitations on -- on what the investments may include?",
       "time": "00:50:34.59"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is there uniformity of state regulations, Mr. McCauley?",
       "time": "00:51:45.83"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:51:50.69"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is there much of this in your brief?",
       "time": "00:52:19.03"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Solicitor General.",
       "time": "00:56:04.24"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well what -- what about Mr. McCauley's answer to me Mr. Solicitor General that in fact, the accumulated value was also subject to, now, to state regulation, what about that?",
       "time": "00:56:54.00"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But Mr. Solicitor General isn't it -- isn't that almost a complete answer that the state regulation does not attach unless there is some augmentation.",
       "time": "00:57:17.39"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's assume there wasn't.",
       "time": "00:57:29.38"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's assume there was no earning -- let's assume there were no earnings or no increase in value.",
       "time": "00:57:32.26"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "State regulation wouldn't help the investor, would it?",
       "time": "00:57:40.49"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "00:58:30.78"
     }

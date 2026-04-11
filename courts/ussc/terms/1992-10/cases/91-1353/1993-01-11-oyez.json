@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1992/91-1353/19930111a_91-1353.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT H. KLONOFF",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN F. MANNING",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "KEVIN M. CUDDY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 91-1353, Thomas F. Conroy v. Walter Aniskoff. The spectators are admonished to remain silent until you get out of the courtroom. The Court remains in session. Mr. Klonoff, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Klonoff, the statute really doesn't say that any property sold in violation of the Federal prohibition is not effectively sold, does it? Is that a matter of State law? I mean, could Maine law say that if this statute is violated and we goof and make the sale within the 18-month period, a good faith purchaser nonetheless has title, and maybe you have a cause of action against Maine but not against the BFP?",
       "time": "00:06:26.05"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, they're not overriding the statute. The statute doesn't really say that the transfer shall be ineffective, does it?",
       "time": "00:07:00.22"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you say so, but I mean, that's what I'm asking. Why does it have that effect? It doesn't say that it has that effect. It just says, you know, that you have to give him more time. Okay, I have, and you got me, I broke the law... so sue me. I mean, maybe he has a cause of action against the State of Maine, if that's what Maine says.",
       "time": "00:07:07.89"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You're saying that Maine does not have the authority to give title until that period is passed, and because it is tolled Maine therefore can never give even... cannot even give a good title subject to defeasance later.",
       "time": "00:07:39.11"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but I just wanted to make sure that I understood what you were saying to Justice Scalia, and I thought the theory that you were espousing was that because the period of service is not included... cannot be included in computing the redemption period, that the redemption period never runs. Because it never runs, Maine, or the town, whatever it is, never acquires the authority to give any title at all. Isn't that your theory?",
       "time": "00:08:11.67"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But that's not the way it works, on your view, in Maine, is it?",
       "time": "00:08:45.80"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question about this case just to get it fixed in my mind? If you win, what it means is the period of redemption has not yet expired--",
       "time": "00:12:30.75"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And therefore your client has a right to redeem, and I gather your position is he will retain that right to redeem as long as he remains on active duty.",
       "time": "00:12:42.06"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then he just has the right to redeem as of now, so he could be compelled to exercise it within a fixed period of time, could he?",
       "time": "00:12:55.40"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He would have to make a tender of the back taxes plus interest, whatever the statute provides for redemption.",
       "time": "00:13:16.73"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you had a person... you don't, as I understand it... who was still on active duty and he's perhaps going to serve another 15, 20 years, would he have the right under the statute, under your view, to say to the property owner, I haven't decided what I want to do. I just want to make it clear that the period of redemption hasn't run yet, and I'll make up my mind just before I get out of service.",
       "time": "00:13:22.34"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They could sue for the back taxes.",
       "time": "00:13:55.77"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I suppose the practical matter is he might well be willing to sell the property for a sum. He might well be willing to sell his right in the redemption period for a cash sum. These things often settle for a cash basis--",
       "time": "00:14:14.40"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And the longer the period, the more of a nuisance rights he has, the better bargaining position he is in in that negotiation.",
       "time": "00:14:25.79"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What does Article 134 provide that's relevant to this case?",
       "time": "00:15:11.26"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does it bring discredit on the Armed Forces to exercise rights granted by Congress to an officer of the United States Army?",
       "time": "00:15:34.27"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Those may well deal with individual cases, Mr. Klonoff, but if we're now turning to the bad consequences of adopting the position you say the statute requires, I think perhaps from the point of view of the State or the town, it's simply an inability to sell at a tax sale. The titles simply are too uncertain.",
       "time": "00:16:10.46"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but a quit claim deed is a good deal different than... you can't get title insurance on the basis of a quit claim deed.",
       "time": "00:17:21.11"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did I understand you to say that Maine can proceed in personam for the amount of the delinquent taxes against the property owner?",
       "time": "00:18:00.25"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Klonoff. Mr. Manning, we'll hear from you.",
       "time": "00:18:33.13"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The Federal Government might have wanted to protect by Federal law a BFP in the one situation, and decided not to protect him by Federal law in the other, but left it open to the State to protect him. Isn't that a conceivable explanation?",
       "time": "00:20:19.84"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When you say, of the Appendix, are you referring to the Appendix to your brief?",
       "time": "00:22:26.35"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that cited anywhere in your brief?",
       "time": "00:22:39.30"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Owned and occupied, now.",
       "time": "00:23:12.68"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I take it the provision which allows for the collection of taxes on real property does not apply to him, though, because he was not occupying it for a dwelling.",
       "time": "00:26:41.02"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Manning. Mr. Cuddy, we'll hear from you.",
       "time": "00:27:50.83"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In a timely fashion.",
       "time": "00:28:46.22"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did you set forth section 560 in your brief, Mr. Cuddy?",
       "time": "00:30:17.14"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I would suggest to each of you that if you plan to do that in the future you should not... you should very definitely set forth the statute in your brief.",
       "time": "00:30:28.53"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So what's your conclusion on what you've just said?",
       "time": "00:30:43.46"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Help me with just one thing, though. I don't know whether it's greater or less, but 560 deals with approval of the sale, whereas 525 deals with redemption.",
       "time": "00:31:40.81"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "After a sale has taken place.",
       "time": "00:31:54.89"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But he doesn't challenge the... he doesn't say there's any defect in the sale.",
       "time": "00:32:10.23"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It gives him an unlimited period, a period... a time to redeem as long as he's in service.",
       "time": "00:32:23.29"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what if this had happened back in 1942 or '43? You wouldn't be making this argument, I don't suppose.",
       "time": "00:33:19.09"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So we should say, just because Congress has... that even though Congress has not changed the law, we should apply it differently.",
       "time": "00:33:31.58"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:33:47.68"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that isn't what the law says, in time of war.",
       "time": "00:33:52.63"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that's just a recital at the beginning, isn't it, about exigent circumstances? It doesn't say, the statute shall be enforced only so long as the exigent circumstances exist.",
       "time": "00:34:02.60"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you want us to do that?",
       "time": "00:34:38.26"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the protection that seemingly is given to the right to redeem just has expired by now.",
       "time": "00:34:47.65"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, where do you find the requirement for the hardship? That's the real problem. Congress couldn't specify it in this section.",
       "time": "00:35:06.43"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Go ahead and finish your answer.",
       "time": "00:35:32.68"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, on that basis you shouldn't have answered that if this had happened in 1943 you wouldn't be making this argument. You would say well, gee whiz, that other section gives the most protection, and so--",
       "time": "00:35:51.80"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Let me just be sure I understand your position. Assume we were in a wartime situation, would your reliance on 560... would you make the same argument based on 560?",
       "time": "00:36:27.66"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I understand that today. I'm saying, would you make the 560 argument in 1943, or during the Korean conflict, or during the Vietnam conflict? Would you make that argument at those times?",
       "time": "00:36:45.17"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You wouldn't get our support for 510, but I don't see... it seems to me they are totally separate arguments, that's my problem with you. The 510 argument, it seems to me, is one... we have special rules during wartime. Your 560 argument is, we have a special... that's the statute we should look at rather than 525. What if we were really at all-out war right now, would you... I would think your 560 would still trump this right to redeem... on your argument.",
       "time": "00:36:57.85"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it doesn't say temporary suspension of such legal proceedings as will prejudice their rights, it just says a certain category that might prejudice their rights, and this might. I mean, this is a category of temporary suspensions, and this category is a category which may prejudice the people who get the benefit of the statute.",
       "time": "00:38:07.59"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it doesn't say he has to prove the prejudice.",
       "time": "00:38:28.62"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But this section doesn't define litigation rights. It just explains why they enacted the statute, and the statute was to provide temporary suspensions in a category of cases where servicemen might be prejudiced.",
       "time": "00:38:45.72"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And in this category, they might be. But it doesn't say they have to prove prejudice to win in the particular case.",
       "time": "00:38:57.38"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's how you fit 510 with 525.",
       "time": "00:39:05.73"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, no, I don't think so at all. You could say that some people might be prejudiced by not being able to hire a lawyer in time to do this and that and therefore they can't file a lawsuit right away, therefore we'll give them 5 years to avoid the danger of that prejudice. They get the 5 years whether they can prove prejudice or not.",
       "time": "00:39:30.68"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but it seems to me the fact that it's present in 560 demonstrates that it's presence in 510 is irrelevant, because if it's presence in 510 justifies reading it into 525, you wouldn't have had to have it in 560.",
       "time": "00:40:20.04"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Your argument is, we don't need an explicit hardship requirement in 525 because it's in 510, which is up at the beginning of the act, and that hardship requirement spills over into all of the act, but if that were true, there wouldn't be any hardship requirement in 560. You wouldn't need it, because it would be supplied by 510. But we have it in 560.",
       "time": "00:40:43.24"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You have it because you have it.",
       "time": "00:41:11.66"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:41:15.53"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Cuddy, can I ask you to address the point the Government makes about where the burden of this uncertainty should lie, and whether it's so absurd to place the burden where they say it's been placed. It doesn't seem to me absurd to say, as they claim the statute provides, in 560, the... which stays the whole sale. You want to come in and stay the whole sale.",
       "time": "00:44:21.48"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, the statute says, if you want to stay the whole sale, you have to prove the hardship, but if the sale goes forward and all you want to do is have a later right to redeem, you don't have to prove the hardship, because, says the Government... what does hardship mean? I mean, this fellow's in military service, he's fighting a war somewhere, or giving out food somewhere, or doing something, and can't get home, and his advisor tells him, don't worry, if you can prove hardship, you can always redeem that property, and he asks him, well, what does proving hardship consist of? He says, oh, it's a very nice question. Proving hardship. Maybe you don't have enough money because you've been shipped overseas and have... you know, have to make all... I wouldn't want to have to gamble on the fact that I could prove hardship. So why isn't it perfectly sensible to say, you know, at least for purposes of the redemption provision, we're going to give the serviceman a free ride... he doesn't have to prove the hardship?",
       "time": "00:44:49.33"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, there... but there's a risk anyway. I mean, you'd still buy the property... well, you're advising the person who wants to buy the property from the tax sale.",
       "time": "00:46:59.55"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What you're saying is, you can give him the great comfort of saying, don't worry... don't worry, no soldier is going to be able to come back and snatch this out from under your nose unless he can prove hardship, right? Even under your theory, you don't have sure ownership.",
       "time": "00:47:11.03"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I'm not talking about its certainty or uncertainty now--",
       "time": "00:47:47.28"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I'm talking about the fact that even under your theory there is no sure conveyancing in a tax sale. You can never be sure that there isn't a substantial likelihood that some Armed Forces member can redeem.",
       "time": "00:47:50.38"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right.",
       "time": "00:48:14.10"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right. Right.",
       "time": "00:48:15.45"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a lesser risk, but it's still a pretty substantial one, it seems.",
       "time": "00:48:17.59"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is the interest rate the redeeming party has to pay on a judgment in Maine?",
       "time": "00:48:29.29"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the purchaser with the quit claim deed at least gets his money back plus interest--",
       "time": "00:48:43.55"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--At whatever the rate might be.",
       "time": "00:48:48.51"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you agree that Maine could sue the petitioner personally for the amount?",
       "time": "00:49:27.90"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That the town could.",
       "time": "00:49:40.11"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Cuddy.",
       "time": "00:49:48.64"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Klonoff, you have 3 minutes remaining.",
       "time": "00:49:50.18"
     },
@@ -935,13 +939,13 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well. The case is submitted.",
       "time": "00:50:07.21"
     },
     {
       "turn": 150,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:50:10.71"
     }

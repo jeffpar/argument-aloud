@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1493/19851204a_84-1493.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "NOPTON J. COME",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MARK A. HUTCHESON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "LAURENCE STEPHEN GOLD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Come, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Another three to two decision?",
       "time": "00:06:54.35"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Come, may I inquire whether it's your view that the Board will similarly require vote by all employees if the union adopted some controversial change to its own constitution of by-laws?",
       "time": "00:11:57.82"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, without putting it another way, could you answer the question?",
       "time": "00:12:46.05"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or dues increases?",
       "time": "00:13:21.47"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's still a dissent.",
       "time": "00:13:34.70"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But in the Board's calculations, this particular change is not one that requires a Board conducted election, is it?",
       "time": "00:14:30.70"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The Board is saying that if the union is going to hold an election it should let other people vote?",
       "time": "00:14:42.92"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "This isn't one of the changes... this affiliation wouldn't, under the Board's criteria, wouldn't precipitate a new certification election?",
       "time": "00:15:26.29"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that isn't what the Board says.",
       "time": "00:15:41.98"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They would be satisfied with a union election.",
       "time": "00:15:44.72"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Through certification?",
       "time": "00:17:06.53"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Hutcheson.",
       "time": "00:18:13.43"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, wouldn't it be more... perhaps more accurate, it would seem to me, to inquire whether the Boards basic rule applying to all such cases, if that's the situation, is irrational?",
       "time": "00:18:59.20"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "This wasn't an ad hoc decision on the part of the Board.",
       "time": "00:19:19.97"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It was pursuant to a general policy applying across the board.",
       "time": "00:19:25.06"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the... all Board lawmaking, they don't make it by regulation, do they? They make it by adjudication.",
       "time": "00:19:35.76"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--the evidence of their policy is this particular adjudication?",
       "time": "00:19:45.20"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Jasper was a change in the Board decision, wasn't it?",
       "time": "00:20:08.95"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How long had it followed a different policy before Jasper?",
       "time": "00:20:13.27"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "'63.",
       "time": "00:20:31.13"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The other way?",
       "time": "00:20:37.37"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As I recall it, we have cases in which we have sustained the Board's change of position based on the experience in the real world.",
       "time": "00:21:04.04"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Hutcheson, does the Labor-Management Relations Act impose any requirement that union members vote on such things as a decision to strike, or to have a new collective bargaining agreement?",
       "time": "00:21:53.95"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "By your reasoning, because maybe a majority of the members wouldn't favor a decision to strike, perhaps the Board under your theory could then require an election, either among union members or all employees?",
       "time": "00:22:11.73"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And yet, Congress has rejected that, hasn't it?",
       "time": "00:22:29.61"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, isn't it quite similar here, really?",
       "time": "00:22:34.24"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What about a constitutional or by-law change of the union itself?",
       "time": "00:22:57.26"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Except affiliation?",
       "time": "00:23:28.73"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the Board seems to agree that this isn't a recertification issue in this case.",
       "time": "00:23:42.05"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Statute says you can have Board supervised elections when you certify or recertify?",
       "time": "00:23:51.67"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but the Board says this is not a recertification.",
       "time": "00:24:07.35"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And yet, it refuses to... it requires something short of a recertification?",
       "time": "00:24:12.06"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Where does it get us authority to do that?",
       "time": "00:24:40.22"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, you derive it from the certification section?",
       "time": "00:25:02.13"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Sort of a prophylactic rule?",
       "time": "00:25:17.56"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On that theory the Board could do almost anything that was reasonable, or even--",
       "time": "00:26:36.28"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--So, would you have been arguing before '78 or '77 that the Board's rule--",
       "time": "00:28:19.53"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Sounds as though you would, although I think on your own, based on your own argument, you'd have to say either construction of the Act is--",
       "time": "00:28:29.46"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Gold.",
       "time": "00:28:54.68"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you say, Mr. Gold, you're saying what the system is and intimating that what the Board has done now is contrary to what the system is. And yet, what you're saying the system is, itself evolved by Board decision--",
       "time": "00:33:45.55"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--What about the contract bar rule?",
       "time": "00:34:36.05"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, let me ask you this.",
       "time": "00:35:04.64"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I have a feeling from reading the opinion of the majority of the court of appeals that they were saying, this is not rational because there are other Board decisions that cut the other way, and to me that doesn't make such sense because the Board can always modify, and if you're just talking about modifying one Board decision by another it's hard to say that it's irrational. You're not arguing that point?",
       "time": "00:35:06.10"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Gold, you have to show, don't you, that this rule is contrary to the Act?",
       "time": "00:36:40.46"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, your submission is not that this is contrary to the Act?",
       "time": "00:37:10.05"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is? Are you going to argue that the Act--",
       "time": "00:37:13.27"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--On that point, Mr. Gold, the Board has to decide basically how broadly to define a particular bargaining unit, for instance whether craft and unskilled workers are involved, and that's a Board decision. And yet, in a globe-type election the Board can conduct elections of employees, going to that issue. Is that similar to this?",
       "time": "00:42:34.94"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That isn't expressly authorized in the statute. So, how do you distinguish that?",
       "time": "00:43:07.49"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, can it make the same argument here, that's part of our overall assistance in deciding whether to call a recertification election?",
       "time": "00:43:32.79"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Gold, in practical terms what the union came to the Board for was to change its name, change the name of the certified union, and the Board said, no, we won't. Is that right?",
       "time": "00:46:48.02"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, they said, unless you have an election we won't change your name? So, suppose the union just doesn't have an election and... can it retain its old name?",
       "time": "00:47:03.53"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On the certification?",
       "time": "00:47:15.52"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but the employer... did the Board say they won't change their name and therefore said that the employer doesn't have to bargain?",
       "time": "00:47:35.98"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if the union comes to them and says, look, we're the same old union, here's our name, now bargain with us. Would the employer have to do it?",
       "time": "00:47:50.87"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because, as a legal matter you are now part of a larger unit?",
       "time": "00:48:02.40"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, what's involved here is a duty to bargain issue?",
       "time": "00:48:18.24"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In this case the Board has not said that, the result of this is, if you don't hold your own election we will?",
       "time": "00:49:00.50"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it just says that the employer just needn't bargain?",
       "time": "00:49:12.49"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it's your position, if I understand you correctly, is that when the paper is filed saying, I want to change our name, it's at that point the Board should make the continuity determination?",
       "time": "00:49:18.48"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That which would then determine whether or not to hold a decertification election?",
       "time": "00:49:28.60"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Either it is or it is not the same organization?",
       "time": "00:49:34.66"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, suppose they decide there's really more than a name change here, it's a fundamental change, it's too important to just approve, then what do they do? Election? Then they would require election, or would they?",
       "time": "00:49:43.01"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, then the union would have to petition for an election?",
       "time": "00:50:26.27"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose that you must argue then that... suppose the union held this kind of an election and the majority voted against the affiliation. I suppose you would say the Board still isn't... shouldn't be permitted to let the employer refuse to bargain? It either should be a decertification election or nothing?",
       "time": "00:54:51.01"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, exactly, but as long as it says that this affiliation isn't really very fundamental, not in itself enough to hold an election?",
       "time": "00:55:27.04"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I guess for the same reason, Mr. Gold, you'd argue that this certainly doesn't fall within the category of a change to adapt to changing patterns of industrial life?",
       "time": "00:55:37.99"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Incidentally, Mr. Gold, may come unions change affiliation as they attempted here, without any vote of their membership?",
       "time": "00:56:13.53"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, does that require a constitutional provision in the union constitution?",
       "time": "00:56:24.17"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So, this is by action of the Board of Trustees of the union?",
       "time": "00:56:58.14"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Come.",
       "time": "00:57:08.67"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:00:46.82"
     }

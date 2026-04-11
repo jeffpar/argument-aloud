@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2007/06-1195/20071205a_06-1195.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "SETH P. WAXMAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PAUL D. CLEMENT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument this morning in case 06-1195, Boumediene v. Bush, and case 06-1196, Al Odah v. United States. Mr. Waxman.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I thought that we ruled in the Hamdi case that procedures quite similar to those under the DTA were adequate for American citizens?",
       "time": "00:01:29.32"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So that--",
       "time": "00:02:12.32"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--So our judgment in this case depends upon whether we agree with you or the government that the procedures available under the DTA are meaningful under Hamdi?",
       "time": "00:02:13.82"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Waxman, how could that be, because the D.C. Circuit never got to that question? The D.C. Circuit, as I understand it, ruled that there was no access to habeas, end of case. So the D.C. Circuit never examined the procedure under the DTA, did it?",
       "time": "00:02:41.00"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So shouldn't we, if we agree with you, that there is authority in the D.C. Circuit, send it back to them to make that determination whether habeas being required, this is an adequate substitute.",
       "time": "00:03:21.03"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Your argument wouldn't be any different with respect to the availability of habeas if these people were held for one day, would it? We don't look at the length of detention in deciding whether habeas is available, do we?",
       "time": "00:04:20.02"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, let me just stop you there. Do you want this Court to rule on whether or not there are military exigencies that require the holding and detention of these enemy combatants?",
       "time": "00:04:53.66"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Putting aside the battlefield hypothetical, we're talking about Guantanamo. Your argument is that somebody held one day in Guantanamo has the right to habeas. So the extent of detention is irrelevant to your assertion.",
       "time": "00:05:20.72"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But your basic position has to rest on Guantanamo Bay being just like if we had the detainees in, say, the Everglades. But do you concede that if these people had never been brought to the United States, if the facility were in, say, Germany, that these detainees would have no access to habeas, no access to our courts?",
       "time": "00:06:05.20"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Who says that... let's consider first the basis on which the court of appeals decided this case. They decided it... in Rasul, we had held that the habeas statute extended to Guantanamo, and that those people who had filed their suits before the statute, at least, could bring a suit. Congress acted. And enacted a new habeas statute which makes it very clear that the habeas statute, at least, does not apply to these people in Guantanamo. Your assertion here is that there is a common law constitutional right of habeas corpus that does not depend upon any statute. Do you have a single case in the 220 years of our country or, for that matter, in the five centuries of the English empire in which habeas was granted to an alien in a territory that was not under the sovereign control of either the United States or England.",
       "time": "00:07:21.27"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What is... what are they?",
       "time": "00:08:31.60"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What cases... what case in particular do you think in Rasul?",
       "time": "00:08:42.30"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mwenya involved an English... an English subject, not an alien.",
       "time": "00:09:04.57"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The question there is an alien.",
       "time": "00:09:10.81"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it's totally irrelevant.",
       "time": "00:09:14.23"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In both of those cases, it was a citizen, nonetheless. In 220 years of our history, or five centuries of the... do you have a single case in which it was not a citizen of England or a citizen of the United States in which a common-law writ of habeas corpus issued to a piece of land that was not within the sovereign jurisdiction?",
       "time": "00:09:44.10"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They were not regarded as part of the crown's dominion, but they were part of the crown's sovereign territory.",
       "time": "00:10:14.50"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay, try them. I mean, line them up. [Laughter]",
       "time": "00:10:25.10"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the cases were decided under a statute that applied in India, not under... under the common law. And the writ did not come from England; the writ came from English courts in India under a statute. And we decided that in Rasul. I mean, you want to do that in Rasul, that's fine. But you are appealing to a common law right that somehow found its way into our constitution without, as far as I can discern, a single case in which the writ ever to a non-citizen.",
       "time": "00:11:03.15"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What is the relevance to your... this line of reasoning to the recent enactment by Congress of section 1005(g), which says that the base at Guantanamo is not part of the United States? There is a judgment by the political branches that we don't exercise sovereignty over the leasehold, and it seems to me that, if we're going to adhere to our habeas corpus cases, we would have to reject that determination.",
       "time": "00:12:03.55"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So the answer to Justice Ginsburg's question, it wouldn't matter where these detainees were held so long as they are under U.S. control. If they were held on a U.S. military base pursuant to a standard treaty with another country, if they were in Afghanistan or in Iraq, the result would be the same?",
       "time": "00:13:17.08"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What if, in a future war, many of the soldiers and the opposing Army don't wear uniforms? What if it's a war like Vietnam and thousands of prisoners are taken into custody and they are brought to prisoner-of-war camps in the United States as occurred during World War II? Every one of them under your theory could file a habeas petition. Is that right?",
       "time": "00:14:52.78"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So to determine whether there's jurisdiction, in every case we have to go through a multi factor analysis to determine if the United States exercises not sovereignty, which you've rejected as the touchstone, but sufficient control over a particular military base? Over the Philippines during World War II, in Vietnam, and it is going to decide in some cases whether the control is sufficient and others whether it isn't?",
       "time": "00:16:27.44"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And that is a judgment we the Court would make, not the political branches who have to deal with the competing sovereignties in those situations?",
       "time": "00:16:54.64"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Counsel, we had 400,000 German prisoners in this country during World War II. And not a... you say it's clear in the Vietnam example that the Chief Justice gave you, it's clear that habeas would lie. 400,000 of these people. It never occurred to them.",
       "time": "00:18:06.95"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And many of them were civilians, by the way, and not in uniform. Not a single habeas petition filed.",
       "time": "00:18:29.50"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He claims he wasn't assisting the German army, just as these people here claim that they were not attacking U.S. bases.",
       "time": "00:19:02.71"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Your primary position is that we should order that they be released, is that correct?",
       "time": "00:20:12.29"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose there had not been a six-year wait, would it be appropriate then for us to... if you prevail... remand the case to the habeas court and instruct the habeas court to defer until the Court of Appeals for the District of Columbia has finished the DTA review proceedings?",
       "time": "00:20:39.19"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why should I assume that the district court in Washington would be any faster than the court of appeals?",
       "time": "00:21:17.48"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why can't that take place in the CSRT review proceedings that are pending?",
       "time": "00:23:16.99"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is that possible for your... let's say your six clients at this point or for any of the Guantanamo detainees, I guess, because wouldn't they all run into the problem of... the neutrality problem that you raised? The commanding general, the Secretary of Defense, in effect, have already said these people belong where they are. Wouldn't that make it impossible, really, at this stage of the game to substitute a military procedure?",
       "time": "00:24:34.74"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I understand that.",
       "time": "00:25:08.66"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I'm just wondering whether assuming you win this case, that would be an appropriate form of relief. And I'm not sure--",
       "time": "00:25:17.02"
     },
@@ -471,19 +471,19 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--I have a quick question. I don't want to interfere with his five minutes of rebuttal.",
       "time": "00:25:55.13"
     },
     {
       "turn": 72,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll give you your rebuttal time.",
       "time": "00:26:01.03"
     },
     {
       "turn": 73,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Going back to Justice Scalia's question on the precedent, suppose... and I'm going to be... I'd like my mind to be clear on this. I thought that the question asked was for you to find an instance where there was no sovereignty of the country and they issued the writ, and it was turning on a technical thing. Whether that was how the question was met or not, what I read here in these different briefs is in 1759, Lord Mansfield, the case can issue... a writ of habeas corpus, no doubt the power could issue it where the place is under the subjection of the crown of England. Then Lord Sellers in Mwenya said subjection is fully appropriate to the powers, that's habeas, irrespective of territorial sovereignty or dominion, in other words, non-technical. In our case in Rasul, both the concurring opinion and the majority opinion say things like the reach of the writ depends not on formal notions of territorial sovereignty, but on the practical questions. Then they both list practical questions. Now suppose we take that as the definition. Now, can you find instances where the writ has been issued by Britain in history to people who were not citizens and who were not actually held in Britain?",
       "time": "00:26:02.96"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They are--",
       "time": "00:27:39.19"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--The Spanish doctor, the Swedish doctor, the Spanish sailors, the British spy, they're all in this case.",
       "time": "00:29:10.08"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where... where was he held?",
       "time": "00:29:35.13"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are you sure he was being held in Pennsylvania?",
       "time": "00:29:39.57"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, you're being held within the jurisdiction of the United States. I am still waiting for a single case, other than the Indian case which you mentioned which was under a statute, a single case in which an alien that... in a... in a territory not within the Crown, was granted habeas corpus. And it's not enough to say there was a statute that applied on the seas. That's fine. Just give me one case. There's not a single one in all of this lengthy history.",
       "time": "00:29:42.50"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Waxman, this determination, whether it's sovereignty or subjugation or control of non-sovereign territory, would, I expect, have diplomatic consequences. It is, I think, typically an act of war for one country to assert authority and control over another country's jurisdiction. And here we have Section 1005G where Congress and the President have agreed that Guantanamo Bay is not part of the United States, and, yet, you would have this Court issue a ruling saying that it is subject to the total, complete domination and control, or whatever the factors are. What is the reaction of the Cuban government to be to that?",
       "time": "00:30:28.92"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We... there are... am I wrong that there are Cuban workers who come on to the base and work?",
       "time": "00:31:42.67"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So if you have two of those workers and they get into a fight over something, one can't sue the other in Cuban courts?",
       "time": "00:32:06.01"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What authority... what authority do you have for that: That such a suit would not lie in the Cuban court?",
       "time": "00:32:19.17"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The converse question is: Could we prosecute a crime committed in Guantanamo by Cubans? And the answer is yes.",
       "time": "00:32:39.59"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You're not heartened by the prospect that the detainees could apply to the Cuban courts, which would then hand process to the Commanding General at Guantanamo? [Laughter]",
       "time": "00:33:31.20"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought this was decided in Rasul. That's why I am so puzzled by the Government's position. I think Justice Kennedy said it most clearly when he said that, well, in every practical respect, Guantanamo Bay is U.S. territory; and whatever Congress recently passed, they can't, as you pointed out, change the terms of the lease.",
       "time": "00:34:06.02"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Waxman. We will give you five minutes for rebuttal. General Clement.",
       "time": "00:35:51.69"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Clement, you said it was modeled after 190-8. Is it identical to 190-8?",
       "time": "00:36:30.75"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How is that personal representative chosen?",
       "time": "00:37:01.22"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I mean is that personal representative also under an obligation to report back to the military anything that might be unfavorable to the person he is supposedly representing?",
       "time": "00:37:09.54"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So he's not... he is not in the position of counsel, as we understand the term.",
       "time": "00:37:27.36"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Under 190-8, does the defendant have a right to counsel?",
       "time": "00:37:56.17"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The DTA, see, is unclear to me, anyway, on this question. You agree that there is the authority under the DTA, and I assume under the Court of Appeals for the D.C. Circuit in reviewing those determinations, to order a release?",
       "time": "00:38:15.10"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "2243 doesn't specify the availability of release, either, but it has certainly been interpreted to authorize that by habeas courts in this country.",
       "time": "00:39:01.82"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes, but that--",
       "time": "00:39:25.08"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But doesn't the resort to the All Writs Act beg the question? And that is... I mean the All Writs Act is there to protect jurisdiction, and the question is whether there is jurisdiction to release. And you say there no textual impediment to it; and, yet, we know... I forget which brief it was in... from one of the briefs the... the instance of the prisoner Ali, one of the Chinese... is it \"Uigars\"? Is that how it is pronounced?",
       "time": "00:39:32.52"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Who was one of what, 12 or 13, who was found not to be an enemy combatant, and the Government's position there was: Go back and do it again in front of another tribunal, another panel, which, in fact, conveniently found that he was. So the practice of... of the Government, it seems to me, has clearly been to deny the right to release.",
       "time": "00:39:59.10"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. It was a practical problem. But the fact is that the effectiveness of habeas jurisdiction, for example, in requiring new trials, and so on, depends upon the ultimate sanction, which is the authority of the court to let somebody go if the Government does not comply with a condition. And the... the Government practice so far under the DTA seems quite contrary to that.",
       "time": "00:40:51.72"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They get additional process. The question, I guess, is whether it is an adequate substitute for having withdrawn the writ of habeas corpus. On that question, suppose that you are from Bosnia, and you are held for six years in Guantanamo, and the charge is that you helped Al-Qaeda, and you had your hearing before the CSRT. And now you go to the D.C. Circuit, and here is what you say: The CSRT is all wrong. Their procedures are terrible. But just for purposes of argument, I concede those procedures are wonderful, and I also conclude it reached a perfectly good result. Okay? So you concede it for argument's sake. But what you want to say is: Judge, I don't care how good those procedures are. I'm from Bosnia. I've been here six years. The Constitution of the United States does not give anyone the right to hold me six years in Guantanamo without either charging me or releasing me, in the absence of some special procedure in Congress for preventive detention. That's the argument I want to make. I don't see anything in this CSRT provision that permits me to make that argument. So I'm asking you: Where can you make that argument?",
       "time": "00:41:58.75"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Exactly.",
       "time": "00:43:15.73"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If he cannot make that argument, how does this become an equivalent to habeas, since that happens to be the argument that a large number of these 305 people would like to make?",
       "time": "00:43:17.48"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But aren't you simply rearguing Rasul?",
       "time": "00:44:45.92"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "We have passed that point; haven't we?",
       "time": "00:44:49.03"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It... it... it wasn't, and I didn't want to get into the prisoner of war point. But if you want to get into it, the problem with your prisoner of war point is the United States is not treating them as prisoners of war. They have not been adjudicated prisoners of war, or otherwise, under the Third Geneva Convention, and that argument on the Government's part is entirely circular.",
       "time": "00:45:09.71"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Clement, I remember in a prior hearing about Guantanamo that the Government was taking the position firmly that these detainees were not prisoners of war and, therefore, were not entitled to the protection of the Geneva conventions. So if the Government is maintaining that position, these people are not prisoners of war, then the treatment of a prisoner of war is not relevant.",
       "time": "00:45:29.99"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is the Geneva Convention modeled after the Constitution of the United States?",
       "time": "00:46:06.39"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What it means by \"prisoner of war\" is the same thing that the Constitution means?",
       "time": "00:46:12.45"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And the three Spanish soldiers were... were ultimately found to be prisoners of war, And, yet, they had process to get into court. There was no question of the jurisdiction of an English court to entertain their claim.",
       "time": "00:46:24.92"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The relief was denied.",
       "time": "00:46:38.18"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That had a hearing under the writ.",
       "time": "00:46:40.61"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then how did the court ever come to the conclusion that, in fact, they were prisoners of war?",
       "time": "00:46:44.67"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "On their... on their own showing, but, in fact, the proceeding did not end until the court had come to that conclusion. It was not a conclusion that the court assumed simply on the basis of a Government claim in the return to the writ.",
       "time": "00:46:58.66"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "On the basis of a Government claim formally or informally proffered to the Court. They... they came to that conclusion, as you said, based on the... on the prisoners' own showing. But the court certainly... there is no authority in the prisoner of war case for saying that if the Government make as claim that one is a prisoner of war... contrary to the Government's prior position, incidentally... that that forecloses the possibility of consideration under the writ... the petition as filed.",
       "time": "00:47:16.95"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, was that because they were reflecting 1789 practice, or because they were reflecting the Defense of the Realm Act? I don't know the answer to that.",
       "time": "00:49:01.01"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Unless you can answer my question, we don't know what the snapshot proves.",
       "time": "00:49:12.60"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "They were exercising habeas jurisdiction in a court... in a polity in which Parliament is supreme and Parliament had already passed the Defense of the Realm Act, and I don't... I mean it. I don't know the answer to the question I asked you. But I think unless we have an answer to that, we don't have a reliable clue as to the understanding of the English courts at a time that's relevant to our inquiry.",
       "time": "00:49:21.80"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought we were here talking about... I see that you have a strong argument and they'll have a strong argument in reply. I think both are pretty good, how you interpret these cases. I thought we were talking about what the availability of a forum in which you can make your argument and they can make their argument, and that's why I'm back to the question of this is remedy that's given in the statute sufficient to allow you to make your argument and their to make their argument? And what you said was, when I thought I produced an example of an instance they wanted to argue quite strongly, and you said no, they couldn't. Then you said well, neither could they in England. Well, that I wonder. That's where I'm back to. After all, England doesn't have a written constitution. So it is hardly surprising if they concede everything away in England, they're not going to be able to make any argument. There's nothing left. But let's image in England you had a statute and that statute said the government cannot hold an alien in Beckawannaland for six years without either charging them or releasing them. Or except for... and we have some very detailed preventive detention. Suppose there was a statute like that. And then our friends in England in whatever year conceded every argument but that one. Now, are you going to tell me now that the habeas courts would have said we won't even listen to your argument?",
       "time": "00:50:43.47"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Correct. And you told me in this statute the court of appeals will not listen to that argument. And as I read the statute, I agree with you. Because I can find no place where they could make that argument since it does not concern how well this tribunal did, nor does it concern the constitutionality of the procedures of the tribunal.",
       "time": "00:52:25.43"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If the Court holds that the DTA is not an adequate substitute for habeas, what will happen? Will these Petitioners then have access to all of the procedures that normally apply in a habeas proceeding under 2241? The same right to discovery, subpoena witnesses, access to classified information, presence in court?",
       "time": "00:53:16.69"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "General Clement, if we had to either charge or release these people, what would they be charged with? Waging war against the United States? Is there a statute that prevents non-citizens from waging war against the United States and provides criminal penalties?",
       "time": "00:54:07.14"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As I understand the government's position, these people are not in uniform, so they're not an under the law of war. They have all committed murder, not just fighting a war. That's your theory, I think. They are all committed war crimes. Those that were caught on the battlefield, I mean. I'm talking about those.",
       "time": "00:54:29.57"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's right. And they are not prisoners of war under the law of war, because they were not in uniform.",
       "time": "00:54:49.47"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm talking about common law. I mean under the law of war, the common law of war. They were not prisoners of war.",
       "time": "00:55:01.88"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Their engaging in war-like acts would be the crime of murder or the crime of assault and so forth and so on. That's how I understand your theory in one of these prosecutions is that not--",
       "time": "00:55:09.78"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I mean it is your theory?",
       "time": "00:55:21.69"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:55:28.01"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "For the duration of hostilities, if you can show that they are enemies.",
       "time": "00:55:55.84"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And you are operating today under a broader concept, as I understand it, of \"enemy combatant\"?",
       "time": "00:56:04.03"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Than was indeed the case for example in our early litigation, let alone at the time of Kirin.",
       "time": "00:56:12.47"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But how can... and this again, maybe I should know the answer to this, but I don't. How could that be litigated under the DTA? Doesn't any proceeding under the DTA simply have to accept the statutory definition?",
       "time": "00:57:01.62"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You mean... you're saying if it gets to the court of appeals, they can raise the constitutional claim that the definition is broader than constitutionally could be enforced. Is that what you're saying?",
       "time": "00:57:16.88"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I didn't understand that point when you were having your colloquy with Justice Breyer, either. I thought you were going to answer to Justice Breyer, that the court of appeals does have the right to determine whether to the extent the Constitution and the laws of the United States are applicable, whether such standards and procedures, such as CSRT, are... to make the determination... are consistent with the Constitution--",
       "time": "00:57:29.75"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--that's provided in the MCA.",
       "time": "00:57:53.52"
     },
@@ -1203,25 +1203,25 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It wasn't cleverly redrafted. I wanted to say that the people I'm thinking of are not challenging those procedures. What they say is you could have the best procedure in the world, and they're totally constitutional... we'll assume that... they're assuming it. They're not going to concede it. They're assuming it. On that assumption, we still think that Congress, the President, the Supreme Court under the law, cannot hold us for six years without either trying us, releasing us, or maybe confining us under some special statute involving preventive detention and danger which has not yet been enacted.",
       "time": "00:58:01.86"
     },
     {
       "turn": 194,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But the statute--",
       "time": "00:58:46.57"
     },
     {
       "turn": 195,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They are arguing it.",
       "time": "00:58:47.29"
     },
     {
       "turn": 196,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But the statute talks about standards. Why can't that question that Justice Breyer raised be reached by the Court of Appeals under the CSRT review hearings when it determines the constitutional adequacy of the standards, or am I missing something?",
       "time": "00:58:47.97"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Just one more question on that point: Would the Court of Appeals in... under the MCA have the authority to question the constitutionality of the definition of noncombatant... of unlawful combatant?",
       "time": "00:59:48.38"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Clement, I thought your answer to Justice Breyer... and maybe I'm missing something... would be that there is a third alternative which he didn't consider, namely: That these are combatants picked up on the battlefield, and they may be detained indefinitely without proving they committed a crime. And that is your position, I think.",
       "time": "01:00:08.82"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You have a hypothetical claim that a particular prisoner says: I was kidnapped by people who were not in the United States Army and sold for a bounty. And I am... I just happened to be there when I got kidnapped. And then there is a genuine question of fact as to whether the fact that they may have been sold in that manner justifies detention, which is a different question entirely from whether they committed a violation under the law of war.",
       "time": "01:00:41.51"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me interrupt again, and I know your argument. But with respect to those claims, do you make the argument in your brief that some evidence is enough to refute that claim, or do you say it is a preponderance standard?",
       "time": "01:01:34.73"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--I suppose any challenges to the adequacy of the standards, or whatever, are the sort of things that would be raised in the D.C. Circuit. And we don't know what that's going to look like yet, because the D.C. Circuit hasn't had an opportunity to rule on those.",
       "time": "01:02:00.86"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't the main issue the fact that it has taken six years to have the issue resolved... \"relevant\"--",
       "time": "01:02:35.30"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--They say they have been unlawfully detained for six years from the beginning. And isn't that delay relevant to the question of whether they have been provided such a wonderful set of procedures?",
       "time": "01:02:42.36"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The procedures that are before us under the DTA and the MCA, of course, weren't available for the whole six-year period, were they?",
       "time": "01:03:04.89"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General--",
       "time": "01:03:35.59"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--I think, to go back to the beginning, my notion of your position was you never get to that question: Is the review of these procedures adequate in the D.C. Circuit, because there is no authority, period, for the D.C. Circuit to engage... to grant what is before us is if the... our applications for a writ of habeas corpus. You say that's out the door. They might bring some other proceedings. I thought that was your position.",
       "time": "01:03:39.16"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, on that... and you just mentioned remedy. Suppose, contrary to what you hope for, that the Court were to say that this is... we have a minute or two. Suppose they were to say that this is an unconstitutional suspension of the writ, and that the remedy here written in the statute is not adequate in respect to many claims that might be made. On that assumption, the habeas would lie. Now, it has been six years, and habeas is supposed to be speedy. And, yet, people have serious arguments, anyway, that they are being held for six years without even having those arguments heard. Is there anything in your opinion that this Court could say by way of remedy that could get the D.C. Circuit or the others to decide this and the CSRT claims, there are 305 people to do this quickly within a period of months rather than six more years? And if so, what?",
       "time": "01:05:51.98"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Are we faced with this problem, and I don't want to put you right on the spot, what approximately would you say in respect to this? Because it is a serious problem.",
       "time": "01:06:59.01"
     },
@@ -1377,13 +1377,13 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "How can we fit your position when we have no jurisdiction here?",
       "time": "01:07:39.35"
     },
     {
       "turn": 223,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "If you win, we never get to these issues.",
       "time": "01:07:42.87"
     },
@@ -1395,13 +1395,13 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Our opinion says have a nice day, everybody. [Laughter]",
       "time": "01:07:52.16"
     },
     {
       "turn": 226,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You can't win without reversing the Court of Appeals.",
       "time": "01:07:56.88"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "If we affirmed on alternative grounds, leaving the court of appeals' reasoning as it stands, these interesting questions that you referred to will never arise.",
       "time": "01:08:07.09"
     },
@@ -1425,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is that because the withdrawal of jurisdiction does not apply to review of the proceedings in the D.C. Circuit that's provided under the statute? In other words, your argument that the habeas jurisdiction doesn't extend doesn't reach the review of the adequacy of the DTA proceedings?",
       "time": "01:08:40.48"
     },
@@ -1437,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why would they litigate that adequacy if they have determined in advance that substantively the individuals who are petitioning have absolutely no rights?",
       "time": "01:09:04.19"
     },
@@ -1449,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "At the end of the day, the only thing, as I understand it, that could possibly be adjudicated would be the question of formal adherence to procedure or not. There would never be an adjudication that ever went to the merits because the merits issue, as I understand it, is already... I mean merits of relief... have already been prior admitted by the existing determination of the circuit in this case.",
       "time": "01:09:38.26"
     },
@@ -1461,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You were arguing that the question of the adequacy of the substitution should, in fact, be litigated in a plenary fashion in the Court of Appeals or the district court for that matter?",
       "time": "01:10:46.32"
     },
@@ -1473,7 +1473,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I thought you said a moment ago that there were all of these interesting questions that could be explored if there was a remand?",
       "time": "01:11:02.18"
     },
@@ -1485,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Maybe I misunderstood you.",
       "time": "01:11:10.86"
     },
@@ -1497,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You are talking about in effect about evidentiary procedural questions?",
       "time": "01:11:35.42"
     },
@@ -1509,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You're talking about taking the statute, Congress's statute that set up this system with limited review in the D.C. Circuit and saying that's it. The D.C. Circuit never got to that question because it said the acts that these people are trying to bring habeas doesn't exist. The only thing that they have, the only remedy they have is the one that Congress provided. And it seems to me the only question before us is whether there is jurisdiction in the court of appeals to decide that threshold issue. They tossed it out and didn't reach... didn't say one word about the adequacy of the procedures or of the things that you're talking about.",
       "time": "01:11:39.48"
     },
@@ -1521,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That would be... we would be deciding that as a court of first view because they didn't decide that? You don't need an adequate substitute for habeas because you have no right to habeas.",
       "time": "01:12:50.92"
     },
@@ -1533,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General Clement--",
       "time": "01:13:04.06"
     },
@@ -1545,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--General Clement, your suggested reason why they're right is quite different from the reason they actually gave. They did not reach the question of the adequacy of these procedures.",
       "time": "01:13:13.84"
     },
@@ -1557,7 +1557,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but they did not reach this very important part of the whole case. And, Of course, the substitute procedures here are not nearly the same as those in our prior cases of where we sustained the 2255 and district here.",
       "time": "01:13:32.73"
     },
@@ -1569,7 +1569,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you say those later cases are not relevant because habeas corpus in the modern world is much broader than it was in 1789. That's part of your point?",
       "time": "01:14:23.58"
     },
@@ -1581,7 +1581,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "01:14:32.96"
     },
@@ -1593,7 +1593,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And the comparison you ask us to make is between what the habeas writ was in 1789, not what the comparison to a habeas writ would be today?",
       "time": "01:14:34.16"
     },
@@ -1605,7 +1605,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I don't think you would seriously contend that the procedures set forth in the statute are equivalent to those afforded under the habeas writ under today's jurisdiction?",
       "time": "01:14:50.57"
     },
@@ -1617,7 +1617,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "At least you haven't argued that.",
       "time": "01:15:03.46"
     },
@@ -1629,7 +1629,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "On the point I made, I think that's critical to your argument that the substitute is adequate.",
       "time": "01:15:32.93"
     },
@@ -1641,7 +1641,7 @@
     },
     {
       "turn": 266,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, General Clement. Mr. Waxman, we'll give you five minutes.",
       "time": "01:16:58.43"
     },
@@ -1653,7 +1653,7 @@
     },
     {
       "turn": 268,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That is an argument that, I gather, both sides agree is available to you under the DTA before the D.C. Circuit.",
       "time": "01:19:36.74"
     },
@@ -1665,7 +1665,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What does that tell you about the adequacy of the substitute?",
       "time": "01:20:08.96"
     },
@@ -1677,13 +1677,13 @@
     },
     {
       "turn": 272,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Waxman. The case is submitted.",
       "time": "01:23:14.15"
     },
     {
       "turn": 273,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is adjourned until Monday next at ten o'clock [= 10:00].",
       "time": "01:23:17.50"
     }

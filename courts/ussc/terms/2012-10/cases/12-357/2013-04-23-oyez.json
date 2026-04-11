@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2012/12-357/20130423a_12-357.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL D. CLEMENT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "SARAH E. HARRINGTON",
-        "role": "advocate"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument this morning first in Case 12-357, Sekhar v. United States. Mr. Clement?",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If the jury had -- had returned the verdict which is at JA142, and it had marked that the attempt to extort was to extort the commitment, you might still maybe have some causation arguments, but I assume the property argument you're about to make is just irrelevant.",
       "time": "00:00:52.52"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Could -- could the case have been indicted -- has it been charged as one in which what they were taking was the commissions that would ultimately have been generated?",
       "time": "00:01:37.83"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, here, what the Petitioner wanted were the commissions, ultimately. And you can't commit extortion in order to get -- and that's real money. It's for the Government to answer, not you, but can -- do you have any idea why they didn't charge that?",
       "time": "00:02:39.40"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I see.",
       "time": "00:03:17.24"
     },
@@ -107,19 +107,19 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Clement--",
       "time": "00:03:29.67"
     },
     {
       "turn": 12,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I took you away from your argument about intangible property.",
       "time": "00:03:30.82"
     },
     {
       "turn": 13,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--Mr. Clement, just along the same lines. What you're saying is that it still would not be extortion -- let's say somebody in your client's position runs an investment company, wants an investment, wants the fees that come along with that investment. Goes to -- let's say that there's a single person who gets to decide whether to make that investment, and so to pay those fees, goes to that person, threatens that person with something terrible happening to him. You're saying that that does not count as extortion, that there's a reason that the Government didn't charge it like that?",
       "time": "00:03:33.96"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, they want the investment with -- and the fees that come with the investment. So -- and that's why they're threatening the person.",
       "time": "00:04:26.09"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Even -- even though they wouldn't have gotten the investment and they wouldn't have gotten the fees absent the -- the threat of force or -- or violence?",
       "time": "00:04:49.95"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it's -- the coercion crime, at least under New York's definition, requires force. And -- and here, it's a threat of exposure of an embarrassing fact. So, what -- am I right about that, that the coercion, which is not a Federal crime but is a State crime, requires a threat of force to restrict him of his freedom?",
       "time": "00:05:59.80"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What is your definition of -- of property? In your reply brief, you begin by saying that you're -- you are not arguing that the property has to be tangible and includes some forms of intangible property. How would you draw the line?",
       "time": "00:07:28.78"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about -- what about the mob goes to a grocer and says, you know, you're dead or something if you sell Cheerios, and the reason is because they have a monopoly, some other grocery who's connected has a monopoly. And they threaten him. Now, does that violate Hobbs Act?",
       "time": "00:08:14.31"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What he did was -- and he's -- he's not going to sell Cheerios.",
       "time": "00:08:35.38"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now -- now, in fact, they're doing it to get money, and they do get money, but via the means of the other grocer. And there is nothing in the words of this Act that says that the property has to be taken from the individual whom you coerce. It's easy to imagine situations where the coerced individual has a relationship, direct, special and so forth, with the person who has the money. So what happens when, say, the mob coerces the person without the property so that he will do a thing such that the person with the property gives them the property?",
       "time": "00:08:46.28"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Now just make it different. What they do is they get the assistant bank employee and they threaten him to do such a thing such as shout at a certain time where they know that that shouting will lead them to be able to rob the bank. I mean, you know, it's easy to think up. What I can't figure out here is, is there some requirement that the person who is coerced has to be the same person as the person who gives them the property. If the answer to that's no, then none of the Government's chamber of horribles is horrible, because there's a way around it.",
       "time": "00:09:42.95"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And you haven't found anything on this. You'd be making it up now, is that basically it?",
       "time": "00:10:25.89"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is the -- is the one?",
       "time": "00:10:33.79"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Isn't that what the word “ extort ” means? You extort something from someone? It means you get it from him, you don't get it from some third party.",
       "time": "00:10:37.95"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But if you think the commitment is real cash, is a real contract, real cash, real property, right, then it wouldn't matter under that -- under what you just said, that the threat was made to the general counsel rather than to the final person who issued the money, isn't that right?",
       "time": "00:11:25.01"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Right. But you wouldn't say, well, we're dealing with an organization, so it's only extortion if you threaten the person who writes the check?",
       "time": "00:11:54.25"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "If you threaten the person who makes a recommendation to the person who writes the check, that's good enough.",
       "time": "00:12:00.17"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Clement, what is -- I'm sort of trying to figure out why you're trying to get the word “ property ” to do the work of the “ obtain ” part of the statute, because when you answered Justice Alito you were using the terms of “ obtain ” to define property, which is in my mind a sort of strange way to do things, okay? Property generally means value of some sort and you don't use any of those words in your definition. So, what you're using in my mind, and not illogically, is to say that the second part of the statute has to do some work, so it has to mean that you're taking something of value away from someone else. That makes logical sense to me. And I understand the second piece of your argument, which is the recommendation -- not the recommendation, but his honest services wasn't being given to your client, it was being given to the employer. So your client obtained nothing of value for himself. He didn't get anything transferred to him. And that -- that argument makes eminent sense to me. And I tease it out of your brief, but I don't know why you're trying to get our definition of “ property ” to do that work.",
       "time": "00:12:21.70"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Why isn't the work in the “ obtain ” part?",
       "time": "00:14:00.25"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So take the Government's definition that property is anything of value.",
       "time": "00:14:47.24"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. And let's assume, because it -- as I said, that seems to have some sort of conceptual appeal. Then make the argument for me.",
       "time": "00:14:51.38"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Then make your argument for me why this isn't an obtaining.",
       "time": "00:15:06.66"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Suppose -- suppose that the person coerced here was a -- was a corrupt person and had put his recommendation out for bids. Okay? He said, you know, I'll -- I'll recommend whoever pays me the most money. Would that alter this case?",
       "time": "00:16:27.54"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If -- if then somebody comes in and says, well, I'm not going to pay you the money, but I'll -- I'll break your knees if you don't recommend me, would that be extortion?",
       "time": "00:16:49.22"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Why isn't that -- you focused on transferability when you began. Why isn't that completely transferable? I have leverage against this official and if you want him to recommend yes on your investment, you have to pay me a certain amount of money. And you can transfer that. You've got everybody in, say, you know, the association or whatever and you can auction that off. It seems to me it's perfectly transferable from the defendant to anyone else.",
       "time": "00:18:05.27"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but the lawyer's going to make recommendations in many other cases as well. And if you have an application coming up and you want a favorable recommendation, you can go to the -- the individual that has the leverage and say, I will pay you this much money if you can get the person to give me a favorable recommendation. And that's transferable from the person with the -- the leverage to -- to someone else.",
       "time": "00:18:57.19"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, just let me make sure that I understand your position. Suppose roughly these facts: The general counsel is threatened with something very serious, let's say violence, unless he makes a favorable recommendation. He does. They act on that recommendation, it's -- it's a substantial cause in making the investment, and the investment is made and they get the money. Violation?",
       "time": "00:19:43.60"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but -- but that's a causation argument, not whether or not you received property.",
       "time": "00:20:23.65"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But so far as the property point in my hypothetical, if the recommendation leads to the contract and the contract leads to the commission and the commission means money in your pocket, that's property.",
       "time": "00:20:31.12"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And so then we just have a causation argument, not a property argument.",
       "time": "00:20:43.01"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It has to be more property, more money, more money in return for less services or something than otherwise. That's what you're saying. But I don't think that's -- I mean, right. But the answer -- go ahead, because I -- that's the qualification you're making, the McNally qualification.",
       "time": "00:20:55.98"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about -- you said transfer, sell, but there's also exercise. And the theory is that the defendant sought to take away the officer's right to make this recommendation, take it away from the officer, exercise it himself. So why doesn't it fit -- why isn't this an intangible right taken from one and exercised by another?",
       "time": "00:21:14.86"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is this -- there is, I take it, no Federal crime that this conduct would fit? You said New York State has a coercion crime which you say this conduct might fit. But there's no Federal crime.",
       "time": "00:22:32.11"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And why did -- why did New York -- was the New York case dropped and the State officials urged the Government, the Federal Government, to make this a Federal case?",
       "time": "00:23:50.83"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Ms. Harrington.",
       "time": "00:25:16.01"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Ms. Harrington, just to go back to Justice Kennedy's -- I mean, suppose -- was there a reason why it wasn't charged in what seems to me to be the simpler way, which is a threat was made in order to get an investment and in order to get fees to put in your pocket and -- and go away with, and that's extortion. So why wasn't it -- why wasn't that the theory of the case?",
       "time": "00:25:59.33"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Do you think there's an obstacle to charging a case that way? Mr. Clement seems to think that there's an obstacle, that even though there's property in that case, there's some other problem with charging the case that way.",
       "time": "00:26:33.01"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The obvious problem, which you might want to address at some point, is that -- that if you take your definition that this recommendation, legal recommendation, is property and the fellow said, you know, I'm going to fix you if you don't do it, if that's property, we're back to the honest services statute, because anyone in government and anyone in business, indeed everybody, has a job and those jobs always require you to do things. So if every time somebody threatens a person and says, we don't want you to do the thing you're supposed to do, we want you to do the thing like this, well, then you're violating this property statute.",
       "time": "00:27:18.97"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, that seems very far-reaching, hard to reconcile with the abortion case -- the abortion clinic case, etcetera, and it is easy to reconcile with the honest services case.",
       "time": "00:28:00.83"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, I mean, that sounds technical. You see, the problem I'm interested in is, by accepting your definition do we suddenly throw within the statute, which speaks of property, any time there is an appropriate threat which has as a condition the person doing the job differently? That's true of whether it's a postman, you know, any public official, any private official, anybody.",
       "time": "00:28:19.52"
     },
@@ -575,13 +575,13 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That seems very far-reaching. So--",
       "time": "00:28:50.86"
     },
     {
       "turn": 90,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Just to add to Justice Breyer's question, it's -- suppose the secretary/typist is -- the stenographer is charged with typing the letter “ I do not recommend ” and they bribe her and she says “ I recommend ”. She has an interest in her integrity to give an honest transcription. Under your view, and this is what Justice Breyer is getting at, I think, that -- that secretary has property that you are taking. That's very far-reaching.",
       "time": "00:28:53.03"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yes, I understand that. But I still would like an answer to my question, and it's well-phrased with an example by Justice Kennedy. Every secretary in the United States who is about to write a recommendation for somebody to go to college or some other thing then is faced with a threat, you put in name such-and-such or put in yes instead of no, and is under your definition that person's property, that what she does the taking of property? The answer is either you think yes, in which case I would like you to defend it--",
       "time": "00:29:58.60"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Or the -- yes. Okay. Then what conceivable ground? I'm not -- I don't want to -- that sounds a little pejorative, but I'll say: What ground is there for a definition that is so broad that it sweeps within it all working people in the United States in the performance of their ordinary jobs?",
       "time": "00:30:33.76"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What -- what is -- I have a property interest in doing my job? I don't know what that means. I mean, just throwing words around. You are calling doing a job a property interest. Normally when I think of property, I think of something that can be conveyed. Can I convey the -- the doing of my job to somebody else?",
       "time": "00:31:18.47"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But I'm not talking about my labor. I'm talking about my doing the job that the employer has assigned to me.",
       "time": "00:31:49.69"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not my -- not my labor in the abstract. Nobody is taking my labor away from me.",
       "time": "00:31:57.03"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can you cite me one -- one extortion case at common law -- or let me put it another way. What is the closest extortion case at common law that you can allude to?",
       "time": "00:32:10.21"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We -- we are using a common law term here, “ extortion ”.",
       "time": "00:32:30.07"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Whatever. What's the closest that comes to this abstract \"the doing of my job is property? \"",
       "time": "00:32:39.17"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What -- what's the closest New York case?",
       "time": "00:32:59.34"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How was it -- could you tell us a little more? How was it taken?",
       "time": "00:33:20.17"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Ms. Harrington, go back to the Scheidler example, because that was a case where we said there was not extortion when there were threats of violence meant to close down an abortion clinic's operations. What you are suggesting is that if those threats of violence had been targeted at the abortion clinic's lawyer in order to get him to tell the clinic to shut down their operations because they were a violation of law, that it would be an entirely different case. Now, how could that be?",
       "time": "00:34:05.21"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So -- so you think if -- if they targeted the -- the clinic's lawyer or the -- if the threats were, Don't shut down the clinic; instead, start delivering babies, that that would be extortion, whereas in the real case it wasn't?",
       "time": "00:34:51.51"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, because there wasn't -- and there's nothing obtained either way. I mean, you are trying to change what the person is doing, but you are not getting anything from it.",
       "time": "00:35:12.68"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that -- that's the problem with your New York cases as well. You -- you are focusing on property in another context, where the property is harmed, not whether property is taken. You -- you have neither a New York case nor any other common law case involving extortion where the property taken consists of somebody's doing his job.",
       "time": "00:35:25.23"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure that obtainable property and -- and harmable property are one and the same thing, I'm really not.",
       "time": "00:36:07.43"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You are -- you are contradicting what you yourself said a little bit before, which is that property means the same thing for both provisions--",
       "time": "00:37:00.56"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--for both the obtaining and the harming.",
       "time": "00:37:08.40"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it doesn't mean the same thing for the harming, because there is some property that can't be harmed.",
       "time": "00:37:10.35"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I -- I -- going back a little bit to Justice Breyer's question, how do you gain possession of someone's advice or how they do their job when it's not giving you a direct benefit; it's something that belongs to someone else?",
       "time": "00:37:32.16"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's the problem, this obtaining controlled concept.",
       "time": "00:38:01.95"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Because you're -- you're equating taking control with possession. And that's where I'm having difficulty.",
       "time": "00:38:04.82"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "As I think about it in terms of the New York cases, as you write them up here, it sounds as if someone was trying to get control of a business. So I think business, land, labor, and capital. All right. I can see why somebody who's trying to get control of a whole business is trying to take land, labor and capital. There may be no land there, but so what. And -- but a person's trying to take control of another's job by just telling him what to do 2 percent of the time seems well across some kind of line.",
       "time": "00:39:07.41"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no. No attaining question. I'm just thinking is it reasonable to call a secretary doing one job which takes 3 percent of her time that hour property, in a way is that different from taking control of Macy's--",
       "time": "00:39:42.22"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and -- and it seems to me that probably it is.",
       "time": "00:39:58.63"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, I'm not worried about copyrights or other intangibles.",
       "time": "00:40:17.49"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's not the issue.",
       "time": "00:40:21.21"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, yes, he would have ended up with something intangible in those hypotheticals. He would have ended up with the mowed lawn. He would have ended up with the thing that the service was providing them.",
       "time": "00:41:42.25"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "The -- the problem here is that there is no obtaining of anything that the person is getting from your theory.",
       "time": "00:41:51.30"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that valuable to me? Why is it valuable to me -- I can see how the job is valuable to me. I get paid to do the job. But why making one recommendation rather than another is valuable to me? I don't think it's valuable to me.",
       "time": "00:42:20.45"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's only because I'm an honest person that I want to make the proper recommendation, but to say that it has any economic value that I recommend A rather than B? It's -- it's totally neutral whether one is -- is more economically valuable than the other.",
       "time": "00:42:36.83"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's all very true and an honest lawyer should do that, but that doesn't prove that it's economically valuable for the lawyer to give the right advice rather than the wrong advice.",
       "time": "00:43:01.03"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I see. I see.",
       "time": "00:43:19.91"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Ms. Harrington, I guess I'm just confused, and this goes back again to Justice Kennedy's initial question, why it wasn't charged in a much simpler way where the property is not a right by a lawyer to do his job, which seems no other person can get, but where the property was the contract, was the -- was the investment and the fees, and the theory was that a threat was used in order to get that investment and fees. And why wasn't -- why isn't that just -- you know, I look at the facts here and I say extortion, but not on your theory, on my theory. And why wasn't that simple theory used?",
       "time": "00:44:02.94"
     },
@@ -989,13 +989,13 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is what--",
       "time": "00:45:09.40"
     },
     {
       "turn": 159,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But you don't think that there's any reason why it, in a future case, it couldn't be charged just the way I said it?",
       "time": "00:45:10.50"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Was that one of the choices the jury had?",
       "time": "00:45:19.44"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I didn't think they circled recommendation. They circled his honest advice, didn't they?",
       "time": "00:45:33.95"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm sorry.",
       "time": "00:45:45.76"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It -- it does seem to me important that you can't give us a common law case because common law is extortion -- at common law is extortion, it's usually the other way around. It's usually the official who's doing the extorting.",
       "time": "00:46:26.23"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "At -- at common law, could anyone ever extort an official, or we just don't have those cases?",
       "time": "00:46:42.93"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But not the obtaining of property.",
       "time": "00:47:11.78"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's true. Not the obtaining the property, right?",
       "time": "00:47:17.43"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You -- you point out, of course, that it was based on the New York law, but what do you do with the point that they did not carry forward the separate crime of coercion, which was in the New York law but not in the Hobbs Act?",
       "time": "00:47:34.38"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What do you do with the fact that the State authorities did charge it under coercion?",
       "time": "00:48:02.13"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What do you think would be covered by coercion that wouldn't be covered by the Government's extortion theory here? Give me an example of -- of coercion?",
       "time": "00:48:27.08"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, for example--",
       "time": "00:48:39.48"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Why -- why isn't that property? Why. You know, my -- my choice of marrying whom I want, why isn't that as much property as -- as my ability to -- to perform my job the way I want?",
       "time": "00:48:44.87"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A lot of people marry for money. [Laughter]",
       "time": "00:49:02.70"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It seems to me you could characterize the right to work as more of a liberty interest than a property interest.",
       "time": "00:49:37.02"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So you draw a distinction between extorting someone not to go to work and extorting him how to do his job once he's at work?",
       "time": "00:49:59.79"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why -- why, just as long as we are idly speculating, didn't you use 18 U.S.C. 875, \"Whoever with intent to extort from any person anything of value? \"",
       "time": "00:50:23.24"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You don't have -- you don't have property in there. You have a thing of value--",
       "time": "00:50:55.62"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--is there some -- I mean, it just seems obvious you'd be in a much stronger position when you say that the recommendation not to buy or to buy a particular service from somebody is a thing of value.",
       "time": "00:50:59.89"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Have they in the Court been treated as a thing of value means property?",
       "time": "00:51:20.59"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So no.",
       "time": "00:51:26.89"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it -- it at least makes available the argument that you don't have to go this far, that there are other provisions that would enable you to get to this person.",
       "time": "00:51:39.04"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So why -- instead of inducing us to define property so broadly that it's unrecognizable, as far as I am concerned--",
       "time": "00:51:50.18"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--We're talking about property for purposes of extortion, the common law crime of extortion.",
       "time": "00:52:11.61"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think property is property. I think property can -- can have a -- a different meaning with -- with regard to various provisions of the law. And -- and the provision of the law defining extortion brings with it a whole baggage of -- of common law cases. And that may well be different from the word “ property ” used in some other Federal statute that does not invoke the common law of extortion.",
       "time": "00:52:25.27"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Clement, 5 minutes.",
       "time": "00:53:54.07"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Clement, when you finish--",
       "time": "00:56:35.26"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Let -- look, I think if we take your argument to its logical conclusion, what you are telling us is, do away with the Second Circuit's Tropiano decision, and the large progeny of cases that come from it. The most common is the threat to a business that says pull out of this market because we don't want you in it. And we want all the customers. And courts routinely have said that's a Hobbs Act violation. You're using the threat of force to tell people to keep out of a particular market. Today you are telling us that under your theory of the Hobbs Act and your definition of property, that doesn't count as a Hobbs Act violation.",
       "time": "00:57:03.50"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Oh, I think when I sat as a district court judge, I would have been insulted by that.",
       "time": "00:58:14.28"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Okay. It's really--",
       "time": "00:58:20.83"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:58:57.71"
     }

@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/84-497/19850326a_84-497.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "KENNETH WARD WEINSTEIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Thomas against Union Carbide. Mr. Wallace, you have lost your audience. You may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wallace, are you suggesting that Part B of the award is improper?",
       "time": "00:09:57.97"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Wallace, how much judicial review of permitted of these awards from the statute?",
       "time": "00:10:46.47"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I thought the statute limited it to fraud.",
       "time": "00:11:06.36"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I don't know what Lindahl has got to do with this.",
       "time": "00:11:23.42"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "He is just bruised. You are just bruised, are you, Mr. Wallace? 0 [Generallaughter.]",
       "time": "00:11:31.75"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "A little broader than just fraud.",
       "time": "00:12:13.09"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what puzzles me about that footnote, that kind of assumes there is a law to be applied in determining the amount, and I don't know what that law the arbitrator is supposed to apply is. The statute doesn't contain any standards at all, does it?",
       "time": "00:12:27.66"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It was that part of your brief together with your argument that made me wonder whether you were questioning Part B of the award.",
       "time": "00:13:21.73"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is your position that you have a right to question B, but you haven't got any place to question it, any forum.",
       "time": "00:14:08.46"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What forum are you going to question it in?",
       "time": "00:14:20.27"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, it is not here.",
       "time": "00:14:26.25"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wallace, may I ask you... maybe this is foreign to this case, but I would be very much interested in your answer. Supposing a party who is ordered to pay an award, not the subsequent data, thinks the award is too high, and doesn't like the review it gets. May it refuse to pay, and just withdraw its registration? Or is it committed, so that it has to pay?",
       "time": "00:15:37.75"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it is really not a question of lack of ripeness as to Stauffer. Stauffer can never challenge if it does what you say it has done here, asks to have the award confirmed.",
       "time": "00:17:46.34"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Wallace, would you characterize the rights of the claimants here as public or private rights?",
       "time": "00:20:53.90"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You don't think that these lock like the kind of private federally created rights that require adjudication as to law and procedural issues in Article 3 courts as suggested in the North Pipeline plurality opinion?",
       "time": "00:23:22.58"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Wallace.",
       "time": "00:25:08.46"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I still am at a loss. If the arbitrator just makes an obvious, big mistake, what, if any, remedy do we have?",
       "time": "00:25:09.31"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The statute doesn't tell me that.",
       "time": "00:25:33.84"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is the nearest you can get to giving some relief?",
       "time": "00:25:43.21"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Wallace, what about other forms of arbitration such as under the Federal Arbitration Act? Or is your answer that those are all voluntary arbitrations?",
       "time": "00:26:35.48"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Or here you don't have to go into this system, but if you do, then you are stuck with arbitration if you can't agree. Is that it?",
       "time": "00:26:46.36"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does that make a distinction from the Article 3 argument? What about the National Labor Relations Act? What about arbitrating collective bargaining contract disputes?",
       "time": "00:26:55.88"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Those, you certainly don't go into court every time you lose an arbitration.",
       "time": "00:27:06.83"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And you can. They arise out of a contract, do they not?",
       "time": "00:27:11.84"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "These people weren't forced to do this.",
       "time": "00:27:15.59"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Weinstein.",
       "time": "00:27:27.59"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What about parties, as Justice Brennan just suggested, who consented to go into an arbitration?",
       "time": "00:27:54.51"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Were they forced to go into the program?",
       "time": "00:28:07.08"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Forced to enter the program in the first place?",
       "time": "00:28:10.77"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In other words, are you saying that if the government sets up a grant program of some kind, hypothetically now, and provides that all disputes between these private parties should be resolved by arbitration, final and binding, that can be done prospectively?",
       "time": "00:28:32.10"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, perhaps I haven't made my hypothetical clear. But when the parties entered the program, the law already required them to submit as one of the conditions of participating in the program, the arbitration. In your case you say that was sort of an ex post facto.",
       "time": "00:28:56.32"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But what about the other situation?",
       "time": "00:29:16.61"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, say you win here. Say you win, your view prevails. Do you think you would then... do you think Congress could deprive you of a jury trial?",
       "time": "00:29:48.62"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that is a constitutional right.",
       "time": "00:30:01.94"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it is... a right to a jury trial says you are going to have your facts determined by a particular tribunal, tribunals.",
       "time": "00:30:12.40"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "An Article 3 court composed like same other... like some other provision requires it to be composed? The Sixth Amendment or the Seventh Amendment requires a jury trial?",
       "time": "00:30:34.26"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you are asking for an Article 3 court--",
       "time": "00:30:52.21"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--and an Article 3 court in a civil case is, whoever wants it gets a jury trial.",
       "time": "00:30:54.58"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is because Congress can define a statutory right, a special right, and assign it to a particular agency that doesn't give jury trials.",
       "time": "00:31:12.20"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Weinstein, even the plurality in Northern Pipeline recognized some exceptions to the requirement for Article 3 courts, did it not?",
       "time": "00:32:05.70"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think it did so correctly?",
       "time": "00:32:20.18"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "All right. Then do you think that this situation might fit within the language read by Mr. Wallace of being a Congressionally created statutory right at issue here?",
       "time": "00:32:26.25"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "In which Congress has provided that it will be resolved in a particularized tribunal?",
       "time": "00:32:44.71"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why couldn't you call it an arbitration court, c-o-u-r-t?",
       "time": "00:34:20.47"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And if it was an arbitration court within Article 3 judge, it is all right?",
       "time": "00:34:30.78"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's what I said.",
       "time": "00:34:44.61"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The only thing wrong with this is, it is not called a court, and you don't have an Article 3 judge. Those are the only two things. What else are you quarreling with?",
       "time": "00:34:49.57"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what else are you quarreling about?",
       "time": "00:35:05.42"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What else do you complain about?",
       "time": "00:35:07.67"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is all you are complaining about?",
       "time": "00:35:13.11"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But the magistrate are not Article 3 judges.",
       "time": "00:35:30.62"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Awful close. 0 [Generallaughter.]",
       "time": "00:35:35.19"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How much law is there in a case like this? Maybe Congress intended just to set up kind of a civil law system for adjusting these kinds of claims, through kind of good conscience, equity, not any big, black letter law, but just let three arbitrators decide what seems to be fair. Now, there is no reason Congress couldn't establish that kind of system of dispute adjudication, is there?",
       "time": "00:35:47.33"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Maybe Congress really didn't intend to have much of a standard. Maybe it just intended to turn the arbitrators lose.",
       "time": "00:36:27.89"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if Congress said in so many words, we instruct the arbitrators to decide as justice and equity may indicate? Is that an adequate standard?",
       "time": "00:36:44.61"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You insist on imprisoning this whole thing within a framework of Article 3 judges when maybe that isn't what Congress intended.",
       "time": "00:37:11.16"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You are saying if they did intend it, it is invalid.",
       "time": "00:37:21.89"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why is this any more ripe for decision than Monsanto last year, because Stauffer is not complaining?",
       "time": "00:37:27.79"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But there is litigation going on in the D.C. courts, is there not, on the amount of the award?",
       "time": "00:38:21.09"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your position in that case is, there is no review?",
       "time": "00:38:30.36"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But your opponent takes a different view, I take it.",
       "time": "00:38:40.82"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They say there is some sort of review. Why couldn't you in that case say we disagree with that entirely but file something in the nature of a conditional counterclaim saying that if there is in fact judicial review, we want our $50 million?",
       "time": "00:38:45.45"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why is that use invalid? Is your claim against the government or against PPG?",
       "time": "00:39:13.62"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, your claim then is strictly statutory. You don't have a just compensation claim under the Constitution against the government.",
       "time": "00:39:54.37"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Weinstein--",
       "time": "00:40:15.01"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I ask a question on that? Supposing there were standards in this statute that were perfectly clear. Now, maybe that is impossible, but that you got exactly 10 percent of your labor costs in submitting data or something by a readily verifiable record, and then there was an arbitration award, computed the 10 percent, and that is it, you are entitled to it. Would you be aggrieved because that was not done by an Article 3 judge?",
       "time": "00:41:53.81"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I gave you one where there is law to apply.",
       "time": "00:42:22.06"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Ten percent of your labor costs in--",
       "time": "00:42:24.75"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, we still get life tenure. 0 [Generallaughter.]",
       "time": "00:42:58.82"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think Congress and the statute can't delegate the enforcement of the statute with the power to adjudicate in an administrative agency and say that... give the agency some standards, and then say that their determination shall not be subject to any judicial review? It is entirely... we are going to put this entirely within the agency discretion.",
       "time": "00:43:08.78"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Have you come across a Court of Appeals opinion, some circuit, I don't remember, which held that the International Claims Commission provision of final, binding conclusions by the Commission was valid?",
       "time": "00:43:53.04"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What about the Federal Arbitration Act?",
       "time": "00:44:57.98"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Congress can enforce a contract to arbitrate, but can't impose arbitration unilaterally?",
       "time": "00:45:04.74"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Isn't that what we held in Brayman against Zapata?",
       "time": "00:45:16.28"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Would you press your Article 3 argument if this statute permitted some judicial review of the arbitration award other than just fraud, misconduct, and so forth?",
       "time": "00:45:32.97"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You are not giving up your article 3 judge now, are you?",
       "time": "00:46:18.08"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, well, you have mentioned it right now. You are not giving it up?",
       "time": "00:46:23.07"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If there is a review, it must be before an Article 3 judge.",
       "time": "00:46:30.36"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You didn't say that.",
       "time": "00:46:36.59"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I just wondered whether you had given it up.",
       "time": "00:46:39.53"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Just as an agency, something coming from the Federal Communications Commission would come to the Court of Appeals. That is what you say would be satisfactory.",
       "time": "00:46:46.19"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, it might involve a private right. It might involve a broadcaster's license, which is a private right. But that is the kind of review you want as a minimum?",
       "time": "00:47:02.20"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What state law rights are being adjudicated?",
       "time": "00:47:51.48"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I thought at least the government takes the position that the rights that are being sued over here are purely creatures of Congress.",
       "time": "00:48:19.98"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Weinstein, is there any precedent for saying that? There is no disclosure of the trade secrets, and they are being used by a public agency to perform a public function--",
       "time": "00:49:12.20"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--and you say there is state law fixes the measure of compensation?",
       "time": "00:49:20.67"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What issue of state law?",
       "time": "00:49:27.56"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The issue is how much to pay, and you say that is an issue of state law?",
       "time": "00:49:28.79"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did you argue that before the arbitrator, that the standard was fixed by state law?",
       "time": "00:50:03.13"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can you cite me any state cases that have remotely discussed this issue?",
       "time": "00:50:19.24"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:50:23.71"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How much to pay when you use somebody else's trade secrets? That is, when a public body uses somebody else's trade secrets to grant a subsequent registration. I think you would probably have some trouble finding any state cases that discuss this.",
       "time": "00:50:25.83"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Where they get access to the material, where they get access to the trade secret. There are a lot of state law cases--",
       "time": "00:50:47.49"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I understand what the Court said in Monsanto. I am just puzzled that you are saying there are state cases that set the measure of compensation in this, and I wonder if you would be able to cite me any. Well, don't take up time.",
       "time": "00:50:57.36"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Wallace?",
       "time": "00:56:00.69"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That always arises out of a contract, doesn't it?",
       "time": "00:56:58.38"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that any different from two private parties agreeing under the Federal Arbitration Act?",
       "time": "00:57:10.60"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That is subject to review.",
       "time": "00:57:24.60"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And there is limited judicial review of NLRB decisions.",
       "time": "00:57:50.50"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now, what would this surgery be precisely, if you will restate that?",
       "time": "00:58:11.41"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In what court would you do this? The Court of Appeals or the District Court?",
       "time": "00:58:34.59"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Over across the park they would think we were amending their statute, wouldn't they?",
       "time": "00:58:53.50"
     },
@@ -1283,13 +1283,13 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Thank you, gentlemen. The case is submitted.",
       "time": "00:59:14.17"
     },
     {
       "turn": 208,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow.",
       "time": "00:59:18.22"
     }

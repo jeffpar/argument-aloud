@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2010/09-993/20110330a_09-993.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "JAY P. LEFKOWITZ",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LOUIS M. BOGRAD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "EDWIN S. KNEEDLER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 09-993, Pliva, Incorporated v. Mensing, and the consolidated cases. Mr. Lefkowitz.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that makes a lot of sense, but we do have our Wyeth decision that seems to cut the other way.",
       "time": "00:00:40.14"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you have another -- you have another route, and that's what the government is telling us: That you could propose a revision of the label, and if you did that, then you would be home free. You would not be subject to the State suit.",
       "time": "00:01:17.13"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "No, it was in the -- at the cert stage as well.",
       "time": "00:01:52.97"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can we call this the take steps -- is this the take-steps doctrine, for purposes of discussion here?",
       "time": "00:02:12.78"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's not clear to me whether you say that that is preempted or just that it was not well-pled. I'm not -- I'm not sure of your position on that point.",
       "time": "00:02:20.32"
     },
@@ -123,13 +123,13 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, Mr. Lefkowitz, why should--",
       "time": "00:03:00.95"
     },
     {
       "turn": 14,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would the -- excuse me, Justice. Would the Federally licensed drug manufacturer have a similar obligation to lobby the FDA for a change?",
       "time": "00:03:02.15"
     },
@@ -141,7 +141,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But assume there hadn't been. Assume there hadn't been such a regulation. Do you understand it to be the government's position that the licensed drug manufacturer is not protected from State suits, even though it has a Federal permission to give certain warnings, unless it has lobbied the FDA to change those warnings?",
       "time": "00:03:43.46"
     },
@@ -153,7 +153,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Excuse me. There is a legal obligation to advise the FDA when you have reports of adverse results that suggest the label may be wrong. Are you disavowing your -- your obligation to tell the FDA when something's wrong?",
       "time": "00:04:27.90"
     },
@@ -165,7 +165,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So please describe what the difference between that obligation and the obligation to suggest a label change when you know it's been misbranded.",
       "time": "00:04:50.60"
     },
@@ -177,7 +177,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So what's -- so what's the conflict with State law, meaning you have an obligation to keep your label as it is, but if you also have a Federal obligation to advise the FDA of adverse -- of adverse results and of needs for change, why can't you then comply with a duty to warn obligation because you can go to the -- to the FDA?",
       "time": "00:05:51.14"
     },
@@ -189,7 +189,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "--Do you contest, Mr. Lefkowitz, your ability to make that request? I know that you contest your obligation to make that request, but do you think you could go to the FDA and make that request and set a process in motion?",
       "time": "00:06:33.82"
     },
@@ -201,7 +201,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, if you could go to the FDA, why shouldn't we look at this suit in this way: That the plaintiffs are bringing a standard failure to warn claim; that you then have a preemption defense, that you'll say it's impossible; and then in order to litigate that preemption defense, the question will be, well, if you had gone to the FDA, what would the FDA have done? Would it in fact have required both brand names and generics to change the label? And if it would have, you would not have had -- been put in an impossible position.",
       "time": "00:07:06.37"
     },
@@ -213,7 +213,7 @@
     },
     {
       "turn": 28,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, Buckman -- Buckman was arguably a little bit different, in that there's a concern expressed in that case that requiring allowing the State suit to go forward would cause manufacturers to basically inundate the agency with proposals and warning revisions, so that there would be so many things that the agency wouldn't even be able to process them, and they would become meaningless to the consumers. That doesn't seem to me to be a concern in this case.",
       "time": "00:08:20.98"
     },
@@ -225,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The Federal agency says that these suits complement, they're not at odds with, the Federal regime, because they give the manufacturers an incentive to come forward. Everyone is interested in making sure that only safe drugs are marketed. So, far from detracting from the Federal regime, the agency responsible says, this helps us; it encourages manufacturers to report.",
       "time": "00:09:30.98"
     },
@@ -237,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is -- is there any breakdown as to how many of those requests are generic and how many from branded?",
       "time": "00:10:25.98"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what are you supposed to do if your company happens by chance to come across a very, very high correlation between people who take your generic drug and who get seriously ill? And now what you know is that nobody else has really found that, but, my goodness, there you are; it happened that it was associated, a special group or something. What are you supposed to do?",
       "time": "00:11:22.24"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And so are they saying that you -- is it conceded in this case that you did tell the FDA everything you knew about that?",
       "time": "00:11:55.71"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Or is that a point in dispute?",
       "time": "00:12:03.56"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, how would it conflict? Suppose the State said: Here is what we want; we notice that it says in the Federal law that you must keep your warnings up to date, and if you find an association, you must revise your warning. Now, we understand you can't do that without FDA approval. But as far as our State is concerned, we think that when you come across this serious problem you have to tell the FDA in some form or other, a reasonable form, about it. Would that law -- is there anything Federal that that law would conflict with?",
       "time": "00:12:18.07"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought you said you had to tell the FDA about it.",
       "time": "00:13:02.16"
     },
@@ -309,13 +309,13 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. I didn't understand that.",
       "time": "00:13:17.26"
     },
     {
       "turn": 45,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What I wonder -- see, I wonder if that's this case. I wonder if this case is what they're saying is: Oh, we concede you told the FDA every single thing, so they were just as informed as you are about the risks here, but you did not add the words: And please change our -- your permission, so that we can change the warning. Is that what this case is about?",
       "time": "00:13:18.33"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "When they come up here they might say this isn't just what this case is about.",
       "time": "00:13:42.84"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah.",
       "time": "00:13:51.66"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So your argument is that if we run across this tremendous, really serious -- I can make an imaginary as serious as you want -- really a serious problem, and you're saying the State has no right to say -- even if we purposely didn't tell anybody, they can't get involved because they can't get involved with our failure to tell the FDA anything because that's Federal, and we can't -- they can't get involved with our failure to try to change the warning because that's taken care of by our obligation to tell them, which we didn't fulfill?",
       "time": "00:14:06.67"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you say that if the claim here is simply that you did not disclose properly, that claim could be brought?",
       "time": "00:15:10.95"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "To disclose -- I'm sorry. To disclose to the FDA?",
       "time": "00:15:20.17"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To disclose to the FDA.",
       "time": "00:15:23.96"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you just described Buckman as -- as involving precisely that, failure to tell the FDA the purpose of the screws. You said that the State -- the State suit would lie because of that failure.",
       "time": "00:15:31.28"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But Mr. Lefkowitz, I think what the Respondents would say is that you are mischaracterizing their complaint and making it into something that it's not. Their complaint is a standard state failure to warn claim. Now, you have a preemption defense to that claim, and in that preemption defense there's going to be questions about your disclosure obligations and whether the FDA would have responded in a certain way to your disclosure obligations, but it's in a fundamentally different posture than the one that you're suggesting.",
       "time": "00:16:09.90"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, I agree that you don't have any ability yourself to change the warning, but here's what the FDA has said. The FDA has said if an ANDA applicant -- and that's you; you're an ANDA applicant -- believes new safety information should be added to a product's labeling, presumably because they've gotten information that suggests that the product's labeling is wrong, then it should contact the FDA, and the FDA will determine whether the labeling for the generic and listed drugs should be revised.",
       "time": "00:17:19.48"
     },
@@ -435,13 +435,13 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, do you think--",
       "time": "00:19:28.33"
     },
     {
       "turn": 66,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Buckman was a case -- I'm pronouncing it right, I think, Buckman -- where it was a branded manufacturer, was it not?",
       "time": "00:19:29.14"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "A medical device manufacturer. So there it was -- it was an FDA process, and we said there's no State cause of action for saying that the FDA process -- that's slightly different from saying that you have a duty to warn the FDA. You might say it's a fortiori.",
       "time": "00:19:39.47"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Counsel, do you think Congress really intended to create a market in which consumers can only sue brand-named products? Because if that's the case, why would anybody ever take a genetic? And why in the world would Congress create a different, or even the FDA, a different obligation on brand-named products or generic products to give them information about labels when they know there's been a misbranding? What the government says is you start by instructing a jury that there had to actually have been information that proved a misbranding. That's the first step of the tort suit according to the government. So why should you or why would Congress or the FDA have intended to treat the two differently?",
       "time": "00:20:28.45"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Lefkowitz, there's a certain overlap, is there not? Some of the generics are made by the same people that make the brand-name drugs, isn't that so?",
       "time": "00:22:50.49"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And at least for those people, they have the means.",
       "time": "00:23:01.43"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, all you're arguing is that this rule will have little practical effect, that there is going to be very few lawsuits that could be brought against your companies because you're just not going to have enough information to suggest a label change.",
       "time": "00:23:59.74"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Lefkowitz. Mr. Bograd.",
       "time": "00:25:15.82"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, they're -- they're -- they're under the obligation to report to the FDA the facts which establish the grave risk, right?",
       "time": "00:25:57.28"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So the argument here is whether it -- it will be the FDA ultimately that determines whether there was a grave enough risk to modify the -- the label or whether that call will be made by -- by a State court guessing what the FDA would have done, right?",
       "time": "00:26:12.54"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah, but -- but -- no, but -- but surely you have to establish not only that the generic manufacturer requested a label change, but that a label change would have been approved. Otherwise there's no causation. Surely--",
       "time": "00:26:53.77"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--that's part of your case, isn't it?",
       "time": "00:27:14.76"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, but -- but their -- their preemption claim is we had to give these warnings, and you don't contest that. They had to give the warnings that they gave, unless the FDA said that the warnings must be changed, so--",
       "time": "00:27:34.57"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I mean, I don't see how you can hold them liable, so long as they continued to give the warnings that they had to give.",
       "time": "00:27:51.40"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And they could have lobbied the FDA to say, you know, change the warning, but if the FDA said -- suppose the -- suppose they did tell the FDA, please modify the label, and the FDA said no. Would your lawsuit still proceed?",
       "time": "00:27:59.12"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No.",
       "time": "00:28:14.40"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I would say--",
       "time": "00:28:18.84"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--All right. You're drawing a line between the FDA rejecting a warning and the FDA not accepting the warning; is that the line you're drawing?",
       "time": "00:28:21.20"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It appears also that the -- it's Buckman, it seems to me, the relevant case, not Wyeth, because what -- if -- you're now saying, I've learned, that -- that they have a set of FDA duties; they must tell the FDA every detail.",
       "time": "00:28:44.24"
     },
@@ -657,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That sounds awfully familiar to Buckman, where the State claim was basically a claim of fraud on the FDA. And we said it's not up to the State to -- to -- they can't bring -- have a claim for fraud on the FDA. The FDA has to enforce their own stuff. And why isn't the same true here, that the FDA has to enforce their own legal requirement to tell us everything you know? What's the answer to that?",
       "time": "00:29:04.32"
     },
@@ -669,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, because Levine involves the Wyeth case, right?",
       "time": "00:29:40.17"
     },
@@ -681,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. The -- the difference there is the difference that the SG points out: There is a broad-ranging obligation for the initial drugmaker to tell the FDA all kinds of things and change the warnings. But here the FDA tells us they have no power to change their warnings. They can't, unlike Levine. They have to copy the original maker. So -- I'm -- I'm just referring there to the whole SG brief.",
       "time": "00:29:45.23"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Be sure you answer, please, my original question.",
       "time": "00:30:14.38"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But what happens--",
       "time": "00:32:06.05"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--How long does it take -- how long typically does it take the FDA to respond to a request from a generic manufacturer that it -- it ask the branded manufacturer to change the label?",
       "time": "00:32:20.46"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Are those the ones that are submitted by generic manufacturers?",
       "time": "00:33:04.24"
     },
@@ -741,13 +741,13 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does the -- does the--",
       "time": "00:33:15.53"
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--whether about--",
       "time": "00:33:16.28"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--I was just going to ask, does the FDA give you an up or a down, or does it just not take action sometimes if you submit one of these requests?",
       "time": "00:33:17.96"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just so I understand what you've said, this 3-month turnaround that you mentioned, they are all requests from labeled manufacturers, right?",
       "time": "00:33:53.84"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought you said that generic manufacturers don't make any requests.",
       "time": "00:34:08.66"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, okay.",
       "time": "00:34:15.94"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I see.",
       "time": "00:34:18.42"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can you, and I think that this is part of what your adversary has been talking about when he says we don't usually receive adverse incident reports; they go to the brand manufacturer. So tell me what you view as your main obligation. This is a little bit like what Justice Scalia was asking. You come in and you say there's a drug, it has an adverse effect, there should have been a warning about it because look at all of this literature, look at all of this proof--",
       "time": "00:34:31.11"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--that this drug is, in fact, in some way plausibly or otherwise causing this incident, and the label was inadequate to tell me not to do it. Is that your obligation completely? You don't have an obligation to show that this particular manufacturer knew that in some way?",
       "time": "00:35:09.49"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does a generic manufacturer have to be an expert in the field in which it manufactures?",
       "time": "00:36:18.98"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What does -- what does being an expert mean?",
       "time": "00:36:27.40"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In this context, being an expert means being able to produce exactly the drug that has been approved by the FDA, right? You don't have to be expert in anything else?",
       "time": "00:36:30.86"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What else do they need?",
       "time": "00:36:45.00"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That doesn't make them an expert. I'm talking about what expertise does -- does the company have to -- to possess. It surely has to possess the chemical expertise to produce exactly the product that the -- that the -- that has been approved by the FDA. What other expertise is necessary?",
       "time": "00:36:49.44"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think that'd take any expertise. You have people who complain, I've taken -- I've taken your pill, and it -- it, you know, it's caused -- this is expertise? That's not what I normally think of. Whereas a drug manufacturer does, indeed, require expertise, conducting tests and knowing what changes will produce what results and so forth; right?",
       "time": "00:37:20.62"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Suppose they had. Suppose that -- is a generic required to file adverse incident reports?",
       "time": "00:37:58.26"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. Now, imagine a company that files every adverse incident report, complies completely; period. Now, in your view does it have an additional obligation?",
       "time": "00:38:04.82"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And what is that?",
       "time": "00:38:19.46"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay.",
       "time": "00:38:25.03"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, their argument is that in respect to their failure to do the first, that's Buckman. That is similar to Buckman.",
       "time": "00:38:26.73"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now. And that's what I -- now, as to the second, it just doesn't add anything. The FDA has all that information.",
       "time": "00:38:37.50"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Now, why is it?",
       "time": "00:38:47.39"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Your basic argument, I'm getting this now, that -- I think -- is that the failure is, where State law has a right to enter, is to require them to keep track of adverse incidents and other things in the -- and do their best to change the label, which will consist of going to the FDA, likely, and asking them to change.",
       "time": "00:39:17.88"
     },
@@ -1011,13 +1011,13 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Counsel--",
       "time": "00:39:54.30"
     },
     {
       "turn": 162,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Suppose a generic -- suppose that the FDA issued a rule that says a generic drug manufacturer has no obligation to request a change in labeling. Could a generic drug manufacturer be held liable on a failure to warn claim on the theory that it could have lobbied the FDA to change the rule that says that the generic drug manufacturer has no obligation to ask for a change in labeling?",
       "time": "00:39:54.79"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Isn't that why -- isn't that where your theory leads?",
       "time": "00:40:37.28"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But your theory is that they have a duty to pursue an informal process that is nowhere provided for under the FDA rules; and so I don't -- so it's a duty to lobby the FDA basically to change the rules, isn't that right?",
       "time": "00:40:58.51"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Assuming that they're correct in their interpretation of their own regulations.",
       "time": "00:41:19.14"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--What is your -- what is your explanation for why Buckman isn't applicable here?",
       "time": "00:41:38.05"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, the suit was brought by the injured person in Buckman.",
       "time": "00:42:46.61"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And it's similar in that respect. And in Buckman there was a -- a formal relationship which did not permit the cause of action, and it seems to me you could at least argue that a fortiori there should be no cause of action when there an informal relationship.",
       "time": "00:42:50.46"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Somebody has been appointed in all those cases to sort of carry the flag, right?",
       "time": "00:43:51.29"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Don't they have a distinct obligation to propose labeling changes when they -- when they think they're necessary?",
       "time": "00:44:05.05"
     },
@@ -1125,13 +1125,13 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--You can finish your sentence.",
       "time": "00:45:35.22"
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Make it a long sentence, with a lot of \"ands\". [Laughter]",
       "time": "00:45:36.27"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Kneedler.",
       "time": "00:46:10.26"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Kneedler, suppose that I'm not sure I agree with you that there is an obligation of the kind that you say for a generic drug manufacturer to come forward and request a label, but I do think that there's an opportunity for that manufacturer to come forward and ask the FDA to revise a label. If that's the way I read the law, does your result follow? Do you think, then, that State law claims should be able to go forward?",
       "time": "00:46:40.11"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I assume that the patient's physician has the same opportunity. Anybody could go to the FDA and say this label ought to be changed, right? So the -- the physician taking care of this plaintiff didn't -- had the opportunity to go to the FDA and didn't. Is there a cause of action against him?",
       "time": "00:47:33.41"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not talking about what the -- the FDCA regulation. We're talking about what State law would allow, and State law would allow a suit against the physician because he did not take advantage of the opportunity to go to the FDA and propose a label change.",
       "time": "00:47:59.63"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So if your theory of the case is accepted, this is what will happen: Every time a generic manufacturer gets an adverse incident report, it will send that on to the FDA, and there will be a boilerplate sentence at the end of it saying, We think you should consider revising the labels because of this, and then, under your theory, that manufacturer is completely protected from State suits?",
       "time": "00:48:35.05"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Sure.",
       "time": "00:49:06.25"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, they're not going to take a chance. They're going to say, if you're the FDA, you look at it. We're just telling you what we know, and we think you ought to consider revising the label.",
       "time": "00:49:17.34"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Okay. We think you should revise the label; if you agree, this is what it should look like.",
       "time": "00:49:29.42"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Does it lead to preemption?",
       "time": "00:49:40.04"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Does it lead to preemption?",
       "time": "00:49:41.51"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Right. Wouldn't you -- if you were the generic company's lawyer, you would advise them to do that in every case, right?",
       "time": "00:49:52.43"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, I know that's what this case is, but if -- a reasonable generic manufacturer would be worried about every case, and it would just add this boilerplate language at the end of every letter, and as I understand your theory, they would be protected.",
       "time": "00:50:08.19"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That would be the -- the prologue -- the prologue to the rule said that, and the rule was never submitted for notice and comment. Is that what you're relying on, that prologue?",
       "time": "00:50:39.73"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Has the FDA made any calculation of the economic consequences of imposing this duty on generic drug manufacturers? I don't know whether this is a good idea or not, but it does seem to me that it may significantly increase the costs for generic drug manufacturers, and therefore counteract one of the objectives of the statute, which was to provide generic drugs at a low cost.",
       "time": "00:51:26.71"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Am I -- am I to understand -- and I think I am understanding you. There is a legal obligation in the statute to report adverse events. You're saying that the statute also requires every manufacturer, of whatever type, to monitor the safety of the drug they're selling? Is that what you're saying?",
       "time": "00:52:25.13"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And if reasonable evidence, whether directly in their possession or in the marketplace--",
       "time": "00:52:51.97"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How do you decide whether a generic manufacturer ought to have proposed a -- a labeling change?",
       "time": "00:53:08.86"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This is a generic manufacturer. He doesn't know anything about -- about science. He knows how to replicate this pill exactly. That's all -- that's all he really knows. Now, what is the test you're going to impose to -- to a jury to decide whether this generic manufacturer ought to have -- ought to have proposed a labeling change?",
       "time": "00:53:16.72"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is it -- is it, well, you know, if he had been as well armed scientifically as the original manufacturer of the labeled drug, he should have known or, you know, does this guy who graduated from high school and can replicate a pill, should he have known? What -- what's the--",
       "time": "00:53:43.03"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And in the brief -- and in the brief that you filed you said one of the concerns is that people are going to flood the FDA with all these warnings and -- and whatever, and that would interfere with the FDA's ability. Now you're telling me -- you -- you said when you started out that you think it's unlikely or you don't think it's likely. In your brief it said SG language you said we're not prepared to predict that a ruling would do this. So, why is that a difference between those two cases?",
       "time": "00:54:30.24"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but it's not -- the regulation doesn't say propose a labeling change. It says labeling shall be revised, and the one thing we know is that the generic manufacturer can't revise the labeling from the branded one.",
       "time": "00:56:04.77"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Kneedler. Mr. Lefkowitz, you have your 5 minutes remaining.",
       "time": "00:56:33.69"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, the difference, as I see it, is that they're not suing you for a failure to tell the FDA. They're suing you for a failure to tell them. It's you who are interposing a defense and saying I manufacture a dangerous drug, and I have no obligation to monitor and ensure that the label is accurate. And what the government is saying, as I understand it is, no, you do. Yes, we understand you want to sell more cheaply, but not at the cost of public health. So what's wrong with that argument?",
       "time": "00:57:13.42"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, Mr. Lefkowitz, if you had asked, you would be in a different situation. If you had asked and the FDA had sat on it or was negotiating, then you could say, look, we've done all we can right now. But you're not in that situation. You, in fact, have not done all you can right now to change the label because you never wrote that letter.",
       "time": "00:59:09.29"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The government is taking the position that there's no clash between the government, the State, and Federal law. It's not saying that you commit some kind of Federal offense if you don't file this law. The government is saying, the question is preemption. Is there a clash between Federal and State law to traditional Federal warn you have a preemption defense if you tell the FDA, and if either the FDA does nothing or tells you, no, we're not going to change the label?",
       "time": "00:59:53.65"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The -- the -- Buckman was about, was a -- it was a very odd case to be brought under State law for fraud on a Federal agency.",
       "time": "01:00:41.90"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Lefkowitz, do you agree with Justice Ginsburg's characterization of the government's position? I thought the government was saying that there was an obligation on the part of the generics to propose changes.",
       "time": "01:01:02.92"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Otherwise, the government would be saying you have an obligation to lobby, and I don't think they're saying that.",
       "time": "01:01:17.11"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Lefkowitz. Counsel, the case is submitted.",
       "time": "01:01:44.76"
     }

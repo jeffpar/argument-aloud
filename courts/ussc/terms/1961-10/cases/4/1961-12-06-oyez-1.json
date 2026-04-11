@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1961/4/19611206a_4_part1.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
       },
       {
         "name": "ARTHUR H. DEAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ARCHIBALD COX",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- Brown Shoe Company Incorporated, Appellant, versus United States. Mr. Dean.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:00:31.69"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:00:40.21"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I want all -- as you know, I want all.",
       "time": "00:01:04.19"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Dean, may I ask --",
       "time": "00:12:10.23"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I ask whether the manufacturers, it supply the chains -- have that as an exclusive market although they compete with Brown as to -- in other market?",
       "time": "00:12:11.49"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Dean, what -- approximately what is the price differential between the -- these chains and the Brown's outlets?",
       "time": "00:13:50.38"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In what -- or in the chains or with Brown?",
       "time": "00:14:19.85"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, (Inaudible) --",
       "time": "00:14:25.16"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Oh yes.",
       "time": "00:14:29.84"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:14:32.29"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "How many of those are there, (Inaudible)?",
       "time": "00:17:24.67"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Franchise?",
       "time": "00:17:30.13"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Doesn't that number fluctuates all the time?",
       "time": "00:17:38.10"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And these contracts are cancellable on very short notice, (Voice Overlap) --",
       "time": "00:17:49.29"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Customers.",
       "time": "00:18:00.97"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Are they tied to Brown Shoes?",
       "time": "00:18:36.98"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "While they're in the Brown Plan, did they buy from others?",
       "time": "00:18:46.28"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible)",
       "time": "00:18:48.97"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are these franchise dealers are widespread throughout the country?",
       "time": "00:18:56.76"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Dean, may I interrupt you again?",
       "time": "00:37:59.80"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You indicated a minute ago when you challenged the finding, that leads me to ask whether when you do not say challenge it -- when you do not indicate that what you are telling us is contradicted by findings which you object to or which you take exception to, are we to assume what you've said also is reflected in the findings?",
       "time": "00:38:02.17"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I didn't mean as to this last statement of yours, but generally as I follow you --",
       "time": "00:38:44.95"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- am I to infer --",
       "time": "00:38:49.15"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What in their rate is supported by findings except when you specially say it isn't?",
       "time": "00:38:51.37"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "00:38:56.59"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was the -- were they concerned that a city like Los Angeles for instance was one of those 141? Los Angeles plus all of its metropolitan area or Chicago, or New York, would they each be just one city?",
       "time": "00:40:36.09"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:41:03.49"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Dean, I do not want to interrupt or divert the order of your argument in your mind because you thought a lot about this, but even now if it's appropriate or sometimes would you be good enough to state how many findings in number -- how many findings of fact the Court below may and which of those findings you take exceptions to? I ought to have that mind --",
       "time": "00:45:40.46"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- because I do not.",
       "time": "00:46:04.43"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Dean, when you say cities, you mean one of these 141 that the Judge --",
       "time": "00:46:58.22"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Inaudible)",
       "time": "00:47:05.10"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "(Inaudible) make another definition of it.",
       "time": "00:47:06.01"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:47:12.63"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible) -- what was their average population, (Inaudible) population, 1958, is that?",
       "time": "00:47:20.60"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Now, you said that the Judge took the 141 as those over 10,000 --",
       "time": "00:47:48.85"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "-- so I thought perhaps in 1958 (Inaudible) --",
       "time": "00:47:54.76"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you've said he took those out of the blue.",
       "time": "00:48:03.84"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, but I mean apart from that (Voice Overlap) --",
       "time": "00:48:10.26"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And did I also understand you to say that these -- as to these 141, the issue wasn't either focused or even directed at the client, is that right?",
       "time": "00:48:30.29"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What's the page Mr. Dean again?",
       "time": "00:49:06.22"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "00:49:16.03"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I take it that you feel with the suggestions of the fee, finding of the Court that it isn't merely a question of percentage control of manufacturing but that the big fellows in the large mass of manufacturers set the pace and it was psychologically rather than merely quantitatively.",
       "time": "00:56:12.26"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are the manufacturing competitive of Brown as they all -- is there output or named output by Brown?",
       "time": "00:58:00.18"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What way if any did the District Court give to the momentum of good will that comes from a brand name or from what -- have you indicated Brown has a goodwill?",
       "time": "00:58:29.84"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did I (Inaudible)",
       "time": "00:58:42.62"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you think that's relevant?",
       "time": "00:58:50.22"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Was Brown a retailer before the acquisition of Regal and Wohl?",
       "time": "00:58:57.57"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Primarily men's shoes.",
       "time": "00:59:24.84"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But before the acquisition of Regal and Wohl with the exception of this unsuccessful experience many years ago, Brown was not a seller or retailer but I suppose did have the Brown franchise plan, did it?",
       "time": "00:59:28.06"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But doesn't the -- doesn't the record show that chain retail shoe stores are not a new -- are not a new phenomenon, they go back before the --",
       "time": "01:00:21.69"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Regal itself for instance, I -- Regal itself goes back to the 1930's at least.",
       "time": "01:00:37.92"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Dean, have you suggested yet what were the economic motivations for Brown's acquisition of Kinney?",
       "time": "01:01:21.50"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well in that sense then, was acquisition to hedge against possible loss of the markets to --",
       "time": "01:02:38.22"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- the independent (Voice Overlap) --",
       "time": "01:02:45.71"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Before the -- before this merger, did Brown sell to Kinney?",
       "time": "01:05:06.91"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And it does now?",
       "time": "01:05:12.09"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did I understand that the composition meet at -- by which I mean the material to go to make up the product that Kinney sells quite different from the material which ought to make up the product that Brown sells.",
       "time": "01:06:07.87"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "All this -- or most of what you've said that is an attack on the -- on the District Court's finding of the -- what was the line of commerce, isn't it? All of which of -- most of what you've told us so far adds up to an attack on the District Court's finding of what was the line of commerce?",
       "time": "01:07:50.89"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well if you're right, then am I correct in saying that the logical conclusion of your position is that in the retail shoe business there can never be a violation of Section 7?",
       "time": "01:08:49.53"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well if I may rephrase Mr. Justice Stewart's question then you would say there never could be a violation of Section 7 unless at least they were within the same price range.",
       "time": "01:09:32.14"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What you're saying in effect is that this is no different from your point of view then if Brown had decided not to go also in the lingerie business.",
       "time": "01:09:43.22"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, that turns on -- I should think, (a) what the findings of the court were, (b) the justifications of those findings from the point of view of our necessarily limited review, would you agree to that?",
       "time": "01:09:54.23"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "As that point of view, what do you say?",
       "time": "01:10:09.90"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Before you sit down, I have a question --",
       "time": "01:10:21.14"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- for you Mr. Dean. The District Court erred in finding this, the question (Inaudible) in terms of the decree it said -- he said in his opinion, he said he can't find any and the judgment itself (Inaudible).",
       "time": "01:10:22.51"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, I thought (Inaudible) answer to it that medium (Inaudible).",
       "time": "01:11:07.65"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible)",
       "time": "01:11:24.64"
     },
@@ -869,13 +869,13 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well there maybe another (Inaudible)",
       "time": "01:12:53.59"
     },
     {
       "turn": 139,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well Mr. Dean but is -- but there's an outright order of the -- or an order of outright divestiture. I thought the reservation was in respect with nothing except details of the plan of the divestiture, isn't it, the reservation from more than that?",
       "time": "01:12:56.22"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The construction or carrying out of this final judgment.",
       "time": "01:13:17.76"
     },
@@ -899,13 +899,13 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Or the construction or carrying out of the final judgment which in paragraph 4 is an order -- a decree of divestiture.",
       "time": "01:13:39.76"
     },
     {
       "turn": 144,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "That's the issue -- maybe different wordings but that's the issue formed, it's an antitrust proceeding?",
       "time": "01:13:47.27"
     },
@@ -917,13 +917,13 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "That that enables the Court to dismiss --",
       "time": "01:13:56.90"
     },
     {
       "turn": 147,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible) -- my troubles is that, (Inaudible)",
       "time": "01:13:59.76"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "My hypothesis is simply this, a practical one, assuming that the (Inaudible) loss of the case and it goes back, (Inaudible)?",
       "time": "01:14:23.19"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Then that question (Inaudible).",
       "time": "01:14:40.96"
     },
@@ -959,13 +959,13 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Dean, isn't the short answer, it doesn't have to be. Isn't that the short answer? I should think if -- on the subject to correct you by my Brother or others, but I think if we had no more then paragraph 1 would be properly here.",
       "time": "01:14:48.35"
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Solicitor General.",
       "time": "01:15:05.32"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Didn't you like (Inaudible) of these, they're very often in a minute?",
       "time": "01:15:08.85"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Well, I hope you're right.",
       "time": "01:15:38.18"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "We had the (Inaudible) here.",
       "time": "01:15:43.60"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "(Inaudible)",
       "time": "01:15:46.23"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You can tell me I'm wrong but wouldn't -- if we had only paragraph 1, would be properly (Inaudible).",
       "time": "01:15:57.51"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, while you're right on this aspect of your argument, let me ask you two questions. I -- I'm right at remembering, am I not, that Kinney also is a manufacturer?",
       "time": "01:19:39.15"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And then secondly, a different question. Mr. Dean told us as I understood him that no witness during this extensive trial testified -- no manufacturer testified that he had any fear that he would be displaced as a supplier of Kinney --",
       "time": "01:19:55.94"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- by the act -- but its acquisition by Brown.",
       "time": "01:20:14.54"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I understood him to say what I just --",
       "time": "01:20:27.05"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And there is as you tell us --",
       "time": "01:21:01.74"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- also a testimony -- that it hasn't happened yet?",
       "time": "01:21:04.34"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Two or three years, is that it?",
       "time": "01:21:09.91"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It is on litigation.",
       "time": "01:21:14.70"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is there a specific finding on this subject?",
       "time": "01:21:16.15"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Solicitor --",
       "time": "01:21:31.86"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So when in relation to the merger where this proceeding begun?",
       "time": "01:22:04.51"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If you asked them -- the Government asked them to find for you?",
       "time": "01:23:13.28"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "01:23:25.02"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I was going to ask why -- that puzzled me a little bit. Is Brown -- is one of the -- is the third biggest of these --",
       "time": "01:23:27.44"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Third -- fourth, one of the leaders?",
       "time": "01:23:35.94"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Right. Kinney is substantial, but wasn't there a finding that that --",
       "time": "01:23:39.47"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That marriage was illicit?",
       "time": "01:23:46.40"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The reason that, I think it's -- it shouldn't be or it ought to bear on what is called a tendency.",
       "time": "01:24:28.35"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "01:24:44.67"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Is a finding against you or you're just (Inaudible)?",
       "time": "01:24:50.22"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Slightly means it was not substantial I suppose.[Laughter]",
       "time": "01:25:02.50"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, let's just again -- but I'm sorry to keep you holding up but I'm not (Voice Overlap) --",
       "time": "01:25:09.69"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "01:25:16.86"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I understand your argument. It's true is it not with the respect to this -- to the manufacturing merger, the merger -- the merger of the manufacturers that after this was all over Brown still manufactured -- what was it, 4.4% of the shoes in the country or (Voice Overlap) --",
       "time": "01:25:21.07"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "4.4. (Voice Overlap) --",
       "time": "01:25:39.39"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It had been 4% then became 4.4% as among what, 700 manufacturers?",
       "time": "01:25:43.27"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Dropped to 900 --",
       "time": "01:25:52.73"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In the time --",
       "time": "01:25:54.25"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But there was still --",
       "time": "01:26:15.85"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There was still somewhere between 900 to 1000 manufactures in that?",
       "time": "01:26:25.85"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's the point. I was thinking 5% instead of 4%, 5 from (Inaudible) on a nationwide scale, 5% to 5.5%.",
       "time": "01:26:28.76"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's the (Inaudible) --",
       "time": "01:26:41.40"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm merely suggesting that figures are important at this domain.",
       "time": "01:26:52.52"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All I'm suggesting, it's very important for the District Court to have been careful.",
       "time": "01:27:17.63"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes.",
       "time": "01:27:22.40"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It wasn't (Inaudible), it was careful.",
       "time": "01:27:25.78"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now to which specific one of the three Amendments was that language addressed?",
       "time": "01:39:24.17"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Just -- so you mean --",
       "time": "01:40:26.10"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The elimination of community was a –not a tightening but a loosening of the statute.",
       "time": "01:40:27.78"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You puzzled me by saying it didn't do it in words.",
       "time": "01:41:21.04"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, no, but --",
       "time": "01:41:29.31"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The word -- the word must accomplish your tightening.",
       "time": "01:41:33.74"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "As -- as Justice Stewart has just pointed out to – prior to change from -- in any community, from any section, it'd be certainly tightened.",
       "time": "01:41:38.79"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "01:41:53.74"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, the Third Amendment wasn't tightening either because the words used to read in such a way that as you've just said, they would literally forbid any -- if you've read literally, they would forbid any merger, any conceivable merger, wouldn't it?",
       "time": "01:42:03.54"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The words (Voice Overlap) --",
       "time": "01:42:20.73"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "01:42:22.97"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But the words were made much less restrictive, were they not?",
       "time": "01:42:25.39"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The statutory mergers.",
       "time": "01:42:30.47"
     },
@@ -1625,13 +1625,13 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "01:42:36.93"
     },
     {
       "turn": 265,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well how – how does -- please explain in a word, how does lessening -- liberalizing the language tightening the gloss, I don't understand that. [Attempt to Laughter]",
       "time": "01:42:37.47"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it would lead to new liberalizing gloss. If you liberalize -- if you liberalize the basis of construction, you liberalize the basis for interpreting what the words are.",
       "time": "01:42:58.38"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You used men's, women's and children's shoes as three lines of commerce, is that right?",
       "time": "01:47:52.15"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, the big four had a quarter of the total national production?",
       "time": "01:48:46.17"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And Brown had --",
       "time": "01:48:52.47"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- four percent.",
       "time": "01:48:54.27"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Four percent.",
       "time": "01:48:57.49"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So the big -- and the big two must have been very big?",
       "time": "01:48:59.76"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Voice Overlap) -- together a 20% of it?",
       "time": "01:49:11.91"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Then I misunderstood you Mr. Solicitor.",
       "time": "01:49:15.68"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Which Brown is third or fourth?",
       "time": "01:49:19.94"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This is now only of production, manufacturing?",
       "time": "01:50:10.77"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are you stopped --",
       "time": "01:50:15.15"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You stopped at 11 and Kinney was 12?",
       "time": "01:50:16.89"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So, this argument in which you're making the point that Brown was very big also makes the point that Kinney was quite small, is that it?",
       "time": "01:50:44.46"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, Solicitor, I understand it.",
       "time": "01:50:57.34"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 297,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What year was Regal -- Regal was 1954?",
       "time": "01:52:00.05"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And it's that whole list of retailers? Is that --",
       "time": "01:52:04.66"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Other manufacturers.",
       "time": "01:52:09.12"
     },
@@ -1859,7 +1859,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "The Regal retail --",
       "time": "01:52:12.65"
     },
@@ -1871,7 +1871,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "He got -- then they acquired the retail of Regal?",
       "time": "01:52:22.02"
     },
@@ -1883,7 +1883,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Well, I used to buy Regal across the department --",
       "time": "01:52:34.73"
     },
@@ -1895,7 +1895,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "-- (Voice Overlap) back in the 1930s.",
       "time": "01:52:39.43"
     },
@@ -1907,7 +1907,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This is Wohl.",
       "time": "01:53:38.01"
     },
@@ -1919,7 +1919,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, and this is only the department store outlet.",
       "time": "01:53:39.29"
     },
@@ -1931,7 +1931,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's all Wohl does, isn't it? (Voice Overlap) --",
       "time": "01:53:43.10"
     },
@@ -1943,7 +1943,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, but (Voice Overlap) --",
       "time": "01:53:48.75"
     },
@@ -1955,7 +1955,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "At retail, that is the way it will -- operates --",
       "time": "01:53:50.49"
     },
@@ -1967,7 +1967,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- in departments.",
       "time": "01:53:54.01"
     },
@@ -1979,13 +1979,13 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, yes, (Voice Overlap) --",
       "time": "01:53:55.85"
     },
     {
       "turn": 324,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I thought it was --",
       "time": "01:53:56.34"
     },
@@ -1997,7 +1997,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I thought Mr. Dean told us that also sets young fellows up in business, do you have --",
       "time": "01:53:59.32"
     },
@@ -2009,7 +2009,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "01:54:11.84"
     },
@@ -2021,7 +2021,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "It gets (Inaudible)",
       "time": "01:54:26.69"
     },
@@ -2033,7 +2033,7 @@
     },
     {
       "turn": 332,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now.",
       "time": "01:55:16.97"
     }

@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2004/04-603/20050418a_04-603.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "ERIC H. ZAGRANS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MICHAEL C. WALTON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "IRVING L. GORNSTEIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 04-603, Grable & Sons Metal Products v. Darue Engineering. Mr. Zagrans.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you take the view that Merrell Dow somehow just silently overruled about five cases dealing with quiet title actions?",
       "time": "00:00:49.41"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That seems to be your position. I mean, I don't think Merrell Dow necessarily had that effect.",
       "time": "00:01:01.58"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Haven't we... haven't we got something equally different here? The... the issue here, as I understand it, is... is not litigation of the State law claim, but a claim under Federal law with respect to the passage of title when property is taken for taxes. As I understand the... the original plaintiff's claim, it simply is that if he's right, under Federal law he is entitled to a declaration that the property is still his. If he's wrong, the other side is entitled to property. But the issue is a Federal issue, and the only way the State has a role in it is that the State provides a mechanism, the quiet title action, analogous maybe to 1983, for getting it into a State court. So it seems to me that the issue is a Federal issue, not as in Merrell Dow, a... a State cause of action that incorporates by reference a Federal standard.",
       "time": "00:01:57.58"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but I don't... I guess that's where we're parting company. I don't see that there is a State law claim as distinct from a State law procedure for trying that claim in a State court. As I... as I said a second ago, it's sort of like 1983. It doesn't create causes of action, but it provides a... a jurisdictional basis for getting into court if you've got a cause of action. And in this case, it's a Federal cause.",
       "time": "00:03:10.65"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Which was a Federal issue.",
       "time": "00:03:58.48"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But as Justice Souter pointed out, the State law incorporated the Federal standard and made it its own. Here you have the Federal tax sale and a very strong Federal interest, which was lacking in Merrell Dow. Justice Stevens said that. But here I think there can be no doubt that the Government has a very strong interest in seeing that tax sales convey a secure title.",
       "time": "00:04:11.68"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, my--",
       "time": "00:05:05.43"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Please, please. I didn't mean to interrupt you. Did you finish your answer?",
       "time": "00:05:07.86"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, please. Well, my... my initial view of this case was much like Justice Souter's and... and I still think that that may be... may be correct. But I thought your answer to Justice Souter would be that there are many cases in which there is an antecedent Federal title which then goes down through successive purchasers, mining claims, for instance, and those are always under State law. I... I thought that would be your answer to Justice Souter and... and also to Justice Ginsburg.",
       "time": "00:05:12.50"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And you rely on Merrell Dow, which is fine. But I thought there was a separate line of cases that support you, as well as Merrell Dow.",
       "time": "00:05:44.88"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We hope all your answers will be principled. [Laughter]",
       "time": "00:06:05.40"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, Justice O'Connor had asked you about the... the quiet title cases, but Kansas City Title & Trust is still good law. It wasn't overruled.",
       "time": "00:06:14.38"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, but the Court didn't make it... the Court's proposition in Kansas City Title & Trust was if it appears from the complaint that the right to relief depends on the construction or application of the Constitution or laws of the United States. So are you asking us to take out or laws as dictum, or what is your position?",
       "time": "00:07:15.68"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, when does... when does the... when do the words, or laws, in Kansas City Title & Trust have operative effect?",
       "time": "00:08:07.50"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You mean that the... are you saying then in the context of this case that the Federal law would have to create a quiet title action, which is traditionally State law?",
       "time": "00:08:28.58"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But doesn't Congress have to create causes of action for constitutional violations as well, or at least for most of them?",
       "time": "00:08:42.53"
     },
@@ -255,25 +255,25 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, maybe this needs... I mean, if were to clarify--",
       "time": "00:09:01.64"
     },
     {
       "turn": 36,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wait.",
       "time": "00:09:03.94"
     },
     {
       "turn": 37,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Sorry.",
       "time": "00:09:04.34"
     },
     {
       "turn": 38,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm... I'm not sure that I... that I'm satisfied with the answer. You're... you're trying to give us one rule for constitutional claims and another rule for statutory claims?",
       "time": "00:09:05.11"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "On... on what basis? I don't understand it. Certainly in the text of the jurisdictional statute, there's no such distinction. What... what is the basis for it?",
       "time": "00:09:16.67"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you think that that explains all of these cases.",
       "time": "00:09:55.20"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you can't get anything out of the words of the... of the statute arising under to help you.",
       "time": "00:10:18.81"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So just the strength of the Federal interest is the--",
       "time": "00:10:42.73"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--the controlling test?",
       "time": "00:10:46.46"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's what I... I wanted to follow up on this because I think it's a confusion that's embedded in my mind in some of the cases, exactly what Justice Scalia was asking you. And I'd like you to comment on whether the confusion, as I see it, that's involved here is the words... arises out of the words, private right of action. Private right of action is where, A, one private person sues B, a non-Federal person, under a Federal statute. And the reason that can lead to confusion is because where you have a statute that governs the relation between the Federal Government and a private person, the words private right of action are out of place normally, because an action between the two parties takes place usually under the APA. Now, that's what it seems to me is at work here because the real question is not whether we have a private right of action or APA review. The question is whether Congress wanted to allow a private person to use this particular Federal provision as the basis for judicial review in a lawsuit. And if that's the right question, the answer here is obviously it did. It happens that we would have titled that normally administrative procedural review under the APA. But whether you call it private right of action or you call it APA review is beside the point. In Merrell Dow, Congress did not want actions to come into a court under the statute there at issue. In this case, Congress doesn't mind at all. In fact, it expects actions to come into court under this statute. I'd like you to comment on that thought.",
       "time": "00:11:11.35"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How did Congress... surely Congress did not expect any pronouncement of... of title by the Federal Government to be immune from challenge by private individuals. If Congress did not anticipate that a wrongful assertion of title through the Federal Government could be challenged by a State action of this sort to clear title, how did Congress expect it ever to be challenged? I mean, I can't imagine how else you... you would attack somebody who... who claims that he has Federal title.",
       "time": "00:13:57.06"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which is what... is... how does that differ from what happened here?",
       "time": "00:15:02.28"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's exactly what happened here.",
       "time": "00:15:07.32"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And... and is that not precisely what Congress expected? Did not Congress, in fact, approve this manner of challenging the asserted Federal title?",
       "time": "00:15:09.02"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I think you... you have to acknowledge there are at least three situations then: number one, where Congress did not create a Federal cause of action and did not expect that the States would create a cause of action to vindicate or challenge the asserted Federal interest; number two, where Congress did create a... a Federal cause of action; and number three, falling between the two where Congress did not create a Federal cause of action but, in the nature of things, must have anticipated that there would be State causes of action resting upon the Federal claim.",
       "time": "00:15:35.76"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why was that a middle case?",
       "time": "00:16:18.95"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Congress would not have necessarily anticipated that the States would glom onto a Federal criterion for purposes of their State... of their State tort law--",
       "time": "00:16:30.04"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--whereas here, Congress must have anticipated that quiet title actions of this sort would be brought.",
       "time": "00:16:40.91"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it wasn't necessary.",
       "time": "00:17:17.63"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It was... that's the difference. The State in Merrell Dow chose to adopt those Federal standards. It was a choice. I don't think a State has the prerogative to ignore the effect of a Federal tax sale. This is not a matter of State choice, and that, it seems to me, is the large difference between the two cases: one, where the State chooses to recognize Federal standards when it doesn't have to, and here, there's no question that the Federal law governs the security of this title. It's not an option for the State to ignore it.",
       "time": "00:17:19.74"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right, except the... except you sort of abandon that for constitutional questions for some inexplicable reason.",
       "time": "00:18:32.61"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, no. It's an explicable reason to distinguish other earlier cases.",
       "time": "00:18:41.37"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you... so you are... you are proposing one way to reconcile Kansas City. You say, well, that's the constitutional claim. But why isn't it at least as good a reconciliation to say once you go through... there's... there's a Federal claim... there's a Federal question that's dispositive of this case, and you agree that that's so here. The whole thing turns on the meaning and effect of that notice provision. So the Federal question is what determines this case, and you satisfy the well-pleaded complaint standard. Then at that point, when you satisfy the basic Kansas City Title & Trust provisions, then to see which way to swing, why isn't it appropriate to say is this a case where the State has a large interest and the Federal interest is not significant? Or, on the other hand, is it a case where there is a large Federal interest in seeing how this comes out?",
       "time": "00:19:06.61"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So you're saying that Merrell Dow did take out those words, or laws, from the Kansas City Title & Trust.",
       "time": "00:20:50.25"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I take it you would agree that we could leave the... the Kansas City formulation, the oral laws, intact and say that the distinguish... that the distinction between Merrell Dow and this case, which leaves it intact is the distinction between in Merrell Dow's case, the adoption by the State of a Federal standard, though the State did not have to adopt it in its tort law, purely optional, and in this case, the application of Federal law which, under the Supremacy Clause, the State had absolutely no choice but to apply. If we recognize that distinction, we could leave the language in Kansas City exactly where it is, couldn't we?",
       "time": "00:21:28.11"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What... what are the... sort of the... the horribles that you have in mind?",
       "time": "00:22:34.34"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but in... in that case, the action is not enforcing the Federal tax law, whereas in this case, the action is, indeed, enforcing the passage of title statute under the... under the tax code.",
       "time": "00:23:08.12"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But Federal law is determinative.",
       "time": "00:23:30.17"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Wasn't that in the... in the pleading?",
       "time": "00:24:04.61"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Wasn't that in the complaint?",
       "time": "00:24:08.37"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the... but the well-pleaded complaint doesn't say it has to be a disputed allegation. It says it must be. You couldn't state the claim without having the Federal law in the complaint.",
       "time": "00:24:18.49"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I know you want to reserve your time. Just one quick thing. The Government makes the distinction between an action to remove a cloud on title and an action for possession. Do you agree that this is a... a action to remove a cloud on title?",
       "time": "00:25:09.94"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Zagrans. Mr. Walton, we'll hear from you.",
       "time": "00:25:45.65"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose that the plaintiff here alleged that the tax deed were forged, that the occupant simply forged the tax deed and was occupied under forgery. State cause of action there?",
       "time": "00:27:46.22"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. Then suppose he alleged not that it was forged, but that this... that the occupier of the land had... had misconstrued the occupier's rights to bid at the tax sale or... or that there... the tax sale should never have been held. Then that's a Federal--",
       "time": "00:28:06.61"
     },
@@ -657,13 +657,13 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose--",
       "time": "00:28:31.29"
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if it doesn't require construction, but... but what if there is a factual controversy? Suppose there is a factual controversy as to whether notice was given and notice is required under the Federal statute. Does... does that factual controversy with regard to an essential element of... of Federal law make it a Federal case?",
       "time": "00:28:34.05"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it doesn't present any question of law, just a question of fact. Let's say both parties agree about the law, but the fact that is determinative of nothing, except the operation of Federal law, is at issue. Now, that... that would normally... under 1331, you'd be able to come into Federal court I suppose just where your only dispute is a factual dispute, but it is a factual dispute regarding the operation of Federal law. What... what if this were just a factual dispute about the operation of Federal law? What would we do with it? Does the fact that it's a factual dispute make it not substantial, not a substantial Federal question?",
       "time": "00:29:05.28"
     },
@@ -687,13 +687,13 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, you're taking the... I mean--",
       "time": "00:29:54.74"
     },
     {
       "turn": 108,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, and how is that different from the forgery?",
       "time": "00:29:56.63"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "How... how is that different from the forgery hypothetical?",
       "time": "00:29:59.97"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, you're taking the position then, as I understand it... and I... I don't disagree with your... your position necessarily... that its construction or application--",
       "time": "00:30:03.79"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--of Federal law.",
       "time": "00:30:14.56"
     },
@@ -741,13 +741,13 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:30:16.48"
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Suppose the... there was an issue in this case about the plaintiff in the quiet title action having waited too long. I think here it was 6 years after. So... so suppose there was a defense of laches under State law. That could be an issue in an action in this format, quiet title action, which would be governed by State law. Isn't that so?",
       "time": "00:30:16.70"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So that case wouldn't be removable then if the... if the defense is laches? The plaintiff--",
       "time": "00:30:52.67"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Yes?",
       "time": "00:31:02.91"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you might never get to the Federal law if the determination of 6 years is too long to wait to bring a suit like this. Then you would remove and you could have an outcome based solely on State law in the Federal court. You'd have a State claim. The issue that divides the parties is how long was too long, and the court decides the case on that basis and never gets to the Federal question.",
       "time": "00:31:08.80"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So if laches is pleaded as a defense, then it's not removable? But don't you... well--",
       "time": "00:31:45.60"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Well, at what point do you remove the case?",
       "time": "00:32:13.33"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "A complaint is filed in State court, and you are the defendant and you want to remove that case to Federal court.",
       "time": "00:32:21.38"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How much time do you have to remove? Would it be in advance of your answer?",
       "time": "00:32:32.39"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So that in my case, you would remove on the basis of the complaint before you put in your answer, and I think you're--",
       "time": "00:32:42.74"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--And then you could get into the Federal court, and the answer could be laches and you're in the Federal court and the only question that's decided is the State law question.",
       "time": "00:32:52.35"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I suppose that happens pretty often in removal... in... in removed cases. You really don't know what the defense is going to be. If it's removed on the basis of the well-pleaded complaint, when the defense gets there, it... it may often be a State... a State defense. Right?",
       "time": "00:33:04.56"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Walton. Mr. Gornstein, we'll hear from you.",
       "time": "00:33:45.40"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why wouldn't that same rule apply in a State where there's a common law cause of action for ejectment and it's substantively under State law different from a cloud on the title? You discuss in your brief, very helpfully I think, the... the Hopkins and the Taylor line of cases.",
       "time": "00:34:32.80"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "How is your statement that you just made consistent with the Court's holding under the Taylor line of cases?",
       "time": "00:34:49.90"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So if we had exactly the facts of this case and there's a common law ejectment, you would not say that it goes to Federal court. It would stay in State court.",
       "time": "00:35:13.76"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I... I suppose that--",
       "time": "00:35:39.18"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--in a common law ejectment action that we are supposing that what's going to come up is the tax sale.",
       "time": "00:35:41.51"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Which is just the facts of this case. And I suppose that if the plaintiff prevails on the common law cause of action for ejectment, he's got a... a res judicata defense if the... if the present occupier then makes another suit based on the tax deed.",
       "time": "00:35:46.46"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I guess this... this problem is simply a consequence of the well-pleaded complaint rule.",
       "time": "00:36:15.18"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If we... we altered that rule, it would make more sense.",
       "time": "00:36:21.44"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This... this kind of peculiarity happens all the time.",
       "time": "00:36:24.92"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It depends on whether the Federal question has to be pleaded or not.",
       "time": "00:36:28.01"
     },
@@ -1011,25 +1011,25 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's quick and dirty. We haven't tried to slice the baloney too thin in this area, have we? We... we-- [Laughter]",
       "time": "00:36:48.37"
     },
     {
       "turn": 162,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr.--",
       "time": "00:36:53.98"
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's enough to be pretty close.",
       "time": "00:36:54.50"
     },
     {
       "turn": 164,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But the way you stated the rule, if I heard you correctly, you're contending that Merrell Dow was incorrectly decided.",
       "time": "00:36:55.14"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We do occasionally review that kind of a decision here.",
       "time": "00:37:51.38"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I assume that a fact in a particular case which affects nobody else in the country, but which is determinative of the Federal question is never a substantial question of Federal law. Is it? So you... you would not agree that... that it's not only the... the content, but also the application of Federal law that's--",
       "time": "00:38:21.93"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If there were only a dispute about when the notice was given and not a factual dispute, then it would not have been removable I take it.",
       "time": "00:39:25.06"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that's a very... sliced baloney very thin. [Laughter]",
       "time": "00:39:49.57"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Gornstein. Mr. Zagrans, you have 4 minutes remaining.",
       "time": "00:40:57.73"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Zagrans, there is language in Merrell Dow that makes it sound like it's not as clear and certain as you are urging. I think that the opinion author said that 1331's domain is shaped by the demands of reason and coherence, dictates of sound judicial policy, and common sense. And if you just take that last question when the only question is, is mail notice good enough to satisfy the Federal statute, or do you have to have in-hand service? Doesn't common sense say what that section means should be a Federal question, appropriate for a Federal court to decide?",
       "time": "00:41:54.14"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm simply making the point that you are reading Merrill Lynch... Merrell Dow in a rather rigid way. And yet, there is this language in it that says in... in... what was before the court in Merrell Dow made perfectly good sense in that tort action to have it going on in State court. This is quite a different picture.",
       "time": "00:43:10.09"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought that there was no State law issue in this case, that the whole thing turned on what kind of notion... notice was sufficient to convey title.",
       "time": "00:44:55.23"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Zagrans.",
       "time": "00:45:25.81"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:45:27.77"
     }

@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1993/92-2058/19940428a_92-2058.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "KENNETH B. HIPP",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "SUSAN OKI MOLLWAY",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD H. SEAMON",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 92-2058, Hawaiian Airlines v. Grant Norris. Mr. Hipp.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Hipp, you seem to be arguing for a different standard under the RLA than that under Lingle and under the National Labor Relations Act. I'm not sure... how do you justify application of such a different standard?",
       "time": "00:03:21.22"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But I suppose Congress didn't intend to entirely preempt ordinary State laws, even in the transportation industry, having... I guess we've upheld State requirements that the train have a caboose, and one thing and another, and so obviously we have said there is room for application of State law--",
       "time": "00:05:07.63"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--even under the RLA.",
       "time": "00:05:34.26"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the State perhaps could arguably have made a conscious decision, by the passage of whistleblower statutes, that this is a means of assuring public safety.",
       "time": "00:06:06.12"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, they haven't taken it out. They've added, perhaps.",
       "time": "00:06:42.72"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Buell, as I understand your argument, you're not arguing that the RLA preempts State law at all. It's not a preemption claim you're making at all. It's an exclusive jurisdiction claim. You're saying State law applies, but it has to be applied through the arbitration procedure of the RLA, isn't that correct?",
       "time": "00:06:59.21"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's not correct. You're saying State law is preempted, so the State law does not exist.",
       "time": "00:07:19.40"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where the dispute concerns an issue of State law, there no longer is a dispute, so you don't have to go to arbitration, then. You say the State law is ineffective, is that what you're saying?",
       "time": "00:07:32.65"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It is effective.",
       "time": "00:07:42.36"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then it's not preempted.",
       "time": "00:07:44.18"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does State law apply? Is the State law applicable--",
       "time": "00:07:53.35"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--to the employment relationship? Can the State law govern it?",
       "time": "00:07:57.51"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm really confused. I had thought you were making an exclusive jurisdiction claim, that you apply the State law but it's to be applied by the board through the arbitration. Now you're telling me no, that the State law is preempted. That's a quite different--",
       "time": "00:08:16.11"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Maybe you can make your example specific to this case, and this would be my question: suppose the board finds that Norris was indeed improperly discharged. At that point, what remedy could the board give? Would there be any room for the State whistleblower's statute in the remedy that the board could give?",
       "time": "00:08:29.44"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The finding is that a discharge was improper. This person did just what an employee should do, detecting a condition that might make flights unsafe for passengers, so it's a complete exoneration of what he did. Indeed, the board concludes, instead of being disciplined, he should have gotten a medal. Therefore, the remedy is... and what could the remedy be, and how would it differ from a State law remedy under the whistleblower act?",
       "time": "00:09:05.00"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But as a practical matter, could the... in the absence of a State law, couldn't the board do exactly the same thing? It would simply not look to State law for the source of its public policy, but it could come up with basically the same standard, couldn't it?",
       "time": "00:09:50.54"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why, then, did Congress add... if I'm correct, why did Congress add a whistleblower provision to the substantive law governing rail employees but not airline employees?",
       "time": "00:10:06.56"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "On your theory, wasn't it equally redundant, equally unnecessary with respect to the rail employees?",
       "time": "00:10:22.51"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There's no grievance, it seems to me, unless State law applies. Let's assume that there's no Federal whistleblower statute. There is a State whistleblower statute. The employee is dismissed, claims it's in violation of the State statute, so he brings a grievance. Why is there a grievance, if State law does not govern? What does he have to grieve about? You're telling me State law does not apply.",
       "time": "00:12:06.77"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, and he says, this disciplining is in violation of State law, isn't he saying?",
       "time": "00:12:36.13"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If it's not in violation of State law, it's okay.",
       "time": "00:12:40.93"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There is no dispute, unless you posit the applicability of State law. There is no dispute. The only basis for his claim is that State law governs. If you tell me State law doesn't govern, there's no dispute.",
       "time": "00:12:54.79"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He's not claiming that he has a Federal right to whistleblower relief.",
       "time": "00:13:08.63"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's a really gossamer distinction, it seems to me. Are you saying that... supposing this case... we have this case coming up in Hawaii, which has a whistleblower protection statute. Supposing you have an identical facts case coming up from, let's say, Nevada, which doesn't have a State whistleblower protection statute. Now, must the adjustment board handle these two cases differently?",
       "time": "00:13:28.59"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, and I take it from what you've just said that among those policy considerations is not the State law.",
       "time": "00:14:13.43"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is it just totally arbitrary, then, on the part of the adjustment board? It may, it may not, it could do lots of different things, but it doesn't have to do any?",
       "time": "00:14:23.59"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well then... but... it seems to me every time you've been asked you've said, well, it could be, but it doesn't have to.",
       "time": "00:14:33.15"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How... why would the Nevada and Hawaii cases be treated either (a) differently, or (b) the same?",
       "time": "00:14:40.03"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that frankly seems to me to be almost so vague that you can't put your finger on anything. Do the cases from Nevada and Hawaii come out differently before the adjustment board, or do they come out the same?",
       "time": "00:16:02.58"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So it doesn't make any difference if Hawaii has a statute and Nevada doesn't.",
       "time": "00:16:17.05"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So then, the State law must be virtually nonexistent. It must be entirely preemptive.",
       "time": "00:16:23.03"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then you're withdrawing what you said earlier about... you said State law provides a floor, State law policy would be taken into account by the board, now your response to the Chief Justice is State law is irrelevant. Indeed, not to be... positively not to be considered.",
       "time": "00:16:35.70"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, what is the whistleblower protection, and where does it come from... case law, if it comes from statute or... you're rejecting the Hawaii whistleblower act as the source of law. What is the source of the whistleblower protection that the employee would get before the board?",
       "time": "00:17:28.79"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What does... well, can you be specific about what the collecting bargaining statute... agreement says about whistleblowers?",
       "time": "00:17:59.37"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You said a source is the collective bargaining agreement. Okay, what in the collective bargaining agreement governs whistleblower protection?",
       "time": "00:18:09.08"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Counsel, let me try this one more time, a different way. Suppose that before this employee were discharged the employer came to you, as the employer's counsel, and said, in determining whether or not I may discharge this employee, must I consult and be guided by the Hawaii whistleblower statute? What would be your answer?",
       "time": "00:18:32.14"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm not talking about the adjustment board process, I'm asking whether or not I may... I must take account of that statute in determining whether or not I will discharge the employee.",
       "time": "00:19:12.96"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I should under a matter of law. Must I, as a matter of law?",
       "time": "00:19:31.63"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then why do the Nevada and Hawaii cases come out the same?",
       "time": "00:19:35.58"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So there are other sources for whistleblower protection other than State law.",
       "time": "00:19:59.94"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what are they?",
       "time": "00:20:06.25"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The board would... even though the Federal Rail Safety Act applies only to railroads and not to airlines, the board would simply carry it over?",
       "time": "00:20:15.31"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why? Why? That just doesn't make any sense. Congress passes a law saying, here's a... we want this law to apply to railroads, and the board says well, we'll apply it not only to railroads, we'll apply it to airlines, too.",
       "time": "00:20:28.08"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask... you started to respond to an earlier question by identifying four sources of law. You've got the agreement, the practices, and the Railway Act. What's the fourth?",
       "time": "00:20:53.95"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And how do you--",
       "time": "00:21:14.70"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Oh, go ahead. I'm--",
       "time": "00:21:15.68"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--That's the third.",
       "time": "00:21:17.42"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Focusing on the third for a moment, how does that reconcile the Chief Justice's hypothetical, if the two States have different policies?",
       "time": "00:21:25.95"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But it wouldn't follow from that that they would come out the same. They might come out the same, but I don't see how you can answer the Chief's question by saying they would.",
       "time": "00:21:46.13"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where did Congress say that? Well, but that's-- --Where did Congress say that?",
       "time": "00:22:04.38"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Of a congressional... of a congressional act applying only to the railroads.",
       "time": "00:22:11.40"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I give you a hypothetical that does not have a Federal policy counterpart? Supposing in Hawaii you said they had a statute that said, nobody has to work on King Kamehameha's birthday, and it's just Hawaii has such a statute. Could the employer... and the employer made the man work on that birthday and fired him... or fired him if he didn't, something like that. What result in that case?",
       "time": "00:22:27.74"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you assume the collective bargaining agreement is silent on this particular holiday.",
       "time": "00:22:48.04"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me change it just a little. Instead of saying... instead of discharging him, they just didn't pay him for the day. They docked him for a day's pay, and there's no remedy under the collective bargaining agreement for missing a day's pay. Could he sue in State court and get the day's pay?",
       "time": "00:23:45.74"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The term \"grievances\" is really the heart of the dispute, I suppose, whether grievances include noncontractual disputes as well as contractual disputes.",
       "time": "00:24:26.92"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You say they must provide relief in that case--",
       "time": "00:24:34.45"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--They must. The adjustment board must provide relief.",
       "time": "00:24:36.94"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The holiday case, right, but they need not provide it in the whistleblower case. Just, they may. They may take it into account, right?",
       "time": "00:24:42.88"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They must provide it in the whistleblower case, too, right?",
       "time": "00:24:51.51"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The same relief that the State requires.",
       "time": "00:24:54.90"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Norris, in his State lawsuit, did he ask for punitive damages?",
       "time": "00:26:16.58"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Could he get those under the grievance board proceeding, assuming every fact was found in his favor?",
       "time": "00:26:22.51"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Review for me your answer of... assuming everything was found in his favor, what could the remedy be from the board and how would it differ from the State law remedy?",
       "time": "00:27:01.15"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Aren't you doing away with it too, because you are telling us that even in the instances in which there is a preemption, the preemption is somehow softened by this obligation to borrow standards, or to borrow principles? You're interfering with the tradeoff too, aren't you?",
       "time": "00:28:11.81"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What is the source of--",
       "time": "00:28:33.06"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--I still don't understand the source of the obligation to borrow these standards.",
       "time": "00:28:35.19"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then why isn't... why wouldn't it be functioning in the nature of the court for the board to say, we think whistleblower legislation is very unwise, and we are not going to recognize any grievance whatsoever that has as its source a whistleblower claim. Is that open to the board?",
       "time": "00:28:50.21"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but I want to know how the review turns out. Can the board say that in a grievance arising in Hawaii?",
       "time": "00:29:13.20"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why?",
       "time": "00:29:19.27"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Hipp. Ms. Mollway, we'll hear from you.",
       "time": "00:29:27.55"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if you were to prevail in this case, Ms. Mollway, we would have to cut back some on the Burley opinion, would we not?",
       "time": "00:31:15.75"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:31:32.21"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--something else between the two, for exclusive jurisdiction but applying both State and Federal law and substantive preemption... that is, to the extent that there would be questions and comments in a wrongful discharge before the board, that the question whether Norris was wrongfully discharged has to be determined by the board, and then the State forum can take over, so it's kind of a deference until the board decides the preliminary question. How about that? Would that be a way of harmonizing State and Federal law?",
       "time": "00:33:20.67"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well if a State is willing to take the trouble to do it, can a State enact, therefore, an extremely detailed code of labor management relations basically covering everything that is normally covered in CBA's and therefore, in each case, simply be enforcing a substantive State... the employee who might sue under it would in each case simply be enforcing a substantive State law right and therefore ignore the CBA entirely?",
       "time": "00:34:31.30"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let's assume it basically enacts what as a practical matter is a parallel regime to the most salient provisions of most collective bargaining agreements and one that is entirely in harmony, can it therefore, in effect, provide on each really serious issue an alternate forum if it has a sufficiently detailed law to address each issue?",
       "time": "00:35:02.09"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why?",
       "time": "00:35:37.09"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, let's assume that the State statute was simply in harmony with it. Could the employee begin, and if he does not like the way the arbitration is going, basically drop it and then simply walk into a State court?",
       "time": "00:35:50.34"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You've mentioned the prospect of someone pursuing relief in both forums.",
       "time": "00:38:10.76"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose in the... before the board, the board determines that there was no wrongful discharge, would that have preclusive effect on the State court action under the whistleblower's protective act?",
       "time": "00:38:17.62"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what if there's a Federal whistleblower law that's applicable to railroad workers? would that be applied by the board?",
       "time": "00:38:53.33"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But suppose the grievance before the board is... there's a dispute over whether he was fired at all.",
       "time": "00:39:25.74"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The employer says, I didn't fire you. You were welcome to come back to work, and he said, oh, no you fired me... that's the dispute... and it goes to arbitration before the board, and the board says, he was not fired. You're saying that that is not binding on the State court, when he brings a whistleblower suit in State court?",
       "time": "00:39:31.58"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's extraordinary, to have no collateral estoppel effect at all.",
       "time": "00:39:48.34"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's the same fact. The fact is whether he was free to come back to work or not. That very same fact is going to be at issue in the State proceeding.",
       "time": "00:40:08.73"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you're saying, even though it's already been adjudicated in a proceeding between these two, it will be readjudicated by the State differently.",
       "time": "00:40:15.23"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you have any precedent for that in any other area? Do you know any other area where we allow that to happen?",
       "time": "00:40:24.82"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but the determination of fact is that he wasn't fired, and if he wasn't fired, a fortiori he wasn't fired for whistleblowing.",
       "time": "00:40:45.39"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You mean fired or discharge might mean something different under State law?",
       "time": "00:40:58.94"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "If it didn't mean something different under State law, there would be preclusion.",
       "time": "00:41:02.53"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But I thought you said there wasn't preclusion because the standards might be different. If we determine the standards are the same, why wouldn't there be preclusion?",
       "time": "00:41:13.51"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How could this Court ever make that determination with respect to the law of the State of Hawaii?",
       "time": "00:41:32.77"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But the supreme court of Hawaii could. The supreme court of Hawaii could say we... the Supreme Court of the United States has told us what discharge means for Federal purposes and our definition is the same, and if they did that, there would be an obligation to recognize an estoppel, wouldn't there?",
       "time": "00:41:42.11"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I like that one better. I think that's a good forum.",
       "time": "00:42:46.51"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was the argument made in Terminal Railroad that it should have, and the Court expressly rejected it?",
       "time": "00:43:32.34"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that gives it the benefit of the doubt.",
       "time": "00:43:45.97"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You would say a fortiori, wouldn't you? If they should be treated differently, you would give more deference to the States.",
       "time": "00:44:15.21"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But--",
       "time": "00:45:18.85"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--What is the constitutional argument you're making?",
       "time": "00:45:20.10"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Seventh Amendment requires jury trials and certain civil actions in the Federal courts. I thought your client was suing in a Hawaii court.",
       "time": "00:45:35.38"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Seventh Amendment has never been held applicable to State courts.",
       "time": "00:45:45.70"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what constitutional... it violates the Seventh Amendment to do that--",
       "time": "00:46:10.46"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--because--",
       "time": "00:46:15.09"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--The right to jury trial, but it certainly doesn't take away the right to jury trial of any Federal courts.",
       "time": "00:46:22.76"
     },
@@ -1299,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How is one implicating Article III by doing that?",
       "time": "00:46:46.90"
     },
@@ -1311,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you can make that same argument about a great deal of our National Labor Relations Act preemption cases.",
       "time": "00:47:07.60"
     },
@@ -1323,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Mollway.",
       "time": "00:48:14.44"
     },
@@ -1335,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Seamon, we'll hear from you.",
       "time": "00:48:15.67"
     },
@@ -1347,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why just safety? Why not wages?",
       "time": "00:50:36.01"
     },
@@ -1359,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, all terms of employment. You're saying that States can control the mandatory terms of an employment agreement under the RLA.",
       "time": "00:50:40.71"
     },
@@ -1371,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Some of these, if you had diversity, you could be in a Federal court.",
       "time": "00:52:38.93"
     },
@@ -1383,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's true, but her point is that by excluding that course, by requiring you to go through the arbitration mechanism, you deprive the plaintiff of that option of getting a jury.",
       "time": "00:52:52.15"
     },
@@ -1395,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it's a possible argument. You're just not going along with it.",
       "time": "00:53:07.89"
     },
@@ -1407,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you recognize any kind of deference, or which one goes first? You've answered the preclusion question differently. If the board goes first, it would bind the State court. But here, it was a person proceeding in both forums at the same time. Does the State have any obligation to defer, to hold its case in abeyance while the board answers the question, was there a wrongful discharge?",
       "time": "00:53:38.78"
     },
@@ -1419,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could the State court be bound by factual findings in the arbitration?",
       "time": "00:54:21.57"
     },
@@ -1431,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And would the arbitration panel be bound by factual findings in the State proceeding if that terminated first?",
       "time": "00:54:25.88"
     },
@@ -1443,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if the collective bargaining agreement contained a definition of discharge that was not complied with. I mean, so that under an agreement there was no discharge. What do you do in the State court action?",
       "time": "00:55:23.03"
     },
@@ -1455,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that would mean that if an arbitrator determined there was a discharge within the meaning of the collective bargaining agreement, that would not necessarily preclude a different holding in the State court on the same issue decided under a different standard.",
       "time": "00:55:56.49"
     },
@@ -1467,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Seamon, are you representing simply the Solicitor General here, or the views of the National... NRAB?",
       "time": "00:56:45.76"
     },
@@ -1479,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well. Thank you, Mr. Seamon.",
       "time": "00:57:04.90"
     },
@@ -1491,13 +1495,13 @@
     },
     {
       "turn": 241,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:57:06.54"
     },
     {
       "turn": 242,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Monday next at ten o'clock.",
       "time": "00:57:07.47"
     }

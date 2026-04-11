@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/81-1251/19821108a_81-1251.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM F. WESSEL",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "GEORGE M. STRICKLER, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Connick against Myers. Mr. Wessel, I think you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wessel, does the record show what the structure of the district attorney's office was with respect to the chain of authority below the district attorney himself? You just said there were six chiefs--",
       "time": "00:08:07.10"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--So Ms. Myers served under one of the two chiefs of trials?",
       "time": "00:08:46.63"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And the line of authority went from the chief of trials to the first assistant and then to the district attorney?",
       "time": "00:08:55.75"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just clarified one thing? You have reviewed the facts. Do you challenge any of the findings of the district court as clearly erroneous?",
       "time": "00:09:02.62"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, isn't it fair... didn't you argue... this was argued to the district judge, wasn't it, that the transfer was the real reason?",
       "time": "00:10:17.64"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And when he did not enter such a finding and only found one reason, the... and he says it in so many words, that she was fired because of the questionnaire, isn't that a... didn't he... don't we have to assume he rejected the second reason?",
       "time": "00:10:24.68"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that goes to whether it's protected by the First Amendment, and all the rest, but as to... his findings on motivation I thought were rather clear, that he considered all the evidence pertaining to the transfer and said that the real reason was the questionnaire.",
       "time": "00:11:07.02"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You are saying that that is a clearly erroneous finding?",
       "time": "00:11:22.63"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Wessel, I have a little trouble understanding your position in the light of your responses to Justice Stevens' question. Is it your complaint basically that he didn't address the questions, or that he decided it the wrong way?",
       "time": "00:11:38.82"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, supposing in a negligence case one side is arguing that something happened on Friday, and the other is arguing it happened on Saturday, and there is a bench trial, and the judge says, I find it happened on Saturday. Now, he says nothing about it not having happened on Friday, but certainly that would be a rejection of the claim that it happened on Friday.",
       "time": "00:12:14.31"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Suppose the trial--",
       "time": "00:12:40.11"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Suppose the trial judge said, I have considered the other Pickering point and reject it, period. Would that be all right?",
       "time": "00:12:45.10"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If he said, I've considered them and rejected them.",
       "time": "00:12:59.51"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you wouldn't be arguing that, would you?",
       "time": "00:13:04.26"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So your argument is, he didn't say that.",
       "time": "00:13:08.07"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mean, he has to say that... why he rejects it? Isn't that what you're really saying?",
       "time": "00:13:19.36"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wessel, the district judge didn't... He found the facts differently.",
       "time": "00:14:18.01"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He found that Connick told the plaintiff she was being fired because of a refusal to accept a transfer, so he was fully aware of that contention, and then he later found the real reason was the questionnaire. Now, you describe it as a dual motive case, but he found it was a single motive case.",
       "time": "00:14:23.57"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You say that is clearly erroneous.",
       "time": "00:14:46.23"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's a separate inquiry, isn't it, from--",
       "time": "00:15:12.50"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--if you dealt with the motivation question.",
       "time": "00:15:15.17"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is the initial question of whether the speech here is constitutionally protected one of a... that is a mixed question of fact and law, or a purely legal question, or what is it?",
       "time": "00:16:36.59"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Don't you have to convince us... you have to persuade us that the district judge's findings generally were in... clearly erroneous because of your claim that she was dismissed for refusing to accept a reassignment within the office?",
       "time": "00:17:37.97"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Isn't that the narrow issue? Whether there were other issues or not, isn't that the issue on which you stand or fall?",
       "time": "00:18:01.54"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you contend that the district attorney had an absolute unilateral right to assign her to any part of the office he wanted?",
       "time": "00:19:18.23"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, isn't that the heart of this case?",
       "time": "00:19:29.76"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What do you say... You talk about dual motive. Supposing the questionnaire could be characterized as sort of a hybrid. Most of the questions are just internal office matters, but one or two were matters of public concern. Would the questionnaire be protected or unprotected?",
       "time": "00:21:15.36"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I am not sure I understand the answer.",
       "time": "00:21:56.85"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You are saying the questionnaire is not protected even though one of the questions might have been protected?",
       "time": "00:21:59.81"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But your argument, I gather, is that the entire questionnaire was unprotected, even though it contained one question which, had it been asked separately, would have been protected.",
       "time": "00:22:22.11"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But would not that... yes, it has to do with operation of the office, but would you not think it was a matter of public concern if the assistant attorneys were being pressured to work in political campaigns on behalf of their superiors?",
       "time": "00:22:43.09"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that is not the question. That is not the question. The question is whether that information would be a matter of public concern, whichever way the answer comes out.",
       "time": "00:23:00.48"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't think that the public would want to know if the assistants in the office were being pressured to work for political candidates?",
       "time": "00:23:09.59"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is it your position that in public employment, that a questionnaire sent out to other employees that addressed only the question of the activities that the employees were being asked to engage in that are political in nature would not be constitutionally protected? That is your position?",
       "time": "00:23:21.80"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And if there were two questions--",
       "time": "00:23:48.49"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--And if there are two questions, that one plus one that is not of public concern, that the situation would change?",
       "time": "00:23:51.23"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wessel, when you say that something is a matter of public concern, that, I take it, is not the end of your argument on the point, because you say even if it is a matter of public concern, there remains the Pickering balancing test to be struck.",
       "time": "00:24:17.81"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Wessel?",
       "time": "00:26:14.62"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Excuse me for interrupting. Is there any evidence in this record that suggests that Respondent was being punished in the propose transfer for political activity or political inactivity?",
       "time": "00:26:16.54"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "None whatsoever. Was not the transfer indicated before the questionnaire was--",
       "time": "00:26:33.04"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Are you saying that the questionnaire was provoked or was a response to the transfer?",
       "time": "00:27:20.27"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, is it your position that there were two reasons for dismissing her, or one? That is, was she dismissed because she refused to accept the transfer, or because she circulated the questionnaire?",
       "time": "00:27:46.59"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Wessel, was there anything in the way of a rule or regulation or practice about the circulation of questionnaires during working time?",
       "time": "00:28:19.59"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you didn't raise the question in this trial?",
       "time": "00:28:30.08"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You didn't raise the question that they didn't have the right to pass them out? It says so. The opinion says so. It said, no... for confidentialities asserted in regard to the distribution.",
       "time": "00:28:37.67"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You didn't object to her handing out the questionnaire per se?",
       "time": "00:29:07.33"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And had never been questioned about it?",
       "time": "00:29:17.95"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Wessel, your opponent makes a good bit out of Texas Department against Burdine, a case you did not cite.",
       "time": "00:29:20.63"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Does that mean that you concede that Burdine doesn't affect whatever the standards were in the Mount Healthy case?",
       "time": "00:29:32.07"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, you had the privilege of filing a reply brief and didn't--",
       "time": "00:30:22.90"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--Did you raise the Burdine issue before the Fifth Circuit?",
       "time": "00:30:27.99"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Counsel, did you appeal from the attorneys' fees issue to the Fifth Circuit?",
       "time": "00:30:32.44"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But that was in a separate judgment, wasn't it?",
       "time": "00:31:15.17"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "From which no appeal was taken.",
       "time": "00:31:20.54"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Strickler.",
       "time": "00:31:46.13"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you agree with what your friend suggested, that the transfer notice preceded the questionnaire?",
       "time": "00:33:04.08"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I really don't think that's a fair characterization of his argument. He says that it's basically an internal matter that Pickering doesn't apply to. I don't think he says it quite the way you describe it.",
       "time": "00:36:51.16"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Insofar as it goes to running an office, that the person in charge of the office has a right to discharge someone for making disruptive comments in the office that don't have any particular public value. That's the thrust of his argument, I think.",
       "time": "00:37:34.05"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Strickler?",
       "time": "00:38:51.44"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if the questionnaire had contained only Question Number 10? Do you think the district court would have found... made exactly the same findings in connection with what you are now referring to?",
       "time": "00:38:52.45"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did they testify that it wasn't?",
       "time": "00:39:52.98"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if they weren't asked, I would think the implication from their testimony was simply that it wasn't asked. I don't think you can draw a negative inference or one way or the other on that. Would you defend the district court judgment here if in fact... on the basis you are defending it now if in fact only this Question 10, do you have confidence and would you rely on the word of, listing the six supervisory people?",
       "time": "00:40:06.53"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why should he have consulted with them? If he felt that the ability of his own senior staff to supervise people further down the line was in jeopardy, I mean, that was a judgment, I would think, for him to make. I don't think he has to go ask the senior staff, do you feel your authority is undermined.",
       "time": "00:41:01.39"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Chief Justice Taft long ago said that judges should not rejected as judges what they know as people, and I think there is an element of that in the case.",
       "time": "00:42:06.12"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, let me call your attention to one comment of the district court in its opinion on the relief granted, and that's on Page A-20, where he's speaking of injunctive relief. The opening phrase is, \"Considering the acrimonious circumstances surrounding plaintiff's departure from the district attorney's office. \"",
       "time": "00:42:54.00"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Right. I take it there were two sources of acrimony, one, her resort to judicial remedy, and two, the circumstances surrounding her departure from the district attorney's office.",
       "time": "00:43:24.44"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think it was just mere accident that the questionnaire was circulated during the same time... during the same period of time that a transfer was being talked about?",
       "time": "00:46:00.45"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What?",
       "time": "00:46:24.64"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So it was her... circulating the questionnaire was in response to suggestions that she be transferred?",
       "time": "00:46:27.16"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, so it was the fact that she was being... she was going to be transferred. Was this her way of combatting her transfer?",
       "time": "00:46:52.10"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, why wasn't it then just an accident that she--",
       "time": "00:47:04.01"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Including hers.",
       "time": "00:47:25.71"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So then came, as a response, the questionnaire.",
       "time": "00:47:27.53"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's what I want to know.",
       "time": "00:47:35.74"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What was the purpose of the questionnaire?",
       "time": "00:48:52.41"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Indicating?",
       "time": "00:49:04.16"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On questions like politics?",
       "time": "00:49:12.20"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On questions like politics, for example?",
       "time": "00:49:16.79"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And as to whether they had faith in the officers?",
       "time": "00:49:24.51"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And how can she use that?",
       "time": "00:49:29.22"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Other than to disrupt the office?",
       "time": "00:49:32.58"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What did she do other than disrupt the office?",
       "time": "00:49:35.17"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How do we know that?",
       "time": "00:50:29.28"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it also true she telephoned people?",
       "time": "00:50:36.34"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "She telephoned people--",
       "time": "00:50:41.46"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--about the questionnaire?",
       "time": "00:50:42.84"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you have never heard of anybody overhearing a telephone conversation?",
       "time": "00:50:45.36"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Strickler-- --One of the elements of relief here was ordering her reinstatement, besides giving her some damages.",
       "time": "00:51:07.22"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Reinstated into what position?",
       "time": "00:51:16.37"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Her old position or the new one?",
       "time": "00:51:19.95"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, does she accept the transfer or not under this--",
       "time": "00:51:27.08"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--The lower courts endorsed the assignment.",
       "time": "00:51:34.45"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now, do you find any internal inconsistency in the court's finding in which he said, the defendant, the district attorney, neither acted with malice nor reckless or wanton disregard for plaintiff's civil rights? Do you find any inconsistency between that finding and the other findings that he made?",
       "time": "00:51:46.23"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that entirely consistent with the fact that she was notified of her transfer before the questionnaire was circulated?",
       "time": "00:53:05.15"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But she did refuse to accept the transfer, didn't she?",
       "time": "00:53:27.53"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If a superior tells a subordinate, gives a subordinate an order, and the subordinate says, I will think about it, I will consider it, what do you call that?",
       "time": "00:53:58.60"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That's not purely a factual question, though, is it?",
       "time": "00:56:29.68"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So we wouldn't apply a clearly erroneous test.",
       "time": "00:56:35.57"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So at best it's a mixed question.",
       "time": "00:56:46.86"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Turning for a moment to the question whether the First Amendment protects the circulation of the questionnaire, do you think any of the questions in the questionnaire, other than the one about feeling political pressure, are matters of public concern?",
       "time": "00:57:30.82"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, in Mount Healthy the employee went public with the thing, as I recall.",
       "time": "00:58:37.97"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It was on a Cincinnati radio station. Doesn't that add a little different dimension to the case than when it's purely internal?",
       "time": "00:58:44.50"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you say that on the question of whether a particular statement was a 'matter of public concern or not, it's totally indifferent whether the statement was made publicly or privately?",
       "time": "01:00:04.04"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's relevant to the question whether there's disruption. The question of whether the issue is a matter of public concern, I don't see why it would make any difference.",
       "time": "01:00:13.02"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Strickler, was there any discussion or had there been any discussion in the city with respect to the morale of the district attorney's office, any public discussion?",
       "time": "01:00:30.77"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Is it your suggestion, in light of comments you made earlier in your argument, that this sort of morale is really... this sort of questionnaire is really beneficial to office morale?",
       "time": "01:00:43.95"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "With question 10 in it, suggesting that all of this individual's supervisors were people who could not be trusted or whose word couldn't be believed?",
       "time": "01:01:09.42"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You don't?",
       "time": "01:01:31.64"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Talking about public and private, do you know of any private organization that allows you to circulate questionnaires while you're working?",
       "time": "01:02:13.52"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's what I'm saying. But still, they don't allow it, do they?",
       "time": "01:02:28.01"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I bet you it does. Don't you agree that at least for one day that the Respondent in this case didn't do anything on behalf of her job?",
       "time": "01:02:34.46"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, doesn't the record show and the Judge's findings show that during that day she passed out the questionnaire, she carried it around and gave it to people, made sure she didn't let anybody see it, she telephoned people, she had people come in? Isn't that what the record shows, in one day?",
       "time": "01:02:49.28"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What other time is left?",
       "time": "01:03:15.03"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I'd like to see... well, how can... do you have lunch all afternoon? The record says during the afternoon she called people.",
       "time": "01:03:19.31"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You can answer the question.",
       "time": "01:03:35.38"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "11:30.",
       "time": "01:03:45.58"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Do you have anything further? You have one minute remaining.",
       "time": "01:03:57.37"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:04:48.75"
     }

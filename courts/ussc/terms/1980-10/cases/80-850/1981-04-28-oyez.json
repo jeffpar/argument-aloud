@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1980/80-850/19810428a_80-850.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "CAROL ATHA COSGROVE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JAMES C. BONNER, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next Jones v. Helms. Ms. Cosgrove, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does it make any difference under this statute whether the particular person left the state three hours after the commission of the act or three years?",
       "time": "00:01:40.08"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Cosgrove, I have some difficulty interpreting the 5th Circuit's opinion, perhaps because of its shortness. It seems to rely at some length on the Morissette case from this Court, which was simply as I had understood it a handbook of how this Court would interpret federal statutes with respect to intent and was not a constitutional doctrine at all. What would you say was the rationale of the 5th Circuit, if there is one?",
       "time": "00:04:01.95"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But why would it have to have requisite... why does it have to have any specific intent?",
       "time": "00:04:48.48"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, unless you're talking about free speech you don't have an overbreadth challenge here, do you?",
       "time": "00:05:09.85"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or intend to in the course of leaving the state, or intend to abandon the child later?",
       "time": "00:10:00.37"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "This applies whether you abandon after you've left the state or before?",
       "time": "00:10:11.24"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand.",
       "time": "00:10:26.00"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand.",
       "time": "00:10:29.97"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course, this whole problem could be solved, I suppose, if the Georgia Legislature simply made child abandonment a felony.",
       "time": "00:11:28.26"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This is not a support statute; this is a criminal statute.",
       "time": "00:12:01.90"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, but this is a criminal statute. There is nothing in this statute that requires the parent to support. It only punishes the parent for not supporting.",
       "time": "00:12:12.27"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you have a general statute that makes it a crime to flee from justice, or to abscond, or to leave the state? What if you're under indictment and you leave the state? Is that a separate crime?",
       "time": "00:14:03.53"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But isn't that... that's not unheard of, though, around the country, is it?",
       "time": "00:14:19.31"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It could be a breach of a bail condition, I suppose.",
       "time": "00:14:27.19"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How about... is that a crime in your state, to violate your bail?",
       "time": "00:14:31.45"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course, if Georgia made this a felony across the board, all these problems would disappear, wouldn't they?",
       "time": "00:15:13.62"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "As would this case disappear.",
       "time": "00:15:27.45"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I ask, Ms. Cosgrove, if we agree with the argument to this point with you, we don't have to reach this question, do we?",
       "time": "00:16:45.47"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If we agree with what you have said up to date, supporting the constitutionality of the statute as not violative of the right to travel, then we don't have to reach this alternative?",
       "time": "00:16:55.76"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But you don't have to rely on it if we agree with your initial argument.",
       "time": "00:17:13.57"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because then you're just... need a rational basis.",
       "time": "00:17:17.81"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, again, this is a criminal statute we're dealing with here. And the law that you're discussing and that was discussed by the court of appeals is not a criminal statute, is it? It's a statute to enforce the duty of support by making the parents supporters of the child?",
       "time": "00:20:39.10"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are you interested in support for the child or putting him in jail?",
       "time": "00:21:25.05"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought that was the whole purpose.",
       "time": "00:21:36.62"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I understand you that if somebody goes to another state and sends the money back, would you still bring him back?",
       "time": "00:21:47.80"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If a man is giving $25 a month support and he goes to Alabama and he sends back $25 a month, you still would make him come back and go to jail?",
       "time": "00:21:55.59"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's right. He's not guilty of this offense.",
       "time": "00:22:10.60"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, I'm telling you, he says he has abandoned the child.",
       "time": "00:22:15.15"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, that's what I thought.",
       "time": "00:22:19.90"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He violated a support order and he went away and he changed his mind and sent the money back but he didn't come back. Would you still want him?",
       "time": "00:22:31.79"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He needs to be taught a lesson?",
       "time": "00:22:47.04"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It's sometimes called a pound of flesh.",
       "time": "00:22:50.69"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don't ever catch them.",
       "time": "00:23:04.75"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, Ms. Cosgrove, this statute says that the felony shall be reducible to a misdemeanor. How, under Georgia practice, is it reduced?",
       "time": "00:23:53.96"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The prosecutor can't do it? Prosecutor can't do it?",
       "time": "00:24:15.53"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Shall be reducible to a misdemeanor. And that's in the discretion of the jury or the judge?",
       "time": "00:24:29.12"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Has to do it.",
       "time": "00:24:40.66"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Bonner.",
       "time": "00:25:14.02"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I think the question before the Court, before you get to that, is, what does the 5th Circuit's opinion mean? Do you understand why they cited Morissette?",
       "time": "00:26:35.60"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "By all means.",
       "time": "00:27:00.38"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What's the matter with that?",
       "time": "00:27:57.49"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but certainly someone who is subject to not leaving the state under conditions of bail can't exercise his right to travel to visit his sick mother in Alabama.",
       "time": "00:28:05.24"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "There are all sorts of restrictions on right to travel.",
       "time": "00:28:29.69"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He could migrate. Well, I know, I know, but in this case, the claim is that he abandoned the child and then left the state.",
       "time": "00:29:00.66"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's what we're talking about, whether that's unconstitutional, to make the abandonment a felony if he's left the state.",
       "time": "00:29:08.93"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, do you think it would be... I suppose you would say it would be just as unconstitutional if they made it a misdemeanor to abandon the child and another misdemeanor to leave the state after having abandoned the child?",
       "time": "00:29:34.93"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why?",
       "time": "00:29:47.39"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It would certainly bear on the right to travel, wouldn't it? If you left the state you've committed another misdemeanor.",
       "time": "00:29:48.79"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why would you have to have an intent element?",
       "time": "00:30:07.70"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The statute says, if you abandon the child, you have committed a misdemeanor. Then it says, and if you leave the state after having abandoned the child, you've committed another misdemeanor. Period.",
       "time": "00:30:14.74"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but you would make the same argument if there were two misdemeanors.",
       "time": "00:30:32.93"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes?",
       "time": "00:30:48.51"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But a valid one.",
       "time": "00:30:53.56"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you insist that there be an intent requirement?",
       "time": "00:30:58.23"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let's alter that a little bit. Instead of what you've suggested, that if he flees the state for the purpose of avoiding prosecution, the penalty will be doubled?",
       "time": "00:31:44.61"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How does this affect his right to travel? He could go to Russia.",
       "time": "00:32:14.05"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But if he took care of those children. Isn't that right?",
       "time": "00:32:20.20"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And he wouldn't violate any statute of Georgia?",
       "time": "00:32:25.34"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So how does this case involve the right to travel?",
       "time": "00:32:28.28"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Come on. There's no connection.",
       "time": "00:32:39.17"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But it doesn't affect it. As a matter of fact, this man traveled twice.",
       "time": "00:32:47.44"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, he didn't... the first one didn't even bother him.",
       "time": "00:32:51.79"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Didn't he travel twice?",
       "time": "00:32:55.28"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do I assume that he traveled twice?",
       "time": "00:32:58.10"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, he was a traveling man.",
       "time": "00:33:04.47"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It doesn't involve my right to travel because I haven't abandoned any children.",
       "time": "00:33:18.91"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But I'm not.",
       "time": "00:33:27.10"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is because he's poor?",
       "time": "00:33:46.14"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you think a poor man would be traveling twice?",
       "time": "00:33:49.78"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, he's poor.",
       "time": "00:33:53.61"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did he borrow the money or something?",
       "time": "00:33:55.33"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could he have used that money he used to travel to pay for his children?",
       "time": "00:33:58.62"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, if my opinion said what you think it says, why in the world do you think I'm asking these questions?",
       "time": "00:34:28.15"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Bonner, can I ask you?",
       "time": "00:34:37.64"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not sure I understand your position on one thing. Assume this statute said, if a person abandons a child, and thereafter, for the purpose of avoiding prosecution, leaves the state, it would be a felony; otherwise, a misdemeanor. Would you say that was constitutional?",
       "time": "00:34:39.64"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, your whole argument turns on the absence of intent?",
       "time": "00:34:56.60"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it's promiscuous in the sense that it applies when there's no intent.",
       "time": "00:35:10.83"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It would be just as though a state should make it criminal offense to travel?",
       "time": "00:35:19.89"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, if a state made it a criminal offense for anybody to leave Georgia, that would be an extreme example of what you find invalid about this case?",
       "time": "00:35:24.99"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's correct.",
       "time": "00:35:36.71"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Except that it would be after having committed an offense?",
       "time": "00:35:38.06"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But the reason this is a felony, not a misdemeanor, is because your client left the State of Georgia.",
       "time": "00:35:43.12"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's all he did. After having committed an offense.",
       "time": "00:35:52.54"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "After having committed the first element of a two element offense? But the reason it's a felony, not a misdemeanor, is because he left the State of Georgia. Had he not left the State of Georgia, it would be a misdemeanor.",
       "time": "00:35:58.91"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I thought you had previously conceded that if he'd committed any crime and then left the state to avoid prosecution, they could double the penalty?",
       "time": "00:36:15.09"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Not the precise statute, but you tell me what's the distinction?",
       "time": "00:36:27.61"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "To avoid prosecution.",
       "time": "00:36:44.12"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if a statute said that it shall be a crime to escape from prison; shall be a misdemeanor, say, to escape from prison? And if after escaping, if, for any reason, you leave the state, even if not for the purpose of avoiding prosecution, that shall be a felony. Would that be constitutional?",
       "time": "00:36:57.28"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How's it different?",
       "time": "00:37:15.31"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes, but the reason they may not have been prosecuted is that they left the state and couldn't be reached.",
       "time": "00:37:45.60"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think Georgia could enact a \"blue sky\" law making it a criminal offense to misrepresent something in a prospectus about a security and completely omit any requirement that the misrepresentation be intentional?",
       "time": "00:37:57.99"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, there are an awful lot of crimes that have emerged in the past 50 years that don't require any intent at all.",
       "time": "00:38:36.95"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You'd have no case at all, Mr. Bonner, would you, if people who abandon their children and didn't leave the state were also guilty of felonies?",
       "time": "00:39:07.57"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You'd have no case at all?",
       "time": "00:39:18.89"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So your case depends upon the fact that other people are treated more leniently?",
       "time": "00:39:22.26"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you suppose it would be constitutional for Georgia to pass a statute that said, if a parent abandons a child, that parent may not leave the state?",
       "time": "00:39:45.12"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What they've done here is something less extreme. They've said, if you leave you get a more severe penalty. Or if a parent abandons a child, he may not leave the state. If he violates this restriction he shall be guilty of a felony.",
       "time": "00:40:05.95"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, he's not charged. One who abandons his child... and I guess there's an intent element in the abandonment offense itself... may not thereafter leave the State of Georgia.",
       "time": "00:40:35.21"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Georgia couldn't do that?",
       "time": "00:40:45.25"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's not an equal protection problem, that's just a flat violation of the right to travel, to impose that restriction on a person who is guilty of a misdemeanor. But you say he could do it if he escapes from prison. You'd say, well, you'd say, he can't leave the state.",
       "time": "00:40:46.71"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, by hypothesis, here, one who abandons a child knows he's abandoned the child.",
       "time": "00:41:03.29"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, he's not guilty unless he willfully and voluntarily abandons the child.",
       "time": "00:41:11.40"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Those who willfully abandon their children.",
       "time": "00:41:20.44"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Same group in this case.",
       "time": "00:41:23.44"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "This is true of a person under indictment who flees the state. He carries the presumption of innocence right with him across the state border.",
       "time": "00:41:31.29"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Why are they more reasonable or less reasonable than with the misdemeanor that Justice Stevens postulated to you?",
       "time": "00:41:41.75"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you question at all the authority state to criminalize the failure to support a child?",
       "time": "00:42:44.82"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even though it's criminalizing not paying a debt, in a sense? In order to--",
       "time": "00:42:53.11"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Yes, I know, but no part of your case questions at all the authority of the state to criminalize?",
       "time": "00:43:12.24"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You agree that the jury could have made it a misdemeanor?",
       "time": "00:43:27.00"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Oh, I see, you agree to that? They could have done that?",
       "time": "00:43:32.91"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But they could have done that in your case?",
       "time": "00:43:39.99"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what about the initial interest of the state in keeping the fellow within reach so that they can collect child support? Why isn't that a compelling interest in itself?",
       "time": "00:46:33.99"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the right to travel--",
       "time": "00:46:52.20"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--All right, accepting for the moment the fact that it burdens the right to travel, then there must be a compelling interest to justify it, and what's wrong with keeping him around so that support may be collected?",
       "time": "00:46:55.17"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know. Why isn't that a compelling interest?",
       "time": "00:47:13.17"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Although Georgia, surely Georgia could not make it a criminal offense for any Georgia parent to leave the state?",
       "time": "00:47:45.52"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "On the other hand--",
       "time": "00:48:06.68"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Are you suggesting the state couldn't adopt a felony statute that they couldn't leave the state if they left dependent minor children behind them?",
       "time": "00:48:13.30"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, what's the statute except that? That's what this statute is, isn't it?",
       "time": "00:48:24.50"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes, but you say they can't--",
       "time": "00:48:32.42"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--That's your reason for saying it's bad?",
       "time": "00:48:34.70"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Bonner, do I understand your argument really doesn't rest on the fact that it's an abandonment case? Say it was a case involving it's a misdemeanor to shoot wildlife, shoot a bird or a deer or something like that, but if one does that and thereafter leaves the state it's a felony. You'd make the same argument with that kind of statute?",
       "time": "00:49:00.76"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Same thing? Yes.",
       "time": "00:49:18.03"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further?",
       "time": "00:49:24.61"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:49:28.70"
     }

@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2000/99-1185/20001031a_99-1185.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "MAUREEN A. HART",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT C. BORUCHOWITZ",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 99-1185, Mark Seling v. Andre Brigham Young. Ms. Hart.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Hart, I suppose you could have a situation where on habeas some prisoner, some person being held under a statutory scheme of this type could come in and say, on Federal habeas, I'm being held under circumstances that violate the Constitution, and make an individual challenge, isn't that so?",
       "time": "00:03:03.14"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right. Is that what this person is doing, or is there something different?",
       "time": "00:03:48.20"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, there is an ongoing 1983 class action, is there, covering this very facility?",
       "time": "00:04:05.96"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And under that action, presumably this respondent would be affected by the outcome of that?",
       "time": "00:04:14.82"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that a constitutional claim? I mean, what constitutional claim does he have other than the double jeopardy claim?",
       "time": "00:04:40.95"
     },
@@ -123,25 +127,25 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Ex post facto.",
       "time": "00:04:49.18"
     },
     {
       "turn": 14,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or ex post facto.",
       "time": "00:04:50.68"
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Both.",
       "time": "00:04:51.71"
     },
     {
       "turn": 16,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Both.",
       "time": "00:04:52.19"
     },
@@ -153,7 +157,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, no, but I mean, assuming the statute is not punitive, does he have any other constitutional relief for the fact that he is not getting the treatment which the statute provides he's supposed to be given? Is that a constitutional claim, or just a State law claim?",
       "time": "00:05:00.41"
     },
@@ -165,7 +169,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Correct.",
       "time": "00:05:21.19"
     },
@@ -177,7 +181,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right, but what other Federal constitutional claim would he have?",
       "time": "00:05:24.27"
     },
@@ -189,7 +193,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Cruel and unusual punishment? He's not--",
       "time": "00:05:37.75"
     },
@@ -201,7 +205,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--And is that the basis for the... is it the Turay suit? There is a pending 1983 case, so we don't have to speculate, at least, about the basis of that lawsuit. What is the constitutional right that's invoked in that litigation?",
       "time": "00:06:02.75"
     },
@@ -213,7 +217,7 @@
     },
     {
       "turn": 28,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:06:25.24"
     },
@@ -225,7 +229,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, in effect the claim is that if you commit me for treatment, you've got to treat me. I've got a substantive due process right to that effect--",
       "time": "00:06:39.13"
     },
@@ -237,7 +241,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--if I am treatable. But that's the kernel of it, isn't it?",
       "time": "00:06:46.43"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 34,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Youngberg certainly didn't go that far.",
       "time": "00:06:49.68"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 36,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But turning to this case, when at the outset a determination is made for an order for a civil commitment, is there no basis for the court to determine and to look at how the disease is defined, how the treatment is defined, what treatment facilities are available in order to determine whether or not it's punitive?",
       "time": "00:07:05.16"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 38,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Isn't there some initial assessment that must be made?",
       "time": "00:07:30.31"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 40,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why is that? I mean, suppose you have a compulsive ax murderer, and you know, he's served his time, but he's still a compulsive ax murderer. You could not commit him simply because he's dangerous and then not provide treatment? Or what about quarantine of someone who has a communicable disease? In order to quarantine, do you have to provide treatment?",
       "time": "00:08:16.01"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does this statute make that representation, that it's confining him for treatment, or does it simply talk about the abnormality, mental abnormality?",
       "time": "00:09:08.15"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Suppose that he makes out his claim. Suppose he proves what he's trying to prove. Suppose he proves that there's virtually no treatment for people who could benefit by it, that it's virtually impossible to be released to half way houses even though certain medical people would say he was safe enough for that. He proves that it's being run by prison officials for the most part, and not by mental health officials, and that really there isn't much segregation from the general prison population, and they don't seem to have the status of ordinary mentally ill people confined for civil purposes. Assume he proves that, would that then violate the statute?",
       "time": "00:09:29.00"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So it would violate the statute. So you've read his claims, and you're saying that if he proves what he says he's going to prove, then the conditions violate Washington's statute.",
       "time": "00:10:18.20"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, but I'd like a yes or no answer to my question.",
       "time": "00:10:35.82"
     },
@@ -345,13 +349,13 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Thank you.",
       "time": "00:10:41.51"
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That wouldn't afford a basis for any Federal relief, I take it, if it's simply a claim that the confinement violates the Washington statute.",
       "time": "00:10:42.30"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, if you can find for us a civil purpose that clearly cannot be fulfilled, is that one index at least, or one indicator of an intent to punish?",
       "time": "00:11:17.46"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you read our precedents as saying our inquiry must be simply confined to a facial inquiry, and not to the reality of what the treatment is or is going to be?",
       "time": "00:11:48.86"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May I put the question just a little differently? Assume our first case holds that a statute is civil, a facial attack on the statute as being criminal authorization for double jeopardy and ex post facto violation, and we reject that by saying the statute on its face is a civil statute. Does that mean that every application of that statute that might subsequently be challenged would have to come up with the same answer? In other words, is it conceivable that a statute which is valid in response to a facial attack could nevertheless be invalid as applied in particular cases?",
       "time": "00:12:25.80"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Wasn't there language... perhaps it was in Hendrix... that the first question is, does the legislature mean to enact a civil or criminal provision, and then the second question is, is the scheme so punitive in purpose or effect, and I emphasize or effect, as to transform the civil remedy into criminal penalty? What does that mean, yes, the legislature wants a civil statute, not a criminal statute, but it is so punitive in effect as to be transformed from civil to criminal?",
       "time": "00:13:08.10"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but if the statute has been administered for some period of time before the adjudication, I take it that the experience under that administration may be considered in what we are calling a facial inquiry.",
       "time": "00:14:19.46"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, do you have to disagree entirely? I suppose you could take into account the administration in determining what the meaning of ambiguous provisions of the statute are. That wouldn't be harmful, I suppose. But you wouldn't say you could take into account the implementation to such a degree that you would allow the implementation to contradict the very terms of the statute, which is what you're talking about here.",
       "time": "00:14:34.80"
     },
@@ -435,13 +439,13 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "If that's-- --You win if... no, please. Well, all right.",
       "time": "00:15:06.38"
     },
     {
       "turn": 66,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If that's so, I take it... and this is just an elaboration of what I asked you before. I don't know if you're familiar enough with Hendrix to refer to it by page number, but at the end, on page 368, the Court sums up the factors in the statute that make it civil, and they include things, to bring it to your mind, the State's disavowed any punitive intent, it's limited its confinement to a small segment, and particularly... there are procedural safeguards, they're segregated, they have the same status as the other civilly committed, recommended treatment is possible, et cetera. Does that call to mind the paragraph that you're probably familiar with?",
       "time": "00:15:10.02"
     },
@@ -453,13 +457,13 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay.",
       "time": "00:15:48.86"
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Am I right in saying from your prior answer that you think your statute meets all those?",
       "time": "00:15:49.36"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And that insofar as the facts in a particular case don't meet them, they violate the statute.",
       "time": "00:15:55.74"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:16:33.08"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, but it's important they be interpreted the same way. They... the majority interpreted that statute in Kansas to require certain things, like adequate treatment, and I take it... at least that's how I read it. That's... the words are there, and the... so... it's important to me that you're saying that if those are not being given in fact, then the remedy for the prisoner is to sue under the State law and say, this is what the State law means, and I'm not getting it.",
       "time": "00:16:44.12"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Insofar as this case is concerned, I take it, you leave open the possibility... you certainly don't concede it, but you leave open the possibility that there could be a Federal substantive due process claim on the theory that we threw out a moment ago, you and I were talking about a moment ago, which I guess has been asserted, and that is, if the State's purpose in commitment is treatment, and I have a treatable condition and they don't treat me, that is a violation of due process. I'm not asking you to concede that that theory should prevail, but that is at least a possible assertion that could be made in a Federal court.",
       "time": "00:17:20.55"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Right, and I take it that the... that for you to win this case the proposition that your case really turns on is not even a broad proposition, or a broad set of rules about how we determine whether it's criminal or civil, but rather, your case depends on the proposition that it doesn't vary from individual to individual. It is either civil, or it is criminal, and that the details of individual treatment do not affect that determination.",
       "time": "00:18:21.67"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And perhaps it's even narrower than has been suggested judging from your question presented. What we're actually talking about is, does the... was the Ninth Circuit wrong in saying that this statute as presented to it could violate either the Ex Post Facto Clause or the Double Jeopardy Clause?",
       "time": "00:18:53.85"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How does one respond to the, what I understood to be the complaint in this case, which is, I am civilly committed, and yet I'm housed in a prison and I'm treated worse than I was treated when I was serving a sentence of conviction? That's essentially, as I take it, his complaint. There's no change in my circumstances from the time I was incarcerated as punishment. If anything, I'm being treated worse now than I was. How does one answer that claim?",
       "time": "00:19:20.12"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "My understanding is that he did have a proceeding in the State court before he came to Federal court, is that correct?",
       "time": "00:20:45.65"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It was only that, so at that stage he wasn't complaining about the treatment he was in fact getting. He was complaining about the right to continue confinement, is that so?",
       "time": "00:20:56.75"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I asked if in his States court litigation he was challenging, as he is now, that he is being kept in confinement, that he's being treated no better and, in fact, worse than he was treated when he was in prison.",
       "time": "00:21:11.58"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So there is a final adjudication after the remand from the Washington supreme court.",
       "time": "00:22:09.63"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You described the first instance decision in rather careful words. You say that they declined to find that. Did they reject such a claim? Did they say, even if he would establish that he's being treated no better and perhaps worse, he still has no claim. What was the reason he was--",
       "time": "00:22:51.64"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--And the point was that if they were punitive they would have violated the Washington statute. Was that the point of the proceeding?",
       "time": "00:23:35.70"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As violating what?",
       "time": "00:23:55.06"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What was the mental disorder, or the personality disorder, or the mental abnormality that was established here?",
       "time": "00:24:04.81"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is paraphilia, if that's the word?",
       "time": "00:24:30.40"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does a person have that disorder if he has or she has volitional control?",
       "time": "00:24:57.81"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "They've talked about this in the brief, and I'm never quite sure of the full significance of this part of the inquiry.",
       "time": "00:25:05.27"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "We talk about this. Do the psychiatrists talk about this in a way that has meaning to them? Do they say, this person has or has not volitional control? Is that a standard psychiatric frame of evaluation?",
       "time": "00:26:01.09"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you interpret the findings here that he lacked volitional control?",
       "time": "00:26:24.19"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I take it what... he was originally convicted of rape?",
       "time": "00:26:47.26"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And I presume under Washington law some sort of mens rea is required for the offense of rape.",
       "time": "00:26:59.45"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well I mean, would Washington law at least recognize a defense that he was unable to control his actions? Or would it be the McNaughton test?",
       "time": "00:27:18.04"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Ms. Hart. Mr. Boruchowitz. Am I pronouncing your name correctly?",
       "time": "00:28:15.54"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And is it conceded by all sides that that showing is, under Washington law, sufficient to commit him civilly?",
       "time": "00:29:18.56"
     },
@@ -771,13 +775,13 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And then what happened--",
       "time": "00:30:37.60"
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--The Campbell case was in State court?",
       "time": "00:30:39.32"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And what was the reason for overturning the trial judge's disposition in Campbell?",
       "time": "00:30:44.47"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Obviously, the word isn't applied. That's the wrong concept, I would have thought, that the conditions in an individual case show what the statute may or may not permit.",
       "time": "00:31:09.85"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And if they permit no treatment, then, of course, everybody I think concedes... I don't know if everybody does, but I'd say then it's unconstitutional. But the difficulty here right now, I think, is the majority's opinion in Hendrix is the law. The majority listed certain features of this case... Hendrix... which made it civil and not criminal.",
       "time": "00:31:21.68"
     },
@@ -825,7 +829,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, you've heard the Attorney General say, and I guess what's important is that your client have some remedy, that he does have a remedy. That's what's important, and the remedy is that those conditions that made the Hendrix statute civil do not pertain to your client, then the law of Washington is violated, and therefore your client has an excellent remedy. Either the Hendrix majority conditions apply, or they do not. If they do apply, you can't complain... on my... I was in dissent. But if they don't apply... if they don't apply, well then, you have a perfect remedy, so what's the problem with that, from the point of view of the law?",
       "time": "00:31:44.80"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was Yerkwo either an ex post facto or a double jeopardy case?",
       "time": "00:34:16.08"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I may in substance agree with you, but is that why we have this case? I mean, I don't... I didn't think we had this case to determine whether the statute was criminal or civil. I thought we had this case to determine whether, given a classification as civil, it may then later be treated as having a criminal character with respect to its application to particular individuals, and isn't that latter issue the one that's before us?",
       "time": "00:34:45.02"
     },
@@ -861,7 +865,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But the assumption, as I understand it, and I may be wrong on this, but I thought the assumption of the Ninth Circuit's position was that we start with the proposition that it is a civil statute.",
       "time": "00:35:29.73"
     },
@@ -873,7 +877,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But that it's application may be rendered criminal in particular cases.",
       "time": "00:35:41.47"
     },
@@ -885,7 +889,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. And so the issue before us is whether the Ninth Circuit, whether that option is, in fact, available, and one of the things that we want to know, and this goes back to Justice Breyer's question is, let's assume it's not available. Let's assume that criminality of the statute's character is not a shifting and springing quality. Does... on the assumption that it's a civil statute, does your client have a remedy under State law, and I would add to it, does he have a remedy, even on the assumption of civil character, under Federal law?",
       "time": "00:35:46.46"
     },
@@ -897,7 +901,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And his claim would be--",
       "time": "00:36:31.17"
     },
@@ -909,7 +913,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Substantive due process?",
       "time": "00:36:36.12"
     },
@@ -921,7 +925,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. The claim that I was talking about with counsel for the State.",
       "time": "00:36:37.18"
     },
@@ -933,7 +937,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. So he's got that, and he has a State law claim that he's entitled to treatment which he's not getting.",
       "time": "00:36:42.35"
     },
@@ -945,7 +949,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it may be all of those things, but wasn't the... I'm not sure they're before us.",
       "time": "00:37:14.49"
     },
@@ -957,7 +961,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if you're right, then I take it every member of that class that's now involved in a 1983 case would have an equally valid habeas claim.",
       "time": "00:37:37.34"
     },
@@ -969,7 +973,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, all of the named plaintiffs.",
       "time": "00:38:02.38"
     },
@@ -981,7 +985,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's why I'm confused on the procedure. I would think the answer to Justice Souter's question, I mean, at least as I would see it, would be you have a civil statute, but this person is suffering criminal treatment.",
       "time": "00:38:29.61"
     },
@@ -993,7 +997,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. I'd say if that's so, of course he must have a remedy.",
       "time": "00:38:42.30"
     },
@@ -1005,7 +1009,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They're saying he does have. He has two remedies. You don't need to create a new category. The first remedy would be, under State law... it violates the statute, and then if you lose on that one, there would be another, which would say that the Federal Constitution doesn't permit a person who is civilly committed to be there without any treatment, where he can sustain the treatment, et cetera, et cetera, and that would be the Federal constitutional claim. You might win, you might lose, but it seems to me you have those already in the lower courts, and we don't need a remand on this case to give you those. That's where I'm confused. I mean, they're already pending, those two claims. One's in the Washington system, the other's in the Federal system, and so what's this thing now going to help on?",
       "time": "00:38:46.36"
     },
@@ -1017,7 +1021,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But may I just ask this question. If he's correct that as applied to him it's punitive, then does that not mean that he's been subjected to double jeopardy and is entitled to his release?",
       "time": "00:40:26.58"
     },
@@ -1029,7 +1033,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's your position?",
       "time": "00:40:38.01"
     },
@@ -1041,7 +1045,7 @@
     },
     {
       "turn": 166,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you add that you can make this showing at the very outset of the order committing him to the civil treatment?",
       "time": "00:40:52.04"
     },
@@ -1053,7 +1057,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But Mr. Boruchowitz, doesn't... again, doesn't your argument go to a different issue from the one that's before us? You're arguing, I think, that your client should have, or should have had an opportunity to show that this is not like the Hendrix statute, and that this one is, in fact, a punitive statute, and therefore all the punitive protections apply? But that's not the issue that we've got before us, is it?",
       "time": "00:41:28.72"
     },
@@ -1065,7 +1069,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I thought the issue... and we can make it either or. I thought the issue we had before us was a determination by the State court that the statute here was like the Hendrix statute and therefore we had a civil statute, and the question was, may the application of that statute nonetheless be treated as criminal in particular cases, even though the statute is classified as a general matter as civil? I thought we had the latter issue, not the issue whether he should be able to prove, or could prove that it was in constitutional terms unlike Hendrix in a criminal statute.",
       "time": "00:41:57.53"
     },
@@ -1077,7 +1081,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The question... let me do it again. The question is, is the issue before us whether this is a criminal statute, or is the issue before us whether a civil statute may nonetheless give rise to claims of violating criminal constitutional protections if the civil statute is not followed by its own terms? Which question?",
       "time": "00:42:41.26"
     },
@@ -1089,7 +1093,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. That's what I thought.",
       "time": "00:43:08.63"
     },
@@ -1101,7 +1105,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How would that evidentiary hearing differ from the one that's already been had in the Federal court in the Turay case?",
       "time": "00:43:30.96"
     },
@@ -1113,7 +1117,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I thought your position was that you can challenge this statute at the very outset of the order committing him based on the fact that, as demonstrated by the way in which the treatment facility is operated, it is... it is not for a civil purpose, and that the classification of the disease is too imprecise--",
       "time": "00:44:08.95"
     },
@@ -1125,7 +1129,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--to admit of psychiatric treatment.",
       "time": "00:44:34.23"
     },
@@ -1137,7 +1141,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And you simply want to use evidence of existing conditions to challenge the operation of the statute at the time that he's subjected to it.",
       "time": "00:44:37.46"
     },
@@ -1149,7 +1153,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that seems somewhat different than the answer you gave to Justice Souter.",
       "time": "00:44:48.34"
     },
@@ -1161,7 +1165,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But that sounds a lot like my dissent, which the lower courts, as much as I'd like them to follow my dissents rather than the majority, I'm afraid, quite correctly, they follow the majority opinions, not the dissents and that's correct.",
       "time": "00:45:18.28"
     },
@@ -1173,7 +1177,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So how do we reconcile that with... I mean, it's the majority--",
       "time": "00:45:31.17"
     },
@@ -1185,7 +1189,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, it doesn't necessarily mean effect that way. I mean, that's the crucial language, purpose and effect. Does it mean, the effect as evident from the face of the statute, which is what your opponent says, or does it mean the effect as it is played out, even if that contradicts the face of the statute? That's the crucial issue.",
       "time": "00:46:41.90"
     },
@@ -1197,7 +1201,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What that language, effect, means.",
       "time": "00:47:04.18"
     },
@@ -1209,7 +1213,7 @@
     },
     {
       "turn": 194,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Hudson was an opinion dealing precisely with the constitutional claim that you're raising.",
       "time": "00:47:42.19"
     },
@@ -1221,7 +1225,7 @@
     },
     {
       "turn": 196,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "With the Double Jeopardy Clause.",
       "time": "00:47:49.26"
     },
@@ -1233,7 +1237,7 @@
     },
     {
       "turn": 198,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, does the Double Jeopardy Clause make any such distinction?",
       "time": "00:48:02.53"
     },
@@ -1245,7 +1249,7 @@
     },
     {
       "turn": 200,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Sorry. Go ahead.",
       "time": "00:48:17.68"
     },
@@ -1257,7 +1261,7 @@
     },
     {
       "turn": 202,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In Gardner the claim was made that the rule in general had an ex post facto effect on gain time, and I think our Court said you... it's not enough to show it might have affected some people. You've got to show it affected you.",
       "time": "00:48:35.45"
     },
@@ -1269,7 +1273,7 @@
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Which is quite different, I think, from what you're saying.",
       "time": "00:48:52.04"
     },
@@ -1281,7 +1285,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is it going to the same judge who's handling the other Federal case?",
       "time": "00:49:29.02"
     },
@@ -1293,7 +1297,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It just seems to me this is going to be exactly the same issue. If we just let it alone, it would have gone back to the judge. The judge would have either said, you're right, the conditions are terrible, you're not getting any treatment, in which case you would have had three separate grounds for getting the relief, but you would have gotten it, or you're wrong, in which case you'd be out, and I don't really... now, see, what we're deciding, we're deciding whether this judge should do it or that judge should do it, and the standards seem to me to be roughly the same. I just don't... and then the consequence is the same.",
       "time": "00:49:36.40"
     },
@@ -1305,7 +1309,7 @@
     },
     {
       "turn": 210,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It's not your fault--",
       "time": "00:50:06.92"
     },
@@ -1317,13 +1321,13 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--that you're before this Court.",
       "time": "00:50:08.69"
     },
     {
       "turn": 213,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Laughter]",
       "time": "00:50:09.50"
     },
@@ -1335,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Quite right.",
       "time": "00:50:14.32"
     },
@@ -1347,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, if the... what constitutional question was involved in Shaw?",
       "time": "00:52:58.03"
     },
@@ -1359,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, and I think that doesn't help you very much when you're trying to transpose that holding over into double jeopardy or ex post facto, which are much more precise.",
       "time": "00:53:04.17"
     },
@@ -1371,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask on that point, are you contending... is it your view that you have to prove that everyone subject to this statute is being punished, or just that your client is being punished?",
       "time": "00:55:16.21"
     },
@@ -1383,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what if there are 100 people in prison, 99 of them are civil, and your client is punished? That would... he would get relief, then?",
       "time": "00:55:26.05"
     },
@@ -1395,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but there are remedies for those things. I mean, those are independent constitutional violations.",
       "time": "00:55:43.75"
     },
@@ -1407,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:55:49.54"
     },
@@ -1419,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but it would seem to me your case would be very strong if you could say everybody who's subject to this statute is being punished, but you don't go that far.",
       "time": "00:55:55.22"
     },
@@ -1431,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Part of your allegation could seem to establish that, if this particular facility is... has no psychiatrist and is in a correction facility, everybody incarcerated there must be punished, I would think.",
       "time": "00:56:13.91"
     },
@@ -1443,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would it be open on remand, under your understanding of the mandate, for you to try to prove what I've just suggested?",
       "time": "00:56:42.72"
     },
@@ -1455,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Boruchowitz. Ms. Hart, you have 3 minutes remaining.",
       "time": "00:58:20.84"
     },
@@ -1467,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Could you answer the question I... supposing he proves that everybody who's been committed pursuant to this statute has been punished?",
       "time": "01:00:06.85"
     },
@@ -1479,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But on your view the reason he could not, on Justice Stevens' hypothetical, argue that the court had made a mistake in finding the statute across the board to be a civil statute is that the character of the statute on your view must be determined on the text of the statute, on the basis of the statutory text alone, is that it? You could find that the text--",
       "time": "01:00:55.76"
     },
@@ -1491,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Hart. The case is submitted.",
       "time": "01:01:20.96"
     }

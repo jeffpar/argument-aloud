@@ -3,63 +3,63 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1987/86-1108/19871103a_86-1108.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "SUSAN R. HARRITT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL J. LARKIN, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "HENRY HINTON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "THE MARSHAL",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Harritt, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Harritt, does the record indicate whether either the Court or the probation officer told the Respondent the purpose of the interview?",
       "time": "00:02:34.21"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, does the record indicate whether the public defender had notice of the time that interview would be given?",
       "time": "00:03:21.61"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Ms. Harritt, do we know where Respondent is?",
       "time": "00:03:59.15"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This is why we don't have any brief on his behalf, is that it?",
       "time": "00:04:04.37"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I know, but there's no brief of his, is there?",
       "time": "00:04:12.46"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "He had fully served his prison term, had he not?",
       "time": "00:04:16.04"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And he was released?",
       "time": "00:04:21.05"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And now he's disappeared.",
       "time": "00:04:22.50"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And he could be dead, couldn't he? What kind of a case do we have here?",
       "time": "00:04:25.29"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "A dead case.",
       "time": "00:04:31.69"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How can you get him back here if he served, fully served his prison sentence? Has he?",
       "time": "00:04:57.05"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "After he's fully served the sentence that was initially imposed, is that right?",
       "time": "00:05:11.50"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And now they can bring him back for resentencing?",
       "time": "00:05:16.13"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But he's the one that has to initiate taking advantage of that option, doesn't he?",
       "time": "00:05:36.30"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, how are you going to return him? How can you force his return?",
       "time": "00:05:56.34"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If he's outside of the state?",
       "time": "00:06:01.26"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Why is it? He served his term.",
       "time": "00:06:04.80"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but aren't you overlooking something? If he comes back in and says please sentence me again, is it not possible that he could get a longer sentence?",
       "time": "00:06:17.94"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think a lawyer would advise him to come back, saying I realize you've served your sentence, but if you take a shot at getting the whole thing expunged, of course, you might have to spend another year in jail, but what do you want to do? Can you imagine a lawyer asking for that risk, after he's served his sentence, to go back in and take a chance at getting exposed to another sentence?",
       "time": "00:06:27.06"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What benefit can you get out of winning this case, except an opinion that you would like? I understand the rule of law would be something that interests you. But as far as your fight with this Defendant, what are you going to get that you haven't already gotten?",
       "time": "00:07:06.69"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Will you ask for a more severe sentence if he comes back?",
       "time": "00:07:24.40"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you don't, you don't have any interest in the outcome of the case.",
       "time": "00:07:32.25"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't want to have to go about complying with the order, do you?",
       "time": "00:07:35.34"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You're under an order, aren't you?",
       "time": "00:07:39.17"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you don't want to have to comply? They can't comply. Well, I know, but there's the order. There is the order. What are you going to do about it?",
       "time": "00:07:41.56"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Extradite him? You can't extradite him.",
       "time": "00:07:51.53"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is he on parole, by any chance?",
       "time": "00:07:57.33"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He's been released?",
       "time": "00:08:00.79"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I still don't understand. How can you force him back to the state?",
       "time": "00:08:03.66"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If he were. He'd be a wise man to return, wouldn't he?",
       "time": "00:08:10.84"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You would have him committed to an insane asylum.",
       "time": "00:08:14.80"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Does the record show why she couldn't wait?",
       "time": "00:09:16.62"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Wouldn't have taken very long, would it?",
       "time": "00:09:22.32"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, the investigator was on the way, wasn't he?",
       "time": "00:09:26.81"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And you say that is not coercion of any kind?",
       "time": "00:10:03.25"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "How would you feel if you were incarcerated and this was thrown at you? Would you feel that you were a little pushed at all?",
       "time": "00:10:11.34"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, it certainly is a little different than the ordinary day-to-day decisions. He was incarcerated.",
       "time": "00:10:33.17"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Just like you and I living outside?",
       "time": "00:10:47.51"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But the record doesn't tell us whether the Defendant was ever told about the purpose of the interview or whether he could participate in it or not.",
       "time": "00:11:04.66"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does it?",
       "time": "00:11:15.95"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does the record tell us anything about the purpose of the state in refusing to wait or why it put the Defendant to the immediate choice it did?",
       "time": "00:11:18.10"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does the State of Vermont law make it optional with a defendant to participate in a PSI interview?",
       "time": "00:11:35.08"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I ask you... I'm sorry to interrupt your argument on the merits, but is it correct, the Respondent had already served his sentence at the time the case was decided by the Vermont Supreme Court? I noticed their decision was in 1986, which it seems to be about three years after the sentencing date.",
       "time": "00:12:51.83"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "His sentence was eighteen months, wasn't it?",
       "time": "00:13:18.86"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And he was sentenced in 1983, I think.",
       "time": "00:13:22.84"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "January of '84. So, then, by October of '86, he would have served his sentence. Does the Vermont Supreme Court have jurisdiction as a matter of state law to render advisory opinion or do they have the same kind of doctrine we do?",
       "time": "00:13:33.12"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It is.",
       "time": "00:13:46.96"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What was the maximum sentence he could have gotten?",
       "time": "00:15:02.44"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When do you deliver the maximum?",
       "time": "00:15:14.25"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And how many... well, how many were the maximum number of months he could have gotten?",
       "time": "00:15:28.74"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, were arguing about two years.",
       "time": "00:15:37.26"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But he had asked for counsel?",
       "time": "00:16:26.16"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But I thought the Vermont Court found that that was a request for counsel.",
       "time": "00:16:35.10"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "We don't have that question before us here, do we?",
       "time": "00:16:47.44"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I thought we just had to assume that was correct.",
       "time": "00:16:52.06"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Have they responded to that?",
       "time": "00:17:08.52"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I thought we didn't have his brief.",
       "time": "00:17:15.34"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Has the Respondent himself, the now-missing Defendant,--",
       "time": "00:17:22.91"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Ms. Harritt. We will hear now from you, Mr. Larkin.",
       "time": "00:19:04.69"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I am glad to hear you admit it.",
       "time": "00:19:27.31"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So, if he's already there to begin with, the situation is different?",
       "time": "00:20:10.73"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You are going to tell us what the difference is here?",
       "time": "00:20:39.22"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Kind of an unnecessary choice, too, isn't it?",
       "time": "00:22:48.12"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, who has the burden of demonstrating the reason? Maybe she had an appointment to fix her hair or something.",
       "time": "00:22:54.36"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Larkin, would you defend a rule that said that we will have these interviews for a person's presentence report without counsel only and if the defendant wants counsel, he can't have the interview? Would that be a permissible rule? Just as a general state policy. The only way they will have them is without counsel, it's up to the defendant to decide whether to take advantage of it or not.",
       "time": "00:23:58.78"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand.",
       "time": "00:24:26.35"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's, in effect, what happened here because he had asked for a lawyer and she said... you acknowledge it's the equivalent of asking for a lawyer, I think.",
       "time": "00:24:28.42"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that is considered irrelevant as a matter of law?",
       "time": "00:24:38.06"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If there is no constitutional right to a lawyer at an interview of this kind, basically?",
       "time": "00:24:55.05"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You say he would have a constitutional right to have a lawyer present?",
       "time": "00:25:11.41"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes. Right.",
       "time": "00:25:24.90"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You either go ahead without the lawyer or you don't have it. Why isn't that circumventing the right to have a lawyer present?",
       "time": "00:25:47.08"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He did not have the opportunity to have a pre-sentence interview with the lawyer present.",
       "time": "00:26:17.79"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Or at any other time because she said it's either now or never.",
       "time": "00:26:26.14"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's this case. You can either forego the interview or... you can either forego a lawyer or the interview, can't have both.",
       "time": "00:26:41.27"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I thought you said you agreed this was a critical stage of the prosecution?",
       "time": "00:27:13.27"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you're defending the state's right to say we can force you to go through the critical stage of the prosecution. If you want to have the benefit of a critical stage of the prosecution, you must have it without a lawyer present. That's what you're saying. This isn't a required interview.",
       "time": "00:27:25.24"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "To require somebody to do something in the judicial process without a lawyer does not touch the Sixth Amendment?",
       "time": "00:27:58.97"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing it was a trial, he wanted to put on his defense, he says my lawyer isn't here yet, the judge said you either put on your defense by yourself or you can't put on a defense, would that be a fair choice for a critical stage?",
       "time": "00:28:50.88"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's an even more critical stage. That's the point.",
       "time": "00:29:02.27"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The difference there, I take it, is that you would say you have to give the man a trial. You don't have to give him this opportunity. If you give it to him, it's critical, but there's nothing in the law that requires you to give him this allocution.",
       "time": "00:29:07.09"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, the failure or the refusal to go ahead without a lawyer, you say, if it violates anything, doesn't violate the Sixth Amendment but some right to having that interview--",
       "time": "00:29:34.01"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--just as in the trial case just given, if there were any violations, what you would have been deprived of was not your right to a lawyer but your right to the trial.",
       "time": "00:29:42.52"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 170,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is a Fifth Amendment case.",
       "time": "00:29:50.65"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Larkin. We will hear now from you, Mr. Hinton.",
       "time": "00:29:59.67"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Wasn't a correct statement of his options under state law... why didn't the Supreme Court of Vermont go on that ground rather than raising a federal constitutional question?",
       "time": "00:31:09.65"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I hadn't read the Supreme Court of Vermont opinion quite that way.",
       "time": "00:31:57.65"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess the Court below didn't address that at all, did it?",
       "time": "00:32:16.23"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, all he was coerced into doing was attending the pre-sentence interview, right? He wasn't coerced into saying anything that would be against his penal interests, was he? He could have attended the interview and only said nice things about himself, couldn't he?",
       "time": "00:34:30.63"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Was there any coercion to provide any incriminating statements about himself?",
       "time": "00:34:50.70"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that relates to the counsel violation, which is a different one. I mean, I understand that had counsel been present, he might not have answered some questions the way he did answer them. But, still and all, he was not... there was no coercion for him to make any incriminating statements. There was only coercion for him to go to the pre-sentence interview. Isn't that an accurate statement?",
       "time": "00:35:20.21"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Coercive of what? Coercive of his going to the interview?",
       "time": "00:35:54.20"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But he could have gone to the interview and said, you know, just nice good things. Was there any coercion for him to make an incriminating statement or to provide evidence against himself?",
       "time": "00:36:00.51"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 190,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Hinton, as a matter of practice in these Vermont pre-sentence investigations, I take it would you say ordinarily a defendant does attend with counsel?",
       "time": "00:36:48.09"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "From what you know, is it customary for a lawyer to sit there and then the probation officer to ask questions and the lawyer to advise the defendant not to answer on the grounds it might incriminate him?",
       "time": "00:37:17.77"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 194,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It strikes me that whatever the abstract constitutional right of the situation may be, this is not a very good way for a defendant to get a favorable pre-sentence report.",
       "time": "00:37:35.55"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 196,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And this is the equivalent of counsel in the views of the Vermont Supreme Court, an investigator from the defense counsel's office?",
       "time": "00:38:53.67"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 198,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We've never held that, have we?",
       "time": "00:39:54.54"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why do you need a lawyer? It's not sworn testimony. You use hearsay. You use toilet paper written on. You use anything. Am I right?",
       "time": "00:40:40.69"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Don't apply to the probation report. The probation officer goes around and talks to the bartender.",
       "time": "00:40:58.75"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He talks to anybody. He doesn't need a lawyer.",
       "time": "00:41:08.97"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why do you need it with your client?",
       "time": "00:41:28.34"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And can also get himself a low sentence.",
       "time": "00:41:45.13"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, merely incriminating himself isn't enough to make a Fifth Amendment case. You've got to have some compulsion.",
       "time": "00:42:05.79"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And in the usual arrest and interrogation situation, where counsel isn't present, the impression the officers give is that we're going to keep you here till you answer, and that's what triggered the right to have counsel present. But, here, it's just the opposite, if you don't want to stay here, take off.",
       "time": "00:42:13.66"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, he could make his choice, which is worse for him, being quiet or speaking, and that's the kind of choice that people have to make at trial all the time.",
       "time": "00:43:06.08"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it seems to me that's just your Sixth Amendment claim, not the Fifth Amendment claim. That the Fifth Amendment claim, I find hard to see what the coercion is, but I understand what you're arguing about is the... being forced to make the decision without advice of counsel about whether to speak or not, whether to participate or not, and that would be a Sixth Amendment claim, right?",
       "time": "00:43:39.15"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the Vermont Supreme Court, though, went to the Fifth Amendment. Why didn't they just set the sentence aside as violation of Vermont law?",
       "time": "00:44:58.17"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You argued the case in the Vermont court--",
       "time": "00:45:14.61"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--Well, was your office, what is it, the--",
       "time": "00:45:22.64"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--Yes. Was that in at the trial stage?",
       "time": "00:45:27.64"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did it represent him at the time of this interview with the probation officer?",
       "time": "00:45:37.23"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But we don't know whether or not they advised him to act as he did when he submitted--",
       "time": "00:45:45.98"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--Tell me, you were not amicus in the Vermont Supreme Court, were you?",
       "time": "00:46:20.02"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And you can't find him because he served his sentence and he beat it?",
       "time": "00:46:36.65"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Would it be good sense for him to come back to Vermont after he served his sentence?",
       "time": "00:46:47.34"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If he calls you up and says can I come back, I take it you would tell him, if you can make a living somewhere else, please do?",
       "time": "00:47:06.72"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then, why did you press his case in the Supreme Court of Vermont once he had served his sentence? I gather he had served his sentence before that case was argued.",
       "time": "00:47:20.81"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If he comes back and commits another crime, he's going to get another sentence, right?",
       "time": "00:47:56.91"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't think there's any possibility of him coming back.",
       "time": "00:48:09.04"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If he does come back, though, the state is, on this decision of the Vermont Supreme Court, bound to give him another sentencing hearing?",
       "time": "00:48:47.43"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, it's entirely up to him. It's conceivable that he could commit another crime in Vermont, be prosecuted under a repeat offender law, at which point it would be very much in his interests to get his first conviction expunged.",
       "time": "00:48:59.17"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Hinton, let me ask you a variation of these questions. Supposing he were to call you up and say I've got lots of money now, so I don't have to have public counsel, how much would it be worth to me to hire a lawyer to defend this judgment, what would you tell him? Nickel, dime, quarter. How much interest does he have in the outcome of this case?",
       "time": "00:49:25.62"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He doesn't have any, does he? There's no way in the world he'd go back in and say I want to get re-sentenced, is there?",
       "time": "00:49:48.82"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He certainly would not pay a lawyer a usual and customary rate to argue this case for him, would he?",
       "time": "00:50:04.60"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 254,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Again, as matter of practice, is it common in a situation like this for a defendant not to participate in the interview with the probation officer?",
       "time": "00:52:16.00"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 256,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And that's the advice that the public defender of Chittenden County would give to somebody like that, I take it? So, it's a fairly recognized practice in Vermont criminal jurisprudence that a certain number of defendants are not going to participate in these interviews. Is that what you're saying?",
       "time": "00:52:44.92"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think that there's still... do you think we have jurisdiction to decide this case? Do you think there's still a case for controversy between you and the state? Is the case moot?",
       "time": "00:53:09.12"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "As a technical matter, is this moot or not?",
       "time": "00:53:29.11"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If we just dismiss it as moot, then the order on the state still stands. Re-sentence him. It may be that they still have to contend with that order.",
       "time": "00:53:33.07"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but you don't think it means very much as a practical matter.",
       "time": "00:53:48.66"
     },
@@ -1649,7 +1649,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, worry about it now. They've got an order. So, you don't think... technically, is it moot or not?",
       "time": "00:53:57.10"
     },
@@ -1661,7 +1661,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, mootness is technical in itself. But is it correct that if he doesn't come back, the state doesn't have to do anything? They won't be in contempt of any order.",
       "time": "00:54:11.78"
     },
@@ -1673,7 +1673,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you object to if the state said... want back and asked to be relieved from that order?",
       "time": "00:54:30.59"
     },
@@ -1685,7 +1685,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, just on the ground that you say there's nothing to the case. Why do you care whether the order is outstanding or not?",
       "time": "00:54:44.35"
     },
@@ -1697,7 +1697,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I guess you care enough then.",
       "time": "00:54:55.60"
     },
@@ -1709,7 +1709,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you told me that if he came back, he wouldn't ask for anything anyway. He'd be foolish to ask for anything under the order. If he asked for your advice, you'd tell him to stay home, wouldn't you?",
       "time": "00:55:02.04"
     },
@@ -1721,7 +1721,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But, then, he wouldn't ask for anything, but if he came back, the police would... the state would pick him up, pick him up and re-sentence him pursuant to this order.",
       "time": "00:55:10.33"
     },
@@ -1733,7 +1733,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The only thing we have is the man is gone. And has served his sentence. I don't know what we're all talking about.",
       "time": "00:55:27.76"
     },
@@ -1745,7 +1745,7 @@
     },
     {
       "turn": 282,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I know. I don't blame you.",
       "time": "00:55:40.50"
     },
@@ -1757,7 +1757,7 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Hinton. Ms. Harritt, you have two minutes remaining.",
       "time": "00:55:44.37"
     },
@@ -1769,7 +1769,7 @@
     },
     {
       "turn": 286,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Harritt. The case is submitted.",
       "time": "00:56:33.85"
     },

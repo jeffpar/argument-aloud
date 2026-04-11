@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1995/95-83/19960110a_95-83.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN P. ZAIMES",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JEFFREY P. MINEAR",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "DANIEL ROMANO",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 95-83, Alan Meghrig v. KFC Western, Inc.-- Mr. Zaimes, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Was the cleanup done pursuant to an order of the municipality?",
       "time": "00:02:37.52"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Had a building permit been conditioned on the cleanup?",
       "time": "00:02:52.97"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, the respondent was under really a legal duty to clean up the property, at least if the building permit were going to be granted.",
       "time": "00:02:59.38"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Zaimes, there are two potential questions that I guess we might resolve, and I'm not sure if we have to resolve them both or not. One has to do with the statutory requirement that an imminent and substantial endangerment be alleged.",
       "time": "00:03:53.26"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And that may possibly be decisive for our purposes of this case. The other has to do with what's recoverable, assuming there is a valid claim made, and the extent of a court's equitable authority. What does that cover? Are you going to address both those issues?",
       "time": "00:04:13.42"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And do we need to decide both in your view?",
       "time": "00:04:39.88"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That's the question on which there is a split of authority.",
       "time": "00:05:06.45"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Doesn't the Ninth Circuit create the split?",
       "time": "00:05:15.67"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Doesn't the Ninth Circuit create the split on the question of when the endangerment had to take place?",
       "time": "00:05:22.13"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right.",
       "time": "00:05:33.76"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm sorry. I'm just not quite clear on your... why you answered that we must decide both because if we say that the Ninth Circuit was wrong about when the endangerment must be, if we say it is an imminent, yet-to-be-realized danger, why do we have to answer any other question? The Ninth Circuit is then reversed and your client has no responsibility.",
       "time": "00:05:51.58"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "We can decide this controversy only. We decide a live case or controversy. And your controversy is over once you prevail on the point that there was at the time this action was taken, that the suit was brought, no imminent danger of any kind.",
       "time": "00:06:28.44"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or alternatively, we could attack it from the other direction and could determine that there's no cause of action for money damages.",
       "time": "00:06:47.24"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And, therefore, it doesn't matter whether or not this thing was prior or not.",
       "time": "00:06:55.53"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The second way is... the second point is the one on which there is the conflict.",
       "time": "00:07:06.99"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What if we had a case where there is an imminent and substantial endangerment alleged and the plaintiff says, I want an injunction and I want an order that the defendant will pay the costs of future cleanup? Is that within the court's equitable power?",
       "time": "00:07:47.29"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Either way.",
       "time": "00:08:21.69"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What if the court makes exactly such an order and says, defendant, stop what you're doing now, clean up? And the defendant doesn't either because the defendant can't get its hands on the money to pay for it or is just contumacious and whatnot. Can the plaintiff at that point come in and say, all right, you've made a perfectly proper order here, but nothing is getting done? Authorize me to, in effect, take whatever steps I can take to abate and to clean up simply to discharge the responsibility which is ultimately upon this other party. Under those circumstances, could the plaintiff get... and the court says, yes, all right, go ahead. Under those circumstances, could the plaintiff get restitution?",
       "time": "00:08:55.98"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But you would still win the case if that were the rule here, wouldn't you, if we accept your position on--",
       "time": "00:09:51.54"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--You'd still win the case if that were the rule here.",
       "time": "00:09:57.12"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But we're not adjudicating them.",
       "time": "00:10:09.87"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "We're talking about RCRA, and under the RCRA claim, you would win, would you not, on my assumption?",
       "time": "00:10:11.65"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So, you want a broader rule than the rule that it would take you to win the case.",
       "time": "00:10:22.11"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But I assume you're here arguing your client's case, not bringing interesting issues to us.",
       "time": "00:10:37.21"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And your client would win on the position that I have suggested, wouldn't it?",
       "time": "00:10:42.19"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And that would end this lawsuit.",
       "time": "00:10:46.88"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you're trying to take the high ground, as I understand it. [Laughter] You think that the more defensible principle is a principle that not only lets your client win, but let's some other people win. That's--",
       "time": "00:10:49.37"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--You not only want to win, you want to win on the basis of a correct principle, which is what you're arguing.",
       "time": "00:11:08.20"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then to go to the correct principle, how could you in fact interpret this statute to say that a plaintiff could never get monetary damages? Suppose the gasoline station next to you is in fact right now leaking gasoline through your wall killing your chickens or whatever, and what you do is you have to put up a barrier to stop it. And at the same time, you run into court and you say enjoin it. So, the court says, enjoin it. You say I've spent $50,000 on the gasoline barrier to keep my chickens safe, and I'd like to be reimbursed for that. Are you saying that that wouldn't be necessary to give you the little extra money that you needed in order to take immediate action within a few hours in order to stop all your livestock from dying or whatever? I mean, normally in equity I think that kind of restitution would be normal. So, what's the argument on the merits that this statute wouldn't give you that, even though that's not in this case at all, a totally hypothetical?",
       "time": "00:11:14.06"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The word in the statute is \"necessary\", and how would you say that that kind of normal equitable relief, which is the principle you want to argue for, never could be necessary?",
       "time": "00:12:15.24"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And it may be... why isn't it necessary in the circumstance, given the history of equity, et cetera, to make at least the monetary restitution necessary to clear up the absolute immediate emergency action that the plaintiff took in order to save the lives of his livestock?",
       "time": "00:12:32.95"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why not?",
       "time": "00:12:53.01"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I agree with that. That's why I say... you were arguing for the proposition never, and that's what's bothering me. Never.",
       "time": "00:13:08.81"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Zaimes, your second... I mean, we may be unfair to you in severing the two points as though they don't overlap. As I understand it, part of your argument with regard to the damages point hinges upon your assertion that this is a statute that is only intended to prevent future harm. It is not intended to remedy for past harm.",
       "time": "00:13:19.12"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And in the hypothetical that Justice Breyer just posed to you, what you were doing is reimbursing the plaintiff for that past damage that he's incurred for putting up the barrier. And there's no doubt that he would not be able to get that if we take the first point in the case. There's no doubt that he would not be able to get that. Once... although he's put up the barrier, once all of the oil pollution next door has been eliminated, he has no cause of action at all, neither for putting up the barrier nor for anything else. And part of your argument is that these two halves go together. When you understand that the statute is only intended to remedy for future harm, there's no sense in allowing a court to give damages for something that happened in the past.",
       "time": "00:13:42.05"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But suppose that the court ordered the previous owner to clean up under this statute with proper notice and the owner is contumacious. He does not obey the court's order. And the plaintiff then, giving due notice again of his intent, undertakes to clean up the... and stop the waste himself. As an ordinary measure of contempt of court sanctions, is not the plaintiff entitled to recover the cost that he expended to avoid the harm that the defendant, in contempt of the court's order, refused to undertake on his own?",
       "time": "00:14:29.25"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, aren't there cases holding that courts retain equitable authority not specifically taken away by Congress?",
       "time": "00:15:37.63"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right, and you recognized the validity of that notion.",
       "time": "00:15:49.10"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But in my hypothetical case, you cannot get the power of the court to order that limited measure of damages from the phrase \"take such other action as may be necessary? \"",
       "time": "00:16:14.10"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought your argument was that given your position on the first point as to whether the statute is directed only to the prevention of future harm, extant threats, that the phrase \"as may be necessary\" must reasonably be read to mean as may be necessary to achieve the purpose of this statute, which is not to reimburse for past expenses but to prevent future harms.",
       "time": "00:16:44.75"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, if you-- --Is that your reading?",
       "time": "00:17:12.09"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But Justice Scalia just set out a position. Is... I thought... at one point I thought that was the way you read it. Is that the way you read it?",
       "time": "00:17:17.18"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And that is what circumscribes the court's power as a court of equity to make orders and provide remedies. Isn't that correct?",
       "time": "00:17:43.26"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. If that is the... I didn't mean to take your question away from you. I'm sorry. Go ahead. Take it. If that is the case, then why shouldn't your answer to my first question be different? Because the assumption in my first question is we have in fact a situation which is presenting imminent harm here. The court says, stop it. Stop doing what you're doing. Clean up enough so that there is no further imminence of harm. The threat will be gone. The defendant says no or simply does not do it. All the plaintiff wants is to get to that point which the court had every authority to order the defendant to reach. And so, the plaintiff says, let me clean up and then give me restitution for doing what you had the authority to order the defendant to do. Why doesn't a court have that authority? Take it, Mr. Zaimes.",
       "time": "00:17:51.90"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Good.",
       "time": "00:18:43.81"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And once you say that, then aren't you back into a line drawing problem. The statute doesn't give a damages remedy. That's true. But a statute may give a remedy to require a person to pay money to the plaintiff insofar as that's an equitable action related to the basic cleaning up of the spill. I mean, I don't know exactly how to draw that line, but the line between the equitable remedy for money, which is ancillary to the injunction, and damages action would seem the right line, do you think?",
       "time": "00:19:00.45"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do you have an answer to the, I think, main criticism of your reading which is that it encourages delay on the part of the person on the spot? It says to that person, don't clean it up because if you do, it's going to be out of your own pocket. Instead, let the contamination increase and go sue somebody else.",
       "time": "00:20:00.10"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, you may, Mr. Zaimes. Mr. Minear, we'll hear from you.",
       "time": "00:21:42.18"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What again is your reference there, Mr. Minear?",
       "time": "00:23:28.73"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what section?",
       "time": "00:23:33.09"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you.",
       "time": "00:23:37.16"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, we didn't take this case to get rid of the case. We took the case principally I think... at least I did... to resolve the circuit conflict, which doesn't exist on this point but rather exists on the second point. Why isn't it perfectly valid to attack the second point as to whether money damages are recoverable? And in the course of... I... at least I think that in order to decide that second point correctly, you have to incidentally reach the first point.",
       "time": "00:24:39.66"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The opinion doesn't read that way, Mr. Minear. I think that's quite unlikely. I think maybe we ought to wade into it and find out what it is that the court can do in the way of damages.",
       "time": "00:25:38.71"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you argue that the statute authorizes the court to award past cleanup costs as a remedy or that it just doesn't prohibit it?",
       "time": "00:25:52.69"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you say that actual money damages for past cleanup costs fits within that statutory description?",
       "time": "00:26:09.40"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But this isn't a broad grant of equitable jurisdiction. It's a much more circumscribed grant of part of a court of equity's powers.",
       "time": "00:27:21.11"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you think that the language to \"restrain any person\", et cetera and then to \"order such person to take such a. \" is the sum and substance of the... what would be granted if the courts... if the statute said the court shall have equitable jurisdiction?",
       "time": "00:27:46.41"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it seems to me not just an injustice, but an injustice that is related to eliminating a... an extant threat to the environment.",
       "time": "00:28:19.27"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As I hear you now and as I heard Mr. Zaimes' concession in oral argument, I don't think you're disagreeing with Mr. Zaimes on this point anymore, as you seemed to be originally. That is, he seemed to be taking the position in the briefs that you couldn't get money, period. Now I think he's acknowledged that you can get money so long as it is in connection with an order for somebody to remedy a threat to the environment.",
       "time": "00:28:29.40"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But I thought you went somewhat further, and let's take this case exactly, what the dates were. The contamination was discovered in October. Suppose the plaintiff had immediately given notice to the defendant, but during the 90-day period itself under pressure, say, from town authorities, plaintiff starts cleaning up and then has to wait those 90 days to bring the suit. So, by the time we get to... what would it be? February? From October to February. The plaintiff has already incurred a substantial sum. Then from the time the suit begins in February until March when the cleanup is done, plaintiff incurs further expenses. Is it your position that all of the expenses during the 90-day period plus after suit commences are reimbursable or only after the suit commences?",
       "time": "00:29:03.28"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't see how that's necessary to achieve the purpose of the statute. The money... the cleanup that has been done with money already spent? Those are some costs. That cleanup has been done. You don't achieve anything by paying the person for that.",
       "time": "00:30:50.38"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not in this statute. Not in this statute because you acknowledge that so long as the entire cleanup has been done before suit is lodged, you get none of your money back. Or at least before the 90-day notice is given. You draw the line at the 90-day notice. You acknowledged that if I do somebody else's cleanup and complete it entirely so that there's no more harm to the environment, I cannot get anything under this statute.",
       "time": "00:31:11.60"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes.",
       "time": "00:31:35.17"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Minear. Mr. Romano, we'll hear from you.",
       "time": "00:31:49.86"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I don't think that was the concession. I think the concession was that the court could issue an order which tells you to clean it up and requires the other party to pay you for your cleanup. That's not here. No, he hasn't conceded that he owes you any money.",
       "time": "00:32:23.77"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What he conceded is that a court could issue an order allowing the party now in possession of the property to clean up the hazard, the extant hazard, and saying, when you clean it up, you will be paid for... it will be paid for by the other party. But that's not this case.",
       "time": "00:32:42.04"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I'm not sure. He can tell us later, because he's reserved time, what he conceded and what he didn't. I think you should address the argument of whether or not the statute permits the award of what in essence are monetary damages. The Government cites rent control cases where there was restitution, the Moore case and I think the Porter case.",
       "time": "00:33:06.50"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Those were decided well before our opinion in Cort v. Ash.",
       "time": "00:33:27.24"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, there's nothing implied about the cause of action here, is there?",
       "time": "00:34:13.11"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Any person may commence a civil action on his own behalf. It's just a question of what he... when he can do it and what he can get as a result of that.",
       "time": "00:34:16.82"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, after the case is pending. But that... you know, after the case is pending and there is still cleanup to be done, the court could order that. I tend to agree with you. But that's not what happened here. The cleanup was done years ago before the suit was filed.",
       "time": "00:35:15.54"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But not to remedy... not to shift money around with respect to past threats. Present and future, but not past.",
       "time": "00:36:02.43"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I might have enacted a different statute. Is that what you're asking? Would I have enacted this one or a different one?",
       "time": "00:36:54.41"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then why didn't they use the same words, encompassing words, that were used in CERCLA? I think you're asking us to interpret this provision of RCRA with the same breadth as the CERCLA provision.",
       "time": "00:37:01.86"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm talking about what you can recover. The provision for reimbursement for cleanup costs is broad in CERCLA, is it not?",
       "time": "00:37:30.96"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And here there is no similar provision that says for what you've done to clean it up, you can recover.",
       "time": "00:37:44.28"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what's your position, Mr. Romano, with respect to a situation where a property owner discovers the hazard, goes ahead and cleans it up so that there's no longer any imminent or substantial endangerment, and then goes to court? What can he recover in the way of a monetary award?",
       "time": "00:38:46.04"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, you say then he doesn't have to present an imminent and substantial endangerment to health.",
       "time": "00:39:19.00"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It's... but in 2, which is what says what the court can do, it refers to the endangerment. Surely that's referring back to an imminent and substantial endangerment.",
       "time": "00:40:01.30"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but that may be a good argument, as one of my colleagues said, for a different statute, but it seems to me that this statute does require an imminent and substantial endangerment at the time you bring the lawsuit.",
       "time": "00:40:36.21"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wait a minute. Now, what about subsection 1 which you say sets forth the conditions? What about 1(B)? It seems to me 1(B) makes no sense except on the assumption that this is a statute which deals with pending threats. That is, it says, no action may be commenced under section (a)(1)(A): A, prior to 60 days, or B, no action may be commenced if the Administrator or State has commenced and is diligently prosecuting a civil or criminal action in a court of the United States to require compliance with such permit, standard, regulation, condition, requirement, prohibition--",
       "time": "00:40:58.47"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Why would you eliminate somebody's cause of action for past damages so long as a State is pursuing a remedy to enjoin any future violation? It makes no sense.",
       "time": "00:41:34.97"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's just bad English. We do not assume that Congress uses bad English. I mean, to convey the thought you've just expressed, they would have said may exist or may have existed. What you're saying may exist means... simply there's a possibility. There is or was a possibility. But that's not how we say that in English. The way we say that in English is may exist or may have existed.",
       "time": "00:43:10.88"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When we say may exist, we mean... what we mean is may exist, now.",
       "time": "00:43:32.48"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You missed my point. My point is there is no ambiguity, not if you're speaking English. May exist or may have existed is the meaning you say may exist conveys. It does not convey that meaning.",
       "time": "00:43:43.43"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, would you say the same thing about (a)(1)(B)'s list of potential defendants like a present generator or something, that those are just kind of illustrative and you could bring an action against lots of other people too?",
       "time": "00:44:18.38"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, I thought your client made the cleanup because ordered to do so by the City of Los Angeles. I didn't think this was some voluntary thing.",
       "time": "00:45:24.00"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the city said you had to do it.",
       "time": "00:45:36.60"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, you still have some State causes of action here presumably.",
       "time": "00:46:08.22"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's... isn't that make sense? That is to say, I take it the reason you lost in State court is because the State court found that the Meghrigs never undertook any acts which caused gasoline contamination on the property. And so, if you want a damages action, perhaps you should have to go against the people who caused the problem. But if you want a cleanup action, perhaps it's a better idea to get a broader category of people--",
       "time": "00:46:47.27"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--which would argue then against using this statute simply to try to get damages for something that's over and done with in the past.",
       "time": "00:47:10.53"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But then how would you win? Because you're trying to sue against something that happened in the past. So, I mean, maybe I don't understand it, but you're trying to get... you're trying to go against some people whom the State found didn't cause the contamination but, nonetheless, they did handle the gasoline in the past and it all was a problem in the past. But you want to get damages from them now, don't you?",
       "time": "00:47:18.40"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What you're calling restitution, but I mean, you want to be reimbursed from them who didn't cause the problem for your expenditure. And it sounds to me as if it would make sense to let you get the reimbursement from a person who did cause the problem, which is what the State court would allow, but not necessarily to get reimbursement for a past event from people who are basically innocent, which is what you want to interpret the Federal statute to allow.",
       "time": "00:47:45.16"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May I ask another question that you could answer that's not strictly before us? Why was there no effort to sue anybody until after the cleanup was done? That's one question. And the other is, are you telling us that unlike State law, the Meghrigs, even if they had nothing to do with the contamination, are responsible under the Federal statute?",
       "time": "00:48:26.93"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about under the Federal statute that says, has contributed or who is contributing? These are people who say... let's assume for the moment that what they say is correct... we didn't... during our period of ownership, we didn't have a clue that there was any petroleum involved.",
       "time": "00:49:04.11"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But just let's assume I said that they're correct, that the gas station long preceded their ownership of this property, that they did not contribute to the contamination. They were not operating a gas station. It was a vacant lot while they were owners. Are they nonetheless contributors?",
       "time": "00:49:31.23"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "No, under this statute.",
       "time": "00:49:54.11"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought there was... discovery wasn't made until... that your client wanted to do this building.",
       "time": "00:50:06.23"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then if you can go to my other question. What impeded you faced with this statute that says \"may present\" from beginning suit at the earliest possible time?",
       "time": "00:50:42.82"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, not according to the Government's interpretation. The Government said as long as you did your cleanup within the 90-day period, as the Government reads the statute, you would be entitled to reimbursement. So, my question is why timely suit wasn't commenced and cleanup commenced instead of saying, we'll do the whole thing and then we'll attempt to sue for past--",
       "time": "00:51:10.30"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--That's a good answer.",
       "time": "00:51:49.83"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It may not win your case. [Laughter]",
       "time": "00:51:55.99"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Romano. Mr. Zaimes, you have 2 minutes remaining.",
       "time": "00:53:38.70"
     },
@@ -1299,13 +1303,13 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Zaimes. The case is submitted.",
       "time": "00:55:55.89"
     },
     {
       "turn": 210,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Tuesday, January sixteenth at ten o'clock.",
       "time": "00:55:58.05"
     }

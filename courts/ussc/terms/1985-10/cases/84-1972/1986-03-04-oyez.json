@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1972/19860304a_84-1972.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES A. ROTHFELD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "GERALD F. SLATTERY, JR.",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments first this morning in Federal Deposit Insurance Corporation against Philadelphia Gear Corporation. Mr. Rothfeld, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Rothfeld, are you suggesting in your description of this note that it was not therefore a promissory note within the language of the statute?",
       "time": "00:02:05.35"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You are saying that this particular note was not a promissory note within the language of the statute?",
       "time": "00:02:13.67"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that because there was a side understanding setting forth certain contingencies?",
       "time": "00:02:20.26"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does it make any difference at all whether the note bore interest or not, or was in fact easily negotiable because of its lack of interest?",
       "time": "00:02:30.26"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, on its face, of course, it did. Theoretically, it would have been negotiable at a discount for money.",
       "time": "00:02:55.55"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--in due course. It certainly wouldn't be of no value if the market could just discount it to make up for the lack of interest.",
       "time": "00:03:22.10"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you are not a holder in due course if you do that.",
       "time": "00:03:53.67"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How about someone who took without knowledge?",
       "time": "00:04:07.47"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And what about if Orion wasn't paid and collected on the letter of credit in the bank? The bank could surely sue the maker of the note.",
       "time": "00:04:11.84"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On the note. So that certainly is... the note is not just a nil. It certainly is a meaningful note. It represented an obligation.",
       "time": "00:04:28.97"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why does that make it not a note?",
       "time": "00:04:57.80"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Exactly, and I still don't understand why it is that just by calling it a reimbursement--",
       "time": "00:05:08.52"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Would you be here arguing if this note didn't have the conditions attached to it that were a freely negotiable note, like any other note, and there were no side agreements at all, just a promissory note?",
       "time": "00:05:45.10"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you be here making this argument?",
       "time": "00:05:59.60"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Regardless of whether Orion had given a lien or any backup security for the note?",
       "time": "00:06:11.70"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So for you the whole case turns on whether there is a side contingency agreement?",
       "time": "00:06:27.31"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did the conditions appear on the face of the note?",
       "time": "00:06:48.21"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So this case doesn't turn upon a letter of credit on whether this letter of credit was the kind of a letter of credit that should... that the FDIC should pay on.",
       "time": "00:06:58.54"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Has this always been your position throughout this litigation?",
       "time": "00:07:36.99"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Rothfeld, in the question presented in the petition for writ of certiorari, the question is whether a standby letter of credit is a deposit within the meaning of 12 USC for purposes of the Federal Deposit Insurance Corporation. In your brief, it has changed, so it reads, whether an unfunded standby letter of credit is a deposit.",
       "time": "00:07:42.01"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you just told me it didn't make any difference whether there was security backing up the note, that it made no difference.",
       "time": "00:08:08.01"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "In looking at the statute, the relevant statute, it says the unpaid balance of money or its equivalent up in the first part of the sentence, and then it says provided that, without limiting the generality of the term money or its equivalent. We regard an instrument as the equivalent of money if it is issued in exchange for a promissory note upon which the person obtaining any such credit or instrument is primarily or secondarily liable. Does that provide that that sentence just drop out of the case because Philadelphia Gear is not liable on the Orion promissory note? Do we even have to concern ourselves with that last proviso?",
       "time": "00:08:51.00"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is the person obtaining such credit or instrument... who is the person obtaining the credit or instrument? I thought it was Orion.",
       "time": "00:09:55.78"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is it the person obtaining the promissory note or the person obtaining the letter of credit referred to in that phrase?",
       "time": "00:10:15.16"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, but I am just asking whether the language in the statute refers to the person obtaining the promissory note or the person obtaining the letter of credit.",
       "time": "00:10:35.41"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't see why then on that rationale why it would make any difference if this note was an ordinary negotiable promissory note.",
       "time": "00:13:33.50"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But I just don't think that reads the statute very accurately, because up to the proviso it talks about money or its equivalent, and then it says provided that without limiting the generality of the term money any such encounters must be regarded as evidencing the receipt of the equivalent of money when credit or issuing checks... in exchange for checks or for a promissory note. It seems to me that cuts a lot of the ground out from your kind of common sense let's talk it over approach.",
       "time": "00:14:06.64"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I ask this question? You used the term unfunded note. Let's assume, for example, that the note were secured by a second mortgage on unimproved real estate supported by some appraisal as to the estimated value of that real estate. Would that be funding?",
       "time": "00:15:36.46"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Assume the note on its face was not contingent, but it was funded in the sense of security having been provided rather than having a deposit in equal amount of the note or perhaps getting a government bond or something that was absolutely a gold-plated security, it gave something that was perhaps speculative or at least subject to a good deal of litigation before you could realize on it. I don't know. I was just posing that question.",
       "time": "00:16:10.11"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "But you get back to whether there was any basic value in the deposit, don't you, as to whether or not the letter of credit was funded by anything that made it the equivalent of money.",
       "time": "00:17:02.05"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--question of fact, I would suppose.",
       "time": "00:17:20.38"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the argument in this case is that this one was funded by the promissory note. And no one suggests... there is no argument in this case that the completely unfunded the letter of credit is insured, is there?",
       "time": "00:18:34.55"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No. The argument here is that this note funds the letter of credit just as much as an unrestricted note.",
       "time": "00:18:57.85"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You are saying the reality does not support that argument.",
       "time": "00:19:12.29"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Have there been other claims like this which the FDIC has routinely rejected?",
       "time": "00:21:00.66"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you are aware of no examples like this where they had a claim that has been made for the recovery of insurance which has been denied?",
       "time": "00:21:21.64"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If I understand your argument correctly, it is that because this instrument may be negotiable does not mean that it is the equivalent of hard money. Is that it?",
       "time": "00:22:07.00"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask a question about... does the record tell us what happened to Orion?",
       "time": "00:23:07.98"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It doesn't tell us whether the bank made any attempt to collect on this note against Orion, does it?",
       "time": "00:23:16.90"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, or the liquidator after the bank.",
       "time": "00:23:24.65"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Rothfeld, I understand there is a bill pending in Congress to eliminate from the definition all letters of credit. Do you know what the status of that proposed legislation is?",
       "time": "00:23:27.92"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I come back to what constitutes an unfunded letter of credit? Is there any definition in the regulations? Or has the FDIC ever identified a definition of it? I think you are arguing about a standard that there has to be a deposit in the face amount of the letter of credit. Is that the position?",
       "time": "00:24:06.31"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, you can fund in various ways, but you are saying that the only acceptable funding based on 50 years of history and practice is where a deposit in the amount of a letter of credit is available to make sure it is paid. Is that correct?",
       "time": "00:24:40.35"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Slattery.",
       "time": "00:25:38.27"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Slattery, do you think that the FDIC's long-standing decision not to charge insurance premiums, in effect, for unfunded or for standby letters of credit constitutes an administrative interpretation of the Act which we owe some deference in resolving this question?",
       "time": "00:27:13.70"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But it has to be a decision, in effect, not to collect insurance premiums.",
       "time": "00:28:19.32"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean no distinction between funded and unfunded?",
       "time": "00:30:46.05"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You say there is no distinction between funded and unfunded drawn in the regulations?",
       "time": "00:30:50.15"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, you don't need to convince us that completely unfunded letters of credit are insured, do you? All you have to do is to say that if it takes funding, this one was funded--",
       "time": "00:31:05.63"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Is that your primary argument? Are you making the general submission that if there hadn't been any funding at all, no promissory note by Orion given to the bank, wouldn't, as you say, the letter of credit would have been insured?",
       "time": "00:31:44.02"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You really are... you are resting on the fact that a note was given.",
       "time": "00:32:04.70"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the statute refers to promissory note. And you just stop there. You say, well, this is a promissory note.",
       "time": "00:32:22.97"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But what the SG in effect is saying is that the term promissory note should be defined in terms of federal law, not ordinary state commercial law, that promissory note has a federal definition, and in this context that federal definition means there can't be side contingencies attached to it. Now, what is your response to that?",
       "time": "00:32:30.49"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Slattery, I wonder if we are not getting into kind of a semantic dispute. Certainly as long as Congress has used the term promissory note in this statute defining the liabilities of the FDIC, that is a question of federal law, what a promissory note means and what every other word in the statute means. I take it what you are rejecting is the government's argument that when Congress used the term promissory note here it meant something quite different from the ordinary meaning of the term promissory note.",
       "time": "00:34:11.24"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But I suppose there is no denying that there was no liability on this note unless the bank paid out some money to the holder of the letter of credit.",
       "time": "00:35:03.48"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "May I ask you... excuse me. Go ahead. May I ask you in that connection, what if the note on its face said this instrument does not create any present obligation to pay anything to the bank. It merely creates an obligation in the event that Orion... the bank is required to make some payments to Philadelphia here.",
       "time": "00:35:17.02"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Assuming for a moment it is still... is it a deposit, do you think?",
       "time": "00:35:55.57"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, but the note... this kind of a note in this context didn't give the bank anything that it wouldn't have had without the note.",
       "time": "00:36:15.48"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the bank had paid out... issued the letter of credit, unfunded letter of credit, and the paydown on the letter could have recovered its payments from its customer.",
       "time": "00:36:27.01"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, and so he sues the customer, and in the one case he has got this promissory note. In the other case he hasn't got a promissory note. He has just got the Uniform Commercial Code. Now, what is the difference between the two situations?",
       "time": "00:36:43.56"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's just talk about this note and this case.",
       "time": "00:37:17.21"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What did it give the bank that the bank wouldn't have had under the Uniform Commercial Code?",
       "time": "00:37:19.45"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just follow up, because I just want to be sure I understand your position. Your position, of course, is that Orion is the depositor, and it becomes a depositor at the time it turns over the instrument, the note. Is that correct?",
       "time": "00:37:54.51"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But your client didn't make... you don't claim your client gave anything of value to the bank.",
       "time": "00:38:15.41"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The only deposit that has been made, if there is a deposit, is the delivery of the promissory note. Isn't that right?",
       "time": "00:38:21.24"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me pursue a thought I didn't quite finish on. If the promissory note... the promissory note is still central to your claim that there is a deposit, is it not?",
       "time": "00:40:28.57"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And must it not be a promissory note upon which the person obtaining the credit is primarily or secondarily liable?",
       "time": "00:40:39.89"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that is it not essential to your claim that Orion was primarily or secondarily liable on the note at the time it was delivered to the bank?",
       "time": "00:40:47.70"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it wasn't, was it? It didn't owe the bank--",
       "time": "00:40:55.72"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Whether it created a present obligation.",
       "time": "00:41:04.86"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It didn't create any obligation, did it?",
       "time": "00:41:08.80"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it was the only one that was liable on the note, primarily or secondarily.",
       "time": "00:41:21.31"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How can you say it is liable on the note when the note gives rise to no liability? There has never been a payout to Philadelphia Gear.",
       "time": "00:41:29.33"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would the case be different if instead of a promissory note there was just a long written agreement describing all the contingencies pursuant to which the letter of credit were issued?",
       "time": "00:42:39.31"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even though it created the same kind of contingent liability?",
       "time": "00:42:50.39"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I ask this question? Did your client, the Philadelphia Gear Corporation, know that a promissory note had been deposited, had been delivered to the bank?",
       "time": "00:43:32.68"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Did not? So it did not rely on the existence of that one way or the other?",
       "time": "00:43:43.74"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you agree with the Solicitor General that the FDIC for half a century has consistently disagreed with the position you take today?",
       "time": "00:44:56.38"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there any evidence one way or the other on that in the record?",
       "time": "00:45:07.51"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it is true that no premiums have been collected by FDIC on notes that were held to be unfunded, whatever that means?",
       "time": "00:45:45.82"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there an industry practice to issue unqualified promissory notes to back up a letter of credit? It seems to be an unlikely kind of transaction.",
       "time": "00:47:13.71"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess it is just possible that Penn Square Bank had some looser banking practices than one might normally find.",
       "time": "00:47:51.38"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Rothfeld, do you have anything further?",
       "time": "00:52:38.07"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is the note that we are talking about, is that the note that appears at Page 27 of the joint appendix?",
       "time": "00:53:04.45"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "On that point, what is your response to his argument that there are a lot of things that the term deposit includes that are not what an old-fashion note of deposit is? In other words, checks written in payment of services, utility bills, and all that. He refers to them on Page 15 of his brief.",
       "time": "00:53:33.08"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But they all suggest that the purpose of this statute was to extend credit to a number of bank creditors for whom no deposit in the old-fashioned sense had been made, that he fits into that general class, and therefore fits into the overall Congressional purpose. That is as I understand his argument.",
       "time": "00:54:21.95"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, and do you say an unconditional note would qualify for insurance?",
       "time": "00:55:17.16"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's assume that the bank hadn't failed, but there was some payment on the letter of credit by the bank, and then they call on the customer to pay. And they sue... and he doesn't pay and they sue on the note. They do collect interest just by the terms of the note.",
       "time": "00:55:59.20"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But is that right? Supposing there had been a default, and they paid out half of the amount covered, say $75,000 on it. Then wouldn't the obligation on the note have become a real obligation under your theory, and then it wouldn't have been an insured deposit?",
       "time": "00:56:47.81"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see. There would be no obligation on the note for the balance that had not been paid out on the letter of credit.",
       "time": "00:57:22.61"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:57:33.34"
     }

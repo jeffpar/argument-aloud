@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1965/531/19660421a_531.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "THURGOOD MARSHALL",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ERNEST R. MORTENSON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "United States versus Blue, Number 531 on the docket. Mr. Solicitor General.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is self-incrimination.",
       "time": "00:03:56.58"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Sue to get it back?",
       "time": "00:04:08.27"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But General, only jurisdictional point of -- as -- if we could determine that this is subject to direct appeal, is there any kind of situation in which the indictment would be dismissed before a jeopardy of taxes which is not appealable here?",
       "time": "00:13:38.91"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But that is not a disposition. That's not a dismissal of the indictment.",
       "time": "00:14:10.72"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I know but any -- any order of the -- any plea which results has a direct result to the dismissal of the indictment rightly or wrongly under your theory would be appealable here, would be directly appealable here as a dismissal on the plea in bar provided it happened before jeopardy of tax.",
       "time": "00:14:18.20"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But this does not fit in. You said few moments ago, if I correctly understand you, that the present case satisfies reasoning and both of the questions to which you referred in Mersky.",
       "time": "00:15:24.06"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But is this -- is this the kind of thing that a common law would be recognized as a plea in bar?",
       "time": "00:15:43.02"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What about if --",
       "time": "00:16:05.93"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, he's really attacking the indictment though in the basis of a collateral circumstance.",
       "time": "00:16:13.03"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And you regard that as a dismissal on the plea in bar?",
       "time": "00:17:01.43"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So you could directly appeal here.",
       "time": "00:17:08.16"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And that you wouldn't have to go to the Court of Appeals.",
       "time": "00:17:11.26"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You couldn't go to the Court of Appeals though.",
       "time": "00:17:15.52"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What about a dismissal on the statute of limitations? Dismissal of an indictment of time barred, is that --",
       "time": "00:17:26.11"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you say that the time and case is over.",
       "time": "00:17:43.05"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you think that would be appealable?",
       "time": "00:17:47.62"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But tell me that -- there should be -- is there was a Tax Court proceeding that‘s on the jeopardy -- challenging jeopardy assessments involved here.",
       "time": "00:20:44.26"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what's your position whether that ought to be concluded before the criminal proceedings to uphold?",
       "time": "00:20:56.85"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You don't think they should.",
       "time": "00:21:05.24"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Or may there not be -- may there not be a necessity for barring from the criminal trial. I don't know what that would be -- testimony or otherwise that this taxpayer might give before the Tax Court?",
       "time": "00:21:07.61"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Let me put it rather this way. Is he entitled -- the defendant against the jeopardy assessment?",
       "time": "00:21:25.42"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And suppose he has to testify with something which may be incriminating in respect of the pending tax prosecution.",
       "time": "00:21:33.51"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's my question. How can you know that until the tax proceedings have been concluded, the Tax Court proceedings?",
       "time": "00:21:45.48"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather your position that is -- both can proceed simultaneously or the criminal prosecution can proceed ahead of the Tax Court proceeding.",
       "time": "00:22:12.44"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I know but I'm --",
       "time": "00:22:30.70"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- thinking about it (Voice Overlap)",
       "time": "00:22:31.76"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But as a matter of fact, the Government's policy is to try consistently the criminal cases first. That's the Government's policy.",
       "time": "00:23:05.21"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, and then that you have a reason before the party come up here.",
       "time": "00:23:15.73"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that's your consistent policy, say you're not bound to it that way but that is your consistent policy to try to get the criminal case out of the way --",
       "time": "00:23:22.68"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that no testimony in this civil case to be given.",
       "time": "00:23:30.00"
     },
@@ -415,25 +415,25 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I'm absolutely certain that there is a reason but it's not in here.",
       "time": "00:23:37.90"
     },
     {
       "turn": 64,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I see.",
       "time": "00:23:41.91"
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The only reason I say is that I could gather from the record is they did find a sizable bank account. And it's the only thing that I can see. But the other point I was getting at the original argument was that he was denied right at the counsel because he didn't have any money. But the record shows that the Internal Revenue did not touch his earnings. And he has all of his earnings whatever he would do with them. Indeed, the District Court did rule with the Government on that point, that there was no showing that he had been denied enough money to defend --",
       "time": "00:23:42.73"
     },
     {
       "turn": 66,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, this isn't the clearest record in the world. I think you, agree Mr. Solicitor General?",
       "time": "00:24:24.90"
     },
@@ -445,7 +445,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But it's dismissed.",
       "time": "00:24:32.21"
     },
@@ -457,7 +457,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose that was true, suppose it were true that they had compelled to come in and incriminate themselves, why shouldn't it be, if the first time that it comes out in the Court, why shouldn't the Court throw the Government out?",
       "time": "00:25:07.71"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose, if the indictment shows that -- shows that that's all they did. They just brought a man there and get hold of him in two places at the same time and one of them admitted, plead guilty, and the other one be debarred.",
       "time": "00:25:37.28"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Your point is I gather that anything he has in the way of defense based on self-incrimination or anything else to the Government's trial of a money indictment. Whatever that may be is properly interposed at the trial on the indictment not by dismissal of the indictment.",
       "time": "00:26:11.42"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I see, yes.",
       "time": "00:26:32.83"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But in any event that certainly they can't dismiss a price for that.",
       "time": "00:26:41.74"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose you -- suppose the Government comes in on a motion to dismiss and says we admit that we've already made and confess, we admit that we can't convict him because that's the -- he got a constitutional privilege which he's raising here but we say because you had raised on this by motion to dismiss instead by motion to suppress, you got to decide against him. Why shouldn't he -- why shouldn't he get rid of the thing if it's -- maybe they shouldn't.",
       "time": "00:26:46.76"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So that's on the -- that's on the merits.",
       "time": "00:27:29.20"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's on your number two point.",
       "time": "00:27:31.57"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But the judge found that he had already been compelled, will be compelled in the future to become part on the same matters you're concerned to this criminal cases. Is it your argument that that's not enough to show that they had already made to confess? That gets to the merits of it.",
       "time": "00:27:34.53"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And that frankly wasn't here discussed.",
       "time": "00:27:54.48"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I know you are but we've been all of it. We've asked you so many question though (Voice Overlap) discussion here.",
       "time": "00:27:59.07"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, would he be immune from punishment or does he just have to plead that as a defense?If the Government forces him in to confess, can they then punish him?",
       "time": "00:28:28.67"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Unless he raises the question that it doesn't matter of saying that you can't use this evidence against him?",
       "time": "00:28:41.06"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is he not -- Is he or not immune from punishment when the Government does this?",
       "time": "00:28:48.99"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And that wasn't the rule, I suppose, that every time we reverse the case here because of the coerced confession, there'd be no sense in saying I'm back for a new trial because they just have to dismiss it.",
       "time": "00:29:57.24"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, I wasn't disagreeing with you.",
       "time": "00:30:27.52"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In fact that was --",
       "time": "00:30:30.14"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- with what you're thinking but I'm applying up to our practice here.",
       "time": "00:30:32.49"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, you may. Mr. Mortenson.",
       "time": "00:30:42.87"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "May I interrupt just for a moment; I thought the Solicitor General said that the Court had found that he was not deprived of his right, to his ability to have counsel and so forth by reason of the -- of anything it had done on a -- under that jeopardy assessment.",
       "time": "00:33:01.51"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well then, it has no application here, has it?",
       "time": "00:33:24.60"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is it the material here?",
       "time": "00:33:28.36"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, may I ask just how does that affect our case here, what you've just been saying?",
       "time": "00:38:35.27"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I understand that but you seem to stress the fact that the jeopardy assessment was a $100,000 or more and that the indictment only charged $40,000 or more. Now, if the jeopardy assessment had been for $40,000 as the indictment fixed the amount, wouldn't he then have, under your theory, have been called upon to violate and called upon to -- called upon to testify as to that and therefore the -- in the same shape?",
       "time": "00:39:15.26"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well what -- what is the difference between these variations?",
       "time": "00:39:59.71"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that may be but another day is another day, how does it affect this case?",
       "time": "00:40:12.78"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But has he been putting that position yet?",
       "time": "00:42:06.72"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Had he done that?",
       "time": "00:42:54.99"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And did he do more than just to simply deny that he owed that money?",
       "time": "00:42:58.45"
     },
@@ -805,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was there anything more than that? Did he make any admissions in there that would hurt him in the criminal trial?",
       "time": "00:43:11.68"
     },
@@ -817,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Take what?",
       "time": "00:43:21.46"
     },
@@ -829,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I know but he never had -- he's never been compelled yet to do that at the time that the indictment was dismissed.",
       "time": "00:43:48.79"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Did you not suppress the Tax Court admission?",
       "time": "00:44:55.30"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Didn't you manage to suppress everything you said in the Tax Court, rather than dismissing that one? Didn't you object that just having to testify before the Tax Court and therefore you couldn't make him -- you couldn't use that against him in the criminal case because you've been forced to testify there?",
       "time": "00:44:59.62"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, that just omits suppression, that doesn't say you have to dismiss the indictment that you're confusing, it seems to me, immunity from suppression of a confession.",
       "time": "00:46:20.71"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Or statement.",
       "time": "00:46:34.57"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "And the Government hadn't a chance to show if he can get a fair trial. You haven't given him a chance yet. You dismissed the indictment.",
       "time": "00:47:08.22"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could you give one statement in his practical provision that you think is incriminated?",
       "time": "00:47:25.23"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did he admit anything in regard to that? Didn't he just deny that he owed the money? Isn't that all he did in that answer?",
       "time": "00:47:42.29"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:47:53.84"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, let me -- let me put this question to you. Suppose that the motion to dismiss the indictment in this case had been denied, and suppose you then had a motion to suppress the certain evidence. And the Court found that certain evidence should be suppressed for the reason that you have just given, that the jeopardy procedure conflicts with the -- his rights on a -- on a trial. Would the judge have the right then to dismiss the indictment or would be -- he'd be limited in his -- in his response to your motion to -- to suppress the evidence?",
       "time": "00:48:13.24"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, why shouldn't we do that here?",
       "time": "00:49:12.60"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Mortenson, suppose the Government sued a man for taxes that he didn't pay for illegally operating a skill, would it then be deprive to be -- of the right to prosecute him until that case was decided?",
       "time": "00:52:48.98"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Solicitor General.",
       "time": "00:54:08.01"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well. We'll adjourn then.",
       "time": "00:54:15.81"
     }

@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1980/80-581/19810330a_80-581.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM P. ROGERS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MICHAEL T. GREELY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in Commonwealth Edison et al. v. Montana. Mr. Rogers, I think you may now proceed whenever you wish.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Rogers, are you suggesting that the State of Montana could not have doubled its severance tax at any particular time?",
       "time": "00:04:03.04"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In any event, there was no challenge to the lower rate periods?",
       "time": "00:04:43.28"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "According to the courts below, have you conceded that a 50 percent tax would be?",
       "time": "00:04:57.80"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But then isn't that going to make it a case-by-case adjudication in every situation where the federal courts decide whether a tax is or is not?",
       "time": "00:05:43.45"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That's really all you want, is a chance to prove your case?",
       "time": "00:06:53.43"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But wouldn't the same have been true 20 or 30 or 40 years ago in Oklahoma or Texas with respect to a severance tax on oil?",
       "time": "00:07:40.85"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does a state have to make a claim that it needs the money in order to exercise the taxing power?",
       "time": "00:08:18.36"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, why isn't it being paid by Montana consumers too?",
       "time": "00:09:28.20"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it's probably resulted in lowering of some other taxes or at least--",
       "time": "00:09:44.86"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--they've had some increases?",
       "time": "00:09:50.50"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if we agreed with you? What would you contemplate we would say if we agreed with you? Namely, that under Brady and the Auto case that that fourth category assumes that a tax can be too high on interstate commerce?",
       "time": "00:10:57.47"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that therefore you ought to have a chance to prove that it's too high?",
       "time": "00:11:16.17"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But then, the premise for that is that it may be that 30 percent is too high. We have to at least decide that.",
       "time": "00:11:20.63"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And how do we know that?",
       "time": "00:11:30.77"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You're going to... you would convince the Court of that?",
       "time": "00:11:34.36"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the question is, what standards can we establish?",
       "time": "00:11:48.90"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "There are people in Montana who are paying taxes.",
       "time": "00:12:40.12"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Rogers, I agree with what I think you're arguing. I mean, I thoroughly agree with you, but I don't know how I can sustain it, and that is that I can decide what the tax is going to be on me. I mean, I'm for that, but I can't sustain it, and is that not what you are arguing?",
       "time": "00:12:49.83"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You want a hearing which will determine how much your tax is to be?",
       "time": "00:13:10.71"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Assuming that's true--",
       "time": "00:13:23.30"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Will the Court be asked to fix a rate?",
       "time": "00:13:34.64"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, will the Court be asked to fix a line?",
       "time": "00:13:38.86"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'd love to have the right to fix my own rate of taxes.",
       "time": "00:13:50.82"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mine would be on a scale of one to ten minus two.",
       "time": "00:13:57.21"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't there some language in the Supreme Court's opinion about its fear of the consequences of strip mining and of the process of restoration?",
       "time": "00:14:44.58"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, a fair proportion of it doesn't belong to Montana anyway, does it?",
       "time": "00:15:15.13"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so the restoration is performed under federal leases?",
       "time": "00:15:26.33"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You can say that under the Commerce Clause that the tax may well be invalid, but to say there's no \"justification\" for the tax strikes me as a misapplication of constitutional principles, to say they have to justify a tax.",
       "time": "00:15:48.12"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Rogers, what sort of expenditures in your judgment would justify it? What if they want to build a couple of hundred very large parks, municipal zoos, and all sorts of public things they never have done before, would that be justifiable?",
       "time": "00:16:37.79"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You'd say that the limiting principle is that the tax revenues must somehow or other be related to the expenditures of the state that are fairly related to mining, but the tax may not support any other public purpose like unemployment compensation or public parks, environmental matters, or?",
       "time": "00:17:11.57"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "880 thousand.",
       "time": "00:17:50.71"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's how many people there'll be there if they can keep all this money.",
       "time": "00:17:55.84"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Before you sit down, though, let me ask one other question. What is your response to the Solicitor General's argument that the best arm of government to draft the right standard is Congress rather than this Court?",
       "time": "00:19:17.35"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But don't you agree that if Congress passed a statute that specifically approved the Montana tax, that you would lose this case? Suppose someone sent a message over today and it said that Congress has just passed a law and the President has just signed it approving the Montana tax?",
       "time": "00:19:55.43"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, probably not.",
       "time": "00:20:22.37"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But Congress can certainly eliminate the constitutional issue if it wants to.",
       "time": "00:20:24.11"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Attorney General.",
       "time": "00:21:20.64"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Greely, does Montana follow the procedures of most federal civil rules for the states, all well-pleaded allegations in the complaint are deemed true on a motion to dismiss?",
       "time": "00:23:12.85"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you would have to concede that all of the allegations in the complaint well-pleaded are true since the--",
       "time": "00:23:31.86"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Facts; facts.",
       "time": "00:23:39.82"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Attorney General, let me put a hypothetical question to you. Suppose the Legislature passed an act declared on its face to be a substitute, in terms of revenue, for all other taxes levied in the state... state income taxes, state real estate taxes, sales taxes, so that the locals would pay no taxes at all, and all of it would, all the cost of government would be put on one category of taxpayers. Do you think the courts could inquire into that?",
       "time": "00:23:56.13"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But one tax on just one category of taxpayers. That's the thrust of--",
       "time": "00:24:59.71"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Well, the courts can inquire into it. Could there be some judicial inquiry into whether this was a discriminatory tax aimed at one category of people?",
       "time": "00:25:17.00"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, it would be not an abnormal process for legislators of a state, particularly, to say, let's put as much as the traffic will bear on the outsiders and relieve the local citizens of our state. And my hypothetical is an extreme one but they are relieved of all taxes because of the windfall they would get out of taxing one particular industry or one particular category of taxpayers.",
       "time": "00:25:46.50"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In other words, in that respect it's different from the case that was argued previously, where there's a difference in the tax on the material taken out of the state?",
       "time": "00:26:40.00"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Attorney General, under the Complete Auto case, would a tax be subject to judicial review of any kind at some point as it got larger and larger and larger? What if this were twice as large as it is?",
       "time": "00:27:01.02"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that because you--",
       "time": "00:27:52.53"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--But you think this is just a local activity that you then--",
       "time": "00:27:59.73"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--and that Complete Auto isn't even implicated because this isn't a tax on commerce?",
       "time": "00:28:03.17"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:28:11.02"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if we disagreed with you on that, as... I take it the United States doesn't agree with you on that.",
       "time": "00:28:14.73"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The United States suggests that Complete Auto does apply but the test is just satisfied.",
       "time": "00:28:41.20"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Greely, couldn't a state decide in connection with purely local activity not to actually forbid it, but that it simply didn't like the activity and taxed it, say, at a rate of 75 percent?",
       "time": "00:29:58.03"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In Complete Auto, the tax there was a state tax imposed... as I remember, and you correct me if I'm mistaken... upon what was concededly an instrumentality of interstate commerce.",
       "time": "00:30:36.18"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the question was the constitutional permissibility of any tax at all, was it not?",
       "time": "00:30:51.51"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Tax it at all, at all.",
       "time": "00:31:03.56"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And here, as I understand it, the petitioner concedes the constitutional power of the state to impose a severance tax.",
       "time": "00:31:05.66"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the question is how much.",
       "time": "00:31:14.53"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And it's a different question or maybe--",
       "time": "00:31:18.79"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--General Greely, let me just take a step further the question the Chief Justice asked you. Supposing your opponent's assessment is generally correct, that this is an extremely profitable tax in a way for the state and after you win this case, assuming you do, you then reassess your budgetary consideration and decide you don't need any other taxes at all, you repeal all your other taxes and leave your present tax standing in effect. Would that raise any constitutional question in your judgment?",
       "time": "00:32:15.41"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it would be precisely the same challenge here, that under the last prong of the Complete Auto Transit case that there is some integrity, that requirement of some relationship between the tax and something the state does and I don't know exactly what that prong means either, but if it means something--",
       "time": "00:33:09.54"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Suppose... hypothetically, again... it could be shown that the entire cost of the services which the state gave to five taxpayers engaged in extracting natural resources was $500,000 and that the taxes imposed on them were $100 million. Do you think there could be some judicial curiosity about that?",
       "time": "00:34:53.49"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, what about--",
       "time": "00:35:35.06"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Then add to my hypothetical what Mr. Justice Stevens suggested, that all other taxes on all other residents of Montana were repealed and Montanans paid no tax and all the tax was thrust upon five companies or six companies engaged in extracting coal and oil. Any judicial inquiry then, on any clause? Not just the Commerce clause.",
       "time": "00:36:18.23"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You might have an Equal Protection Clause problem.",
       "time": "00:37:12.24"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "General Greely, help me out on one detail. I take it that this tax flows into the general coffers of the state; it is not allocated to the various counties and districts as is true, say, in Alaska.",
       "time": "00:38:28.30"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No, your time has not expired, Mr. Attorney General, but this is your... Mr. Rogers.",
       "time": "00:39:24.20"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Rogers, may I ask you a question before you conclude? You haven't had a chance to introduce evidence but are there public records that would show which states have the minerals that are essential to the operation of our country? For example, how many states have uranium?",
       "time": "00:44:03.45"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "How many states control the copper of the United States?",
       "time": "00:44:34.45"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about sulfur?",
       "time": "00:44:45.69"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "What about sulfur?",
       "time": "00:44:51.28"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Texas and Louisiana? Maybe Florida.",
       "time": "00:44:56.64"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "What is the basic purpose of the Commerce Clause, Mr. Rogers?",
       "time": "00:45:01.89"
     },
@@ -939,13 +943,13 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:45:36.75"
     },
     {
       "turn": 150,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:45:37.79"
     }

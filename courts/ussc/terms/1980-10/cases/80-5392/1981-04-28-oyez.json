@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1980/80-5392/19810428a_80-5392.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM A. NELSON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "BARBARA E. ETKIND",
-        "role": "advocate"
+        "title": "MS."
       },
       {
         "name": "JOHN J. EASTON, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in Robert Howe v. Attorney General. Mr. Nelson, I think you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What was Mr. Howe convicted of?",
       "time": "00:02:04.62"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And do you have any answer of your own as to what would be the proper and suitable correctional treatment for him?",
       "time": "00:02:08.62"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you think... in other words, you think that it must be treatment of some sort?",
       "time": "00:02:27.58"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if the Vermont penal authorities decide that no amount of treatment can ever rehabilitate this person, that he's simply got to be locked up for a good long time in order to keep him from doing it again.",
       "time": "00:02:44.98"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you say the federal system has no right to receive him under these circumstances.",
       "time": "00:03:24.09"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did I hear you correctly to either say or imply that there is some legal obligation to treat him?",
       "time": "00:03:32.20"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Why do you make it any different when it's in federal custody as a surrogate for the state, than when he is in the state custody with the state doing it on its own behalf?",
       "time": "00:03:48.14"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That is, after a federal criminal trial.",
       "time": "00:04:20.38"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would it be your submission that absent this statute there would be no authority to receive a state prisoner at all?",
       "time": "00:04:37.92"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why would that be?",
       "time": "00:04:45.32"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But 5003 isn't limited to treatment. It says, \"Custody, care, subsistence, education, treatment, and training. \" doesn't it?",
       "time": "00:05:04.20"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It doesn't, it isn't limited to treatment?",
       "time": "00:05:17.03"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I was waiting for you to say it.",
       "time": "00:05:19.61"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I was waiting for you to say it. You kept just using the one word \"treatment\".",
       "time": "00:05:23.35"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Was that done in this case?",
       "time": "00:06:25.95"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, couldn't that be facilities for treatment?",
       "time": "00:06:40.10"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Answer my question; it's my question.",
       "time": "00:06:48.74"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Looking at the same subsection (a) that you've just been reading from, the Attorney General may, \"is hereby authorized to contract with the proper officials of a state or a territory for the custody. \" of a person \"when the Director shall certify that proper and adequate treatment facilities and personnel are available. \" Now, if you contract for the custody of a person, it doesn't take a whole lot in the way of trained personnel other than guards, does it?",
       "time": "00:07:04.94"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The language of Subsection (a) does outline the purposes for which the Attorney General may receive them and it's custody, care, subsistence, education, treatment, and training.",
       "time": "00:09:12.64"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Not necessarily. Suppose it's a brunch out in the back yard? How about a luau? Why do you say there is such a rigidity in it?",
       "time": "00:09:41.45"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Some food. Well, what if you invite him for custody?",
       "time": "00:10:00.46"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but the reading of the statute, it seems to me, it's particularly phrased in the... with the \"and\" as it is, would include custody as a separate facet.",
       "time": "00:10:10.77"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You're really sitting on that first certification?",
       "time": "00:10:34.12"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And we don't have to get beyond that?",
       "time": "00:10:40.41"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Nelson, it's entirely a different question. I just want to get something straight in my mind. You don't raise any challenge, do you, to the power of the Vermont authorities to enter into contracts for the placement of people in their custody elsewhere?",
       "time": "00:11:57.02"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, if there's any... you're suggesting, though, is if Vermont had entered into a contract, say, with New Hampshire, for New Hampshire to take over while they remodeled their prisons or something like that, that your client could attack the New Hampshire authority to accept the prisoners?",
       "time": "00:12:15.53"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, how do you get standing to attack the Attorney General's authority to spend federal funds in housing your client?",
       "time": "00:12:32.45"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but isn't it arguable, at least, that you're really being incarcerated by the State of Vermont and they in effect have entered into a contract to have the Federal Government perform that state function for them during a temporary period?",
       "time": "00:12:44.58"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But in the first question about Vermont and New Hampshire, it seems to me you're suggesting you could not challenge New Hampshire's custody. You assert a right under 18 U.S.C. 4001(a), don't you?",
       "time": "00:13:03.84"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Because of that statute.",
       "time": "00:13:17.41"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The question is whether you're being detained by the United States, within the meaning of that statute, or whether he was still being detained by Vermont. Because I suppose Vermont could any time it wanted to say to the United States, we've decided to let this man go free.",
       "time": "00:13:20.66"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that who is the detaining authority? Is it the state or the Federal Government?",
       "time": "00:13:34.62"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could the Federal Government release him?",
       "time": "00:14:04.19"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could the Federal Government release him?",
       "time": "00:14:07.07"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So who is he in the custody of? Except on the say-so of Vermont. Whose custody is that, now? Whose custody is he in?",
       "time": "00:14:11.16"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, are we interested in any sense other than a legal sense?",
       "time": "00:14:23.97"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is it legal?",
       "time": "00:14:42.02"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So he's not in the legal custody of anybody. That's a lovely position. I know a lot of prisoners would love that position.",
       "time": "00:14:44.38"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, isn't that almost a case of damnum absque injuria, as we learned in law school? If he gets out of the federal prison he's going to go back to a minimum security in Vermont because the Vermont Legislature doesn't want to appropriate the funds for a maximum security?",
       "time": "00:15:01.28"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why is your client going to be better off being imprisoned in the state penitentiary in New Hampshire than he is in the federal penitentiary at Terre Haute?",
       "time": "00:15:48.76"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, he wouldn't be seeing much of Vermont, would he? Does the record show whether he has relatives in Vermont?",
       "time": "00:16:22.57"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So that visitation is a possible consideration?",
       "time": "00:16:36.66"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are not the records at the federal prison maintained on the conduct and behavior of the prisoner and all of the factors that go into whether a prisoner is going to be eligible for parole?",
       "time": "00:17:20.36"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there anything in the Vermont Constitution or statutes that requires that Vermont prisoners convicted in Vermont courts be kept in custody within the boundaries of the state?",
       "time": "00:17:36.75"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then, they, theoretically, they could send them to Devil's Island if they wanted to, couldn't they, if there were such a place now?",
       "time": "00:17:49.76"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That's why you focus on the power of the Federal Government to receive rather than the power of the Vermont court to transfer?",
       "time": "00:18:02.19"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What can 5003 mean if it doesn't mean that the federal system will help absorb... say... prisoners on request and use its unused capacity? What else was that statute passed for?",
       "time": "00:18:18.01"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What does the language of the statute tell us? If the language is clear, we don't need to worry about the legislative history, do we?",
       "time": "00:18:49.02"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, but the core of this statute, if you want to talk about the core of it, is that the Federal Government can make available, Congress has said the Federal Government can make available unused space in its institutions for state prisoners.",
       "time": "00:19:15.11"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, why do you have to parse, the particular words in order to discern that meaning?",
       "time": "00:19:33.03"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Where are the words that lead you to that conclusion?",
       "time": "00:20:25.76"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Where are the words? Which words lead you to the mental problem?",
       "time": "00:20:29.38"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It may mean that to you but it doesn't mean that necessarily to everyone.",
       "time": "00:20:41.98"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Adequate treatment means, do they have the space, do they have the facilities to take on more inmates?",
       "time": "00:20:47.80"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you suggesting that treatment means only treatment for a mental problem?",
       "time": "00:21:01.35"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In common speech, treatment is not necessarily synonymous with custody, is your argument, really, in answer to the Chief Justice?",
       "time": "00:21:33.11"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there any treatment in the Vermont prisons that's not available in the federal prisons?",
       "time": "00:21:43.90"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Equivalent?",
       "time": "00:21:56.17"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What do you have in Vermont like Springfield?",
       "time": "00:21:59.00"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What does the prison system in Vermont have similar to Springfield in the federal prisons?",
       "time": "00:22:01.45"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It would the whole state of Vermont.",
       "time": "00:22:11.46"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Oh, sure, but is it the equivalent?",
       "time": "00:22:17.20"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that was my question; equivalent.",
       "time": "00:22:20.23"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If Congress takes the word \"treatment\" out would you give up?",
       "time": "00:22:26.43"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you suggesting, do I take the argument to mean that this institution does not have a medical unit, for example, to deal with people who become ill, or that they have no facilities to deal with a person who has alcoholic tendencies when he arrives, although surely he couldn't become an alcoholic after he got there?",
       "time": "00:24:58.10"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Perhaps.",
       "time": "00:25:21.01"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And maybe, as... there's just no treatment for him except custody.",
       "time": "00:25:31.92"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In which case it's your claim that he cannot be transferred to a federal facility.",
       "time": "00:25:43.49"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The first question in this case is whether or not there's a private right of action, isn't there?",
       "time": "00:25:48.20"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But isn't that the first, threshold question?",
       "time": "00:25:56.00"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In other words, you're here challenging, as you said earlier, not the authority of Vermont to send him but the authority of the Federal Government to receive.",
       "time": "00:26:01.09"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Where is your standing, your client's standing to challenge what the Federal Government is doing, even though it's holding him in custody?",
       "time": "00:26:11.10"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How have you brought the... you've asserted jurisdiction under 1346, and you do claim that you have a right rooted in 4001, I take it. You might have said that you're being held illegally and that you have a right to habeas corpus.",
       "time": "00:26:32.98"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but you are claiming that your custody is illegal.",
       "time": "00:27:01.74"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "By the United States and I suppose if you could claim, at least you have the right to habeas corpus whether you have the right under 4001 or not.",
       "time": "00:27:05.22"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, is not 18 U.S.C. 5003 an act of Congress?",
       "time": "00:27:17.90"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Solely because of the word \"treatment\"?",
       "time": "00:27:32.37"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You told me, I said, if we took the word \"treatment\" out would you be out? And you said, yes.",
       "time": "00:27:39.55"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So you have changed. Now what's your latest?",
       "time": "00:27:45.67"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Ms. Etkind.",
       "time": "00:28:05.46"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But why then does the statute require that the Director shall certify that proper and adequate treatment facilities and personnel be available?",
       "time": "00:30:47.07"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, no, his implied right of action comes from a different section, I think.",
       "time": "00:32:24.48"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes. (a).",
       "time": "00:32:28.92"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's the argument on the merits, but there's a threshold question about whether or not there is a right of action to bring the lawsuit such as the one that was brought here, which was not habeas corpus.",
       "time": "00:32:41.09"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What's your normal remedy in habeas?",
       "time": "00:33:10.93"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Transfer? Why wouldn't it be release?",
       "time": "00:33:17.20"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But the normal remedy of habeas corpus, the normal request, is for release.",
       "time": "00:33:22.68"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That he's detained illegally?",
       "time": "00:33:33.95"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would seem to me that 4001(a), the purpose of that section must have been to give a citizen who is detained by the United States not pursuant to an act of Congress a remedy. What else would 4001(a) do?",
       "time": "00:33:53.45"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, in other words, what you're saying is that a citizen who is detained by the United States not pursuant to an act of Congress ought to have a remedy in court to get out?",
       "time": "00:34:45.97"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What?",
       "time": "00:34:56.73"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's what you're telling me too. Because you're saying these people were detained under this internal security legislation and this was to change that and give them a remedy for it.",
       "time": "00:34:58.36"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but the first thing we look at, what group does it confer a benefit on? Is there a special class of persons? And there sure is a special class defined in 4001(a), persons who are imprisoned except pursuant to an act of Congress, imprisoned by the United States without any act of Congress authorizing it.",
       "time": "00:35:15.21"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let's assume that a state, a given state, not Vermont, had a provision in its criminal statutes governing its institutions, that any prisoners on coming in would be examined and classified, and if they were found to have particular problems, for example, alcoholism and emotional disorders, then the statute would provide in that state, shall receive treatment for such condition. Now, could that prisoner be transferred to a federal institution absent a certification by someone that treatment was available? In other words, absent that situation, they would not be complying with the state statute.",
       "time": "00:36:36.47"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, the Congress in passing 5003--",
       "time": "00:37:38.73"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--I would think must be assumed to have taken into account that perhaps some states do require some kind of treatment. And, of course, it's well known that all the federal prisons do provide some forms of treatment. Would you think that might have been in the contemplation of Congress in drafting that?",
       "time": "00:37:43.43"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, of course, you would agree, would you not, that prior to 1952, when this statute was passed, that was the situation? There was no statutory authorization to help the states out in these situations.",
       "time": "00:40:52.95"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think that the Executive Department would have the power to do it if it weren't for 4001?",
       "time": "00:41:20.74"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Could I interrupt you, just to go back to that question I asked before? Prior to the enactment of 5003, did the Federal Government ever take custody of state prisoners, to your knowledge?",
       "time": "00:41:52.91"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So apparently the states did find some other way to solve these emergency problems, because I assume there were problems from time to time where state facilities got into trouble. Presumably they contracted with other states, I suppose.",
       "time": "00:42:04.28"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, there's nothing in the legislative history of this statute that suggests it was enacted to handle the overcrowding problem, is there?",
       "time": "00:42:24.07"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but, there is history that your opponent cites to the effect that the Federal Government was developing special programs such as for alcoholics and drug addicts and youth corrections and the like.",
       "time": "00:42:40.72"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Contemporaneously with the enactment of this statute.",
       "time": "00:42:50.29"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll resume there at 1 o'clock today. 0 [Recess.] Mr. Attorney General, you may proceed whenever you are ready.",
       "time": "00:44:35.45"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Easton, I take it nobody disputes the statement in the opinion of the Court of Appeals for the 2nd Circuit that Vermont, as contemplated in the agreement in 1975, closed its only maximum security prison?",
       "time": "00:46:15.85"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You do have agreements with other states, don't you?",
       "time": "00:46:35.09"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Which would allow Vermont to carry on its present regimes--",
       "time": "00:46:51.23"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "--Even though the federal prison system were not available to you.",
       "time": "00:46:57.33"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But New Hampshire, for example, I think, has a maximum security institution.",
       "time": "00:47:20.06"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, doesn't that extend also to some of your educational facilities? Doesn't Vermont have an agreement with Maine that Vermont law students can go to Maine, the University of Maine Law School, whereas University of Maine residents can go to the University of Vermont' Medical School?",
       "time": "00:47:26.82"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Vermont has its own law school now.",
       "time": "00:47:51.14"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it's not state-sponsored.",
       "time": "00:47:52.62"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I suppose the legal question is, say we agree with you, that it'd be a very good idea for the Federal Government to take over a large portion of these state responsibilities, but the question is whether Congress has authorized it, isn't it?",
       "time": "00:49:01.33"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that really isn't quite his argument. His argument is that he has a right to stay in the Vermont system unless the federal system offers something that Vermont does not offer in the way of special treatment.",
       "time": "00:49:56.07"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The Federal Government isn't just going into the business of making their facilities available on a wholesale basis.",
       "time": "00:50:09.51"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I take it that your friend's position would be the same if the federal institution to which the transfer was made were 200 yards away from your closed institution in Vermont. Do you assume that that's the case?",
       "time": "00:51:31.10"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It isn't the cut-of-state factor, it's the transfer to a federal institution.",
       "time": "00:51:49.09"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That's a little sweeping for the argument, perhaps. Well, it might have been the motivation for his lawsuit.",
       "time": "00:52:02.69"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But his legal claim would be the same, as the Chief Justice suggests, if the federal facility were 200 yards away from the state facility.",
       "time": "00:52:10.50"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes; the issue is the same.",
       "time": "00:52:25.06"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the claim certainly is that there's a statutory right not to be in the custody of the Federal Government. Their claim is that the statute forbids custody of this prisoner by the Federal Government.",
       "time": "00:52:53.19"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you can call it what you want to, but he says that my custody by the United States is illegal. And he's making what's equivalent to a habeas corpus claim, which is a classic claim under habeas corpus, that this custody is illegal.",
       "time": "00:53:16.85"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But Mr. Attorney General, actually, basically, as my brother White suggests, he's challenging his detention by the federal authorities as illegal in violation of the laws of the United States, isn't he?",
       "time": "00:53:54.80"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does that have anything to do with whether he has an entitlement?",
       "time": "00:54:07.28"
     },
@@ -1555,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, his challenge is that laws of the United States expressly say you can't do this, you cannot deliver me to a federal authority.",
       "time": "00:54:17.84"
     },
@@ -1567,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "He's invoking 5003. No, no... no, no.",
       "time": "00:54:29.59"
     },
@@ -1579,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He's claiming it under that the Federal Government may not have custody of this prisoner unless there is some other law that authorizes it.",
       "time": "00:54:37.48"
     },
@@ -1591,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "His claim isn't on 5003; his claim is on 4001.",
       "time": "00:54:54.56"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It's illegal; this custody is illegal under 4001.",
       "time": "00:55:00.50"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, it's the Government that's relying on 5003. No, he is.",
       "time": "00:55:12.99"
     },
@@ -1627,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I thought his entire argument was focusing on the term 5003(a).",
       "time": "00:55:28.94"
     },
@@ -1639,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, then, the case should be dismissed for failure to state a federal question, to raise a federal question within the jurisdiction of the Court under 1346.",
       "time": "00:55:47.65"
     },
@@ -1651,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What would you say if he filed a petition for habeas corpus against the federals? Of course, you may not even be in the case.",
       "time": "00:56:17.65"
     },
@@ -1663,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And saying that, basing it on 4001 saying, my custody is illegal under 4001. The United States would come back and say, sorry but it's authorized under 5003, as a defensive matter.",
       "time": "00:56:28.98"
     },
@@ -1675,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And hoping to get lost.",
       "time": "00:56:56.75"
     },
@@ -1687,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your friend, I think, if I recall correctly, conceded that there was nothing in Vermont law, including its Constitution, to prohibit Vermont from having its penal institutions in another state. Now--",
       "time": "00:57:09.68"
     },
@@ -1699,7 +1699,7 @@
     },
     {
       "turn": 275,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Hasn't the State of Vermont made this federal facility its prison by making a contract under 5003, making it a surrogate prison?",
       "time": "00:57:24.72"
     },
@@ -1711,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Nelson, do you have anything further?",
       "time": "00:57:57.29"
     },
@@ -1723,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think Vermont can't make some other entity a surrogate, including a private corporation? Suppose some group of people got together, penologists in the universities, set up a private, nonprofit corporation to do better than most of the penal institutions do, much like setting up the postal corporation outside of the old system, do you say that Vermont could not incarcerate its prisoners in that kind of an institution?",
       "time": "00:58:03.30"
     },
@@ -1735,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Anywhere. Two hundred yards down the road or 2,000 miles away in Alaska, or 3,000 miles.",
       "time": "00:58:45.00"
     },
@@ -1747,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, couldn't special cases mean Alcatraz?",
       "time": "01:01:20.24"
     },
@@ -1759,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, thank you, gentlemen. The case is submitted.",
       "time": "01:01:48.99"
     }

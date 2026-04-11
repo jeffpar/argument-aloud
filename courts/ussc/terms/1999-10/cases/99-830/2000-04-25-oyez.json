@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1999/99-830/20000425a_99-830.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "DONALD B. STENBERG",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "SIMON HELLER",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 99-830, Don Stenberg v. Leroy Carhart. Mr. Stenberg.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Stenberg, I just would like to clarify one thing. You say, borders on infanticide. I thought that this case related only to pre-viability. Is that not so?",
       "time": "00:00:55.29"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This case concerns only the pre-viable stage, is that not so?",
       "time": "00:01:20.06"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I take it--",
       "time": "00:01:37.95"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--I take it that save with respect to a... an exception to save the woman's life, and so on, that post viability abortions are generally precluded, by the State.",
       "time": "00:01:40.29"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Post viability abortions are generally prohibited, I assume, by separate statute.",
       "time": "00:01:51.64"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But General, isn't the bright line between infanticide and abortion at the... a claim of viability? Isn't that the statute that draws that bright line?",
       "time": "00:02:28.49"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It does draw that bright line, doesn't it?",
       "time": "00:02:38.89"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but that is a bright line that separates post viability from pre-viability abortions, since one is legal and the other is illegal, under Nebraska law?",
       "time": "00:02:46.65"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "General Stenberg, I took it that what you meant when you said it bordered on infanticide had nothing to do with the viability of the fetus, but that the procedure looks more like infanticide--",
       "time": "00:03:05.74"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--when the child is killed outside the womb than when it is killed inside the womb, and therefore it can coarsen public perception to other forms of killing fetuses or children outside the womb. Is that not what the legislature was concerned about?",
       "time": "00:03:17.58"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was this a facial challenge, General Stenberg?",
       "time": "00:05:54.59"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But General Stenberg, in the very first paragraph of the Judge's opinion it says, I do not reach the question of whether the law is facially invalid.",
       "time": "00:06:13.46"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He held it invalid as to this doctor.",
       "time": "00:06:21.24"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the injunction is just limited to against this doctor and his patients, isn't it?",
       "time": "00:06:33.39"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, am I correct in that?",
       "time": "00:06:40.08"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Am I correct that the injunction only applies to this doctor and his patients?",
       "time": "00:06:42.69"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How did the court of appeals... did the court of appeals say whether it was treating this as a facial challenge, or an as-applied challenge?",
       "time": "00:06:52.48"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Stenberg, do you take the position that the State of Nebraska could also prohibit the dilation and evacuation procedure for pre-viability abortions?",
       "time": "00:07:19.33"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I just wanted your position. Yes or no?",
       "time": "00:07:42.22"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I know that's the position you take, but it is difficult to read the statute and be certain that that is so. They're both rather gruesome procedures, but in fact one may be very similar to the other--",
       "time": "00:08:02.63"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--and I'm not certain whether the statute might not prohibit the D&E procedure as well.",
       "time": "00:08:19.80"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does the Attorney General in the State of Nebraska issue rulings or opinion letters?",
       "time": "00:09:32.87"
     },
@@ -327,13 +331,13 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "General Stenberg, one of the authorities that you cited for deference was the Arizonan's case where there was a formal opinion of the State Attorney General, and yet when that case was ultimately decided by the State's own supreme court, the Arizona supreme court, they rejected the formal opinion of the State Attorney General, so I think you can say that you deserve respectful consideration, but no more than that.",
       "time": "00:10:05.37"
     },
     {
       "turn": 48,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "We don't know what the supreme court of your State would say about a position that you're taking in litigation.",
       "time": "00:10:38.97"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, outside of this litigation, has your office or the Attorney General's office in Nebraska taken a formal position that this statute does not apply to the D&E procedure?",
       "time": "00:11:10.53"
     },
@@ -357,7 +361,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Of this litigation, but not... in no other form and in no other venue have you made that statement or that representation?",
       "time": "00:11:25.43"
     },
@@ -369,7 +373,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Stenberg, let me ask you another question. There is no exception under this statute, as I read it, for exceptions for the health of the woman, is that correct?",
       "time": "00:11:36.33"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was there no testimony to the effect that there might be circumstances in which the health of the woman required D&X versus D&E?",
       "time": "00:11:59.48"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then why did you need an exception for life, because if you say the D&X procedure is never medically necessary, then what you're saying about no need for a health exception would seem to apply as well to a life exception.",
       "time": "00:12:32.50"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If I read these correctly, and I'm not a doctor, it seems to me a lot of the amici on the other side representing medical organizations say that there could be circumstances where this D&E procedure is more risky for the health of the woman. For example, hurting the womb so perhaps the woman couldn't have children in the future, and there are a whole lot of circumstances where labor-induced abortion... you know, induced labor can be more dangerous. At least they list quite a few. So what are we supposed to do where the medical opinion seems at least divided?",
       "time": "00:13:06.67"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Well, if the medical opinion is divided, and then if there are doctors who feel it is necessary for the health of the mother, then what is the excuse for the legislature not putting in an exception for health, since, after all, if you're right on the facts, it would make no difference, and if you're wrong on the facts it would violate Roe and Casey?",
       "time": "00:13:58.39"
     },
@@ -429,7 +433,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Did you ask the district court to do that?",
       "time": "00:15:55.09"
     },
@@ -441,7 +445,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Did you ask the district court to certify the question?",
       "time": "00:15:57.85"
     },
@@ -453,7 +457,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If you didn't suggest it at the district court level, did you suggest it at the Eighth Circuit level?",
       "time": "00:16:08.05"
     },
@@ -465,13 +469,13 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You know, that's one of the notable differences between Arizonans and this case, is they had the Attorney General from day 1 say to the district court, please certify it to our State supreme court. They said the same thing to the Ninth Circuit.",
       "time": "00:16:17.42"
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you're saying it for the first time to this Court.",
       "time": "00:16:30.29"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did the other side ask for it to be certified?",
       "time": "00:16:37.21"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course, if a court was going to reach that resolution it wouldn't make any sense for a court to certify it, would it?",
       "time": "00:17:21.77"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even interpreted the way you say it should be interpreted, it would be wrong, I think, for the court to ask for certification.",
       "time": "00:17:31.35"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So that it would be no more appropriate for us to certify it. The same reasons would apply, but you've just asked us to do that.",
       "time": "00:17:47.54"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Should certify it only if that makes a difference to us.",
       "time": "00:18:13.06"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You would acknowledge that we also should not certify if, even, we agree with your interpretation of the statute, we think it's unconstitutional.",
       "time": "00:18:16.84"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, if we interpret it that way.",
       "time": "00:18:24.72"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is it your position that the language of the statute itself is incapable of covering D&E perhaps because of the intent requirement, or is it your position that there is a gray area, and the better interpretation is the one in accordance with the legislative intent, which was simply to get to the D&X abortion? Which is your position?",
       "time": "00:18:51.11"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, and we have held, have we not, that a Federal court in construing a State statute is obligated to, if there's constitutional doubt to construe in a reasonable way that will avoid the constitutional doubt?",
       "time": "00:19:30.55"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why is it, of course, because it wasn't in Arizonans. In Arizonans, the State Attorney General had offered a limited construction that would remain within constitutional bounds, and then the Arizona supreme court said no, we can't read the statute that way. We read the statute as, in covering much more than the Attorney General is arguing, and therefore it's unconstitutional. So whatever we say about our accounting with respect to Federal legislation, certainly we can't say what the State can do with its own legislation.",
       "time": "00:19:51.67"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We don't always certify State questions to the State courts, especially when there's only one interpretation that would render the statute constitutional and another one to render it unconstitutional. It isn't the Federal law that we must certify to State courts, is it?",
       "time": "00:20:37.98"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "General, may I ask you this question: let's assume your construction of the statute is correct, and then the question is whether, could the State ban just D&X, and I understood you to say earlier that the American College of Obstetricians and Gynecologists said you don't need this procedure in substance. But I notice in their brief they have a sentence, depending on the physician's skill and experience, the D&X procedure can be the most appropriate abortion procedure for some women in some circumstances, and then they have a footnote to the... a finding of the district court that there are at least 10 to 20 Nebraska women each year for whom the D&X is the most appropriate procedure. Now, do we have to disagree with that finding to hold this statute valid?",
       "time": "00:21:03.87"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it can ban the most appropriate procedure for a small number of women?",
       "time": "00:21:52.73"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's what I'm asking you. Do we have to find that finding erroneous in order to sustain your position?",
       "time": "00:22:01.85"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, but I mean, you could make the same argument about the exception to save life. There are very rarely instances, probably, in the whole spectrum of abortion practice in which the life exception is necessary, but you can't thereby simply say, well, we're going to allow the legislature to ignore those cases and eliminate a life exception even in your later term prohibition, so why, I guess, should the legislature be more cavalier in overruling medical judgment in this circumstance?",
       "time": "00:22:45.43"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I think when we're talking about most appropriate procedure, as Justice Stevens is quoting their brief as doing, I think normally we take... at least I take that to mean the procedure which is most conducive to an uncomplicated abortion and hence one that does not present any health risks that can be avoided, so I find your assumption hard to accept if we are entitled to take into consideration the position stated in the OB-GYN brief.",
       "time": "00:23:36.36"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Stenberg, I thought that Casey indicated that there were two interests throughout pregnancy, and one is the health of the woman and the other is the potential life of the fetus. And whatever this particular ban does, it certainly can't be urged that it is passed in the interests of the health of the woman, and it doesn't serve the interests of the potential life of the fetus, because it just says, as you said, there's always another way to do it. So it doesn't serve either of the purposes that we recognized in Casey as central, and therefore seems to be out of the balance that this Court set for legitimate pre-viability regulation.",
       "time": "00:24:34.63"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Just, what does a waiting... a 24-hour waiting period, how does that affect either of those two interests?",
       "time": "00:25:36.62"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Either the health of the... you know, the potential viability of the fetus or the health of the mother? Doesn't that have another interest in--",
       "time": "00:25:45.04"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--The State interest that it protects is certainly not a State interest in either the health of the mother or the viability, the potential viability of the fetus, is it, the 24-hour wait?",
       "time": "00:26:12.81"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a totally different State interest.",
       "time": "00:26:23.40"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You don't think the waiting period, the object behind the waiting period is its tendency to induce second thoughts about having the abortion?",
       "time": "00:26:25.99"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So I think that does go to the potential life involved in the viability of the fetus, when the fetus, at the stage it would become viable and hence subject to full protection.",
       "time": "00:26:39.47"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And indeed wasn't that the purpose that the State put forward, that by giving an interval, the woman might change her mind?",
       "time": "00:26:53.61"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So it quite clearly was intended to serve the... what the Court described as the interest in the potential life of the fetus.",
       "time": "00:27:02.14"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Very well, General Stenberg. Mr. Heller, we'll hear from you.",
       "time": "00:27:13.26"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but are... are you defending the court of appeals' construction of the statute here?",
       "time": "00:28:04.33"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think the court of appeals followed our admonition that when you have two plausible constructions available and one would avoid constitutional difficulty, you should follow that, even though it's a State statute?",
       "time": "00:28:11.00"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do we ordinarily go into the testimony of witnesses? These were witnesses at a trial?",
       "time": "00:29:24.94"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what... what authority do they have to speak to the construction of a statute?",
       "time": "00:29:32.05"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "These witnesses compared it to the language of the statute?",
       "time": "00:29:50.15"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I... I must say I don't understand... I don't understand that conclusion. The statute prohibits a procedure in which the person performing the abortion partially delivers vaginally a living, unborn child before killing the unborn child and completing the delivery. Now, how does that occur in D&E? As I understand what happens in D&E sometimes is that they... is that they... is your argument that in breaking off a leg and dismembering the fetus inside the womb, when you... when you pull the leg out of the womb, that amounts to delivering, partially delivering a living, unborn child? Pulling out a... a torn-off leg is... is delivering a living, unborn child?",
       "time": "00:29:57.83"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But in order to... for the purpose of killing it, partially delivers... the term partially delivers a living... the unborn child means deliberately and intentionally delivering into the vagina a living, unborn child. Now, in... in a D&E, does... is that what the... is that what the physician tries to do, tries to intentionally deliver into the vagina a living, unborn child for the purpose of... of then killing it?",
       "time": "00:31:09.34"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes?",
       "time": "00:31:41.76"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's not my understanding of the D&E at all. My understanding is that... that you... you try to dismember it if possible before the delivery.",
       "time": "00:31:44.37"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You mean that some of the time D&E could be that, or all the time? My impression in reading it was that some significant part of the time this could... this statutory wording would be satisfied with the D&E.",
       "time": "00:32:15.15"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The majority?",
       "time": "00:32:33.05"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, but it has to be more than just bringing it. It has to be the object of the physician to do it that way. And I do not understand it to be the case that this is what you set out to do when you do a D&E.",
       "time": "00:32:53.56"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well--",
       "time": "00:33:23.74"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--As you describe these two procedures, which in your view seem to come close together, the American Medical Association and the Association of American Physicians and Surgeons are just confused on this point?",
       "time": "00:33:26.53"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where... where is that? Will you give us the citation in the record? I did not understand that to be the case.",
       "time": "00:34:12.37"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, they... they describe it as a form of DE... D&E not in that, like D&E, it involves partial birth of the child. That isn't the respect in which they say it's a form of D&E.",
       "time": "00:35:03.07"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ultimately, yes, but not... not always intact and not always alive.",
       "time": "00:35:26.17"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why... why would you be able to do a D&E and... as I understand it, the... the D&X is only possible 90 to 95 percent of the time that he attempts it. Right?",
       "time": "00:35:45.54"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes. He's... I'm sorry. Just the opposite. It's not possible to do it 90 to 95.",
       "time": "00:36:00.13"
     },
@@ -1023,13 +1027,13 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What makes it impossible?",
       "time": "00:36:05.24"
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I thought what made it impossible is the inability to take out the... the fetus from the vagina intact and still alive.",
       "time": "00:36:07.19"
     },
@@ -1041,7 +1045,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And if... if you can do it and if that... if that's the same thing you do for D&E, then I don't understand any difference at all between the two procedures.",
       "time": "00:36:15.50"
     },
@@ -1053,7 +1057,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, just... just tell me what it means to say that... that 90 percent of the time he can't do a D&X, but he can do a D&E? What does that mean?",
       "time": "00:36:37.35"
     },
@@ -1065,7 +1069,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which would mean he cannot get out a substantial portion of the living fetus.",
       "time": "00:36:56.59"
     },
@@ -1077,7 +1081,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I can understand that, but if it means something other than that, then I... it doesn't mean anything to me. He can say that he can do a D&X only 10 percent of the time.",
       "time": "00:37:01.96"
     },
@@ -1089,7 +1093,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the medical testimony certainly acknowledges a general understanding of a difference between D&X and D&E. Isn't that right?",
       "time": "00:37:37.04"
     },
@@ -1101,7 +1105,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let me put the question differently. The medical testimony certainly establishes that there is a distinctive form of procedure known as D&X. Correct?",
       "time": "00:37:56.91"
     },
@@ -1113,7 +1117,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, call it a variation, whatever. It's a distinctive procedure. People talk about D&X. We've been talking about it today--",
       "time": "00:38:09.90"
     },
@@ -1125,7 +1129,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--as though it is something distinctive. It is.",
       "time": "00:38:15.03"
     },
@@ -1137,7 +1141,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, the only question is whether this statute covers only that distinctive procedure or something beyond that.",
       "time": "00:38:17.04"
     },
@@ -1149,7 +1153,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can we agree that that distinctive procedure is also generally called partial-birth abortion--",
       "time": "00:38:23.60"
     },
@@ -1161,7 +1165,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and that that term is not normally applied to D&E?",
       "time": "00:38:29.30"
     },
@@ -1173,7 +1177,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not asking whether there's a medical definition. Is... is the term partial-birth abortion not normally applied to what we've been discussing as D&X?",
       "time": "00:38:39.25"
     },
@@ -1185,7 +1189,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't think so.",
       "time": "00:38:50.79"
     },
@@ -1197,7 +1201,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If I find to the contrary, would... would you lose?",
       "time": "00:38:51.67"
     },
@@ -1209,7 +1213,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because the statute does begin partial-birth abortion means an abortion procedure in which, and then goes on, blah, blah, blah.",
       "time": "00:38:54.97"
     },
@@ -1221,7 +1225,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It isn't the title. It's part of the text.",
       "time": "00:39:07.77"
     },
@@ -1233,7 +1237,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Heller, what isn't part of this statute... all of this dispute would be out of the case if the legislature had simply said, we ban D&X and not D&E. And to me it's... it's... that's just glaring here that they could have reduced all question of ambiguity if they had simply said we ban a term that the doctors call D&X and we don't ban D&E. Is there any explanation why they didn't simply say if they meant to cut out D&X, D&X is banned?",
       "time": "00:39:10.09"
     },
@@ -1245,7 +1249,7 @@
     },
     {
       "turn": 200,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your... your opponent argues the language in Casey suggests that those are not the only two. You disagree with that, I take it.",
       "time": "00:40:46.33"
     },
@@ -1257,7 +1261,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Certainly it depends upon how significant the health interest is. If... if there is an insignificant difference between... between using D&X and using D&E, which... which some of the medical testimony seems to indicate, you're saying that there's no interest whatever in... in the State in... in preventing the coarsening of manners from... from having the doctor and those in attendance and those who know what goes on witnessing the... the destruction of a... of a live human creature outside the womb? There's no State interest in that at all?",
       "time": "00:41:56.35"
     },
@@ -1269,7 +1273,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can't destroy the fetus after it's born if it's viable. Right? We... we do make the... the distinction at that point.",
       "time": "00:43:30.73"
     },
@@ -1281,7 +1285,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "As... as determined by the individual physician.",
       "time": "00:44:49.20"
     },
@@ -1293,7 +1297,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, there are certain objective standards that the profession as a whole can adopt and... and recommend to the courts. Is that not true?",
       "time": "00:45:01.71"
     },
@@ -1305,7 +1309,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Roe... Roe... neither Roe nor Casey are written in the Constitution. They may not have mentioned all of the... all of the appropriate interests that may be taken into account. Why is it not an appropriate interest that the State is worried about rendering society callous to infanticide? There were very many highly civilized societies, including the Ancient Greeks, who permitted infanticide, who said that the right of parents included the right not to be burdened with a child they didn't want, especially a deformed child. And therefore, in order to prevent other societies descending into that degree of callousness, the... the numerous States that have enacted these laws... I don't think it's so much a concern with... with medical matters. I think it's a concern with the horror of seeing, you know, a... a live human creature outside the womb dismembered.",
       "time": "00:45:56.75"
     },
@@ -1317,7 +1321,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why can't that be a valid societal interest--",
       "time": "00:46:56.60"
     },
@@ -1329,7 +1333,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--whether it's expressed in Roe and Casey or not?",
       "time": "00:46:59.76"
     },
@@ -1341,7 +1345,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, we can look forward to this being more widespread in the years to come. Is that right?",
       "time": "00:51:25.90"
     },
@@ -1353,7 +1357,7 @@
     },
     {
       "turn": 218,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but hasn't there been some criticism of the health exception as it has been used in some circumstances as a way of simply avoiding the prohibition entirely by a doctor who says there's always a health exception?",
       "time": "00:52:36.54"
     },
@@ -1365,7 +1369,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then whence the criticism? Is it just totally based on no evidence whatever?",
       "time": "00:53:18.29"
     },
@@ -1377,7 +1381,7 @@
     },
     {
       "turn": 222,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But how about... are you saying that there's simply no basis for saying that a health exception could be used by doctors who wish to avoid the general prohibition to get out of it in more cases than they should?",
       "time": "00:53:31.83"
     },
@@ -1389,7 +1393,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you think when you have a... a fully viable fetus that no State restrictions upon... upon the woman's right to abort could involve any risk whatever to the woman's health? There has to be a health exception?",
       "time": "00:54:34.93"
     },
@@ -1401,7 +1405,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Any... any risk whatever.",
       "time": "00:55:02.42"
     },
@@ -1413,7 +1417,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If there's the slightest risk whatever, the... the State must allow the woman to dispose of a fully viable fetus.",
       "time": "00:55:04.34"
     },
@@ -1425,7 +1429,7 @@
     },
     {
       "turn": 230,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think that that's the rule?",
       "time": "00:55:12.95"
     },
@@ -1437,7 +1441,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand that, but it... it's possible that there is a similar rule applicable here, that the State may not impose significant health risks upon the woman. But that doesn't mean that there can't be, you know, a minimal, virtually nonexistent health risk, which is what your argument assumes, that you cannot have any... any risk whatever.",
       "time": "00:55:27.60"
     },
@@ -1449,7 +1453,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if another district court makes a different finding? I mean, do... do we accept the district court's findings on these general medical questions as binding? Is it... is it binding just in this case? Or if we have another abortion case from another... from another circuit where the district judge makes a different conclusion, the... the nonmedical district judge, do... do we then accept that other conclusion too?",
       "time": "00:56:09.30"
     },
@@ -1461,7 +1465,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is it... is it the case that the risk... I thought the risks being insubstantial was of a kind where we say one in a million. But once we've identified the woman, for that woman it's no longer insubstantial, is it?",
       "time": "00:56:48.60"
     },
@@ -1473,7 +1477,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And... and therefore a health exception or a life exception helps that single woman.",
       "time": "00:57:03.13"
     },
@@ -1485,7 +1489,7 @@
     },
     {
       "turn": 240,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Heller. General Stenberg, you have 3 minutes left.",
       "time": "00:57:16.86"
     },
@@ -1497,7 +1501,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why didn't they just say that, General Stenberg? Why didn't they just... I mean, that was proposed, Mr. Heller told us... say that what's banned is D&X, what's not banned is D&E? That was such a simple way of clarifying it. Why didn't they do that?",
       "time": "00:57:45.61"
     },
@@ -1509,7 +1513,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Did the medical... American Medical Association recommend this text or did they simply say, in our judgment, it's okay to ban D&X?",
       "time": "00:58:21.24"
     },
@@ -1521,7 +1525,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, is there any question that they would have supported a ban that simply said what you tell me the legislature meant, that is, we ban D&X and nothing else?",
       "time": "00:58:42.54"
     },
@@ -1533,7 +1537,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You would just be saying that the AMA liked this other text. Is there anything in the world to indicate that they wouldn't have preferred the clarity that we ban D&X would have brought?",
       "time": "00:58:58.85"
     },
@@ -1545,7 +1549,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But there was a medical term. Is there any reasonable doubt that a doctor would say... a medical term is what doctors use. Are you suggesting that any legislator in... in the State was genuinely in doubt, whether if he had used D&X, the medical association would have disapproved?",
       "time": "00:59:21.81"
     },
@@ -1557,7 +1561,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, General Stenberg. The case is submitted.",
       "time": "01:00:14.85"
     }

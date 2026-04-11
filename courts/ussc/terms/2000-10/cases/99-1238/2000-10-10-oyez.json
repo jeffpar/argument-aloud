@@ -3,59 +3,63 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2000/99-1238/20001010a_99-1238.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN M. CASTELLANO",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "DAN SCHWEITZER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "ALAN S. FUTERFAS",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 99-1238, Christopher Artuz v. Tony Bruce Bennett. Mr. Castellano.",
       "time": "00:00:00.00"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I take it it all comes up because we're construing the language, properly filed, in the applicable statutory provision.",
       "time": "00:01:18.86"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the courts are all over the lot on what the words, properly filed, mean. It seems to me there are several different approaches. Maybe just properly filed in the sense of being timely and in the proper place, or maybe getting permission from the State, a certificate of appealability if the State requires it, that kind of thing.",
       "time": "00:02:11.97"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So not every lower court has thought that it also encompasses a review of substance to see whether it's procedurally barred.",
       "time": "00:02:44.12"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And I guess the court has to later decide whether it's procedurally barred. The State court presumably would reach that question, or the Federal court, in due course, wouldn't it?",
       "time": "00:02:57.68"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The Federal habeas court would, I suppose, at the end of the day have to address that issue.",
       "time": "00:03:09.88"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:03:17.58"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And what is your definition of properly filed?",
       "time": "00:03:34.07"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That gets you to the situation where the petition is filed in a court that didn't even have the authority to grant any sort of relief.",
       "time": "00:04:17.70"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you want to go further than that.",
       "time": "00:04:27.57"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And is that the third part of your test, or the second part of your--",
       "time": "00:04:39.71"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, but does it follow that the court can't entertain the merits? I mean, a procedural bar is something that can be waived and, as counterintuitive as it may be, I mean, we occasionally do get cases before this Court in which there seems to have been a procedural bar that the State didn't invoke, so it seems to me that we're not in the position of even being able to analyze this on a merely... or I shouldn't say merely, on a jurisdictional basis, because it really doesn't go to the State court's jurisdiction. It goes to the discretionary decision by the State prosecutor to invoke the bar, and so I don't think we can do it on the third prong that you mentioned, which I understood was in a sense in effect a jurisdictional prong.",
       "time": "00:05:02.97"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You mean, if it can't adjudicate the merits it's not properly filed.",
       "time": "00:06:06.92"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but it can adjudicate the merits. It can adjudicate the merits if the State doesn't invoke the bar.",
       "time": "00:06:15.00"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But doesn't this... doesn't your answer, and I realize I'm shifting my position here, but doesn't your answer point out another difficulty of your position, and that is, a Federal court is, it seems to me, hard pressed in these cases if it's got to decide whether a particular bar is jurisdictional or whether it's not jurisdictional under State law, and this is just adding one more complication, as against the position of the other side, which takes a kind of a plain language, almost physical act interpretation. You're putting yet another burden on the State court to decide whether a bar is jurisdictional or not, and it seems to me that that counts against adopting your interpretation.",
       "time": "00:06:31.52"
     },
@@ -235,13 +239,13 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, there's no question that the Federal courts in a sense can do this. Sometimes the Federal courts have to do it, but it seems to me that it does count against your position that a Federal court will have to go through this every time a State court issues a laconic one word order, denied.",
       "time": "00:07:52.13"
     },
     {
       "turn": 32,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that essentially usurps the function, or at least duplicates the function of the State court and is, it seems to me, contrary to the Federal interests that underlie this statute.",
       "time": "00:08:09.11"
     },
@@ -253,7 +257,7 @@
     },
     {
       "turn": 34,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could I-- --Well, presumably the State court made that determination when it made the underlying order, and it seems to me that this is really contrary to the federalism concerns that in large part were the basis of the statute. You're asking the Federal courts to make a determination which brushes up against the merits, just in order to determine the tolling provision.",
       "time": "00:08:36.46"
     },
@@ -265,7 +269,7 @@
     },
     {
       "turn": 36,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Let's back up just a minute, Mr.... I suppose you'd be on stronger ground if you're talking not about a procedural bar to the merits in the sense of plain statement, that sort of thing. Supposing you just have a failure to file within the time limit provided by the State.",
       "time": "00:09:23.31"
     },
@@ -277,7 +281,7 @@
     },
     {
       "turn": 38,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I take it you believe that in order to be properly filed the thing must be timely.",
       "time": "00:09:44.28"
     },
@@ -289,7 +293,7 @@
     },
     {
       "turn": 40,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Even though perhaps in a pleading sense, in the New York courts, a statute of limitations, if it isn't pleaded by the defendant, might be waived.",
       "time": "00:09:50.15"
     },
@@ -301,7 +305,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So then the Federal court would have to determine not only if there is a procedural bar, but what exceptions exist, and whether this particular case fits within that exception, like statute of limitations often have tolling accoutrements, so you're getting the Federal court involved in a lot of up front decisonmaking that substitutes for the State, and my question is I think the same as Justice Kennedy's. That is, you're asking the Federal court, as it does in the Erie area, to make a determination of what State law is. Isn't it more respectful of the States to say, State... State court, this is for you to decide. We don't know how to apply your procedural bar rule. We'd rather have you tell us, does this fall within an exception? It seems to me that ordering the Federal court to decide the State law question is not as respectful of the States as it would be to say, that's a question that the State courts should decide.",
       "time": "00:10:17.94"
     },
@@ -313,7 +317,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But here we don't know, because the State order is opaque. It doesn't tell us.",
       "time": "00:11:36.39"
     },
@@ -325,7 +329,7 @@
     },
     {
       "turn": 46,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Federal court is always going to have to decide, when this question comes up, whether or not the State petition was, quote, properly filed. I mean, that was Congress' choice. I mean, it isn't necessarily any court's choice.",
       "time": "00:12:10.51"
     },
@@ -337,7 +341,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the question is what properly filed meant, and one thing to say, we look to State law to see if this is an application for whatever, and we look to see that it is, in fact, filed in the court, the stamp and everything, there it is in the properly filed, in the right court. It seems to me that those mechanical things are easy for a Federal court to check, but going beyond that, this is a rather complex operation.",
       "time": "00:12:27.01"
     },
@@ -349,13 +353,13 @@
     },
     {
       "turn": 50,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "So what?",
       "time": "00:13:22.48"
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, but if... I suppose that a State could have its own State rule for second or successive petitions in State court for post conviction relief, such as a requirement that the applicant get a certificate from some reviewing court as a prerequisite to filing the successive petition, and if there were that kind of mechanical requirement, just like the requirement for a filing fee, or filing in a certain court or within a certain time, all those things are in the nature of kind of mechanical rules, so the State can certainly protect itself, it seems to me.",
       "time": "00:13:23.27"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, but it's open to a State to do it.",
       "time": "00:14:15.95"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I mean, there's no reason why we have to construct something to save the State that the State can take care of on its own.",
       "time": "00:14:19.53"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it does have a meaningful effect in the sense of looking to any State requirements for timing, place, et cetera.",
       "time": "00:14:35.39"
     },
@@ -403,13 +407,13 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, maybe we should expand it slightly, but not to include a procedural bar and substantive law component.",
       "time": "00:14:52.89"
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We don't have to take either all one or all the other.",
       "time": "00:15:00.81"
     },
@@ -421,7 +425,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If we go beyond the mechanical, mechanical things are easy to check, but once you get beyond the mechanical, you both have the Federal courts interpreting State law later, and it seems to me something worse. Any reasonable defendant who has a lawyer, certainly, who has any kind of complicated State issue, will know that he better file a protective habeas petition in Federal court. Now, what's the Federal judge supposed to do when he gets that habeas petition--",
       "time": "00:15:04.06"
     },
@@ -433,7 +437,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--prior to the State court deciding the issue, and that's going to happen all over the place. He now has to decide questions of State law which the State court might later say he's wrong about or risk dismissing it, or avoid the exhaustion problem. It sounds like a real mess as soon as you depart from the mechanical.",
       "time": "00:15:38.04"
     },
@@ -445,19 +449,19 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I'm--",
       "time": "00:16:39.09"
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What difference does it... go ahead.",
       "time": "00:16:39.94"
     },
     {
       "turn": 68,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I'm puzzled. There's litigation in the State court over whether or not a procedural bar exists. While that litigation goes on, what is a Federal judge supposed to do, decide the issue?",
       "time": "00:16:41.34"
     },
@@ -469,7 +473,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Or say the remedy hasn't been exhausted?",
       "time": "00:16:52.91"
     },
@@ -481,7 +485,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right, and then it takes more than a year to resolve the procedural bar issue in the State court, and eventually you end up saying you're procedurally barred. Why do you need the statute of limitation, then? Why don't you just rely on the procedural bar?",
       "time": "00:17:04.05"
     },
@@ -493,7 +497,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but whether the statute has run or not depends on whether or not the case was procedurally barred, and if it was procedurally barred, why do you need the statute of limitations?",
       "time": "00:17:21.16"
     },
@@ -505,7 +509,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right, but you find in the State all the claims were procedurally barred, otherwise the statute would not have run, and if they find that, why do you need the statute of limitations?",
       "time": "00:17:36.70"
     },
@@ -517,7 +521,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That are not procedurally barred.",
       "time": "00:17:51.19"
     },
@@ -529,7 +533,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Under your rule, what would happen if there were some petition... some claims that were procedurally barred and some that were not?",
       "time": "00:17:54.71"
     },
@@ -541,7 +545,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but then I'm asking you, at the end of this 14-month litigation in the State procedure the State court ends up saying, all the claims are procedurally barred. Why do you need a statute of limitations if that's the holding of the State court?",
       "time": "00:18:29.58"
     },
@@ -553,7 +557,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I'm assuming he doesn't know until the 14 months of litigation in the State court have resolved the issue, and there are lots of times--",
       "time": "00:18:54.79"
     },
@@ -565,7 +569,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--it's a contested matter.",
       "time": "00:19:02.06"
     },
@@ -577,7 +581,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But they all have to go through that process if the State's going to plead a procedural bar.",
       "time": "00:19:15.94"
     },
@@ -589,7 +593,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I really think there's tension between the exhaustion rule and your interpretation of properly filed.",
       "time": "00:19:23.20"
     },
@@ -601,7 +605,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Castellano. Mr. Schweitzer, we'll hear from you.",
       "time": "00:19:50.74"
     },
@@ -613,7 +617,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about the case where it just isn't clear? I mean, the easy cases can sort themselves out under either interpretation, I think, but what about the cases which are tougher?",
       "time": "00:21:52.61"
     },
@@ -625,7 +629,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's a difficult... you know--",
       "time": "00:22:08.02"
     },
@@ -637,7 +641,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--frivolous cases aren't really that tough. I mean, we deal with them. But the cases that might... may have some merit, and you're not sure, and the State law's uncertain, those are the ones that take the time.",
       "time": "00:22:08.02"
     },
@@ -649,7 +653,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's no problem, if the Federal court sees somebody abusing the State system this is an equitable statute, tolling, and they can deal with it. But I'm worried about the complicated, close cases. What happens there?",
       "time": "00:22:30.56"
     },
@@ -661,7 +665,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It goes back, and now the State court says, oh, well, I guess, in fact, there's a independent State ground, or the statute of limitations wasn't tolled under State law, et cetera. Now what happens?",
       "time": "00:23:00.19"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How could you, under your interpretation? It's more than a year.",
       "time": "00:23:21.67"
     },
@@ -685,7 +689,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Even though it turns out that, in fact, it's not... even though it was in the wrong court, it should have gone to the surrogate court, or something?",
       "time": "00:23:31.15"
     },
@@ -697,7 +701,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It was wrong. It was wrong under State--",
       "time": "00:23:56.22"
     },
@@ -709,7 +713,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--The Federal court was wrong. It was a close question.",
       "time": "00:23:58.75"
     },
@@ -721,7 +725,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Schweitzer, the problem I have with your position is, I don't know how you can get out of the word properly the kind of line that you want to draw. I can see how you can say, properly filed means, you know, the technical things, the proper court, the name's right, that I can understand, but you want to say it includes procedural bars, that the claim is invalid on the merits because of a... it's invalid because of a procedural bar. If that is embraced within the word, properly filed, why wouldn't the fact that the claim is unmeritorious for a substantive reason be included as well? It's not properly filed if it's a... you know, it's a ridiculous, nonmeritorious complaint. How do you get the word properly to cover only procedural bars and not substantive bars?",
       "time": "00:24:15.91"
     },
@@ -733,7 +737,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So also if it makes a frivolous merits claim. You could say that's not properly filed. There's no substance to it.",
       "time": "00:26:28.42"
     },
@@ -745,7 +749,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Schweitzer, does Florida have either a statute of limitations or any rules taking care of the repetitive and successive filing problem as a matter of State law?",
       "time": "00:26:37.87"
     },
@@ -757,7 +761,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Schweitzer, you have conceded, I think, in agreement with Mr. Castellano, that Congress could have been, as he put it in his brief, more specific in defining the scope of the tolling provision.",
       "time": "00:27:53.93"
     },
@@ -769,7 +773,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And you say that... well, Mr. Castellano says the reason probably that Congress was not more specific, that 1) it's Members couldn't agree on a definition, or because the types of State procedures that could be invoked were so varied, Congress thought it best to leave the application of the provision for the courts, but that seems... why shouldn't the court say, well, Congress, we'll just go as far as you did. You were ambiguous about this. You left room for one interpretation or the other. We're going to pick the one that favors the petitioner.",
       "time": "00:28:11.08"
     },
@@ -781,7 +785,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, it's not one or the other, because everyone would agree that at least it's got to be an application for habeas corpus, and has got to be filed in the court, so it's not... it's... that's... no question about it. The question is whether there is something more than that, and I'm asking why the Federal court should read something into the statute that Congress didn't clearly put there.",
       "time": "00:29:03.67"
     },
@@ -793,13 +797,13 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Not if the States, as Justice O'Connor suggested, enacts one of these... you have to get permission before you can file such an application.",
       "time": "00:30:11.06"
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Schweitzer. Mr. Futerfas. Am I pronouncing your name correctly?",
       "time": "00:30:19.96"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What do you think the term properly filed means, Mr. Futerfas?",
       "time": "00:31:27.53"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean your position.",
       "time": "00:31:45.69"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, supposing, to use Mr. Castellano's example, there's a habeas corpus petition that is delivered to the clerk of a surrogate's court which has only probate jurisdiction?",
       "time": "00:31:57.33"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And also, a timely filing?",
       "time": "00:32:32.90"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And in the correct court that would have the authority to grant relief?",
       "time": "00:32:37.01"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How about a State requirement for a successive position, petition that there be some... something akin to a certificate of appealability?",
       "time": "00:32:43.71"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your quarrel then, really, with the petitioner is on the procedural bar type of thing, where it's uncertain whether this can be raised.",
       "time": "00:33:34.51"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May I ask a question about the operation of the State procedural bar in this scenario? Let's assume that as your opponent suggests, that there is, in fact, a State procedural bar in this case, and let's assume that you're right that that doesn't factor into this 1-year statute of limitations determination by the Federal court. Then what impact, if any, would the State procedural bar have on the Federal habeas corpus proceeding?",
       "time": "00:37:55.49"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In other words, there is a State... the State will not hear this case because its court will determine there's a procedural bar. Let's say that Mr. Castellano is right about that, what a State court would do in this very case, but that you are right that that kind of complex determination should not be made by the Federal court, so the Federal court just checks to see that it is an application, and that it has indeed been filed in the right court. What impact, if any, does the State rule that this claim is procedurally barred in State court have in the Federal habeas corpus proceeding?",
       "time": "00:38:37.53"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yeah--",
       "time": "00:39:56.32"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--I'm accepting both their position that this is, in fact, procedurally barred in the State, your position that that doesn't... you don't get into that on the statute of limitations question. I'm asking you then, when there's no time bar in the Federal court, what effect, if any, does the State rule that this claim would be procedurally barred in State court, have on the Federal habeas proceeding?",
       "time": "00:39:57.51"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Right.",
       "time": "00:40:59.65"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The significance of the procedural... of the bar decision in State court is that you have to show cause in prejudice when you come into Federal court before those claims could be reached, don't you?",
       "time": "00:42:07.17"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, perhaps my question... I think Justice Ginsburg asked, you know, then what is the State court determination that a claim is procedurally barred reduced to if it doesn't have any effect of tolling. Well, it still has an effect on the Federal court's ability to review the merits of the claim, doesn't it?",
       "time": "00:42:29.51"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Because unless the person can show cause in prejudice the Federal court can't reach it.",
       "time": "00:42:48.90"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes--",
       "time": "00:42:53.73"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Did the State court here ever issue a written order?",
       "time": "00:44:34.27"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "To this date we have no written order from the State court?",
       "time": "00:44:42.22"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, counsel, the States draw a distinction between noncapital cases and capital cases. It's always in the petitioner's interest to get prompt disposition when he's not... in a nondeath case. In a death case, the stakes are reversed, and there is a motive... a potential for repetitive filing just to delay the execution, so maybe you should address the capital cases, too.",
       "time": "00:46:54.00"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "How many States have opted in?",
       "time": "00:48:23.12"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But it still is the case that if a State has not opted in and a petitioner wishes to simply continue the tolling period he can make repeated filings in the State and if a district judge prefers not to hear the habeas petition he can just simply wait.",
       "time": "00:50:28.91"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Futerfas.",
       "time": "00:56:22.73"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Castellano, you have 1 minute remaining.",
       "time": "00:56:24.56"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Castellano. The case is submitted.",
       "time": "00:57:38.72"
     }

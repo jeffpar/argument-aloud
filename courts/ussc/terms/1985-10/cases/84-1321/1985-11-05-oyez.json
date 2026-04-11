@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1321/19851105a_84-1321.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "BRENT R. APPEL",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "PATRICK REILLY GRADY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Appel, I think you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Appel, I take it you take the position that under these circumstances the attorney had a duty to challenge his client's proposed false testimony?",
       "time": "00:08:06.38"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What standard do you think should be employed to determine when the facts are sufficient to impose such a professional obligation on the lawyer?",
       "time": "00:08:21.55"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does the lawyer have to be convinced beyond a reasonable doubt, or just have a mere suspicion, or what?",
       "time": "00:08:45.01"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What standard, then? What level of certainty must a lawyer have in your view?",
       "time": "00:08:53.75"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Appel, let me interrupt just a minute. What is the source of this law that you're talking about, the duty of the lawyer, the standard applied? We have Iowa law before us, and that was the jurisdiction in which this case arose. You have mentioned the Model Penal Code, and apparently you've given us some of your own ideas. Do those really have any relevance?",
       "time": "00:09:29.55"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but can't we say that without affirmatively adopting some standard, from heaven knows where, as to what the duties of a lawyer are in this situation? Well, hasn't the Bar of the State of Iowa already declared a standard of the professional conduct of lawyers admitted to practice in their courts?",
       "time": "00:10:51.13"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "One of the elements of an inadequate assistance of counsel is there's got to be some prejudice.",
       "time": "00:11:57.13"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, the argument for the defendant has to be that his being deprived of perjured testimony is prejudice.",
       "time": "00:12:03.50"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I'd say all you have to do is convince us that that isn't so and you win your case, don't you?",
       "time": "00:12:13.63"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Without all these other arguments?",
       "time": "00:12:21.40"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's hard to say. If a court says, sure, he was going to produce... he was going to perjure himself, but nevertheless we're worried about the truth-finding process, that's a contradiction in terms.",
       "time": "00:13:36.78"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even if what the lawyers did might be subject to sanction--",
       "time": "00:14:01.10"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--under the state rules of ethics.",
       "time": "00:14:07.77"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Then why do we have to argue so much about the conduct of counsel? Would this be a different case if the defendant had, faced with the challenge of the lawyer, not taken the stand at all in your view, or is it just the same?",
       "time": "00:14:10.70"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I guess I didn't hear if you answered my question. Would it be a different case if the defendant had not taken the stand at all?",
       "time": "00:14:48.08"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Supreme Court of Iowa can't lay down a Canon of Professional Ethics that violates the federal Constitution.",
       "time": "00:15:32.92"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Or rather, it can, but it won't prevail on federal habeas.",
       "time": "00:15:37.98"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is there a separate right of the defendant to be heard, do you think?",
       "time": "00:16:14.47"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that involved here at all, as opposed to any Sixth Amendment right to counsel?",
       "time": "00:16:19.96"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Doesn't the right to testify carry with it the right to testify truthfully?",
       "time": "00:16:42.75"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I don't see--",
       "time": "00:16:49.25"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--I don't see why you're worried about that at all.",
       "time": "00:16:53.08"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But did we not say in Harris against New York, about ten or a dozen years ago or more, that the right to testify does not include the right to testify falsely?",
       "time": "00:16:54.50"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In other words, it's a corollary of what Justice Marshall has just suggested.",
       "time": "00:17:09.24"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, taking his statements, the Respondent's statements, at their face value, the lawyer was urging him not to commit a crime--",
       "time": "00:17:32.31"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--that he proposed to commit.",
       "time": "00:17:44.06"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that basically any different from his saying that: I think I'll go out and shoot that witness, the one eye witness, and the lawyer talks him out of shooting the eye witness? Fundamentally any different?",
       "time": "00:17:46.62"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did the client... after the lawyer said he would withdraw and so on, did the client then say, I won't do that?",
       "time": "00:19:45.74"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right. Well, but then he, without any further communication, he put him on the stand?",
       "time": "00:20:03.06"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But suppose this. Suppose the client then had gotten on the stand and in the course of his examination he said he saw something in his hand. Well, the lawyer could have cured it all, if he thought he was going to commit perjury, by getting out of the case or at least trying to get out. But if he gets surprised, may he then say, may I approach the bench, and say to the judge that this fellow's lying?",
       "time": "00:20:16.35"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You think he could do that?",
       "time": "00:20:43.15"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you think that he could... that he as a lawyer could be permitted to go on the stand and testify and impeach him--",
       "time": "00:20:45.56"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--No, no.",
       "time": "00:21:04.29"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, you don't know what the client would have done if all the controversy had said, unless you agree not to do that I'm going to withdraw.",
       "time": "00:21:28.24"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't know what the client would have done then. He probably would have said, well, go ahead and withdraw, George.",
       "time": "00:21:35.80"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I'll get another lawyer and I won't tell him the truth, ever.",
       "time": "00:21:43.93"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the lawyer said more than that. He said, if you do I'm going to tell the judge and testify against you.",
       "time": "00:21:50.78"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, he said he'd be willing to impeach him.",
       "time": "00:22:08.24"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but he said he'd be willing to.",
       "time": "00:22:11.40"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a kind of a preliminary question. As I understand it, the relief was granted on a Sixth Amendment theory of ineffective assistance of counsel; is that correct?",
       "time": "00:22:48.06"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "At least part of it was?",
       "time": "00:23:00.36"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Was any Sixth Amendment claim ever made to the state court as part of the exhaustion of state remedies?",
       "time": "00:23:01.46"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Sort of a due process claim, wasn't it?",
       "time": "00:23:19.61"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you're satisfied with that ruling? That's really what I'm asking.",
       "time": "00:23:31.60"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I don't know whether that doesn't raise a question in my mind. Why would you ask a question like that? Would there be a suspicion that he hadn't acted properly?",
       "time": "00:24:35.27"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why? What provoked it?",
       "time": "00:24:48.51"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think maybe the trial judge was making a record? For himself?",
       "time": "00:24:55.09"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Grady.",
       "time": "00:27:12.09"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but the Court of Appeals would put all cases in one bag. It wouldn't make any difference what the evidence was with respect to whether the client was going to tell a falsehood on the stand. I mean, as the case comes to us I take it the Court of Appeals decided, even if it's perfectly clear and no one would doubt that the client planned to commit perjury, even so the lawyer may not threaten him with anything that would keep him from saying that.",
       "time": "00:28:27.68"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even no matter what the degree of certainty that the client is going to commit perjury?",
       "time": "00:29:15.29"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. Yes, exactly.",
       "time": "00:29:23.79"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So as the case comes to us, that's the given, that the client was going to commit perjury?",
       "time": "00:29:26.76"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, no. But that's the way it comes to us.",
       "time": "00:29:36.80"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Grady, let me follow up on a question that the Chief Justice asked your opponent. Supposing the client had told the lawyer that he was going to kill a witness, a prosecuting witness, and the lawyer said to him: If you do, I will tell the judge what you've done and I will withdraw. Now, would that be unethical?",
       "time": "00:30:10.66"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now, why is it different?",
       "time": "00:30:30.99"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but I am assuming a case in which the client has given his version of what happened and then, having given the version, says, yes, but I'm going to testify differently, and what I testify to will be false. I'm assuming an easy case where we know he's testifying falsely. Then why is it different?",
       "time": "00:31:03.22"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, has perjury ever been recognized as part of the adversary system?",
       "time": "00:31:43.86"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But I wonder how much of an impairment there is at all. There are certainly cases from this Court, an opinion of Justice Cardozo's back in the thirties, I think, that said not only is potential criminal conduct not protected by the confidence, but even a scheme to commit fraud is not protected.",
       "time": "00:32:11.81"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, in this particular case when your client said, I'm going to perjure myself, what redress do you think the lawyer should take?",
       "time": "00:32:54.37"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I don't need any facts for my question.",
       "time": "00:33:10.54"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'd like to get an answer to it.",
       "time": "00:33:14.32"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And it didn't say that he did not, did it?",
       "time": "00:33:55.35"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It's just silent on it.",
       "time": "00:33:58.66"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, we'll take a hypothetical.",
       "time": "00:34:01.29"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The witness says, I'm going to perjure myself and I'm going to say that I saw a gun.",
       "time": "00:34:03.25"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What can the lawyer do? What can he do and what should he do?",
       "time": "00:34:10.20"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, the client says, I'm going to perjure myself.",
       "time": "00:34:29.27"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Or during the trial.",
       "time": "00:34:44.58"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, at the same time as it is in this trial.",
       "time": "00:34:54.95"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Right.",
       "time": "00:35:00.85"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'm still asking what he could do. He said he could withdraw.",
       "time": "00:35:27.86"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Now, what else could he do?",
       "time": "00:35:31.16"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What else could an attorney do other than to withdraw?",
       "time": "00:35:43.21"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, did the attorney stop him from testifying here?",
       "time": "00:36:11.66"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:36:16.07"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So what else could the attorney have done other than what he did?",
       "time": "00:36:18.78"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Didn't he have 23 meetings?",
       "time": "00:36:34.41"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I mean, they did a lot of discussing.",
       "time": "00:36:38.27"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you want more discussion?",
       "time": "00:36:42.49"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you by any chance say that the attorney should have just sat there and let him go ahead and not said anything about it?",
       "time": "00:36:55.62"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If he had let him perjure himself, he'd have been subject to disbarment.",
       "time": "00:37:15.86"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Wouldn't he?",
       "time": "00:37:21.55"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what does the Code... don't you have a code of ethics in Iowa that says that if you put on, knowingly produce perjured testimony you're disbarred?",
       "time": "00:37:23.22"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is.",
       "time": "00:37:36.37"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I said wouldn't that happen in this case?",
       "time": "00:37:36.95"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He wouldn't be disbarred?",
       "time": "00:37:53.49"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I would suggest you not try it.",
       "time": "00:37:57.74"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'd suggest you not try it. I mean, I don't know of anything worse for a lawyer to do than to produce perjured testimony, because he's suborning it and that's a crime, to suborn perjury. Isn't it in Iowa?",
       "time": "00:37:59.11"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Grady, how did the action of the lawyer here, whether or not it met in all respects the Iowa Code of Professional Responsibility, how did that conduct undermine the fairness and reliability of the trial, in your view?",
       "time": "00:38:48.36"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, doesn't encouraging a client to testify truthfully enhance the reliability of the trial?",
       "time": "00:39:27.83"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if the only effect is to in fact have a trial based on truthful testimony, how is that in any sense a violation of any constitutional requirement to achieve a fair trial?",
       "time": "00:39:43.44"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why should the conduct of the lawyer rub off on the conviction if the conviction has been accurately and truthfully arrived at?",
       "time": "00:40:33.82"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Accurately and truthfully because there wasn't any perjured testimony in the trial.",
       "time": "00:40:44.76"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's the way the case comes to us.",
       "time": "00:40:52.43"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why can't they be taken care of by policing the defense bar?",
       "time": "00:41:01.16"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Teaching the defense bar how to act. Why should it really involve setting convictions aside?",
       "time": "00:41:10.44"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Unless there's some prejudice?",
       "time": "00:41:21.06"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, do you argue that there is some right to testify falsely on the part of... not the lawyer now, but on the part of the defendant a witness? That there is some right to testify falsely if will help you?",
       "time": "00:41:37.76"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And at most, all the lawyer did here, if it had any impact, was to dissuade him from committing perjury.",
       "time": "00:41:54.17"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, we have at least three cases where we've addressed that.",
       "time": "00:42:19.80"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Havens, and Harris against New York.",
       "time": "00:42:23.57"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What right is it that you're urging on us?",
       "time": "00:42:31.94"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, there was no disclosure here by the lawyer.",
       "time": "00:42:42.72"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well then, let's take that other, harsher case. If he said he was going to go out and kill or persuade somebody to kill the principal witness, would you say that that is a different kind of a felony from committing perjury or suborning perjury?",
       "time": "00:42:49.70"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, what about, let's make it gentler, then. He's going to bribe a witness.",
       "time": "00:43:14.56"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that somewhere between suborning perjury and murder?",
       "time": "00:43:21.50"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Aren't they all in the same category?",
       "time": "00:43:29.18"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why is the conflict different in the case which the Chief Justice has put to you than in the case we have before us? In each case the lawyer urges the client not to do something which is unlawful, the client apparently goes ahead and says, I'm going to do it anyway. And then the lawyer says: All right, I'm going to impeach you, I'm going to advise the judge. Isn't there just as great a conflict whether the client is talking about bribing a witness or killing a witness as there is in the case where he says he's going to commit perjury, isn't there?",
       "time": "00:43:46.43"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Can't you answer that yes or no?",
       "time": "00:44:18.79"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why not?",
       "time": "00:44:23.69"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why does that distinguish those three cases one from another?",
       "time": "00:44:39.28"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The two hypotheticals from the present?",
       "time": "00:44:47.45"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but you're not--",
       "time": "00:45:02.13"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--You're simply... that may satisfy you as an answer. It's just utterly unconvincing to me as to why the three shouldn't be treated the same way for conflict of interest purposes. And what about, suppose there had been two defendants in this case, they were joint defendants, co-defendants, they each had separate lawyers. Each of them told his lawyer privately: I'm going to commit perjury. The one lawyer says: Oh, don't do that; you may be... you know, it's just a bad thing to do, it's the wrong thing to do, and you may be indicted for perjury. That's all he says, and the guy says, well, I guess I better not. And the other fellow does what this lawyer did, and so the fellow says, I guess I better not. And in both cases he's deprived of a chance to commit perjury. But you draw a distinction between the two?",
       "time": "00:45:04.19"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why should all of this... even if you're right about the lawyer's conduct, again why should this have a consequence for the conviction?",
       "time": "00:46:13.88"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "His right is not... his right certainly wasn't to try to mislead the jury by perjured testimony.",
       "time": "00:46:26.36"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You seem to be.",
       "time": "00:46:40.68"
     },
@@ -1463,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, couldn't your client have complained to the judge that the lawyer interfered with him or threatened him?",
       "time": "00:46:45.23"
     },
@@ -1475,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, couldn't he have gone to the judge and said, judge, my lawyer has threatened me by having me charged with perjury? Why couldn't he have done that?",
       "time": "00:46:59.63"
     },
@@ -1487,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Don't you know why he didn't?",
       "time": "00:47:16.58"
     },
@@ -1499,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's right.",
       "time": "00:47:24.37"
     },
@@ -1511,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's right.",
       "time": "00:47:26.96"
     },
@@ -1523,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In this case, as I understand your position, really the heart of your argument is there's a conflict between the lawyer and the client, that they have a different... that the lawyer is not pursuing the client's interests. But what if the lawyer thinks that perjury would be a tactical mistake and more likely to result in conviction than if he told the truth, and therefore everything he did was justified by his interest in acquitting the client? How do you find a conflict of interest there?",
       "time": "00:48:04.57"
     },
@@ -1535,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the decision to testify. But in the fact pattern we have, where he's going to testify and it's just a question of what he's going to say, and the lawyer sincerely and effectively urges him to tell the truth because he thinks it's going to be more persuasive than introducing a falsehood into the story and maybe looking very bad on the witness stand, wouldn't that be in the client's best interests?",
       "time": "00:48:48.90"
     },
@@ -1547,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, where's the conflict?",
       "time": "00:49:11.79"
     },
@@ -1559,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, the Eighth Circuit accepted a fact finding against you on that point, didn't they?",
       "time": "00:50:23.97"
     },
@@ -1571,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, did you urge that as an alternative ground for affirmance in your brief?",
       "time": "00:51:11.85"
     },
@@ -1583,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, in your view of this initial interview where the attorney tells the client that he can fully disclose because none of it will ever be repeated, does the attorney have to go ahead and mention the instances which are exceptions to the confidentiality, where there's a threat of committing fraud, where there's a threat of committing a crime?",
       "time": "00:52:26.57"
     },
@@ -1595,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you don't tell the client the actual state of what the law is respecting the confidentiality of the lawyer-client privilege. You give kind of a gloss to it to indicate it's a lot more sweeping than it is?",
       "time": "00:53:13.49"
     },
@@ -1607,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Grady, it would help me if you would summarize exactly what you think the lawyer should have done in this case.",
       "time": "00:53:41.36"
     },
@@ -1619,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "He did that. He succeeded. The lawyer tried to dissuade his client. What else should he have done?",
       "time": "00:53:55.43"
     },
@@ -1631,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "And should the lawyer have permitted him to go ahead and testify falsely?",
       "time": "00:54:20.01"
     },
@@ -1643,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You think counsel should have permitted the defendant to testify? That's what CA-8 said.",
       "time": "00:54:45.77"
     },
@@ -1655,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Yes.",
       "time": "00:54:52.92"
     },
@@ -1667,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, if you look at page 20, page 89, I think you'll find they did say that. Judge Gibson thought the Court of Appeals said that.",
       "time": "00:54:58.39"
     },
@@ -1679,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, what do you think? I understood you to say you thought the lawyer finally, after trying to dissuade him, should have permitted the defendant to testify.",
       "time": "00:55:09.61"
     },
@@ -1691,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "The answer to my question is the lawyer should have permitted the defendant to testify and kept his mouth shut?",
       "time": "00:55:32.58"
     },
@@ -1703,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, can he at least, say, try to talk him out of it, then he'd say: If you still insist, I'm going to try... I'm going to withdraw? He can say that, can't he?",
       "time": "00:55:40.98"
     },
@@ -1715,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:55:54.56"
     },
@@ -1727,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He can go that far.",
       "time": "00:55:56.15"
     },
@@ -1739,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And then, if he talks him out of it using that threat you wouldn't be here.",
       "time": "00:55:59.22"
     },
@@ -1751,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:56:09.91"
     },
@@ -1763,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose he testifies falsely and he's acquitted. May the lawyer then say he committed perjury?",
       "time": "00:56:18.66"
     },
@@ -1775,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then don't he concealing perjury?",
       "time": "00:56:32.04"
     },
@@ -1787,7 +1791,7 @@
     },
     {
       "turn": 291,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, the attorney-client relationship has terminated at that point, after the verdict.",
       "time": "00:56:44.64"
     },
@@ -1799,7 +1803,7 @@
     },
     {
       "turn": 293,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, let's take the other extreme, then, the one that Justice Stevens and I were putting to you. Suppose he actually killed one of the major witnesses against him, carried that out. Would the lawyer be required to conceal that?",
       "time": "00:56:55.37"
     },
@@ -1811,7 +1815,7 @@
     },
     {
       "turn": 295,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, they're both felonies. They're both felonies, aren't they? And they're both done to get himself off.",
       "time": "00:57:13.05"
     },
@@ -1823,7 +1827,7 @@
     },
     {
       "turn": 297,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What would you say if, right before the defense rests, the defendant then said to his lawyer, I'm going to testify thus and so, and he immediately gets up and walks on the stand to testify falsely? At that point in this hypothetical, the defense counsel gets up and says, if the court please... or goes to the bench, rather, not in the hearing of the jury: I am bound under the ethical standards of the profession to ask the court immediately to let me withdraw from this case. The judge is likely to say: Why? I am unwilling to disclose the reason, but the reason has to do with the testimony the defendant is about to give. Well, that tells the judge--",
       "time": "00:57:25.66"
     },
@@ -1835,7 +1839,7 @@
     },
     {
       "turn": 299,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--doesn't it? Could he do that?",
       "time": "00:58:12.03"
     },
@@ -1847,7 +1851,7 @@
     },
     {
       "turn": 301,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, what has he disclosed?",
       "time": "00:58:19.43"
     },
@@ -1859,7 +1863,7 @@
     },
     {
       "turn": 303,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The jury is still not informed.",
       "time": "00:58:30.51"
     },
@@ -1871,7 +1875,7 @@
     },
     {
       "turn": 305,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Do you have anything further, counsel?",
       "time": "00:58:43.20"
     },
@@ -1883,7 +1887,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But wouldn't you think this was a relatively rare case, where a lawyer... where the defendant just says, I'm going to commit perjury, and it's so clear? Because you would concede that the lawyer may not... if there's a real doubt about the truth of the thing--",
       "time": "00:59:39.46"
     },
@@ -1895,7 +1899,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--you wouldn't be here at all.",
       "time": "00:59:57.77"
     },
@@ -1907,7 +1911,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or even if the lawyer is himself completely convinced that the story his client is telling is false.",
       "time": "01:00:18.17"
     },
@@ -1919,7 +1923,7 @@
     },
     {
       "turn": 313,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No.",
       "time": "01:00:29.24"
     },
@@ -1931,13 +1935,13 @@
     },
     {
       "turn": 315,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:00:40.07"
     },
     {
       "turn": 316,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable Court is now adjourned until tomorrow at 10 o'clock.",
       "time": "01:00:41.88"
     }

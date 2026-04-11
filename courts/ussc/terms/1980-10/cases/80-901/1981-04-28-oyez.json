@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1980/80-901/19810428a_80-901.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "KENNETH STEVEN GELLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "FRANCIS R. CROAK",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in Donovan v. Dewey. Mr. Geller, I think you may proceed.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Geller, you're doubtless familiar with the Steagald case that this Court decided a couple of weeks ago, where it said that law enforcement officers, even though they possess an arrest warrant, could not go into the house of a third person to seize the person for whom they had the warrant. Now, certainly crime has been a heavily regulated business in the last 50 or 60 years just like mining. If one were to apply Steagald to this type of case, don't you think the district court's opinion probably has something to be said for it?",
       "time": "00:04:28.95"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What about a pervasively regulated business like organized crime?",
       "time": "00:05:29.40"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Do you think for the Biswell doctrine to apply that pervasive regulation is sufficient? Or must there be a long... whatever \"long\" means... history of pervasive regulation?",
       "time": "00:06:06.27"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That was of alcoholic beverages?",
       "time": "00:06:50.07"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that involved commercial traffic in firearms?",
       "time": "00:07:20.32"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There was a history, and it was pervasive.",
       "time": "00:07:31.35"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, what's that kind of a situation? There was a history, wasn't there?",
       "time": "00:07:45.91"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And, in other words, do you think Congress could enact legislation today, pervasively regulating a certain element of industry and providing for inspections and searches and seizures without a warrant? And if it could not, would that provision become constitutional ten years from now?",
       "time": "00:07:51.15"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And if the regulation is pervasive enough, it can provide for warrantless searches and seizures without violating the Constitution, is that it?",
       "time": "00:08:26.17"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course, my brother Rehnquist would suggest that the police would always say that their enforcement needs require them to violate the Fourth Amendment.",
       "time": "00:08:51.69"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So, in other words, your answer to my hypothetical case of Congress enacting a statute pervasively regulating an industry and providing for the warrantless searches and seizures of elements in that industry without securing a warrant, if there was a showing that there was a need to do so--",
       "time": "00:10:05.05"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "--There would be no constitutional violation. Right, today, the day the statute's enacted.",
       "time": "00:10:27.90"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then, Kahriger was rightly decided and Coin and Currency was wrongly decided? The pervasive federal regulation of gambling that was upheld in 345 or whatever U.S. and that was subsequently overruled in 390 or 395 U.S., those cases were simply topsy-turvy?",
       "time": "00:10:37.02"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They involve compulsory self-incrimination, those cases. Supposing the Government for 100 years has pervasively regulated gambling?",
       "time": "00:11:15.51"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does that make any sort of warrantless inspection of a nightclub that might be thought to be carrying on gambling?",
       "time": "00:11:27.58"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let me try another hypothetical on you. Suppose, passing over the problems of whether building construction is in the area of interstate commerce, for the moment, that on all buildings and I suppose all commercial buildings would clearly be covered, random inspections by federal inspectors during the process of construction until the building was completed. Would you think that's constitutional?",
       "time": "00:12:05.24"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There is such a statute with respect to constructing bridges, I think, across any navigable stream, that federal inspectors may come on the site and inspect it at any time without a warrant. I suppose it's to see whether the steel and concrete is going to be enough to hold the bridge up, so it won't fall on the boats or drop the people.",
       "time": "00:12:55.33"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course, your expectation of privacy, that's kind of a circular argument. If Congress today enacts a statute pervasively regulating an industry and you're an element in that industry and if that legislation provides for the warrantless inspections of elements of that industry, then if the statute's valid, you've lost your expectation of privacy.",
       "time": "00:13:41.20"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But that doesn't mean you have no standing to attack it.",
       "time": "00:14:06.36"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Geller, to what extent is the requirement of a license relevant in these cases? Of course, that isn't so here, I take it.",
       "time": "00:14:17.53"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It was in the gun case.",
       "time": "00:14:29.90"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You could either agree to a search in advance or you don't get a license?",
       "time": "00:14:38.64"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "By the way, are we talking here about the stone quarry business or all mines?",
       "time": "00:14:58.11"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So all non-coal mines you're talking about, not just stones?",
       "time": "00:15:07.46"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Not just the ones that perhaps would be where your enforcement needs to be very great because the danger to health is very great. There are some mines that qualify as mines that aren't all that dangerous.",
       "time": "00:15:11.46"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What about the coal? Warrants in the inspection of coal mines?",
       "time": "00:15:42.65"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We had a combination of cases four years ago on that subject, didn't we?",
       "time": "00:15:50.33"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I suppose there's a greater privacy interest in a coal mine than there is in a big open pit, isn't there? A little harder to see inside it?",
       "time": "00:16:13.47"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But there has historically been pervasive regulation of the coal mining industry.",
       "time": "00:16:42.55"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And at least in this case there's no attack upon warrantless searches provided by the statute of coal mines.",
       "time": "00:16:51.56"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Particularly this state of this particular entity.",
       "time": "00:17:11.22"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The federal interest is precisely the same as in OSHA, isn't it?",
       "time": "00:17:50.79"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's precisely the same federal interest as was present in the OSHA case?",
       "time": "00:17:53.91"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In OSHA they found a history of all sorts of dangerous things that justified the same program.",
       "time": "00:18:10.39"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What you're saying is, there's a constitutional distinction between something that's very dangerous and something that's just pretty dangerous?",
       "time": "00:18:25.46"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, would you say that there's an urgent federal interest in the apprehension of felons?",
       "time": "00:18:35.44"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the Government didn't think so in Barlow.",
       "time": "00:20:16.76"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if they sent a new guy maybe they'd let him in. This comes close to a bank examiner situation, doesn't it?",
       "time": "00:21:53.78"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if Congress had endowed the Drug Enforcement Administration with the same sort of power saying that it's notoriously easy to flush drugs down the toilet and therefore you're entitled to perform a maximum of 12 warrantless searches of disco dancing places every year? Do you think that would get around the Fourth Amendment?",
       "time": "00:24:40.00"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I thought you were arguing now about the congressional finding of urgency and necessity to--",
       "time": "00:25:38.24"
     },
@@ -539,13 +543,13 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Croak--",
       "time": "00:27:29.08"
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let me put to you at the outset a question I put to your friend. What about the hypothetical: Congress after identifying building construction as being within the reach of federal legislative power, laying that aside, then decided that they were going to have inspectors who could come on the on-site of any building more than 100 feet high at any time during the course of construction to inspect. Let's make it 100 so they don't come into one-story houses. Is that all right?",
       "time": "00:27:39.55"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, there is a pervasive degree of regulation at the local level.",
       "time": "00:28:19.34"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And it is random, it is random inspection by building inspectors. I don't know that 100 feet is the limit but tall buildings always have random inspections during construction. Now that's pervasive throughout the country, municipal, sometimes the state.",
       "time": "00:28:27.95"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But under your argument, it wouldn't be valid the day the legislation was enacted but it might be valid 25 years later. By then you'd have 25 years of history.",
       "time": "00:29:14.06"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, the history of local inspection of buildings is at least 100 years old, is it not?",
       "time": "00:30:44.54"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, isn't that pervasive?",
       "time": "00:30:53.25"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well but the history of this country is that a great deal of regulation that once was considered entirely local has, as you well know, in the last 40 years become pretty much federalized; maybe even more than 40.",
       "time": "00:31:12.21"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I'm not arguing in favor of it.",
       "time": "00:31:29.95"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I'm just observing the history of the fact.",
       "time": "00:31:31.94"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Your argument is that the history of pervasive regulation has to be regulation by the jurisdiction that is now asserting the right to search and seize without a warrant?",
       "time": "00:31:49.38"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In order to come under the Biswell--",
       "time": "00:32:02.77"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--I just took another look at Camara, which you seem to rely on, Mr. Croak, and that didn't involve the building inspection while a tall building was in the process of being constructed. That was an occupied ground-floor area. Do you think that controls anything?",
       "time": "00:36:08.19"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Suppose Congress, after holding some hearings, recited the great incidence of the fires out in the gambling town out west somewhere... I forget the name of the town.",
       "time": "00:36:36.36"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Las Vegas. And there have been three or four of those. And then went on to show the loss of life and went on to show the failure to have adequate safety provisions in those buildings, complying with requirements, and then cited all of the cases... and there are quite a few of them... of buildings collapsing during the process of construction, with three, four, five, twenty people, workmen, getting killed. Do you say they could not legislate for random inspection of buildings in process of construction if that hazard existed?",
       "time": "00:36:48.18"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Random inspection of the building while it's under construction to see that they're using the proper amount of cement, the proper sealed structure, in compliance with prescribed standards, and fire safety provisions, and so forth?",
       "time": "00:37:38.12"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes, random.",
       "time": "00:38:07.30"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Random inspection.",
       "time": "00:38:09.18"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, is your view of the matter that that is a federalism proposition, or view, that that's a matter of local and state government--",
       "time": "00:38:34.22"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Well, how about, once again, the nuclear. That's okay?",
       "time": "00:39:00.88"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is it because it's always been, or that it is now?",
       "time": "00:39:19.42"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I for one am not too worried about lives 20 years ago. I'm worried about lives today.",
       "time": "00:39:25.72"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The first year, was it okay? The first year that it was regulated, was that okay?",
       "time": "00:39:37.06"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, if that's the point, it has to go along with it, we can never learn? Is that your position?",
       "time": "00:39:49.82"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, you've got a problem; you've got a problem. You can run mines and build buildings without the permission of the Federal Government but you can't engage in the nuclear power business except on a license from what was formerly the Atomic Energy Commission, is that not so?",
       "time": "00:40:09.51"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "At one time there was a statutory prohibition against any private individuals even engaging in the nuclear power industry, wasn't there, before 1954?",
       "time": "00:40:29.85"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's exactly what the Government is arguing.",
       "time": "00:42:40.05"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The statute is a permanent search warrant.",
       "time": "00:42:42.81"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They really don't even need that, if they're right under the statute; that the statute itself is a permanent authorization to go in without notice or without--",
       "time": "00:42:54.34"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Mr. Croak, just as a matter of information, is there anything in this statute... and perhaps I should know from the papers, that talks about inspecting records. Or are we only talking about inspection of physical premises?",
       "time": "00:43:33.70"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, can they make... if they win this case, will they be able to not only come in and look around and test the amount of dust in the air and that sort of thing but also can they say, we want to see your records for the last three weeks of how much dust your own tests showed and that sort of thing?",
       "time": "00:43:56.56"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They could do that.",
       "time": "00:44:11.73"
     },
@@ -917,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On your permanent search warrant, there are some. Isn't there one the Customs people have?",
       "time": "00:44:13.48"
     },
@@ -929,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "To search without a warrant?",
       "time": "00:44:21.86"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes. There are permanent search warrants. Provided for--",
       "time": "00:44:25.44"
     },
@@ -953,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--I think so, I'm not sure.",
       "time": "00:44:30.61"
     },
@@ -965,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The question was whether it was or was not a border search.",
       "time": "00:44:56.38"
     },
@@ -977,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you think turned the trick in Biswell? Do you accept Biswell?",
       "time": "00:45:49.83"
     },
@@ -989,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In what respect?",
       "time": "00:45:58.98"
     },
@@ -1001,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It can't support both sides.",
       "time": "00:46:01.06"
     },
@@ -1013,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you think turned the trick in Biswell, that a warrantless search would be all right?",
       "time": "00:46:14.16"
     },
@@ -1025,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There wasn't a long history of regulation.",
       "time": "00:46:21.30"
     },
@@ -1037,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The Court did; yes.",
       "time": "00:46:26.45"
     },
@@ -1049,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the interest, then, the enforcement interest turned the trick?",
       "time": "00:46:36.28"
     },
@@ -1061,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Do you think there was some other attack in Biswell?",
       "time": "00:46:43.78"
     },
@@ -1073,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:46:45.81"
     },
@@ -1085,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And is measured by the extent of the danger to the miners?",
       "time": "00:46:58.57"
     },
@@ -1097,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And to every miner? So Congress found.",
       "time": "00:47:03.66"
     },
@@ -1109,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then you distinguish Colonnade on the ground that it was the long history of pervasive regulation of the grog shops and the liquor business generally?",
       "time": "00:47:09.95"
     },
@@ -1121,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it was really the same question. In Biswell there was a license required to go into the business--",
       "time": "00:47:24.54"
     },
@@ -1133,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "--And it could be argued at least that in applying for the license the proprietor of the gun shop accepted the conditions of the license and therefore in effect consented to the warrantless searches?",
       "time": "00:47:30.21"
     },
@@ -1145,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "A consent would be dispositive?",
       "time": "00:47:50.91"
     },
@@ -1157,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I think you are making the difference between an open mine and a closed mine. Why does it make any difference there?",
       "time": "00:48:08.49"
     },
@@ -1169,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I mean, you can't see inside of a closed mine?",
       "time": "00:48:24.88"
     },
@@ -1181,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Don't say that to me, because I might be tempted to feel that you can't see it because of the dust. To pursue one of Justice Marshall's earlier questions on this duration of the tradition, of the pervasiveness, before we had elevators in buildings there wasn't any need to have random inspection of elevators and elevator shafts, and then elevators which made possible high-rise buildings, because without elevators they couldn't have had them. They had to begin somewhere, with random inspections of elevators, did they not?",
       "time": "00:48:35.05"
     },
@@ -1193,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "At the turn of the century they didn't know much about black lung and brown lung, or if they did they tolerated it. Is that not so?",
       "time": "00:49:37.08"
     },
@@ -1205,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, suppose, suppose this was a coal mine case, and we decided that warrantless inspection is all right. Would it, wouldn't you expect it to just rest on the strength of the enforcement interest in the sense that hazard to the miners, and the necessity of saving lives, and the effectiveness of the search, is that... that's sort of Biswell, isn't it?",
       "time": "00:50:29.97"
     },
@@ -1217,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, you might help solve the energy problem by staying out of the hair of the miners, and let them go without any inspections at all, but if you were going to defend the warrantless inspection of coal mines, you would have to get to the health hazards sooner or later.",
       "time": "00:51:19.57"
     },
@@ -1229,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:51:42.03"
     },
@@ -1241,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Before they began coal mine inspections, it was near the turn of the century, there probably was a history of illness, disease, injury, explosions, and what not that led to those enactments. Isn't that so?",
       "time": "00:51:59.81"
     },
@@ -1253,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Isn't that always... isn't the fulcrum of the Fourth Amendment \"reasonable\", \"unreasonable\", or \"reasonable\"?",
       "time": "00:52:44.78"
     },
@@ -1265,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "So what might have been unreasonable at one time... our cases have said that... determines reasonable or the reverse of that proposition.",
       "time": "00:52:51.26"
     },
@@ -1277,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You wouldn't think that would be enough then to sustain the coal mine inspection, warrantless coal mine inspection?",
       "time": "00:53:29.16"
     },
@@ -1289,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think you have to add a long history of regulation? But that just goes, that goes to expectations of privacy, doesn't it?",
       "time": "00:53:41.18"
     },
@@ -1301,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, have the states... have the states inspected premises like these for quite a while or not?",
       "time": "00:54:10.49"
     },
@@ -1313,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Geller?",
       "time": "00:55:14.01"
     },
@@ -1325,13 +1329,13 @@
     },
     {
       "turn": 214,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:58:30.36"
     },
     {
       "turn": 215,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:58:33.34"
     }

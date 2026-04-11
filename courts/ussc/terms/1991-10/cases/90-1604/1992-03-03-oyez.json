@@ -3,59 +3,63 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1991/90-1604/19920303a_90-1604.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CLARENCE THOMAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "STEPHEN GARDNER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE THOMAS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "KEITH A. JONES",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "STEPHEN L. NIGHTINGALE",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 90-1604, Dan Morales, Attorney General of Texas, v. Trans World Airlines. Mr. Gardner.",
       "time": "00:00:00.00"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Gardner, we have to decide, I guess, what it is that the language that Congress used means, and it chose to use language that preempts, federally preempts state laws relating to rates, routes, or services. That's the language it chose, relating to.",
       "time": "00:02:30.11"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it would have been easy enough for Congress to have used the language of preempting state law determining rates or setting rates or something of that kind, but it didn't. It said relating to. And in the ERISA context this Court has interpreted that identical phrase in a fairly expansive manner, I guess.",
       "time": "00:03:11.39"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, can you say that advertisement of airline rates and fares does not relate to airline rates and fares? Can you really say that?",
       "time": "00:04:56.46"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, suppose in this case that the State of Texas or some other state had passed a statute containing all of the prohibitions and guidelines set forth in the guidelines that you issued here. Would that statute be valid?",
       "time": "00:05:27.83"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, you have to take that position, don't you?",
       "time": "00:05:52.83"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But I'm troubled about what, the same thing Justice O'Connor asked you. It's really quite difficult to say, it seems to me, that the guidelines issued here do not relate to airline rates.",
       "time": "00:06:28.05"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, in order to test that proposition I think we're entitled to inquire as to how far your principle leads, and it seems to me that you simply must take the position that a state could enact a statute which incorporated all of the guidelines that the Attorney Generals' Association issued here.",
       "time": "00:06:55.87"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Your position goes even further than that, as I understand it. You would also say, I assume, that the state could forbid the advertising of airline tickets.",
       "time": "00:07:26.49"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It relates to advertising. It doesn't relate to rates.",
       "time": "00:07:41.63"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that, even though it only relates to advertising and does not relate to rates?",
       "time": "00:07:48.59"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you abandon your argument that the mere fact that it does not relate to rates is dispositive of this case?",
       "time": "00:08:09.83"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It seems to me if you're going to take that position you must abandon the argument that the mere fact that it relates to advertising demonstrates that it does not relate to rates.",
       "time": "00:08:17.60"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It can relate to advertising and relate to rates by reason of the fact that it relates to advertising.",
       "time": "00:08:29.53"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you acknowledge that that two step bootstrapping argument is valid with respect to a law that prohibits the advertising of airfares.",
       "time": "00:08:39.10"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No you don't? So they can pass such a law? I mean, either they can or they can't. If they can't, then you have to abandon your relates to rates argument.",
       "time": "00:08:51.09"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Aside from the First Amendment, what is your position on a state law that says no airline rates shall be advertised?",
       "time": "00:09:19.66"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Gardner, did the district court in its injunction refer in terms to the NAAG guidelines?",
       "time": "00:09:35.02"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Which would be general fraud statutes and that sort of thing.",
       "time": "00:09:54.75"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Where is the injunction? Where do we turn to it, do you know?",
       "time": "00:10:21.82"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is that 8(a) of the appendix to the petition for certiorari?",
       "time": "00:10:32.78"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could states, after the act was passed, regulate intrastate carriage by airlines?",
       "time": "00:12:02.87"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But then the act goes beyond merely undoing what the CAB had been doing, because when the CAB was in effect the CAB regulated interstate fares and the states were entitled to regulate intrastate fares, right?",
       "time": "00:12:10.06"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the new act says no regulation of intrastate fares.",
       "time": "00:12:27.53"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They want a competitive regime, which is consonant with the notion that they wanted competitive advertising too.",
       "time": "00:12:34.07"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So true is, as the Government points out, that if you're practically disempowered from advertising because you are compelled to include within your notice all of the exceptions that may exist on various routes, you as a practical matter can't have any advertising.",
       "time": "00:13:10.93"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And state law could do that, I suppose. Is there any objection to state law saying you must put in any of your advertising all of the exceptions to the fares that you announce, you can't say some exceptions apply?",
       "time": "00:13:28.52"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's up to the state. If it's state law, the state can determine what's deceptive. If the state wants to say you're always deceptive in an ad unless you list all of the exceptions to the price that you state, if the state wants to say that's deceptive it can, I presume.",
       "time": "00:15:14.99"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm just trying to see where your principle leads. It may well be that in the particular instance it's a very reasonable thing you're saying, and something that the Department of Transportation will agree to, but doesn't it lead you all the way to the point where you can, if you wish and if we accept your argument here, you can say effectively there will be no airline advertising, by simply saying you must list every exception to any fare that you advertise?",
       "time": "00:15:28.52"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's a point that the airline could raise in the state case that was brought against it, I suppose?",
       "time": "00:16:32.24"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, you don't get to the jury until you have a valid state enforcement proceeding, and it seems to me that your position must be that California can require one size of type on airline advertisings, that Texas can require another size of type, and that Arizona can require a third type of type with an added disclosure, and that every one of those state statutes would be valid as a state enforcement of its laws against deceptive practices.",
       "time": "00:17:15.61"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That has to be your position.",
       "time": "00:17:50.24"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If the state laws contain the provisions that I have hypothesized were enacted, would they or would they not be preempted under the existing Federal statutes?",
       "time": "00:17:59.64"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. And if they, they would not be preempted then you would have to say that that is not a law affecting airline rates and routes.",
       "time": "00:18:30.49"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question that was raised by your response to Justice Kennedy? You said if you had these conflicting regulations in different states that created a problem of uniformity that the Department of Transportation could step in and preempt that?",
       "time": "00:19:43.97"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Pursuant to what authority?",
       "time": "00:19:57.71"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "To go out and preempt a lot of state laws? That's a novel concept. They have the authority to issue cease and desist orders at the airlines, but I don't know if they have any, I'm not aware... I was just interested in the source of that suggestion. You're saying it's some sort of inherent authority?",
       "time": "00:20:09.34"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if you had, say, not an airline industry, say in the automobile industry that all the automobile companies wanted, were subjected to a lot of conflicting regulations on advertising, the same kind of thing Justice Kennedy suggested. Is there some Federal agency that can go out and say you can't, everything would be preempted?",
       "time": "00:20:33.18"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "To preempt?",
       "time": "00:20:53.28"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "By a rule making process?",
       "time": "00:20:55.12"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you've just waved a stick. I mean, even if you're correct that these rules adopted by the Association of State Attorneys General, or whatever the organization is that adopted them, haven't been applied in this case, they were certainly brandished against the airlines. I mean, I think it's one thing to say they're not involved in this case and it's another thing to say that the airlines haven't been affected by any such activity.",
       "time": "00:23:05.02"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So the state attorney generals felt there was a need for uniformity?",
       "time": "00:24:11.24"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "I'd like to ask you one question, counsel. You say you're not enforcing the NAAG guidelines?",
       "time": "00:26:13.60"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "If you take the Joint Appendix to page 137a, the second paragraph of the letter to the General Counsel of the Department of Transportation, it says in short we continue to support and intend to enforce the NAAG guidelines which we adopted last December. That seems to undermine what you just said.",
       "time": "00:26:19.36"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "I understand that, but that's also part of the record in the motion for a temporary restraining order.",
       "time": "00:27:08.59"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Gardner. Mr. Jones, we'll hear from you.",
       "time": "00:27:26.47"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Jones, do I gather from your first point that you feel it's necessary to your case to show that the State here was intending to implement the NAAG guidelines and not just general fraud statutes or deceptive advertising statutes?",
       "time": "00:28:16.32"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you support the breadth of the injunction issued by the district court here?",
       "time": "00:28:54.61"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes. Do you support that?",
       "time": "00:29:04.11"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Rule 65 is quite precise that the injunction was set out not in the light of something else, but very precisely, exactly what is enjoined. I don't know that Rule 65 leaves any latitude to go back to the complaint and say well, let's see if we can't get another reading out of the actual order.",
       "time": "00:29:33.15"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Even though the order did not mention the NAAG guidelines?",
       "time": "00:30:12.88"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but Mr. Jones, isn't it your position that the consumer protection laws are generally preempted insofar as they apply to airline advertising of rates?",
       "time": "00:30:36.07"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't that your position in this case? Isn't that what you argue the scope of the preemption is?",
       "time": "00:30:50.67"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't understand why you just don't argue that insofar as the consumer protection laws are enforced against, are attempted to be enforced against airline advertising it's just preempted. What's wrong with that argument? Is there something... if that isn't the argument, then I would suppose you would have answered the Chief Justice that the guidelines argument is, is integral to your argument.",
       "time": "00:31:13.66"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about consumer protection laws as they apply to the sale of tickets, never mind advertising? I mean, that's as closely connected to rates, I suppose, as the advertising of them. Fraud in the sale of tickets can't be prosecuted under state law?",
       "time": "00:31:58.36"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Jones, I think we've had a little difficulty this afternoon in getting either you or Mr. Gardner to articulate for us the guiding principle to be used by us in resolving this case. Each of you wants to focus only on the specific regulation at issue here without regard for the many other issues that are going to arise in the future. Preemption is serious business, and if this statute is to be given a broad reading then I assume this Court would be faced with a whole range of cases in the future in which it is alleged that certain state and local laws and regulations are preempted. For example, I suppose it can be argued that the Texas income tax law might affect the airfares charged by an airline. Are Texas income taxes preempted? Maybe Texas liquor laws affect what alcohol can be served in one of these airline clubs. Are those preempted? What about the zoning laws that tell us where and how airline terminals can be built? Where does, where do we draw the line?",
       "time": "00:34:37.85"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, does that include state income tax laws?",
       "time": "00:37:54.96"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Does Texas have an income tax law?",
       "time": "00:38:01.20"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But other states do, of course.",
       "time": "00:38:07.95"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Zoning laws? Liquor laws?",
       "time": "00:38:17.21"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's the problem that I see in your argument, Mr. Jones, that your theory does not accord with the statutory text that you're using to implement it. What you're objecting to is interference, or any state law that interferes effectively with competition, which was the goal of the statute, competition in rates and the other matters. But the text does not suit that kind of a reasoning. The text seems to carve out categories of state law without looking at their particularized effect. It's any relating to this matter, not that has a significant enough effect upon this matter.",
       "time": "00:38:59.38"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your opponent, Mr. Jones, suggests that Congress, in enacting the ERISA statute, intended to, quote, occupy the field, whereas here congressional intent was not the same, and that therefore the phrases, though identical language, should not be read the same in the two acts. What is your response to that?",
       "time": "00:40:26.79"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about section 1506 of Title 49 that says nothing contained in this chapter shall in any way abridge or alter the remedies now existing at common law or by statute, but this provision of this or in addition--",
       "time": "00:41:27.50"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Are you suggesting it was repealed by implication?",
       "time": "00:42:02.09"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Perhaps only if you read the preemption clause the way you do.",
       "time": "00:42:23.05"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Jones, can I ask you a question to be sure I understand your theory? Justice Scalia asked you about fraud in the sale of tickets, and I understood your answer to be that's probably not preempted because it doesn't have a sufficient direct impact on the rate making process. Maybe I misunderstood.",
       "time": "00:42:36.14"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And I take it you would also say that, say regulation, state regulations prohibited obscene advertising or advertising of liquor in conjunction with airline travel in the terminal would not be preempted if it didn't have any significant burden? You're not claiming all regulation by the states of advertising that mentions rates is preempted?",
       "time": "00:42:54.85"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's got to be sufficiently burdensome to affect the rate making process?",
       "time": "00:43:17.72"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not sure there's a big difference between what you said and what I said.",
       "time": "00:43:41.60"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you emphasize burden rather than the content of the ads, you seem to admit that a lot of ads could be regulated that mention rates in the airline terminal and the like. And if you emphasize burden, then I don't know how you get around Justice O'Connor's question about suppose they have rent control or they impose some heavy costs on the operation of airline terminals or something like that, the way they handle their dealings with their car rental agencies or something of that kind.",
       "time": "00:44:21.97"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What exemption are you talking about now? What statutory provision?",
       "time": "00:45:18.13"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:45:42.01"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Jones. Mr. Nightingale.",
       "time": "00:46:47.45"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well now, does that go so far as to say they can't regulate obscene advertising in the airport?",
       "time": "00:47:46.99"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm talking ads with the rates put on them, or maybe not obscene but the character of the advertising, having people serving liquor, say, at the time some states are concerned about that. Could they prohibit the showing of drinking liquor on an airline in a picture in connection with the rates for the flight?",
       "time": "00:47:56.08"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Could they just ban all advertising in the waiting room of the airport--",
       "time": "00:48:29.84"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--thinking it's not aesthetically suited to the, you know, to the terminal or something like that? They couldn't do that?",
       "time": "00:48:38.53"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I'm talking about advertising by, not by the proprietor, by the airline.",
       "time": "00:49:08.13"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, no, no. The state could decide that we don't, we want, just like they don't want people soliciting for, you know... for one reason or another they just don't want to have the appearance cluttered up with rate advertising in front of the terminals or anything like that.",
       "time": "00:49:26.34"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if one of those ads is seriously misleading, not in one of the ways set forth in the guidelines, but it just lies. It says the fare will be 300 dollars and it's actually, or 100 dollars and it's actually 300 dollars? Is there no remedy under state law?",
       "time": "00:50:12.22"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So the problem with the guidelines is that they use tort law instead of contract law? They should simply have said anyone who does not list all of the exceptions to the fare shall be deemed to have no exception to it, and anyone who accepts such an offer shall be deemed to have a contract with no exception?",
       "time": "00:51:22.70"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if the airline advertises Dallas to Washington, D.C., 100 dollars, and I show up for a ticket and they say well, no, it's 200 dollars, we just didn't mean what we said in that ad. Can the state enforce deceptive advertising law in that case?",
       "time": "00:52:02.54"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the answer given isn't that there are no seats. It's simply that although we said we'd charge you $100, we're going to charge you $200, and there are lots of seats on this plane.",
       "time": "00:52:42.02"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you support the affirmance of the injunction as written and issued by the court below?",
       "time": "00:54:22.36"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So you think a remand is necessary?",
       "time": "00:55:11.59"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Nightingale, before you sit down I would like to just have some description of the principle by which we should decide these cases.",
       "time": "00:55:25.77"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And I haven't heard it. I haven't heard it from Mr. Gardner, I didn't hear it from Mr. Jones. I'm curious if I'm going to hear one from you.",
       "time": "00:55:35.56"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Nightingale. Mr. Gardner, you have 2 minutes remaining.",
       "time": "00:56:52.91"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about just the guidelines? If we assume that only the guidelines are at issue do you say that there's not enough record with respect to that as well?",
       "time": "00:57:56.00"
     },
@@ -1123,13 +1127,13 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Gardner. The case is submitted.",
       "time": "00:58:37.24"
     },
     {
       "turn": 180,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:58:41.06"
     }

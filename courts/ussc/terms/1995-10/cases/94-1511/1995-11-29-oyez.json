@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1995/94-1511/19951129a_94-1511.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "GRANT WOODS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ELIZABETH ALEXANDER",
-        "role": "advocate"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 94-1511, Samuel A. Lewis v. Fletcher Casey. General Woods.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Woods, what are the findings of the district court that would support a system-wide violation of Bounds? Was there any express finding that there was a system-wide violation of the requirements this Court set forth in Bounds?",
       "time": "00:01:34.12"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you take the position that Bounds was an either-or situation, that the State can provide a library or assistance?",
       "time": "00:02:16.30"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, Bounds said that in so many words, didn't it?",
       "time": "00:02:25.87"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if you do that, I certainly think there is some indication that a prisoner who cannot read or who does not speak English might not have meaningful access to a library even if it were there, and you want us to take the position that there's no requirement to provide any assistance at all.",
       "time": "00:02:38.21"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You take the position that, if a prisoner is illiterate or is illiterate in English, that that... that the requirements therefore are still satisfied so long as there is, in fact, a library in existence to which the prisoner could resort if he were able to read it, or a legal helper to whom he could turn if he were able to communicate?",
       "time": "00:03:02.35"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well-- --So there is no obligation to an illiterate prisoner.",
       "time": "00:03:39.54"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well-- --But that turns... I'm sorry, I keep interrupting Justice-- --Go ahead... no, go ahead. This will be my last question. That, it seems to me turns the requirements even in the strict either-or sense into pure formalities. We're placing books in front of someone who cannot read them, and we're placing legal helpers in front of someone who cannot communicate with them. That seems utterly senseless.",
       "time": "00:03:57.08"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why isn't it senseless?",
       "time": "00:04:21.51"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, suppose we don't agree with you on the meaning of Bounds, because there certainly is language in it that speaks in terms of meaningful access, do you have a fallback position?",
       "time": "00:04:53.58"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you want us to find that the district court findings were erroneous? I mean, what is it we're supposed to do, parse through the record and say that their findings were clearly erroneous? What is it you're asking us to do, then?",
       "time": "00:05:20.32"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So you don't make an argument, then, today, that the injunction exceeded the scope of the district court's authority? You're not making that argument, I take it.",
       "time": "00:05:48.92"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Woods, was there a point... ever a point, after finding constitutional violation, at which the State was asked to come up with a plan to cure the violation, or was this directly referred to a special master?",
       "time": "00:06:57.40"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But before that, isn't it usual in these situations to give the State the first opportunity to present a remedial plan?",
       "time": "00:07:42.85"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Did you ask at any point to be permitted to do that before you encountered the special master?",
       "time": "00:08:04.19"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Woods, Attorney General Woods--",
       "time": "00:08:41.25"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--did you give consideration, or have any of the people who have written in this field in the scholarly community given any consideration to whether or not the library requirement makes sense at all? It seems to me that maybe libraries might be a waste, and that there might be much better, more efficient ways in which to provide prisoners some assistance.",
       "time": "00:08:43.88"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I'm asking whether or not other forms of legal assistance were considered by you. It seems to me you're defending your position, advancing your position on the theory that your library facilities were adequate. You have not taken the position, I take it, and have any other prisoners, prison systems taken the position, that the library requirement is just fanciful, what prisoners need are small books with forms and a couple of people to tell them how to fill them out.",
       "time": "00:09:35.70"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it says other forms--",
       "time": "00:10:24.50"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--of legal assistance.",
       "time": "00:10:25.97"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Have there been any studies on the effectiveness of prison libraries?",
       "time": "00:10:36.59"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Woods, isn't it the case that in Bounds the district judge would have preferred some other form of legal assistance? It was the State that decided that the library was a better way for it to go. This Court mentioned both, but the district court in that case, I thought, had made it clear that he thought it would be a much better idea to provide some form of legal assistance other than Federal reporters, State reporters on a shelf.",
       "time": "00:11:03.81"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So it's the State that made this choice, isn't it, the States?",
       "time": "00:11:48.19"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It was not something that this Court, and surely not the district court in Bounds, dictated. And haven't you made that same choice? In other words, you're defending your position, or advocating your position based on the adequacy of the library system.",
       "time": "00:11:51.99"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well then you're not taking the position that it's irrelevant that they're illiterate, then. You're not saying, we can comply in a purely formal way, and that's the end of the matter.",
       "time": "00:12:55.16"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, isn't that correct? You're not... I thought you were taking the formalistic position, and now, it seems to me, you're not. Am I correct that you are not?",
       "time": "00:13:05.10"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, do you--",
       "time": "00:13:31.60"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Let me put it another way. Do you deny that you have any affirmative obligation to give the prisoners some capacity, whether it be through other prisoners, family, friends, the group you were mentioning, to be able to use the library or to have access in some other way? Do you deny that you have any affirmative obligation?",
       "time": "00:13:32.97"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, that seems to me a somewhat negative obligation.",
       "time": "00:13:59.50"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And I take it you deny that you have any affirmative obligation.",
       "time": "00:14:00.99"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So that if you had a prisoner who had no friends and there were no other prisoners who could or would help him, and there were no legal assistants, and all there was was a library, you would say, we have done all that the law requires?",
       "time": "00:14:06.39"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You'd say he'd be in the same shape he was in if he was not in prison.",
       "time": "00:14:19.68"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No friends, no library, no lawyer.",
       "time": "00:14:22.79"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Does your case... do you rest your whole case, win or lose, on that position?",
       "time": "00:14:29.79"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you sort of a specific question? We're talking in general terms here. You mentioned earlier about the large number of phone calls that have to be made. As I understand, you don't have to pay for those calls, do you? If I understood the district judge, he said they could call collect or pay for them.",
       "time": "00:14:49.77"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The problem is... and is it not also true that he made findings that the prisoners had been arbitrarily denied access to their attorneys over the phone, and do you question those findings? I'm really asking you whether you think there was any violation at all here justifying any relief, or are we just talking about the scope of relief?",
       "time": "00:15:08.33"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but again, what I'm really trying to find out, let's assume that maybe he's ordered too many phone calls. Are you taking the position that he had no authority to order any phone calls, that there was no violation of their rights of access to their lawyers by the way in which the prisons restricted and listened in on the calls, that sort of thing?",
       "time": "00:16:12.99"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I understand that, but are you saying there was no evidentiary basis for a finding of violation of constitutional rights in denying adequate use of the phone? It maybe should have been much less than they allowed, but are you saying there was no evidence of a violation at all?",
       "time": "00:16:40.49"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where do you get the constitutional right to make phone calls out of prison?",
       "time": "00:17:10.21"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but again, I'm trying to figure out, are you asking that the entire decree be vacated and the complaint be dismissed because there's no proof of any violation, or are you merely arguing, as I thought you were, that he overreached in a lot of the provisions of the decree and we should trim it back somewhat? Which is the basic approach you take?",
       "time": "00:17:26.79"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Reverse and direct dismissal of the complaint?",
       "time": "00:17:47.70"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, most of the argument in the briefs is not about whether there was a violation, but rather about whether he was overly ambitious in the relief he granted.",
       "time": "00:17:53.86"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Woods, are you attacking... you're saying the findings themselves were not sufficient, or the evidence beneath them, because I think you told us that these findings didn't originate with the judge, that they were, indeed, I think you said verbatim what were submitted to him, the findings that he made.",
       "time": "00:18:25.58"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Submitted by whom? What are you talking about? I don't even understand what you're saying.",
       "time": "00:18:56.36"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, all right, let's... I mean, that's fairly normal, parties submit findings and the judge--",
       "time": "00:19:09.19"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--The... following up on what Justice Stevens said, as I read this, and your opponents say this, at the heart of this decree... there are a lot of provisions to it, and I think your opponents, to my reading, concede that some are overreaching, but at the heart of it lie 261 prisoners who are locked up, and what I think it found is, respect to those who were locked up in solitary confinement, or whatever, that often they can only ask for one or two law books at a time, and there are frequently long delays, 1 day, 2 days, 3 days, and sometimes weeks before they get those one or two law books. That seems supported in the record, and your opponents concede that we could modify the decree in that respect, and they don't have to be escorted across the place. All they have to have, on page 39, is some effective method, all right. The second major part of this was the Hispanic population, and possibly the illiterates, and as for the Hispanic population, there are a lot of them, and there are findings that the Hispanic people cannot read these law books and are not given proper assistance of any sort, such as organizing other Hispanic bilingual prisoners, and the decree in that respect didn't require too much. It simply required that they get down to figuring out how these Hispanic people systematically could rely on bilingual prisoners to help them out. All right. At least as to those two key matters, which I think everyone thinks are at the heart of this, is there any argument that we... I mean, why shouldn't we do just what your opponents tell us to do in that respect?",
       "time": "00:19:14.72"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Which is either to modify or to affirm those two key provisions, and then systematically, it wouldn't take too long, go through the other ones and see whether they may or may not have gone beyond the evidence?",
       "time": "00:20:58.33"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What they were complaining about--",
       "time": "00:21:22.94"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--was just what I said.",
       "time": "00:21:24.46"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is there not injury in the fact, to take one example, a person is locked down. He says, I would like to see some law books. He makes a request. He gets no books for many days. Finally, he gets one book. Then he has to ask for another book. It would take him 4 years before he was able to have enough books actually to see what the law was. I mean, those seem found here. Isn't that injury?",
       "time": "00:21:42.45"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What do you mean by a bigger problem? Do you concede, General Woods, that a lockdown prisoner is entitled to have law books, even for matters that have nothing to do with a collateral attack on his conviction?",
       "time": "00:22:16.33"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even for matters that have nothing to do with the Constitution, he's entitled to that as one of his basic needs like food, housing, shelter, medical care, and a lawyer? Is... you've made that concession?",
       "time": "00:22:26.97"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well then, what about the... wanting law books either for collateral attacks on his conviction or because he feels he's being treated in an unlawful manner? I imagine people don't read these books for their health. I assume they have a reason for wanting them.",
       "time": "00:22:38.62"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That may be the policy, but what he found happened was that they are routinely denied physical access, there are often long delays in receiving books, and then there's a lot of testimony in that respect.",
       "time": "00:23:12.68"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But General Woods, isn't it inevitable that if the State takes the position that it's going to comply with Bounds by having a library system, that you're going to get decrees like this? If I were a district judge, and I read the requirement of the Supreme Court that you have to have a law library, the first thing I'd do probably is make up a list of the books that ought to be in the law library, and how often it ought to be open, and all we're doing is just arguing about details. It seems to me that once you accept the requirement of Bounds that you have an affirmative obligation to provide a library, we're going to be talking up here... we may disagree on exactly how long it ought to be open, and how much of a delay is acceptable, but it just seems to me the district judge is essentially correct in most of what he said if there's an affirmative obligation to provide a library.",
       "time": "00:23:43.20"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I have one question, if I may. It seems to me that there are essentially two kinds of legal as opposed to factual issues here, that the first we've spent a lot of time on, and that is, what is the required level of access and so on, and whether you have an affirmative obligation. The other one you've touched upon a couple of times by reference to Turner, and that is, how do we measure sort of what, kind of the reasonable level of required service may be, or required opportunity. I think I'm correct that you argued on the basis of Turner in at least your reply brief in the Ninth Circuit. Did you go to the district court at any time and say, look, we not only have to apply Bounds here, we have to apply Bounds in the light of Turner, which sort of looks, as it were, to both sides of the equation. Did you make that argument to the district court that it wasn't applying Turner and should have?",
       "time": "00:24:44.67"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. Would... on what I'm calling here sort of the second issue, call it the overreaching issue if you want to, do you believe it would be appropriate for us to return the case to the Ninth Circuit and perhaps have them return it to the district court for a consideration of Turner?",
       "time": "00:25:56.10"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You want an all-or-nothing win here, in effect. [Laughter] A win or loss.",
       "time": "00:26:18.37"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, General Woods. Ms. Alexander, we'll hear from you.",
       "time": "00:26:25.39"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought that-- --Ms. Alexander-- --I thought that the claim was they had no opportunity to, that they were given simply the choice of deciding... of saying why the previous order that had been applied more narrowly shouldn't be expanded State-wide.",
       "time": "00:27:57.06"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that inaccurate?",
       "time": "00:28:12.44"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's too late to ask for that when the judge summons you up and says, tell me why this order shouldn't be applied State-wide.",
       "time": "00:28:15.44"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "They had five opportunities, but were they ever given the opportunity to propose, to draft and propose their own order? Did the judge ever give them that opportunity?",
       "time": "00:28:29.18"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, that's... what form did it give them, the right to comment on its proposal?",
       "time": "00:28:41.08"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Ms. Alexander, is that common in these institutional decrees? I think it's something that juts out in this case, and whether we're talking about prisons, schools, other institutions, isn't it usual for the alleged offender, the State, to be given the opportunity to come up with a plan, and if that's no good, sometimes the court has to devise its own?",
       "time": "00:28:48.90"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Ginsburg. Justice Ginsburg.",
       "time": "00:29:18.02"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's no excuse. If it should be done that way, it should be done that way.",
       "time": "00:29:41.45"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We don't punish the State for past defalcations. I can't imagine a judge just whipping up an order on his own and submitting it to the State without asking the State, who knows a lot more about running prisons, how to solve the problem. I just can't imagine that.",
       "time": "00:29:44.95"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, how about the loss of any Turner analysis in this thing? I mean, in the Turner case, this Court indicated that prisoners' claims of constitutional violations have to be viewed through some kind of a lens of deference to the needs for prison security and so forth, and there is no indication in this record that I have found of any Turner-type analysis by the district court in deciding to issue the order and injunction that it did in this case.",
       "time": "00:30:11.57"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Can you point me to that?",
       "time": "00:30:49.44"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the breadth of the detailed orders is breathtaking. It has to do with the noise levels in these places, and hours of operation, and no deference to the prison's need for lockdown or security. I mean, it's just... it really is breathtaking in its scope.",
       "time": "00:31:02.77"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it's not clear from the language of the injunction, is it?",
       "time": "00:32:00.36"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, Ms. Alexander, on a broader level... I think Justice O'Connor has raised this... my reading of the district court order and I believe of the Ninth Circuit opinion fails even I think to disclose a single citation to Turner. Do you claim that... let me ask you two questions. Do you agree that Turner is applicable here, that Bounds must be read in the light of Turner?",
       "time": "00:32:12.93"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Okay.",
       "time": "00:32:41.10"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Sure. I'll tell you what my second question is, because that may be what you're going to get at. Even though neither court, if my recollection is correct, so much as cited Turner, do you claim that Turner was in fact applied by the Court?",
       "time": "00:32:43.90"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I think that boils down to saying that if we assume Turner was applied, that particular aspect of the order is not inconsistent as a matter of law with a Turner analysis, but that's about as far as we can go, isn't it?",
       "time": "00:33:10.70"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "We... yes, okay.",
       "time": "00:33:22.92"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you speak of an affirmative obligation, Ms. Alexander. Now, in Estelle v. Gamble, where we were dealing with medical claims of prisoners under the... the basic approach of the Court was, you've got this fellow in prison, or this woman in prison, and they're sick. You can't just leave them there because if they were on the outside of the prison they could have gone and done something about it. Isn't... shouldn't our approach here be somewhat similar? The idea of an affirmative obligation to do more than the person could have done if he were outside, I don't see where that comes from.",
       "time": "00:33:51.30"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Even though he has appendicitis... he's not beaten up in the prison. He just has some disease that he could have easily just as well gotten outside, but still he's been cut off from access to other medical sources, so the prison has to supply it.",
       "time": "00:34:45.85"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it doesn't have to supply more than he could have gotten on the outside.",
       "time": "00:34:57.84"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Incidentally, where does that affirmative obligation come from? I understand the sick prisoner case. That comes from the Eighth Amendment. This isn't an Eighth Amendment case, is it?",
       "time": "00:35:11.50"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So where does this affirmative obligation to provide a law library come from?",
       "time": "00:35:20.77"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Other than Bounds.",
       "time": "00:35:25.67"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It depends on purpose the access is sought, for what purpose the access is sought, doesn't it? I mean, if you say for purposes of vindicating constitutional rights taken away when he's thrown in prison, I suppose that's true.",
       "time": "00:35:35.86"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But if you're talking about the right to sue for some monetary damages, that's just a deprivation of economic welfare which he's been deprived of that when he's thrown in prison. He can't go out and make money in all sorts of ways. I don't see that that's so fundamental.",
       "time": "00:35:48.12"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Maybe the only one. I don't see how the other has anything to do with fundamental human rights.",
       "time": "00:36:10.25"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I'd say that, but that's a constitutional violation again.",
       "time": "00:36:26.66"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm giving you constitutional violations, but would you acknowledge that as far as the obligations of the prison, they don't have to give any legal advice about anything that doesn't deal with constitutional violations.",
       "time": "00:36:32.03"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You think they have to... the prisons have to provide advice on immigration?",
       "time": "00:36:54.89"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What provision of the Constitution would cause that to be required?",
       "time": "00:37:06.04"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is it an abuse of discretion not to get-- --Well now, wait a minute, collateral to the criminal justice rights... I don't really understand your answer.",
       "time": "00:37:12.79"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You can be deported. It's not criminal.",
       "time": "00:37:22.58"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, those things may be taken care of maybe by four or five form books Has there been any studies to show the effectiveness, the cost effectiveness of these massive libraries?",
       "time": "00:37:50.28"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In the Federal system it's now running 1 percent successful.",
       "time": "00:38:21.87"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Ms. Alexander, may I ask you to focus for a minute on what you say the injury is that must be proven for a system-wide violation that would justify a system-wide decree?",
       "time": "00:38:45.12"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "A constitutional injury?",
       "time": "00:39:08.93"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And in this context, what do you say has to be established to justify system-wide relief?",
       "time": "00:39:12.55"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No, in terms of what you say the class representatives must prove--",
       "time": "00:39:29.60"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--to get system-wide relief.",
       "time": "00:39:36.95"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The question, to go back for a second... because you know a lot more about this actually, and as you've read into the constitutional basis for Bounds, I think really the question is in my mind, too, what part of the Constitution rest on? Naively, I have thought, well, the person is being deprived of his liberty. He's in prison, so he's deprived of his liberty. In a certain number of cases, small, perhaps, it would be an improper deprivation, and he has to have some kind of process available, or at least he can't be cut off from process through which he could challenge what could be an unlawful deprivation of his liberty. So in my own mind I was pinning it on the Fifth or Fourteenth, but that's a naive and uninformed reaction compared to what yours will be, so I think people are trying to get at what, in your reading, has struck you, or you've come to the conclusion as to what the Bounds basis is in the Constitution. Quite literally and specifically, what amendment do you tie it to?",
       "time": "00:39:53.88"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And I'm not asking you to accept my characterization.",
       "time": "00:40:54.68"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "My other question, if I could ask it now, is as you say in your brief on page 39, for example, I think you believe yourself that in certain respects this decree is overdrawn, and your opponent's brief, which is very good, points out certain respects it is... seemed to me is in certain respects overdrawn, yet there are other respects that you point to which may have a good basis, and they've challenged those too, but I mean, the evidence seems more your side, in my opinion, but in other ones not. So what, in your view, should this Court do if we think there are certain basic things like the Hispanic and 261 locked-up people, where the evidence is not too terrible for you, and there are other respects where the evidence seems pretty good for their side, and so what should we do? Should we act like an appeals court and just review the decree as if we were an appeals court? Should we send it back? How do we get to the result even that you want on page 39?",
       "time": "00:41:37.68"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Ms. Alexander, but what about the problem that we were discussing before about who frames the remedy? You... if you think that we are... we have no reason to be concerned with the method by which this decree was arrived at, that is, a special master was appointed, he drafted the decree, how do you answer the question that the State never had a chance to come up with its own plan? Should it not be given now a chance to do so?",
       "time": "00:43:04.05"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the judge never said why he wasn't... nothing on the record indicates why the State wasn't given an opportunity to present a plan.",
       "time": "00:43:56.57"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But we would be... you seem to be suggesting that we should make the best case for the judge why he didn't ask the State to come up with a plan first, and I could agree with you that it's not an inexorable requirement in every case, but there's a lot of litigation like this, and this is an important question about what is the general way of proceeding. So if it's proper here for the judge to say, system-wide violation, I will appoint a special master, that's one thing. If it's not appropriate, what should the judge do once he finds a system-wide violation?",
       "time": "00:44:29.30"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They were given the chance, as I understand, to say why the earlier order, which contained such a provision, should not be applied State-wide.",
       "time": "00:45:49.61"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That is not an opportunity to object to one of the provisions of the earlier order. It is simply an objection to say why the earlier order should be extended State-wide. But you know, I'm not even as far along as Justice Ginsburg. I don't know why it shouldn't be an inexorable requirement. What is wrong with an absolute requirement that before a district judge decides how to manage prisons, he ought to ask the State how they think it ought to be managed?",
       "time": "00:46:01.92"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What is wrong with making that an absolute, universal, inexorable rule?",
       "time": "00:46:25.36"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He says, you have 2 weeks to come up with a plan. If you don't come up within 2 weeks, I'll make up my own.",
       "time": "00:46:39.42"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'll use the one I used, you know, several years ago.",
       "time": "00:46:44.24"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And if 2 weeks is a reasonable period and the State comes up with something that's patently absurd, the judge would say, well, I gave you your chance, now I'm going to make up one. That's fine.",
       "time": "00:47:03.74"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "For this judge it would give them something. Ms. Alexander, let me return, if I may, to the question of systemic violation, and I'd like to get some feel for how you would quantify it. Supposing there are 260 prisoners in lockdown, and a number of them request books, and say in maybe two or three of those examples the books don't come within a 3-day period that the regulations require. Now, is that a systemic violation?",
       "time": "00:47:25.25"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, but I... give me some idea of what... how many individual violations you have to get of, say, the performance of a particular prison official before you get what's called a systemic violation.",
       "time": "00:47:58.89"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is the evidence here the evidence in footnotes 23, 24, and 25 on page 23a, where as I count there are about 50 or 60 examples, is that what... do you know what I'm referring to?",
       "time": "00:48:38.45"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that the relevant evidence in this respect to the 261 lockdown prisoners?",
       "time": "00:48:49.68"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is there more than that, or is that not relevant? I mean, that's what I was looking at.",
       "time": "00:48:57.36"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "There's-- --Did any of those instances indicate that there was a real danger of a constitutional right being sacrificed?",
       "time": "00:49:11.51"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Or being impaired? What was one of those? Having in mind that only 1 percent of prisoner petitioners are successful anyway, where in one of these is there a real threat of a constitutional right, in a concrete sense, being deprived?",
       "time": "00:49:21.61"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You mean there's a right of access even if you don't have a ground for a complaint?",
       "time": "00:49:59.07"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But there's no evidence of the efficacy of that system, is there?",
       "time": "00:50:38.65"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What is that--",
       "time": "00:50:45.13"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--No, no, there's no evidence that there's some demonstrated link between access to library materials and successful prisoner petitions.",
       "time": "00:50:53.26"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "As contrasted with simply filing the form that's prescribed in the Federal Rules of Civil Procedure.",
       "time": "00:51:02.68"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How many instances of that were found? Was it two?",
       "time": "00:51:25.53"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, isn't the district court under some obligation, if he's going to give a system-wide remedy, to say this is the reason I find a systemic violation, that there were not just two prisoners who failed to get their books, but that there were 26?",
       "time": "00:51:59.26"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Okay, but if you say, prisoners are not getting books, is it two prisoners, is it... you can't challenge that finding as clearly erroneous if only two got it, because two is a plural, so you can't challenge that, and yet it doesn't lay the groundwork for a systemic violation.",
       "time": "00:52:28.63"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if all the harms-- --Ms. Alexander-- --No-- --Why wouldn't it satisfy the Constitution if prisoners were allowed to file whatever they want to file and provided access to forms so that they could file, and secondly, they were also provided access to legal advice, period? No books, no anything else. They have the forms, you fill out a form, we'll mail it for you, and moreover, you can have legal advice about any particular issues you want to discuss, any particular constitutional issues you want to discuss, maltreatment in prison, your conviction was void for some reason.",
       "time": "00:53:20.72"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'll add that, that legal advice and the lawyer will fill out the form for you if you can't write.",
       "time": "00:54:13.10"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So that would be good, and you could get rid of the library.",
       "time": "00:54:28.05"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Alexander. General Woods, you have 2 minutes remaining.",
       "time": "00:54:55.93"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I count 30... 29 in those footnotes, I mean, I don't know what you mean by actual injury, but he listed 29 instances in which there were delays that he thought were significant or--",
       "time": "00:55:11.27"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, General Woods.",
       "time": "00:57:02.68"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:57:03.46"
     }

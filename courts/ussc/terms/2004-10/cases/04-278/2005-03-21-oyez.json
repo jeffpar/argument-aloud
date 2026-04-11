@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2004/04-278/20050321a_04-278.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN C. EASTMAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN P. ELWOOD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "BRIAN J. REICHEL",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument on number 04-278, the Town of Castle Rock versus Jessica Gonzales. Mr. Eastman.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Tell us how we know exactly how much discretion the State of Colorado wanted to give to the police.",
       "time": "00:00:42.84"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Without a statute that uses the word shall enforce. Do we know how Colorado has interpreted that?",
       "time": "00:00:52.34"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, are there Colorado cases that tell us how we should read those statutes?",
       "time": "00:01:16.16"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So do you concede that if shall means shall, that it creates a property interest?",
       "time": "00:01:35.32"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Eastman, would you comment on the extent of deference that we should give to the court of appeals' interpretation of Colorado while in view of what we said in Bishop against Wood?",
       "time": "00:02:00.22"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the Colorado statute is the one that's controlling in this case and normally, at least according to Bishop against Wood, we defer to the interpretation of the court of appeals as the issue of state law.",
       "time": "00:02:20.48"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, that's the issue, whether Colorado intended to create it.",
       "time": "00:02:57.64"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The reading in Bishop against Wood was really counterintuitive also, as the dissenters pointed out, as you would agree, I think.",
       "time": "00:03:03.74"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Did you suggest to the federal court that it certify the question of the meaning of Colorado law to this Colorado Supreme Court?",
       "time": "00:03:36.90"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wait, wait. I thought we were just talking here about state law as to whether shall means shall. Do you think that it's a matter of state law whether, if it does mean shall, it creates a property interest for purposes of the Federal Constitution?",
       "time": "00:04:01.31"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't concede that that's a state question at all?",
       "time": "00:04:19.83"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, isn't that what we squarely held in Bishop?",
       "time": "00:04:25.27"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Suppose shall does mean shall. Fine. But you might have a statute that says the fire department shall respond to fires, the police department shall respond to crimes, the Army shall respond to attacks. Even the word shall doesn't necessarily mean that this is the kind of interest that, like property, the Duke of Rutland relied upon Blackacre, that welfare recipients rely upon continuing to receive money. What is it about this that makes it like property, even if shall does mean shall?",
       "time": "00:04:56.25"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if you compare it to... this is a court order and it's enforceable. There is no question about that, is there? This is a court order that enforcement officials carry out. How does it differ from, say, a money judgment and executing... levying execution on property? Judgment creditor says, here is my judgment, marshal, sheriff, go out and find some of the defendant's property.",
       "time": "00:06:12.82"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But isn't that true of all injunctive orders, they're not issued to the police. And yet the police... don't the police have an obligation to enforce that?",
       "time": "00:07:44.45"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But wouldn't you concede that in the case of the injunction in which there is a specific order in relation to a specific respondent, that the police have much less discretion than they would have when there is in effect a general statute saying, respond in these kinds of situations?",
       "time": "00:07:59.14"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In the case of the statute that we're talking with, but they don't have that kind of discretion, do they, in Justice Ginsburg's example? What I'm getting at is, if you're going to take the example that Justice Ginsburg has given you as equivalent to the example that we have before us, I think you're fighting uphill and I don't think you have to do that.",
       "time": "00:08:28.24"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But is discretion... does discretion on the means to use include discretion to do nothing?",
       "time": "00:09:29.11"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But were any of those determinations made here?",
       "time": "00:09:50.40"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So are you requesting that there are insufficient fact findings here, so it should be returned--",
       "time": "00:10:10.95"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Mr. Eastman, can I ask you this question? Supposing this case came to us through the Colorado state system instead of through the federal system, and the Colorado Supreme Court had written precisely the same opinion that the Tenth Circuit ruled. Would we have jurisdiction to overturn their holding that there was a property interest here?",
       "time": "00:10:28.27"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then your answer is no, we would not have jurisdiction in that event.",
       "time": "00:10:59.31"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We could say that they had misconstrued Colorado law? I don't think you really mean that.",
       "time": "00:11:11.33"
     },
@@ -339,13 +339,13 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I think you meant--",
       "time": "00:11:18.90"
     },
     {
       "turn": 50,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Perhaps what you mean is that what is a property interest for purposes of Colorado law, if Colorado chooses to nominate some utterly zany thing of property interest, it doesn't necessarily mean that it's a property interest for purposes of the Federal Constitution.",
       "time": "00:11:20.78"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--You can do that, but you won't find any cases making that point.",
       "time": "00:11:41.60"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think you need a case for that, do you?",
       "time": "00:11:48.88"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you have cases saying the contrary. That's the problem.",
       "time": "00:11:51.42"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do we have any cases involving a zany property interest having been found by a state? I don't think we have any.",
       "time": "00:11:57.75"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--May I stop you? You cited that Linda R.S., whatever, I thought that was a standing case saying it's not going to do you any good to have them locked up in jail if what you want to do is get money from him.",
       "time": "00:12:36.94"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Eastman, assuming for the moment there is no due... procedural due process right here, on the facts of this case, does Colorado law provide any alternative remedy for Mrs. Gonzales?",
       "time": "00:13:29.49"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And what would that be?",
       "time": "00:13:48.82"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So she could presumably ask for some relief under that notion, against the police and possibly the town?",
       "time": "00:14:02.24"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say the tort statute means something like the Federal Tort Claims Act. Does Colorado have something like that?",
       "time": "00:14:30.17"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Eastman. Mr. Elwood, we'll hear from you.",
       "time": "00:15:35.42"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What good is... what does the restraining order do, then, other than give her a right to sue the person who is restrained for contempt?",
       "time": "00:16:49.44"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But only to ask the police and the police are not obliged to respond.",
       "time": "00:17:30.78"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do the police have any duty at all, in your view?",
       "time": "00:17:45.53"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Could the police just issue an order saying ignore all orders of this kind?",
       "time": "00:18:00.73"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's the sort of aggressive sort of thing that the Colorado courts could conclusively decide.",
       "time": "00:18:19.81"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Are there any extreme cases we could imagine where the police have a duty to protect the citizen? The policeman sees four people beating up on the victim, no race involved, and he just enjoys watching the fight. Does he have a duty under the Constitution to intervene?",
       "time": "00:18:30.51"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did DeShaney stand for the proposition there could never be an affirmative duty to intervene, under what you're talking about the Constitution here?",
       "time": "00:19:04.85"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But there has to be some state... the state has to have created the risk somehow?",
       "time": "00:19:35.31"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's your response to the fact that the Tenth Circuit found otherwise and that we usually defer?",
       "time": "00:20:37.49"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you agree that if this case stands with the state system, we would have to accept their holding on the property right issue?",
       "time": "00:21:37.97"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, let's say the Supreme Court has said, this is what the statute means and so forth and so on, wouldn't that be binding on this?",
       "time": "00:21:54.50"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Or whether the question of property right... the property right issue is not a question of federal law, it is a question of state law.",
       "time": "00:22:09.80"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What did they hold in the Tenth Circuit? I mean, shall could be mandatory. You can have a mandatory duty, but that doesn't mean that the victim has a legal right to enforce that duty.",
       "time": "00:22:17.12"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what did they hold in the Tenth Circuit in respect to that?",
       "time": "00:22:32.56"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "They should reask the certified question?",
       "time": "00:22:46.59"
     },
@@ -657,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But a background rule is awfully tough. I mean, you could have lots of shalls in all kinds of statutes. If they said shall, the sanitation department shall inspect your home for tuberculosis, maybe that does give a right. If they say to the fire department, you shall put out fires, I wouldn't think they meant that every possible homeowner had a right to a lawyer and a full judicial hearing before they go and respond to an alarm. You know, I mean, it depends on the area. I don't know how to create a background rule.",
       "time": "00:23:10.47"
     },
@@ -669,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But is it not true that the Colorado legislature could create such a right if it did it with sufficient specificity?",
       "time": "00:24:27.09"
     },
@@ -681,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The Constitution does say property right. I mean, it has to be a property right, doesn't it? Is that meaningless? Is everything in the world either life, liberty or property? Does that describe everything in the world?",
       "time": "00:24:46.65"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, because there has been no case that really did not involve something that could reasonably be called property.",
       "time": "00:25:07.14"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's the state's problem. I mean, if the state doesn't want that, sure, the state can take that away. But if the state does, do I still have to call it property just because the state does?",
       "time": "00:25:42.78"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, it has. Thank you, Mr. Elwood. Mr. Reichel, we'll hear from you.",
       "time": "00:25:57.72"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What process do you think your client was entitled to?",
       "time": "00:26:37.25"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Could that simply be made by the person on the desk?",
       "time": "00:27:06.12"
     },
@@ -753,19 +753,19 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, does--",
       "time": "00:27:28.87"
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That... no, please.",
       "time": "00:27:29.56"
     },
     {
       "turn": 120,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--The basic problem that I have is you just put your finger on. I mean, on your view of the facts here, which I will accept, it's outrageous what happened and a terrible tragedy, but it wasn't that they didn't hear her. They heard her. That's the problem. They heard her and they didn't do anything. So if you proceed under state law, you will, if you're right, get a holding that the police behaved very badly, that would help your client, and it would help future people in the same position. If you proceed under federal law, the most you get is somebody at the desk saying, well, we think other things are more important. And at that point, your client may or may not be helped and other people won't be helped. So don't you have a misfit between the remedy that you're trying to get and the harm that was done?",
       "time": "00:27:32.28"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But that's not the kind that you've brought, as I understand it. As I understand it, you've brought a claim simply that she was hurt and was not given process. That's all you have to prove. If you can prove a pattern, sure, it's easy to prove an individual case. But your only claim is damage as a result of a denial of some procedural right in this case, isn't that correct?",
       "time": "00:28:42.61"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But it's not a class action, is it? It's not a claim under some statute... civil rights statute. It's a claim for the benefit of this client and if this client wins, this client presumably will get a money judgment, isn't that the case?",
       "time": "00:29:11.95"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I'll grant you that, but as I understand it, what stands between or what would stand between your ignoring complaint and success would simply be the police's statement of a reason because, as I take it, I take it that you don't deny she was heard, they answered the phone, they talked to her. She got a result. After she had talked with them on the phone, she knew that they weren't going to do anything or that they weren't going to do anything satisfactory. So as I understand it, on your theory, the only thing she didn't get that she would be entitled to would be a statement by them as to why they were not going to do something for her. Is that what it boils down to?",
       "time": "00:29:55.05"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And if they had said, we don't think there is probable cause, that would be the end of your case.",
       "time": "00:30:50.14"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Suppose they just say, look, in our experience, children come home in two or three hours and, moreover, we have other things to do that are more important. Is that a sufficient answer? Both things, by the way, most people who look into this would say are completely wrong. But I mean, the police would say just what I said. Is that sufficient?",
       "time": "00:31:05.57"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what you really want is what they should do, is they should respond?",
       "time": "00:31:32.64"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But in this case, you would say they should respond?",
       "time": "00:31:40.14"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But then your complaint is the result, not the procedure. It's true that a procedural case is designed so that the right result can be reached most of the time. I understand that. But all we ask is whether or not the procedure was added.",
       "time": "00:31:45.96"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why was your procedure, assuming your entitled to a procedure, why did it have to come from Castle Rock? Why wasn't your proper recourse to the court that issued the restraining order? Did you try to do that, to go to the judge that issued the restraining order and say, the police are not enforcing the restraining order that you issued, I would like directive from the court that they enforce it?",
       "time": "00:32:15.31"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, just as she could have complained to the police earlier, she could have gone to the court earlier when she saw that the police weren't doing anything.",
       "time": "00:32:48.43"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That may be a tort, but it's not necessarily a denial of process if the proper place to seek that process was from the court that issued the restraining order.",
       "time": "00:33:11.25"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's right, and the court can make sure that they enforce it upon complaint.",
       "time": "00:33:25.89"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let me ask you a question that is suggested by Justice Scalia's question. And it goes basically simply to the practical problems that your position seems to entail. You answered him by saying that the point at which she realized they were denying her whatever she was entitled to was the point at which the children were dead. How would a reviewing court know when this particular right had been denied? I take it from your answer to Justice Scalia that there had not been a denial of the right and hence a violation of procedural due process after the first telephone conversation. I take it from your answer that there wasn't one after the second conversation. And I take it the only... that there was no ripening, as it were, of the facts into a denial of what she was entitled to until the 3:00 a.m. call, is that correct?",
       "time": "00:33:35.00"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, my general question, then, is how does a reviewing court determine when or the point at which there has been a denial?",
       "time": "00:34:52.70"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So following the first phone call, they would have to have made an express probable cause determination?",
       "time": "00:35:09.29"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And communicate that to her.",
       "time": "00:35:21.40"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did they simply have to take her word as to the facts on the probable cause issue?",
       "time": "00:35:31.77"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's true, but Goss versus Lopez, to my knowledge... you may know more about it. But to my knowledge, there are not a lot of federal cases which second guess the principal or the teacher, once the teacher or the principal gives a plausible reason for suspending the student. And of course my fear is that that is precisely what would occur here. There would be procedure, there would be a reason. The reason is we're too busy. All right? And courts won't second guess that. But if you take the other route, you get what you need, which is an instruction to the police department that when a child is missing, you don't wait. But I don't see how you can get that instruction on this procedural route.",
       "time": "00:36:02.49"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Exactly. And that seems to me to be the problem, because you have a case where the problem was the delay and that's apparently a common problem. And I don't see how this route that you take gets at that problem.",
       "time": "00:37:00.24"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What good could that have done anyone?",
       "time": "00:37:37.86"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "She knew, as it was, that they weren't going to do anything. What good would it have done her to know that, oh, it's nice to know that they've gone through a probable cause determination in coming to the conclusion that they're not going to do anything. I mean, what is the social value of that?",
       "time": "00:37:41.64"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "They said call back in two hours and whatnot.",
       "time": "00:38:07.74"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And each time at the end of the call, she knew that they weren't going to do... they weren't going to go out and look and they weren't going to enforce the order at that point, didn't she?",
       "time": "00:38:12.45"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I mean, I can understand you're making an argument... you have made it, but I can understand you're making an argument that the point of procedure is to force people, in this case the police, to face facts. If they really know that she has made out probable cause that something is wrong here, if they are forced to face that as a result of procedure, they will then do something about it. It's not as easy to be irresponsible in that case. But the trouble with that argument, it seems to me, although it's sound as far as it goes, is that it's an argument that would apply with respect to every statute in which there is mandatory language to the police to enforce it. And that seems to me to suggest a completely nonadministerable system and one which is totally at odds with the normal accord of police discretion.",
       "time": "00:38:22.46"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I mean, how do you get around that dilemma?",
       "time": "00:39:19.79"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then why weren't they enacted with an express provision saying, and by the way, the police have got to go, either through the following procedure or, by the way, this statute creates a right on the part of the protected party. In other words, if the response to what I understand the problem to have been, if the response was the response that you think the legislature made, why didn't the legislature say something that would take these statutes out of the run of the mill criminal law statutes in which the police, subject to mandatory language, have an apparent obligation to do something to enforce?",
       "time": "00:39:42.07"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But it doesn't say that people like your client have a personal right to enforcement with a damage remedy.",
       "time": "00:40:33.17"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Reichel, how would you describe, briefly, the property that your client has been deprived of? What is the property?",
       "time": "00:41:34.11"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The entitlement to enforcement of an order is property? Do you know any case that is... what's the closest case that you would say has held something to be property that is an entitlement to have an order enforced as opposed to an entitlement to a job, an entitlement to money, an entitlement to what I would consider property?",
       "time": "00:41:53.56"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah, but it's, at the end of the day, they were unemployment benefits, right? I mean--",
       "time": "00:43:05.73"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Wouldn't the better analogy be to assume she made a contract with a private detective agency to protect her from these events. And if something arises, to go get the police and act on it? That would be a property right if she had a private contract with a private detective agency to do exactly what the police were supposed to do here.",
       "time": "00:43:10.56"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it seems to me a contract for protection would be a familiar kind of property, is what I'm suggesting.",
       "time": "00:43:41.80"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But there is no contract here, is there?",
       "time": "00:43:49.64"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Could you be precise about what is the due process? You're saying it's not a hearing that you're seeking. Not just that she could be listened to and no action taken. But what precisely is the process to which she is due?",
       "time": "00:44:14.51"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you said a moment ago, this could be done by the sergeant on duty at the desk who probably had three other calls waiting. Do you still think that could be done?",
       "time": "00:44:51.66"
     },
@@ -1197,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But on any timetable?",
       "time": "00:45:32.14"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If I understand your position correctly, I know what the allegations are here, but if the evidence should show later on that in response to one of these telephone calls, the desk sergeant said, send a squad car out and see if you can locate the kids, you would lose?",
       "time": "00:45:40.53"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because that would have been a good faith response by somebody to try and find out whether there was probable cause.",
       "time": "00:45:58.97"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "but where do you get that? I know that the Tenth Circuit tried to stick to the language of the statute. But where do you get the requirement, A, that police inform her and, B, that it give reasons for nonenforcement? Those were not within what the Tenth Circuit said.",
       "time": "00:46:21.60"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So the notice... yeah, did it say with a statement of reasons?",
       "time": "00:46:58.04"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where does that come from?",
       "time": "00:47:03.86"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I know that it would be a fair process that you're describing.",
       "time": "00:47:18.43"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But is it an essential one, that is, that nothing spells out... in most of the cases that involve property and a procedural due process right, it's a hearing that the person is seeking. Are they entitled to benefit or are they not? But here, this is not what you want. You want the police to enforce. And if they don't enforce, to give you a reason.",
       "time": "00:47:21.49"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if the police... let's say, focusing on this case, suppose they had looked at this order and said, wow, it gives him weekends with the girls, it gives him summertime with the girls and, subject to his ex-wife's agreement, dinner time with the girls, this can't be all that urgent because if he would harm the girls then why is the judge allowing him so much sole time with them? So wouldn't... looking at this particular order, wouldn't there be reasons why the police would say, the judge is allowing the father to spend time with the girls, this can't be that urgent?",
       "time": "00:48:15.82"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But this is such a new sort of a requirement you're seeking us to develop here. I just don't know of any past case that would suggest such a requirement when it comes to law enforcement requests by citizens of police. It would be a major step, wouldn't it?",
       "time": "00:49:11.85"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes. Are there any indications that any of the police in this instance will face disciplinary action for their response here?",
       "time": "00:49:39.11"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Could you still bring a state tort suit?",
       "time": "00:49:53.14"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why? Because it is willful and wanton, and you've made out a claim they didn't even give an answer, they didn't do anything, they have a practice of doing nothing.",
       "time": "00:50:07.15"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if the state cares so little about enforcing what its officers do under its own laws, isn't that some indication that it did not intend to create the property interest that you're arguing for?",
       "time": "00:50:25.45"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you have any other cases besides Logan?",
       "time": "00:50:57.65"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:51:03.34"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If there had been a question certified to the Colorado Supreme Court, and the Colorado Supreme Court said we weren't intending to create any entitlement here, evidence that we don't even have a tort action that's willful or wanton conduct, no liability at all in the municipality. So suppose the State Supreme Court has said, we didn't mean to create any entitlement, then where would you be?",
       "time": "00:51:38.42"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you whether you would favor or disfavor our certifying the question whether there is a property right here to the Colorado Supreme Court?",
       "time": "00:53:09.50"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Reichel. Mr. Eastman, you have four minutes remaining.",
       "time": "00:53:34.40"
     },
@@ -1425,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What about the willful and wanton... suppose the facts were just as they say, long-standing practice, not responding, doing nothing, doing nothing here despite evidence of serious danger, and being told you shouldn't do anything, don't pay any attention he'll come home, would that show willful and wanton?",
       "time": "00:55:17.34"
     },
@@ -1437,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you the same question I asked your opponent? Would you favor or disfavor our certifying the property law issue to the Colorado Supreme Court?",
       "time": "00:56:07.82"
     },
@@ -1449,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Eastman. The case is submitted.",
       "time": "00:56:42.02"
     }

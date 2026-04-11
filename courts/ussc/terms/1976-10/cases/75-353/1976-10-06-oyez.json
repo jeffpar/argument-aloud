@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1976/75-353/19761006a_75-353.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "LLOYD N. CUTLER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID W. PECK",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "PAUL G. PENNOYER, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "ARTHUR L. LIMAN",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments first this morning in three related cases, 75-353, -354 and -55, Piper and others against Chris-Craft and the related cases. Mr. Cutler, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Cutrer, you have referred to both of those as technical violations. Is that a word of art, or do you use it on a particular context?",
       "time": "00:02:59.69"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "May I ask, Mr. Cutrer, am I correct in my understanding that the question of whether or not either or both of these constituted a violation is not an issue here before this Court?",
       "time": "00:03:20.16"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So we will see here on the premise that they both did constitute violations.",
       "time": "00:03:46.11"
     },
@@ -99,13 +103,13 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Okay.",
       "time": "00:03:52.27"
     },
     {
       "turn": 10,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Is it your position that the violations, however they're characterized, caused no injury?",
       "time": "00:03:52.78"
     },
@@ -117,7 +121,7 @@
     },
     {
       "turn": 12,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So the trial court held that that rendered the valuation obsolete?",
       "time": "00:04:46.42"
     },
@@ -129,7 +133,7 @@
     },
     {
       "turn": 14,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, this is in the SEC action?",
       "time": "00:05:05.25"
     },
@@ -141,7 +145,7 @@
     },
     {
       "turn": 16,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not in this action.",
       "time": "00:05:10.09"
     },
@@ -153,7 +157,7 @@
     },
     {
       "turn": 18,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right, I see.",
       "time": "00:05:12.91"
     },
@@ -165,7 +169,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Cutrer, when was that offer to rescind made?",
       "time": "00:05:36.36"
     },
@@ -177,7 +181,7 @@
     },
     {
       "turn": 22,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Was Judge Pollack the trial judge in each case each time?",
       "time": "00:08:46.16"
     },
@@ -189,7 +193,7 @@
     },
     {
       "turn": 24,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Judge Tenney was in there earlier, wasn't he?",
       "time": "00:08:53.56"
     },
@@ -201,7 +205,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Cutrer, it is pretty well settled, isn't it, in the Federal courts generally that a competing offeror in a proposed effort for takeover situation can go into Federal District Court and get an injunction?",
       "time": "00:11:26.30"
     },
@@ -213,7 +217,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "An injunction against a competing offeror.",
       "time": "00:11:52.59"
     },
@@ -225,7 +229,7 @@
     },
     {
       "turn": 30,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You accept that as the law, do you?",
       "time": "00:12:08.02"
     },
@@ -237,7 +241,7 @@
     },
     {
       "turn": 32,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's a little more than scienter, isn't it? I mean, intent is more than simply scienter.",
       "time": "00:16:00.47"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 34,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Which was left open.",
       "time": "00:16:16.56"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is this a point dispositive in itself if we agreed with you?",
       "time": "00:17:32.94"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of the entire case.",
       "time": "00:17:44.79"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand. And you think this issue is concluded by a case decided here since the Court of Appeals, is that right?",
       "time": "00:17:50.88"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I ask this question? Does the record show what percentage of Bangor Punta’s earnings were derived from the BAR railroad?",
       "time": "00:18:32.79"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Is there any evidence in the record that indicates the extent of which the market appraises earning power as distinguished from the appraised value of the stock?",
       "time": "00:19:05.27"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "(Inaudible.)",
       "time": "00:19:43.39"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Judge Peck?",
       "time": "00:20:17.57"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Judge Peck, it's my understanding that your brothers on the other side of the podium claim that you were acting here or you may have been acting as a conventional statutory underwriter in the terms of the 1993 Act in your capacity in connection with the registration statement; that in addition, you had a different hat on through a good deal of these negotiations; and that you were the general or the manager or whatever the language is in their brief -- I've forgotten -- of the whole deal, and in that respect you were not a, quote, \"underwriter\", but you were acting in quite a different capacity. Do I understand that correctly?",
       "time": "00:22:41.10"
     },
@@ -357,7 +361,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But that's not saying solely as an underwriter. That, I thought, was their point.",
       "time": "00:24:06.09"
     },
@@ -369,7 +373,7 @@
     },
     {
       "turn": 54,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is based on events that occurred before First Boston was in the picture, is that not so? When did First Boston get in in terms of the …",
       "time": "00:24:48.91"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You say that the Court of Appeals said scienter was a substitute not merely for intent, but also for causation.",
       "time": "00:30:26.16"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 58,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Standing.",
       "time": "00:30:35.09"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Suppose we agree with you, Judge. Should we decide that question here or remand it to the Court of Appeals to reconsider in the light of Hochfelder?",
       "time": "00:34:14.12"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What was the date of Ernst & Ernst, do you remember?",
       "time": "00:34:58.51"
     },
@@ -429,13 +433,13 @@
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "March 30th, 1976.",
       "time": "00:35:05.51"
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And we granted certiorari after that, I take it.",
       "time": "00:35:07.93"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Maybe it was our mistake.",
       "time": "00:35:13.60"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Pennoyer?",
       "time": "00:35:33.40"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You think that might be a relevant factor in a private suit by a shareholders against Piper?",
       "time": "00:39:27.63"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We're now moving into the rebuttal time, Mr. Pennoyer.",
       "time": "00:40:58.94"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Liman.",
       "time": "00:41:25.07"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, there were two violations. They could hardly have occurred in every stage. There were two, one involving the Bangor & Aroostock Railroad valuation and the other a violation of 10(b)-6, was that it? Two violations.",
       "time": "00:42:34.11"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Liman, could I interrupt you there? The Court of Appeals when it affirmed the denial of the preliminary injunction didn't rely on that as I read it, but rather relied on the fact that you could have received a permanent order of divestiture, at least as to the 10(b)-6 violation.",
       "time": "00:45:39.25"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And thereafter, as I understand the case, you waived any equitable remedies and elected to stand on damages. Wouldn't this have not been an appropriate case for going forward on an equitable basis after that point and, if not, why not?",
       "time": "00:45:54.75"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Microphone, please?",
       "time": "00:46:14.16"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did they oppose divestiture on the ground that it was not appropriate relief or on the ground that they then were disputing the liability issues?",
       "time": "00:47:21.37"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Just so I have it sorted out, when did the case finally become just a damage case was after Chris-Craft, the Court of Appeals' second opinion, then?",
       "time": "00:48:04.87"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You're talking about the Piper individuals.",
       "time": "00:49:09.28"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Liman, may I interrupt you there? You say it went behind the back of the SEC. My recollection of what I read in the briefs is that the SEC had had no communication with Bangor Punta on this issue prior to that time.",
       "time": "00:55:22.30"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They issued a release, what, three days before?",
       "time": "00:55:38.29"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:55:43.74"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Was that the first indication publicly by the SEC of that new interpretation of the meaning of 10(b)-6?",
       "time": "00:55:52.82"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Doesn't the record show that Bangor Punta made a public announcement on May 16th that it had made these purchases?",
       "time": "00:56:17.82"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes. Was that going behind the back, in your judgment?",
       "time": "00:56:26.35"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It may possibly be relevant to the issue of intent, might it not?",
       "time": "00:57:06.15"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Liman, you refer repeatedly to acting contrary to instructions of counsel. I was under the impression that company counsel at least advised Bangor Punta that it was appropriate for it to make these purchases.",
       "time": "00:57:32.52"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is this inside counsel or company counsel?",
       "time": "00:58:00.28"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Liman, as I understand it and I think I'm correct, there's no question raised in this case as to the fact of the violation of 10(b)-6. So we could assume that everything you say is right, that there was a violation of 10(b)-6 and that your client was injured. The real question, the preliminary question at least, is whether or not given those facts, you have a right of action, an implied right of action, a civil right of action under either 10(b)-6 or 14(e), and that's the big threshold question in the case, assuming everything you tell us is true, isn't it?",
       "time": "00:58:41.13"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So let's get to that.",
       "time": "00:59:21.38"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Was Congress told that?",
       "time": "01:01:28.17"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, how reliable is that, Mr. Liman? You're talking now about the testimony of a witness, admittedly the Chairman of the SEC, before a Committee. That isn't a very high-grade legislative history, is it?",
       "time": "01:03:02.88"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You say that remark as supporting the implication of a private cause of action on behalf of one of the tenderers?",
       "time": "01:03:40.30"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Who was that?",
       "time": "01:04:10.99"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, this again, now, let's see what grade of legislative history this is. This is a letter from the SEC to whom?",
       "time": "01:05:24.89"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This qualifies as legislative history, in your view?",
       "time": "01:05:36.51"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How do you know Congress acted on it?",
       "time": "01:05:50.55"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that might mean theoretically that in some future case, somebody might sue in litigation like this who said, \"I was deterred from buying Piper Aircrafts stock and therefore, in this kind of case, I'm not barred by the Blue Chip Birnbaum rule\". That is the most that that could mean in your submission.",
       "time": "01:06:17.98"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Liman, as long as you're relying on Mr. Cohen as Chairman of the SEC, when did he use the language that we find in this legislative history, or in the reports, I should say: “We are concerned with the investor, who today is just a pawn in the form of industrial warfare. The investor is lost somewhere in the shuffle.”",
       "time": "01:07:01.51"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But then he said also, \"The only thing the bill is designed to do is to make effective the purpose of the bill so the information which is to be provided to the investor does, in fact, get to him.\"",
       "time": "01:07:33.90"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Liman, before you move on to the commentators, also Chairman Cohen on the same occasion testified, as I understand it, that the Williams Act is not designed to assist the offeror nor designed to assist the management in resisting any plans put forward by the offeror. It is essentially based on a concept that the investor should have the information, so he can arrive at a proper decision. Now, the part you rely on is sandwiched between the part the Chief Justice quotes --",
       "time": "01:08:18.81"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Confer standing on whom?",
       "time": "01:09:31.36"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "To collect money damages? Four cases?",
       "time": "01:10:13.08"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Liman, before you leave the 14(e) standing issue, would you respond to their argument that even assuming you might have standing in an equity case and so forth, when you get standing in a damage suit, the recovery adversely affects the people who are the principal beneficiaries of the legislation, namely, the general rules of exchange?",
       "time": "01:10:57.45"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But under the facts of this case, apparently there are some Bangor Punta shareholders who exchanged Chris-Craft stock, the value of whose shares will be declined because of the $35 million --",
       "time": "01:11:38.43"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Liman, in responding to Justice Stevens’ question, you referred to Bangor Punta as having gained control illegally. Is there any finding of fact either in the District Court or the Court of Appeals that the violations on the part of Bangor Punta were causally or factually connected to their gaining control?",
       "time": "01:13:01.04"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There is a factual finding, then, in the record by one of the courts that there was a factual causal connection between the violations and the ultimate acquisition of control?",
       "time": "01:13:49.80"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Don't you think the Court of Appeals also found or had to find that without the control of Bangor Punta that Chris-Craft would have obtained it?",
       "time": "01:14:33.35"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is, the courts have agreed that the target company has the right to try to get an injunction.",
       "time": "01:16:32.15"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You're referring to standing as whether Chris-Craft has a cause of action.",
       "time": "01:17:38.21"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Liman, shareholders ultimately pay the bill for these things, strongly supported by what Senator Kuchel said when he introduced the bill and what Senator Williams said and what other witnesses said that their concern was for the shareholder and no one else. How do you protect the shareholders by putting a burden on them into millions of dollars in judgments?",
       "time": "01:19:02.31"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Liman, let me go back to the 10(b)-6 standing. I'm just not quite sure I understand your position. You contend that Chris-Craft was a purchaser within the meaning of the Birnbaum rule or that the Birnbaum rule does not apply to 10(b)-6?",
       "time": "01:20:45.40"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I don't understand that relevance of 14(e) to the 10(b)-6 standing issue.",
       "time": "01:21:27.35"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh, I see what you're saying.",
       "time": "01:21:45.84"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I had understood that the District Court found that there had been no agreement on the part of Bangor Punta to sell the BAR railroad stock at the time the prospectus was issued and after the sale it could , as I recall, in October. It could have been much later.",
       "time": "01:24:43.64"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well, Mr. Liman. Mr. Cutler, you have about five minutes left.",
       "time": "01:26:54.94"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Cutrer, could I ask you two questions that you covered in your brief?",
       "time": "01:27:06.72"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Number one, would you agree or disagree that the management would have standing under 14(e) that's one question, and the other question, I want you to refresh my recollection. Why is the scienter relevant to our problems here in view of the fact that liability is a given? That covers your --",
       "time": "01:27:10.15"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Okay. The first question is whether management of the other contestant would have standing under 14(e), and logically I'm ...",
       "time": "01:28:03.72"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now, in your counterclaim in the District Court, was that the same position you took there? Was it --",
       "time": "01:28:33.54"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it wasn't yours; rather, the Piper individuals took the position, I guess, that they had standing, didn't they? Was there not a counterclaim?",
       "time": "01:28:39.55"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But then if you should admit that management would have standing in a contest like this, doesn't that make it sort of a one-sided standing rule, that one side has standing, but the other does not? That's what troubles me a little bit about it.",
       "time": "01:29:03.33"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "To sue for the corporation.",
       "time": "01:29:20.02"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "01:29:24.05"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right, I understand that.",
       "time": "01:29:49.45"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:32:07.99"
     }

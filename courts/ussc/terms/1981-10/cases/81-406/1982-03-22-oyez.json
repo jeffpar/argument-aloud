@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1981/81-406/19820322a_81-406.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "HUNTER M. GHOLSON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WILBUR O. COLOM",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Mississippi University for Women against Hogan. Mr. Gholson, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do we know what their reason was, if the University of Mississippi was then co-educational?",
       "time": "00:04:41.34"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Gholson, do you know whether there are many single-sex tax-supported institutions in the country other than this one?",
       "time": "00:05:43.81"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Gholson, is it true that men are allowed to audit classes?",
       "time": "00:06:41.42"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And it is done, considerably?",
       "time": "00:06:48.88"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But it is done. Well, why can't they get a degree?",
       "time": "00:06:53.35"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that the only difference?",
       "time": "00:06:59.02"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I mean, how can you have an all-female school with male students?",
       "time": "00:07:21.90"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is the problem I have.",
       "time": "00:07:28.85"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It must be horrible to have men there, but they are there. 0 [Generallaughter.]",
       "time": "00:07:32.52"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But they are there.",
       "time": "00:07:35.96"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, they are sort of second-class citizens.",
       "time": "00:07:39.53"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Gholson, is a finding that the Board of Regents had a belief that single-sex education benefits women sufficient in and of itself for us to uphold the provisions for that institution? And what level of scrutiny do we have to apply?",
       "time": "00:08:06.98"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Something more then than a mere rational basis test?",
       "time": "00:08:50.60"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Some mid-level scrutiny you would believe is in place and in order for the review?",
       "time": "00:09:13.11"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Gholson, am I correct as to my factual assumption that Mr. Hogan could have entered a state-supported school of nursing at Pascagoula or at Jackson?",
       "time": "00:09:22.24"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But there were other university--",
       "time": "00:09:39.35"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--schools of nursing open to him. He just wanted to go to one in Columbus, in his back yard.",
       "time": "00:09:43.58"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Gholson, does the record below indicate whether Mississippi University for Women ever obtained funds under the Nurse Training Act of 1971?",
       "time": "00:10:25.25"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Gholson, the Respondents claim that the senior faculty at the school is primarily male. Is that true or untrue?",
       "time": "00:13:52.74"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "What is the situation as to the nursing school itself?",
       "time": "00:14:18.42"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Your other answer had to do with the entire university.",
       "time": "00:14:24.65"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Is there anything in the record to that effect?",
       "time": "00:14:36.13"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "We are talking about the nursing school, are we not?",
       "time": "00:14:46.64"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did you have any women that testified to that?",
       "time": "00:15:45.53"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is a very simple question. Yes or no?",
       "time": "00:15:51.74"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You did? And what did they testify, that this was--",
       "time": "00:15:52.91"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--And what other women said that?",
       "time": "00:16:07.61"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's the only woman, but all the men said the--",
       "time": "00:16:10.70"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--But they were the top men.",
       "time": "00:16:14.50"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You say they are trained in leadership, and a man is the leader.",
       "time": "00:16:19.06"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Gholson, are there any findings that graduates of MUW are better able to compete than graduates of co-educational schools?",
       "time": "00:16:31.04"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is undisputed in this record, isn't it?",
       "time": "00:17:26.61"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Before you get into Title IX, may I ask you another... following up on Justice O'Connor's question, I understand you agree the standard of review must be higher than merely rational. That is what I understood you to say.",
       "time": "00:18:03.30"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And as I read the district court, he found specifically that it was rational, but it was only rational. Therefore, under the district court's findings, don't you necessarily lose if your legal position is the one you have just described?",
       "time": "00:18:20.64"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, at Page A-3 of the cert petition, \"The court finds that the maintenance of MUW as an institution of higher learning for females only bears a rational relationship. \" and so forth.",
       "time": "00:18:49.45"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And then he goes on and says that is enough.",
       "time": "00:19:01.59"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you think we should--",
       "time": "00:19:09.82"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And it is your view, I take it, that the advantages of single-sex education that justify this... the refusal to allow males into this school would not apply... would not justify a male-only school.",
       "time": "00:19:50.87"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it is before the Court in the sense that it was the theory of the court of appeals. They said that if you justify single-sex education, you must provide single-sex education to the members of both sexes. That was the rationale of the court of appeals.",
       "time": "00:20:17.00"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but they don't afford males access to the advantages of having a single-sex educational institution they can attend.",
       "time": "00:20:41.22"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, they did in Craig against Boren. They found the males needed some help.",
       "time": "00:21:33.00"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But, Mr. Gholson, you keep forgetting your original point, which is that the respondent here is not asking for a separate school for men.",
       "time": "00:21:59.89"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He is asking to go to this school.",
       "time": "00:22:11.98"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And that is all that is before us.",
       "time": "00:22:14.93"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Gholson, you have referred to the demand for a single-sex institution as being its justification. Would you make the same argument if there were a demand for an all-white publicly funded education?",
       "time": "00:22:35.36"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Colom.",
       "time": "00:25:10.86"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Nevertheless, it is a response to your claim of a denial of equal protection.",
       "time": "00:28:01.23"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it is not a new Constitutional theory being injected, is it?",
       "time": "00:28:08.17"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then aren't all the reasons why underlay that called to your notice? I don't quite understand your surprise or waiver suggestion.",
       "time": "00:28:50.43"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I understand his position is that you were offered proof and you did not accept it.",
       "time": "00:29:35.13"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that right?",
       "time": "00:29:42.77"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, don't you think that should be explained?",
       "time": "00:29:47.19"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And if you were wrong, you lose.",
       "time": "00:30:25.00"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "All I am saying is, as a matter of fact, you could have put in evidence and it wouldn't have hurt you. But if we find that you should have put it in and you didn't put it in, you are really hurt.",
       "time": "00:30:32.22"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Under your own theory, though, didn't you support the Craig against Boren reasoning in the district court?",
       "time": "00:30:56.38"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that is a conclusion of law, really, which you are free to appeal.",
       "time": "00:31:14.84"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, isn't that just what we should do now? Regardless of what standard the district court applied, we should simply apply the correct standard.",
       "time": "00:31:32.16"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does the Fifth Circuit opinion in your view go beyond the relief which you are claiming?",
       "time": "00:31:46.06"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you think the court of appeals decision and opinion goes beyond that which you are seeking?",
       "time": "00:32:18.66"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did you suggest to the court of appeals, or was it part of your theory from the outset that the result might be different if Mississippi had all-male schools as well as all-female schools? Or was that the product of the Fifth Circuit?",
       "time": "00:32:44.93"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the decision below wouldn't necessarily apply if Mississippi did have schools for men as well as for women.",
       "time": "00:33:33.27"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but it wouldn't control that case, would it, the decision below? If Mississippi now started an all-male school, and had a female school too, the decision below wouldn't necessarily outlaw that system.",
       "time": "00:33:48.19"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you could say that there was no discrimination. And you don't have to have a justification until you've got a discrimination, do you?",
       "time": "00:34:15.43"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you have to have an unequal gender classification.",
       "time": "00:34:38.57"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you must have thought so or you wouldn't have made the argument based on Vorsheimer.",
       "time": "00:34:45.38"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, I am a little puzzled why that bears on it, on the issue here.",
       "time": "00:36:14.08"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, supposing a statement of your opposing counsel is correct that Mississippi at one time had an all-male university, and there is simply... the demand for it so slackened that it was no longer economically feasible to keep the place open. Now, would you say that was a discrimination if it happened under those circumstances?",
       "time": "00:37:20.24"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, assume that that was the case. Treat it as a hypothetical question.",
       "time": "00:37:43.86"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is there anything in the record to indicate that they have applied different criteria to the women's school as opposed to the men's school in determining whether to keep it on when enrollment is declining?",
       "time": "00:38:19.44"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I go back for a moment to the... you mentioned, I think, that your client was offered the opportunity to audit as many classes as he wanted to.",
       "time": "00:43:47.20"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would he have had to pay tuition to do that?",
       "time": "00:43:57.18"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He would have paid the same tuition as if he was enrolled?",
       "time": "00:44:00.75"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So he could have done everything, attended the class and all, but he just couldn't have taken the exams and gotten a degree. That is the only thing that he couldn't do?",
       "time": "00:44:04.21"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:44:43.74"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think any inference can be drawn at all from the exclusion from Title IX of single-sex schools?",
       "time": "00:45:33.53"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you suppose if Congress had thought that they were unconstitutional, would they have excepted that from Title IX?",
       "time": "00:45:43.53"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:45:55.74"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Do you have anything further, counsel?",
       "time": "00:47:29.59"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, counsel, your opponent suggests that that reasoning doesn't necessarily apply to the field of nursing.",
       "time": "00:48:27.32"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you comment just a little further... I have tried to think about it a little bit during the argument... on when there are advantages of single-sex education for women, how can those advantages be preserved by allowing male students to audit courses but simply saying, you can't take the exams and get the degrees?",
       "time": "00:48:53.18"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but I suppose it is also true that the male applicants for the nursing school are limited in number.",
       "time": "00:49:24.11"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But is your limitation on auditing such that the three could not have audited?",
       "time": "00:49:36.45"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Or primarily female atmosphere is what you are trying to maintain, I guess.",
       "time": "00:50:26.79"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Gholson, does the state still rely basically on the statement of purposes and goals contained in the charter of MUW?",
       "time": "00:51:48.07"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And it has not been changed, as I understand it.",
       "time": "00:52:06.81"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "By that you are not arguing a rational basis test implied though?",
       "time": "00:53:26.45"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But if it is so great for women, it does help men.",
       "time": "00:53:32.04"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes.",
       "time": "00:53:38.64"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "See, that is where I have trouble. It is all for women, it is great for women, but it also helps men.",
       "time": "00:53:41.50"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:53:51.66"
     }

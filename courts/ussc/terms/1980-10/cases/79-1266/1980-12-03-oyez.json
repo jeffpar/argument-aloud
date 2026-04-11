@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1980/79-1266/19801203a_79-1266.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "PETER J. NICKLES",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "RALPH C. FERRARA",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear argument next in Steadman v. Securities and Exchange Commission. Mr. Nickles, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But the case was sent back for reconsideration of the sanctions, wasn't it?",
       "time": "00:02:58.35"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Nickles, assume for a moment that the sanction had merely been a reprimand, a very mild sanction. Would you argue that the same clear and convincing standard would be required?",
       "time": "00:03:28.15"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that the severity of the sanction is really totally irrelevant to our consideration of the case?",
       "time": "00:03:39.91"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What your argument really is, I guess, Mr. Nickles, that in view of the fact that a sanction of this severity is potentially impossible then a clear and convincing standard is necessary before offending the statutes can be assumed.",
       "time": "00:04:12.65"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Because--",
       "time": "00:04:36.25"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "--the sanction, for one thing, as my brother Blackmun said, has been remanded, and for another thing just in logic, the... your argument would be the same, whether the sanction actually imposed had been this one or some less severe one. But it is a relevant part of your argument that a sanction of this severity can be imposed?",
       "time": "00:04:38.22"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Certainly one of the reasons, as I have understood it, that in a criminal case the proof must be beyond a reasonable doubt, is the fact that the sanction upon conviction can be loss of personal liberty and confinement in an institution, and in some extreme cases, death.",
       "time": "00:04:59.13"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But that isn't quite consistent with your initial answer to Mr. Justice Stevens. You said it would--",
       "time": "00:05:53.31"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--make no difference to you, to your case, if there had been simply a reprimand.",
       "time": "00:06:01.13"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Nickles, I take it you feel that the... in this case and on the facts of this case, a different standard would have led to a different result?",
       "time": "00:07:09.88"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Nickles, before you get into the specifics, just as a matter of putting the entire argument into perspective, you are not making a constitutional argument?",
       "time": "00:13:29.96"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are you making a statutory argument?",
       "time": "00:13:38.12"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're arguing as a matter of policy the Court should fashion a rule covering standard of proof?",
       "time": "00:13:42.45"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now the government relies rather, toward the end of their brief, on the language of the Administrative Procedures Act?",
       "time": "00:14:06.49"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And do you contend that that language should be construed to impose a clear and convincing burden, or that that language has nothing to do with the burden of proof?",
       "time": "00:14:12.05"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That was a different statute.",
       "time": "00:14:26.67"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That language is entirely concerned with the scope of appellate review?",
       "time": "00:15:08.26"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well I--",
       "time": "00:15:13.38"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--What precisely is the statute that authorizes you to appeal a finding of the SEC to the Court of Appeals, or to petition for review of it?",
       "time": "00:15:15.71"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is it set forth in... in haec verba in your petition, or in the--",
       "time": "00:15:42.61"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But those define the substantive offense.",
       "time": "00:16:13.16"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They don't?",
       "time": "00:16:13.76"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "This is, undoubtedly, my own ignorance and no one else's fault, but what is the statutory language or statutory citation that enables you to appeal at all, or petition for review at all, from a finding of the SEC to the Court of Appeals?",
       "time": "00:17:40.92"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I certainly didn't, and I'm now puzzled as to... why Congress didn't say anything about what standard the Court of Appeals should use in reviewing findings of the SEC, since the NLRB standard is substantial records supported by substantial evidence supported by the record and by the record as a whole, and there are other standards for other agency actions.",
       "time": "00:18:47.73"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you're satisfied that the Fifth Circuit reviewed it on the APA standard?",
       "time": "00:19:36.93"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "One other question, while we've got you interrupted, Mr. Nickles. It is true that Section 706 of the Administrative Procedures Act dealing with scope of review, does contain the normal provision that the lack of substantial evidence shall be grounds for reversal on the facts?",
       "time": "00:19:44.43"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And are you saying that's a substantial duplication of what's found in Section 556--",
       "time": "00:20:02.63"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--What is the difference in the function of 556(d), the language the government relies on, and the language in 706 defining scope of review?",
       "time": "00:20:10.75"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the phrase is \"reliable, probative and substantial\"--",
       "time": "00:21:14.47"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And substantial is surely not a test of admissibility.",
       "time": "00:21:17.75"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let me ask you, where do you think this standard applies that you're looking for, before the SEC, isn't it?",
       "time": "00:21:47.18"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's not on review.",
       "time": "00:21:54.97"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's just whether it's from the... what standard the administrative agency should use?",
       "time": "00:21:58.67"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now Addington was a constitutional case?",
       "time": "00:25:45.40"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And you make no constitutional claims?",
       "time": "00:25:48.94"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Looking at other analogies, Mr. Nickles, would your argument apply equally to the Federal Trade Commission, for example? Because they can impose very severe sanctions.",
       "time": "00:26:31.19"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You can get both of those things in a Commission proceeding--",
       "time": "00:27:00.52"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Ferrara.",
       "time": "00:27:30.88"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there any basis for him to suggest a supervisory power of the Court over the regulatory agency?",
       "time": "00:28:21.92"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But this Court doesn't have the supervisory authority over agency proceedings that it does over lower federal courts, does it?",
       "time": "00:28:58.94"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That's the question. That's what my question was directed at. And it apparently concerns Mr. Justice Rehnquist. Do we have the kind of supervisory power over regulatory agencies that we do over district courts and courts of appeal?",
       "time": "00:29:26.31"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What do you say about the relevance of the Addington holding here?",
       "time": "00:30:51.77"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could I ask you what is the... is the board that did the adjudication in Woodby, was that an administrative agency?",
       "time": "00:34:16.19"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Expressly?",
       "time": "00:34:30.93"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that's why Section 7(c) was irrelevant in that case?",
       "time": "00:34:34.31"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but nevertheless, those words of the Immigration and Nationality Act related exclusively to--",
       "time": "00:34:53.13"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--related to review in the... not to adjudication?",
       "time": "00:35:01.00"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what did, apparently there was no statutory guide then for the standard of proof, before the administrative agency in Woodby?",
       "time": "00:35:36.11"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the APA wasn't passed until 1946--",
       "time": "00:36:03.02"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--and the SEC Acts in question were passed in the '30's.",
       "time": "00:36:09.57"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, what was the standard... rather, what was the standard of proof before the SEC, between the time the SEC Acts were passed and the APA was passed?",
       "time": "00:36:17.14"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Standard of proof.",
       "time": "00:36:29.90"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Even in a fraud case?",
       "time": "00:36:38.04"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And even if, in... I suppose you could argue the Administrative Procedure Act would govern, regardless of what the standard was before it was passed?",
       "time": "00:36:51.57"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one other question about the statutory language in the APA? Has that language ever been construed other than by an agency, to require nothing more than a preponderance of the evidence?",
       "time": "00:38:32.12"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's a strange way to describe preponderance, in all candor.",
       "time": "00:39:06.92"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If the Congress had meant preponderance, I don't know why they didn't say that.",
       "time": "00:39:10.99"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, the Attorney General's manual may be a little bit one-sided too. Congress passed the Walls over Logan Act in '41, and President Roosevelt vetoed it, and didn't get... Congress didn't get around to passing an act that was signed by the President until 1946. And certainly it was in the interests of the administration to give as limited as possible a construction to the Act insofar as it would limit agency action.",
       "time": "00:43:15.21"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well do you have anything further, Mr. Nickles?",
       "time": "00:47:13.99"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Justice Clark, in his dissenting opinion in Woodby, spoke as though it was well established that that language did establish a burden of proof within the agency.",
       "time": "00:48:07.73"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It was.",
       "time": "00:48:27.08"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's right.",
       "time": "00:48:29.71"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well--",
       "time": "00:48:50.49"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "--except that his... the argument was that those were the words of governing agencies governed by the Administrative Procedure Act. It was concededly clear that the Immigration and Naturalization Agency was not covered by the Administrative Procedure Act, and Justice Clark, in dissent, simply said that the similar words ought to have the same meaning. And he said that it was established what the meaning was in agencies governed by the Administrative Procedure Act. Now, maybe--",
       "time": "00:48:52.35"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "--maybe he was mistaken, but the fact that it was a dissenting opinion doesn't mean that he was disagreeing with the Court as to that.",
       "time": "00:49:26.81"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, when Congress hadn't spoken on the subject?",
       "time": "00:50:23.85"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well that's the question, yes. But it certainly hadn't in Woodby?",
       "time": "00:50:29.47"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And if Congress has spoken in the Administrative Procedure Act, to the standard of proof, I suppose it governs?",
       "time": "00:50:34.09"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if it has, if we... if 7(c) governs this case, it governs this case.",
       "time": "00:50:45.23"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you say 7(c) applies to this case?",
       "time": "00:50:54.94"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If they apply it to this case, then--",
       "time": "00:51:03.89"
     },
@@ -907,13 +911,13 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:51:05.68"
     },
     {
       "turn": 146,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Monday next at ten o'clock.",
       "time": "00:51:09.16"
     }

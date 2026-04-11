@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1967/75/19671107a_75.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "NICHOLAS S. HARE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES MORGAN, JR.",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "75, Frank Lee, Commissioner of Corrections of Alabama, et al., appellants versus Washington, et al. Mr. Hare.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. Hare, you say you do not concede that they are unconstitutional, do you contend that they are constitutional?",
       "time": "00:01:38.60"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You mean that the facts are different?",
       "time": "00:04:22.45"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And you comment –",
       "time": "00:04:26.19"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Does the record show that they're different?",
       "time": "00:04:27.44"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, on what basis -- on what basis did you arrive at that conclusion?",
       "time": "00:04:31.16"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does he have any jurisdiction at all over the jails?",
       "time": "00:06:40.44"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you concede that it should apply to him as to all jail as 10,000 --",
       "time": "00:07:15.89"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Or it's a -- I think I understand that. First, to the other appeal here, but when I consider it in light of the first point you made, I must say that I'm deeply troubled because your first point is either extremely technical one or it's a statement to us that Alabama, regardless of our ruling in the particular case would not apply our ruling in particular case beyond its technical limits. Is that what you're telling us?",
       "time": "00:11:28.81"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You're not telling us -- you're not telling us that Alabama has to determine that it will not apply, I really know whatever it may be?",
       "time": "00:12:00.59"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Generally.",
       "time": "00:12:12.63"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is that on the state wide basis?",
       "time": "00:12:25.26"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Hare, do you draw a line between “racial discrimination” and “racial segregation?”",
       "time": "00:12:59.42"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "At this late date?",
       "time": "00:13:09.24"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You need a large cell.",
       "time": "00:13:53.87"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Hare, you wouldn't or would you say that this Ninth Circuit case is wrong and so are you?",
       "time": "00:16:34.36"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't think you would. I don't think why this is so relevant to your case?",
       "time": "00:16:48.68"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Hare, what was reason for the statute which is before us?",
       "time": "00:17:29.12"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The reason, “did the legislature have to pass had statute other than a firm belief in segregation.”",
       "time": "00:17:34.87"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's the statute in form.",
       "time": "00:17:49.87"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And they didn't have Muslims then, did they?",
       "time": "00:17:58.97"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Since the decision of the Fifth Circuit in this case, has Alabama done anything along the lines of --",
       "time": "00:19:15.38"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Hare, if the opinion below does that we recognize their merit and their potential and I may say against the present security, physical protection against segregation of the races for a limited period, it goes on, but how much more rooms in that --",
       "time": "00:20:04.14"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So why do you say that this -- that this statement is someone you didn't care? It is -- for example, the pay for the jail. It doesn't unless they are have statement the prison discipline. It might in some instances that to the extent necessary require segregation. How much more of assurance do you want from that?",
       "time": "00:20:32.32"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What was the citation of that ranking?",
       "time": "00:22:21.92"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it is [Inaudible]?",
       "time": "00:22:29.42"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Ray or Ray Black?",
       "time": "00:22:34.01"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Hare, supposed -- suppose we just put down the statutes and let the -- let the rest of it to the administration of the prisoners, what would happen in those prisons where the judges are sending only Negroes to one institution and only White people to another institution. How would you ever get at that situation?",
       "time": "00:22:39.62"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, if --",
       "time": "00:23:11.35"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, there has been --",
       "time": "00:23:15.09"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- they were at the time of this (Voice Overlap)",
       "time": "00:23:16.46"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- this action and then of course you could go back to it very easily if we didn't prevented, isn't that, [Inaudible] in this case in this?",
       "time": "00:23:19.20"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- (Voice Overlap) well isn't it an important question, if you --",
       "time": "00:23:39.07"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- throughout the State continue to send all Negroes to one institution and all Whites to another institution, what discretion would there be on the part of the administrator of the prison? You couldn't defend at them the separation of them on the basis of prison on this one, could you?",
       "time": "00:23:43.17"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How does -- how do you send it for [Inaudible].",
       "time": "00:24:39.44"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you mind pointing out the case on which that part of that order appear which you think is there that in the simple cases.",
       "time": "00:25:56.52"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:26:12.24"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "One year to speak through the [Inaudible]",
       "time": "00:27:11.48"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "[Inaudible]",
       "time": "00:27:13.83"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You're ignoring their distinction? I'd rather [Inaudible]",
       "time": "00:27:42.16"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Determination is made by reason of race?",
       "time": "00:27:48.86"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "However, in any station [Inaudible] made an request --",
       "time": "00:27:52.70"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And became the [Inaudible] of the prisoners.",
       "time": "00:28:00.62"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you ask us to modify up to the extent that our warden could say in this community there are such tension between Blacks and Whites that as the policy of the administration we will keep them separate at all times.",
       "time": "00:28:04.64"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It might not be necessary, but would you want us to modify it --",
       "time": "00:28:28.04"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- where they could say that?",
       "time": "00:28:33.29"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you tell us -- would you tell us to what extent do you think the modification should be made?",
       "time": "00:28:38.35"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yeah—yes, that's all --",
       "time": "00:28:50.79"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you want the whole order [Inaudible]",
       "time": "00:29:52.95"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't want -- you don't want to submit [Inaudible] order?",
       "time": "00:29:59.48"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well how about [Inaudible]",
       "time": "00:30:06.33"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "One of your lawsuits [Inaudible]",
       "time": "00:30:24.73"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "On page 129 of the record as I read it the Court record said – that if the Court said as we recognize that there's merit in the contention in some isolated instances, prison security and discipline necessitates segregation on the race for a limited period. Now, I think you're asked about and I thought you limited it to just the growth thing but as I look at the footnote to that statement it says for example, the term used, you see that's the bottom, page 129.",
       "time": "00:30:30.65"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "My point here is that the Court recognized, it seems to me, in this passage the Court recognize in general terms than maybe some isolated instances where segregation is required and then it cited the growth bank as an example of certain situation that as the sole brief here?",
       "time": "00:31:27.78"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Could you step -- can you step back to the lectern so we can hear you.",
       "time": "00:31:53.67"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When will these prisons be in effect?",
       "time": "00:32:25.14"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And so Alabama has abolished old segregation in schools by 1969?",
       "time": "00:32:31.31"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And why are you here arguing this case?",
       "time": "00:32:41.43"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The order says 1968, doesn't it?",
       "time": "00:32:47.99"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Doesn't the order say 1968?",
       "time": "00:32:50.93"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My point is if it's so good why not go back to the District Court ask them to give you another year on your proven word that you will desegregate by 1969?",
       "time": "00:32:59.33"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What I mean is you are sure that segregation will be abolished in all prisons in Alabama by 1969?",
       "time": "00:33:26.46"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is there anything in the order that could prevent the District Court from banning your extension of time in which to do this?",
       "time": "00:33:40.16"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, actually Mr. Hare it's a very explicit sentence. Jurisdiction of the case will be specifically retained through all prisons.",
       "time": "00:33:57.81"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Surely if you can go back there?",
       "time": "00:34:07.98"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose you are right about that, if you decide to use that on that and let the order means but that unless you judge him in the part of [Inaudible]? Suppose the opinion was [Inaudible] procedural internal every minute is [Inaudible]? Certainly, you must have defended questions that the judge, why wouldn't be effective for your present [Inaudible]?",
       "time": "00:34:37.23"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- at the same time fail a good part as decided part of the order?",
       "time": "00:35:10.61"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you point to your time when you might be a say after five between the Whites and the Blacks in the prisons.",
       "time": "00:35:44.97"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that what you're talking about?",
       "time": "00:35:51.55"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And you are careful on that one, more than ten were [Inaudible] in need of that situation – a separation temporarily?",
       "time": "00:35:54.32"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, very well. Mr. Morgan.",
       "time": "00:36:44.41"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I didn't understand what you meant Mr. Morgan that the officials wrote this order, what do you mean by that?",
       "time": "00:39:22.19"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That doesn't tell what the idea about that on the others should do that because the towns like you [Inaudible] with Judge Reeves [Inaudible]",
       "time": "00:40:17.84"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, like habeas corpus.",
       "time": "00:40:38.27"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Right.",
       "time": "00:42:38.95"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How does this -- does this judgment is on this page?",
       "time": "00:44:36.19"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So this -- this system of recording or anything has never gone in the defense.",
       "time": "00:44:47.26"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Had there been any -- any noticeable change in convictions in the jail?",
       "time": "00:44:57.50"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did they state it – have we stayed that?",
       "time": "00:45:07.36"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "[Inaudible] is that right?",
       "time": "00:46:07.99"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "[Inaudible]",
       "time": "00:46:19.92"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Walker?",
       "time": "00:46:31.99"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They're the ones to be called calabooses?",
       "time": "00:47:07.29"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What had they been doing in those places, do they have a Black and White jail?",
       "time": "00:47:13.74"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I have to do [Inaudible]",
       "time": "00:48:40.79"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:48:48.16"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I suppose you'll use that [Inaudible] out of the order, assuming that the [Inaudible] , the order is [Inaudible] rather than make a demand [Inaudible]",
       "time": "00:49:39.60"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If it did?",
       "time": "00:50:05.77"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Morgan, why did the court put its mandate in the form of order rather than an injunction to the various member of the record, of course, you made something in the point of that, that it is not issuing an injunction.",
       "time": "00:50:23.03"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is this record?",
       "time": "00:50:42.23"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is this – the commissioner's injunction?",
       "time": "00:50:45.45"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But an order [Inaudible] to be segregated.",
       "time": "00:50:59.36"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Orders him to file of the Court?",
       "time": "00:51:02.70"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How would you get back to this suppose first claim [Inaudible] to back proceed from period of action against the [Inaudible]",
       "time": "00:51:18.81"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Oh, you would go first?",
       "time": "00:51:27.94"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You would not regard this as a basis to contempt proceeding?",
       "time": "00:51:29.34"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Does the implication to your mind there is apparently drawn an inference that the Court wanted to obtain a little more flexibility before issuing sort of definitive mandate and they use this form, this technique for doing it. I don't know --",
       "time": "00:51:40.09"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- I'm just giving you something in return to this as I read the last and entirely clear words in the record.",
       "time": "00:52:06.83"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Hare.",
       "time": "00:52:48.71"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I -- I think that – I think your time expired so long ago.",
       "time": "00:53:51.51"
     }

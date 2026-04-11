@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1956/582/19570422a_582.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HAROLD BURTON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID VON G. ALBRECHT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BURTON",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROGER D. FISHER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "O. JOHN ROGGE",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 582, Samuel Roth, Petitioner versus United States of America. Mr. Rogge, you may --",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Albrecht, you may proceed. I -- I beg your pardon.",
       "time": "00:00:41.08"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does that mean that you say a federal statute that reached only pornography would be all right?",
       "time": "00:02:32.84"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That includes pornography, whatever that means?",
       "time": "00:03:28.24"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or is it to curve it down to size what's in my troubles. Let's suppose they have taken a dirty picture. Now, do you say it's beyond the purview of Congress to say, \"We will not allow that stuff to be shipped through the mails?\"",
       "time": "00:03:55.05"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you say that's beyond the purview of Congress --",
       "time": "00:04:08.73"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- beyond the power of Congress?",
       "time": "00:04:10.84"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Do you mean that the Federal Government can put no limitation of what would be sent by mail?",
       "time": "00:04:33.92"
     },
@@ -139,31 +139,31 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you mean --",
       "time": "00:05:58.73"
     },
     {
       "turn": 18,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "So far as --",
       "time": "00:05:59.39"
     },
     {
       "turn": 19,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What's the plan? I beg your pardon?",
       "time": "00:05:59.54"
     },
     {
       "turn": 20,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, go ahead.",
       "time": "00:06:01.15"
     },
     {
       "turn": 21,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I -- I don't understand. Do you mean to say that while it's unconstitutional to prohibit stuffs from going through the mail, there is no redress against the Post Master General directing the postal officials not to deliver such a mail?",
       "time": "00:06:02.15"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, I mean --",
       "time": "00:06:24.15"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the -- the Webb Kenyon Act has no such absolute non possumus that you find in the First Amendment. You say you can't deliver this, but you can say it's all right that you'll just stop. You can't keep this out, but you say if New York or some quasi-state has legislation against obscenity, then the Postmaster General says, \"Never mind the First Amendment, you deliver it.\"",
       "time": "00:06:32.00"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You don't even raise that.",
       "time": "00:06:58.95"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The States can tell and the States can to that extent tell this Postmaster General to disregard the First Amendment, is that it?",
       "time": "00:07:11.33"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, they may ask for help, but there is no First Amendment which through your understanding is an absolute iron, inescapable bond.",
       "time": "00:07:25.34"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But if -- what if -- if a -- as I say, a puritanical state, Massachusetts was once puritanical. If Massachusetts says, \"We don't like this kind of literature,\" then the Postmaster General says, \"Aye, aye, sir.\" Is that it?",
       "time": "00:07:43.82"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All right.",
       "time": "00:07:56.23"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Can the Congress close the mail to the use of -- for elaborate purposes, gambling purposes?",
       "time": "00:08:13.70"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is your theory -- your theory as I understand it disable the Congress from protecting if that's what it is, the citizens, one more discrimination against the inhabitants of the District of Columbia including myself. Congress can't do anything to say -- to make me not blush, is that it?",
       "time": "00:08:37.93"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Because they can't do it for the District. The District is -- Congress is more impotent than any State is, is that right?",
       "time": "00:08:57.66"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you think the First Amendment doesn't limit that?",
       "time": "00:09:10.98"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, you have a nice (Inaudible), a nice great equality if all these theories have woven together.",
       "time": "00:09:18.25"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BURTON",
+      "name": "HAROLD BURTON",
       "text": "Is it?",
       "time": "00:10:39.35"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Albrecht, may I ask you whether the thing you've said latterly the last about -- the jury didn't read it, couldn't have read it, et cetera? Are any of those questions open here? I just looked at the order allowing certiorari and that was very nearly restricted to the point you've already made, namely the obscenity statute by freedom of speech in the First Amendment by Due Process Clause, the obscenity statute and it violated the First, Ninth and Tenth Amendment reserved to the States, but no question as to charged adequacy of evidence, submission to the jury, not one of these questions is opened. There are three very specific questions taken from your petition on the basis of which the Court granted certiorari and therefore restricted argument to it.",
       "time": "00:12:23.42"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't care with the Government. The Government is not deciding what's the scope of this review is.",
       "time": "00:13:29.53"
     },
@@ -355,13 +355,13 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't understand that.",
       "time": "00:13:53.34"
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where do you get -- where do you get that in the questions?",
       "time": "00:13:53.54"
     },
@@ -373,7 +373,7 @@
     },
     {
       "turn": 56,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Appear on page 3 of your brief, at the bottom.",
       "time": "00:14:07.83"
     },
@@ -385,7 +385,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It is customary isn't it when counsel want to raise constitutionality as applied that they say so and the Court says so, on its fate and apply it?",
       "time": "00:14:51.95"
     },
@@ -397,7 +397,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You can't just swim in the midst of the Pacific Ocean in this matter. You have to get some footing on some terra cotta -- terra firma.",
       "time": "00:15:03.80"
     },
@@ -409,7 +409,7 @@
     },
     {
       "turn": 62,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Fisher.",
       "time": "00:17:53.86"
     },
@@ -421,7 +421,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do we have to assume that that it's concededly obscene? Is the question of vagueness out of the case?",
       "time": "00:19:44.02"
     },
@@ -433,7 +433,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where the obscene means?",
       "time": "00:20:03.33"
     },
@@ -445,7 +445,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that wasn't this statute at least.",
       "time": "00:20:53.62"
     },
@@ -457,7 +457,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And do you think that you're discussing this thing as though this isn't a statute by the Congress for the regulations of mails, is it? That doesn't make any difference, does it here?",
       "time": "00:21:02.03"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Why don't you talk about the Hecate case?",
       "time": "00:21:12.20"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But you haven't got a -- an ordinary obscenity statute here, whatever one may think of that. Is that a statute which I don't know how it is a 100 years to begin with, certainly more than a hundred years.",
       "time": "00:21:25.89"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You've got here a question of regulating the mails. Am I to assume that you're going to argue that this is the same as the California statute or any other obscenity statute subsequently preceding?",
       "time": "00:21:41.37"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It only confuses me. You confuse me if you impliedly equate the two.",
       "time": "00:21:56.03"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You're suggesting, you don't have to follow in its wake.",
       "time": "00:22:19.02"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But this is a -- I -- this is a particular statute and not at large, general obscenity, the area of obscenity. That isn't what this case is about, necessarily is it?",
       "time": "00:22:33.73"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, we didn't ask the Government just to discuss all alternative statutes.",
       "time": "00:22:46.92"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "When you're saying moving picture films, do you mean they sold 16 millimeter stuff or?",
       "time": "00:30:09.46"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Look, Mr. Fisher, in the debate which was held the other day in the House of Congress on a bill like this, the Undersecretary for the Home Office picks up a distinguished lawyer. There's a continual and highly lucrative trafficking of pornography and that until he had -- well, it's his duty to look at the stuff, he quite -- he was accustomed to it. And none that I saw as it were -- for the (Inaudible) of value, but paper bags as they were sold for anything up to 7 pounds a piece. In the course of the proceedings to which you were incurred by the Government, was there any evidence appear what -- what kind of a market there is in this country for these things?",
       "time": "00:31:04.18"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I mean this is -- this is stuff that appeared in evidence, you're now saying what would come out in cases, (Voice Overlap).",
       "time": "00:32:17.73"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What definition of obscenity do you want us to endorse?",
       "time": "00:32:34.64"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But there are a lot of other things that made you skip it over like, does it -- and to stir sexual impulses?",
       "time": "00:33:43.89"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That might take off the stage long opinions that Sir George Bernard Shaw wrote.",
       "time": "00:33:53.38"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "There's another --",
       "time": "00:34:07.17"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "On the -- just before the -- about the middle of page 26, you may ask yourself, \"Does it offend the common conscience of the community by presentation (Inaudible)?\"",
       "time": "00:34:09.13"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, the (Voice Overlap) --",
       "time": "00:34:55.76"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The admission of obscenity before the Court, I gather --",
       "time": "00:34:59.16"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Was that -- do you even --",
       "time": "00:35:03.80"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You maintain that that is obscene which offends the common conscience of the community?",
       "time": "00:35:05.36"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, that's one sentence and out of the -- out of many paragraphs.",
       "time": "00:35:22.78"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was the indictment for obscenity or those two different crimes that the opinions of this Court have made clear, prosecution for obscenity isn't satisfied by approving that a document or --",
       "time": "00:35:56.46"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- a publication was filthy or vice versa, we're talking about --",
       "time": "00:36:09.31"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes. Filthy -- filthy is a different --",
       "time": "00:36:18.18"
     },
@@ -745,13 +745,13 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- the cause of action, the different crimes.",
       "time": "00:36:22.49"
     },
     {
       "turn": 119,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "We're -- we're talking about obscene here --",
       "time": "00:36:23.26"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- this is the best that as I'm talking about are -- relate to obscenity.",
       "time": "00:36:25.92"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I suppose they could have convicted this fellow, I don't -- I haven't seen the literature, but I suppose under this charge they could have convicted him if what he published intended to stir sexual impulses.",
       "time": "00:36:33.96"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "If the Government is not taking the position or is it that the -- that the clear and present danger test has any relevancy here to --",
       "time": "00:37:13.58"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But (Voice Overlap) -- we're -- we're dealing here with speech and utterance of ideas and -- there's always been the probability or the possibility or that the ideas would produce some kind of action in the -- as I read our clear and present danger cases.",
       "time": "00:37:39.47"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Clear and present danger that you'll be shocked, clear and present or what? Clear and present danger or what?",
       "time": "00:38:53.02"
     },
@@ -823,13 +823,13 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "This sounds like a -- like Mr. Comstocks here that he can't stop.",
       "time": "00:39:49.49"
     },
     {
       "turn": 132,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Don't be frightened by that. [Laughter]",
       "time": "00:39:54.40"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you agree it must have an effect on conduct?",
       "time": "00:40:23.00"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "How do we know it doesn't affect conduct in the future? Does anybody know? Has psychology reached that, wonderful state where it can assure us that if boys and or grown ups are feebleminded or general human beings have certain things said to them but it doesn't do anything to them.",
       "time": "00:40:58.78"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "As I recall, you reached that -- one of certainty of -- of determination?",
       "time": "00:41:15.88"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "There were two other bases of the clear and present danger used.",
       "time": "00:41:31.84"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes.",
       "time": "00:41:37.61"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It doesn't touch conduct, but merely a fence.",
       "time": "00:42:44.22"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I wonder what the clear and present danger too.",
       "time": "00:42:47.67"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Clear and present danger?",
       "time": "00:42:52.68"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "How do you think this has to be shoved into that category?",
       "time": "00:42:54.45"
     },
@@ -949,19 +949,19 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This statute had stood for 50 years before the phrase “clear and present danger,” the ink of that phrase was dropped from Justice Holmes' 4306.",
       "time": "00:42:57.26"
     },
     {
       "turn": 153,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The question has never been here, really.",
       "time": "00:43:04.41"
     },
     {
       "turn": 154,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That has been here for -- here in 1877, wasn't it, on what the Jackson case is decided?",
       "time": "00:43:08.64"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "72.",
       "time": "00:43:16.00"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You say that Congress can make some laws that abridge freedom of speech?",
       "time": "00:43:46.72"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You're talking now just about pictures, not about the text.",
       "time": "00:44:22.04"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Fisher, would regard a libel in the District of Columbia if Congress passes a statute, making it a criminal libel to tell lies, demonstrable untruth about a public man, I believe there is such a statute, isn't it?",
       "time": "00:44:37.58"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that an infringement of freedom of speech or not contained within it as the further abuse it?",
       "time": "00:44:59.14"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I think it does make a difference. It does make a difference and I suggest the Government shouldn't be afraid to face this issue, not say --",
       "time": "00:45:08.82"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- Congress can violate the Constitution a little bit or the Constitution doesn't mean that.",
       "time": "00:45:17.21"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's all the difference in the word to me --",
       "time": "00:45:21.79"
     },
@@ -1069,7 +1069,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- because I don't think we can violate the Constitution a little bit.",
       "time": "00:45:23.81"
     },
@@ -1081,7 +1081,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I think that to construe it.",
       "time": "00:45:26.76"
     },
@@ -1093,7 +1093,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What about libel? Is that within the Constitution or isn't it?",
       "time": "00:45:40.92"
     },
@@ -1105,7 +1105,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't mean -- I'm not talking about her restraint in advance.",
       "time": "00:45:48.88"
     },
@@ -1117,7 +1117,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Prosecution for libel. Is that a violation of the constitution?",
       "time": "00:45:51.99"
     },
@@ -1129,7 +1129,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, then, why do you have to worry about clear and present danger with reference to a libel?",
       "time": "00:45:58.41"
     },
@@ -1141,7 +1141,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you think it matters (Voice Overlap) --",
       "time": "00:46:04.36"
     },
@@ -1153,19 +1153,19 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- (Voice Overlap) libel was an exception or was the -- or the violation of the Constitution?",
       "time": "00:46:05.61"
     },
     {
       "turn": 187,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Do you think dealing with sedition law is constitutional?",
       "time": "00:46:09.07"
     },
     {
       "turn": 188,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that the --",
       "time": "00:46:12.02"
     },
@@ -1177,7 +1177,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that clear?",
       "time": "00:46:14.46"
     },
@@ -1189,7 +1189,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Can you talk about the Alien Sedition Laws in gross or in wholesale?",
       "time": "00:46:15.94"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I don't know what that means. I think it's not very brave for the Government to be dodging the question. “Well, if this is a violation of the Constitution or written a violation of the Constitution.”",
       "time": "00:46:35.27"
     },
@@ -1213,7 +1213,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, it's not you're -- you're afraid of touching this thing whether this is an exception or a little restraint which the Constitution forbids or to say a Court right, no. It is not within the prohibition.",
       "time": "00:46:47.43"
     },
@@ -1225,19 +1225,19 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Then, you don't have to worry about clear and present danger.",
       "time": "00:47:01.53"
     },
     {
       "turn": 199,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That shows that (Voice Overlap).",
       "time": "00:47:04.01"
     },
     {
       "turn": 200,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Look at the principal explanation.",
       "time": "00:47:04.22"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I suggest that the --",
       "time": "00:47:27.36"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes. But I suggest it's more than your duty in trying to see how best you can calculate where you five members of this Court. I don't think that's your --",
       "time": "00:47:32.45"
     },
@@ -1273,13 +1273,13 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- chief duty.",
       "time": "00:47:40.51"
     },
     {
       "turn": 207,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's one of your slients, isn't it?",
       "time": "00:47:41.91"
     },
@@ -1291,37 +1291,37 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I think that's your question only when you got, if I may say so, if you've got a statute that's been on the books, the constitutionality of which has been passed on by this Court. I think your first duty is to say, “This -- the Government come before this Court to sustain the validity of a statute on the basis of which all sorts of people have been put into jail. In which the most eminent and the leaders in liberal court have sustained its constitutionality and we go on from there, not to be --",
       "time": "00:47:58.01"
     },
     {
       "turn": 210,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But we have a (Voice Overlap) --",
       "time": "00:48:25.33"
     },
     {
       "turn": 211,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- timid about it, not to be timid about it.”",
       "time": "00:48:25.89"
     },
     {
       "turn": 212,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "We've got a specific charge here.",
       "time": "00:48:27.70"
     },
     {
       "turn": 213,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If you want to elaborate on that argument, Mr. Fisher, your time is up. I'll be glad to ask you a question.",
       "time": "00:48:30.19"
     },
     {
       "turn": 214,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is the charge -- is the charge before us, Mr. Fisher? Is the validity of a charge before us in this case?",
       "time": "00:48:34.42"
     },
@@ -1333,7 +1333,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What do you think about that order?",
       "time": "00:49:08.07"
     },
@@ -1345,7 +1345,7 @@
     },
     {
       "turn": 218,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Rogge.",
       "time": "00:52:00.07"
     },
@@ -1357,7 +1357,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may file it.",
       "time": "00:52:38.17"
     },
@@ -1369,7 +1369,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Rogge, since you're quoting a dissenting opinion of Mr. Justice Holmes, they never strike at my Achilles heel, including him.",
       "time": "00:57:06.03"
     },
@@ -1381,7 +1381,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I suggest that as -- I suggest there's another dissenting opinion on which I suppose you would rely which you do not cite in your brief. I refer you to Leach against Carlile, in 258, U.S. where Mr. Justice Holmes says the -- very much in your favor that you might make use of it.",
       "time": "00:57:15.78"
     },
@@ -1393,7 +1393,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "258 U.S.138, you find it.",
       "time": "00:57:46.30"
     },
@@ -1405,7 +1405,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I may (Voice Overlap) --",
       "time": "00:58:00.45"
     },
@@ -1417,7 +1417,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, in that -- in that dissent, he suggested that the Court reconsider the Jackson case way back in 1872 and I should suppose that's the strength of your case.",
       "time": "00:58:05.53"
     },
@@ -1429,7 +1429,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you think that's the same thing as though this statute was passed yesterday? That a hundred years in the practice of the Court, in the decisions of the Court, recently referred to in passing by several members of the Court, who have rather strong views, bordering on the absent, you think that it makes no difference that a statute has been on the statute books sustained by this Court again and again by the leaders and those who have given us the modern law of civil libel. That is immaterial that we discuss this thing de novo, is that it?",
       "time": "00:58:38.40"
     },
@@ -1441,7 +1441,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I agree with you entirely, but before determining whether it is, we better consider what has been.",
       "time": "00:59:22.57"
     },
@@ -1453,7 +1453,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What do you do with Ex parte Jackson, a very history to which you refer the abolitionist debate in the Senate and the vote against President Jackson's proposals?",
       "time": "00:59:41.07"
     },
@@ -1465,7 +1465,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was all that it dealt with in that opinion.",
       "time": "00:59:54.71"
     },
@@ -1477,7 +1477,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He prodded out as though it was a novelty, something new that we've heard.",
       "time": "00:59:58.06"
     },
@@ -1489,7 +1489,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And draws the conclusion that despite the evidence of the men who made those feature in the Senate, both the Statesmen and jurors had rejected them.",
       "time": "01:00:19.70"
     },
@@ -1501,7 +1501,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, of course it doesn't have as to libel. I said as to libeling the District of Columbia and the Alien and Sedition Laws had provisions about a different from this statute as night from day.",
       "time": "01:01:48.81"
     },
@@ -1513,7 +1513,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Everything that's in an area isn't the same.",
       "time": "01:02:03.54"
     },
@@ -1525,7 +1525,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Rogge, you may -- you may have five minutes more if you wish to with your argument.",
       "time": "01:03:47.64"
     },
@@ -1537,7 +1537,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, you may.",
       "time": "01:03:55.83"
     },

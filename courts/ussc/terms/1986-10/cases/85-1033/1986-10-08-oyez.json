@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/85-1033/19861008a_85-1033.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "CARL J. SCHUMAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "FRANCIS X. DINEEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Schuman, you may start whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I'd like to ask, Mr. Schuman, are there same states that do treat restitution orders as debts and collectable as civil judgments?",
       "time": "00:04:29.11"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I guess in the state of Connecticut they're not so treated?",
       "time": "00:04:49.90"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what would the result be in a state where they are treated as collectable civil judgments, under your theory?",
       "time": "00:04:54.99"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why is that?",
       "time": "00:05:06.31"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But for purposes of the bankruptcy law, do you normally lock to the state law to determine whether something is a collectable debt?",
       "time": "00:05:29.40"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I just... if you look at the language of the statute, though, under the Bankruptcy Code, it becomes a little bit tricky, because it says a debt means liability on a claim, and a claim means a right to payment, whether or not it's reduced to judgment. So in a state that treats it as a right to payment on the part of the victim, it makes it more difficult to follow your argument, I suppose.",
       "time": "00:06:27.74"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But in any event, it wouldn't prevent the state, in your view, from coming in and getting it--",
       "time": "00:07:16.44"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--This is a peculiar case, though, because here the state was also the victim.",
       "time": "00:07:23.56"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Schuman, you stated the agency or the state did not file objections to the discharge. Is there a reason for that? Would you feel a little more comfortable if they had?",
       "time": "00:08:24.46"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Yes, but a claim was filed, wasn't it?",
       "time": "00:09:10.42"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Schuman, there's no suggestion in this case that if this restitution order or this claim is discharged, that the state could not say this is a breach of probation and put them in jail?",
       "time": "00:09:20.20"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You may?",
       "time": "00:09:45.89"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You may not?",
       "time": "00:09:49.21"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it was a condition of his probation that he not be... that he make restitution.",
       "time": "00:09:57.64"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And maybe he can avoid some civil action against him in bankruptcy, but that's all that the discharge does, isn't it?",
       "time": "00:10:06.81"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, do you concede that the discharge of the civil obligation means that the state can't say he's breached his probation?",
       "time": "00:10:19.05"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Can you put him in jail for claiming his discharge in bankruptcy?",
       "time": "00:10:34.97"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, yes, oh, yes. But if it is discharged, you say he's completely free of his criminal sentence?",
       "time": "00:10:49.32"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what is he free of?",
       "time": "00:11:00.24"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But is she also free... does her criminal sentence... does her probation end?",
       "time": "00:11:09.43"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But that condition that she make restitution is just wiped out?",
       "time": "00:11:22.72"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Schuman, are you going to get to the waiver point?",
       "time": "00:11:29.67"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You brought up the waiver point.",
       "time": "00:11:36.82"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "At your own time.",
       "time": "00:11:43.40"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt there for just a second. If you had filed objections, you would have protected these claims from being discharged, wouldn't you?",
       "time": "00:12:00.76"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why is it irrational, if a statute has time to become known in the legal community, why is it irrational to have the prosecutor just recognize this is one thing he has to do in these cases?",
       "time": "00:12:09.84"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why is it difficult? I mean, creditors always file objection. You're just another creditor.",
       "time": "00:12:23.46"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're saying some other case might present your problem. But how about a case just like this one. There's no problem on a case like this, is there?",
       "time": "00:13:16.22"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Probably? Wouldn't you certainly? Doesn't the statute expressly... I can't remember the section number... have an express provision for cases like this?",
       "time": "00:13:25.93"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but that's the only case we have to decide today. It fits squarely within the express exception.",
       "time": "00:13:39.38"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's not just the prosecutor. You have a probation department, there's a probation officer making sure she's making her monthly payments. If she doesn't make the payments, presumably he follows up on it. Don't you have some kind of a checkoff system on people on probation?",
       "time": "00:14:26.35"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And when a person defaults, isn't there a follow-up procedure that's set up? And why is it so hard to say that they have filed for bankruptcy when you've got to file a form in the Bankruptcy Court? I jut don't understand this impossibility argument. I presume you've got good lawyers in Connecticut. If this case is so important, why didn't you go into Bankruptcy Court? You say this case is so important.",
       "time": "00:14:39.40"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What kind of restitution could you have in a negligent homicide case? Is that a common remedy in a death case?",
       "time": "00:15:30.37"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:15:42.60"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Schuman, you've certainly given us some very good practical reasons why we would want to find in your favor. But you're dealing with a very complicated bankruptcy statute, with a very broad definition of claim, very broad definition of debt, that made sweeping changes from what the law was before 1978. And it seems to me you ought to devote some of your discussion to, you know, why this isn't a debt or a claim as that term is defined in the bankruptcy statute. I asked you about that initially, I think, and I still have real difficulty understanding why this isn't a right to payment. Certainly the state has a right to enforce the payment of the restitution order, and I think that argument falls awfully flat, to say that it isn't a claim and isn't a debt. I'm wondering why you don't try to fit the thing under the exception in 5523(a)(7), which as I understand the code says... would not require the state to go in and file a claim. It would be automatically excluded under the Bankruptcy Code itself if the thing... if the restitution order is considered a debt for a fine, penalty, or forfeiture, payable to or for the benefit of a governmental unit. Now, the problem there, of course, is the additional clause of \"and is not compensation for actual pecuniary loss. \" In this particular case maybe it's a pecuniary loss to the state, but in most criminal cases it would not be, would it?",
       "time": "00:16:24.15"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx your loss and this replaces it.",
       "time": "00:18:31.42"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, isn't that enough to satisfy (a)(7)?",
       "time": "00:18:37.75"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is a criminal fine a debt?",
       "time": "00:19:18.37"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That comment that you're referring to in the House report was really made with regard to the provision for automatic stays, where the Congress was saying that criminal proceedings don't have to be automatically stayed. I don't think that comment refers at all to whether a resulting criminal fine is a debt.",
       "time": "00:20:49.84"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "523(a)(7) isn't very helpful, arguably not helpful in this case, because it is compensation for actual pecuniary loss.",
       "time": "00:22:04.98"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I'm saying it wouldn't fit here because here it is compensation for actual pecuniary loss, wouldn't you say?",
       "time": "00:22:20.89"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why not?",
       "time": "00:22:27.61"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does that mean it's not compensation for actual--",
       "time": "00:22:38.19"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, of course. But every... that's the purpose of every fine, penalty, or forfeiture. When you use the language (a)(7) does, you're assuming that part of the purpose may well be penal. But in addition to the penalty, it can't be compensation for actual pecuniary loss. If it's part of each, it doesn't qualify. I assume that's how you read it. I don't know how else you can read it.",
       "time": "00:22:58.51"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even if it were, though, (a)(7) wouldn't be very useful in most cases anyway because... are these restitution remedies normally payable to a governmental unit? In other states, are they ever payable directly to the victim?",
       "time": "00:23:35.87"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, why do you suppose Congress didn't say so?",
       "time": "00:24:27.99"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Don't the U.S. Attorney's Offices have a civil division?",
       "time": "00:25:35.65"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would it cost them any more than this case has?",
       "time": "00:25:55.86"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would it cost the state any more to have gone into Bankruptcy Court than it has cost you to date in this case?",
       "time": "00:26:00.95"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes or no?",
       "time": "00:26:09.79"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Thank you.",
       "time": "00:26:11.18"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Schuman. We'll hear now from you, Mr. Dineen.",
       "time": "00:26:21.09"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And therefore it isn't a discharge... it is discharged regardless of 523(a)(7)?",
       "time": "00:28:18.59"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it's interesting that the pecuniary loss language appears in the section with respect to a fine, penalty, or forfeiture. Do you know of any fines, penalties, or forfeitures that are actually compensation for pecuniary loss?",
       "time": "00:28:53.88"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, do you think restitution is a fine, penalty, or forfeiture?",
       "time": "00:29:13.39"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "My question is, do you know of any fines, penalties, or forfeitures that are compensation for pecuniary loss.",
       "time": "00:29:20.31"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What?",
       "time": "00:29:28.40"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you think restitution is a fine, penalty, or forfeiture?",
       "time": "00:29:32.31"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but if you decided restitution is not a fine, penalty, or forfeiture, but that there were some fines, penalties, or forfeitures that were compensation for pecuniary loss, you would certainly conclude that Congress intended some fines to be dischargeable if they were compensation for pecuniary loss.",
       "time": "00:30:13.87"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are dischargeable.",
       "time": "00:30:41.25"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Unless.",
       "time": "00:31:00.56"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you think if it fit under one of the other exceptions, so be it?",
       "time": "00:31:05.98"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the creditor has to come in.",
       "time": "00:31:46.51"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Dineen, what sort of proceedings would have taken place in the Bankruptcy Court if the state had filed a proof of its claim and made an objection?",
       "time": "00:33:51.21"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What are the elements that the state would have to prove?",
       "time": "00:34:13.65"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would the state court judgment be admissible or would it be conclusive on those issues?",
       "time": "00:34:33.90"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Dineen, if you're right, though, then a good many restitution orders that are typically entered all around the country, as in negligent homicide cases, just wouldn't qualify at all, would they?",
       "time": "00:35:03.34"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, there are many. And it seems to me under your view as a practical matter, if you're right there will be an enormous disincentive for any judge in the country to ever consider ordering restitution instead of just sending somebody to jail, because they'll know that there is a complete incentive for someone who's struggling to meet restitution payments to just file for bankruptcy. And I can't believe that if Congress had thought about this problem for one minute, that we would have a decision like we have to review here. And I think the consequences of sustaining your position are absolutely frightening, and I'd like you to comment on it.",
       "time": "00:35:17.82"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Some of them might.",
       "time": "00:36:20.78"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Dineen, as to those, as to those restitution orders that the provisions of the Bankruptcy Code don't happen to provide for... and you must admit, it seems to be sort of haphazard as to whether they will provide for them or not... it's not only a question of the judge when entering such a restitution order having to have in mind what the consequences will be, as you've describe them and as any creditor must do, although it seems strange to analogize a judge giving a sentence to a creditor. It isn't only a matter of that. When these provisions were enacted, there were presumably a number of restitution orders already extant, that had already been promulgated by state judges. And it seems to me a very considerable step for the Federal Government to be saying: We are going to set aside state criminal penalties. It isn't just a matter of having the judges having to take account of the federal law. They would have been setting aside state criminal penalties on the basis of, you must admit, less than very explicit indication.",
       "time": "00:39:13.07"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's right.",
       "time": "00:40:22.57"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you're asking us to read the statute to in effect amount to the Federal Government saying: Yes, there are a lot of state criminal penalties out there, but we're going to set them aside. It's extraordinary.",
       "time": "00:40:26.41"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Congress may have had in mind only, though, those obligations arising out of the civil system, and perhaps it didn't have in mind at all abrogating existing systems of criminal law and procedures in the various 52 states.",
       "time": "00:41:10.35"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They were not discharged.",
       "time": "00:42:42.25"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you didn't have to file.",
       "time": "00:42:48.32"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You didn't have to file. You didn't have to file a claim or anything else.",
       "time": "00:42:50.24"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And they weren't considered a debt.",
       "time": "00:42:57.37"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How would restitution have been treated under the old Act, restitution orders? They were certainly in existence then.",
       "time": "00:43:28.92"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You said a while ago that a restitution order, a criminal restitution order, could very well be considered a fine, penalty, or forfeiture.",
       "time": "00:43:38.04"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And hence, under the old law it shouldn't have been dischargeable, shouldn't have been provably wouldn't have been a debt. So how did it suddenly become one?",
       "time": "00:43:46.60"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did the non-dischargeability of fines and forfeitures under the old law appear in the non-dischargeability section?",
       "time": "00:44:24.48"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, it didn't. But it does here.",
       "time": "00:44:32.83"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you don't have... to say something is non-dischargeable, you're excluding those claims or debts that are not dischargeable?",
       "time": "00:44:35.46"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you're saying the reason they're not dischargeable, the reason you say that they're not dischargeable is because they are a claim, and you want to exclude certain claims from dischargeability.",
       "time": "00:44:53.08"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Otherwise it wouldn't be in (a)(7).",
       "time": "00:45:05.57"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So that tends to support your argument that fines and penalties are debts, because otherwise they wouldn't be excepted from discharge.",
       "time": "00:45:10.27"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "xxx possibilities, of course.",
       "time": "00:45:18.97"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the non-dischargeability, so-called, wasn't written into the statute, was it, under the old law?",
       "time": "00:46:04.53"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You couldn't find anything about fines and penalties in the old law.",
       "time": "00:46:13.22"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Not allowed.",
       "time": "00:46:22.25"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But claims or debts are still allowable or not allowable.",
       "time": "00:46:51.95"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is it possible that that second exception, not for pecuniary loss, might mean loss to the Government itself, the governmental entity imposing the fine, and be limited to that? Do we have enough history about that phrase to know what was intended?",
       "time": "00:47:29.38"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "xxx--",
       "time": "00:49:56.99"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--I see.",
       "time": "00:50:07.51"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it was perfectly clear that criminal fines--",
       "time": "00:50:20.06"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--were not provably they weren't considered provable claims.",
       "time": "00:50:23.70"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it seems to me that if you say that a criminal restitution order should be treated as a fine, penalty, or forfeiture, that you would treat it just like a criminal fine, a real criminal fine.",
       "time": "00:50:31.84"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that the courts should have been doing it that way under the old law.",
       "time": "00:50:45.87"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But only if... only if the state files a claim, isn't that right?",
       "time": "00:51:15.15"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And the code doesn't say in so many words that it's criminal fines, penalties, and forfeitures. It says fines, penalties, and forfeitures, doesn't it?",
       "time": "00:51:24.87"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So that it's possible to construe it as meaning only civil fines, penalties, and forfeitures?",
       "time": "00:51:33.45"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, were civil penalties provable under the old statute?",
       "time": "00:52:00.08"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well then, I don't see why that necessarily proves your point.",
       "time": "00:52:04.68"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Dineen, are you sure... are you entirely confident that you're not going to win the case and lose the client? Is it clear to you that the consequence of the discharge in bankruptcy will not be the ability of the state to revoke the parcel, one of its conditions not having been met, or the probation?",
       "time": "00:52:25.83"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not talking about remaining. One of the conditions of the probation was that the debtor pay these particular amounts. Now, to be sure the obligation to pay them has been removed by the Bankruptcy Act if you win this case. Does that mean that the state cannot revoke the probation?",
       "time": "00:52:48.88"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Since one of its conditions, thanks to the supervening power of the Federal Government, has not been met?",
       "time": "00:53:06.96"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "xxx--",
       "time": "00:53:32.85"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--xxx If this restitution order... do you think this restitution order was enforceable in court before bankruptcy? Could somebody sue on it? Could somebody actually collect it?",
       "time": "00:54:08.60"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right, but not otherwise? The person the money went to, I mean--",
       "time": "00:54:29.52"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, the discharge certainly prevents suing.",
       "time": "00:54:38.23"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But why should it also prevent the state from saying, well look, whether we can sue or not, there's been a breach of our condition and we're going to put you back in jail? Why do you think that violates the bankruptcy law?",
       "time": "00:54:42.96"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Has anybody ever tested that out?",
       "time": "00:55:00.00"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does your argument on this point go so far as to say that the judge at the time he imposes sentence, including the restitution order, could make it a condition of parole that the defendant not file any bankruptcy proceeding during the period of parole?",
       "time": "00:55:05.22"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "This kind of case. Let's stick to this kind of case.",
       "time": "00:55:29.60"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your time has expired, Mr. Dineen.",
       "time": "00:56:00.91"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It is expired.",
       "time": "00:56:07.09"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Schuman, you have four minutes left. Do you have anything more to say?",
       "time": "00:56:09.60"
     },
@@ -1463,13 +1467,13 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Schuman. The case is submitted.",
       "time": "00:57:53.59"
     },
     {
       "turn": 238,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Tuesday next at ten o'clock.",
       "time": "00:57:56.28"
     }

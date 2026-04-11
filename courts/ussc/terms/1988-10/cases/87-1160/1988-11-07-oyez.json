@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1988/87-1160/19881107a_87-1160.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "PETER BUSCEMI",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "IRWIN A. POPOWSKY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in No. 87-1160, Duquesne Light Company v. David M. Barasch. Mr. Buscemi, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Counsel, the Pennsylvania Supreme Court, I take it, remanded this case to the Pennsylvania Public Utilities Commission for further proceedings.",
       "time": "00:02:05.84"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is it... is it possible that the Pennsylvania Public Utilities Commission could increase the risk premium portion of the equity rate to reflect the increased risk on remand? Is there some way that your client could be compensated in a different way on remand?",
       "time": "00:02:21.46"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it wasn't altogether clear to me, and it was not clear to me whether this then is a final judgment.",
       "time": "00:03:30.89"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That's the real question at this point in my mind also, whether you have a final judgment here.",
       "time": "00:03:40.41"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You... you're not interested in recovering expenses. You're... you're... you're interested in getting enough money to run a... a profitable business whether it's done by computing your expenses and then giving you enough over that to do so or whether it's done in some other manner. What do you care whether they allow you the return on this nuclear plant so long as you have a high enough rate of return? Right?",
       "time": "00:04:04.29"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, what if the state, in light of the fact that they have now exposed you to a... a greater risk than in the past... that is, you... you have to build these plants and you can't get... get that thrown into your rate base unless they're used and useful. What if the state says in light of that added risk, we're going to kick up your rate of return from 18 to 25 percent? Would you have been harmed at all?",
       "time": "00:04:28.56"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, the hypothetical I gave you does not include the cost of the plant in the rates charged at all. It just gives you higher... higher return in light of the fact that you are now undergoing a higher risk. That is the risk of not being able to get that included in... in your rate base if it turns out not to be used and useful.",
       "time": "00:05:22.38"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that's--",
       "time": "00:06:11.07"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That's a very broad reading of that language. Maybe... maybe it means that. I wouldn't... I wouldn't take it to mean that automatically.",
       "time": "00:06:13.10"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I think it's... it's clearly a frustration to the utility company under the scenario you paint, but under the Hope Gas case, don't we look at the bottom line to whether the economic impact overall can be characterized as confiscatory? And isn't that the bottom line? And how can we look at that bottom line until we know what happens on remand?",
       "time": "00:09:08.50"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that the test under Hope Gas?",
       "time": "00:09:44.94"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You look at the overall effect to see whether it's confiscatory.",
       "time": "00:09:50.10"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But one could read Hope Natural Gas as saying that if... considering all of your clients' investment in the utility business and if the... if the rate of return allowed on that investment, even after having subtracted this that you say should be included but won't be, if that gives them a reasonable return, that's good enough.",
       "time": "00:10:54.53"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you say then that it's a matter of constitutional dimension. Every time a public utility commission refuses to allow a particular item as... on which the utility claims return.",
       "time": "00:11:54.45"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, supposing here we were talking about an expenditure of $50,000 or some much lesser sum, and it was... it was much more debatable as to whether this sort of thing really should be included in the capital base, I take it your position would still be that if you could show that it should have been, then it's a constitutional question.",
       "time": "00:12:23.07"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What... what if the Utility Commission were to say we think a fair rate of return on Duquesne's investment is 7 percent, but we're going to disallow these expenditures for nuclear plants? Let's... and then it comes to this Court and we say, well, we don't think they should have disallowed it, but we think a fair rate of return is 6 percent. And so, Duquesne is still getting what it ought to under the Constitution.",
       "time": "00:13:20.08"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What... what--",
       "time": "00:13:58.91"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--What if... what if the Respondent cross-petition said we think the... that the agency is allowing more than the Constitution requires as a rate of return?",
       "time": "00:13:59.94"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But the Chief Justice's point still remains that no matter how small the excluded amount, if it is excluded, you think there's a constitutional issue.",
       "time": "00:15:10.58"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Buscemi, it's nice of you to not ask for it, but... but... but really, we shouldn't kid ourselves. If you're right that you're entitled to... to return of the capital, you'd also be entitled under the Constitution to interest on that capital while it's invested, wouldn't you?",
       "time": "00:15:35.87"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are you going to get to the answer to my question?",
       "time": "00:16:09.02"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right. I... I just want to be sure you didn't have some... different constitutional theory that it would somehow permit us to... to require the state to provide recovery of the investment, but not recovery on the investment as well.",
       "time": "00:16:46.95"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't know of any in particular.",
       "time": "00:17:00.84"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then the legislature disapproved it.",
       "time": "00:18:43.05"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why should we favor the... what you call the Commission's balancing over the legislature's balancing?",
       "time": "00:19:03.78"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How does one know whether the legislature did any balancing or not?",
       "time": "00:19:20.63"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if the Commission had said after thinking this over for a long time and considering the interests of the consumers and the utility and balancing things as best we can, we conclude, and then they say exactly what the legislature said?",
       "time": "00:19:47.69"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you think the legislature can't pass a general statute applicable to all utilities such as this?",
       "time": "00:20:17.54"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you say then a legislature has to leave up to its utility commission, which is presumably almost an agency of the legislature... it has to leave to the utility decision... commission all decisions as to how each of these factors is to be brought in. It can't pass a general legislation that would bind the commission. We're saying in our second submission with... under Hope that the entity, whether it be the legislature or the rate... or the public utility commission that sets the rates, must have the right to take everything into account which we think is what Hope says. But I return to what I said in response to Justice Scalia's question, which is that our first submission is that under Hope, under Natural Gas Pipeline, under the earlier decisions of this Court as well, there has never been a suggestion by the Court that a ratemaking body, whether it be a state legislature or a public utility commission, can pick and choose among ratemaking methods so that it produces the result that it wants to achieve. This is a case in which the Public Utility Commission follows, generally speaking, the original cost-prudent investment method of fixing rates. But when it comes to cancelled plants, as in this case, suddenly we have a situation in which the used and useful rule is injected into the equation and the $50 million worth of expenses are deleted altogether from the balance. Mr. Buscemi, is that... is that where the... where the balancing that Hope referred to occurs? At each individualized decision, will this be included in the rate base, will that be included in the rate base? It seems to me that the balancing occurs at the moment of truth, when the state agency, whatever state agency it is, determines how much money is this utility entitled to get from the ratepayers. And when that judgment occurs, you can balance. For all we know, when that judgment comes before the utility commission, the commission will say, well, gee, now that we have this used and useful rule, the stock of these utilities are going to be a lot less attractive. We're going to have to give a higher... a higher return on equity. Therefore, whatever the rate base is, we're going to have to apply a higher... a higher rate of return to it. Now, how do we know that that balancing isn't going to occur at that stage?",
       "time": "00:20:48.56"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You come back to that language that this... there can be no return on this--",
       "time": "00:23:18.84"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Is that the language you're referring to? What page was it again?",
       "time": "00:23:28.56"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But what I'm saying will get reflected in the rates charged is not this particular capital expenditure, but rather the increased... the increased profits that equity investors are going to demand in order to invest in what is now a higher risk enterprise. I don't see how that bears any relationship to charging the ratepayers for these particular plants.",
       "time": "00:24:09.89"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're charging the ratepayers for a higher risk and therefore necessity to pay higher return.",
       "time": "00:24:31.83"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "xxx say I had a whole lot of confidence. I just said that maybe you have to come back at some other time and show us that you're not getting enough of a rate of return.",
       "time": "00:24:41.81"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But is it... has it foreclosed a higher rate of return than you're getting now?",
       "time": "00:25:05.22"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does anything in the opinion foreclose a higher rate of return than you are getting now?",
       "time": "00:25:10.10"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No.",
       "time": "00:25:18.28"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "As an absolute matter, does it foreclose your getting a higher rate of return than you're getting now?",
       "time": "00:25:19.28"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you? It might oversimplify. You're claiming I gather there's a constitutional right to recover all prudently incurred expenses.",
       "time": "00:25:47.77"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But doesn't it boil down to that?",
       "time": "00:26:00.00"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, does... does your contention boil down to that?",
       "time": "00:26:04.48"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But... and that it's not consistent if you exclude a category of prudently incurred costs.",
       "time": "00:26:12.39"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then it must include all prudently incurred--",
       "time": "00:26:32.32"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--No, not they should. The Constitution compels them to.",
       "time": "00:26:35.46"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which would mean under that view that the issue of whether these costs were prudently incurred, if that were to be debated, would be a federal constitutional issue.",
       "time": "00:26:39.12"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it would in every case. It would in every case it seems to me. I don't understand how... unless you just say it has got to be at least $50 million.",
       "time": "00:26:53.61"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And... and the issue would be the same if it... here, of course, it's stipulated they're prudent. But, you know, other cases it might not be.",
       "time": "00:27:05.91"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Buscemi. We'll hear now from you, Mr. Popowsky.",
       "time": "00:27:23.68"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Popowsky, what is open to the Utility Commission on remand to do in terms of adjusting the rate of return?",
       "time": "00:28:38.52"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:28:57.97"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Oh, in your view can the Utilities Commission on remand adjust the rate to take into account the fact that prudent investors apparently now are not going to be allowed any... even recovery of the costs of prudent investments?",
       "time": "00:29:02.39"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Can the Utilities Commission adjust the rate--",
       "time": "00:29:20.78"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--to account for that risk?",
       "time": "00:29:25.86"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I'm not asking what the company can argue. I'm asking in your view what the Commission can do.",
       "time": "00:29:33.43"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If the Commission does not do that, has the company... and the company comes back to the Pennsylvania Supreme Court and perhaps ultimately to this Court... has the company preserved all of the arguments that it's making now in your view?",
       "time": "00:30:56.20"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If we say that this order is not final or not reviewable or that there's no Hope violation at this point, can the company come back after their rate order is made and make all of the arguments that it's making here today?",
       "time": "00:31:19.18"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that... that... to that extent, the judgment is surely final, isn't it?",
       "time": "00:32:26.02"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No matter what the... no matter... if the... if the Commission takes some action that reflects those costs, it's... it's wrong.",
       "time": "00:32:39.76"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Those specific costs.",
       "time": "00:32:53.24"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The rate.",
       "time": "00:33:09.20"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Just the rate. Just the rate, not the base.",
       "time": "00:33:13.38"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:33:17.94"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you think under Hope Natural Gas a utility commission could say to Duquesne... the Pennsylvania Utility Commission here... this has been a bad year for consumers and we know you've prudently spent a million dollars in working some of your plants, but we're just not going to allow that to you this year because the consumers can't afford it? And so, you take... you claim it as a constitutional violation. And the Commission says, well, look, their overall base is... figuring on the rate of return is perfectly okay. The fact that there are these individual disallowances doesn't make any difference even if they're for totally unacceptable reasons.",
       "time": "00:33:19.34"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No matter how bizarre some of the reasoning of the Commission may be as to why it was disallowing expenses or items in the rate... rate base?",
       "time": "00:34:18.80"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would you say that would open to review a claim by the utility here that the Commission had been arbitrary in switching from prudently invested to use... used and useful?",
       "time": "00:34:39.45"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what... what if the utility could show that in every case where it benefited the consumer the state... the Commission had adopted one method and in... and in every case where it might have benefited the utility that it adopted another so that... you know, it ruled against the utility on every single claim it made whether it was used or useful or prudently invested?",
       "time": "00:35:05.74"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The Chief Justice isn't talking taking. He's talking due process.",
       "time": "00:35:43.30"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wouldn't you argue that even under the Due Process Clause you wouldn't have to show a taking, but you'd still have to show a deprivation of... of property which would get you back ultimately to the same kind of inquiries we've been going through, wouldn't it? Wouldn't it ultimately get you back to what... what is the overall rate of return even under the Due Process Clause?",
       "time": "00:36:28.56"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is that wholly consistent with... is that wholly consistent with everything that Pennsylvania's Supreme Court said?",
       "time": "00:37:12.23"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I... I was talking about the Pennsylvania Supreme Court decision. That made it very clear that the constitutional guarantee was limited to a fair return on property that is being used. Wasn't that the whole theory of the Pennsylvania Supreme Court decision? And they say so specifically at page 21a of the Appendix.",
       "time": "00:37:40.88"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but that's not consistent with Hope, is it?",
       "time": "00:38:30.12"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, they were correct in the cases they cited, but not correct in what they said?",
       "time": "00:39:07.11"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but it seems to me the Pennsylvania court does more than just respond to an argument. It adopts a constitutional theory that just compensation is a reasonable return on fair value of the property at the time that it's being used. And that itself is the kind of formulation that we eschewed in Hope it seems to me.",
       "time": "00:39:44.48"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Popowsky, would you--",
       "time": "00:41:11.24"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Would you agree if... if the state has, in fact... and I agree you claim it hasn't, but if it has, in fact, changed from a prudent investment criterion of what goes into the rate base to a used and useful criterion, that the utilities would be entitled to a higher rate of return than what they had under the old system? Would you concede that because if you would concede that, then I think... then I think maybe Mr. Buscemi has nothing to worry about. [Laughter]",
       "time": "00:41:15.14"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, this is a greater risk, isn't it?",
       "time": "00:42:04.80"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Your answer is yes I think.",
       "time": "00:42:36.34"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Would it make any difference if the... if the company had been ordered by the State Commission to make these investments?",
       "time": "00:42:40.44"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, would it have a claim that would win in this case or not?",
       "time": "00:43:27.64"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Even though the company may have opposed making this expenditure at all.",
       "time": "00:43:41.99"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, the extent to which the Commission participated in this initial decision really isn't tantamount to an order to build.",
       "time": "00:44:18.41"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What... what are you urging that we do with this appeal? We... we should... should we decide the case and... and find in your favor, or is your argument that... that it's not ready to be decided?",
       "time": "00:45:53.81"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, specifically do you feel there is a final judgment below?",
       "time": "00:46:51.83"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, if you can take a position that this is not a final judgment, you're home free, aren't you, for the moment?",
       "time": "00:47:45.57"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, you certainly don't argue it very strenuously in your briefs.",
       "time": "00:48:05.72"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Popowsky. Mr. Buscemi, you have two minutes left.",
       "time": "00:50:19.34"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Buscemi. The case is submitted.",
       "time": "00:52:29.44"
     }

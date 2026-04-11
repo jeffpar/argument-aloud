@@ -3,31 +3,35 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1973/72-312/19731010a_72-312.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
       },
       {
         "name": "JOSEPH C. BARTON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM H. ORRICK, JR.",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Barton, you may continue, you have 15 minutes left.",
       "time": "00:00:00.00"
     },
@@ -39,7 +43,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You are suggesting then that if Pacific Coast Exchange had a rule like the New York Stock Exchange does, it could not enforce it under Merrill Lynch's theory because it is physically located in California?",
       "time": "00:04:38.08"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The Pacific Stock Exchange had any rules touching this area of relationship between a termination of employment of a registered customers plan or employer?",
       "time": "00:05:09.62"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you think the Federal Court should order arbitration in a case like is now before us if the employee demands it?",
       "time": "00:06:07.58"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Under California law?",
       "time": "00:06:20.44"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Under California law?",
       "time": "00:06:23.19"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It would be a waiver, I suppose, of the California law?",
       "time": "00:06:30.46"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have no difficulty with this waving and provision that was made for his benefit in this context of employer-employee relationship?",
       "time": "00:06:36.99"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes.",
       "time": "00:06:48.70"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you speaking of the California law that you were engaged in the colloquy talk with Mr. Justice Stewart waiving the benefits of the California's statute? You have no difficulty with this waiving that?",
       "time": "00:07:06.50"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then I misunderstood you because I thought you told Justice Stewart in response to his question that he could waive it?",
       "time": "00:07:40.50"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I don't follow that. If I understand, if I read Section 29 correctly, what it says is that the individual may maintain an action without regard to the existence of any file being arbitrated. However, the employee didn't bother bringing an action, but rather submitted the arbitration with probably the California courts have ever get to?",
       "time": "00:08:00.89"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Each of the arbitration was completed, the employee might be then making collateral attack or other attack on the arbitration plan?",
       "time": "00:08:35.01"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, we said we could not get there in any other way, it might get there if he brought section accurate in the court?",
       "time": "00:08:48.59"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Once, once he voluntarily goes to arbitrations, he can't take advantage of 229 rather?",
       "time": "00:09:40.74"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It may be maintained.",
       "time": "00:09:54.77"
     },
@@ -219,13 +223,13 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Without regard to current requirement.",
       "time": "00:09:55.95"
     },
     {
       "turn": 34,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr Barton, is this motion to arbitrate that the petitioner filed in response to your complaint in the superior court, is that an independent proceeding under California law or is it just a part of the defense raised to your claim for wages?",
       "time": "00:09:58.32"
     },
@@ -237,7 +241,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that wasn't what happened.",
       "time": "00:10:33.63"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And actually the decision of the Court of Appeal isn't a final disposition of this case, is it?",
       "time": "00:10:36.17"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And if the California Court of Appeal disposition were followed here, the case would go back to the superior Court for Trial to the Court on your client's compliant.",
       "time": "00:10:56.86"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 42,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You still would have a stronger case, if it were a contributory plan, wouldn't you?",
       "time": "00:14:44.31"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 44,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, Merrill Lynch probably views, this is a gratuity on their part, it's something that deals with loyalty or two sides to the issues.",
       "time": "00:15:01.64"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 46,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, in any event, that really goes to the merits of what would be tried in a court. if you are correct or tried by an arbitrator, if your brother on the other side is correct. There is no question, but isn't it conceded that these are wages and that's what the statute says --",
       "time": "00:15:14.88"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 48,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I don't think there was any question.",
       "time": "00:15:37.82"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 50,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In the Trial on the merits, what is your idea of scope of the issues that will be covered, will they include for example, any claim that there was a breach of the fiduciary duty, is that open?",
       "time": "00:15:40.10"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 52,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That's open to be tried out there.",
       "time": "00:16:00.51"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Taking customer's lists and that sort of thing. If they can establish --.",
       "time": "00:16:05.87"
     },
@@ -357,7 +361,7 @@
     },
     {
       "turn": 56,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there any indication of why your state Court of Appeals finished its course by 183 --",
       "time": "00:17:23.37"
     },
@@ -369,7 +373,7 @@
     },
     {
       "turn": 58,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it the Appendix?",
       "time": "00:18:22.60"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even though he lost?",
       "time": "00:19:24.85"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that's on the merits of the issue, it's not before us.",
       "time": "00:19:31.54"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is the issue as.",
       "time": "00:19:34.53"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 66,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, this is not correct. It is merely the issue, is it. It isn't the real issue whether this rule of the New York Stock Exchange declined which incorporates or refers to New York Law, but it's a rule of the New York Stock--",
       "time": "00:20:38.47"
     },
@@ -429,7 +433,7 @@
     },
     {
       "turn": 68,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:20:56.64"
     },
@@ -441,7 +445,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you Mr. Barton. Mr. Orrick.",
       "time": "00:21:05.03"
     },
@@ -453,7 +457,7 @@
     },
     {
       "turn": 72,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Orrick, at some point would you mind dealing with the Government's argument in 6 © -- the language of 6 (c) is very broad, any rule it says, any rule but I read the brief amicus of the Securities And Exchange commission is saying no, any rule should be limited to rules related to investor protection, fair dealing or fair exchange administration. I gather based on, what they give us in the way of legislative history of 6 (c) and of the general purposes of the Act and as I read their conclusion, it is that any rule does not embrace 347 (b).",
       "time": "00:21:10.83"
     },
@@ -465,7 +469,7 @@
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Orrick, is there anything in the record indicating whether Ware was also a member of the Pacific Coast Exchange as a result of his employment with Merrill Lynch?",
       "time": "00:24:22.56"
     },
@@ -477,7 +481,7 @@
     },
     {
       "turn": 76,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But am I right Mr. Orrick that your whole case depends on 6 (c), the language of 6 ©, rules and regulation including 347 (b), doesn't it.",
       "time": "00:25:21.04"
     },
@@ -489,7 +493,7 @@
     },
     {
       "turn": 78,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But that's not a federal question, that's not our problem. So far as your case in this court turns on your persuading us, does it not that 6 (c) covers 347 (b)?",
       "time": "00:25:54.44"
     },
@@ -501,7 +505,7 @@
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "A rule and regulation within 6 ©.",
       "time": "00:26:11.80"
     },
@@ -513,7 +517,7 @@
     },
     {
       "turn": 82,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where is that, what's Article 6, Section 3? Where is that?",
       "time": "00:26:34.87"
     },
@@ -525,7 +529,7 @@
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Listening to part of your argument, it is certainly related to 6 (c) argument, the California rule sets it not an important objective of the Federal Law.",
       "time": "00:26:54.45"
     },
@@ -537,7 +541,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And wholly aside from 6 (c) you would argue that?",
       "time": "00:27:06.80"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You don't need to argue that expect in connection with 6, if you have read about it, 6 (c) automatically picks it--",
       "time": "00:27:11.43"
     },
@@ -561,19 +565,19 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is that important Federal policy? Is it uniformity or is it preference for arbitration?",
       "time": "00:27:23.61"
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The New York Stock Exchange and the securities industry has a federally mandated, self-regulation in order to accomplish this self-regulation as Judge Medina has indicated in the (Inaudible) case. Necessary element of it is to be able to enforce arbitration and if you are unable to enforce the arbitration, which is guarded with respect to a rule governing the conduct of employees in one state or you can do it in another state, I think that defies the very purpose of this federally mandated self-regulation.",
       "time": "00:27:30.77"
     },
     {
       "turn": 92,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yeah if New York were to change its law tomorrow, so that its law were the same is California's. Under your theory, that arbitration rule couldn't be enforced anywhere?",
       "time": "00:28:21.81"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well so, so New York can set it not as important Federal preference for arbitration under your own theory.",
       "time": "00:28:44.48"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suppose Mr. Orrick, if New York had a 229 then section -- Section c would rule out the arbitration provision of the New York Stock Exchange because the only rules that the Exchange may adopt are rules and regulations not inconsistent with the applicable laws of the state which is located. So, if New York had a 229 that would nullify, would it not, the arbitration provisions of 347 (b)?",
       "time": "00:28:59.46"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 98,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Unless, the commission is self required by regulation?",
       "time": "00:29:30.82"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "This was something you raised as a defense when you were brought into court by Mr. Barton' client, isn't it? It wasn't a separate action that you brought to compel arbitration.",
       "time": "00:30:00.62"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you Mr. Orrick, thank you Mr. Barton. The case is submitted.",
       "time": "00:31:12.00"
     }

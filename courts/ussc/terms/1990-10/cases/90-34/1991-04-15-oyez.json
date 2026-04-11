@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1990/90-34/19910415a_90-34.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "ARMAND MAURICE PARE, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "STEPHEN L. NIGHTINGALE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "FRANCIS A. MONTBACH",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 90-34, the Exxon Corporation v. Central Gulf Lines, Inc.-- Mr. Pare.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Pare, before you go any further, do you... what do we have before us here? The question whether there is admiralty jurisdiction or the question whether there is an admiralty lien, or both, or is the one automatically subsumed within the other?",
       "time": "00:01:57.23"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can I find that there is admiralty jurisdiction and say that I don't know whether there's a lien or not? Is that possible?",
       "time": "00:02:13.92"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, will there be cases in which there is admiralty jurisdiction but no lien when the cause of action is to recover for the furnishing of money or supplies?",
       "time": "00:02:40.82"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Of money or supplies.",
       "time": "00:02:53.20"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, because there are admiralty collision cases, et cetera. But will there be cases in which there are suit brought for recovery of monies on account of monies or supplies advanced to the shipper where there will be admiralty jurisdiction but no lien?",
       "time": "00:03:28.23"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course they could recite in the contract I am relying exclusively upon the solvency of the owner. If they recited that in the contract there wouldn't be an implied lien, right?",
       "time": "00:03:58.80"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it would still be an admiralty contract.",
       "time": "00:04:10.18"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it would be resolved in an admiralty court--",
       "time": "00:04:12.82"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--but without a lien.",
       "time": "00:04:15.87"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is it a correct... is it a correct statement of the law to say that not every maritime contract action gives right... gives rise to a maritime lien?",
       "time": "00:04:17.60"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Nonetheless admiralty jurisdiction would entertain that sort of suit?",
       "time": "00:04:34.32"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, why isn't the preliminary contract rule adequate for differentiating contracts within and without admiralty jurisdiction?",
       "time": "00:06:20.98"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It seems to have been employed quite extensively.",
       "time": "00:06:32.59"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that's kind of a modification, is it, of that preliminary contract rule. Now here you have a contract to make some phone calls to provide fuel in bunkers. How is that a maritime contract, do you suppose?",
       "time": "00:07:30.12"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I wanted to ask you, you want the Court to overrule Minturn, but I'm curious exactly what rule you would have us adopt? The scholarly writing on the subject suggests several different ones, and it's a little hard to understand what your proposal is. Anything that your, would enable your client to win, or do you have--",
       "time": "00:08:34.21"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--a more specific rule in mind?",
       "time": "00:09:00.11"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about a travel agent who gets the passengers for a cruise line? Would that be an admiralty contract? I mean, I assume if you're carrying passengers they're just as essential for your voyage as if you're carrying freight. I have trouble... you know, it's the devil we know is maybe better than the one we don't know. I don't know where we're going if we--",
       "time": "00:09:36.54"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--He's a pretty bad devil, yes.",
       "time": "00:10:09.92"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Pare, you say some agents would be kept out by your rule, the general agent would be put in. What's the difference between the general agent and the freight forwarder and the passenger agent?",
       "time": "00:10:55.32"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is that actually how a general agent is defined, is that he performs services that are essential to the voyage? Or is that simply your equation of the two things?",
       "time": "00:11:19.57"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If the general agent in a particular case did not provide services that were essential to the operation of the voyage, would that part of the general agent's services nonetheless be subject to admiralty jurisdiction?",
       "time": "00:11:54.75"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So the fact you have a contract of general agency doesn't get you an admiralty jurisdiction automatically? It depends on the nature of the services to be provided?",
       "time": "00:12:06.88"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question, Mr Pare? In your view was Exxon a general agent?",
       "time": "00:12:26.60"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So all the talk about general agents doesn't really decide this case if Exxon is not a general agent?",
       "time": "00:12:43.35"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I can understand an argument that an agent that performs... services essential to the voyage be the kind of relationship that supports admiralty jurisdiction. I'm a little puzzled about all the argument about the status of general agents, and why that is relevant to this particular case.",
       "time": "00:13:01.28"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Was a general agent?",
       "time": "00:13:21.32"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Holding of Minturn that general agents are per se excluded from admiralty jurisdiction. Yeah.",
       "time": "00:13:23.96"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, was this case even within the Minturn rule?",
       "time": "00:13:30.09"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, do you agree with that?",
       "time": "00:13:35.54"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You couldn't make the argument that in Minturn there was a wide variety of services, and here just the supply of fuel?",
       "time": "00:13:53.01"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The court of appeals really thought that if you supplied napkins to the ship regularly for 20 years you become a general agent? Is that it, just continuity? It doesn't matter subject matter at all?",
       "time": "00:14:01.48"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Under Minturn we know that general agents are excluded from admiralty jurisdiction. Does it follow a fortiori from that case that freight forwarders and passenger agents are also excluded from admiralty jurisdiction?",
       "time": "00:14:39.01"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So your position would be that you're not asking us to move admiralty jurisdiction outward all the way in a sense?",
       "time": "00:15:10.12"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The thing that bothers me is I don't understand, you are not arguing that even if Minturn continues to state the correct rule for general agents, you should nevertheless win because you're the kind of agent that provided essential services and therefore should support admiralty jurisdiction?",
       "time": "00:15:39.75"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see. You think you're beaten by the findings of the lower court on that?",
       "time": "00:15:59.58"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It isn't entirely clear to me that you have even raised the lien question in your questions presented for certiorari. It seems to me they pertain mostly to jurisdiction.",
       "time": "00:17:04.03"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Pare. Mr. Nightingale, we'll hear now from you.",
       "time": "00:17:32.55"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what is the label that is given to the firm that is allowed to recover in your two examples?",
       "time": "00:18:26.19"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, I'm not asking what the test should be. You say that the Minturn rule produces an anomaly because two people doing basically the same thing one loses and the other wins. What is the doctrine espoused by the courts which let the second person win under the Minturn?",
       "time": "00:18:37.37"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, this person lost.",
       "time": "00:18:57.30"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So it's the intervention of an agent, basically.",
       "time": "00:19:15.97"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, normally someone who supplies necessaries to a vessel in reliance on the credit of the vessel is entitled to a maritime lien?",
       "time": "00:19:40.92"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But because of the application of Minturn that relief is denied if the supplier is characterized as a general agent?",
       "time": "00:20:09.93"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And what do you think the test should be? You started to say.",
       "time": "00:20:52.75"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would that include some general broker in the oil business who could just buy and sell oil all over the world, and just happened to fill a contract in one place?",
       "time": "00:21:25.36"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What about a spot purchase just for a particular vessel? Then it would be covered, I guess, even if just through a general broker? It's the only contact he ever had with the company, but he arranged a purchase to fill up the ship when it left Saudi Arabia or wherever it was.",
       "time": "00:21:54.57"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I take it-- --Did you understand the rule suggested by Mr. Pare, is that the same rule that you suggest or are there differences between you?",
       "time": "00:22:30.80"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Tell me if I'm right. I understand it to be the case that the question whether there's a lien and whether there's maritime jurisdiction are separate questions, but because of this Maritime Lien Act they tend to merge, because maritime jurisdiction is important not just because you get before a maritime court but because if it... if there is maritime jurisdiction the Maritime Lien Act applies and you get the lien on much more liberal terms than you otherwise would. You don't have to show all sorts of things that you would otherwise have to show. Is that what's going on here?",
       "time": "00:23:11.16"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They don't really care what court they get into, whether it's a maritime court or not. They want the lien, right?",
       "time": "00:23:48.98"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Nightingale. Mr. Montbach, we'll hear now from you.",
       "time": "00:27:21.03"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why can't... wow. I thought we were talking about agency contracts, general agencies, and now we're talking about preliminary versus nonpreliminary. Why can't we adopt that rule, I mean, the rule that preliminary contracts don't make it, but no rule that agency contracts as a class don't make it at all? Is every agency contract involved with preliminary contract?",
       "time": "00:28:11.61"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why?",
       "time": "00:28:42.32"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it, would you say that the... when Exxon itself is furnishing the fuel, such as in New York, would that contract to that extent be within maritime jurisdiction?",
       "time": "00:29:31.55"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that you think--",
       "time": "00:29:58.11"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--that contract to that extent would be within maritime jurisdiction?",
       "time": "00:29:59.27"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, didn't they do a little bit more in this case? They not only... they not only got somebody else to furnish the fuel, but it became necessary for them to pay the supplier. And they paid it. It was just like they bought the oil and then sold it to the vessel, isn't it?",
       "time": "00:30:10.24"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, yeah, but... it may not buy it, but it became necessary for Exxon to pay the supplier itself.",
       "time": "00:30:36.05"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but nevertheless Exxon in this case paid the supplier for the fuel that the supplier furnished to the vessel.",
       "time": "00:30:46.07"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, eventually, just as soon as it was billed it paid.",
       "time": "00:30:54.19"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You think that's legally a distinction from what its status is in New York?",
       "time": "00:31:01.23"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You used the term, and counsel have used the term for other things... agency relationship. Agency relationship as distinguished from what?",
       "time": "00:31:17.25"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "From someone who has a direct contract with the ship or the ship's owner?",
       "time": "00:31:26.49"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what does a direct juridical contact with maritime commerce mean?",
       "time": "00:31:38.99"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I don't want to suggest I don't know what juridical means--",
       "time": "00:31:46.63"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--but I don't understand what the phrase means.",
       "time": "00:31:51.21"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Like selling oil to the ship.",
       "time": "00:32:04.72"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Like selling fuel to the ship.",
       "time": "00:32:06.19"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but in New York they are selling it.",
       "time": "00:32:11.52"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that is a direct enough connection with the ship to-- --The claimant owns the oil and supplies it directly to the ship--",
       "time": "00:32:13.68"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--and bills direct. That is not an agent, that is a seller?",
       "time": "00:32:25.88"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Supplier.",
       "time": "00:32:30.43"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But an agent is someone who is a step removed from that?",
       "time": "00:32:32.39"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question, Mr. Montbach? Supposing Exxon had not paid the Saudi Arabian retailer, whatever, the Arabian Marine or whatever its name was--",
       "time": "00:32:58.27"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Would Arabian Marine have had a lien on the ship?",
       "time": "00:33:08.00"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So if looking at it from the point of view of general creditors wondering when the ship is subject to a lien, they could assume normally the supplier would have a lien, but then they'd realize they'd have these cases where there's an indirect relationship which would be excluded from what would otherwise be the general lien for fuel?",
       "time": "00:33:15.64"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because they relied on Exxon.",
       "time": "00:33:38.54"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it's only the terms of the contract between Arabian and Marine and Exxon that brings that about, something which the other general creditors wouldn't be aware of.",
       "time": "00:33:41.20"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Without getting paid first.",
       "time": "00:33:55.85"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah, I understand.",
       "time": "00:34:00.68"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Eventually they did, in your own words.",
       "time": "00:34:04.50"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Eventually they relied on--",
       "time": "00:34:08.45"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Exactly.",
       "time": "00:34:15.58"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Originally Arabian was furnishing oil directly to the vessel--",
       "time": "00:34:26.11"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--without relying on Exxon's credit.",
       "time": "00:34:31.47"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. And then it turned out that the vessel wasn't good for it, I guess.",
       "time": "00:34:35.24"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yeah.",
       "time": "00:34:40.82"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, yes. And so they relied on Exxon.",
       "time": "00:34:42.72"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And Exxon said, well, so we'll pay you.",
       "time": "00:34:46.01"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And they did.",
       "time": "00:34:49.71"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you say that doesn't change the situation at all--",
       "time": "00:34:51.55"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--with respect to Exxon?",
       "time": "00:34:57.45"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but you haven't made anything about that. I have not understood your... it doesn't seem to me you can equate what we're talking about here with simply proximity to maritime commerce, because the fact is that it doesn't matter if you're an agent. You have to be a general agent to come within the disqualifying rule. So that if the ship company had come to Exxon and simply said on a one-shot deal, had no continuing relationship with Exxon, just said, either give me oil yourself or get somebody else to give me oil, if they had said that just for this one occasion, Exxon wouldn't be a general agent. And even if Exxon acted as an agent and got someone else to provide the oil, they wouldn't be barred from the lien, would they?",
       "time": "00:35:06.60"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Possibly?",
       "time": "00:35:55.95"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought it's just general agents that are covered, and I wouldn't consider that a general agent. What does general--",
       "time": "00:35:58.55"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Right.",
       "time": "00:36:06.87"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it doesn't have anything to do with proximity. It has to do with general agency.",
       "time": "00:36:13.18"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah. I thought your rule made a lot of sense. I could figure that one out. Is it direct? You know, are you putting the oil on the boat or not. But it turns out that's not the rule. You don't have to put the oil on the boat. It's just whether you're--",
       "time": "00:36:44.28"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What do you want us to do? You want us to reaffirm Minturn or do you want us to adopt your rule, which is--",
       "time": "00:37:25.58"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, but that's not the rule you have been talking about. It doesn't have anything to do--",
       "time": "00:37:31.16"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, you don't have to be... it can be a preliminary contract so long as you're not a general agent, so long as you don't do this regularly. It can still be a preliminary contract.",
       "time": "00:37:36.51"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's true.",
       "time": "00:37:52.29"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How can Congress change it? Can Congress change it?",
       "time": "00:38:45.48"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There's no equation between what the Constitution means by admiralty jurisdiction and what the statute does?",
       "time": "00:38:54.39"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't expect Congress to pass a statute... would Congress responsibly be passing a statute that ignores Minturn? Could it do that?",
       "time": "00:39:11.65"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To be within admiralty jurisdiction? How can Congress-- --Congress is... our Court held in 1825 that admiralty jurisdiction was limited to tidal waters. Congress passed a law saying no, it extends to the Great Lakes, and in the Genesee Chief we upheld that.",
       "time": "00:39:32.36"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We're not talking the lien act, we're talking about admiralty jurisdiction.",
       "time": "00:40:15.11"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Are agency contracts somehow to be discouraged because they are not promotive of sound growth for admiralty and for maritime commerce?",
       "time": "00:40:48.74"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it's a secret lien, but the last in time always prevails, this odd rule in admiralty, so that it's not really so bad either, is it?",
       "time": "00:41:12.67"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if anybody provides services and they're last in time, then they collect.",
       "time": "00:41:23.84"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's an in rem against what?",
       "time": "00:41:48.19"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Would our courts have authority to do that, or would that contradict the existing statute?",
       "time": "00:42:01.30"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, would our courts have the authority to--",
       "time": "00:42:10.53"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--adopt such a rule that the lien is in rem but doesn't follow the vessel, or would that contradict the existing statute?",
       "time": "00:42:12.91"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Counsel, what's the significance of any, of the provision in the contract for a lien? There is one, isn't there?",
       "time": "00:42:28.98"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "For what?",
       "time": "00:42:45.21"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so you think that provision would only apply to situations like in New York?",
       "time": "00:42:48.30"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So does that add anything to maritime law?",
       "time": "00:43:02.59"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Then you might as well leave it out?",
       "time": "00:43:09.18"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yeah, but here they say they would have a lien on the vessel, wouldn't they? You would have a lien on the vessel.",
       "time": "00:43:12.34"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that seems... they certainly were contemplating... both sides were, I suppose, that this would be subject to maritime law.",
       "time": "00:43:17.92"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I see.",
       "time": "00:43:37.91"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Montbach, supposing they had constructed a little different kind of legal relationship between the marine company in Saudi Arabia and Exxon pursuant to which they had said we, Exxon, want to buy 100,000 gallons of oil to be resold to the ship owner of the ship--",
       "time": "00:46:33.14"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--and then in effect said well, title will pass to us as soon as you pump it through the pipe and then it will pass from us to the ship owner 10 seconds thereafter, and you will be our agent for delivering our oil while we own it and while you're delivering it to the other. So that they got title to the oil, you know, Exxon. They would then have a lien, I guess, wouldn't they?",
       "time": "00:46:53.07"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah.",
       "time": "00:47:41.09"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yeah.",
       "time": "00:47:44.84"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, do you really think that all the courts of appeals that have dealt with this matter see eye to eye with you?",
       "time": "00:48:34.32"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Pretty good ones, too.",
       "time": "00:48:46.76"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I mean pretty substantial ones.",
       "time": "00:48:51.45"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What are the time limitations on enforcing a lien?",
       "time": "00:50:12.03"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Just laches, or--",
       "time": "00:50:17.62"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Is it your submission that overruling of Minturn would be detrimental to the commerce of the purchase and sale of vessels?",
       "time": "00:50:37.34"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I don't know that that's the submission of the other side. I thought they, I thought if they overruled Minturn you would nevertheless, you still would have to sort out all sorts of contracts to see which have enough connection with maritime commerce.",
       "time": "00:51:13.55"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I don't know-- --Yes, but aren't those statutory questions? I mean, the lien statute doesn't necessarily cover all those. It seems there are two different issues, one, where there's a maritime jurisdiction, and even if there is it may well be the statute doesn't cover all these different kinds of agents.",
       "time": "00:52:18.10"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you do argue, don't you, that even if there's maritime jurisdiction that the terms of the lien act don't cover this particular facts?",
       "time": "00:52:40.16"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Or for this agent even.",
       "time": "00:52:56.47"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Montbach. Mr. Pare, do you have rebuttal? You have 3 minutes.",
       "time": "00:53:00.95"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Exxon... Minturn has been around for a long time, yet Exxon had this sort of a contract.",
       "time": "00:55:26.32"
     },
@@ -1703,13 +1703,13 @@
     },
     {
       "turn": 277,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Pare. The case is submitted.",
       "time": "00:55:42.27"
     },
     {
       "turn": 278,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:55:45.11"
     }

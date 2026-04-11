@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2013/12-930/20131210a_12-930.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
       },
       {
         "name": "ELAINE J. GOLDENBERG",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "MARK C. FLEMING",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument now in Case 12-930, Mayorkas v. Cuellar de Osorio.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But isn't there -- isn't the effect on the no longer child much more severe? I mean, if everybody has to get bumped down a little way, it'll make a difference of months until they qualify for a hearing.",
       "time": "00:00:50.18"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, it's not going to be 27 years.",
       "time": "00:01:15.16"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It's not going to be 20 years.",
       "time": "00:01:17.20"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about all the time this one child has been waiting? It gets no credit for that?",
       "time": "00:01:27.52"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's that for?",
       "time": "00:02:23.02"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "For those of us who don't deal with this as much as you do.",
       "time": "00:02:23.98"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:02:29.61"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So you interpret automatic to include immediate.",
       "time": "00:03:41.11"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But your reading of this statute gives (h)(3) a very, very narrow scope; isn't that correct? And I just want to see if I understand exactly how narrow it is. It would apply -- first of all, does it apply to any employment-based or diversity-based petitions?",
       "time": "00:03:56.45"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "All right. It applies to an F2A petition filed by a legal permanent resident on behalf of that person's spouse; right? And -- and if that -- if they have a minor child, then the minor child would be a derivative.",
       "time": "00:04:14.18"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Benefit sharing.",
       "time": "00:04:30.71"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can you give me an idea of how -- just to follow up on Justice Alito. Can you -- I don't know if you asked the IRS -- the INS this question; you may; something like it. Let's look at all of the derivative beneficiaries in the (f)s, (f)(1), (2)(A), (2)(B), (f)(3), (f)(4). And for the most part, they're grandchildren, they would be, or children, sometimes nephews and nieces. And now think of the set of all those people who age out. Okay? They started out as children, but it's 15 years later -- they're now aged out. Now think of that set. It's -- call it a certain size. What percent of that set do you think are accounted for by the F2A people, who are the only ones on your interpretation that 3 would apply to?",
       "time": "00:05:08.13"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Any idea, any rough idea? Because if you just look at it, one's natural instinct is just what Justice Alito said. This is a minuscule component of a set. It's much bigger, and therefore, it's just unlikely that Congress meant (3) to apply to a -- to a -- to a little molecule when there's the whole ocean. Now, that -- that's the kind of argument you're up against, I think, so I wanted to ask you that empirical question. If you can give me any idea of the empirical.",
       "time": "00:05:59.85"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm going to let you answer his question, but yes, they had a regulation so why didn't they copy the regulation?",
       "time": "00:06:54.40"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It would have been much, much simpler to say this is limited to F2A beneficiaries than to write it the way they did and say this is to everybody who ages out.",
       "time": "00:07:01.09"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Answer him, and then--",
       "time": "00:07:17.95"
     },
@@ -251,13 +251,13 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Did you ask -- anything that would give me -- that's the total global picture. That's the 2,000, 3,000, sometimes 10,000 aging out. All right. But -- but the real relevant thing is if we can get some idea, which seems in the paper, that your interpretation applies to -- only to a subset of those people. And just from reading it, that it's qualitative reading it, it sounds like a tiny subset of those people. Now, we can argue about whether that's for you or against you. I think it's against you, but nonetheless--",
       "time": "00:08:04.75"
     },
     {
       "turn": 36,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You do give the subsets. It's not just the general, is it?",
       "time": "00:08:37.14"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--That's F2A. But we want F2B now.",
       "time": "00:08:45.74"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "F2A. You're right.",
       "time": "00:08:49.89"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So it looks like it's between 10 percent and sometimes it gets it up to 30 percent--",
       "time": "00:09:07.25"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Suppose there are two -- suppose there are two lawful permanent residents who are exactly the same except that one has a minor child and one has an adult unmarried child. So the latter files an F2B petition and gets in line on a particular date, right? Then the former, the lawful permanent resident who has an unmarried -- who has a minor child, files an F2A petition and gets in that line. But then by the time the date comes up, the child has aged out and so now you would say that would be converted to an F2B petition.",
       "time": "00:11:09.72"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But the person would be -- the child would be at a much lower point, right, than the first one? Why would Congress have wanted that?",
       "time": "00:11:49.54"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Right. And the other one would be higher up.",
       "time": "00:12:13.91"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Oh, okay. I see. Thank you.",
       "time": "00:12:33.04"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Ms. Goldenberg, before you do that, could I just ask you to respond to a sort of different hypothesis of what Congress was up to here and tell me what, if anything, you think follows from it? Assume you think that Congress actually was not intending this very small category, that Congress was intending for this to be a pretty wide provision, but what Congress was -- it was laboring under a misapprehension. I mean, it thought that you could do this kind of automatic conversion with respect to all of these people, and it turns out Congress was just utterly wrong on that. So -- but Congress includes this language about automatic conversion. So what do I do if I basically have a hunch that that's what Congress was thinking, but yet the language that it adopted talks about automatic conversion, which is impossible for many of this category.",
       "time": "00:12:40.03"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you mean we can't correct congressional mistakes?",
       "time": "00:13:41.35"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So that -- that's an expectation argument? I mean, I'm not trying to put words in your mouth, but is that the point you're making?",
       "time": "00:15:55.80"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--We don't have numbers on separation from parents. We do know that these people, the ones that would be caught on the broad interpretation, have also been waiting for years and years and years and years. They've all been waiting for years and years and years and years, and it becomes hard to choose among them.",
       "time": "00:16:27.92"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You can find sympathetic stories all over the place, and I mean -- all right. Go ahead.",
       "time": "00:16:49.50"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Is your real quarrel here with the idea of an appropriate category or with the automatic conversion? On the Respondent's view, why isn't there an automatic conversion? Because they say that as soon as the person ages out they can be moved into -- into another category. That sounds like it's automatic.",
       "time": "00:17:24.85"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, why isn't it automatic?",
       "time": "00:17:49.74"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Automatic just means something occurs without anybody having to initiate the change.",
       "time": "00:18:09.59"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So why isn't there -- why isn't it automatic here?",
       "time": "00:18:16.48"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I understand that argument, but that's not the argument that Wang made, is it? Wang suggested that if the -- the appropriate date was at the very date of aging out. So -- so it seems as though you shouldn't be entitled to Chevron deference on that question, given what Wang said about it.",
       "time": "00:19:54.64"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What do we do with a reasonable reading of the statute? I looked at the board's opinion here, and it seems to me in the two paragraphs just prior to Section 5, at the end of Section 4, they have as a critical step in their -- in reaching their conclusion, their belief that the legislative record demonstrates a clear concern on the part of Congress to ameliorate the delays associating with the process of the visa processing. And they say the same thing in the paragraph just above that.",
       "time": "00:21:42.41"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So that's what they think this statute is about. But that statute -- that problem is taken care of in (1)(b). And so the question would be, if that problem, which subtracts all the days that there was a processing delay, is taken care of on (1)(b), they can't be right that that was the purpose of 3. So unless you can say to me how that could possibly be right, that reasoning, then what we should do, I guess, if we think that you have authority in the government to interpret this minor part of the statute, which I do, is generate. Send it back. And -- and maybe give them -- say you ought to do this again because the reason you gave is not good. Or why not?",
       "time": "00:22:13.85"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--That is strange because I look at (h)(3), which talks about automatic conversion of battered spouses, of widowed spouses, and I think under your reading, you're basically saying Congress was not intending to let those people jump the line. Am I correct?",
       "time": "00:24:01.09"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Because you have to change names?",
       "time": "00:24:19.15"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Oh, there's automatic--",
       "time": "00:24:21.92"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--So why did Congress need to add (h) -- (h)(4), using exactly the same language that it used for (h)(3)?",
       "time": "00:24:35.16"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That they -- that they were entitled to the same benefits of automatic conversion as (h)(3).",
       "time": "00:24:44.82"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So you can have automatic--",
       "time": "00:25:29.13"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--You can have automatic conversion only in the situations that give you other -- other statutes.",
       "time": "00:25:30.33"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Fleming.",
       "time": "00:25:37.02"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Under your view, does automatic conversion cover someone who has to filed a new petition?",
       "time": "00:28:33.52"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So the way this works, you don't have to file a new petition?",
       "time": "00:28:48.53"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But under -- under her theory, the -- the petition is -- is still coming from the same person. Under yours, it would be coming from a different person. How can you -- how can you even know that that person now wants this -- this -- this new adult to come in, much less go ahead without a petition from that person?",
       "time": "00:28:57.71"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It would file a petition in that person's name without that person's consent?",
       "time": "00:29:42.09"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you're saying that this automatically gives the consent of that parent?",
       "time": "00:29:55.58"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you must be if it can automatically convert.",
       "time": "00:30:01.05"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I'm sorry.",
       "time": "00:30:32.64"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Please.",
       "time": "00:30:34.08"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "In the usual case, a petitioner has to show a bunch of things, right? You have to come in and say, I'm a legal permanent resident, and, you know, I file an affidavit of support and show that you haven't committed any offenses against minors and all of this stuff, right? But you're suggesting that we can just ignore all of those requirements that usually have to be shown at the threshold for a petition to be accepted; isn't that right?",
       "time": "00:30:52.01"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Is that for F2A children as well?",
       "time": "00:31:46.20"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "These steps, are they applied to F2A?",
       "time": "00:31:48.01"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Not derivatives. I'm talking about the children of spouses.",
       "time": "00:31:53.54"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Everything happens at visa issuance moment?",
       "time": "00:32:01.55"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Direct or derivative?",
       "time": "00:32:23.81"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So you're saying that these things would happen -- do I understand you correctly, these things or most of these same things would happen in the cases in which the government says there is automatic conversion?",
       "time": "00:32:30.23"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Fleming, to accept that argument, don't you have to accept your understanding of what the appropriate date is? I mean, let's suppose that the government is right, that the date is the one that's actually specified in the statute which says the date on which an immigrant visa number becomes available. At that date, the parent is not even going to be a legal permanent resident; isn't that right?",
       "time": "00:33:54.99"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But let's assume that this is the right date, the one that's actually specified in the statute. Can you win if that's the right date?",
       "time": "00:34:44.05"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I know, but can you win if it is the right date?",
       "time": "00:34:54.55"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But how does -- can I try an example because I think it's easier to--",
       "time": "00:37:10.25"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--All right. Imagine Steven is a citizen. His brother Charles is not. So under 4 -- and Charles has a son Joseph who is not. That will help you think about it. All right. So we're under F4. Steven files a petition, the beneficiary is Charles. Charles has a minor son Joseph. Visa is granted, et cetera, for -- not visa, you know, he's given -- everything is in order and now Charles has to wait about ten years or so. By the time he gets -- at the time his number becomes current, the number becomes available for the alien, namely for Charles, at that moment, we calculate Joseph's age and it's 24. So your idea is that Charles is current. Everything is fine. He goes to the port or the office, wherever he's supposed to go, and he brings Joseph with him. At that point, Joseph, since he's no longer a child, has to come in under another category, and that category is going to be, I guess, 2B because Charles will be now -- and Joseph will be unmarried over 21, right? Am I right so far?",
       "time": "00:37:14.45"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "This is an imaginary -- he spells it with a V.",
       "time": "00:38:45.18"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. Now, if I have it right--",
       "time": "00:38:52.98"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yes.",
       "time": "00:39:02.07"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right.",
       "time": "00:39:04.67"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay.",
       "time": "00:39:08.29"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes?",
       "time": "00:39:15.73"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Now the--",
       "time": "00:39:25.75"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--All right. But there is one thing missing. Charles has not filed a petition for Joseph. So what do we do about that?",
       "time": "00:39:29.32"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And doesn't -- doesn't Charles as a lawful permanent resident have to file a piece of paper called the petition--",
       "time": "00:40:03.39"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--in which Joseph is named primary beneficiary?",
       "time": "00:40:11.62"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:40:22.79"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But there is no -- there is no F2B petition, because Charles never filed it.",
       "time": "00:40:26.91"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, yes; right.",
       "time": "00:40:31.56"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's what I want to know. You don't need--",
       "time": "00:40:34.35"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--We do all this, and--",
       "time": "00:40:36.32"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If I understand you, the -- the parent will be deemed to have filed a petition for admission of this now-adult, right?",
       "time": "00:42:14.80"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And -- but the parent can withdraw that petition?",
       "time": "00:42:26.61"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All of this flows from the word ‶ automatic ″?",
       "time": "00:42:38.50"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Based on -- another understanding of Chevron is sometimes Congress writes confusing statutes that point in two different directions at once, and then there's a choice. Does the Court make the best of it or does the agency make the best of it? And the agency knows a lot about the subject matter, and especially this agency, and so irrespective of whether Congress meant to delegate something in some very self-conscious way, this is a confusing statute, it's a kind of the muddle. The -- the agency gets to do it.",
       "time": "00:44:11.94"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, this is all upside down. I thought it's the agency that we deferred to. If it can be read in the way the agency wants, we affirm the agency's position.",
       "time": "00:48:04.04"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're saying that's not true, that if it can be read the way the court of appeals would like it to be read, we must affirm the court of appeals on it.",
       "time": "00:48:16.63"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It sure is. I never heard of that proposition.",
       "time": "00:48:27.89"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That would depend entirely upon how much weight you want to give to the word ‶ automatically ″. I frankly find it hard to think that all the things that you say are going to happen flow from the word ‶ automatic ″. And once you have a more narrow view of automatically, it isn't -- you're holistic argument does not carry the day and you're left with an ambiguity that it seems to me we would defer to the agency on, not -- not to the Ninth Circuit.",
       "time": "00:49:07.20"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose -- suppose everybody knows that for the group that's covered by the Ninth Circuit's opinion, the nephews, that there's going to be a 3 or 4-year wait. Doesn't a new petition have to be filed so that BIA knows that this person's in line?",
       "time": "00:50:12.06"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Can I ask you a quick question--",
       "time": "00:51:38.28"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--about your alternative argument with you and Justice Scalia. I take it your argument is: Look at the words; the part before the comma defines a group and that group is not in dispute. It's all the F derivatives.",
       "time": "00:51:40.23"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Then look at the first part. It says the petition shall automatically be converted.",
       "time": "00:51:52.19"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "See, if I lose on that, then look at the second part. It says, the alien shall retain the original priority date. And you say as to that, that has an independent life.",
       "time": "00:51:58.05"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So, it's either A or B. And we think we win on A and B, but if not we at least win on B. Now, has the agency ever expressed a view in respect to whether you are right or wrong about your independent B.",
       "time": "00:52:08.90"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. So wouldn't the right thing to do there be, in respect to B, send it back to the agency so that they can express a view in respect to that?",
       "time": "00:52:28.33"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How can you possibly qualify for B without qualifying for A? How can you retain your original priority if you have not been converted to another category?",
       "time": "00:52:38.09"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's quite impossible. The two are obviously conjunctive and not dysjunctive.",
       "time": "00:52:50.10"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, all that proves is that you need either automatic conversion or the filing of a separate petition. But you obviously need either one or the other of those two--",
       "time": "00:53:47.57"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--before the B part, \"the alien shall retain the original priority. \" makes any sense.",
       "time": "00:53:58.42"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Ms. Goldenberg, four minutes.",
       "time": "00:55:54.32"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What he's saying -- but what he's saying is that's true of everybody. FBA, any of these categories don't get converted until the visa is actually issued--",
       "time": "00:56:57.68"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--until you go to the consular order -- office and apply. That's true no matter what.",
       "time": "00:57:10.98"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "They can come in before their parent?",
       "time": "00:57:30.00"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Their parent has to become a citizen and then they can come in, correct?",
       "time": "00:57:33.26"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, it's not so odd to say they've got a priority date in their pocket when the statute says the original priority date -- they'll retain the original priority date.",
       "time": "00:59:01.49"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Hold or maybe retain.",
       "time": "00:59:29.81"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I am so confused. You better unconfuse me, okay, on this argument.",
       "time": "00:59:45.00"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It's an original date basically to the original petition, meaning there has -- it is that that's being converted. If that hasn't been granted, there's nothing to convert. If that person hasn't become a citizen, there is nothing to attach any change to.",
       "time": "00:59:50.22"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You're talking about his second step.",
       "time": "01:00:15.12"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. We're talking about his second step.",
       "time": "01:00:18.77"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You're only talking about his second argument.",
       "time": "01:00:23.46"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You can finish -- finish that sentence.",
       "time": "01:00:34.08"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:00:48.94"
     }

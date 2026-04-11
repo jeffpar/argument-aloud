@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1958/92/19590226a_92.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "FRANCIS W. MCINERNY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT D. MCILWAINE, III",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 92, Service Storage & Transfer Company, Petitioner versus Commonwealth of Virginia. Mr. McInerny, you may proceed.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What is the scale of that map, please do -- just -- just so we would know approximately.",
       "time": "00:04:09.26"
     },
@@ -71,13 +71,13 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Period is 40 miles.",
       "time": "00:04:28.64"
     },
     {
       "turn": 6,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, you mean the whole -- all of that is 40 miles?",
       "time": "00:04:31.72"
     },
@@ -89,7 +89,7 @@
     },
     {
       "turn": 8,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The one inch to five miles that's the -- one is to five miles.",
       "time": "00:04:46.47"
     },
@@ -101,7 +101,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "They pick up the shipment at Bristol and deliver it to Roanoke?",
       "time": "00:05:34.37"
     },
@@ -113,7 +113,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I ask whether the Commonwealth of Virginia through this claim of designed security by evidence other than mere geographical evidence?",
       "time": "00:12:14.82"
     },
@@ -125,19 +125,19 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You mean only the map withheld to routes, leads over to Bristol --",
       "time": "00:12:29.12"
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Roundabout.",
       "time": "00:12:36.10"
     },
     {
       "turn": 16,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- to many roots and that's the direct line to South Virginia?",
       "time": "00:12:36.40"
     },
@@ -149,7 +149,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Oh, yes.",
       "time": "00:12:41.53"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, what was usual points to the --",
       "time": "00:13:03.27"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Whitfield?",
       "time": "00:13:08.32"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And you point to this to the boundary in some area of Bluefield, that is from (Inaudible) to that from the West Virginia town which you deliver to Whitfield, an economical and to yourselves an economical (Inaudible)",
       "time": "00:13:09.27"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And -- and coming to the direct routes from (Inaudible)",
       "time": "00:13:29.16"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It's a direct route to the -- taking all with that factor, thus, would be not favorable.",
       "time": "00:13:37.08"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Couldn't define the relevance.",
       "time": "00:13:44.07"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Were the roads, the direct roads equally favorable to truck traffic?",
       "time": "00:13:46.85"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, was there any -- was there any attempt to buy the other side to -- to show that you had acted differently so far as that central terminal is concerned in -- in intrastate shipments from interstate shipments. Now, I noticed that from Roanoke there up to that other -- other map, other city you probably make the greatest detour of all and that's in the -- that's in another State, that's interstate. You wouldn't have the same problem that you have in this State in this case would you?",
       "time": "00:14:31.51"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, did they -- did they claim that that was deliberate, they secure too and for the same reason?",
       "time": "00:15:10.15"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:15:23.61"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:15:28.74"
     },
@@ -293,13 +293,13 @@
     },
     {
       "turn": 42,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, that's what I was saying.",
       "time": "00:15:36.09"
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible)",
       "time": "00:15:39.16"
     },
@@ -311,13 +311,13 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What was the question?",
       "time": "00:15:51.43"
     },
     {
       "turn": 46,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And then there's a question of state power in relation to a modification or other effects upon the -- basically, the district. Is that a question for deciding that?",
       "time": "00:15:53.56"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's what I meant and there is that question.",
       "time": "00:16:19.77"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This was the proceeding started by the Virginia Authorities wasn't it?",
       "time": "00:16:24.96"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "A criminal proceeding?",
       "time": "00:16:28.52"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, would you be good enough to state what the cause of the litigation was,(a) what did the State prove before it rested? They had the burden, didn't they?",
       "time": "00:16:30.37"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, what did -- what was their case before you were called upon to decide whether to stand pat or put in evidence of your own?",
       "time": "00:16:43.32"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And -- and they said you had no certificate from their local authority.",
       "time": "00:17:15.78"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, when -- that's all. That -- that took a day or less than a day?",
       "time": "00:17:21.43"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, what -- what did you do? What was your case after the State Commonwealth Wealth rested?",
       "time": "00:17:29.21"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would the -- would the rate for the shippers be different if you had routed directly?",
       "time": "00:18:25.66"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The same.",
       "time": "00:18:43.92"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The area rate, is it not?",
       "time": "00:18:46.41"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did you put in your certificate or you did not?",
       "time": "00:19:02.88"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, the Court rules --",
       "time": "00:19:11.22"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Criminal proceeding?",
       "time": "00:19:23.00"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And it's a commission of judgment?",
       "time": "00:19:25.37"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "There's no jury?",
       "time": "00:19:41.10"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This is an -- what's -- what's the burden without the reason (Inaudible)",
       "time": "00:19:47.81"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And it became like a motion to direct a verdict, the federal courts have as opposed to these -- you didn't make a case, before that's here?",
       "time": "00:20:04.57"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Did you make that motion?",
       "time": "00:20:21.61"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did -- did the State participate in those -- Interstate Commerce Commission?",
       "time": "00:21:32.75"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And they -- do you say it was not used as a service?",
       "time": "00:21:39.28"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Was it shown that -- do they attempt to show in any way that your rates were out of line with the other operations one way or the other?",
       "time": "00:24:27.18"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But they're about the same.",
       "time": "00:24:48.11"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Was there anything in the record that there -- that there was in the other carrier operating intrastate say between Roanoke and Whitfield?",
       "time": "00:24:56.97"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Are there others -- are there others that make the same points or approximately the same points?",
       "time": "00:25:10.77"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:25:23.33"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where is that provision, if you have to read it?",
       "time": "00:32:33.42"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, the text -- we haven't read the text.",
       "time": "00:32:59.19"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You don't deny that this is interstate commerce, do you? I'm not talking about, is it within the Act. You do not deny this is interstate commerce in this case. That is, it isn't governed by federal legislation. Congress is asking, we just bring it within the federal issues. Do you deny that?",
       "time": "00:33:05.76"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would -- do you say that -- that is -- so, into interstate commerce that it couldn't be left to the State?",
       "time": "00:33:33.27"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or Eichholz. It is conceded in Eichholz or in Hanley or Eichholz.",
       "time": "00:33:57.79"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I never recite them?",
       "time": "00:34:04.79"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If he did it for the interstate commerce and yet, would be left to the State because it was that case, it's legally acceptable (Inaudible)",
       "time": "00:34:09.47"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The interstate -- does the -- does the certificate which you have explicitly deal with this very problem?",
       "time": "00:34:52.41"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That certificate from the Commission, preclude your doing the kind of thing that in Eichholz allows the state officer there. If I read what the Interstate Commerce Commission, would I get an answer to an Eichholz property from your certificates.",
       "time": "00:35:11.13"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Oh",
       "time": "00:35:32.13"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well -- well usually use whatever. What if. When you say it's a judgment usually I can find out what the Court has decided by reading the judgment but I can't the answer to this question by reading the certificate, can I?",
       "time": "00:35:33.22"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And if the State -- if the State could prove, could prove the substance if they can, but I don't know whether it has or not. Would there be anything in that -- what the Interstate Commerce Commission either promulgated or said that it's foreclosed that determination on the same clause?",
       "time": "00:35:56.86"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You just told me that the order would give me the answer.",
       "time": "00:36:21.10"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The Commission discussed the questions whether routing by way subterfuge under the route which is authorized would be covered by a certificate?",
       "time": "00:36:31.52"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's 171.",
       "time": "00:36:47.24"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "M.C.C.",
       "time": "00:36:50.01"
     },
@@ -833,13 +833,13 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It's not in the record.",
       "time": "00:36:52.01"
     },
     {
       "turn": 133,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When -- when was that? What's the date of that in relation to what you say is right?",
       "time": "00:36:54.28"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, then it couldn't have been thought then -- then the -- what the Commission did wasn't foreclosed by what -- what Virginia did wasn't' foreclosed by what -- what the Commission prior thereto did.",
       "time": "00:37:13.87"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) That depends on what the facts were that we're advocating by the State tribunal and what the Commission did is declaratory order, declaratory pronouncement was labeled so one can judge utilizing that those are judgments by Virginia it was finding on the Commission.",
       "time": "00:37:31.09"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is that your -- what is your point that you do have by virtue of your certificate itself, if you had a binding of judgment?",
       "time": "00:37:53.67"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That annotated the action of course with the -- with the Virginia Court.",
       "time": "00:38:03.09"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the certificate did not preclude the determination by the Virginia authority that in fact we use the certificate as a substitute for State practice isn't it?",
       "time": "00:38:09.03"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it is an interpreter of facts de jure and I do not see that that certificate will preclude the State from fully to preclude that under a guise of an interstate commerce certificate, you are in fact engaged in intrastate business in utilizing the certificate to escape the responsibility that they've assigned. That certificate wouldn't do, would it?",
       "time": "00:39:09.06"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not saying that's the case in this -- I'm not saying you're wrong on very hand but the certificate doesn't establish a substitute in use of the certificate.",
       "time": "00:39:37.51"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, you may. Mr. McIlwaine.",
       "time": "00:39:49.75"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was that on the theory that merely because traffic originated in Virginia and came back to Virginia makes it local in commerce? Is that the position or --",
       "time": "00:41:03.35"
     },
@@ -959,37 +959,37 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But which point --",
       "time": "00:41:18.49"
     },
     {
       "turn": 154,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But isn't that precise route that the Commission authorizes the certificate?",
       "time": "00:41:19.69"
     },
     {
       "turn": 155,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, sir. The -- the I.C.C. certificate authorizes transportation between points and certain points on routes but not route, if I may explain it.",
       "time": "00:41:23.65"
     },
     {
       "turn": 156,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Could you refer for me to the exact language that the Commission --",
       "time": "00:41:37.44"
     },
     {
       "turn": 157,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Yes, Your Honor I can. It is set out in the record if you have the transcript of the record there. You will find it set out on page 90 at the top of the page. This is quoted from the opinion of Mr. Justice Kennon Whittle, it is there and it is also at various places in the record and in the brief.",
       "time": "00:41:40.70"
     },
     {
       "turn": 158,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what about -- what about the petitioner himself, at least may get to -- page 101 going back to the record. Are these one of the things you're talking about (Inaudible)",
       "time": "00:42:04.20"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Although fining those and I think that that was on page 101 (Inaudible) And that's the significant part of the certificate (Inaudible)",
       "time": "00:42:30.22"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But it -- it is a little bit more specific Mr. McIlwaine, because it says that part of the Virginia West of the U.S. Highway 29 and south of Highway 60.",
       "time": "00:43:14.25"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are you saying that that is still a geographic designation and not a route designation?",
       "time": "00:43:24.92"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Normal and logical. Does that mean that you consider merely geographic distance and not transportation facts which may make the routing through the gateway points a normal and logical transportation transaction?",
       "time": "00:45:09.96"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It said 80 is -- is smaller than 160, is that it?",
       "time": "00:46:01.76"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's all -- that's all they said.",
       "time": "00:46:05.96"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So now, did -- did the petitioners here introduce evidence justifying that security on transportation economics?",
       "time": "00:46:13.65"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well now, where if it's before us, the evidence for that matter?",
       "time": "00:46:54.37"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "00:47:00.24"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "00:47:02.50"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where -- where is the -- where is the basic (Inaudible) merely to the fact that he does not have another certificate before it's in -- to use the circuitous routes?",
       "time": "00:47:04.88"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I know but isn't -- isn't the evidence that he did not -- that he used the securities route because he didn't have another certificate.",
       "time": "00:47:23.37"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That the evidence is --",
       "time": "00:47:30.99"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The examiners have -- did you challenge that he had a bona fide business purpose, bona fide transportation reason. The question of dollars and cents in the profitable conduct of his business of not doing the U.S. route 11 but he went through -- through the West Virginia town for the reason that an honest businessman would. Did you challenge that?",
       "time": "00:47:34.74"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But now, I ssuppose the Interstate Commerce Commission had in that certificate explicitly taking over the fact of the kind of business they're engaged in, they said, that this certificate allowed the certificate holder to go from Bluefield to West Virginia although he knew this route. Would the State Commission then have -- could then have as -- as in the case you now have?",
       "time": "00:48:21.35"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And therefore, the question is whether a certificate which designates, gives the authority, that supreme point one outside the State and one inside the State.",
       "time": "00:48:49.88"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Nevertheless, the exercise for that certificate is a bona fide transportation reason.",
       "time": "00:49:01.28"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Does that bar him from exercising that certificate in that way simply because geographically that he might have gone go between those two points on the basis of the triangle.",
       "time": "00:49:08.27"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is your position or isn't it?",
       "time": "00:49:20.41"
     },
@@ -1229,13 +1229,13 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "As meaning what?",
       "time": "00:50:28.90"
     },
     {
       "turn": 199,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the certificate was outstanding?",
       "time": "00:50:29.05"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "As meaning what?",
       "time": "00:50:33.00"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "As meaning what?",
       "time": "00:50:34.68"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible)",
       "time": "00:50:40.22"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "00:51:10.02"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What page are your reading?",
       "time": "00:51:32.93"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Isn't that (Inaudible)",
       "time": "00:52:03.52"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What did they say to that?",
       "time": "00:52:12.61"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "As I understand it did it , it just shows how the certificate was granted.",
       "time": "00:54:24.44"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And I am also correct that while this determination (Inaudible) brought to your attention and this would be the opinion of the Court with no reference that whatever is made here to the opinion.",
       "time": "00:54:38.42"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "00:54:50.45"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There was any -- must not -- this be read in the light of the Eichholz decision and doesn't that the decision rest on the fact -- fact in those cases namely, that there was no such justification going from Kansas City, Missouri from Kansas (Inaudible)",
       "time": "00:54:58.30"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "There was not such justification in transportation economics as the -- as the petitioner made in this case. But in that case the (Inaudible) that there was that security for the very purpose of avoiding the direct intra point of transportation.",
       "time": "00:55:21.74"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that true, isn't that true?",
       "time": "00:55:43.44"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I wanted to know of your -- I'm just standing right behind you.",
       "time": "00:55:45.97"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But -- but --",
       "time": "00:56:01.50"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) did I understand you to agree that the petitioners, the defendants in your proceedings did establish that the honest and -- and profitable way of doing business is the way they did it?",
       "time": "00:56:04.05"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But they couldn't have picked up traffic as (Inaudible) they could go on directly, could they? They didn't have to prove that. That's self evident, isn't it?",
       "time": "00:56:28.90"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Why did they take the circuitous route?What did they establish, would it be against him?",
       "time": "00:56:42.44"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap)",
       "time": "00:56:50.52"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that I understand that. That's a legal question.",
       "time": "00:56:53.25"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But what economic fact did they prove when it came to them, what is their defense?",
       "time": "00:56:56.06"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I suppose they've done what you wanted them to do. They couldn't have done any of those things, could they? Their traffic would have been less and handling of it would be more costly. Isn't that correct?",
       "time": "00:57:31.69"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They couldn't have (Inaudible) with the other -- with the non-bulk with the bulk --",
       "time": "00:57:49.93"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:57:54.25"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It seems to me significant that after finding that this constituted bona fide transportation in interstate commerce, the Commission said, “This conclusion finds support in the fact that the routes employed between Virginia points are not only -- are not unduly circuitous or impracticable but, on the contrary, are such as might normally be used by any carrier authorized to operate between the Virginia points involved in the Bluefield, West Virginia, this petitioner's headquarters and the base and whether substantial operators to and from points in Virginia from which the operation challenge are only a part.” And then they go on to find that the operation with -- within the authority granted by them in the certificates. Now, it seems to me that they did have those routes before them in someway or another.",
       "time": "00:58:02.64"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:58:58.36"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:58:59.83"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:59:08.75"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Voice Overlap)",
       "time": "01:00:19.38"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Inaudible)",
       "time": "01:00:20.94"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Voice Overlap) just a moment to -- right on that point to clarify something in my own mind. It's true, is it not, that under the I.C.C. certificate which it had, this carrier could not have operated between Roanoke and Whitfield over the shortest route, over route 11?",
       "time": "01:00:22.21"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose that is true, I -- I don't quite get (Inaudible), you say they do that, so that's the only way they can legally go.",
       "time": "01:01:12.89"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, if they can legally go that way, why can they legally go that way?",
       "time": "01:01:22.79"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well now, if -- if the Government certificate made it impossible for them legally go there, what right does anybody will do something different?",
       "time": "01:01:34.10"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You would agree, wouldn't you, that if the -- if the Commission wants to give them the certificates to go that circuitous route, then it's all right.",
       "time": "01:02:03.38"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And if they --",
       "time": "01:02:11.14"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- really couldn't anything to go on because it is circuitous.",
       "time": "01:02:11.67"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are you saying that -- I understand you to say (Inaudible) including what the I.C.C. has told them legally he may do what it needs, legally the only way through that.",
       "time": "01:02:39.18"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What you're saying is on that point is that the certificate didn't grant that.",
       "time": "01:03:06.69"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Could the I.C.C. -- I'm asking because I don't know. Could the I.C.C. in this proceeding and if this so-called declaratory proceeding has said, but this has then created a controversy about this thing we now amend this certificate. Could they have done in actual proceedings and leave no doubt about it. Could they have done that?",
       "time": "01:03:29.28"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm not saying that if they could have if presenting is all they have or didn't they have. I'm just asking you whether they could if they chose to.",
       "time": "01:03:51.15"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And that is definitely certain.",
       "time": "01:04:00.37"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Does this require an independent proceeding?",
       "time": "01:04:03.34"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And with notice to everybody, is that it?",
       "time": "01:04:06.29"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is the record -- was your record before the Railroad Commission or your Public Utilities Commission before the I.C.C.?",
       "time": "01:04:18.46"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, Mr. McIlwaine, have you finished your argument or were you just stopping now because -- because of adjournment time.",
       "time": "01:05:34.79"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Thanks --",
       "time": "01:05:46.81"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well then I -- because if you have, I'd just like to ask Mr. McInerny and if he has anything (Inaudible), if he do, well, he might as well finish it. We only have a few moments. No, you have -- no you have thirty seven minutes that you got. So if you have more, we'll hear in the morning.",
       "time": "01:05:48.70"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 297,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:06:06.26"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:06:07.74"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 301,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Oh, Monday afternoon. It's when we'll meet not --",
       "time": "01:06:08.93"
     },
@@ -1859,7 +1859,7 @@
     },
     {
       "turn": 303,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes. All right.",
       "time": "01:06:14.20"
     }

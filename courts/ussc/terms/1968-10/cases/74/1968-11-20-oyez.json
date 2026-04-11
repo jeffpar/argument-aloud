@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1968/74/19681120a_74.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES J. ROGERS, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ERWIN N. GRISWOLD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 74, Philip Jerome Stiles, petitioner versus United States. Mr. Rogers.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It's alright.",
       "time": "00:00:47.49"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now did it -- in advising the draft board that he would be away from his residence, did he advise them where he would be?",
       "time": "00:04:59.65"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Can he do it later?",
       "time": "00:05:19.50"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And was it sent to the -- to that address wrong -- wrongly by the board?",
       "time": "00:06:23.30"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And did it -- did the Board sent it to his correct address.",
       "time": "00:06:30.84"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, you mean the Post Office Department wrongly delivered it to another place?",
       "time": "00:06:41.91"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, what are the facts? Just tell us the facts.",
       "time": "00:06:47.75"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What was the notification they sent from Mexico? What did he tell the Board?",
       "time": "00:08:24.81"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where he could be reached?",
       "time": "00:08:37.14"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Am I right in understanding that your defense, your sole defense at the trial was a defense of insanity?",
       "time": "00:10:11.18"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:10:29.75"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Oh, was that the issue that you were raising, the so-called insanity issue whether he was emotionally unfit for military service or were you raising a defense in conventional criminal terms that the view of the M'Naghten test or that he was unable to distinguish between right or wrong or unable to control his actions. What sort of insanity defense were you making?",
       "time": "00:12:23.75"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well then, does the question of whether he was or was not mentally or emotionally suitable for a military service and then being new at the M'Naghten rule except possibly that it involves some of the same criterion but the standards are quite different, isn't it?",
       "time": "00:13:05.78"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Let's say, what fitness or unfitness has an emotional matter for a military service have to do with the issues that were before the District Court and now before us?",
       "time": "00:13:26.03"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "On the M'Naghten basis?",
       "time": "00:13:46.92"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "The M'Naghten test?",
       "time": "00:13:51.09"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Right.",
       "time": "00:13:56.78"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright.",
       "time": "00:14:08.91"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, are you -- now you're saying insane. In your argument, you were saying that he was unfit for military service. Now what did the psychiatrist testified to?",
       "time": "00:14:25.34"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "He testified in terms of an American Law Institute Case test or the M'Naghten test or did he test by in terms of the military suitability?",
       "time": "00:14:40.09"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You are here urging that its reversed -- the trial judge may -- have committed reversible error by failing to find that the judgment against the defendant should've been not guilty by reason of insanity.",
       "time": "00:16:00.67"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Rogers, may I ask you, I noticed you opened -- you said you're going to give only 20 minutes.",
       "time": "00:16:29.71"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You haven't yet touched on the issue that I must say to you in all candors, the only one really concerns me in this case.",
       "time": "00:16:35.19"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And that's one, the refusal of the trial judge to postpone the trial, are you going to get to that?",
       "time": "00:16:41.94"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, is this the situation that as you saw it at the time -- if the Government were to find on an examination that he was not in fact fit for induction that then the Government is having said that those who -- this examination, if the find, “I am fit for induction, I'll be inducted.” The Government would've dismissed this prosecution, is that it? And that you wanted an opportunity to go through this examination and the trial judge refused you there to -- is that what it all comes down to?",
       "time": "00:18:54.54"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, let me ask you this.",
       "time": "00:19:36.23"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I'm looking at this colloquy between the trial judge and the -- Mr. Giron I gather represented the Government.",
       "time": "00:19:37.34"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And Mr. Giron says, this is the position that if this man submits to induction in all probability, he will not be acceptable anyway. But in view of the fact that he's willing to get down for induction, the Government would take the position and the United States attorney has recommended that there would be no further prosecution because it would really in effect, if it were a person who could be eligible for the Armed Force Services, there would be a point in going forward with it. But insofar as this person while charged with failure to report for induction which is a serious crime, etcetera. And then each Court says, “Well, aren't you ready to go -- are you ready to go to trial or aren't you?”",
       "time": "00:19:46.48"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And then the Government had to -- in effect, I thought your position was -- although the Government was willing to postpone the trial and not even to go forward with the prosecution if in fact it were determined that he was not fit for induction. The trial judge didn't give you the opportunity to have the examination made which would determine that fact, is that right?",
       "time": "00:20:25.74"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, is that or not?",
       "time": "00:20:52.39"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Alright.",
       "time": "00:20:54.33"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well that's what the court -- the court said, “I had seen no need of it, let's try this case and get it behind us.”",
       "time": "00:21:09.35"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, that's what the judge did say?",
       "time": "00:21:17.73"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Solicitor General?",
       "time": "00:21:21.88"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well apart -- Mr. Solicitor General, from the prosecution as such, I gather that a finding that he was unfit might have a bearing might it not on the issue of whether the trial should've been postponed?",
       "time": "00:23:16.35"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, apart from the merits of the prosecution itself, it may not -- as you say, that he was not fit for induction may not have been relevant on the issue of guilt or innocence.",
       "time": "00:23:37.24"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But it might well be, it might well matter -- wouldn't it not be relevant on the issue whether --",
       "time": "00:23:50.06"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:23:56.89"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Excuse me.",
       "time": "00:24:00.07"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Does the record show where this petitioner was a student?",
       "time": "00:38:22.14"
     },
@@ -535,13 +535,13 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes. That he was a student but does it show where he was a student?",
       "time": "00:38:30.77"
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, up here it's Columbia University at the time they sent --",
       "time": "00:38:34.54"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Solicitor General on page 18, Mr. Giron, we would continue it if this man. He used the word continue.",
       "time": "00:41:46.52"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The second from the last way down, two-thirds down.",
       "time": "00:42:04.55"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you are.",
       "time": "00:42:21.51"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But I'm also worried with the judge's language, sort of a gung ho language.",
       "time": "00:42:28.18"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, let's get it behind us. Let's try this case. Let's get it behind us.",
       "time": "00:42:40.57"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It would've been better if it wasn't.",
       "time": "00:42:51.37"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. Solicitor General I suppose that this accurately state your position that the best you can make out of this colloquy is that the Government representative would have -- would not have objected to a continuance if the judge thought on the facts as he and Mr. Rogers laid them out for the judge to justify.",
       "time": "00:43:17.58"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's the most that you can get out of it?",
       "time": "00:43:48.26"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It was if the Government wasn't urging at the beginning.",
       "time": "00:43:51.05"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Rogers.",
       "time": "00:44:07.59"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You're not really suggesting that petitioner in good faith left a series of forwarding addresses?",
       "time": "00:47:52.02"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That wasn't my question.",
       "time": "00:48:18.91"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "My question was whether that your contention based on this record that the judge should have instructed the jury to bring in a verdict of not guilty because you're client in good faith left a series of forwarding addresses at which he might have received notice had the board been diligent in giving him notice.",
       "time": "00:48:20.90"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How do you explain the two instances where he declined to appear for physical examinations?",
       "time": "00:50:47.26"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Leaving the insanity aside for a moment the --",
       "time": "00:51:31.57"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- the letter --- reads a letter that he wrote to the board saying he didn't want to be associated with murderers and so forth --",
       "time": "00:51:35.03"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- and his refusal on two occasions at least to appear for physical examinations should those be taken into consideration in determining whether these postcards and letters that he got from Tennessee with no address from a general delivery address at Veracruz, shouldn't it be taken -- take -- those things should be taken into consideration in determining whether he was actually trying to comply with the regulations.",
       "time": "00:51:43.50"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:52:34.37"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I thought the jury was (Inaudible)?",
       "time": "00:52:37.61"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, Mr. Rogers, the Court wants to thank you also for accepting the representation of this indigent defendant. We -- we consider that a public service.",
       "time": "00:52:51.11"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We thank you Mr. Solicitor General. We thank you for your very fair representation of the Government in this matter.",
       "time": "00:53:03.57"
     }

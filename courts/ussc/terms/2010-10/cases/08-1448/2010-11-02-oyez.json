@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2010/08-1448/20101102a_08-1448.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "ZACKERY P. MORAZZINI",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PAUL M. SMITH",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument first this morning in Case 08-1448, Schwarzenegger v. Entertainment Merchants Association. Mr. Morazzini.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's a deviant -- a deviant, violent video game? As opposed to what? A normal violent video game?",
       "time": "00:01:25.01"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There are established norms of violence?",
       "time": "00:01:40.00"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Some of the Grimm's fairy tales are quite grim, to tell you the truth.",
       "time": "00:01:44.25"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are they okay? Are you going to ban them, too?",
       "time": "00:01:52.56"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What's the difference? I mean, if you are supposing a category of violent materials dangerous to children, then how do you cut it off at video games? What about films? What about comic books? Grimm's fairy tales? Why are video games special? Or does your principle extend to all deviant, violent material in whatever form?",
       "time": "00:01:55.67"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I think that misses Justice Ginsburg's question, which is: Why just video games? Why not movies, for example, as well?",
       "time": "00:02:43.51"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, do you actually have studies that show that video games are more harmful to minors than movies are?",
       "time": "00:03:12.03"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Suppose a new study suggested that movies were just as violent. Then, presumably, California could regulate movies just as it could regulate video games?",
       "time": "00:03:46.30"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I don't think; is that answering Justice Kagan's question? One of the studies, the Anderson study, says that the effect of violence is the same for a Bugs Bunny episode as it is for a violent video. So can the legislature now, because it has that study, say we can outlaw Bugs Bunny?",
       "time": "00:04:14.65"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There are people who would say that a cartoon has very little social value; it's entertainment, but not much else. This is entertainment. I'm not suggesting that I like this video, the one at issue that you provided the five-minute clip about. To me, it's not entertaining, but that's not the point. To some it may well be.",
       "time": "00:04:35.79"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That same argument could have been made when movies first came out. They could have said, oh, we've had violence in Grimm's fairy tales, but we've never had it live on the screen. I mean, every time there's a new technology, you can make that argument.",
       "time": "00:05:07.78"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How is this any different than what we said we don't do in the First Amendment field in Stevens, where we said we don't look at a category of speech and decide that some of it has low value? We decide whether a category of speech has a historical tradition of being regulated. Now, other than some State statutes that you point to, some of which are very clearly the same as those that we struck down in Wynn, where is the tradition of regulating violence?",
       "time": "00:05:34.11"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could you get rid of rap music? Have you heard some of the lyrics of some of the rap music, some of the original violent songs that have been sung about killing people and about other violence directed to them?",
       "time": "00:06:31.71"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could the State--",
       "time": "00:06:48.83"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Why isn't that obscene in the sense that you are using the word, or deviant?",
       "time": "00:06:53.20"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "When you talk about minors, what are you -- what age group are you talking about? If a video game manufacturer has to decide under your statute how to -- where its game stands, what age of a child should the manufacturer have in mind? A 17-year-old? A 10-year-old?",
       "time": "00:07:16.27"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "How can they -- how can they do that? Isn't the average person likely to think that what's appropriate for a 17-year-old may not be appropriate for a 10-year-old or an 8-year-old?",
       "time": "00:07:58.93"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But California doesn't do that. California has in big letters 18> [\"]. So it's not is it okay for a 7-year-old, is it okay for a 12-year-old. Part of this statute requires labeling these video games in big numbers 18> [\"]. So it's 18 and California doesn't make any distinctions between 17-year-olds and 4-year-olds.",
       "time": "00:08:14.22"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "An average minor is halfway between 0 and 18; is that 9 years old?",
       "time": "00:08:54.65"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why wouldn't you, if necessary, simply say that a video game that appeals to the prurient, shameful, or morbid interests of those 18 -- or under, but let's take 18 -- and it's not suitable in the community for those 18, and it has no redeeming importance of any kind, no serious literary, artistic, political, or scientific value for those 18, that at least as to those, you can't sell it without -- the parent can buy it but the child can't buy it. So you can't sell to a 12-year-old something that would be horrible for an 18-year-old. Is that -- would you be willing to accept that if necessary to make this okay on its face?",
       "time": "00:09:11.62"
     },
@@ -299,13 +299,13 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay.",
       "time": "00:10:02.77"
     },
     {
       "turn": 44,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Morazzini, could I take you back to Justice Scalia's original question, which was what counts as deviant violence or morbid violence. Because I read your briefs all the way through and the only thing that I found you said that was clearly covered by this statute was Postal 2. But presumably the statute applies to more than one video game. So what else does it apply to? How many video games? What kind of video games? I mean, how would you describe in plain English what morbid violence is, what you have to see in a video game for it to be covered?",
       "time": "00:10:03.53"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So anything that has those kinds of violence counts?",
       "time": "00:10:55.90"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, so how do we separate violent games that are covered from violent games just as violent that are not covered?",
       "time": "00:11:04.53"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not concerned about the jury judging. I'm concerned about the producer of the games who has to know what he has to do in order to comply with the law. And you are telling me, well a jury can -- of course a jury can make up its mind, I'm sure. But a law that has criminal penalties has to be clear. And how is the manufacturer to know whether a particular violent game is covered or not?",
       "time": "00:11:22.14"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Does he convene his own jury and try it before -- you know, I really wouldn't know what to do as a manufacturer.",
       "time": "00:11:47.09"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So is what is covered here the mature category in the ratings? Is that what this statute covers? Is that what it's meant to cover?",
       "time": "00:12:06.24"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Some but not all.",
       "time": "00:12:17.37"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Let me just make one comment on that point. It seems to me all or at least the great majority of the questions today are designed to probe whether or not this statute is vague. And you say the beauty of the statute is that it utilizes the categories that have been used in the obscenity area, and that there's an obvious parallel there. The problem is, is that for generations there has been a societal consensus about sexual material. Sex and violence have both been around a long time, but there is a societal consensus about what's offensive for sexual material and there are judicial discussions on it. Now, those judicial discussions are not precise. You could have had the same questions today with reference to an obscenity statute, and we have -- we have said that, with reference to obscenity there are certain -- that there are certain materials that are not protected. Those rules are not precise at the margins and some would say not precise in a more significant degree as well. But you are asking us to go into an entirely new area where there is no consensus, no judicial opinions. And this is -- and this indicates to me the statute might be vague, and I just thought you would like to know that -- that reaction.",
       "time": "00:12:27.71"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about excessive glorification of drinking, movies that have too much drinking? Does it have an effect on minors? I suppose so. I -- I am not just concerned with the vagueness. I am concerned with the vagueness, but I am concerned with the First Amendment, which says Congress shall make no law abridging the freedom of speech. And it was always understood that the freedom of speech did not include obscenity. It has never been understood that the freedom of speech did not include portrayals of violence. You are asking us to create a -- a whole new prohibition which the American people never -- never ratified when they ratified the First Amendment. They knew they were -- you know, obscenity was -- was bad, but -- what's next after violence? Drinking? Smoking? Movies that show smoking can't be shown to children? Does -- will that affect them? Of course, I suppose it will. But is -- is that -- are -- are we to sit day by day to decide what else will be made an exception from the First Amendment? Why -- why is this particular exception okay, but the other ones that I just suggested are not okay?",
       "time": "00:14:29.99"
     },
@@ -413,13 +413,13 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, I think what Justice Scalia wants to know is what James Madison thought about video games. [Laughter] Did he enjoy them?",
       "time": "00:16:04.60"
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I want to know what James Madison thought about violence. Was there any indication that anybody thought, when the First Amendment was adopted, that there -- there was an exception to it for -- for speech regarding violence? Anybody?",
       "time": "00:16:13.77"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What's the earliest statute?",
       "time": "00:16:44.46"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What's the earliest statute and how much enforcement was--",
       "time": "00:16:46.16"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, on the principle, I mean, it's been quite some years, hasn't it, before this -- since this Court has held that one instance that courts -- that the country, legislatures, can regulate are fighting words? And we regulate fighting words, don't we?",
       "time": "00:17:01.98"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because they provoke violence. And the American Psychological Association and the American Pediatric Association have said that certain kinds of video games here create violence when children are exposed. There are 80 people who think to the contrary, there are two huge things of metastudies that think that -- not to the contrary. All right. So what are we supposed to do?",
       "time": "00:17:19.36"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Can I go back to what Justice Breyer was asking? Because this Court, with respect to the fighting words, Chaplinsky's \"in your face\", provoked an immediate action, the Court has been very careful to cordon that off so it doesn't have this spillover potential. So you -- you didn't latch on to fighting words. Your analogy is to obscenity for teenagers, as I understand it.",
       "time": "00:18:01.78"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So could I just make -- make sure I understand that, Mr. Morazzini, because as I understand the State has given up its argument that the interest protected by this law is an interest in preventing minors who see these games from going out and committing violent acts themselves; that the State is not saying that that's the interest in the law; is that correct? That instead the State is saying that the interest in the law is in protecting children's moral development generally?",
       "time": "00:18:47.31"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Can I have a point of clarification? Justice Ginsburg talked about the labeling parts of this act. The circuit court struck those portions of the act. You have not challenged that ruling.",
       "time": "00:19:25.09"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There are two sections to the act. One is a criminal act for selling to a minor, and the other is a requirement that you label in a certain way each video. The district court said both were -- I think the circuit court said both were unconstitutional, correct?",
       "time": "00:19:43.20"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And your brief has not addressed the labeling requirements at all.",
       "time": "00:20:00.24"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's an interesting concession on your part, that the labeling doesn't have a need separate from the restriction on sale. I would have thought that if you wanted a lesser restriction, that you would have promoted labeling as a reasonable strict scrutiny restriction to permit the control of sale of these materials to minors; but you seem to have given up that argument altogether.",
       "time": "00:20:46.75"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, you have conceded it by not appealing it. But we're not -- your case on labeling rises and falls on the sale to minors?",
       "time": "00:21:24.60"
     },
@@ -563,13 +563,13 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does--",
       "time": "00:21:38.00"
     },
     {
       "turn": 88,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I gather that -- that if -- if the parents of the minor want the kid to watch this violent stuff, they like gore, they may even like violent kids-- [Laughter] --then -- then the State of California has no objection? Right? So long as the parent buys the thing, it's perfectly okay.",
       "time": "00:21:39.17"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes.",
       "time": "00:22:02.33"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So that's basically all this is, is a -- a law to help parents, is that right?",
       "time": "00:22:09.52"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Do you think there is any barrier in California to minors' access to sexual material?",
       "time": "00:22:49.97"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--California has a Ginsberg type law.",
       "time": "00:23:00.70"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Does your office spend a lot of time enforcing that?",
       "time": "00:23:03.37"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there -- you've been asked questions about the vagueness of this and the problem for the seller to know what's good and what's bad. California -- does California have any kind of an advisory opinion, an office that will view these videos and say, yes, this belongs in this, what did you call it, deviant violence, and this one is just violent but not deviant? Is there -- is there any kind of opinion that the -- that the seller can get to know which games can be sold to minors and which ones can't?",
       "time": "00:23:30.79"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You should consider creating such a one. You might call it the California office of censorship. It would judge each of these videos one by one. That would be very nice.",
       "time": "00:24:13.23"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do we let the government do that? Juries are not controllable. That's the wonderful thing about juries, also the worst thing about juries. [Laughter] But -- but do we let government pass upon, you know, a board of censors? I don't think so.",
       "time": "00:24:38.16"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I can see your white light is on. But even if we get past what I think are difficult questions about vagueness and how to interpret this law, isn't there a less restrictive alternative with the -- the V-Chip?",
       "time": "00:25:18.27"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes.",
       "time": "00:25:40.26"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "V-Chips don't work?",
       "time": "00:25:53.75"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Morazzini.",
       "time": "00:26:01.55"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Smith.",
       "time": "00:26:03.03"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What about the distinction between books and movies may be that in these video games the child is not sitting there passively watching something; the child is doing the killing. The child is doing the maiming. And I suppose that might be understood to have a different impact on the child's moral development.",
       "time": "00:26:47.45"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What was the state of the record that was present before the Court in Ginsberg?",
       "time": "00:27:13.52"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So the Court acted on the basis of common sense?",
       "time": "00:27:29.42"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the material wasn't obscene. They were girlie magazines, I imagine to today's children they would seem rather tame, the magazines involved. But they were definitely not obscene with respect to adults.",
       "time": "00:27:43.97"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Talking about common sense, why isn't it common sense to say that if a parent wants his 13-year-old child to have a game where the child is going to sit there and imagine he is a torturer and impose gratuitous, painful, excruciating, torturing violence upon small children and women and do this for an hour or so, and there is no social or redeeming value, it's not artistic, it's not literary, et cetera, why isn't it common sense to say a State has the right to say, parent, if you want that for your 13-year-old, you go buy it yourself, which I think is what they are saying.",
       "time": "00:28:10.98"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It does, it does. What it has is -- and I have looked at the studies, perhaps not as thoroughly as you. But it seemed to me that Dr. Ferguson and Dr. Anderson are in a disagreement. They aren't in that much of a disagreement actually, but they have looked in depth at a whole lot of video games, not movies they are talking about or other things; they are talking about video games. And both groups come to the conclusion that there is some tendency to increase violence. And the American Psychiatric -- Psychological Association, the American Pediatric Association, sign on to a long list on I think it is the Anderson side that this does hurt children. I have to admit that if I'm supposed to be a sociological expert, I can't choose between them. If I can say could a legislature have enough evidence to think there is harm, the answer is yes.",
       "time": "00:28:51.93"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes. They need additional help because many parents are not home when their children come home from school. Many parents have jobs, we hope. And when their children are there, they do what they want. And all this says is that if you want that gratuitous torture of, let's say babies, to make it as bad as possible, what you do, parent, is you go buy it; don't let him buy it on his own, and he's 13 years old. Now, what's the common sense or what's the science of that?",
       "time": "00:29:49.95"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I don't want to interrupt your answer, but any 13-year-old can bypass parental controls in about 5 minutes.",
       "time": "00:30:32.81"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How much do these videos cost?",
       "time": "00:31:17.08"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not too many 13-year-olds walk in with a $50 bill, do they?",
       "time": "00:31:21.48"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You are away from the common sense. If you are going back to the common sense of it, what common sense is there in having a state of the law that a State can forbid and says to the parent that the child, the 13-year-old, cannot go in and buy a picture of a naked woman, but the 13-year-old child can go in and buy one of these video games as I have described? I have tried to take as bad a one as I could think of, gratuitous torture of children. Okay. Now, you can't buy a naked woman, but you can go and buy that, you say to the 13-year-old. Now, what sense is there to that?",
       "time": "00:31:36.91"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You mean love is not something that people have tried to encourage children to understand and know about? I mean, what's the difference between sex and violence? Both, if anything--",
       "time": "00:32:27.91"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Thank you. I understand that. [Laughter]",
       "time": "00:32:42.72"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Graphic violence. There is a difference. We do not have a tradition in this country of telling children they should watch people actively hitting schoolgirls over the head with a shovel so they'll beg with mercy, being merciless and decapitating them, shooting people in the leg so they fall down. I'm reading from the district court description: Pour gasoline over them, set them on fire and urinate on them. We do not have a tradition in this country. We protect children from that. We don't actively expose them to that.",
       "time": "00:32:55.00"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is it your position -- I know this is a facial challenge, Mr. Smith. So is it your position that the First Amendment could not prohibit the sale to minors of the video game that I just described?",
       "time": "00:33:41.48"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I know you don't, but what is -- you are avoiding the answer. Does the First Amendment protect the sale of that video to minors?",
       "time": "00:34:00.67"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "A minor?",
       "time": "00:34:08.29"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So your position is that the First Amendment does not, cannot, no matter what type of law, whether this one is vague or not, that the State legislature cannot pass a law that says you may not sell to a 10-year-old a video in which they set schoolgirls on fire.",
       "time": "00:34:13.21"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What if the State passed a -- what if California took the list of video games that your association rates as mature and said there's a civil penalty. And you apparently don't want your -- you don't want vendors selling those games to minors, isn't that right?",
       "time": "00:34:37.70"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "You don't want that. And what if California said there is a civil penalty attached to that?",
       "time": "00:34:56.12"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "You seem to argue that there really is no good reason to think that exposure to video games is bad for minors, exposure to really violent video games is bad to minors; is that right?",
       "time": "00:35:24.90"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, Mr. Smith, is there any showing that the States could make that would satisfy you, that would say yes, that's a sufficient showing for this law to go forward? You know, I understand that you think that the current studies don't suggest much of anything about harm.",
       "time": "00:35:49.11"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But are there studies that would be enough?",
       "time": "00:36:02.42"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You really don't want to argue the case on that ground. I gather you don't believe that the First Amendment reads, \"Congress shall make no law abridging the freedom of speech except those that make sense. \" Is that--",
       "time": "00:36:34.97"
     },
@@ -1025,19 +1025,19 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But we have here a new -- a new medium that cannot possibly have been envisioned at the time when the First Amendment was ratified. It is totally different from -- it's one thing to read a description of -- as one of -- one of these video games is promoted as saying, \"What's black and white and red all over? \" \"Perhaps the answer could include disposing of your enemies in a meat grinder. \" Now, reading that is one thing. Seeing it as graphically portrayed--",
       "time": "00:37:05.89"
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--And doing it.",
       "time": "00:37:36.41"
     },
     {
       "turn": 166,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--and doing it is still a third thing. So this presents a question that could not have been specifically contemplated at the time when the First Amendment was adopted. And to say, well, because nobody was -- because descriptions in a book of violence were not considered a category of speech that was appropriate for limitation at the time when the First Amendment was violated is entirely artificial.",
       "time": "00:37:37.46"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Smith, do you think all video games are speech in the first instance? Because you could look at these games and say they're the modern-day equivalent of Monopoly sets. They are games. They are things that people use to compete. You know, when you think about some of them -- the first video game was Pong. It was playing tennis on your TV. How is that speech at all?",
       "time": "00:38:39.92"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So are we going to separate video games into narrative video games and non-narrative video games?",
       "time": "00:39:20.74"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what about a law that says you can't sell to minors a video game -- it doesn't care what the plot is, but no video game in which the minor commits violent acts of maiming, killing, setting people on fire? What about that? Would that -- would that be regulating speech?",
       "time": "00:39:40.73"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not speech. You were saying, you just can't let the kid maim -- maim, kill, or set on fire.",
       "time": "00:40:04.33"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What the law would be directed at is not the plot, not the video game itself, but the child's act of committing murder, maiming, and so forth.",
       "time": "00:40:11.88"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The child is speaking to the game?",
       "time": "00:40:43.66"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Smith, your challenge is a facial challenge?",
       "time": "00:41:03.06"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So that under -- whether you use the Salerno test or the Glucksberg test, if there is either one or any applications that would satisfy the Constitution, the facial challenge fails. Right?",
       "time": "00:41:07.90"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I thought we referenced them last year in the Stevens case, and the only reason we didn't have to decide which applies is because we adopted an approach that looked at overbreadth and said this statute is overbroad, and specifically didn't decide whether it could be applied in that case to crush videos.",
       "time": "00:41:23.86"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I understood -- the tenor of much of the questioning, I think, is that there may be games and may be minors -- maybe a less violent game sold to a 17-year-old, perhaps that violates the First Amendment, but something like Postal 2 sold to a 10-year-old might well -- might well not violate the First Amendment to apply this law to that.",
       "time": "00:41:54.86"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And the way we approached the issue in Stevens, where we had hunting videos and crush videos, would say that it's too broad to apply the law to everything, so we strike it down, it's overbroad, but leave open the possibility that a more narrowly-drawn statute might pass muster. Why isn't that a good approach here?",
       "time": "00:42:15.95"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's not susceptible. Throughout you have been arguing your point, which is fair. You have some experts who favor you and you make that point very strongly, and your point's a pretty good one and a serious one, that it's very hard to draw this line under traditional First Amendment standards. But I would like you to deal with their point for a moment. And I take it their point is: There is no new First Amendment thing here. There is a category -- call them X -- which really are involving things like torturing children, et cetera. Maybe you don't like to sell them to anybody. You have an X or some special thing. But they exist, and they fit within a Miller-type definition. They are much worse than the simple girlie magazine that was involved there, and they will use traditional First Amendment tests. That is to say, there is speech at issue, that speech is being limited, it is being done for a good reason, compelling interest -- namely, this problem with the X videos and the torture and living it through -- and there is no less restrictive alternative that isn't also significantly less effective. See, I want you to deal with that directly, because what you have been doing for the most part is saying we would have to be in some new, total new area, et cetera. But their argument is you don't have to be in some totally new area, et cetera; apply traditional First Amendment standards and we win. That's their argument and I would like to hear what you have to say about that, specifically.",
       "time": "00:42:50.82"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "This is not an exception. It is the traditional strict scrutiny First Amendment test.",
       "time": "00:44:37.25"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Let's -- to get you to focus on it, I'll say I've made the argument.",
       "time": "00:44:49.68"
     },
@@ -1217,13 +1217,13 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But they have plenty of evidence that--",
       "time": "00:45:33.89"
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why couldn't you make the same arguments with respect to the obscenity statutes?",
       "time": "00:45:35.87"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why shouldn't violence be treated the same as obscenity?",
       "time": "00:45:44.94"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, the Court -- the Court struggled for many, many years and to some extent is still struggling with obscenity. They came up with basically what we might call the Miller standards, and -- and the State has said this gives us a category that we can work with, with reference to violence.",
       "time": "00:46:24.11"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You can make all those arguments with reference to obscenity.",
       "time": "00:47:14.78"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you started Ginsberg with something that is prescribable even with regard to adults.",
       "time": "00:47:40.72"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You know that there is such a thing as -- as obscenity, which can be proscribed even -- even as to adults. Whereas in this case, I don't know that there's such a thing as morbid violence which could be eliminated from ordinary movies.",
       "time": "00:47:48.28"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Let me be clear about exactly what your argument is. Your argument is that there is nothing that a State can do to limit minors' access to the most violent, sadistic, graphic video game that can be developed. That's your argument--",
       "time": "00:48:28.45"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--Is it or isn't it?",
       "time": "00:48:48.64"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--So when you say--",
       "time": "00:49:00.53"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So just to be clear, your answer to Justice Alito is at this point there is nothing the State can do?",
       "time": "00:49:03.49"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Could I just have a simple answer?",
       "time": "00:49:13.37"
     },
@@ -1355,13 +1355,13 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "There is nothing the State can do.",
       "time": "00:49:14.70"
     },
     {
       "turn": 220,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Mr. Smith, how can you say that? There is plenty of proof that -- that children are going into stores and buying these games despite the voluntary rating system, despite the voluntary retailer restraint by some. There is still proof out there and an abundance of it that kids are buying the games.",
       "time": "00:49:16.39"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And there is proof that some parents, as well intentioned as they may or may not be, have not been able to supervise that. So I -- starting from the proposition that there is a problem, it's a compelling State need, why are you arguing that there is no solution that the State could use to address that problem?",
       "time": "00:49:34.08"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But it's still about 20 percent of sales are going to kids.",
       "time": "00:50:06.10"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Could you have a law that says the State has to put -- the dealers have to put the violent video games in a particular area of the video store? That is not -- and then -- you know, and minors are not allowed in that area?",
       "time": "00:50:27.07"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes.",
       "time": "00:50:51.63"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Your answer -- your answer to the first question of Justice Alito and the Chief Justice was yes, isn't that -- that you are saying that there is nothing they can do? So now, am I right about that or am I not right?",
       "time": "00:50:54.61"
     },
@@ -1433,13 +1433,13 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I am right. Okay. All I wanted was an answer to that.",
       "time": "00:51:10.11"
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So they can't say, example, all the -- all the highest rated videos have to be on the top shelf out of the reach of children. Can they do that?",
       "time": "00:51:12.01"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That's what they do with cigarettes or something, isn't it?",
       "time": "00:51:21.45"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I know that cigarettes are not speech, Mr. Smith. Cigarettes are something that we have determined are harmful to children. The question is, you say the record doesn't support the idea that these video games are harmful to children. Some of us may conclude that it does.",
       "time": "00:51:26.95"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But on that -- on that score, Mr. Smith, there is a study by the FCC. The question is whether violence can be restricted during the hours when most children are awake, just the way pornography is. I don't remember what -- what are the hours, that -- something like from 10:00 in the evening? I don't -- but didn't the FCC say, yes, we could do the same thing for violence that we are doing for sex, except we don't think we ought to do it, we think Congress should do it?",
       "time": "00:51:50.46"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And you say there is no problem because 16-year-olds in California never have $50 available to go buy a video game, and because they never have TVs in their room and their parents are always home watching what they -- they do with their video games, and the parents -- and the video games have features that allow parents to block access to -- to block the playing of violent video games, which can't be overcome by a computer-savvy California 16-year-old, that's why there is no problem, right?",
       "time": "00:53:20.83"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We draw that kind of line of course in the death penalty area, don't we? Between 18-year-olds? You are under 18; you can't be sentenced to life without parole; if you were over 18 you can.",
       "time": "00:54:28.52"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "And we do it for drinking; we do it for driving.",
       "time": "00:54:38.92"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Stick to the X things, maybe. Maybe it would restrict the total gratuitous torture. And if that's what it restricted, why is that such a terrible thing?",
       "time": "00:55:02.91"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And if as you experimented with other things, as they did in the obscenity area, you could discover you could limit it to that.",
       "time": "00:55:11.84"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, you have your rule, so why wouldn't the first step be they would follow your rules? Your rules. The X things would be limited to people who are over 18, and let's see if we ever get prosecuted for a different one. And you might never.",
       "time": "00:55:30.57"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Smith. Mr. Morazzini, you have four minutes remaining.",
       "time": "00:56:10.98"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. If it has a plot it has artistic value, is that going to be the test for artistic value? Anything that has a plot?",
       "time": "00:56:56.69"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well--",
       "time": "00:57:07.39"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--One factor to be considered, sure. But you were not telling us that so long as it has a plot it's okay?",
       "time": "00:57:09.84"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can't have artistic videos that involve maiming and cutting off heads and eviscerating people, right, so long as its artistic it's okay.",
       "time": "00:57:30.20"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Artistic for whom, for a 5-year-old? What a 5-year-old would appreciate as great art, is that going to be the test?",
       "time": "00:57:52.45"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "You think Mortal Combat is prohibited by this statute?",
       "time": "00:58:03.06"
     },
@@ -1643,13 +1643,13 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It's a candidate, meaning, yes, a reasonable jury could find that Mortal Combat, which is an iconic game, which I am sure half of the clerks who work for us spend considerable amounts of time in their adolescence playing.",
       "time": "00:58:16.08"
     },
     {
       "turn": 268,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't know what she's talking about.",
       "time": "00:58:29.19"
     },
@@ -1661,7 +1661,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Would a video game that portrayed a Vulcan as opposed to a human being, being maimed and tortured, would that be covered by the act?",
       "time": "00:58:57.91"
     },
@@ -1673,7 +1673,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So if the video producer says this is not a human being, it's an android computer simulated person, then all they have to do is put a little artificial feature on the creature and they could sell the video game?",
       "time": "00:59:12.99"
     },
@@ -1685,7 +1685,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So what happens when the character gets maimed, head chopped off and immediately after it happens they spring back to life and they continue their battle. Is that covered by your act? Because they haven't been maimed and killed forever. Just temporarily.",
       "time": "00:59:51.13"
     },
@@ -1697,7 +1697,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Isn't that feedback to Justice Scalia's question?",
       "time": "01:00:13.36"
     },
@@ -1709,7 +1709,7 @@
     },
     {
       "turn": 278,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel.",
       "time": "01:00:27.39"
     },
@@ -1721,7 +1721,7 @@
     },
     {
       "turn": 280,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "The case is submitted.",
       "time": "01:00:31.74"
     }

@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/83-372/19840417a_83-372.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "PATTI S. KITCHING",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "DAVID A. STRAUSS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mrs. Kitching.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Kitching, is that the standard procedure in California whereby the state collects delinquent taxes? It doesn't go to court to get a garnishment, but it just kind of has an assessment like the IRS?",
       "time": "00:03:08.78"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It's not just true of government employees, but it's true of everybody.",
       "time": "00:03:33.62"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mrs. Kitching, what do you mean when you say... or did you say that it's the same thing as judicial judgment, that it's treated likewise?",
       "time": "00:03:56.79"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The administrative--",
       "time": "00:04:05.63"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--What's this? By judicial decision?",
       "time": "00:04:10.43"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is it recorded like a judgment and things like that, like a judicial--",
       "time": "00:04:40.46"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Well, file a lien, file a lien on real estates, is that what you're talking about?",
       "time": "00:04:51.22"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So what is the waiver of immunity that you're relying on?",
       "time": "00:05:14.70"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, garnishment in connection with the judgment.",
       "time": "00:05:37.13"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think you're suing... you're suing... you're suing the Postal Service?",
       "time": "00:05:44.90"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The statute gives the right to sue and be sued.",
       "time": "00:06:22.92"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So there's no question about that, is there?",
       "time": "00:06:26.20"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I take it that when you refer to garnishment, it included also a prejudgment garnishment simply on the basis that a tax had been identified and ascertained.",
       "time": "00:06:29.84"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather, Mrs. Kitching, your whole argument, or do I correctly understand it, is that you come within the sue and be sued waiver of sovereign immunity because the assessment is treated like a judicial judgment.",
       "time": "00:07:00.38"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's your whole argument.",
       "time": "00:07:14.35"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mrs. Kitching, do you plan to address the jurisdictional question at all, whether this is a proper appeal? I guess the court of appeals didn't hold California's law preempted. It just interpreted the federal legislation as not providing for a waiver. Do you think, then, that it's a proper appeal?",
       "time": "00:07:39.00"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess one--",
       "time": "00:09:00.17"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Could read it the other way and say that the court of appeals just said the federal legislation didn't do what you said it did.",
       "time": "00:09:01.56"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mrs. Kitching, why did California not use the other way of having the government collect the money for them?",
       "time": "00:09:39.32"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask you a question right there.",
       "time": "00:12:10.39"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The argument, I know, has proceeded entirely on the question whether there's waiver of sovereign immunity. But when you read Justice Douglas' opinion in the Burr case, he seems to assume that the Congress could have decided either to confer immunity or not to confer immunity without even reaching the question of labor. Do you agree that... that there would be sovereign immunity here if Congress had said nothing at all about this?",
       "time": "00:12:12.49"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, is there any law on the question whether an agency such as this automatically picks up the federal government's immunity or not?",
       "time": "00:12:52.75"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that at least... do you argue or don't you that there's no immunity to start with? I'm not quite clear on your position.",
       "time": "00:13:04.83"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seems to me it's something we ought to decide before we decide whether... you don't decide whether something's been waived unless you first decide that it would have been there to be waived.",
       "time": "00:13:23.07"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But even if... even if there was no immunity in the first place, the argument is that your... that the agreement between the Postal Service and the state forbids collecting delinquent taxes.",
       "time": "00:13:53.00"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:14:07.05"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Even the Burr opinion was... used the term waiver of sovereign immunity as well as the expression Justice Stevens referred to about conferring immunity.",
       "time": "00:14:08.39"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean it didn't speak just in one voice on the subject, did it?",
       "time": "00:14:18.58"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's kind of ambiguous, because it says no question is the power of Congress to waive the governmental immunity is present. They say there's no waiver issue in the case. That's what Justice Douglas said on page 244.",
       "time": "00:14:26.72"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it didn't... it certainly has got something to do in the sense that it didn't authorize the collection of delinquent taxes.",
       "time": "00:20:27.51"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:20:45.08"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Didn't one of the legislative reports, either House or Senate, say affirmatively that this was to try to cooperate fully with the states in--",
       "time": "00:23:27.39"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, it's not inconceivable that Congress thought that they weren't permitted, that the state was not permitted to collect delinquent taxes by... by garnishment.",
       "time": "00:24:11.15"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Congress may well have, maybe perhaps mistakenly, thought that the sue and be sued clause didn't have the reach that you say it does.",
       "time": "00:24:24.29"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I'm sure you don't.",
       "time": "00:24:40.00"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Strauss.",
       "time": "00:25:27.96"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what's... what may... why is it the plain meaning of the statute that the Postal Service may be garnished pursuant to a court judgment?",
       "time": "00:27:30.62"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that may be, but the Postal Service isn't being sued.",
       "time": "00:27:49.10"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the clause really means more than being sued or sued.",
       "time": "00:28:00.00"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right. So what if the California law says final administrative assessments have the force of a judgment? They're unchallengeable. They're just like a judgment. And then you garnish the Postal Service in connection with this judgment.",
       "time": "00:28:07.58"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, part of the state law says it's the equivalent of a lawsuit in the judgment.",
       "time": "00:28:25.28"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is... is your basic reason for that that your concept of sue and be sued clause means a garnishment issuing out of a process of a court?",
       "time": "00:28:40.10"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that if these... if the administrator here instead of garnishing on the assessment went to court and got a state court judgment, there could be a garnishment.",
       "time": "00:28:52.72"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even though the... even though the state law says don't do it because you already have a judgment.",
       "time": "00:29:07.65"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it doesn't say don't do it, but it says that you already have the judgment. But they did say it.",
       "time": "00:29:17.30"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What can happen after this assessment becomes what's called a judgment under state law? What can happen after that?",
       "time": "00:29:52.29"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but let's assume... anyway, there's a final assessment, is that it? And your colleague on the other side says that's the equivalent of a judgment under our... under our law. What can happen to it after that?",
       "time": "00:30:03.33"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but how about the taxpayer?",
       "time": "00:30:19.18"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what about the taxpayer? Forget about the garnishment for a minute.",
       "time": "00:30:24.62"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There's a final assessment. What can the taxpayer do about it besides paying?",
       "time": "00:30:28.54"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the tax assessment is not final in the sense that the taxpayer can never challenge it.",
       "time": "00:30:43.86"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, if the taxpayer... if the taxpayer-employee of the Postal Service gets garnished, like California wants to do, and they take the money out of his pay, and then he challenges the tax, he's going to get his money back. It's just that he's having to pay in advance.",
       "time": "00:31:10.49"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, now, what do you mean? You mean the Postal Service, even though it's holding funds under a garnishment, nevertheless would feel obligated, holding this week's salary under a writ of garnishment, would feel obligated to pay the salary to the employee?",
       "time": "00:31:40.81"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but the sue and be sued clause certainly covers that if the garnishment issued out of court.",
       "time": "00:32:08.67"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But if this were a judgment, it would be collected from the Post Office?",
       "time": "00:32:18.91"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "California could do it?",
       "time": "00:32:25.89"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So the only problem here is the word \"judgment\"?",
       "time": "00:32:31.36"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that the one thing, the word \"judgment\"?",
       "time": "00:32:35.78"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's all that's involved. And California says this is a judgment. If California passes a statute that says that this is now labeled a judgment, then you're out cold.",
       "time": "00:32:40.14"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I thought you said that.",
       "time": "00:32:54.26"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, suppose California said this is a suit?",
       "time": "00:33:00.77"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They'd have to do more, then.",
       "time": "00:33:04.44"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They'd have to go to court.",
       "time": "00:33:08.56"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, suppose they go to court? Suppose they named us as the tax court?",
       "time": "00:33:11.94"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "A tax court?",
       "time": "00:33:19.83"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And the tax court issued a judgment.",
       "time": "00:33:22.90"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You would honor it.",
       "time": "00:33:27.46"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But we're not... we're not engaged in semantics at all.",
       "time": "00:33:32.34"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Strauss, are there any cases in which this Court has held that a federal agency is not immune from judicial process but is immune from some kind of administrative process?",
       "time": "00:34:03.04"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is there a doctrine... what is the scope of the doctrine of sovereign immunity? It's immunity from suit, isn't it?",
       "time": "00:34:16.52"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, where do you... what case talks about immunity from anything other than suit?",
       "time": "00:34:24.72"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, there's no authority for the proposition that it couldn't, is there?",
       "time": "00:34:37.51"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, the Keifer... the Keifer case really says the first question is has Congress created an immunity when it created this agency.",
       "time": "00:34:44.91"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's what Justice Frankfurter said is the issue.",
       "time": "00:34:52.60"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, he even went farther, as I read the opinion, and said that when there was a silence with respect to the Smithsonian Institute, that there was no implied immunity.",
       "time": "00:35:13.59"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Without a sue and be sued clause.",
       "time": "00:35:23.72"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one other question, Mr. Strauss. Supposing the California procedure... and I don't know whether it did... required the taxpayer to pay the tax if he wanted to challenge an assessment. Would that make any difference? In other words, that there... that he had to part with his money before he could question the assessment. Then the money that would be collected from the government would have to be paid before he could raise any question about it. Would that make any difference in your argument?",
       "time": "00:36:31.65"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Okay.",
       "time": "00:36:59.50"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is that quite that clear? I think there's something to your opponent's distinction between withholding and levy under assessment.",
       "time": "00:38:44.39"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But withholding... are you talking about withholding taxes that the employer owes or taxes that should have been withheld from an employee?",
       "time": "00:39:04.83"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yeah. I don't think that's quite the same.",
       "time": "00:39:17.38"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why? I don't understand that. Just... you're talking about just withholding current taxes. Without this legislation, I don't suppose the Post Office Department would have any authority whatsoever to withhold from an employee's pay state taxes.",
       "time": "00:39:35.91"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Which would be after an assessment levied-- --Yes, exactly. --By the Franchise Tax Board. Exactly. And withholding taxes aren't collected by assessment levies.",
       "time": "00:40:01.80"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But ordinarily, withholding taxes simply aren't collected by levy. They may be collected under the threat of levy, but they're simply collected by the employer agreeing, perhaps under threat of levy, to withhold from the employee's paycheck.",
       "time": "00:40:22.32"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The employee... you're just bootstrapping. Unless the employer has the authority to withhold something from the employee's wages, there's not going to be any delinquent withholding taxes.",
       "time": "00:40:37.78"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Exactly. And so there won't be any delinquent withholding taxes to be collected by a levy. So this statute was essential to have the employer deduct from the wages every month a portion of the employee's estimated tax.",
       "time": "00:40:55.28"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't... I don't see how the sue and be sued clause could possibly authorize the employer from withholding wages. If the employee went to the employer and says how come you're withholding money from me; pay me my whole... and he says well, I just... I just want to cooperate with the state.",
       "time": "00:41:19.24"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He would lose. The employer would lose.",
       "time": "00:41:38.38"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The employer... state taxes, or he can't give you... can't... can't issue an order to them saying withhold taxes.",
       "time": "00:41:43.70"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I don't know whether Virginia is a more favored state, but in Virginia, residents of Virginia who work for the federal government have their Virginia tax taken out of their federal salary.",
       "time": "00:42:15.38"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I take it the position of California is that you are sued.",
       "time": "00:42:52.22"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In this case here.",
       "time": "00:42:58.27"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Will be defended.",
       "time": "00:43:07.73"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Strauss, should our interpretation of the sue and be sued clause in Section 401 be affected in any way by our understanding of Congress' intent in trying to set up an independent agency with the Postal Service? Should the structure and intent of Congress help us in determining the scope of the sue and be sued clause? Now, while it isn't set up totally as an independent business, as you've already said, Congress attempted to move in that direction and give the Postal Service more businesslike attributes and make it a more independent agency. And it seems to me one of those attributes might well be that it should be subject to administrative withholdings in the nature of a garnishment such as this. Is that possible?",
       "time": "00:43:24.03"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I don't know that whole waves of litigation is an accurate description. This seems like a pretty normal state activity to want to collect its taxes and to treat the administrative garnishment much like a judicial garnishment.",
       "time": "00:44:58.79"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are there a fair number of agencies with sue and be sued clauses who are not protected, as you suggest, by the Federal Tort Claims Act?",
       "time": "00:46:14.61"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask if... if you win this case and the California legislature passed a statute and said that before serving any levies on or tax assessments on the U.S. Postal Service, you shall go over to the nearest judge and get it signed by a judge, and then you may serve it, would that cure the problem?",
       "time": "00:46:31.27"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it wouldn't take much more than that, in any event, would it?",
       "time": "00:47:02.74"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And how... how does it matter to the United States whether that intervention takes place or not?",
       "time": "00:47:09.33"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me limit my question to cases in which an official authority, an official representative of the State of California is proceeding against the government agent. Can it then make any difference whether you get the intervention of the judicial officer or not?",
       "time": "00:48:01.95"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You mean if there... I don't know what you'd remove if they serve you with an assessment. You're not... the Postal Service doesn't have any interest in contesting the amount of the assessment, would it?",
       "time": "00:48:18.41"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh, I see. I see.",
       "time": "00:48:37.61"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but under Burr a sue and be sued clause allows garnishment prior to judgment.",
       "time": "00:48:59.16"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but certainly Burr has dicta in it. So I mean you're not... in answer to Justice Stevens, you're... you're not talking basically about a situation in either case where there's been a final adjudication of the right.",
       "time": "00:49:15.01"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But in response to that, you earlier told me it didn't matter if he had to pay the judgment... pay the assessment in order to challenge it. You'd still take the same position.",
       "time": "00:49:56.50"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Strauss, describe to me what California would have to do to make this law compatible with your views of a judicial decision.",
       "time": "00:50:19.24"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You have the tax board, and the tax court finds a delinquency in the payment of state income taxes.",
       "time": "00:50:31.11"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "At that point would the statute have to provide that... that the state would have to go to court to enforce the delinquency?",
       "time": "00:50:37.99"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well,... well, if... if... if the state went to court, would it sue the Postal Service?",
       "time": "00:50:54.22"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "The taxpayer.",
       "time": "00:51:06.18"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "So that the tax... the tax board has already found that the taxpayer owes them money and had, as I understand it from the Attorney General, a due process hearing and lost. Are you suggesting that California now would have to provide an additional procedure in which there would be a trial before a judge?",
       "time": "00:51:07.87"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "They don't now under California law, but I'm trying to ascertain what California would have to do to comply with what you said it must do before it can garnishee the salary owed by the Postal Service.",
       "time": "00:51:37.58"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Even though the administrative agency provided all of the due process that a court would provide?",
       "time": "00:51:58.80"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, there are regulatory commissions in every state in the United States as well as in the government that have both judicial and administrative legislative powers.",
       "time": "00:52:09.94"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "They would.",
       "time": "00:52:25.15"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "They wouldn't have to go to judgment to get to this point. I suppose 90 percent of all the garnishments in the United States are prejudgement. The garnishment is served on the same day as the first process. So as a practical matter, if they did it that way in California, started the suit, served the garnishment, it would wash out because they would probably have no defense in the vast majority of the cases.",
       "time": "00:52:26.65"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That doesn't comport with studies on the subject.",
       "time": "00:53:09.29"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "They were reduced after Snydak, but they're still overwhelmingly prejudgments.",
       "time": "00:53:12.87"
     },
@@ -1485,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Ms. Kitching.",
       "time": "00:54:24.12"
     },
@@ -1497,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, while you're on policy, why don't you have the postal authority to deduct it, to withhold it?",
       "time": "00:55:26.84"
     },
@@ -1509,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why don't you have the postal authority to withhold the taxes from the employee?",
       "time": "00:55:38.26"
     },
@@ -1521,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You can do that with a piece of paper.",
       "time": "00:55:47.72"
     },
@@ -1533,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you don't expect the postal authority to collect the money that they work on outside jobs, do you?",
       "time": "00:56:03.61"
     },
@@ -1545,13 +1545,13 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel.",
       "time": "00:56:22.32"
     },
     {
       "turn": 251,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10:00.",
       "time": "00:56:24.28"
     }

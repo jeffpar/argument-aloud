@@ -3,43 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1976/75-554/19770111a_75-554.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "NORMAN J. WATKINS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JUDD F. CROSBY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments in next in 75-554, Beal Against Doe and Others. Mt. Watkins you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "What do you mean, ?It was never litigated in earnest?? Was it litigated at all?",
       "time": "00:03:51.73"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What did it do about the Constitution?",
       "time": "00:05:40.68"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Watkins, are you tying that definition, however, into what was said here in Doe Against Bolton?",
       "time": "00:06:14.05"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So that you are conceding that medical necessity under the Pennsylvania statute means what was spelled out here in Doe against Bolton?",
       "time": "00:06:22.54"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, that is a substantial concession in your part, is it not?",
       "time": "00:06:37.48"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I gather from some of your prior remarks, you were equating at almost the abortion on the bound, but I am accepting your concession.",
       "time": "00:07:15.31"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I do not want no misunderstanding about it.",
       "time": "00:07:23.04"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Possibly, this subjective, psychological or emotional problem caused by the expectant mother by her concern about the increase in the family might be such a health problem, such as would lead the physician to certify that an abortion was medically necessary, you would concede that?",
       "time": "00:08:30.63"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:08:55.63"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Apart from the certification by the two other physicians, what physician is this? Is this?",
       "time": "00:09:15.87"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The woman?s choice?",
       "time": "00:09:23.18"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could not this lead to physician shopping?",
       "time": "00:09:25.35"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In other words, until the Medical Association or some other such authority might step-in on that kind of an issue, the state accepts with finality the medical opinion?",
       "time": "00:10:04.67"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I take it thought that in the State?s view there would be a substantial number of cases in which a position that would not certify medical necessity, but nevertheless there would be an abortion and the woman would have a constitutional right to obtain that under this Court?s decision?",
       "time": "00:10:58.46"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We would not want to reargue the?",
       "time": "00:11:40.81"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The constitutional issue, but I understood you to mean that there would be cases that a woman would have a constitutional right to get an abortion from somebody, but she could not get a certification of medical necessity?",
       "time": "00:11:45.35"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Unless there is, this case ? this case?",
       "time": "00:12:04.87"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "you are talking about that segment referred to by my brother White, a woman who would have a constitutional right to have an abortion performed, but who no reasonable qualified physician could certify that it was necessary for her health?",
       "time": "00:12:09.74"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Unless there is such a segment. This case?",
       "time": "00:12:28.67"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "General Watkins, before you leave that point, the Court of Appeals listed five things, five conditions that had to be met, one of five conditions before an abortion would be performed. It seems to me they described the right to an abortion in Pennsylvania is narrower than you describe it. Are you describing a non-therapeutic abortion in the same terms that the Court of Appeals found?",
       "time": "00:12:41.31"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I see.",
       "time": "00:13:24.79"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does that made clear to the physicians in Pennsylvania?",
       "time": "00:13:44.42"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is in the record?",
       "time": "00:14:17.05"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You regard that as somewhat a contradiction in terms?",
       "time": "00:16:40.29"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, some physicians perform professional services for purely cosmetic reasons?",
       "time": "00:17:13.97"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, but in other words, why is it a contradiction in terms? They do other things besides therapeutic??",
       "time": "00:17:24.19"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Properly and legitimately performed by a physician.",
       "time": "00:17:44.21"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But it does fund pregnancy at some time, does not it?",
       "time": "00:21:03.06"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And, is it not a pretty good argument that does fund conditions?",
       "time": "00:21:12.10"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, I do not think you have answered my observations. Go ahead.",
       "time": "00:21:42.42"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, by hypothesis though these people have gone to some doctor, have they not, who would perform an abortion on them? I mean, they have not gone to a midwife?",
       "time": "00:22:28.90"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is it not the gist of their complaint that they can find a doctor who would perform an abortion, but that Pennsylvania would not pay for it under the circumstances that they are performing?",
       "time": "00:22:42.52"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Related to health?",
       "time": "00:23:22.16"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "General Watkins, in Pennsylvania is it lawful for anyone, except the doctor, to perform an abortion?",
       "time": "00:23:34.26"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it is not a consumer service that just anybody can perform?",
       "time": "00:23:44.45"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, but I take it when a pregnant person goes to the doctor, sooner or later, she is going to require some kind of service by that doctor or some other doctor?",
       "time": "00:24:13.62"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There is medical treatment that is necessary.",
       "time": "00:24:23.61"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "She can make one choice, she gets reimbursed, another choice, she does not?",
       "time": "00:24:29.12"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not when she makes the choice, if the physician makes a choice for an acceptable reason?",
       "time": "00:24:41.54"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. General, let me ask one other question. It just crossed my mind. Supposing during child birth, a doctor determined that it would be desirable for a patient having a particular kind of anesthesia, but that was not really necessary. She could get to deliver the child without that particular anesthesia, but it is more expensive. Would she be reimbursed for that?",
       "time": "00:26:28.02"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is it necessary for it be reimbursement?",
       "time": "00:26:50.20"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But not medically necessary. That is my question.",
       "time": "00:27:02.48"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "As a practical matter it would be paid for, but?",
       "time": "00:27:09.73"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In other words, if he said, ?I advised her that it was not necessary, but she insisted upon it as a matter of choice? then you would not pay for it?",
       "time": "00:27:25.49"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Very well Mr. Watkins. Mr. Crosby.",
       "time": "00:27:37.89"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Cosby, I am confused about one preliminary matter and I should have asked Mr. Watkins maybe. Do we have today funding for these abortions that your clients want?",
       "time": "00:29:45.20"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "As a result of this injunction and this litigation?",
       "time": "00:30:20.93"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But are funds available?",
       "time": "00:30:28.61"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What in the light of the Hyde Amendments are the funds available?",
       "time": "00:30:32.72"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I want to be sure we have a live controversy here.",
       "time": "00:30:40.52"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you arguing the Constitutional question or the statutory question?",
       "time": "00:31:40.35"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And why do you look to these particular interests in arguing the statutory question?",
       "time": "00:31:45.94"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you not have to start from the other end though and show why the 1965 Act of Congress prevents Pennsylvania from doing this unless it can show these interests you are talking about?",
       "time": "00:32:24.09"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When you say the Statute, you mean the Pennsylvanian Statute?",
       "time": "00:33:04.88"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is your authority for that last statement?",
       "time": "00:33:09.28"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What if the State excluded appendectomy?",
       "time": "00:34:14.64"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What are the precise statutory tests? Is it as the government?s Amicus brief says, whether or not the State?s program establishes reasonable standards for determining the extent of medical assistance under the plan which are consistent with the objectives of Title XIX? Is that the positive standard?",
       "time": "00:34:42.22"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We have a statutory preliminary lead here, at least we have a statutory question?",
       "time": "00:35:13.80"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Whether or not what the State has done here is consistent with Title XIX and it is such an inquiry, it is quite important, I think to find out what statutory language we are talking about and have I correctly quoted the applicable statutory language?",
       "time": "00:35:19.14"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right, those are the dispositive words?",
       "time": "00:35:44.93"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:35:48.65"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does the record show that doctors would have performed these abortions in these people here?",
       "time": "00:36:22.33"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even though it was not medically required?",
       "time": "00:36:42.83"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But my point was they would have done it if they had been paid?",
       "time": "00:37:01.80"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even though, medically, it was not required, is the record clear on that?",
       "time": "00:37:06.43"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Crosby, does 1396 indicate that the statutory objective of meeting the cause of necessary medical assistance?",
       "time": "00:37:16.04"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I did not ask about A-17, I asked about 1396, anywhere in 1396?",
       "time": "00:37:36.26"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Saying what the purpose of the?",
       "time": "00:37:52.79"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Alright, what would that say?",
       "time": "00:37:55.07"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you not think that is rather relevant statutory language as to what the Social Security Act is trying to do?",
       "time": "00:38:05.69"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, is that any different in what Pennsylvania, at least claims that its program provides for?",
       "time": "00:38:12.33"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The state has not excluded appendectomy. Does it claim that it is excluded things for abortions that are not medically necessary?",
       "time": "00:38:31.51"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the department that administers the Act says that this is what the Act aims at, namely just necessary medical services and that Pennsylvania?s program is consistent with the Act?",
       "time": "00:38:38.67"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, anyway that language is in the Act and it is relevant and does bear on the case?",
       "time": "00:39:03.24"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Before you go on, let me return to the appendectomy. There was a period in medical factor says these things go and appendectomies were a fad and doctors were doing it, surgeons were doing it in preventive way, so that you do not have an attack of appendicitis while you are out on a hunting trip or some such thing. Now, suppose you have an appendectomy which is performed that where was no medically indicated acute condition or necessity for it, but for which a surgeon could be found to perform it. Do you think Pennsylvania should pay for an elective appendectomy which is not medically indicated?",
       "time": "00:40:09.05"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Crosby can I just interrupt? I am still troubled by the same problem I think that Mr. Justice Rehnquist was concerned about. You are arguing about state interests that are not necessarily served here. You argue the physical interest and maternal health interest, but neither of those is an argument made by your opponent. We would basically have a statutory question and you have not met any of the seven points he makes. I assume you are going to meet those rather than arguing what sounds to me like a constitutional arrangement?",
       "time": "00:41:50.59"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When you say allowing Mr. Crosby, for what you mean really, is requiring it?",
       "time": "00:44:47.88"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Crosby, let me just, perhaps you have answered in your brief, but I am just trying to be sure I understand. Is it your position that an abortion on demand is ?necessary? within the applicable standard or that the State may not impose the standard of necessity?",
       "time": "00:45:55.57"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And so it may not impose the standard. Then in my example about anesthesia where the patient wants a more expensive anesthesia than the doctor could in good conscience say it was necessary, is she entitled to it?",
       "time": "00:46:13.94"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Crosby, are you going to enter the cosmetic point on which the State put reliance on?",
       "time": "00:50:16.77"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Those are medically required in this case.",
       "time": "00:51:03.26"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you see no connection?",
       "time": "00:51:11.72"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is because once a woman is pregnant it is clear that the services of the physicians are going to be medically necessary, either by reason of miscarriage or a live birth or an abortion?",
       "time": "00:51:53.07"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does the fact that the medical services are necessary mean that any particular medical service, namely an abortion, is in that category?",
       "time": "00:52:14.31"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How do they interfere with the physician?s discretion when the State suggested that the physician informs the State that it is medically necessary for the protection of health or life, that the State does not challenge that? It is the affirmative policy of the State to reimburse for those services.",
       "time": "00:52:55.07"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I think it is considered State?s program.",
       "time": "00:53:17.69"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do we have a live case here? How about the particular plaintiff that filed this action in the District Court? Would they meet the Pennsylvania requirements or would they not?",
       "time": "00:54:32.04"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then I take it that the State was justified on the terms that now argued in contesting the temporary restraining order. It may have not done it on those grounds, but certainly it was justified if policy would have been as now announced would have been infringed by the temporary restraining order?",
       "time": "00:54:49.89"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you not arguing that the State is required to reimburse for every abortion on demand? Is that what your argument comes down to?",
       "time": "00:55:10.19"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let us change the question to elective abortion then and perhaps, that is a little less loaded.",
       "time": "00:55:53.64"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "When elective abortions are used, the State must pay for it.",
       "time": "00:56:04.29"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well then your answer to my question must be affirmative, is it not?",
       "time": "00:56:14.59"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But you do not have an elective abortion unless the woman elects. That is what sets this chain of events in motion, is it not? If she does not elect there are no problems.",
       "time": "00:56:23.61"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Crosby, you indicate that the necessity issue should be decided against the background of some state interest according to necessity. Would you say that a State?s interest in saving the lives of the unborn fetus is totally illegitimate?",
       "time": "00:57:16.00"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it is not a compelling interest under the rule but is it not totally illegitimate interest that should be entirely ignored?",
       "time": "00:57:45.62"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "For that, there is not interest whatsoever, you would say? Did you have to take that position?",
       "time": "00:58:03.48"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I think you do and that would be your position?",
       "time": "00:58:09.88"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "For the first trimester there is absolutely no State interest whatsoever in saving the life of the unborn?",
       "time": "00:58:18.02"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have to hang further, Mr. Watkins?",
       "time": "00:58:29.84"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On behalf of a lot of proposition to operate on anybody, if it did not come to end?",
       "time": "01:00:44.79"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I do not understand your point.",
       "time": "01:00:51.70"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Or go through childbirth?",
       "time": "01:01:07.58"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And both are medical?",
       "time": "01:01:11.66"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is why she went to the physician.",
       "time": "01:01:13.51"
     },
@@ -1299,19 +1303,19 @@
     },
     {
       "turn": 211,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "But Mr. Watkins, how do you respond to his argument that the whole purpose of the medical necessity requirement is fiscal and in order to avoid the unnecessary expenditure of funds and then here the abortion would be the less expensive of all the alternatives?",
       "time": "01:01:38.25"
     },
     {
       "turn": 212,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, first, I would say that we are bound by the equality requirements that I have mentioned at the outset of my argument and that if we made an exception in the abortion case because abortions happen to be cheaper than full-term delivery services, that we would be violating those very provisions of the Act. We must have a consistent program and consistency in this case, is medical necessity.",
       "time": "01:01:53.07"
     },
     {
       "turn": 213,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Watkins, let me ask you one other question about the liveness of the controversy. The stipulation you refer to certainly shows you have a controversy between lawyers on both sides. I still have a reservation in my mind as whether you have this controversy between the clients. Did you try this case in the District Court?",
       "time": "01:02:17.93"
     },
@@ -1323,7 +1327,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why would a plaintiff who wanted to obtain an abortion funded with Federal and State funds affirmatively state that she could not meet one of the qualifications?",
       "time": "01:02:52.59"
     },
@@ -1335,7 +1339,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "She wanted to test the situation?",
       "time": "01:03:14.21"
     },
@@ -1347,7 +1351,7 @@
     },
     {
       "turn": 219,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Perhaps, it would be more accurate to say that she did not give the legal questions any thought one way or the other, but that her attorneys did?",
       "time": "01:03:25.37"
     },
@@ -1359,7 +1363,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. The case is submitted.",
       "time": "01:03:43.80"
     }

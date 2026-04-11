@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1964/245/19650427a_245.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ARTHUR J. GOLDBERG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL BENDER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GOLDBERG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN W. MCCONNELL, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Bender, you may continue your argument.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You have a figure of 46, maybe a 973?",
       "time": "00:02:29.31"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And he has a figure of $49 million 582 on this.",
       "time": "00:02:34.06"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now it's $2 million and 6, I see.",
       "time": "00:02:43.27"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Mr. Bender, where in your chart on page 7 does he give back the depreciation?",
       "time": "00:11:15.19"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:11:47.75"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:12:18.23"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:12:25.21"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Bender, are these examples and what you've been saying that really help us in trying to understand why -- well first, do you agree that the investment here was $26 million?",
       "time": "00:25:53.68"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "By the time that he's paid cash in the past, cash down and he made payments on the mortgage and he still has a part of the mortgage to pay or by the time he gets through paying the mortgage and you add that to his cash payments and his down payments, trade-ins, will it be 26 million or more?",
       "time": "00:26:15.62"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All I want to know that is what want to ask, I asked whether or not the money he pays to the government will total $26 million or whether it won't -- whether it will or it won't?",
       "time": "00:26:47.26"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On the purchase price. The cash he has paid at the outset, the trade-ins, the payments on the mortgage and the balance due on the mortgage as of now, by the time he has paid the mortgage off, will all of his payments over to the government will be $26 million?",
       "time": "00:26:57.67"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I understand that, but -- will he pay over $26 million?",
       "time": "00:27:30.89"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well how about the net cash payments on the purchase price?",
       "time": "00:27:45.22"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:27:53.42"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No -- let's set aside what you said was – he had income tax consequences. I was going to put aside the charter hire payments?",
       "time": "00:28:16.66"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Actually what you're saying is that they've paid on $26 million, a sum that was paid in the form of interest, charter hire and so on, and not as part of the investment, isn't that what you're saying?",
       "time": "00:28:37.19"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Because they have some offsetting amounts.",
       "time": "00:29:01.29"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Yes. But of course, the $13 million is now being cashed back.",
       "time": "00:29:04.99"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "That's your other argument, your alternate argument that you are making?",
       "time": "00:29:29.09"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "[Inaudible] the appellant should prevail in this case on his theory, what preference would he have or what benefits would he have over and above, those that were acquired by someone who bought the same ships under the Act?",
       "time": "00:29:42.39"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:30:09.22"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well. Mr. McConnell?",
       "time": "00:30:44.08"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Isn't there a lot of points that it wasn't --",
       "time": "00:33:12.66"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't think that you might owe the government some charter hire in return of charter hire that you supposed to pay them back for the – and part of its wrapped up in the mortgage?",
       "time": "00:33:16.62"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You agree, then I suppose that the net credit here of 8(a) is right, $8 million, $8 is right? That you agree --",
       "time": "00:34:21.24"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you agree with lines 4, 5, 6, 7 and 8?",
       "time": "00:34:30.90"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Alright.",
       "time": "00:34:41.36"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Alright.",
       "time": "00:34:44.18"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:34:45.93"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:34:49.34"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:34:51.11"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:34:52.14"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:34:54.53"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:34:55.45"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's credit.",
       "time": "00:35:00.34"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Alright.",
       "time": "00:35:01.92"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so you must agree then if the net --",
       "time": "00:35:03.34"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You and the government still seem to be talking about the same factors --",
       "time": "00:35:34.91"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- the same language or even the same transaction.",
       "time": "00:35:38.76"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "I take you drew some figures. Do you dispute the fact that you received from the government $20,468,904 plus $13,430,431?",
       "time": "00:37:57.66"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Now will you tell me why you dispute that?",
       "time": "00:38:20.85"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Because net payment to the Waterman, $20,468,904. Now item number 10 and then charter hire from the government, $13,430,431. Now, those are two items which as I understood the argument you received, is that wrong?",
       "time": "00:38:23.51"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Well, that's equivalent. I understand that, that the re-computing, but I want to now take, forget about all the argument. Let's talk about straight cash in flow, the Waterman, just straight cash. During the period you operated, the charter hire to the government during the war, you received $13,430,431 --",
       "time": "00:39:02.07"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- is that correct? Now after this -- all these adjustments were made, all these adjustments were made, was there a further payment of $20,468,904?",
       "time": "00:39:26.18"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, right.",
       "time": "00:39:45.38"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now before you leave it, either an actual money received or credit on the mortgage, then you received the benefit of $33,898,904, is that correct?",
       "time": "00:39:52.48"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Well tell me why it isn't correct --",
       "time": "00:40:06.53"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "-- I thought you just said, that you got it on a reduction of mortgage indebtedness which is the same as getting it.",
       "time": "00:40:09.63"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "I understand that, but I'm -- I'm just trying to get the net amount after without the consequences which we have to determine.",
       "time": "00:40:26.09"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Did you in fact receive $13,000,430 and a credit of $20,468,904?",
       "time": "00:40:37.60"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Alright. Did you receive a credit on your mortgage indebtedness at $20,468,904?",
       "time": "00:40:51.52"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "I understand.",
       "time": "00:41:00.50"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Yes. Again, I'm not talking --",
       "time": "00:41:02.86"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "-- about the consequence, I want to establish the fact. The fact is that Waterman received, in cash and credit $33,898,904, is that correct?",
       "time": "00:41:04.26"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Yes, but is that a correct fact?",
       "time": "00:41:18.72"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's suppose that they're making these adjustments on these lines from 4 to 8. Suppose that each of you have just written a check for the -- a separate check for each amount, you would have written the check for the government for 13 million and the government written checks for these other two items -- other three items to use, separate checks, now you just deliver them to each other and consequently, there wouldn't have been any net credit you would already have paid each other off. Now, the economic effect of that I suppose should be the same as this arrangement.",
       "time": "00:45:03.59"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Wouldn't that be true?",
       "time": "00:45:44.93"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well I know, but isn't -- wouldn't -- shouldn't it be the same that economic effect?",
       "time": "00:45:47.48"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:45:52.13"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:45:54.54"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but the economic effects should be the same either way, shouldn't it?",
       "time": "00:46:05.61"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if you would exchange checks -- if you had just exchanged checks, well you would have had the result of lines 1, 2, and 3, wouldn't you insofar as purchase price would have --",
       "time": "00:46:22.28"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And then they would have had to give you a $29 million credit on the purchase price?",
       "time": "00:46:54.18"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:47:35.13"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Yes.",
       "time": "00:47:50.88"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:48:11.84"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:48:23.00"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:48:38.93"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:49:06.04"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:49:17.75"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:49:31.87"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:49:37.33"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "I know that [Inaudible]",
       "time": "00:49:39.92"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:49:53.25"
     },

@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1958/28/19581015a_28.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "LELAND S. FORREST",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "PHINEAS M. HENRY",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 28, Maxine K. Hinkle, Administratrix of the Estate of W. Max Hinkle, deceased, petitioner versus New England Mutual Life Insurance Company of Boston, Massachusetts. Mr. Forrest --",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- you may proceed.",
       "time": "00:00:15.54"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "(Inaudible) lawyer and the Court of Appeals who wrote this opinion was an Iowa lawyer, is that right?",
       "time": "00:03:13.65"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would you think that Judge Hand was an average man?",
       "time": "00:05:24.92"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What are you reading from?",
       "time": "00:08:33.60"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What page?",
       "time": "00:08:39.98"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "On page 34 of the brief.",
       "time": "00:08:51.74"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You said in this situation the man pays the premium he gets in every case of term insurance.",
       "time": "00:10:57.46"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You could do it your own way. Mr. Henry.",
       "time": "00:16:10.71"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why was he not insurable there?",
       "time": "00:28:01.35"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But was he insurable?",
       "time": "00:28:11.31"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "He Couldn't have gotten the policy?",
       "time": "00:28:15.12"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Impossible for him to get a policy?",
       "time": "00:28:19.61"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Mr. Henry –",
       "time": "00:29:42.40"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "-- may I ask you sir, you referred to the answer on -- to question 17 on the application 70 -- exhibit 2 on page 20. Would it make a difference if that were not Mr. Hinkle's answer?",
       "time": "00:29:43.62"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Here is what I mean to get to, as I have done a little looking at this record and there was some evidence that this answer to question 17 may not have been Mr. Hinkle's answer, but the answer written in by the agent. Was there enough there, to make an issue of fact for a jury and on that question and so that the Court of Appeals ought to have sent the case back for a retrial before a jury of that issue, rather than to have simply held the plaintiff was entitled to recover?",
       "time": "00:31:09.25"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well there wouldn't have been any representation in that respect although absent a negative answer to question 17.",
       "time": "00:33:04.95"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "The fact of his non-insurability, I'm having a little difficult with this, was not bad health, it was merely that he did some flying and in the answer to question 17 said he did not.",
       "time": "00:33:52.84"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Yes.",
       "time": "00:34:10.99"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But as in this case when he died the next day by an accident.",
       "time": "00:34:28.14"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But he had made no representations though in the assumption we make now, that this was not his answer to question 17 that did not fly.",
       "time": "00:34:37.64"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well isn't it true that in the absence of some such representations in the application, are absent some condition excusing liability in the conditional receipt, the company would be liable if he were killed the next day?",
       "time": "00:35:20.70"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well then do you find (Inaudible) –",
       "time": "00:35:38.23"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "In the receipt?",
       "time": "00:35:41.96"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How about those words -- I was going to say how about those words like immediate coverage that appeared in there apparently in the handwriting of the agent.",
       "time": "00:36:09.02"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:36:22.68"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Does that term express immediate coverage, does that express that fact?",
       "time": "00:36:59.50"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It's not a usual thing for them to do, to put that immediate coverage?",
       "time": "00:37:35.26"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But do you think that those words convey that meaning?",
       "time": "00:38:22.11"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You are arguing -- your answer is so this is a general question of law. What's the significance of those words (Inaudible)?",
       "time": "00:39:26.65"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:39:37.24"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Forrest.",
       "time": "00:45:15.95"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Did you know that judge (Inaudible) at one time was British Commissioner?",
       "time": "00:57:40.59"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Inaudible) statement about the –",
       "time": "00:59:41.70"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I want to ask you one statement about the --",
       "time": "00:59:45.24"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The court there relied in part (Inaudible) on Section 1750, Code of 1897 (Inaudible). Does that related to all insurance or simply the fire insurance, do you know --",
       "time": "00:59:49.01"
     },

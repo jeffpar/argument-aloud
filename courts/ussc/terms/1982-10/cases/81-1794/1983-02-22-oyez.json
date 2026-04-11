@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/81-1794/19830222a_81-1794.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "BARBARA D. UNDERWOOD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "SHEILA GINSBERG RIESEL",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in Jones against Barnes. Miss Underwood, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "May I ask a preliminary question? The question presented in the cert petition is whether the 6th and 14th Amendments require assigned defense counsel to raise every non frivolous issue requested by the Defendant. What I would like to ask is whether the questions, whether the Respondent, in fact, asked his lawyer to raise the issues and whether they were non frivolous are questions before us? The briefs talk about them a lot but it was hard for me to understand that those questions were properly here.",
       "time": "00:02:30.64"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Should we just assume that requests were made and get on with the other issues?",
       "time": "00:03:55.15"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But, nevertheless, they predicated their bottom line on the grounds that in their understanding there had been a request?",
       "time": "00:04:22.56"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "As a matter of fact, an insistence.",
       "time": "00:04:30.54"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, since so much seems to turn on this, Miss Underwood, could you briefly summarize what, in fact, did happen?",
       "time": "00:04:48.23"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Miss Underwood, can I ask you a question? I understand your reasons for objecting to the Second Circuit rule. Suppose you had a case in which there was a clear request and a clear refusal by the lawyer for tactical reasons. Is there any limit in your view on the right of the lawyer to substitute his own judgment? Does the client have any kind of issue on which he could insist that there be an argument made or an argument not made either way?",
       "time": "00:10:07.37"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think if a lawyer refuses to appeal on an issue that the client insists on would ever be a ground for complaining against him on ethical grounds, not on competency grounds, just on the basis that the client should be in control of such decisions rather than the lawyer?",
       "time": "00:11:14.32"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right, right, right.",
       "time": "00:12:39.93"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is the client who says... What does the Code say?",
       "time": "00:12:44.56"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did you cite the standards of the ABA on the defense counsel's functions in your brief? I don't recall.",
       "time": "00:13:54.14"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There is very little left to the client as compared to the lawyer under those standards, is that not so? The defendant decides whether... alone decides whether he would plead guilty or not guilty, and he alone can decide whether he will or will not testify and that is about it, isn't it?",
       "time": "00:14:09.48"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No, I am talking about the trial.",
       "time": "00:14:28.36"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you. Miss Underwood, what would the effect be in your view if we were to agree with your view in the event the convicted defendant thereafter filed a habeas petition under one of these theories that his lawyer refused to raise on appeal, and we were faced with the issue of whether there was a waiver under Wainwright against Sykes? Would that be a ground for not applying the waiver principle then in your view?",
       "time": "00:14:40.94"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But, even if the waiver surmounted... no waiver on your argument, the petitioner's habeas corpus would be dismissed. There was no constitutional violation.",
       "time": "00:16:04.52"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:16:28.39"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but suppose it was and the lawyer didn't raise it and you say there would be no waiver, but you would say there would be no violation of constitutional right, wouldn't you?",
       "time": "00:16:36.23"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If the lawyer has... If on direct appeal it is ruled that the lawyer cannot be faulted for omitting the claim, do you think there is still recourse to federal habeas?",
       "time": "00:16:52.24"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Say there is no forfeiture, they reach the merits, and the question was is this conviction constitutionally invalid because a lawyer failed to raise a colorable constitutional claim that he chose for strategic purposes not to raise.",
       "time": "00:17:16.00"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There never would be, would there? I don't think you understand Justice O'Connor's question, Justice White. I thought her question was-- --I understand mine though. [Laughter] Well, yours is supposedly based on hers. Will you answer this hypothetical which may not have been Justice O'Connor's and certainly was not Justice White's-- I will try to understand this. Supposing that the Defendant, after having lost the appeal in state court, comes into federal habeas court and while his first ground of relief has nothing to do with his representation on appeal, it is a 4th Amendment claim, and... or let's say a 5th Amendment claim-- And the argument is there has been a procedural default because it wasn't raised on appeal in the state court and the Defendant's answer is, well, I wanted it to be raised, but my lawyer wouldn't let it be raised.",
       "time": "00:17:36.97"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That is the way I understood it too.",
       "time": "00:18:40.04"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand your answer. Then I asked, well, how about the merits then? You didn't put in in quite those words. [Laughter] Go ahead.",
       "time": "00:18:46.70"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You say ordinarily that would be a bar?",
       "time": "00:18:59.45"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And, if there was cause for avoiding the procedural bar--",
       "time": "00:19:16.73"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--And rule on the merits of the constitutional issue he is presenting?",
       "time": "00:19:23.57"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Sure. [Laughter]",
       "time": "00:20:03.74"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mrs. Riesel?",
       "time": "00:25:31.30"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But, the consequence of that, you claim, and the Court of Appeals seems to have said, is that there is ineffective assistance.",
       "time": "00:26:29.78"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you concede it was effective assistance?",
       "time": "00:26:40.73"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, don't you think we should be concerned with whether or not there is or is not a claim of effective assistance of counsel?",
       "time": "00:26:54.77"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Isn't that the ultimate issue, the ultimate question?",
       "time": "00:27:03.23"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "To put it another way, the question is who is going to try the case, is that not perhaps a corollary statement of the issue?",
       "time": "00:27:14.45"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You are trying the case here.",
       "time": "00:27:26.51"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, you are saying on direct appeal, Counsel. You are not here on direct appeal or, in your terms, do you think you are here? Did this case come on direct appeal in those terms?",
       "time": "00:28:32.47"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think that you were required... that you are required here to raise every non frivolous issue that your client wants whether you think it makes any sense or not?",
       "time": "00:28:54.74"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Here in this Court today in your brief.",
       "time": "00:29:07.64"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Even if you thought it would weaken the ultimate... the total presentation in the case to this Court?",
       "time": "00:29:27.04"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You would put it in... You would feel required to put it in the brief?",
       "time": "00:29:51.17"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then when you came here to argue it as you have today, and your client says, now, I want you to be very sure you argue every one of these points, even the ones you didn't think make any sense, obligation on your part in these terms to orally argue those points?",
       "time": "00:29:55.33"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Touche.",
       "time": "00:30:21.01"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The most you could say if you were allowed to?",
       "time": "00:30:28.70"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But, you might, you might in doing that neglect oral argument on points that you consider truly important and crucial, is that not so?",
       "time": "00:30:34.68"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How would you determine what is non frivolous by some objective standard or what counsel deems it to be as you suggested in your brief?",
       "time": "00:31:15.09"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Anders didn't tell you how to go about it.",
       "time": "00:31:39.89"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now you have changed your terms from non frivolous to legitimate.",
       "time": "00:32:11.93"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If it is a legitimate claim, you shouldn't need to be... The lawyer shouldn't need to be urged by the client to present them.",
       "time": "00:32:22.39"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mrs. Riesel, your client did have a brief submitted on his behalf to the state appellate court, did he not?",
       "time": "00:32:35.88"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So, are you claiming that counsel's performance on the written part of the appellate presentation of briefing fell short of constitutional standard?",
       "time": "00:32:45.49"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, supposing there had been no oral argument, that the case had simply been submitted on the basis of your client's pro se brief and the counsel's brief. Would you think that the Second Circuit ought to reach the same result as it did in this case?",
       "time": "00:33:03.30"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Because the lawyer wouldn't sign his name to the brief prepared by your client?",
       "time": "00:33:19.66"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Counsel would have had to retool the pro se brief to meet these standards?",
       "time": "00:33:55.25"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Am I correct that the constitutional provision on which you have relied is not the 6th Amendment, not the Due Process Clause and not the Equal Protection Clause, but just the right of access cases?",
       "time": "00:34:02.52"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, in those cases, the prisoner access to the courts, for example, usually pro se submissions have been adequate. And here you did, in fact, get... Your client's letter did go to the court.",
       "time": "00:34:20.13"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If it doesn't equate, then it is an equal protection matter, but there is access--",
       "time": "00:35:06.09"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But that goes to the persuasive character of the presentation. But it seems to me that the communication by the client is intelligible and his point is understandable by the court. And that, it seems to me, satisfies the access point.",
       "time": "00:35:36.21"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I do not know of any access case that said there had been a denial of access when the message gets through, even though it may be poorly written and pro se and all the rest. I understand the equal protection, due process, effective assistance of counsel, but I do not think your access case is really right on the button here.",
       "time": "00:35:50.32"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which case, do you think, is your strongest access case?",
       "time": "00:36:27.23"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Which case?",
       "time": "00:36:33.40"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You use the term effective, although earlier you disclaimed any thoughts of lack of effective assistance of counsel here. You said the client was entitled to have his pro se points presented effectively, and that his counsel having declined to help him present what the counsel considered improper points, therefore, there was not an effective presentation. So, is there not an undercurrent here of effective representation?",
       "time": "00:36:44.99"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, but your point of your argument that you were making was that the counsel had an obligation to take this pro se brief and cast the pro se's points in terms that a lawyer would use with the skill of the advocate, I think you have said. So, doesn't that really draw in, even if in the Freudian sense, the effective assistance of counsel in this case?",
       "time": "00:37:31.27"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What if he thought one of them was a dishonorable, unethical point, do you think he had an obligation to raise it any way?",
       "time": "00:38:02.24"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No, I said, what if, hypothetically?",
       "time": "00:38:12.58"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "May I back up minute to the 6th Amendment? You still say you do not want the 6th Amendment? You have got it in your brief.",
       "time": "00:39:19.79"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You are abandoning it?",
       "time": "00:39:28.64"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you say in your brief, you quote from Justice Shaefer, \"Of all the rights that an accused person has, the right to be represented by counsel is by far the most pervasive, for it affects. \" --you are relying now on the 6th Amendment, aren't you? You are talking about counsel.",
       "time": "00:39:44.58"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My only point is that you object to the counsel in this case abandoning a point, and you are abandoning a point here. Am I right?",
       "time": "00:40:16.85"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, I suppose we must be curious to know whether your client wanted you to make that point. [Laughter]",
       "time": "00:40:38.65"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you still be here if your client had not requested the inclusion of these issues on appeal. They are positive to have been non frivolous or legitimate as you say. Would you say it is equally a denial of some federal constitutional right to omit any non frivolous ground from the appeal wholly aside from whether the client requested it?",
       "time": "00:43:03.98"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why wouldn't you?",
       "time": "00:43:41.30"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, he defers by silence. He says, let's take the appeal. The lawyer says, we are taking the appeal. If you want to read a copy of the brief, here it is. The client would not have the faintest idea there was another issue maybe.",
       "time": "00:44:00.45"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, doesn't the lawyer, then, have a duty if he thinks of four or five non frivolous issues that he thinks are not quite strong enough to raise, should he not tell the client about the non frivolous issues he has decided not to raise so the client can make a meaningful decision as whether to let him go ahead that way?",
       "time": "00:44:45.34"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In fact, didn't counsel here raise six points that were not covered or raised by the Defendant? In his letter to the Defendant, didn't he have six points, three of which he did later argue--",
       "time": "00:45:53.50"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Now, referring back to my inquiries about whether you were or were not raising effective assistance of counsel, I note that while it is very flattering to Judge Bazelon and to Judge Kaufman and to me to have you cite our articles, you have devoted about four pages and they all deal with effective assistance of counsel.",
       "time": "00:46:18.87"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In your view, Mrs. Riesel, should the clients rather than the lawyer make the decision on whether to cross examine or not to cross examine an adverse witness?",
       "time": "00:49:05.22"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, it is important.",
       "time": "00:49:19.48"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You exchange it on appeal, at trial... the trial counsel having been replaced on appeal... the trial counsel declines to cross examine a government witness explaining to his client that it would be disastrous to cross examine in his professional judgment. Now, we have a new lawyer on appeal and the client wants counsel to raise that issue... obligation to raise it, even though to the appellate counsel it does not make any sense?",
       "time": "00:49:31.09"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could I ask you if the Second Circuit had arrived at this point it arrived at and said that counsel should have raised this on request, but then went on and said that this requires us to look at the ground, we find the ground, although non frivolous, was a loser. Wouldn't have made a bit of difference. Would you have challenged that?",
       "time": "00:50:38.47"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know it is sufficient, but what if the Court of Appeals had went on and said, well this is a federal habeas proceeding. We want to know if there is any constitutional infirmity in this state conviction. We look at this ground. It had been a clear loser. There is no constitutional problem in it at all. Any competent counsel would have left it out any way. Non-frivolous, but nevertheless it was a loser, so we deny federal habeas.",
       "time": "00:51:25.28"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which they do all the time any way on the other side of the case. The Court of Appeals or the District Courts know something about state law.",
       "time": "00:52:18.58"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, the Chief Justice's question must still stand, then. Aren't you really... isn't your case at bottom, then, a competency of counsel case?",
       "time": "00:52:40.76"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I do not understand what it is. If you would still be here in my example, what is it then?",
       "time": "00:52:54.44"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He did not deny anything. He said if you want to go argue it, argue it yourself. And Faretta guarantees him that right.",
       "time": "00:53:12.65"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but counsel said no. The question is was counsel... was that a competent performance of counsel.",
       "time": "00:53:24.94"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was it a constitutional performance?",
       "time": "00:53:36.23"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But, not because of competence?",
       "time": "00:53:40.45"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Competent but unconstitutional?",
       "time": "00:53:46.65"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Sort of a malpractice claim?",
       "time": "00:54:09.23"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further Miss Underwood?",
       "time": "00:55:23.38"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, your position would be the same, though, wouldn't it, if the client himself had not filed a letter with the appellate court?",
       "time": "00:56:24.27"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That makes no difference to your argument?",
       "time": "00:56:34.71"
     },
@@ -1127,13 +1127,13 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:56:38.61"
     },
     {
       "turn": 182,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10:00.",
       "time": "00:56:44.01"
     }

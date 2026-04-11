@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1995/95-340/19960220a_95-340.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "LAURENCE E. GOLD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ALAN JENKINS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "THOMAS C. WALSH",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 95-340, United Food & Commercial Workers Union Local 751 v. The Brown Group doing business as Brown Shoe Company. Mr. Gold.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Gold, what is the actual injury to the union?",
       "time": "00:02:37.92"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The failure to get the notice?",
       "time": "00:02:42.49"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, how does giving a recovery to the employees redress that injury to the union?",
       "time": "00:02:51.30"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The damages sought are back pay?",
       "time": "00:06:11.10"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Liquidated--",
       "time": "00:06:39.03"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Gold, what is the standard procedure in these cases? It struck me that if you had joined one worker suing on behalf of herself and others similarly situated, that you would have obviated this problem, and I was wondering, since it appears later several workers came forward to make claims, why that wasn't done from the beginning.",
       "time": "00:06:42.52"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Gold, you're in one different position here, I suppose, from the CBA situation, because you're union is in effect a statutory representative, so the fact that you don't have a union member as a party doesn't really prevent you from arguing that this is essentially a class action. And while it's true, I suppose, that because there's no union member who's a party, there's no one who's a named plaintiff who is going to get damages, but I don't know that that's an Article III problem, so you can still argue that it's like a class action.",
       "time": "00:08:44.55"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Isn't that the easy way, in effect, for us to decide this case, or the easiest, you might say?",
       "time": "00:09:41.12"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, we know it's not absolutely like it, but we're worried about Article III here, and--",
       "time": "00:10:04.69"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--And it's, the analogy is, I suppose, close enough for you to say it's, for Article III purposes you ought to treat it just like a class action.",
       "time": "00:10:08.66"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Gold, do you think the reasoning of the Eighth Circuit was that, conceding that Congress has authorized this, it violates Article III to authorize it, or simply that it was not clear that Congress had authorized it?",
       "time": "00:10:59.00"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Gold, why is the injury in this case the failure to give notice? Had there been a failure to give notice and the plant never been closed, there would have been no problem, I assume, right? It seems to me the injury is the closing of the plant, isn't it, without having given the notice beforehand? Had the plant not closed, there would have been no violation, no injury.",
       "time": "00:11:45.80"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You see, I have a sort of instinctive resistance to the notion that you can create purely abstract procedural rights, like the right of everybody in the world, or the right of a particular union to \"notice\" without any substance behind the notice. What I see to be the violation, here, is not the failure to give the notice but the closing of the plant. That's what hurt people, isn't it?",
       "time": "00:12:14.14"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you have no objection to my considering the injury in this case to be not the failure to receive notice but the closing of the plant, without having done that beforehand, of course.",
       "time": "00:13:00.53"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, but it's both, I take it.",
       "time": "00:13:10.32"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let me ask another question.",
       "time": "00:13:39.82"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you want us to pursue the theory that Justice Souter was asking you about of representational capacity on the part of a union, I'm... again, my problem is I'm reluctant to acknowledge that for Article III purposes Congress can make anybody the representative of anybody else and just say, you know, for purposes of vindicating this right, you know, John Doe shall have standing to sue. Most of the representational cases I know involve a plaintiff who is incapable of suing, so his executor sues, or his trustee.",
       "time": "00:13:41.94"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The trustee owns the property.",
       "time": "00:14:26.37"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--so the person really interested can't sue.",
       "time": "00:14:28.65"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And it is not an organization formed just for the purpose of this suit. It has some independent--",
       "time": "00:15:04.50"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--representational existence.",
       "time": "00:15:09.45"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Gold, you don't concede, do you, that in the associational standing cases the members of the association are incapable of suing?",
       "time": "00:15:50.70"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No.",
       "time": "00:15:58.91"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So they're in the same boat as the--",
       "time": "00:16:00.43"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--union members here.",
       "time": "00:16:02.71"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What do you make of the argument that to determine the compensation the employees must come into this lawsuit as individuals?",
       "time": "00:16:17.49"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Gold. Mr. Jenkins, we'll hear from you.",
       "time": "00:17:07.20"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Mr. Jenkins--",
       "time": "00:18:03.78"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--it does seem that the remedy granted is not particularly designed to redress the union's injury, if it's back pay for all the members.",
       "time": "00:18:04.36"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why is that? I mean, ordinarily you think if the party who is wronged by... the union in this case, wronged, as you say, by the lack of notice, that the damages ought to be measured by what harm that is done the union, rather than what harm is done its members.",
       "time": "00:18:32.62"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but these damages are not going to affect that in this... in a given case. Don't... aren't you reduced to saying that the sense in which there is a vindication of the union's right by giving damages to employees is essentially on a deterrence theory, that if you give the damages to the employees in this case, the next employer is going to know it, and is going to give the notice? Isn't that as close as you can come to a vindication of the union's interest in receiving the notice?",
       "time": "00:19:11.86"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What would speak to it would be an injunction against the plant closing, and that is specifically what Congress withheld.",
       "time": "00:20:08.17"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but the injury, as I understand it, is the injury to the union in depriving it of a capacity either to negotiate about the actual decision to close, or to retain those who are going to be put out of work, and the only... I should think the only remedy that is going to redress or vindicate the union's interest in failing to receive the notice would be a remedy that gives them the statutory amount of time to do that, and that remedy would be an injunction against closing the plant short of 60 days for the union to do whatever it wants to do. The union absolutely cannot get that, so aren't we faced with a situation in which redress for the... I keep saying this... vindication of the union's interest as such simply cannot be given without an injunction unless you in effect take a long term deterrence analysis and say, well, if it... if the union can make it hurt this time by getting damages for a third party, the next employer won't do it?",
       "time": "00:20:25.13"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But they don't... as a practical matter, they don't get the money during the time in which they would want to be doing this, do they?",
       "time": "00:21:54.17"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You're talking... you're making a very practical argument. You're saying the employee who is getting the paycheck can afford, in at least two senses, to go to school and do the... and get the retraining, but in fact the employee is not going to get the paycheck until some period considerably down the road when the lawsuit finally grinds to an end, isn't it?",
       "time": "00:22:02.35"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you're saying it may take a long time to get the money, but it's going to take a long time to retrain and get another job.",
       "time": "00:22:45.32"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So that they ultimately can match.",
       "time": "00:22:50.42"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Isn't the consequence of that argument that any organization which has the interest of others at heart can be given standing to sue for injuries to those others, because, after all, that's the organization's function?",
       "time": "00:22:52.64"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So I suppose the American Civil Liberties Union could be given standing to sue for any deprivation of civil liberties to anyone in the country, because their whole ratiocination is to serve those people and prevent those injuries.",
       "time": "00:23:09.02"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, why is this different?",
       "time": "00:23:26.38"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, yes, but that's just to say that Congress has created it here, and I'm saying Congress could also create it for the ACLU.",
       "time": "00:23:39.09"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So what's your other argument? Why else is it different?",
       "time": "00:23:48.23"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, the tangible effect here was that it was unable to provide the kind of assistance to the people served that it wanted to, right?",
       "time": "00:24:05.28"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but the remedy given is not the remedy of providing the people what the people are entitled to. It is, rather, a remedy directed to the organization.",
       "time": "00:24:24.21"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Jenkins, is it relevant to this inquiry that the union is not stepping forward as a union? It has standing under this statute only as exclusive bargaining agent of the employees, isn't that so?",
       "time": "00:24:36.62"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought that the workers get the notice, personally, when the union is not representing the plan.",
       "time": "00:24:57.61"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But when the union is, that only the union is entitled to notice under the statute and the workers aren't.",
       "time": "00:25:05.97"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But does that distinguish the situation of the union that has this preexisting representational obligation from an organization that is merely a do good agency?",
       "time": "00:25:13.30"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What about a plant where there is no union representing the employees? To whom does the notice go then?",
       "time": "00:25:38.66"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It would seem odd that if notice were also required to the employees that you would have a weaker case.",
       "time": "00:25:46.81"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, you said one of the reasons the union has standing here is because the union is the only one to get notice, and I observed it would be a rather odd statutory scheme if the notice also went to the employees that you would then have a weaker representational argument.",
       "time": "00:25:55.37"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Jenkins, does this statute provide for fees to the plaintiffs? Who pays the cost of litigation?",
       "time": "00:26:35.03"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, go ahead.",
       "time": "00:26:41.87"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Jenkins. Mr. Walsh, we'll hear from you.",
       "time": "00:26:48.67"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What's the relationship between that requirement and our associational standing cases, because in the associational standing cases, the association doesn't necessarily get any relief. It's members that do. Does that... is the consequence of that that the relationship between redressability and redressability to the named plaintiff is not an Article III requirement?",
       "time": "00:27:51.89"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Right, but none of those requirements say that there has got to be a redress flowing directly to the association. Not that... there's no requirement that the association in a damages case get damages.",
       "time": "00:28:45.58"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I don't think there is a case in which they have done so.",
       "time": "00:29:04.92"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But in the cases in which there has been equitable relief, the benefit of the equitable relief has always been for the members of the association, hasn't it?",
       "time": "00:29:08.51"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But the organization without that attribution does not, in fact, have an interest which would be vindicated if it alone sued. If the applegrowers, whatever the association was, walked into court and said, we are not representing the members of our association... this is just us, Applegrowers, Inc., or whatever they were called... there wouldn't have been any relief that they would have been entitled to, I suppose.",
       "time": "00:29:41.22"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Oh, they were reaching in--",
       "time": "00:30:12.68"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, they never have. I mean, we--",
       "time": "00:30:24.15"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--haven't held that they couldn't, and that's what you want us to do here, I realize, but we never have. I don't understand why it wouldn't follow. I mean, you say their members have been injured, and that's enough, that their members have been injured. You acknowledge that... for injunctive relief.",
       "time": "00:30:26.45"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, if you attribute their members injuries to the association, why not attribute their members compensation for the injuries to the association? I mean, doesn't the one follow from the other?",
       "time": "00:30:41.93"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The wrong can be a very individualized wrong that the injunction is addressed against, for example, not paying a certain level of wages, which the association claims each individual employee is entitled to. You get a mandatory injunction requiring that additional--",
       "time": "00:31:12.58"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--But it is the case that the union and the association members are not suffering the same harm.",
       "time": "00:31:37.47"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In the example you gave, the applegrowers' case, the association is saying, we're losing members. That isn't what the members are saying, so you can't say that the... I don't think you can properly say that the analysis depends upon everyone suffering the same wrong and hence everyone, association and members, getting the same benefit from the injunction and, therefore, if it makes sense to say that they have a kind of representative standing, then that representative standing depends upon their asserting something that the association itself could not or would not assert.",
       "time": "00:31:44.75"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let me... well, I want to be sure, but just on the terms that I just gave you, doesn't it follow that you can't make the argument that they are all in the same boat?",
       "time": "00:32:30.22"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:32:41.12"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why doesn't it help the union to give the employees their money? I mean, the whole point of the act, isn't it, is to give the union, just as Mr. Gold said, notice so it has some time to arrange for the employees to get training or other benefits? It lost that time. It failed in its duty to the employees because they didn't get notice. Well, at least it can get money for them. I mean, isn't that something that unions are there for, to help the employees by getting them money, by getting them training, by getting other things, and a failure to get notice inhibits that obligation of the union, which is what its purpose is. Why can't Congress under the... what in the Constitution prevents Congress from saying... Congress wants to say we'll restore the union not completely, but we'll restore the union roughly to where it might have been, not by giving the employees training, we can't, but at least we'll give them some extra money? Where in the Constitution does it say that Congress can't make that judgment?",
       "time": "00:32:57.79"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, what about the statute?",
       "time": "00:34:07.22"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The statute says that a union can come in, sue when it doesn't get notice, and collect liquidated damages in an amount equal to the number of days times the average wage, which presumably it pays to the workers, so the workers then think, well... I don't know, does it pay it to the workers or not? Maybe it just... I don't know what happens to it, but I think the workers might feel better about it if the union has it rather than the employer. [Laughter]",
       "time": "00:34:11.68"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, well then-- --The union... the money doesn't go to the union, does it? I thought the money went to--",
       "time": "00:34:48.43"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It goes directly to workers.",
       "time": "00:34:51.50"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but how does that follow from the statute? I mean, if the union is the plaintiff, the thing doesn't even go to the union as a trustee, the award is directly to the individuals?",
       "time": "00:34:53.04"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In that respect it would be no different than if one employee had stepped forward and sued on behalf of the 276 similarly situated.",
       "time": "00:35:17.26"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But--",
       "time": "00:35:29.95"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--The question I was trying to ask is, why isn't the remedy aimed at redressing a real harm to the union, namely, its inability to help its workers by arranging for some interim relief for the workers? What this does is, it gives the workers some money. That isn't precisely what the union would have arranged for, though it might have done. Rather, it's roughly the kind of benefit the union could have arranged for, so the statute says, pay them that. At least that's what I read the statute as doing, irrespective of the statute's motive. All I'm looking for is, is that helping a little bit to redress a harm, and my question is under the Constitution, why doesn't that help redress somewhat a harm that the union really suffered?",
       "time": "00:35:35.48"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The injury that is being redressed is the failure to get notice.",
       "time": "00:36:32.59"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Walsh, may I ask you a question that's concerning me? Supposing WARN, instead of being a statute, was all spelled out in a collective bargaining agreement that provided exactly the same remedies and notice requirements and all the rest, and the employer failed to give notice to the union of an intended plant closing, and the agreement provided in that event the union could sue for back wages payable to the employees, just as it... measured by, just the same remedy here, would you think there would be an Article III problem on allowing the union to enforce that contract?",
       "time": "00:37:28.42"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What's the difference between a contract and a statute?",
       "time": "00:37:56.87"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, here it has a statutory right, there it has a contractual right. In terms of injury to the union, what's the difference?",
       "time": "00:38:03.11"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but it has a statutory right that's been breached here. What's the difference?",
       "time": "00:38:11.69"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why is a contract right entitled to greater protection than a statutory right?",
       "time": "00:38:16.91"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But under this statute it's the litigating agent for the same people. I don't understand the difference, in terms of constitutional terms. Why is one injury redressable and the other not?",
       "time": "00:38:33.87"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it different from the statutory injury in this case?",
       "time": "00:38:48.32"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You've admitted there's a statutory violation of a duty to the union.",
       "time": "00:38:52.96"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then why isn't the contractual thing a procedural injury, then?",
       "time": "00:39:01.18"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I... isn't your-- --A statutory right would be on even a higher order. It certainly seems to me that if the parties by contract can, in effect, confer standing, that Congress by a specific statute can do the same thing, which is the thrust of Justice Stevens' point.",
       "time": "00:39:09.72"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Surely it cannot be true that any right which could be acquired by contract, any right to sue which could be acquired by contract can, since it can be acquired by contract, be conferred by Congress without violating the separation of powers. I mean, I can acquire contractual rights to do all sorts of good things for all sorts of people. Does this mean that Congress can, when I have not entered such a contract, give you the right to sue on behalf of those people?",
       "time": "00:39:47.22"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's the end of the doctrine of standing, I would assume.",
       "time": "00:40:20.11"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then you couldn't enforce that contract in a diversity case.",
       "time": "00:40:22.42"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right, I've a different question, which is... the question that I'd have would be, what about the associational standing? Why, in a contract case, I take it a supplier and a company could get up a contract and a measure of damages for the breach of the contract might have to be what the company had to pay all of its employees, right? You could have such a contract case, of course. And now you don't have to bring the employees into court. They aren't a necessary part of the case, so why do you say here that the measure of damages, which happens to be the wages that would be paid to the employees, makes the employees under Washington Apple necessary participants in this case?",
       "time": "00:40:31.12"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But the same would be true in a contract action. The same could easily be true in an action for breach of contract, or some kind of trust action, where the measure of damages turns on precisely the same matters that you're just describing.",
       "time": "00:41:29.68"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, no, but I mean, my point is, why does it require the employee to come into court or to be a participant in the case, any more than in a breach of contract action where the measure of damages is wages paid to individual employees, any more than that kind of case requires an employee to come into court? It might, but you might prove it from paper, or you might prove it in a hundred ways. It might not even be disputed.",
       "time": "00:41:54.57"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, we've called it that repeatedly, haven't we?",
       "time": "00:42:49.95"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And don't we... let me ask you a related question. Don't we have to treat it that way, or we're going to be in trouble in class actions?",
       "time": "00:42:52.87"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Before we get into the question of characterization, do I understand that nothing more would be required than payroll records to determine the compensation due here? It's not a question of credibility, just a question of how many hours, how many days.",
       "time": "00:43:09.62"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I can understand that it might be a complex formula, but I don't understand why the testimony... if you have time records, why the testimony of the employee would be necessary.",
       "time": "00:43:42.59"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought you agreed with me before that you could have one class representative, only one named representative suing on behalf of all similarly situated, and that would do it.",
       "time": "00:44:01.70"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well then, for liability purposes, why shouldn't we say the same thing about the union?",
       "time": "00:44:21.47"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay, now, third Hunt prong, I thought we had characterized that, number 1, as being merely prudential, and number 2, if we don't so characterize it, are we going to be in conflict, in effect, with class action cases?",
       "time": "00:44:35.28"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And hasn't it been called prudential?",
       "time": "00:45:04.86"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Warth came from a prudential error. I mean, anything you're basing on Warth has been superseded as far as principle is concerned by later standing cases. Was not Warth based on the proposition that the whole function of standing is to assure concrete adversariness? Isn't that the language that was in Warth?",
       "time": "00:45:42.34"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that's been effectively overruled by later cases, which say its purpose is not to assure concrete adversariness alone, but rather that it has a constitutional component, which is what Warth explicitly denied, that it had any constitutional component.",
       "time": "00:46:00.99"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So if you're trying to make your case from Warth, you're going to be in a lot of trouble because Warth says the whole thing is prudential.",
       "time": "00:46:13.55"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So long as there's concrete adversariness, which there surely is here.",
       "time": "00:46:21.76"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but the third prong... I think we're talking about the same third prong, which is that it does not require the appearance of individual third parties to prove their damage... supply the evidence for the specific damages that they have suffered, isn't that right?",
       "time": "00:46:59.29"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Isn't that what we're talking about?",
       "time": "00:47:13.76"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. Well, in a class action which includes a damage remedy, ultimately before the action is over the unnamed third parties have... strike third parties. The unnamed class members who got to prove their damages, or there has got to be proof of their damages, right?",
       "time": "00:47:18.45"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. Why wouldn't that offend the Hunt prong if the Hunt... if the third Hunt prong is constitutional?",
       "time": "00:47:35.91"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but that's not the requirement we're talking about. We're talking about the third prong that says, you can't have associational standing if you have to bring in third parties, i.e., members of the association, to prove their claims, and the question is whether that's an Article III requirement. If it is an Article III requirement, why isn't it by analogy an Article III requirement in class action cases, and it seems not to be.",
       "time": "00:47:49.13"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, he has his own injury, but before the class action is over, the injuries of other people have got to be shown, and those other people are in the same boat, aren't they, as the association members?",
       "time": "00:48:22.13"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "For Article III purposes?",
       "time": "00:48:43.64"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, and--",
       "time": "00:48:46.45"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Yes, but not Article III. That is to say, prudential. Do you have any other reasons why associational standing won't wash here? It's just the third prong, that's the only objection you have to associational standing?",
       "time": "00:48:49.05"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "With respect, I'm missing that point. I don't see why the third prong is based on lack of injury. The third prong is a limitation on proof of other's injury.",
       "time": "00:49:23.16"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I don't know what it is. It's... I'm concerned as to whether it's a rule of prudence or a rule of Article III standing. Maybe you shouldn't concede, Mr. Walsh, that class actions are associational cases.",
       "time": "00:49:36.36"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You seem to have accepted that.",
       "time": "00:49:49.77"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, I thought in these associational cases the association cannot demonstrate any injury to itself, and it is relying entirely upon the injury to its members.",
       "time": "00:49:51.52"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So what we do with class actions has nothing to do with the third prong.",
       "time": "00:50:03.30"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but it has everything to do with what Article III requires, which applies to class actions as well as associational standing cases, and if the same objection could be raised in the class action case that could be raised in the associational standing case, and it is not effective in the class action case, then it seems to me it has to follow that it's not an Article Third requirement in the associational standing case, isn't that correct?",
       "time": "00:50:07.51"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I know, but they're both... class actions in associational action cases are, standing cases, are subject to the same bedrock Article III standing requirement.",
       "time": "00:50:36.09"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And if it doesn't apply in one, then it can't be an Article III requirement for the other. That's the only argument I'm making, and I don't think I have an answer from you yet on that.",
       "time": "00:50:48.80"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "If I'd just be quiet and let you answer, I-- [Laughter] --you'd have an easier time.",
       "time": "00:51:00.77"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay, and there's no problem in the fact that there has to be extraneous proof of the various damages for the various class members once he's in, right?",
       "time": "00:51:26.57"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You know, it may make him nasty, and we may not certify the class for just that purpose.",
       "time": "00:51:38.48"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But at least there's no constitutional problem.",
       "time": "00:51:42.56"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Right? No constitutional problem.",
       "time": "00:51:45.64"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No Article III problem, standing problem.",
       "time": "00:51:49.48"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, we've never... I don't... and I will stand corrected if I'm wrong, but I don't think we've ever given... our Court has ever given that as the reason. I think the reason has always been a manageability reason.",
       "time": "00:51:53.16"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:52:05.49"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But concentrating on this case, if the union had joined one member, then you would see no problem and everything could go forward without Article III impediment?",
       "time": "00:52:16.59"
     },
@@ -1647,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That would be okay.",
       "time": "00:52:39.49"
     },
@@ -1659,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, if that is so... there would be no Article III impediment, I think you're agreeing... then in view of the debate that has been going on here and among other courts, at the very least, shouldn't the union be allowed to amend its complaint to join a member, and then everything else follows.",
       "time": "00:52:44.74"
     },
@@ -1671,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it's not before the Court.",
       "time": "00:53:38.55"
     },
@@ -1683,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it's not before this Court because it wasn't raised in the petition for certiorari, so we would ordinarily take no action with respect to any such assertion.",
       "time": "00:53:46.69"
     },
@@ -1695,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Walsh.",
       "time": "00:55:01.11"
     },
@@ -1707,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your time has expired. Mr. Gold, you have 2 minutes remaining.",
       "time": "00:55:02.77"
     },
@@ -1719,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Gold. The case is submitted.",
       "time": "00:56:33.53"
     }

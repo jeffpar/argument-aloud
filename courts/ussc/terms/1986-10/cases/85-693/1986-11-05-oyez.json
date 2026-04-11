@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/85-693/19861105a_85-693.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "GRAYDON S. STARING",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "RONALD R. HAVEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you pronounce your name \"Stare-ing\"?",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "\"Starring\", okay. They have two dots over the \"a\" and I wasn't sure just how that figured out.",
       "time": "00:00:41.99"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Staring, straighten out a couple of details for me. Are there any other cross-claims filed against you in this case by California citizens?",
       "time": "00:05:09.33"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And it has nothing to do with this accident?",
       "time": "00:05:31.38"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I see.",
       "time": "00:05:37.54"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Is there a choice of law clause in the contracts between your client and Cheng Shin?",
       "time": "00:05:38.54"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Thank you.",
       "time": "00:05:48.91"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Would you be making the same argument if the original Plaintiff had not settled?",
       "time": "00:07:38.13"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Yes, that's correct.",
       "time": "00:08:02.50"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Staring, do you concede that it was foreseeable that the valves would reach California?",
       "time": "00:10:56.84"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You argue that foreseeability alone is not enough, anyway.",
       "time": "00:11:11.67"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "By that what do you mean, that that should be the test?",
       "time": "00:11:37.65"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You may as well give that away, because the California court found foreseeability. You don't expect us to reverse that on this record, do you?",
       "time": "00:11:50.96"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And they found foreseeability.",
       "time": "00:12:04.80"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right.",
       "time": "00:12:06.92"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think there has to be a different test for a component manufacturer than the primary manufacturer?",
       "time": "00:12:23.76"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where do you want to end the fog? Where would you draw the line? Suppose I am the ultimate manufacturer, but not the exporter? That is to say, I manufacture washing machines, the totality of them, including all of the components, and I sell the washing machine to... let's say in Japan, to a company which I know exports them, and I know they export them to the United States, and indeed I know they export them to California.",
       "time": "00:15:10.78"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If I understand you, I have to be the one who sends the thing into the market. Is that where you're drawing the line? I have to be the one that sends it? It's not enough that I know I am delivering it to someone who will send it there? The sending of it there has to be my doing?",
       "time": "00:17:00.30"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, now you're getting foggy. See, I suddenly don't see the line any more. Why isn't it encouraging the sending it there to deliver the equipment knowing that once I deliver it it's going to be sent there? If we had a law of accessory applicable to this, I'd certainly be an accessory to the sending of it there, wouldn't I?",
       "time": "00:17:49.99"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, does the record show what percentage of Cheng Shin's... is that the name, Cheng Shin?",
       "time": "00:18:30.48"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Cheng Shin's valves are purchased from your client?",
       "time": "00:18:37.75"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that it does show that Cheng Shin bought from other suppliers?",
       "time": "00:18:42.70"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So your client just supplied part of the demand--",
       "time": "00:18:49.67"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--for that particular company?",
       "time": "00:18:56.13"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so some of his valves might have gone to California and perhaps none of them did?",
       "time": "00:18:57.60"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We do know there were quite a few, don't we? We do know it was something like a quarter of a million that were sold in California?",
       "time": "00:19:15.77"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Not their valves.",
       "time": "00:19:24.78"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There were that many tires sold.",
       "time": "00:19:26.90"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And didn't they all have your client's valves?",
       "time": "00:19:30.02"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Wouldn't your client know that?",
       "time": "00:19:34.07"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He must have some idea what's going to happen to those. I mean, you have salesmen who talk to your customers, I suppose, and they find out what their needs are and what kind of products they need, don't they?",
       "time": "00:19:46.07"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, doesn't the record show an investigation and finding of your valves in California?",
       "time": "00:20:09.19"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Is that improper material in the record?",
       "time": "00:20:34.67"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I'm not sure about great reliance, but does the record show the presence of your valves in the state of California?",
       "time": "00:20:51.03"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That's my impression.",
       "time": "00:21:12.30"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, if you find the registered agent today you could serve him today, couldn't you? I mean, for personal jurisdiction isn't it your presence at the time you're sued?",
       "time": "00:21:29.93"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, your client at least knew that Cheng Shin's tires were being sold in the United States?",
       "time": "00:22:18.05"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, and the only thing... and you knew that there's a chance then that some of your valves would get to California. But there was a chance... there also was a chance, I suppose, that none of them would, because you didn't supply all of the valves for Cheng Shin?",
       "time": "00:22:26.21"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Unlikely? I thought the evidence was there were 500,000 of your valves that were sold by Asahi to Cheng Shin in one year. And you think it's unlikely that any of those went to the United States when you know they're doing business in the United States?",
       "time": "00:23:07.95"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Wasn't there a sampling of one county and about half of the valves there came from your client?",
       "time": "00:23:21.63"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand.",
       "time": "00:23:31.82"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I don't see where you'd get out on a lack of jurisdiction. I mean, supposing I sued the Ford Motor Company in California and I said, this car that you made for me is really loused up, and their answer is, well, it's not a Ford. Well, it may turn out not to be a Ford, but that doesn't mean the California courts didn't have jurisdiction over Ford. It means I lose the case on the merits.",
       "time": "00:24:16.05"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, don't you have a right to test... supposing you think this affidavit is foggy or you think it doesn't say as much as you think it ought to. You have a right to take that person's deposition, don't you?",
       "time": "00:24:48.08"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And did you choose to avail yourself in this case?",
       "time": "00:25:00.22"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Staring, isn't the fogginess partly due to the fact that the affidavit of Asahi's president is perhaps not as detailed as it might have been? Couldn't he have spelled out in detail just how much knowledge they had of the ultimate destination of these valves? And didn't do that. He just said he knew he sent some to Taiwan, and he doesn't say anything about what he knew was going to happen later. Isn't that right, or maybe I'm misstating the affidavit?",
       "time": "00:25:21.39"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me ask you this question. As a legal matter, supposing your opponent took the president's deposition and said: Mr. President, what do you know about the distribution of your products in the United States? And he said: Well, we don't ship anything directly to the United States; we send everything to Taiwan; we do understand that they send about 100,000 or 200,000 or a million dollars worth of our product into California. That's purely at their decision, but we do know that happens. Would there be jurisdiction or not?",
       "time": "00:26:34.58"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So there doesn't have to be fogginess. You have a real cleancut position if you want to make it. You're not arguing that.",
       "time": "00:27:04.60"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that would be the same if your client knew that they supplied 100 percent of the requirements of the tire manufacturer and they knew that every tire that that manufacturer sent into California had your valve in it? You would say no jurisdiction? That's the same question as Justice Stevens asked.",
       "time": "00:27:16.34"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:27:47.76"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that every tire that they ship to California has your valve in it.",
       "time": "00:27:51.63"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's the same question, though, that Justice Stevens asked you.",
       "time": "00:28:03.02"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, maybe that's a defense on the merits, that you just did exactly perform your contract. But supposing you knew they filled the specifications, you also knew that they were going to explode as soon as they were put in motion on a motorcycle, or there were fireworks or something. Would you still say no jurisdiction at all?",
       "time": "00:28:49.42"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Staring. We'll hear now from you, Mr. Haven.",
       "time": "00:29:51.43"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How many tires did they make?",
       "time": "00:32:02.61"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, it might have been only half of one percent.",
       "time": "00:32:09.93"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It might be a lot of valves, but it certainly reduces the chance that any of those valves got to the United States, especially when only 20 percent of the business of Cheng Shin came from California.",
       "time": "00:32:14.67"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, how does anybody know that any of--",
       "time": "00:32:33.13"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--The odds are even against it.",
       "time": "00:32:41.90"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The odds are against it, just on the figures.",
       "time": "00:32:43.22"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Maybe ten.",
       "time": "00:32:50.26"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Nevertheless, in terms of whether Asahi should have anticipated that its products were regularly going to arrive in California, that's a different question.",
       "time": "00:32:54.23"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "To sell.",
       "time": "00:33:20.94"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Does Cheng Sing, is it?",
       "time": "00:33:29.30"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Cheng Shin, sell its tires in the United States to motorcycle manufacturers, or does it put them directly on the tire market?",
       "time": "00:33:33.59"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "These are tubes that go inside of tires?",
       "time": "00:33:49.44"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, who does Cheng Shin... does it sell to tire manufacturers?",
       "time": "00:34:25.81"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So it's valve to tube to tire to motorcycle?",
       "time": "00:34:46.58"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, but the tube is manufactured separately from the tire.",
       "time": "00:34:56.95"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, how is this foreseeability or whatever you want to call it, awareness of the possibility, any different in kind from the awareness that the seller, that an automobile dealer has when he sells automobiles in New Jersey that they are very likely to be driven in Oklahoma?",
       "time": "00:35:10.09"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The equivalent of the person serving the marketplace is the person who buys the Volkswagen in New Jersey, and I know I'm selling these cars to people who travel and I know that they're going to travel, among other places, to Oklahoma. Yet we've held that Oklahoma can't base its jurisdiction over the New Jersey company simply on the ground that somebody who bought a Volkswagen in New Jersey travels in Oklahoma with it.",
       "time": "00:36:04.56"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you think Volkswagen should have come out the same even if the seller of the vehicle had said, oh, you want a new car, where are you going? I'm going to Oklahoma. Have a good trip.",
       "time": "00:36:41.19"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, no. This is just a New Jersey customer of his that says he's going to go visit his daughter in Oklahoma. But that nevertheless, it still leaves a New Jersey fellow who is not seeking to serve the Oklahoma market.",
       "time": "00:36:54.84"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or some New Jersey person buys the car and says, I'm going to Oklahoma.",
       "time": "00:37:19.24"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, nor was Asahi here. Asahi couldn't have cared less where these valves went. It happened to know that it was very likely they were going to go to California, but they couldn't care less where they went once they unloaded them and got the money for them. They weren't seeking to serve California any more than the Volkswagen dealer could have cared less where the person was driving his Volkswagen. He knew he was going to probably go to Oklahoma. In the hypothetical that Justice White just gave you, the fellow says: I am going to go to Oklahoma. The dealer says: Well, good luck. You're right, he doesn't care whether he goes to Oklahoma or not. So he's not trying to serve the Oklahoma market.",
       "time": "00:37:27.30"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And it's the same here.",
       "time": "00:38:03.92"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Asahi was not seeking to serve California, either. It was just selling valves. It couldn't care less where the valves went.",
       "time": "00:38:13.30"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Just the way the Volkswagen dealer knew that these people were going to be driving the car in Oklahoma.",
       "time": "00:38:25.09"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even in VW, some of us were in dissent.",
       "time": "00:39:06.81"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I say even in VW, some of us were in dissent.",
       "time": "00:39:10.20"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He's not insulated. He's just not able to be sued everywhere in the world where his component parts go. He's liable. He can be sued where he can be found.",
       "time": "00:40:08.53"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We're not talking about not being able to obtain redress against the person who makes a defective valve. It's just a question of where you can obtain it, whether you can obtain it wherever the valve happens to turn up or whether you have to go to some place where he is located to sue.",
       "time": "00:40:18.34"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's what you're saying, wherever the valve turns up.",
       "time": "00:40:39.59"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Haven, you're going to get to the second prong of the argument, aren't you, having to do with fair play?",
       "time": "00:41:34.72"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In light of the fact that what's left in this case are two foreign corporations, really foreign corporations, the California residents, the original Plaintiffs, are out?",
       "time": "00:41:40.96"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But what interest of California remains now that the original Plaintiffs have settled?",
       "time": "00:44:11.99"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Possible future injuries?",
       "time": "00:44:21.78"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Possible future injuries?",
       "time": "00:44:23.63"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is Cheng Shin the American subsidiary of the Taiwanese company?",
       "time": "00:44:46.46"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, but wasn't it a party to the case?",
       "time": "00:45:02.92"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And I assume--",
       "time": "00:45:06.12"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--I assume... and I don't know what the facts are in this particular case. I assume in the typical situation here your American company probably has an American insurance carrier who probably settled with the Plaintiff and has a subrogation claim against the manufacturer.",
       "time": "00:45:09.91"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Normally that company... normally we'd really have an insurance company that would have an interest in this.",
       "time": "00:45:33.45"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This particular juncture in this litigation.",
       "time": "00:45:40.71"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Of course, if you're right that an indemnity claim such as Cheng Shin's is always going to be able to bring in a person further back in the stream, presumably Asahi could make the same argument, if we sustain you here, if it wants to file an indemnity action against the steel manufacturer somewhere in Hong Kong from whom it bought the steel. Somewhere the chain has got to get too thin.",
       "time": "00:46:10.63"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, how different is it? I mean, this person just sends steel bars from Hong Kong to Japan, and the same conversations took place. Asahi tells him: Yes, we send a lot of our stuff to Cheng Shin and Cheng Shin sends a certain amount to the United States. And do you know that your steel is all over California.",
       "time": "00:46:56.16"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes. Well, if you don't know, we're telling you.",
       "time": "00:47:22.31"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And it cracks. And last week what really failed in an accident was your steel.",
       "time": "00:47:28.21"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So your answer is yes, he should be suable--",
       "time": "00:47:49.85"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--in California?",
       "time": "00:47:52.02"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So it is never too far, it is never too remote?",
       "time": "00:48:09.18"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Just never find out where the person you're selling something to intends to resell it. I mean, that's all he has to do to protect himself, right?",
       "time": "00:48:17.11"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Ask not where your valves go.",
       "time": "00:48:24.49"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But at least the seller of the finished product, he will always know where his products are going.",
       "time": "00:48:49.06"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What evidence is there of continuous taking advantage of California?",
       "time": "00:50:57.95"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about, what's the evidence that Asahi consciously was taking advantage of the California market over a period of years?",
       "time": "00:51:14.89"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, what evidence is there?",
       "time": "00:51:24.51"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Isn't know enough?",
       "time": "00:51:36.39"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I know that.",
       "time": "00:51:44.54"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We're back to where we were a while ago, that there is still the missing component of how... what percentage of Cheng Shin's tubes contained Asahi's valves. You don't know that?",
       "time": "00:51:48.61"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, wasn't there a finding... was there a finding below that Asahi over a course of years was consciously taking advantage of the California market?",
       "time": "00:52:22.06"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That that's the case, is that it?",
       "time": "00:52:35.16"
     },
@@ -1375,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, if any of them were sold there. That's a very general statement. I mean, obviously they knew they would benefit from the sale of products containing their components anywhere, including California. But that does not say to what extent it thought they were being sold or knew they were being sold in California.",
       "time": "00:52:50.66"
     },
@@ -1387,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why wouldn't Cheng Shin have know how many Asahi valves were sold and distributed in California in the year 1978? Why wouldn't they have put an affidavit in the record for the year that is most critical here?",
       "time": "00:53:11.68"
     },
@@ -1399,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or '77, whatever you want.",
       "time": "00:53:28.54"
     },
@@ -1411,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But how many of those came to California? Cheng Shin ought to know.",
       "time": "00:53:34.86"
     },
@@ -1423,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They probably don't know, that's the point.",
       "time": "00:53:42.35"
     },
@@ -1435,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right. And they know how many tubes went to California. But they don't know how many tubes... they might not know how many tubes went to California containing Asahi valves.",
       "time": "00:53:50.70"
     },
@@ -1447,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But they ought to know what the percentage. First of all, they ought to know the percentage, and if you just extrapolate you ought... but they didn't give us those figures, did they?",
       "time": "00:54:05.18"
     },
@@ -1459,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So the burden really is en you to sustain jurisdiction. So it's a hole in the record.",
       "time": "00:54:15.15"
     },
@@ -1471,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It just seems to me it's such a strange way to get this evidence, to have your partner going out looking through a bunch of valve assemblies five years later.",
       "time": "00:54:38.51"
     },
@@ -1483,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:54:46.02"
     },
@@ -1495,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That can always happen with somebody that doesn't know that it's going to be brought in. I mean, you can have somebody who is negligent as can be in the manufacture of something more dangerous than a valve, let's say an airplane, okay, and he doesn't know that the airplane's going to be used in the United States, and he sells it to someone who then brings it to the United States and it's used here. Now, it's very easy for that to hurt somebody in the United States, and you wouldn't assert that the mere fact that he manufactured the product that was used here is enough to enable him to be sued here, right?",
       "time": "00:55:55.38"
     },
@@ -1507,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And it isn't the fact that the injury occurred here alone that makes it an appealing case.",
       "time": "00:56:38.99"
     },
@@ -1519,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It isn't the fact that the injury from the defective product occurred here, it is not that fact that makes it an appealing case for the assertion of jurisdiction.",
       "time": "00:56:42.81"
     },
@@ -1531,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There has to be some voluntary--",
       "time": "00:56:52.95"
     },
@@ -1543,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--submission to the jurisdiction.",
       "time": "00:56:55.22"
     },
@@ -1555,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Haven. Mr. Staring, you have one minute left. Do you wish to use it?",
       "time": "00:57:18.82"
     },
@@ -1567,13 +1571,13 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Staring. The case is submitted.",
       "time": "00:58:06.28"
     },
     {
       "turn": 256,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Monday next at ten o'clock.",
       "time": "00:58:08.45"
     }

@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2005/05-5992/20060418a_05-5992.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "EDWARD SCOTT ZAS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DARYL JOSEFFER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument next in Zedner v. United States. Mr. Zas.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about, Mr. Zas, that the court thought it was home free on the Speedy Trial Act? After all, it had gotten a waiver for all time. Isn't that why the 165 days?",
       "time": "00:02:24.67"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, but on... on that one, the... the Second Circuit said that he was incompetent, and you could have excluded the time on (4) because (4) allows you to exclude time when he's incompetent. And if, in fact, the district judge is sitting there thinking he's incompetent, then the failure is simply a failure to write down his reason why it's excluded. I guess there's uncertainty here as to what the reason was the district judge excluded that time, and it's a little bit hypothetical for the reason that Justice Ginsburg mentioned. But if you were to lose on the first point, then I guess on this point, the thing to do would be to send it back and determine whether, in fact, the judge intended to exclude on the ground of competency, in which case his failure was simply a failure to note down his reason, which is not required by the act.",
       "time": "00:03:02.07"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You're not quite through your answer yet, but is there also a requirement that the competency determination be made within 30 days? Or am I... am I in error on that point?",
       "time": "00:04:19.85"
     },
@@ -91,13 +91,13 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm sorry. My act must read differently. My act says in (4), any period of delay resulting from the fact that the defendant is mentally incompetent. It doesn't say anything about 30 days.",
       "time": "00:04:40.95"
     },
     {
       "turn": 10,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that... but that's different, I take it, from the judge's delay in making the finding of competency.",
       "time": "00:04:53.28"
     },
@@ -109,7 +109,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, that's why, see, I guess on this point, we'd have to send it back because if, in fact, the judge had determined in his mind within the 30-day period that the person was incompetent or he was incompetent in fact, then that could have been his reason. I'm not sure what to do about this point in any case, and I understand that you think he wasn't incompetent, or at least it hadn't been so found. The Second Circuit seemed to think he was incompetent because that was their basis. So I guess if he was, it's excluded, and if he wasn't, it isn't excluded. And I don't know. The Second Circuit said he was. So maybe you should have another chance to argue this before the Second Circuit.",
       "time": "00:05:09.41"
     },
@@ -121,7 +121,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The delay... the delay was not because we can't try this man because he's incompetent, and until he's rendered competent, we... we have to stay proceedings. That wasn't the basis at all. It was just I haven't made up my mind yet.",
       "time": "00:06:14.38"
     },
@@ -133,7 +133,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which is what is specifically precluded by the requirement that... that you act within 30 days, and... and all the rest of the time, the clock is running.",
       "time": "00:06:28.47"
     },
@@ -145,7 +145,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And I take it the trial... the Speedy Trial Act doesn't say if the judge is thinking about something, it requires him to make an order.",
       "time": "00:06:38.02"
     },
@@ -157,7 +157,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I was going to ask you about that. Or could he vacate submission because he wants new evidence or something? Could you vacate submission of the... of the first competency hearing in order to take new evidence?",
       "time": "00:06:59.51"
     },
@@ -169,7 +169,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So your view is that we should say that the Second Circuit's statement that the defendant could not have been tried because, at that time, he was incompetent, that we should simply say that's false, that the Second Circuit is wrong to say that.",
       "time": "00:07:27.75"
     },
@@ -181,7 +181,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Now, we've been talking about the competency period. I take it the first period was one of just repeated requests for extensions. That's January '97 until May '97.",
       "time": "00:09:25.03"
     },
@@ -193,7 +193,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that's this... that's the first of the two periods that's involved here.",
       "time": "00:09:38.67"
     },
@@ -205,7 +205,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I don't know if it makes any difference to the case. Do you... do you think the court could have made findings that would have been justified? I mean, it takes a while to find an expert to say that a bond is genuine when it spells United with O, but-- [Laughter]",
       "time": "00:10:15.21"
     },
@@ -217,7 +217,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Are there... are there cases in which the judge's findings... let's assume that he made the findings... are set aside for abuse of discretion on... on review for a violation of the Speedy Trial Act?",
       "time": "00:10:49.22"
     },
@@ -229,7 +229,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Who... who could complain? Because in... in all of these instances, it was the defendant who sought the enlarged time. In fact, even though the judge had given... gotten this all purpose waiver, he didn't give defense counsel as much time as defense counsel asked for to... to investigate the genuineness of the bond.",
       "time": "00:11:18.35"
     },
@@ -241,7 +241,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you think it's... it's not harmless error if they didn't make the finding but... but could have?",
       "time": "00:12:30.16"
     },
@@ -253,7 +253,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but isn't... isn't the difference that in the latter period, the court took no action, and there is a mandate on the court to act? With respect to this earlier period, the court did act. Incidentally, it did exactly what the defendant wanted it to do, but it acted so that the only... the only reason for arguing error here is, in effect, a clerical reason. He didn't say the magic words or make the magic conclusion. If, in fact, that's because he couldn't have made it, no question. You... you got a violation of the statute. But if he could have made it and... and simply didn't say the magic words, you're in a very different position here from what you are in... in the case of... of the failure to act on the... on the competency issue.",
       "time": "00:12:55.51"
     },
@@ -265,7 +265,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, let's put it this way. It's a failure to speak rather than a failure to act. In... in the latter case, no action. In this case, action, in fact, action as more... it's as requested. But a failure to speak contemporaneously with the action, that's different.",
       "time": "00:13:48.32"
     },
@@ -277,7 +277,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, we don't... we don't know. I mean, on the face of the record, we don't know whether he weighed or whether he didn't weigh. In the second case, we know that he didn't act, and... and action is what he's got to... to accomplish. But whether he weighed or not, we don't know. He just didn't say whether he weighed.",
       "time": "00:14:19.40"
     },
@@ -289,7 +289,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Right.",
       "time": "00:14:38.71"
     },
@@ -301,7 +301,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No. I... I--",
       "time": "00:15:18.28"
     },
@@ -313,7 +313,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--But it's... it requires... in order for us to conclude that that's the only way it can be taken account... into account, we... we'd have to conclude that... that rule 52 was, in effect, partially repealed and made inapplicable implicitly here without any reference to it. And that's... that kind of, let's say, implicit modification of... of one of the rules is, as a matter of normal interpretation, disfavored.",
       "time": "00:15:23.15"
     },
@@ -325,7 +325,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But there's always some sanction for error, and the point of the harmless error rule is to determine whether that specific sanction should be applied.",
       "time": "00:16:13.95"
     },
@@ -337,7 +337,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'd like to know how... how do we know that the judge didn't set forth orally his reasons for finding that the ends of justice outweigh the interest, et cetera? Is that in the record what he actually said?",
       "time": "00:16:46.31"
     },
@@ -349,7 +349,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because I don't know that you'd have to use the exact words, the ends of justice served. You know, you don't have to... I'd like to read what he actually said, and where... where is that? It's not on page 192, which is somebody's opinion. But rather, if I want to read the words, where do I look?",
       "time": "00:17:02.63"
     },
@@ -361,7 +361,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He didn't think he needed it. He had a perpetual waiver.",
       "time": "00:17:49.97"
     },
@@ -373,7 +373,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Zas, are you going to talk about estoppel?",
       "time": "00:18:36.85"
     },
@@ -385,7 +385,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, isn't there something more than a waiver here? I mean, waiver is a very broad term. I mean, it would cover a situation, for example, in which the Government asked for time and the defendant said, okay, I waive. In... in this case, there's... there's an affirmative act on the part of the defendant. He's not merely waiving. He is affirmatively asking for action on the part of the court, and subject I guess to cutting down the period somewhat, he got what he asked for. This is something more than waiver. This is, in fact, a... a grant of specific relief requested by him, and he now wants to turn the tables based on receiving exactly what he asked for. That's more than waiver.",
       "time": "00:19:17.50"
     },
@@ -397,7 +397,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I can. Did he ask for a perpetual waiver? I thought the way the colloquy went, the judge said, no, you know, I can't give you a waiver unless you'll... unless you'll make it a perpetual waiver. And then he said, okay, I'll make it a perpetual waiver. Wasn't... wasn't the... the initiative for the perpetual waiver from... from the court?",
       "time": "00:20:05.48"
     },
@@ -409,7 +409,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And hasn't my brother cleverly changed my hypothetical? Because I was-- [Laughter] --I was not talking about the perpetual waiver. I was talking about the waiver for whatever number of days he actually took in... in that case, which was what? 90 days?",
       "time": "00:20:26.92"
     },
@@ -421,7 +421,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:20:43.02"
     },
@@ -433,7 +433,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:20:45.54"
     },
@@ -445,7 +445,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "As long as they're not in jail pending trial.",
       "time": "00:21:27.48"
     },
@@ -457,7 +457,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Maybe you could say then that it's the Government that has the right. It's the Government that has the right, and the Government should have objected. I mean, the problem, of course, is obvious, that it's a little hard on the district judges that people come in and both sides tell them what you have to have here is a waiver. Are you sure you won't raise this against me later? I'm positive. I swear. You mean you absolutely swear a thousand times that no matter what I do and have delay, you will never raise this as an error and it's fine? Yes. Okay? So he says, okay, fine, done. You win. Then he raises it as an error. That's rather... called sandbagging the judge. And obviously, one would look to... or I would look to ways to avoid that, but you're telling me I can't avoid it, and that's what Congress wanted and so be it. Is that right?",
       "time": "00:21:58.38"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How is it not correct? That's what I'm getting at.",
       "time": "00:22:55.08"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm not talking about here. I'm saying that in your... if I adopt your position in this case, I would have to have the same position, I would think, in the most egregious cases. Wouldn't I? Because the only reason I'd adopt it here is because Congress wanted it no matter what.",
       "time": "00:23:05.92"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that right?",
       "time": "00:23:25.79"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. Then you're... then am I right in characterizing?",
       "time": "00:23:27.35"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Maybe. I mean, judges are very busy. Not all the prosecutors get the word. It's very hard to ask district judges to raise something on their own in the face of lawyers who are telling them the opposite. So you say, oh, they'll all know. I've noticed there are a lot of opinions we write that they don't know about-- [Laughter] --until, say, the lawyers point them out.",
       "time": "00:23:49.23"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This... this was a judge who apparently was doing this as a... a matter of standard practice. He had a form that he whipped out. It must be a very old form. It looked like it was typed on a regular typewriter.",
       "time": "00:24:31.94"
     },
@@ -541,13 +541,13 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And Gothic print, right?",
       "time": "00:24:51.56"
     },
     {
       "turn": 85,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It could have come from my chambers. [Laughter]",
       "time": "00:24:53.39"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I was going to ask what is the date of the Speedy Trial Act? 1975?",
       "time": "00:25:07.30"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And it was widely publicized among the judiciary then.",
       "time": "00:25:12.89"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Can he make an ends of justice finding for all time? Could he start at the beginning, any continuance I grant is granted after my weighing the different factors set forth in the statute and it's in the ends of justice?",
       "time": "00:25:29.14"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Joseffer.",
       "time": "00:25:53.02"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but as we've indicated, the... the judge was the one that opted out of the act by this regular practice of requiring the perpetual waiver, or whatever we call it.",
       "time": "00:27:14.65"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's pretty hard to read those pages as if they were anything other than what they seemed to be on their face, that he didn't worry about the Speedy Trial Act because he thought that it had been waived.",
       "time": "00:28:13.52"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, then why isn't that the end of that, that the... if you agree that the defendant can't waive it, well, the reason that he got the continuance is because he waived it, otherwise there would have been something else done and... or at least might have been.",
       "time": "00:28:27.84"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How can we say it's purely procedural with respect to the first time? I mean, the reason that was given is I have to... I need this time to find out if these really peculiar looking bonds are genuine. Now, the... the Second Circuit said... and I don't understand why they said this... this is a complex case so that continuance is warranted. Was this a complex case?",
       "time": "00:29:11.71"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did the Government at any point tell the... tell the court, Your Honor, we think the act requires you to make a specific finding and we request you do that?",
       "time": "00:30:12.22"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Because, I mean, you're... you're coming in and saying, oh, well, he waived, but certainly the Government could... could have asked the... asked the district court to make the necessary findings.",
       "time": "00:30:31.63"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What... what are you hypothesizing? That the court actually made this finding in its mind but just didn't express it? Or are you hypothesizing that the court could have made it but didn't make it, never even went through the mental process?",
       "time": "00:31:51.06"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could have made it. So... so we're going to... why can't life be simple? We're going to have to have trials all the time as to whether, in this hypothetical situation, this finding could have been made. I mean, you know, this creates subsidiary litigation that we really don't need.",
       "time": "00:32:08.42"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Suppose you ask the judge. You say, Judge, 2 months ago the defendant came to you and said, I waive the Speedy Trial Act. Now the defendant says, Judge, I now would like a month's continuance. The judge says, I'll give it to you. The opposing counsel says why. He says, because he waived it. Now, you're telling me that, one, he cannot waive it, but two, even though the judge said I did it because he waived it, that still itself is okay. We go ahead and let him exclude it because the judge might have done something differently. Is that what you're saying?",
       "time": "00:32:57.57"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But it's possible you could argue, looking at the record, that the judge should have tried it... should have excluded it on a different basis. He should have excluded it on the basis of the interests of justice, et cetera required. So what the judge said, just to make it clear, is I'm not even thinking about this different basis, though I might. I'm doing it just because he waived it. And now you're telling me, I take it, he can't waive it, but nonetheless, the error is harmless because he waived it, or something like that.",
       "time": "00:33:47.11"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's not harmless. You're saying it's a procedural error.",
       "time": "00:34:19.84"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So we don't say the judge is right because he waived it. We're saying he's right because the judge made a procedural error. I'm having a hard time following that.",
       "time": "00:34:22.88"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But, you know, Congress could have... could have written it the way... the way you're proposing it. Congress could have said, you know, when there... when... when there is good cause for the continuance, the clock won't run. It didn't say that. It... it said the judge has to make a finding. I mean, don't we have to give that some effect? You're saying it really doesn't matter whether he makes the finding or not. So long as there was good cause so that a finding could have been made, that will be enough.",
       "time": "00:35:23.34"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it seems to me the Government is equally remiss for not pointing out the obligations of the court under the act. Let... let me ask you this. Probably you can respond to that as well. One of the problems with reindicting... I mean, how... how is the Government hurt if it can reindict? I recognize that it's costly to the system, et cetera. But is there any real prejudice there?",
       "time": "00:36:44.48"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, of course, I'm... I'm supposing that after this rule, there would be no trial because there would be... if... if you don't prevail, there wouldn't be a trial.",
       "time": "00:37:20.53"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And I'm asking are there... are there severe costs with that when there's been no trial?",
       "time": "00:37:36.60"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "There's... there's no trial.",
       "time": "00:37:44.69"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The... the action is dismissed for a Speedy Trial Act violation because the petition of the petitioner here is accepted by this Court and the Government just reindicts.",
       "time": "00:37:46.41"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm hypothesizing that there hasn't been.",
       "time": "00:37:56.85"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The case is dismissed.",
       "time": "00:37:59.70"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And there is a reindictment.",
       "time": "00:38:01.90"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "How costly is that to the system other than getting the grand jury together?",
       "time": "00:38:03.40"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In this... is there a statute of limitations problem in... in these cases if their dismissal is without prejudice?",
       "time": "00:38:43.11"
     },
@@ -883,19 +883,19 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Counsel--",
       "time": "00:39:05.96"
     },
     {
       "turn": 142,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr.--",
       "time": "00:39:06.98"
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--the... the argument you're making is really one of invited error, and I'm not sure it even applies on these facts. I mean, the... the defense lawyer didn't, as you hypothesized in one of your answers, say something to the effect of don't worry, you don't need to make any findings of the ends of justice or anything like that. He just said I'm waiving my speedy trial rights, and that may mean he's not gong to argue, you know, that the ends of justice don't justify it or whatever. He's just saying I don't have any objection. Maybe he assumed that the judge would go on and say, okay, I'm making the findings required by subsection 8(a).",
       "time": "00:39:07.23"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, in this case, the judge told the defendant I've got a solution to this. Here's my form.",
       "time": "00:39:53.19"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Do you have any idea how often this... this sort of situation comes up where there's an alleged violation of the act and then a denial by the district court of a pretrial motion to dismiss?",
       "time": "00:40:55.78"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--You... you made an argument a moment ago which included the point that he asked for this particular relief and represented what he needed to do if he got the relief, the continuance. You... you came right up within a step of... of making a judicial estoppel claim, although you did not use those terms. I have two questions. Did the Government raise at least the... the theory of judicial estoppel in the litigation before it reached this point? And the second question is, even if the Government did not raise that term, asked for... for estoppel to be applied in those terms, did the Government make the same argument that you have just made which emphasizes the fact that he asked for it and he represented the reasons for... for needing it?",
       "time": "00:41:17.47"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes. The difference between acquiescence and... and potentially sandbagging.",
       "time": "00:42:42.70"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Except... except where there's a public policy against what you want to estop him into doing. I mean, it seems to me for the same reason that you don't allow a waiver, you shouldn't allow an estoppel. There's a public policy against it. The... the Congress wanted these things tried promptly, and... and whether he merely waives or... or goes further and affirmatively causes the court to do something which it shouldn't have done, you're just as much violating the policy it seems to me.",
       "time": "00:43:06.86"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If... if what you say is true, I don't know why it makes any difference that the defendant led the court into it. If you... if you believe that this is just a procedural nicety that was not complied with, why shouldn't you do the same thing when... when the court fails to make the finding but could have made the finding whether or not the defendant was the one that led him into it?",
       "time": "00:44:46.30"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's harmless error because he... the evidence of guilt was substantial? What... how does the harmless error work?",
       "time": "00:45:21.32"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Why do you... why do you put that in a separate category? It's kind of unusual for Congress to put that type of a requirement in the statute. They could have normally... I suspect they normally would write it. You know, you... you... they're excludable only if the court finds in the interest of justice. But they went further and they said if the court sets forth orally or in writing in the record of the case. I mean, they set it forth as a separate requirement. I don't know that we can give it sort of a second class status.",
       "time": "00:46:18.77"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Or say the error is not complying with the act.",
       "time": "00:47:14.19"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, within 70 relevant days counted as the statute requires them to be counted, which includes the requirement of this finding set forth in the record before you can stop the clock running for... you know, for some period. I don't think that that's... I don't think that's very complicated.",
       "time": "00:47:31.35"
     },
@@ -1027,19 +1027,19 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Which court?",
       "time": "00:48:10.24"
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Oh, no, that... pardon?",
       "time": "00:48:10.67"
     },
     {
       "turn": 167,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The... is that... is there any reason to believe that the judge, of course, would clarify it and say ends of justice, if we took your remand solution.",
       "time": "00:48:12.72"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well--",
       "time": "00:48:46.02"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--It seems to me that in this case, that... that all purpose waiver that the judge and not for the first time proposed is... is what caused all this. And... and my question that I had is knowing that this was the judge's practice... and indeed, he had written about it... did the U.S. Attorney's Office try to do something to say, look, the act doesn't permit that kind of thing?",
       "time": "00:48:48.35"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it was not known at the time that he was incompetent. And... and therefore, that could not have been the reason that he was not being tried. The reason he was not being tried was that the... that there was pending before the judge the inquiry into whether he was competent.",
       "time": "00:50:16.78"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You really don't know the answer of whether the clock is running until the finding is made. If the... if the judge finds that... that he's not incompetent, well, too bad. You know, the Speedy Trial Act requires dismissal. On the other hand, if the judge finds that he is incompetent to be tried, there hasn't been a violation of the act. I mean, it's a very strange situation. And it also, as... as the... the other points out, it... it puts considerable pressure on the judge when... when he is in violation of the Speedy Trial Act, to find that the individual is incompetent because, otherwise, there has to be a dismissal.",
       "time": "00:51:34.51"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Are you... are you relying to any extent on something that I think you brought up? He also could not have been tried because the prosecutor was having a difficult pregnancy and she was on extended leave, which was occurring in this period?",
       "time": "00:52:53.81"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Even if we agree with you on the incompetency exclusion, we still have to reach the waiver for all time question. Correct? You don't argue that the incompetency goes back that far, do you?",
       "time": "00:53:30.15"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You're not suggesting he was incompetent during that period as well.",
       "time": "00:53:47.51"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes.",
       "time": "00:53:53.22"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Am... am I correct that the... the particular provision that you think is relevant here is... is (h)(1)(A) on page 4 of the... the appendix in the blue brief?",
       "time": "00:54:23.15"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I've... I've got it. Okay.",
       "time": "00:54:40.59"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What... what do you make of the language, any period of delay resulting from the fact that the defendant is mentally incompetent? I mean, the claim here is that... that the... that the delay did not result from that fact, but simply from the failure of... of the judge to make that determination so that what you're really doing is making a harmless error analysis.",
       "time": "00:54:46.48"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay, but isn't that a--",
       "time": "00:55:28.05"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--isn't that a harmless error analysis rather than a... a subsection (4) analysis?",
       "time": "00:55:28.94"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But... but I guess my only point is that (4) does not say any period during which the defendant is mentally incompetent. It says any period of delay resulting from the fact that he was mentally incompetent, and this did not result from that fact until at the end of the period the judge says, oh, I find him incompetent, so that any period after that would be the result of the fact that he was incompetent. But the... the delay up to that point was attributable solely to the judge's failure to make a determination.",
       "time": "00:55:53.73"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "If it was a question, yes.",
       "time": "00:56:31.08"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It was... it was cleverly disguised, but it really was a question. [Laughter]",
       "time": "00:56:35.52"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Isn't... isn't that so? [Laughter]",
       "time": "00:56:42.89"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Zas, you have 4 minutes remaining.",
       "time": "00:56:54.85"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It goes back some way because he's looking at reports from those earlier times. It's not only effective as of the date he makes the finding.",
       "time": "00:59:13.53"
     },
@@ -1279,19 +1279,19 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What do you mean--",
       "time": "00:59:55.42"
     },
     {
       "turn": 208,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I guess you can be... I'm sorry.",
       "time": "00:59:56.17"
     },
     {
       "turn": 209,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--If the judge, when he finally found the defendant competent, had said expressly, and I... I made this determination in my mind shortly after the hearing and the... the briefs that were submitted at that time, but now I'm putting it on the record, that wouldn't be sufficient?",
       "time": "00:59:57.57"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Where does the act say that, that there has to be a finding at the time?",
       "time": "01:00:35.27"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "No. But there's no provision, is there, that says that the finding under (b)(4), that there has to even be a finding under (b)(4), much less when the finding has to be made?",
       "time": "01:01:14.41"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:01:38.30"
     }

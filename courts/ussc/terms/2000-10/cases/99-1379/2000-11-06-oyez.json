@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2000/99-1379/20001106a_99-1379.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID E. NAGLE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MICHAEL RUBIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 99-1379, Circuit City Stores v. Saint Clair Adams. Mr. Nagle.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is the word class important to your argument?",
       "time": "00:01:12.68"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Or would your argument be just the same without--",
       "time": "00:01:18.41"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, it would seem to me to help your argument somewhat, because we... the statute asks us to think in terms of classes of workers, rather than individual workers engaged--",
       "time": "00:01:37.72"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Mr. Nagle, I guess at the time that this act was adopted in... what, 1925?",
       "time": "00:02:20.77"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "We had not taken as broad a view of the Commerce Clause power as is true today, is that correct?",
       "time": "00:02:32.18"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And so Congress probably didn't have in mind that its jurisdiction was as broad as we would have subsequently indicated, and apparently it intended at least that the act not include or cover contracts of employment over which their authority to regulate was very clear, right?",
       "time": "00:02:41.29"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the indications were that at least then Secretary of Commerce Hoover thought employees shouldn't be covered at all, and he presented language to the Congress which approved it, and yet you want us to say that Congress did intend to include for arbitration contracts of employment over which the jurisdiction was most questionable, and yet exclude it for those where the jurisdiction of Congress was clearest at the time, which seems a little odd to me.",
       "time": "00:03:16.55"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the other most troublesome point for me, anyway, is this Court's decision in Allied Bruce, which dealt with section 2, and said that we're going to interpret it now as reaching the full scope of Congress' Commerce Clause power. Why would we not do the same for this section 1?",
       "time": "00:04:53.10"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that? I mean, it seems to me an exception is just as important as the rule. Why should we unrealistically construe it just because it's an exception?",
       "time": "00:05:51.43"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would you tell that to the members of Congress? When you vote for this exception, bear in mind that we're not going to take it to have its most reasonable meaning. We're going to construe it narrowly. Why? Why would we do that?",
       "time": "00:06:03.39"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well then, fine, so your case really turns, it seems to me, on the point that the language used by the Congress that enacted this statute in section 1 was at that time narrower than the language used in section 2.",
       "time": "00:06:21.24"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, what support do you have for that?",
       "time": "00:06:38.43"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Employed in is not the same as engaged in, but I'd like to go back, first, to the involving term.",
       "time": "00:07:20.10"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You're using words and say that... saying that in the second section, involved is a very broad term, and in the first section engaged is a narrow term.",
       "time": "00:07:27.79"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But some of the briefs in this case tell us that involved in is not affecting commerce, that indeed this is the only piece of Federal legislation that uses the words, involved in. Is that so?",
       "time": "00:07:39.26"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So... but you're asking us to say that Congress meant in 1925 something different in using these two words.",
       "time": "00:07:58.55"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, let's be precise about the words. Are we talking about, involved in commerce, or involving commerce?",
       "time": "00:08:15.55"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's quite different than involved in commerce. You can say someone is involved in commerce. I think that's quite different from saying that somehow this... it's a contract involving commerce.",
       "time": "00:08:22.46"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think it's important to your case that involving commerce is a broader concept than involved in commerce.",
       "time": "00:08:38.18"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Involving commerce means pertaining to commerce.",
       "time": "00:08:51.54"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Involved in commerce means pretty much the same as engaged in commerce, it seems to me, and so if involving commerce is the same as involved in commerce, and involved in commerce is the same as engaged in commerce, you lose.",
       "time": "00:08:55.23"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To put it shortly.",
       "time": "00:09:13.41"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because it doesn't appear. The phrase is involving commerce.",
       "time": "00:09:18.77"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's the broad coverage of section--",
       "time": "00:09:22.78"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Of section 2.",
       "time": "00:09:26.89"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And they could have said in that section, don't you think... do you think it would have been any different if they had said, seamen involved in commerce, as opposed to engaged in commerce?",
       "time": "00:09:35.90"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But isn't the Congress' notion of the limits of its power, doesn't that explain why they didn't say contract of employment, period?",
       "time": "00:10:10.62"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, can you give us a better explanation? I mean, this goes back to Justice O'Connor's question about the oddity of an exclusion which excluded those contracts which were most obviously at the time of drafting within the congressional power, without touching those as to which the power was doubtful, or perhaps absent, and as I understood your answer, your answer was a suggestion that perhaps politics was simply the answer. I mean, the one particular political group had asked for it. Can you think of any other reason to draw what to me also seems like an odd distinction in the congressional mind?",
       "time": "00:10:39.51"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then why didn't they just stop with seamen?",
       "time": "00:11:46.03"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:11:56.57"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right.",
       "time": "00:11:59.34"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What conclusion do you draw from that? I'm wondering, under your view, are employees of travel agents covered within the exclusion, or are they covered?",
       "time": "00:12:13.25"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How about ticket agents for railroads?",
       "time": "00:12:29.65"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you draw a distinction between ticket agents who sell them as employees of the railroad and those who sell them as employees of the travel agent?",
       "time": "00:12:47.78"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You think that's what Congress had in mind?",
       "time": "00:12:55.15"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--railroad employees engaged in foreign or interstate commerce.",
       "time": "00:13:08.92"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But I take it what you're suggesting, you have to give some content to other class of workers engaged in commerce. Don't you suggest that that's engaged in transportation or something?",
       "time": "00:13:14.00"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You see, if we accept your view we have to have a jurisprudence of what transportation is. If we accept the respondent's view, we have to have a jurisprudence on what an employment contract is. Both require interpretation, but the latter is a statutory term.",
       "time": "00:13:30.02"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The former is not.",
       "time": "00:13:48.83"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I suppose their answer is, Congress has already regulated seamen, they're about to regulate railroad employees, so they want to make very sure that those are excluded, and then they go on to the limits of their Commerce power, which were vague at the time, and give everyone else the same protection that seamen and railroad workers have.",
       "time": "00:14:41.87"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, skipping the legislative history, Mr. Nagle, why is it so narrow? It says, engaged in commerce, and even in 1925 that extended beyond transportation workers. You want the cutoff to be transportation workers, I take it.",
       "time": "00:15:33.57"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So communications workers, those were not included as engaged in commerce?",
       "time": "00:16:28.68"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You say as of 1925, the only workers engaged in commerce were those who were engaged in the moving of goods, is that--",
       "time": "00:16:35.09"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, if that's the case, then I think what we're faced with on your own interpretation is an exclusion which is as complete in relation to the coverage of employees as the inclusion at the beginning of the provision is in relation to commerce in general, and so it seems to me that your argument supports the interpretive theory that Congress was, in fact, in each instance, in the coverage and in the exclusion, legislating to the limits, and if the limits change as to the one, we ought to recognize a change in the limits as to the other.",
       "time": "00:16:45.07"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "When you are talking about all workers, a lot of water has flowed over the dam or under the bridge since 1925.",
       "time": "00:17:48.63"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I just would like to focus, you to focus for a minute on the consequences. One of the things that's strongest for you is that in all the other circuits but the Ninth, for a long time have limited to transportation workers this exemption.",
       "time": "00:17:59.26"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what bad would happen if we bought the Ninth Circuit? That is, in thinking about it, I thought that the purpose of this act is to stop State court hostility to arbitration. Isn't that the basic idea?",
       "time": "00:18:12.80"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So if we read workers out of it you still have the NLRB there today, and doesn't the NLRB have the power today to protect any worker, just... you wouldn't need this... to protect them because the NLRB operating under section 301, or just its general power, could protect all these workers adequately, and therefore there's no reason not to read them out and to invent distinctions between transportation and other kinds of worker. Now, what's your response to that?",
       "time": "00:18:27.21"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Who wouldn't they have power to protect? Who wouldn't they have power... if the States become unreasonable in respect to arbitration, i.e., they stop enforcing arbitration agreements with workers, couldn't the NLRB come right in there and say, don't be unreasonable, we want the right rules here, and we'll both get the arbitration and protect the workers? Is there anyone on... in other words, on the Ninth Circuit interpretation, that's somehow going to be left out in the cold when they want an arbitration agreement?",
       "time": "00:19:05.69"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, I'm interested in a practical fact. This statute is to stop the hostility of the States to arbitration. I wouldn't want workers who wanted arbitration to be left out in the cold, any more than anybody else, and then I thought, well, if we accept the Ninth Circuit they're not going to be left out in the cold, because they have the NLRB in there to protect them and, moreover, it will help them somewhat in terms of the purposes because they won't get these agreements shoved in their face and they will be able perhaps to have more freedom to choose. But I'm not... I'm not expressing a view on that. Whatever the right thing is, we have people there on the board to protect them. That's... so in other words, if I deny your interpretation, am I causing any harm? Leaving the words out of it, I want to know the consequences.",
       "time": "00:19:51.79"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, even if the FAA doesn't apply to employment contracts, State arbitration rules can... they can be used, can they not?",
       "time": "00:21:46.50"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why would you have removal to the Federal court unless you had diversity if it's State law that controls?",
       "time": "00:22:43.00"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, if these are employment relations, wouldn't most of them be diversity... most of them be nondiverse, that is, a worker and employer in the same State?",
       "time": "00:22:52.35"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Wouldn't it be the place where the work is performed?",
       "time": "00:23:29.60"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Nevertheless, it would be State law that would control, some State law.",
       "time": "00:24:02.65"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Nagle, at the time this... the exclusion was passed, can you tell me whether it was customary to require each party to bear a portion of the cost of the arbitration, so was it... would it have been customary at that time to require employees to pay part of the up front arbitration costs?",
       "time": "00:24:34.55"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:24:59.81"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:25:00.87"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could you tell me just for the record, what are the best cases that you have to establish the proposition that at the time this legislation was enacted it was already well established that engaged in commerce was not the limit of the Congress' power over interstate commerce? What are your best cases?",
       "time": "00:25:11.65"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Have you... just, I want to be sure you give us your best answer to Justice O'Connor's initial question as to the reason why there's this rather narrow exception from a broad provision.",
       "time": "00:26:37.45"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Very well, Mr. Nagle. Mr. Rubin, we'll hear from you.",
       "time": "00:27:30.16"
     },
@@ -795,13 +799,13 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "In 19--",
       "time": "00:28:03.21"
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Mr. Rubin, if your position is correct, why didn't, in section 1, Congress simply stop with, shall apply to contracts of employment, period?",
       "time": "00:28:04.23"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 128,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When was the bill actually passed? When was the law passed?",
       "time": "00:28:30.68"
     },
@@ -825,7 +829,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "'25.",
       "time": "00:28:35.79"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's very good sleuthing, but I mean, this is a letter. This is not even a committee report. It is a letter sent 2 years before this statute is enacted, and you want us to assume that that is the only reason, not only that Congress didn't end the sentence in section 1 with employment contracts, but it is... but also it explains why Congress didn't at least, if it was not going to end the sentence there, at least use the same language in section 1 that it did in section 2.",
       "time": "00:29:15.00"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, that is a very difficult thing to explain.",
       "time": "00:29:48.11"
     },
@@ -861,7 +865,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I gather he failed, since he sent the letter in 1923 and the bill was passed in 1925. [Laughter]",
       "time": "00:30:08.58"
     },
@@ -873,7 +877,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They were covered by the Commerce Clause power, or by any Federal statutes?",
       "time": "00:30:58.91"
     },
@@ -885,7 +889,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "By Federal statutes.",
       "time": "00:31:03.32"
     },
@@ -897,7 +901,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I--",
       "time": "00:31:05.18"
     },
@@ -909,13 +913,13 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--This would include an employment contract between a CEO and a corporation, I assume, right?",
       "time": "00:31:48.74"
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "You're--",
       "time": "00:31:54.20"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I mean, you're painting this as--",
       "time": "00:31:55.78"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Your position is simply covering the hard hat lunch bucket worker, but I assume it would cover a contract between a CEO and his corporation.",
       "time": "00:31:58.14"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, because you'd say that it covers workers, and workers might have had a definition at the time that did not include the CEO.",
       "time": "00:32:26.20"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "We don't have to decide that.",
       "time": "00:32:34.02"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Rubin, what was well established as of 1925 about the meaning of Congress' power? Was it well established that engaged in commerce was narrower than Congress' full power? Was there already the affecting commerce notion--",
       "time": "00:32:37.31"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--floating out there?",
       "time": "00:33:03.39"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What about the case cited by opposing counsel, Behrens.",
       "time": "00:33:23.62"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it wasn't... but then they would have used it in section 2. I mean, you have a very difficult phenomenon to explain, that is the fact that Congress obviously and intentionally used different language in section 1 and section 2. That is just terrible drafting, just terrible drafting if Congress was trying to do what you say they were trying to do.",
       "time": "00:35:55.49"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That may well be, but--",
       "time": "00:36:20.01"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--that's terrible drafting.",
       "time": "00:36:21.52"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, Congress is supposed to come up with a coherent bill, and we usually assume it was all drafted at the same time and somebody sat down and used the same words to mean the same things throughout the statute, and we usually assume that when they use different words they mean different things.",
       "time": "00:36:23.10"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're engaged in businesses involving commerce. Workers in businesses involving commerce.",
       "time": "00:37:23.40"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, it's so easy to do.",
       "time": "00:37:29.54"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you're worried about adding words, they could have ended it after workers and it would have achieved the same result.",
       "time": "00:37:36.91"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Rubin, there's also the phrase, contract of employment. You were candid in telling us that you consider workers to include any employee, even managerial employees. What about collective bargaining contracts? Are they... where do they stand as... do they fall within the section 1 exclusion?",
       "time": "00:39:01.43"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How was that consistent with... we're told that the Ninth Circuit is the only one that holds that all employment contracts are out under section 1, but--",
       "time": "00:39:42.15"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--What was the reasoning in the circuits for saying that collective bargaining contracts are excluded? Is it that they were not contracts of employment?",
       "time": "00:40:29.98"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And some of the examples involve collective bargaining agreements outside of the transportation industry.",
       "time": "00:40:46.57"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But why wouldn't those courts have said that the National Labor Relations Act is just a superseding statute?",
       "time": "00:40:53.71"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Or, LMRA, yes.",
       "time": "00:41:07.22"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why doesn't the 301 reasoning explain what the circuits have done and say, well, these are just controlled by another statute?",
       "time": "00:41:46.66"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is it true that all the other circuits but the Ninth have restricted this to transportation workers?",
       "time": "00:42:22.00"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, all right, but I mean, restricted it, then it can't be that there are a lot of circuits that have held that collective bargaining agreements are excluded as a contract of other workers.",
       "time": "00:42:36.55"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right.",
       "time": "00:42:46.10"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't see the consistency there, but I need... that isn't your problem at the moment, nor mine. The question I have is the same I addressed to your brother over... as I understand it... this is 75 years ago.",
       "time": "00:42:51.16"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's an old statute.",
       "time": "00:43:06.34"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And it's possible the language is open and, given that possibility, I'd like to know what the consequence is. As far as I understand it, when I'm focusing on workers... and I believe there still is hostility to arbitration in the States, and I also think that there are a lot of unfair arbitration agreements, but there are even more that are fair and many of them help the average worker, maybe not your client. All right. Given that background, who's going to be left out in the cold? Are there a class of workers such that if we accept the Ninth Circuit they will suddenly not be able to get arbitration agreements that might help them because of State hostility or complex State rules, et cetera?",
       "time": "00:43:08.12"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can the NLRA, NLRB take jurisdiction over such a class?",
       "time": "00:43:56.42"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is there a problem?",
       "time": "00:44:01.85"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Your response is, then, look, they can still agree, just not in the employment contract.",
       "time": "00:44:42.22"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you're going to be--",
       "time": "00:45:00.03"
     },
@@ -1299,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--You're going to be arbitrating under the kind of agreements you describe simply between the... either under State law or under Federal law, aren't you? I mean, there's no other way to do it.",
       "time": "00:45:01.89"
     },
@@ -1311,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:45:15.75"
     },
@@ -1323,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Right.",
       "time": "00:45:20.66"
     },
@@ -1335,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Rubin, your argument assumes that giving a broader modern meaning to section 2 and giving a broader modern meaning to section 1 are one and the same things. I really don't think that that's what's going on here. I mean, what you're really asking us to do is to change the language of section 1 in light of the fact that we now know that Congress could have gone further than it chose to go in that language. I don't know any other case where we've done that. You're not asking us to simply give that language its modern, more expansive meaning. You're asking us to say, you know, in light of the fact that we now know that it's not just employees engaged in interstate commerce who can be covered. Had Congress known that then, they would have written a different provision and so, Supreme Court, why don't you rewrite it for Congress, because they surely would have put it this way if they had known then what we know now. Do you know any case where we've done that?",
       "time": "00:45:26.89"
     },
@@ -1347,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're saying they saw a symmetry which now no longer exists because we've given the first part a much broader meaning, and now this other part, which they once thought was symmetrical, is no longer symmetrical, so now we should read it to mean something more--",
       "time": "00:47:04.68"
     },
@@ -1359,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--than a class of workers engaged in foreign or interstate commerce.",
       "time": "00:47:19.89"
     },
@@ -1371,13 +1375,13 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even when it doesn't achieve that by reason of future changes, future changes in the law, or future changes in circumstances. What you're asking us to do is, in light of future changes in the law, make this statute read the way Congress thought it was going to operate when it was enacted, but we don't usually do that. If, in fact, engaged in interstate commerce is something narrower and is no longer symmetrical, tough luck. Congress can amend it. But we don't go around rewriting it in order to preserve symmetry.",
       "time": "00:48:06.16"
     },
     {
       "turn": 222,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Maybe your answer is, we've already rewritten section 2.",
       "time": "00:48:36.53"
     },
@@ -1389,7 +1393,7 @@
     },
     {
       "turn": 224,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it isn't symmetry. I mean, there's different language used in the two sections.",
       "time": "00:49:05.92"
     },
@@ -1401,7 +1405,7 @@
     },
     {
       "turn": 226,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's a very odd definition of symmetry.",
       "time": "00:49:28.34"
     },
@@ -1413,7 +1417,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Rubin.",
       "time": "00:50:35.74"
     },
@@ -1425,7 +1429,7 @@
     },
     {
       "turn": 230,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Nagle, you have 2 minutes remaining.",
       "time": "00:50:37.63"
     },
@@ -1437,7 +1441,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You cite Behrens... you cite... never mind. Go ahead.",
       "time": "00:51:24.93"
     },
@@ -1449,7 +1453,7 @@
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Nagle. The case is submitted.",
       "time": "00:53:00.28"
     }

@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1987/87-573/19880425a_87-573.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "EDWIN S. KNEEDLER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "IAN G. LOVESETH",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Kneedler, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Kneedler.",
       "time": "00:03:07.47"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What is the standard on appellate review? Is it abuse of discretion?",
       "time": "00:03:08.79"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You don't bring to us the question whether or not the clock should have been restarted for the full 70 days?",
       "time": "00:04:09.85"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You did argue it below?",
       "time": "00:04:25.35"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Kneedler.",
       "time": "00:06:04.16"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What section of the criminal rules is it that speaks of dismissal of indictments with prejudice or without prejudice?",
       "time": "00:06:06.04"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, for instance, supposingly we were dealing with a violation of other than the Speedy Trial Act, would a district court have authority to dismiss an indictment with prejudice?",
       "time": "00:06:41.38"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But here the Speedy Trial Act itself authorizes dismissal with prejudice.",
       "time": "00:07:05.79"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Kneedler, in deciding whether there was an abusive discretion in dismissing with prejudice rather than without prejudice, do you think it's proper for us to take into account that there was a subsisting charge which was not dismissed and for which the judge imposed the maximum penalty, which he might not have done had the other count not been dismissed?",
       "time": "00:07:54.39"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He got five years for what, what was the other offense? I forget.",
       "time": "00:08:21.54"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "For not showing up a trial, right; failure to appear.",
       "time": "00:08:26.48"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Kneedler, the statute was passed in order to get prompt prosecutions, right?",
       "time": "00:09:21.40"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And one way to do that is to prod the prosecutor. If we say that all you can do is to dismiss without prejudice, how would that prod the prosecutor?",
       "time": "00:09:28.14"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If the only thing that will be done is to say, oops, you shouldn't have done that.",
       "time": "00:09:46.29"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And write that out.",
       "time": "00:10:09.96"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you want that in writing?",
       "time": "00:10:21.50"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you want that in writing?",
       "time": "00:10:22.89"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, from the trial court.",
       "time": "00:10:28.32"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that what you are insisting on?",
       "time": "00:10:31.68"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did the government ask him for that?",
       "time": "00:10:49.64"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Frankly, what worries me is if we are going to have to take every one of these cases.",
       "time": "00:11:35.57"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I would hope not.",
       "time": "00:11:41.75"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think the district court disregarded that principle?",
       "time": "00:12:53.56"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But not the first.",
       "time": "00:12:56.89"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but your first principle, consider all of the circumstances.",
       "time": "00:13:02.65"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Kneedler, are you saying that we should send the case back and ask him to reconsider all the facts and write a more elaborate opinion before he comes to the conclusion, or are we to decide that the--",
       "time": "00:13:26.52"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--We can weigh those facts and say it's perfectly clear that the five-year sentence shouldn't have been taken into consideration and all the rest of it, and evaluate this history of events and say--",
       "time": "00:13:38.77"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, maybe he did and maybe he didn't. He didn't put it in the opinion, but I wonder if in the back of the district judge's mind wasn't the fact that I know this man is guilty of what happened in this courtroom and I'll slug it to him on that, because five years is a pretty severe sentence for that. I take it that's not the guideline sentence, is it?",
       "time": "00:13:55.36"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But say he did in fact take that in, you say that would be impermissible for him to take--",
       "time": "00:14:12.71"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, if he writes an opinion and he says, if he had pleaded guilty to the narcotics offense, I think I would have given him five years based on guidelines or other considerations, and I think I can give this man adequate punishment by giving him five years for the flight, and I also can clean up a problem in the marshall's office if I enter this remedy. Would that be an impermissible exercise of his discretion?",
       "time": "00:14:21.99"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But in some of your filings I think you rely on the escape as something that justifies on the other side of the coin, don't you?",
       "time": "00:14:50.21"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even though he got adequately punished for it.",
       "time": "00:15:06.10"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But does that go to the question of whether there was a violation of the clock?",
       "time": "00:15:29.62"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In any event, the real thrust of your argument is not that he should take another look at all the facts that you describe. But rather, that the facts are so clear that we can examine the record and decide--",
       "time": "00:15:57.11"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--as a matter of law in this case it had to be without prejudice.",
       "time": "00:16:07.91"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Kneedler, suppose I agree with you on that that it is beyond the bounds of discretion, and suppose I also agree with you that it would have been improper for the court to make up for one mistake by making a second mistake, giving too high a sentence on the flight charge, where does that leave me? That means I can correct one mistake, but leave the other mistake there. I mean what if the district judge knew, well, gee, if this thing isn't going to be dismissed with prejudice and he's going to get some time on this drug charge, I really wouldn't have given him five years.",
       "time": "00:16:37.34"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We don't know it wasn't either, though.",
       "time": "00:17:27.98"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do we know it will be the same judge? It won't be the same judge. It will be in a different... it will be in a different court now, won't it?",
       "time": "00:17:53.42"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Kneedler, when the trial judge considered this matter, did she take testimony for the marshall service?",
       "time": "00:18:18.38"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, the judge was obviously disturbed about something the government said or did in order to make the finding that the government had a lackadaisical attitude.",
       "time": "00:19:50.15"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But there is no evidence in the record to support that; is that your position?",
       "time": "00:20:05.19"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "There was an affidavit from DEA. No affidavit from the marshall, affidavit from the United States Attorney?",
       "time": "00:20:18.11"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought it was in the record that the reason for the delay in sending him back up to Washington was the marshall was waiting to get together a bunch of prisoners so that the cost of transporting them would be less.",
       "time": "00:20:38.12"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's in the record, isn't it?",
       "time": "00:20:56.38"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, don't you agree that there was eight days over?",
       "time": "00:22:54.08"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't understand what you're talking about.",
       "time": "00:23:04.64"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Eight days is minimal? Have you ever tried in jail for eight days?",
       "time": "00:23:12.98"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, are you asking us to announce the general rule that any delay of less than two days, five days, 10 days shall not give rise to a dismissal with prejudice?",
       "time": "00:23:41.17"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We should superimpose a secondary line in addition to the 70-day deadline, we have sort of a second deadline where you are eligible for dismissal with prejudice?",
       "time": "00:23:58.57"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would it be permissible in your view for a trial judge to say, this is the fifth time I have had a 72-day delay, two days over, and normally I don't think two days is very much, but the U.S. Attorney has done it three times in a row. I think I will dismiss this with prejudice to let him know.",
       "time": "00:24:19.56"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, say 10, 10 72-day ones. Say the internal procedures in the U.S. Attorney's Office just seemed regularly to not meet the 70-day one, but they always got in within 75 days. Could the judge sooner or later say I think I'll dismiss it?",
       "time": "00:24:39.91"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And he can rely on what happened in other cases as a basis for doing that.",
       "time": "00:24:56.06"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question that doesn't seem to be covered by the briefs, and I'm not sure that there is anything... The states also have equivalent requirements of prompt trial within a fixed number of days, at least a number of states do. Do you know if the normal remedy that applies in the states is dismissal with prejudice or without prejudice?",
       "time": "00:25:13.91"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand. It wouldn't be controlling anyway. My recollection of Illinois was the other way around; that it was a flat prohibition--",
       "time": "00:25:55.98"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--Mr. Kneedler, if you should prevail here, is there any statute of limitations problem for the government that exists with all of the additional passage of time when--",
       "time": "00:26:11.26"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--I take it you don't defend the position of the marshall service that they were waiting to get a bus for a group of prisoners, that they had the absolute duty to transport this one prisoner immediately; is that your understanding?",
       "time": "00:26:39.74"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is there a provision in the statute which allows delays for transportation purposes?",
       "time": "00:27:11.31"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Kneedler. We will hear now from you, Mr. Loveseth.",
       "time": "00:28:00.87"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Loveseth, do you think that the trial court though has a duty to consider any prejudice to the defendant in making a decision whether to dismiss with prejudice to the state?",
       "time": "00:29:42.48"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think the trial court should be required to consider them?",
       "time": "00:30:00.88"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, in this case, I gather the Defendant would have to remain in jail in any event because of the new charge of leaving before the trial and so forth?",
       "time": "00:30:14.97"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess none of this would have happened if he hadn't fled the scene in the first place, would it?",
       "time": "00:31:12.84"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, except he wouldn't have to be returned from California had he not left Washington.",
       "time": "00:31:47.87"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, surely you don't suggest that his deliberate flight is an irrelevant circumstance to a--",
       "time": "00:32:03.95"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--All right.",
       "time": "00:32:10.99"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That really is imputing an extraordinary amount of discretion to the district court to say that sort of shifting back and forth is permissible, it seems to me.",
       "time": "00:33:18.13"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say there was a systemic problem, but you say that was what Congress... you are not saying that Judge Rothstein thought there was a systemic problem in the marshall service here. What I read of what she wrote, it does not indicate she did.",
       "time": "00:34:08.68"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it gives them 10 days, and then it creates a rebuttable presumption after that. It doesn't give them a flat 10 days with everything cut off after that.",
       "time": "00:34:47.93"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Loveseth, it is, after all, somewhat of a burden for the state if the case is dismissed without prejudice. It requires them to start all over again. So it isn't as though there isn't some penalty being imposed by virtue of just dismissing it without prejudice; isn't that right?",
       "time": "00:35:27.76"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In future cases when you represent the defendant in sentencing, will you concede the fact that... that the fact and circumstance that an indictment has been dismissed without prejudice should be considered adversely to your client on the remaining charges?",
       "time": "00:36:39.61"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Loveseth, do you know where your client is now?",
       "time": "00:39:33.57"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So you do know where he is.",
       "time": "00:39:42.82"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Loveseth. Mr. Kneedler, you have three minutes remaining.",
       "time": "00:43:41.68"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that in the record, Mr. Kneedler?",
       "time": "00:46:03.50"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What about the severe sentence in this case? Is it appropriate for a trial judge to increase the sentence on the remaining count in view of the dismissal of the other ones? That's appropriate, isn't it?",
       "time": "00:46:36.37"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's what I'm asking you.",
       "time": "00:46:59.43"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Kneedler. The case is submitted.",
       "time": "00:47:30.98"
     }

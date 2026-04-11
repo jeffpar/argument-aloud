@@ -3,43 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/84-233/19850225a_84-233.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "ARTHUR R. MILLER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JOEL I. KLEIN",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Phillips Petroleum Company against Shutts, et al.-- Mr. Miller.",
       "time": "00:00:00.00"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So this would just... your submission is that that is just a limit on plaintiff class actions?",
       "time": "00:04:26.59"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it isn't enough just to give them an option to opt-out?",
       "time": "00:04:57.96"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So a plaintiff class has... the Constitution requires the plaintiff's class to be limited to those who have some realistic connection with the forum state?",
       "time": "00:05:56.25"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right, like the named plaintiffs.",
       "time": "00:06:14.04"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You would require an opt-in procedure in effect?",
       "time": "00:06:23.65"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Even if you are right, I am concerned about the standing of your client to raise that question for one of the 28,000 some odd people who apparently have not come forward to object.",
       "time": "00:06:40.01"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, if these non-residents are proper parties, you may have to pay them. That sounds like a piece of standing, doesn't it?",
       "time": "00:07:59.86"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I suppose even now if all the parties were notified that the Phillips attorney is making an argument that you people shouldn't be entitled to share, but please write us a letter now and we will give you some money, I suppose even at this late date thee could be some opt-ins, couldn't there?",
       "time": "00:08:37.48"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "As a matter of practicality, we really don't have much reason to think that these 28,000 people who have been kind of handed a percentage of a recovery on a silver platter are going to have much squawk about it.",
       "time": "00:11:24.34"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "On this record, would we be able to determine in how many jurisdictions these 23,000 people are scattered, if each category in each state was to bring a suit in its own state--",
       "time": "00:12:31.28"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--in their own state.",
       "time": "00:12:45.37"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There must be more, too. Every state in the Union.",
       "time": "00:12:57.81"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I stop you right there for a moment? I must have misunderstood your brief, because I thought most of your arguments would apply even if you had 90 percent of your class in Kansas and your 10 percent were non-residents. Isn't there the same problem for those 10 percent as to the fairness to them of being bound?",
       "time": "00:13:54.50"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that your first submission, then, putting aside the choice of... your first submission, as I understand it, is that unless you have an opt-in procedure or some equivalent, you may not have a class that includes non-residents.",
       "time": "00:14:33.54"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "By that you mean persons who are not residents of the forum state?",
       "time": "00:14:52.95"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:14:59.86"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "To sum up, you either have to opt-in or be a resident to be a class member.",
       "time": "00:15:04.11"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it would not be enough that you received an adequate notice and you did not respond to it.",
       "time": "00:15:21.69"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That would be enough, if I understand your submission, for a resident.",
       "time": "00:15:29.54"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why do you suggest that Oklahoma might be able to... a forum for this entire class? Because that is the... just because Phillips has its main office there?",
       "time": "00:16:04.43"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why would that affect the connections of the plaintiffs with the--",
       "time": "00:16:22.33"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--You are going to argue that, I take it.",
       "time": "00:17:21.62"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt for just a second on that question? Supposing we didn't have a class action now, and are just focusing on choice of law, and somebody in Alaska sued your client, presumably got jurisdiction in Kansas, because you do business there. Would you have the same forceful constitutional arguments to applying Kansas law in that lawsuit?",
       "time": "00:20:55.40"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And say the Kansas Supreme Court makes an erroneous choice of law decision. Clearly under all principles of choice of law they should have applied Oklahoma law instead of Kansas. Have we ever reversed a state court for making that kind of an error?",
       "time": "00:21:30.96"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does this give us general review of all choice of law decisions?",
       "time": "00:21:52.09"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask also, because it helps me focus on the issue, on what particular issues of law do you think it was most outrageous for them to do what they did?",
       "time": "00:22:40.84"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Miller, could I interject here? Do you understand your opponents to suggest that the federal law should govern in this case?",
       "time": "00:25:21.07"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In any event, there were no arguments in the courts below in any of these cases that federal law should govern?",
       "time": "00:25:56.48"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Preemption.",
       "time": "00:26:07.92"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Thank you.",
       "time": "00:26:14.28"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Klein.",
       "time": "00:27:33.19"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Klein, did the respondents challenge petitioners' standing to raise this question over non-resident plaintiffs in the Kansas courts?",
       "time": "00:27:58.89"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And did the Kansas courts nevertheless reach and resolve the jurisdiction question?",
       "time": "00:28:12.90"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is that sufficient, then, for us to exercise discretion to reach it under Craig versus Boren?",
       "time": "00:28:20.59"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you think this Court doesn't even have discretion to reach the issue?",
       "time": "00:29:03.50"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Miller's argument is that that isn't always going to happen, and in a case where the defendant prevails, there may be some problems with the absent plaintiff.",
       "time": "00:29:49.38"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But how do you decide this sort of an issue when the time comes for a motion to certify at the beginning of the case in the state court?",
       "time": "00:30:03.22"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you say that even though the defendant prevailed on the merits in this case, the defendant either before or after judgment can never raise the rights of an absent plaintiff.",
       "time": "00:31:23.90"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are you conceding, Mr. Klein, that before judgment they did have standing to say it is unfair for you to sue me when I couldn't get a binding judgment against you?",
       "time": "00:32:05.15"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, as a matter of constitutional law.",
       "time": "00:32:15.27"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Article III standing, isn't it... don't I have the right to argue it is unfair to me for you to be suing me when I can't get a binding judgment if I win? That is basically their argument, as I understand it.",
       "time": "00:32:18.79"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They could not get a binding judgment against the absent plaintiffs even if they win on the merits.",
       "time": "00:32:29.35"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now that you have won, but in advance of the decision on the merits, their position, as I understand it, is, it ought to be a two-way street. If you win, you will pay, but if you lose, they ought to be protected by res judicata against relitigation.",
       "time": "00:32:44.69"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that is certainly their argument.",
       "time": "00:33:09.82"
     },
@@ -579,13 +583,13 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I don't happen to agree with you.",
       "time": "00:33:14.02"
     },
     {
       "turn": 92,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And, Mr. Klein, is it a matter of Article III standing or prudential standing?",
       "time": "00:33:15.81"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it would seem here within the meaning of Article III standing that there is a case or controversy, and you have someone who is well able to litigate the issue, and that it is more a matter of prudential standing if there is a problem at all.",
       "time": "00:33:34.62"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that takes two lawsuits to litigate, doesn't it? You are saying the defendant can lose its rights in just one lawsuit, but it has to prevail in two lawsuits in order to establish res judicata.",
       "time": "00:35:35.03"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But let's ones who don't intervene and simply--",
       "time": "00:35:48.52"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--How about if there were an opt-in procedure required as a matter of--",
       "time": "00:36:18.55"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, I understand that, but if they did, and if it were resolved that opt-in was required, I suppose then you end up with a res judicata situation.",
       "time": "00:36:31.90"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, how about the opt-out person, member of the class who in fact never got the notice?",
       "time": "00:37:04.10"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say it won't protect people. It will certainly protect them from having jurisdiction exercised over their claim contrary to their wishes.",
       "time": "00:44:11.81"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is it about the opt-in provision that you say doesn't protect--",
       "time": "00:44:24.04"
     },
@@ -693,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But how does it protect them to include them?",
       "time": "00:44:45.22"
     },
@@ -705,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you know, they could lose several things, I suppose. You know, they might have a claim adjudicated in a jurisdiction they didn't want to. They might have it adjudicated by a poor lawyer, that sort of thing.",
       "time": "00:45:00.04"
     },
@@ -717,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is the typical size of the claim?",
       "time": "00:45:21.72"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:45:24.86"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "A hundred dollars?",
       "time": "00:45:25.69"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I can see how an opt-out rule gets you a lot more plaintiffs. I can't see how it necessarily \"protects\" the absent plaintiffs the way you are talking about.",
       "time": "00:45:35.30"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just ask, does your position require this to be a class action? Would you make the same argument with my individual from Alaska who sued on an Oklahoma lease?",
       "time": "00:47:32.10"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if the lease... it is clear there would be expected Oklahoma law to apply, and in Oklahoma he wouldn't have gotten any interest at all? I don't know if that is true of Oklahoma. It seems to me there is an argument that in one state you wouldn't have gotten any interest. Texas, I guess it is.",
       "time": "00:47:42.33"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You are saying that a party like Phillips, unless it puts it in the agreement, it cannot rely on the normal rule of the place where the contract is made that this will be governed by, say, everybody expects that rule to apply?",
       "time": "00:48:21.08"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How would they have ever anticipated in my Alaska-Oklahoma example that Kansas law would apply?",
       "time": "00:48:33.74"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Doesn't there have to be a reason for Kansas to apply its law, or do you say there doesn't even have to be a reason?",
       "time": "00:48:51.20"
     },
@@ -825,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That is... any time you get jurisdiction over the defendant in a state, it is all right for that state to apply its own law?",
       "time": "00:49:23.31"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What is the second interest? You said there were two reasons.",
       "time": "00:49:29.86"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is is a particularly fair choice.",
       "time": "00:49:35.53"
     },
@@ -861,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If it were perfectly clear that in one of these other states they would have not chosen that law, but they would have chosen a rule that says no interest at all, would you still be able to make the same argument?",
       "time": "00:49:48.34"
     },
@@ -873,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even though the royalty... even though the governing papers said no interest, there will be no interest in these suspended royalty payments.",
       "time": "00:50:00.56"
     },
@@ -885,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Suppose the contract was perfectly clear, and I understand it to be asserted here that if this case had been tried in some other states, they would have followed the provisions of the contracts.",
       "time": "00:50:12.22"
     },
@@ -897,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, all right.",
       "time": "00:50:27.48"
     },
@@ -909,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So Kansas would be perfectly free as far as you are concerned to say, well, we know that that provision is in the contract forbidding interest, but we just won't follow that provision in the contract.",
       "time": "00:50:37.94"
     },
@@ -921,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is contrary to our law.",
       "time": "00:50:47.11"
     },
@@ -933,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, what about my question then? Here is, in this case, it is shown to the Court that there are some contracts with royalty owners that would bar interest, just no interest, it just provides right in the contract no interest.",
       "time": "00:50:59.65"
     },
@@ -945,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, could Kansas then apply its law and say we are going to disregard that?",
       "time": "00:51:17.31"
     },
@@ -957,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, don't the respondents make the argument that the applicable law in some of the states in which the leases were made would result in a different amount of interest?",
       "time": "00:51:38.16"
     },
@@ -969,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And we don't know but what that might be true for purposes of our decision, right?",
       "time": "00:51:53.77"
     },
@@ -981,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You must be arguing that it doesn't make any difference.",
       "time": "00:52:00.42"
     },
@@ -993,7 +997,7 @@
     },
     {
       "turn": 160,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I suppose you would make the same interest... make the same argument if it turned out to be a fact that here are 100 royalty owners who reside in a certain state, and their royalty contracts provide for a higher rate of interest than the Kansas court awarded.",
       "time": "00:52:57.18"
     },
@@ -1005,7 +1009,7 @@
     },
     {
       "turn": 162,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, could Kansas apply its own rate of interest, or not?",
       "time": "00:53:24.01"
     },
@@ -1017,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Despite the governing law for a higher rate in another state?",
       "time": "00:53:29.70"
     },
@@ -1029,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Miller?",
       "time": "00:54:53.87"
     },
@@ -1041,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I suppose your argument would be also directed against a federal class action, Rule 23.",
       "time": "00:57:44.76"
     },
@@ -1053,7 +1057,7 @@
     },
     {
       "turn": 170,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:58:01.12"
     },
@@ -1065,7 +1069,7 @@
     },
     {
       "turn": 172,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you suggesting the risk of sort of a Reno syndrome when Reno, Nevada, had all the divorces for a while?",
       "time": "00:58:49.85"
     },
@@ -1077,13 +1081,13 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:59:11.35"
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at 10:00.",
       "time": "00:59:13.37"
     }

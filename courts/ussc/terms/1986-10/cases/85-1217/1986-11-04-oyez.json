@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/85-1217/19861104a_85-1217.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "EDWARD M. PIKULA",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "TERRY SCOTT NAGEL",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We will hear arguments first this morning in the City of Springfield versus Lois Thurston Kibbe. You may proceed whenever you're ready, Mr. Pikula.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Pikula, is a policy unconstitutional if it permits but does not explicitly authorize constitutional violations?",
       "time": "00:01:35.99"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No, my question was, if it permits.",
       "time": "00:01:52.12"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did the Court of Appeals, Mr. Pikula... excuse me... say what the unconstitutional conduct, what the constitutional violation was?",
       "time": "00:01:56.41"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well what... more specific. I mean, the Fourteenth Amendment... again, I'm not asking you for your opinion. Did the Court of Appeals get any more specific than that?",
       "time": "00:02:20.47"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How far do you go in not taking necessary steps before you are in effect permitting? Suppose a municipality is running a jail, and it just doesn't take any steps to buy food for the jail, so that the prisoners are not getting any food. Now there's no written policy that says, it's okay not to feed the prisoners. But anybody would know that you need food there. Would that be a policy?",
       "time": "00:02:37.73"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You said a different constitutional... I understood you to say... provision would be involved in a prison case?",
       "time": "00:03:39.91"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Before you leave the first, I'm not sure I completely understand your view. Would it, in your view, be constitutionally permissible for the city to employ totally untrained people and just said, we need a hundred law enforcement officers. Here are the guns. You go out and avoid law and order... you know, just maintain law and order. And just did nothing else. But he said, this is... you are our policemen. We'll pay you X dollars. Period. Would that be an unconstitutional policy, or not?",
       "time": "00:04:35.89"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it would be... it would be unconstitutional if they, in addition to that, said, everytime you see anybody running away, you just go ahead and shoot to kill.",
       "time": "00:05:08.28"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then it would be bad. They have to give an affirmative instruction to do something wrong?",
       "time": "00:05:15.93"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what if the municipality knows that its police are constantly using lethal force?",
       "time": "00:05:42.83"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You know, there are several people killed every month. And it's notorious, it's well known. The city takes no steps to stop it. But it doesn't have a memorandum that says, good work. It just doesn't take any step whatever to stop it.",
       "time": "00:05:51.52"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "By the officers, but not by the city.",
       "time": "00:06:07.80"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But isn't that gross negligence you're talking about? You're saying that anybody who saw that and took no step to stop it would be so grossly negligent that you can attribute almost willful permission from it?",
       "time": "00:06:29.81"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if the only decision was not to fire any of these officers? A, not to fire them; and B, not to give them any more training?",
       "time": "00:06:57.31"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If they're on notice that they're very poorly trained, and they're very hazardous to the general public.",
       "time": "00:07:05.82"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what if the notice takes the form that we don't think you have an adequate training program for your police. Because there have been a lot of mistakes made. And then they still don't train. Would that failure to train be an unconstitutional policy?",
       "time": "00:07:15.49"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that goes to whether the negligence is gross or not. It doesn't go to the principle of whether gross negligence alone is enough to establish the kind of intent you need. You're just saying, look, if nobody has been dying out there, the city is not necessarily aware of the problem. But once that's been happening, it's very much aware, and it becomes gross negligence.",
       "time": "00:08:02.79"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I'm not sure I agree with you. It seems to me that's precisely what gross negligence is, negligence that approaches such a point that you almost have to intend the result in order not to have done something to stop it.",
       "time": "00:08:34.92"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Pikula, if the city policymakers adopt an inadequate policy with regard to a specific matter, and if they know that it is inadequate, is that enough for the determination of a policy?",
       "time": "00:09:22.24"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If they adopt a policy for police training which is in fact inadequate, and if they know it is inadequate, is that enough?",
       "time": "00:09:48.11"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, by definition, if it's inadequate, it's going to permit conduct which would violate the Constitution.",
       "time": "00:10:08.27"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Doesn't it go to fault rather than to the existence of a policy? I find your argument difficult to follow.",
       "time": "00:10:18.24"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don't take into consideration failure to act? You do not take into consideration failure to act on the part of the city? Do you?",
       "time": "00:10:55.33"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Failure to instruct the police on the proper methods of protecting people's rights is not required?",
       "time": "00:11:13.21"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, for a city to hire a man, give him a gun, tell him he's entitled to kill somebody and turn him loose, that's--",
       "time": "00:11:35.91"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--and nothing else, that wouldn't be a violation of the law?",
       "time": "00:11:46.28"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's what I'm talking about, nonaction. You agree that that's bad. You have to tell him something, don't you?",
       "time": "00:11:53.96"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how much do you have to tell him?",
       "time": "00:12:00.02"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "xxx tell him, don't take this gun that I give you and unwillingly kill somebody?",
       "time": "00:12:07.80"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, now you're going to use the dog bite rule. One shot's okay, but don't do it twice.",
       "time": "00:12:42.55"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I still get the feeling that your position is, the only way the city can be liable is if the city says, specifically, you don't need to follow the Constitution; do what you please. That's the only way the city's liable.",
       "time": "00:13:20.74"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how else?",
       "time": "00:13:35.86"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me phrase the question just a little different. I'll phrase it affirmatively. Supposing city fired all their police officers, we need a clean sweep of our police force. We hire a brand new bunch of officers. They all have to be military veterans. They all have to be trained in how to handle weapons. They all have to be trained in the martial arts, and how to wear uniforms neatly, and how to march. That's all they're trained. And then they just turn them loose in the city. Don't tell them how to serve search warrants, how to arrest people, how to stop vehicles, or anything. They just train them to the extent I described. And then there are a lot of mistakes made thereafter. Would there be a constitutional violation or not?",
       "time": "00:14:01.14"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "xxx I'm not sure what you can say about it except that it happened. The instruction at trial specifically said that the jury could find liability if the city had failed to train, supervise or discipline, and if that failure is reckless or grossly negligent. And the city did not object to that. In fact, the city itself asked for an instruction which included the statement that the plaintiff has the burden of proving the city was not merely negligent in its training, but grossly negligent in failing to train its police officers. And now you're arguing before us, although you asked for that instruction, that that is not enough. Now why should we hear this at this point?",
       "time": "00:14:39.28"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I know that. [Laughter]",
       "time": "00:15:31.11"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, then, the Court of Appeals didn't foreclose review on the basis that you didn't object. They just reached the merits are moved against you?",
       "time": "00:15:43.09"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What was not brought up? The failure to object.",
       "time": "00:15:58.93"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Rule on it, they ruled on it and approved it. They approved it.",
       "time": "00:16:10.65"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But that was the instruction on proximate cause, not the instruction Justice Scalia is talking about. Did you challenge this point before the Court of Appeals, the grossly... did you make the argument before the Court of Appeals that gross negligence alone would not suffice?",
       "time": "00:16:16.72"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And what about at the Court of Appeals?",
       "time": "00:16:42.44"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I ask this before you proceed? What evidence was there of gross negligence?",
       "time": "00:17:10.26"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "If there was no evidence, why was the instruction not objected to?",
       "time": "00:17:24.77"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "That's one you wish you had objected to?",
       "time": "00:17:43.48"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "xxx what Justice Scalia read you was the instruction that you requested, wasn't it?",
       "time": "00:17:46.88"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And then... how would you object to it after you requested it and your request was granted?",
       "time": "00:17:55.65"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How did your motion for a directed verdict put it in issue.",
       "time": "00:18:02.86"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, you never retracted the request for the gross negligence instruction, did you?",
       "time": "00:18:34.80"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, and we had something to say about that situation in the opinion in the Tuttle case, did we not, that where the respondent fails at the certiorari stage to bring out the reasons why the court might not be able to reach a point made in the petition for certiorari, that unless it's a jurisdictional point, the court will consider it waived?",
       "time": "00:18:57.56"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, they did bring it out in the brief in opposition, though, didn't they? They did point out the instruction.",
       "time": "00:19:20.71"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, in the brief in opposition to cert, they raised the question about the instructions too, didn't they? Didn't they also point out the instruction was proper?",
       "time": "00:19:31.01"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me go back to the instruction problem. Is it not correct that in your petition for certiorari, you did not challenge any instruction?",
       "time": "00:20:06.97"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Pikula. We'll hear now from you, Mr. Nagel.",
       "time": "00:21:16.03"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Nagel, in your opposition to petition for writ of certiorari, the orange, did you bring to our attention the reasons that you now adduce for not reaching the points?",
       "time": "00:22:09.84"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then, what you're saying is not that we can't reach the points that they raised in their petition for certiorari, which we granted, or anything fairly subsumed under it, but that the instruction point that they're making is outside the scope of even those points?",
       "time": "00:23:18.74"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What did the Court of Appeals decide?",
       "time": "00:23:57.44"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, about... didn't they say that... didn't they say that... talk about the standard for determining when there is a policy about--",
       "time": "00:24:01.79"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, do you say then... but I suppose the issue is fairly here with respect to whether the evidence shows that there was gross negligence?",
       "time": "00:24:24.59"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:24:35.64"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, the petition for cert said... says the following, among other things: The Court in Tuttle expressed doubts as to whether inadequate training can ever be a policy or custom under Monell. However, a trend in the lower courts permits municipal liability based on inadequate training. This trend undermines the standard of liability established by Monell and its progeny. Without further definition of this standard, lower courts will continue blah-blah-blah-blah.",
       "time": "00:25:13.69"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I see.",
       "time": "00:25:55.85"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what was the unconstitutional policy in this hypothesis?",
       "time": "00:26:32.94"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what was the view below, what was it that was unconstitutional about that policy?",
       "time": "00:27:06.69"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And what was he doing at that point? What was the--",
       "time": "00:27:42.87"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But there were a few more facts attending it than that, weren't there?",
       "time": "00:27:48.77"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And your claim is that your client, or your client's predecessor, was not a... was a nondangerous fleeing felon?",
       "time": "00:28:31.97"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "He also went through a roadblock, didn't he?",
       "time": "00:28:52.63"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And so you say, that part of your hypothesis, the unconstitutional conduct is based on our decision in Tennessee v. Garner?",
       "time": "00:29:22.57"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the... yes.",
       "time": "00:29:34.21"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, failure to train doesn't deal with whether or not there was a 1980... there was a violation of a constitutional right. That's your Monell aspect of the case, isn't it?",
       "time": "00:30:12.44"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean, you could have a failure to train, and if no constitutional right was violated as a result of that failure to train, it doesn't make a bit of difference.",
       "time": "00:30:27.15"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, wouldn't that allow the finding of liability just on the basis of respondeat superior, so far as the city is concerned?",
       "time": "00:34:21.54"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that's where the idea of respondeat superior comes from, I thought, is agency law.",
       "time": "00:34:37.17"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "xxx someone is hurt by... as a result of negligence by a city official at a supervisory level, there's a claim for constitutional violation?",
       "time": "00:36:56.57"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What about negligent construction of a building, of a city building, under the supervision--",
       "time": "00:37:42.20"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Yes, under the supervision of a city manager?",
       "time": "00:37:48.02"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And a piece of the building falls off and kills somebody, depriving him of life.",
       "time": "00:37:52.39"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is there any constitutional violation in Justice Scalia's hypothesis?",
       "time": "00:38:14.34"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is there any... I mean, is there any constitutional violation if the city building in structure has negligently supervised the construction of a building, and the building collapses on somebody?",
       "time": "00:38:22.08"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I would hope you would doubt it.",
       "time": "00:38:34.72"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that, when you've urged a negligence theory? You have negligence, and you have a deprivation of life, without due process of law, I presume.",
       "time": "00:38:37.47"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't see anything in there about police. I don't see how you can read police in. What you may be able to read in is the necessity of intentionally depriving somebody of life. That's what makes it a constitutional violation. If you intentionally do it, and then you may argue, well, it's almost the same as intentionally doing it to do it with gross negligence. Because there's very little difference between that and intent. And there you have a theory that separates constitutional violations from ordinary torts. But when you argue before us that only a negligence standard is necessary, I don't know how you distinguish the negligent construction of a building from negligent action by a police officer.",
       "time": "00:39:02.24"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Nagel, haven't a good many lower courts applied a deliberate indifference standard?",
       "time": "00:39:51.67"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, certainly, there are a good many cases out there in these situations that have applied a deliberate indifference standard. And doesn't that standard come a lot closer to what the Court was talking about in Davidson and Cannon.",
       "time": "00:40:02.16"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could I ask, do you believe that if some member of the community or some organization interested in law enforcement thought that the city had an inadequate training program or one that evidenced deliberate indifference or gross negligence could just bring a suit and say... a 1983 suit and say, you've got a bad program, and we want an injunction for you to measure up?",
       "time": "00:45:02.50"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:45:36.76"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the inadequacy in the program does have to be the cause of some injury?",
       "time": "00:45:40.21"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, all right.",
       "time": "00:45:46.57"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so, in this case, certainly one of the issues here, even if you're right on the standard, does the evidence... does the case... was there an injury that demonstrated gross negligence?",
       "time": "00:45:52.35"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or whatever the standard was that was approved.",
       "time": "00:46:10.78"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, see, there is an issue of that in this case.",
       "time": "00:46:14.87"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "As to causation.",
       "time": "00:46:21.14"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it wasn't a constitutional violation unless there was a... as the Court of Appeals said... a grossly negligent training program, and that training program was responsible for the injury.",
       "time": "00:46:33.88"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's right. But what constitutional violation was there?",
       "time": "00:46:56.06"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but that is not... well, without due process of law. I thought that meant that there had to be... in this case, that it had to be a grossly... it had to be caused by a grossly negligent training program before there was a constitutional violation.",
       "time": "00:47:04.41"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, don't say then it's clear that there was a constitutional violation here.",
       "time": "00:47:22.24"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:47:27.93"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know you do. But that's one of the issues.",
       "time": "00:47:33.36"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but everybody agrees, don't they, that there was a constitutional violation caused by the police officer acting under color of law.",
       "time": "00:47:34.90"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's not in dispute, is it?",
       "time": "00:47:41.43"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The only question is whether the city itself committed a constitutional violation?",
       "time": "00:47:44.64"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx constitutional violation of the city, necessarily.",
       "time": "00:47:51.46"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose the police officer is merely negligent. That's bad conduct, I must say, especially if he took somebody's life. But say he's merely negligent.",
       "time": "00:49:08.89"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right. But then, what if it is proved that the city had a grossly negligent training program, and that this officer hadn't been properly trained?",
       "time": "00:49:25.77"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well--",
       "time": "00:49:42.26"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--How was the... was the officer here negligent, or just... grossly negligent?",
       "time": "00:49:54.33"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That doesn't necessarily mean that he knew he was breaking the law or anything else. He was just... he made a mistake of judgment.",
       "time": "00:50:09.71"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's right. He was doing what he was supposed to do?",
       "time": "00:50:32.94"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Nagel, can I ask you one more question about what you would agree is before us? I understand it's your position, is, that issues relating to the standard of care and the instruction are definitely not here, but you do agree that the first question presented by the cert petition, whether the inadequate training is a viable theory of municipal liability, that that is here.",
       "time": "00:50:35.51"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your short answer, you do not accept that that's necessarily before us?",
       "time": "00:51:27.66"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Nagel. Mr. Pikula, do you have anything further? You have eight minutes.",
       "time": "00:51:33.86"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Pikula, can I ask you a question that goes to the last point just made? Your first question presented in your petition does read, whether inadequate training of police officers is a viable theory of municipal liability under 42 U.S.C. 1983. Does the petition contend... I didn't read it as contending... that under no circumstances, training can be a theory of municipal liability? In other words, I'm not sure that the text lives up to the billing. It says, whether it can be a viable theory. But does your petition assert that you were going to argue that training can never, under no circumstances, be a theory of liability?",
       "time": "00:52:00.38"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So then I don't really know what the question presented means, whether it is a viable theory... I don't like \"viable\" anyway. I don't understand what it means here. What did you mean by it?",
       "time": "00:52:59.93"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Pikula. The case is submitted.",
       "time": "00:53:23.03"
     }

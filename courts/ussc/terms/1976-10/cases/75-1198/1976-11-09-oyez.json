@@ -3,31 +3,31 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1976/75-1198/19761109a_75-1198.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "ALLAN L. BIOFF",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "RONALD ROSENBERG",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in 1198, Nolde Brothers v. Local No. 358. Mr. Bioff, you may proceed when you are ready.",
       "time": "00:00:00.00"
     },
@@ -39,7 +39,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Suppose, hypothetically, that instead of that sequence, the parties had rocked along for another year or two without a contract, as I am sure you know sometimes happens.",
       "time": "00:05:43.11"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And then after a year, a year-and-a-half, the employer closed the plant. Would you say that the right to the severance pay which you now claim was vested under the written contract would be enforceable a year–and-a-half, two years later?",
       "time": "00:06:00.29"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Contract terminated but employment continued and the factory continued operating.",
       "time": "00:06:31.68"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Five years later then, it still would have to be the same, wouldn’t it?",
       "time": "00:06:44.03"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I take your answer to be that no matter how much time had elapsed, the men kept on working, the factory is open. But when, as and if the factory was closed, severance pay under the original contract would be enforceable.",
       "time": "00:09:00.68"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Then I did misunderstand you. I thought you said at first it would be the same whether it was three days, three weeks or three years.",
       "time": "00:09:31.99"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Two questions.",
       "time": "00:10:12.28"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you have suppose the matter was in arbitration for about a week and the plant closed down and the contract was gone? Would that arbitration continue?",
       "time": "00:10:13.29"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What if there was this man who claimed that he was not paid for the last week of work? He could maintain that under the contract, of course.",
       "time": "00:10:43.78"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is under the contract.",
       "time": "00:11:05.16"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I think you better say that he can get it from work rather than out of the contract.",
       "time": "00:11:09.38"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If you had severed the man on Friday, he would have had arbitrable, wouldn’t he?",
       "time": "00:11:59.08"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Counsel, you emphasize the critical fact being that the liability totally matured prior to the expiration of the agreement, gave rise to the duty to arbitrate, as I understand you. You say all the events supporting the claim, supporting the liability happened before the contract expired. Is it, am I mistaken?",
       "time": "00:13:59.78"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 29,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I am not stating it awkward.",
       "time": "00:14:17.75"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 31,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh, I understand that, but you would concede that you had a duty to arbitrate if the events occurred before the contract. Well supposing you have a vacation pay case and it is generally considered to be a vested interest, a vacation pay but the Christmas does not come until two weeks after termination of the contract. Would the claim for the pro rata share of vacation pay be arbitrable or not? I am stating it awkwardly but assume that the contract expires after ten months of vacation pay vested but before he actually gets a vacation. Could he arbitrate that?",
       "time": "00:14:22.57"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is what I thought you would say.",
       "time": "00:15:00.68"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Supposing a man was fired during the middle of the pay period. Normally you pay by the month or the week -- the contract expires in the middle of the pay period, would there be duty to arbitrate there?",
       "time": "00:15:14.04"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Say ‘no’ again, I think.",
       "time": "00:15:25.52"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If the right to severance pay is a vested right, your liability was created at least to the extent, to a certain extent was created –",
       "time": "00:15:40.29"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You can assume it is a vested right here, what duty do you have to these people, Would you have to pay them then?",
       "time": "00:15:54.69"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You mean that they have a right to the accrued termination pay that they have earned even though a succeeding contract may not provide for it.",
       "time": "00:16:04.17"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 45,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let me put the case a little differently. Assume the contract said in words, \"You will earn 'x' dollars of severance pay for so many months that you worked, and in no circumstances shall this be bargained away, taken away or any other. You get it when you leave the employer for any reason whatsoever and then you did not pay him. Would they have aright to -- clear-contract right to the money? But then you disputed over the amount or something like that. Would that be arbitrable?",
       "time": "00:16:26.76"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I am not so sure I accept your proposition, that they -- could the union in behalf of the employees give the company some money? Could they just say, well, every employee will give you a $100 at the end of this term in order to support this failing company?",
       "time": "00:18:24.57"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, just under the general right to bargain -- as exclusive bargaining agent, would they have the right to do that?",
       "time": "00:18:44.94"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I am not sure, I agree.",
       "time": "00:19:35.86"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The union could only strike here because the contract had expired?",
       "time": "00:21:38.45"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Because there was a promise not to strike in return for an agreement to arbitrate?",
       "time": "00:21:42.90"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What rates of pay and working conditions are applied during the period from August 27th to August 31st?",
       "time": "00:22:38.35"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why?",
       "time": "00:22:50.34"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There was no agreement covering the -- according to your submission, the rates of pay or the working conditions during that period after the agreement had been abrogated, terminated.",
       "time": "00:22:54.68"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, then why doesn’t that principle apply here?",
       "time": "00:23:42.50"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I mean, apply here to effect the severance pay and the arbitration thereof.",
       "time": "00:23:45.94"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you conceding that it was an unfair labor practice not to pay severance then?",
       "time": "00:24:10.57"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It seems to me that is exactly what you said.",
       "time": "00:24:17.29"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Maybe you better explain it.",
       "time": "00:24:20.44"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Then what is the point of all this litigation? Surely, you will have to pay it sooner or later.",
       "time": "00:24:46.53"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Couldn’t you avoid all of this for us by simply writing them a check? How much money is involved in this case, anyway?",
       "time": "00:24:55.18"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let us assume that the contract had said expressly in the Arbitration clause, and this Arbitration Clause shall apply to the settlement of any rights accrued prior to the expiration of this contract. And it is perfectly clear that they intended to arbitrate any dispute over an accrued right, even though the dispute arose after the termination of the contract.",
       "time": "00:26:18.46"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You have no problem now. Is it not possible to read the Court of Appeals opinion as just reading the contract that way?",
       "time": "00:26:46.51"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So it is an interpretation, why should we disagree with their interpretation of a collective bargaining contract? That is not a great issue of law, is it?",
       "time": "00:26:56.22"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How they construed some words, is that it?",
       "time": "00:27:06.55"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, it is not possible to read their opinion that way. You are saying that they concluded there is a duty to arbitrate on policy grounds, or some other reason rather than the terms of the contract.",
       "time": "00:27:12.53"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, there are some words in the Court of Appeals opinion that indicates that as they understood the contract, it was just a promise to arbitrate even after the contract was over, about a right that was arguably vested, as we might call it, before the contract was over. And the issue was whether it was vested or not.",
       "time": "00:27:34.35"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "They say that this Court did the same thing in Wiley and in the Piano case.",
       "time": "00:28:38.17"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is a tough case for you.",
       "time": "00:28:45.34"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 93,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I know but the dispute arose at a time when on the face of it, the contract had expired, including the agreement to arbitrate.",
       "time": "00:29:20.50"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 95,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is not that right.",
       "time": "00:29:32.40"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "At the time of the refusal to hire —",
       "time": "00:29:39.82"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 99,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The contract had ended and it was at that time that arbitration was demanded.",
       "time": "00:29:43.62"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "At that time, on the face of it, there was no duty to arbitrate because the contract had expired.",
       "time": "00:29:48.93"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It is a tough case.",
       "time": "00:29:57.60"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 105,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It just compares with Wiley.",
       "time": "00:30:25.08"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:30:34.69"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes, it is. Mr. Rosenberg? We would like to finish this case tonight and get back to wherever it is you are going.",
       "time": "00:31:28.20"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, then it is your friend’s problem, not yours.",
       "time": "00:31:38.19"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you agree with the language in Wiley as applied to this case that the question of arbitrability is one for the Court to decide?",
       "time": "00:32:38.00"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you say that any time, at least arguably, a right has accrued under a labor contract, the Arbitration Clause will survive the termination of the contract unless there is some specific provision against it?",
       "time": "00:33:43.52"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You think that is Wiley?",
       "time": "00:34:00.07"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I do not know about the Steelworkers. What about the rule that in order to force an employer or a union to arbitrate, there has to be a promise to arbitrate?",
       "time": "00:34:05.38"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I know, but you have to find that the promise was intended to apply after the termination of the contract in which the promise is included.",
       "time": "00:34:16.10"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is not my point, my point is where do you get the notion that a month after a contract has expired, that a right that is accrued prior to the termination of the contract has to be arbitrated?",
       "time": "00:34:32.32"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I know, but the contract has expired. Those words are now gone.",
       "time": "00:34:49.15"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 127,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If -- the question is, is there a right to arbitrate? That is the question.",
       "time": "00:34:58.47"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh no, well, you can do that in 301 suit.",
       "time": "00:35:05.71"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand that is your position but in order to sustain it, you have got to show that there was a promise to arbitrate.",
       "time": "00:35:20.19"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the promise has expired.",
       "time": "00:35:36.47"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 135,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I agree with that. I could agree wholly with that without also agreeing that any disputes about those rights have to be arbitrated.",
       "time": "00:35:56.47"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 137,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I suppose you would concede that the Arbitration Clause, and the Arbitration Clause said that this promise to arbitrate shall not apply after the termination of the contract. Did you, or you would not be making this argument.",
       "time": "00:36:34.94"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Your client is hardly in a position to raise much question about fortuity since it was the one that gave notice of termination.",
       "time": "00:36:47.75"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 141,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That was not in the context of an expired contract. That was in the context of what issues under the currently administered contract were arbitrable.",
       "time": "00:37:25.71"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Counsel, were you bound to arbitrate, suppose when you made the demand for severance pay the employer said, let us arbitrate. Would you have been bound?",
       "time": "00:37:59.07"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "After the termination of the contract?",
       "time": "00:38:09.91"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And therefore, your strike was in breach of the agreement?",
       "time": "00:38:11.46"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You gave notice, wasn’t it? You gave notice that you were going to strike.",
       "time": "00:38:19.76"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well now, just assume that you had struck. Let us assume that the moment you gave notice you were going to strike, you struck.",
       "time": "00:38:23.38"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The strike during the termination of the contract would have been forbidden by the contract.",
       "time": "00:38:39.73"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 155,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You had a ‘No Strike’ clause in the contract and it was expressly in return for a promise to arbitrate.",
       "time": "00:38:50.31"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 157,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you were bound to arbitrate, and the Arbitration Clause was still in existence, you had no business giving notice to strike.",
       "time": "00:39:32.61"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 159,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Was there a contract when you gave the notice to strike?",
       "time": "00:39:52.30"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 161,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You did not give notice of any intent to strike over an arbitrable issue, did you?",
       "time": "00:40:24.63"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 163,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Though I understand that the time you gave the notice of intention to strike, there was no contractual arbitrable issue to which you were promised not to strike, apply.",
       "time": "00:41:14.20"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That did not arise until the severance pay issue arose and that could not arise until the plant was shut down?",
       "time": "00:41:27.37"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But I want to be clear. Your answer to my Brother White is, at the time you gave the notice you were going to strike, there existed no arbitrable issue? No contractual issue for arbitration to which the promise not to strike applied?",
       "time": "00:41:51.61"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Am I correct in understanding that the contractual issue with respect to severance pay is simply whether or not the obligation is a vested right or not?",
       "time": "00:42:09.07"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "or accrued, whatever it is.",
       "time": "00:42:20.74"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What do you say about his argument that all he you had to do was go to the Labor Board and file an Unfair Labor Practice Charge and you would have been paid?",
       "time": "00:43:40.20"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But, he says that by refusing to pay you, they changed the terms and conditions of employment unilaterally and thereby committed an unfair labor practice and all you had to do was file a charge and, as I understand them, they would desperately search for a defense and then pay you.",
       "time": "00:44:00.26"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 177,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How long does this Arbitration Clause survive the termination of the contract?",
       "time": "00:45:33.83"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No, your opponent has no time left.",
       "time": "00:46:35.14"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I hear none. Thank you gentlemen. The case is submitted.",
       "time": "00:46:47.06"
     }

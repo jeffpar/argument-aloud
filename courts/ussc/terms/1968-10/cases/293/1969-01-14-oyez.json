@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1968/293/19690114a_293.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "WESLEY R. ASINOF",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "J. ROBERT SPARKS",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 293, Robert Eli Stanley versus Georgia.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You'll find a white light to come up in front of you. That would be the five-minute warning.",
       "time": "00:00:33.22"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Asinof, you may proceed with your argument.",
       "time": "00:00:39.55"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What kind of possession was this?",
       "time": "00:01:31.81"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Are they concededly obscene?",
       "time": "00:02:53.36"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I suppose when these films were in a desk drawer, weren't they?",
       "time": "00:05:06.48"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And could be as looking at the film, he couldn't tell it were?",
       "time": "00:05:12.11"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, what did the officers do?",
       "time": "00:05:17.02"
     },
@@ -143,13 +143,13 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The what?",
       "time": "00:05:41.55"
     },
     {
       "turn": 18,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The Wagering Tax Act.",
       "time": "00:05:42.29"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I'm trying to get to this.Did the officers use a projector to see the films?",
       "time": "00:05:49.96"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Then and there?",
       "time": "00:05:54.99"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They set up the screen?",
       "time": "00:06:44.94"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there any conceivable circumstances in which if you saw the film that it could possibly be connected with gambling paraphernalia?",
       "time": "00:06:48.88"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, tell me, suppose instead of these films, they found counterfeit bills, couldn't this fellow have been prosecuted for possession of counterfeit bills?",
       "time": "00:07:39.56"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How do you distinguish it?",
       "time": "00:07:49.83"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I take it Harris, -- with Harris --",
       "time": "00:08:08.95"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Was this man a merchant or distributor of any kind?",
       "time": "00:08:39.60"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In the prosecution and the actual trial for possession of these films, was there any effort -- would this prove that the possession of the films was for the purpose of sale?",
       "time": "00:09:09.89"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It was just naked possession of the film.",
       "time": "00:09:22.29"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There was one -- there was one other point. There were biscuits in the kitchen.",
       "time": "00:09:26.58"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where was that?",
       "time": "00:10:02.76"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where was that in Georgia?",
       "time": "00:10:04.48"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Was there any claim that this party was going to include the showing of these films.",
       "time": "00:10:08.06"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, as I understood you to say, neither screen nor projector was set up.",
       "time": "00:10:18.53"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And the films were in cans in the desk drawer.",
       "time": "00:10:24.18"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But you say the claim -- was there any effort at the trial to show that he was going to have a party including showing these films?",
       "time": "00:10:30.29"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But what do you do with films normally?",
       "time": "00:10:39.05"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "As souvenir or show?",
       "time": "00:10:42.81"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That he could show them to somebody else.",
       "time": "00:11:02.30"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Or even to show them (Voice Overlap) was nothing as I understand you. There's nothing to indicate except that he had them in the drawer and he had them on the closet, he had a projector and a screen.",
       "time": "00:11:07.01"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Or may be he wasn't going to show them at all.",
       "time": "00:11:19.84"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if somebody keeps it?",
       "time": "00:11:23.68"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The nub of this case appears on page 69 of the appendix, doesn't it? Right at the top of the page, that one sentence.",
       "time": "00:12:13.10"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It is not essential to an indictment charging one with possession of obscene matter that it be alleged that such possession was with an intent to sell, expose, or circulate the film.",
       "time": "00:12:21.67"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that's a clear holding by your --- the highest court of your state that mere possession or as my brother Brennan says, naked possession is sufficient to constitute a criminal offense.",
       "time": "00:12:33.09"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "To get it down a little closer, it is that naked possession, pictures of naked persons cannot be kept in a person's house for that is committing crime.",
       "time": "00:13:09.75"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What did this fellow get, a year?",
       "time": "00:13:25.70"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Has your client been out on bail?",
       "time": "00:14:13.69"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "When was the search warrant issued?",
       "time": "00:14:50.84"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you argue -- do you argue at all that even if the warrant was valid and even if Marchetti and Grosso aren't retroactive that nevertheless the search was invalid because the warrant described gambling paraphernalia and they nevertheless seized the film which -- it isn't like running across contraband that you can just by spying out the plain site. You have to actually look into the film to find out what's in it.",
       "time": "00:15:36.41"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you take that argument?",
       "time": "00:16:07.79"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But you're -- I take it you're relying on Marcus. You're relying on Marcus?",
       "time": "00:17:29.89"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Of course Marcus involves as I recall it isn't it, a warehouse full of books which there were six or seven that the police have purchased and there on the basis of police examination of the books, they issued the warrant.",
       "time": "00:17:35.29"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And we said that they have to have a determination offense but it's a little different. Here you have just a single item, just how would you get the film to have a determination of obscenity before a search warrant is issued.",
       "time": "00:17:51.64"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What facts? He definitely takes the films.",
       "time": "00:18:12.06"
     },
@@ -599,13 +599,13 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "According to another argument, he wasn't even entitled to look at them.",
       "time": "00:18:25.19"
     },
     {
       "turn": 94,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's right.",
       "time": "00:18:27.91"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, it wouldn't be obscene unless it lacked some socially redeeming values as I understand it.",
       "time": "00:18:37.57"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You couldn't tell that unless you saw it.",
       "time": "00:18:43.17"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Were these movies shown at the trial?",
       "time": "00:18:59.98"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In the jury trial?",
       "time": "00:19:03.54"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are they here?",
       "time": "00:19:05.11"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, you don't have that case here, why argue that case?",
       "time": "00:21:22.39"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "All you have here as I understand it assuming the obscenity of these films, a question whether the possession and nothing more not for sale or otherwise but just possession of itself constitutionally can make a crime under the First Amendment.",
       "time": "00:21:27.07"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Isn't that what it is?",
       "time": "00:21:44.58"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is there anything in this record to show that he had any knowledge of what these films were?",
       "time": "00:22:03.62"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Were they in his trunk upstairs or drawer?",
       "time": "00:22:26.45"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "There's a difference between this and Wilkes case that was tried a long time ago that there they found a paper in the bottom of his trunk, here they found it under desk drawer.",
       "time": "00:22:38.83"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And they turned them loose.",
       "time": "00:22:51.80"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may. Mr. Sparks.",
       "time": "00:23:07.32"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What was the state's evidence on scienter?",
       "time": "00:28:13.72"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Of course that wouldn't have any connection --",
       "time": "00:28:43.57"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I'm interested in how you brought evidence and what evidence there was upon which the jury could find that he knew the contents of these motion pictures.",
       "time": "00:28:51.45"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I'd still like to know if you don't mind.",
       "time": "00:29:28.05"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What the evidence was that brought home to him knowledge of the contents of those movies?",
       "time": "00:29:29.81"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But why did they show the film? They were looking for what? The search warrant was limited to what?",
       "time": "00:30:21.17"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "With that posture, why did they want to look at the film?",
       "time": "00:30:29.68"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They would have them in a tin can marked “Young Blood”?",
       "time": "00:30:49.18"
     },
@@ -869,13 +869,13 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And I'm assuming policemen read Edgar Allan Poe?",
       "time": "00:30:59.93"
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And assume as you saw the first film, the first frame, you thought you were still looking for records?",
       "time": "00:31:03.85"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They ran through all three, I take it?",
       "time": "00:31:18.50"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, you're going to tell us that he went downstairs and I gather you are going to tell us he met the defendant, the officer did?",
       "time": "00:31:34.35"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's why he said nothing.",
       "time": "00:32:09.15"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, what else have we got? The officer said that he was arrested for those obscene films, the defendant said nothing.",
       "time": "00:32:11.31"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now does the fact that he called his lawyer, does that indicate that he knew what those films were?",
       "time": "00:32:22.75"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, is there anything in what you've told us that support an inference that he had looked to the film and knew what they were?",
       "time": "00:34:11.72"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Many times? Many times, did you say?",
       "time": "00:34:47.91"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll adjourn now.",
       "time": "00:35:09.37"
     }

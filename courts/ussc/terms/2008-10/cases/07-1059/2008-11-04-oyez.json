@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2008/07-1059/20081104a_07-1059.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "MALCOLM L. STEWART",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "H. BARTOW FARR, III",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CAITLIN J. HALLIGAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument next in Case 07-1059, United States v. Eurodif and 07-1058, USEC v. Eurodif. Mr. Stewart.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I can imagine you could have a grain mill and they have lots and lots of grain absolute identical one to the other. And the farmer takes his grain up and they operate on it, and then he drives away with the grain, milled. Now, it may make no difference to anybody whether the identical molecules are the same; and I think in such a case you'd say they are processing it; they are not buying and selling it.",
       "time": "00:02:00.84"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You are saying if we have that, in fact, if the -- if the exact situation, if some farmers up in North Dakota send their grain just to be milled -- it's their grain -- up in Canada, and they come back, and it -- you know, it may not be the identical molecule, but it's identically the same; they have done this for 100 years -- now suddenly this -- the Commerce Department is going to say, that's a sale, and the antidumping statutes apply?",
       "time": "00:02:48.51"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, would it or not?",
       "time": "00:03:25.20"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I agree with you, and I just wonder, what I would like to know, is if any businessman involved in any of these or related things before this decision of the Commerce Department would have thought that that is how the Commerce Department would have treated such a transaction?",
       "time": "00:03:44.93"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but common law would have treated it that way, you say?",
       "time": "00:04:09.98"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's pretty good authority.",
       "time": "00:04:12.83"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't know. I'm asking -- the question is the same as the last case, to me: Not whether they could have done it; sure they could have done it. My question is based on my question of whether they had a rule that any reasonable person would have thought that is how they treated it--",
       "time": "00:04:17.92"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Because after all, you have three precedents in related areas, not the direct area but in related areas, that suggest that they wouldn't have treated the millers that way.",
       "time": "00:04:35.31"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You know what, I'm thinking of those things, they're something called \"tollers\". I don't know exactly what tollers are. They seem to be like people who give haircuts. They're sort of servicers of some kind. They're talking about tollers and -- and subcontractors. And that is a related area.",
       "time": "00:05:18.97"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Stewart, can I ask a question about the scope of discretion involved here? Assume the facts were not exactly as they are here, it is not a fungible product, but that each shipment was separately identified and each shipment was processed as a different batch in France and then sent back. That I assume would not normally be treated as a sale of goods?",
       "time": "00:06:37.91"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's really what I wanted to ask you. Even if the facts were more extreme, just as in the example I gave, do you think the Commerce Department would have discretion to treat that as a sale of goods?",
       "time": "00:07:11.40"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But then supposing they send the suit back to a different person for alterations, and they say, well, this is part of the sale, so we want to treat it as a sale of goods?",
       "time": "00:07:48.67"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What is the difference between that and what we've got here?",
       "time": "00:08:00.48"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Could you articulate precisely what your test is, because you have been going back and forth between whether the raw materials are fungible and whether there is a fundamental transformation in the product? So, how would you merge those two in an articulable test so that business people can know when they are going to be subject to this regime and when they were not?",
       "time": "00:08:39.27"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You would say your ultimate touchstone is whether there is substantial transformation, and whether it's a raw material or discretion, those go into that determination?",
       "time": "00:09:34.84"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's a SWU? You lost me on the SWU.",
       "time": "00:10:30.63"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If you put in more time with the uranium, with the same amount of 235, if you put in more time you can get out more?",
       "time": "00:10:43.94"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sure you're prepared for a wide variety of hypotheticals. What about a diamond? You have a chunk of rock that contains a diamond. You send it to Antwerp and they carve it away into something that, I guess you could say it's been substantially transformed. It's not just a rock. It's now a glittering diamond. Is that covered by--",
       "time": "00:11:07.97"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Neither am I, and it's kind of -- it's sort of a bit of a concern. It's a fluctuating test that is hard to determine how it's going to be applied in a wide variety of cases.",
       "time": "00:11:31.75"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Stewart, we're reviewing a decision of the Federal Circuit. And the Federal Circuit relied dominantly on the Florida Power case in which the same issue was presented, albeit under a different statute. But I -- reading that Florida Power, where the Federal Circuit adopted the Government's position, the Government's position then was that this very same transaction involved the rendition of services and not a sale of goods. Does the Government have a distinction between those two cases, or are you now saying in hindsight you realized that the position that you took before the Federal Circuit in the early case was wrong?",
       "time": "00:12:54.25"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't it correct that the universe of transactions that is the subject of this Act is sales? Is that not right? Rather than service contracts.",
       "time": "00:15:39.19"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But do you -- do you contend the word \"sold\" is an ambiguous term, requires construction by a particular agency?",
       "time": "00:16:02.64"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think Congress intended the ambiguity to be resolved by an agency rather than judges applying the rules of common law and the rules of sales law generally?",
       "time": "00:16:15.12"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Stewart. Mr. Farr.",
       "time": "00:16:50.12"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What -- what do we do about the question that is bothering me? Maybe at some point -- maybe it's not a relevant question -- but I will assume for the sake of argument Commerce does have the power to classify it either way. What is bothering me, and maybe that's not in this case, is that as the -- as your brother lawyer just said, this statute has been around for 90 years. There has been trillions of dollars worth of foreign commerce during that time. Yet I don't find cited here any instance in which Commerce ever before said that when you have title to a good, and you send it abroad, for even a big change in it, and then it comes back, that that is a sale. Now, I might -- I don't know all the Commerce cases; maybe they did. But what I found here is like a blank on that side, and on the other side the tolling cases, Florida Power & Light, the pizza case, to the point where I thought, if I was a lawyer advising a client, and that client said if I keep title to the good, am I home free, I would have to say, yes, you are.",
       "time": "00:18:11.53"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now that's the -- the question I want responded to in the legal context of, has Commerce made a significant change in its policy?",
       "time": "00:19:15.60"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And I read -- at what page do I find all these cases?",
       "time": "00:19:40.92"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, roughly. I'll find it. I will find it.",
       "time": "00:19:46.65"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I will see a lot of cases where--",
       "time": "00:19:49.19"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Farr, are there earlier cases that applied Chevron deference to the Commerce's determination of what a sale is?",
       "time": "00:22:10.35"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You agree that the Chevron case is not a substantial evidence case?",
       "time": "00:22:23.15"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "If we are to defer to the agency's interpretation, what -- how would you phrase its interpretation, apart from \"this is a sale\"?",
       "time": "00:23:29.05"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So it doesn't matter whether there is a substantial transformation or not?",
       "time": "00:24:10.46"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So that -- so that is the critical factor, whether it's made from their material, regardless of whether there is a transformation? If the domestic entity provides wood, wooden two-by-fours, and the foreign entity coats it in a certain way, but they can use any two-by-fours, they are indistinguishable, you would say in that case there's still -- that's still subject to Commerce's position?",
       "time": "00:25:47.29"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So it's got to be both?",
       "time": "00:26:24.48"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you--",
       "time": "00:26:55.10"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Would you do that if you thought it was clear as a matter of common law or under the Uniform Sales Act, or something like that, that it was not a sale?",
       "time": "00:26:58.39"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Under common law, you don't need deference.",
       "time": "00:27:34.56"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm sorry. If it were clearly a sale under common law, you wouldn't need to rely on deference.",
       "time": "00:27:36.43"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel.",
       "time": "00:28:13.35"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Ms. Halligan.",
       "time": "00:28:15.57"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And those have been cases where the very same product is returned with value added, right?",
       "time": "00:28:58.71"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What do you do about the substance versus formality question? I mean, if you do have fungible raw materials, why should it make a difference whether the domestic company supplies those to the foreign company or simply says -- gives them money and says, buy them yourselves? And in the latter case, you would say that's a sale, and in the former case you would say it's not a sale?",
       "time": "00:30:33.63"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, old mills used to do that. The farmer used to take his harvest to the mill, and it would be ground right there while he was waiting.",
       "time": "00:32:16.34"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's absolutely true.",
       "time": "00:32:29.08"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Your brief constantly assumes that there has been no sale, that throughout the entire transaction, the utility owned what ultimately becomes the rods, as though it was indeed the same feedstock that produced the rod that was ultimately delivered. And that is simply not true. There is a change -- there is a change of ownership. The feedstock that somebody else put into the mix is now transferred to the -- to the electric utility.",
       "time": "00:32:36.87"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's exactly right. You don't know. So, you had cannot say that there has been no transfer of ownership.",
       "time": "00:33:28.19"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, we've got the same molecules. I mean, when you are talking about whether there has been a transfer of ownership or a transfer of title, you are talking about molecules; you are not talking about whether you ended up the same in, you know, in monetary terms. You are talk about whether you have the same thing that you delivered to the person overseas. And you don't, or at least you can't say that you do.",
       "time": "00:33:51.06"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That makes no sense, what you just said. That contract makes no sense. They hold title to it until they get the uranium rods, right?",
       "time": "00:34:46.64"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Most of it is back overseas. It's still mixed with the other fungible U 235.",
       "time": "00:34:58.78"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That's only -- that's only true because apparently they use up all the feed that they get. If, in fact, they found a way to manufacture to enrich more efficiently so that some feed was left over, I presume you would not be here arguing that they could not sell that feed on the open market even after they had delivered the enriched uranium to the buyer?",
       "time": "00:36:17.95"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah, but why are they providing something that is very valuable that, in fact, could not be obtained by the enricher on the open market if those were the contract terms? The enricher buys it in the -- in the -- I forget the acronym in the case that you just described -- and we don't know -- we have no reason to believe the enricher couldn't go out on the market and buy it if, in fact, the utility didn't supply the feed.",
       "time": "00:37:29.39"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Sure. They would rather manage the risk of price fluctuation than, in effect, pay the premium that the processor would have to charge in order to hedge against price fluctuation--",
       "time": "00:38:33.57"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--That's why they are doing that.",
       "time": "00:38:44.43"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That is a way of looking at it. But another way of looking at it is because they choose to, in effect, take the risk of price fluctuation as preferable to paying a higher ultimate price, they are simply, for that reason, choosing to pay both in cash and in a -- a valuable commodity, i.e., unenriched uranium. You can look at it either way.",
       "time": "00:39:00.74"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Ms. Halligan, try this hypothetical, and it really gives you the benefit of the doubt. Let's assume a department store buys raw wool from some sheep herder, sends it overseas. And it's worth $1,000, this raw wool. It is processed, spun and knitted into sweaters, and then shipped back to the department store. The sweaters, all made from the same wool, not even fungible, so that's why this is even better than your example -- the sweaters when they come back, are worth not $1,000, but $20,000. Do you think it would be unreasonable for the Commerce Department to treat that as a sale of sweaters by the European knitting wool or -- or home knitters who did the sweaters?",
       "time": "00:39:58.56"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Say it again?",
       "time": "00:41:16.18"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm talking about the -- I'm talking about the sale from the European mills to the American department store.",
       "time": "00:41:18.88"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A processing transaction. It has changed a value of $1,000 into a value of -- what did I say -- $20,000? And that's just processing?",
       "time": "00:41:26.32"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They said there was no sale.",
       "time": "00:42:27.11"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When the pasta was imported, there was no sale into the United States.",
       "time": "00:42:30.16"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's what we are talking about here.",
       "time": "00:42:35.71"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Get back to your pasta case. Was the holding of that case that there was no sale into the United States?",
       "time": "00:43:14.84"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's a different issue. We are not talking here about which transaction establishes the price. We are talking simply about whether there was a sale into the United States.",
       "time": "00:43:34.50"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, wait. Suppose these knitting mills in my example, in fact, are selling their sweaters for a much higher price in Europe. Instead of $20,000 for this batch of wool, in Europe they are selling it for $40,000. And they nonetheless sell the wool back into the United States for only $20,000. You are telling me that that transaction doesn't -- doesn't count for purposes of our antidumping law?",
       "time": "00:44:35.79"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That you have to look at the price at which the department store then sells to individuals?",
       "time": "00:45:08.02"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the department store is not dumping. It's -- it's the knitting mills that are dumping.",
       "time": "00:45:18.28"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. And accepting that, you -- you have to begin the whole thing, however, with a sale, with a sale into the United States, right?",
       "time": "00:46:06.36"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I thought this is -- this is what you say fails in this case. That is the link of the chain that doesn't exist. You say there is no sale in the United States.",
       "time": "00:46:13.79"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That is pretty important. Tell me -- this is a hard area, obviously. But the -- imagine -- think of all the toller cases that they've had. Now -- now, is this right: That in every one of those cases there were two companies, A and B; and in every one of those cases A sells a finished product into the United States. And also A sends the product to B to have some major thing done on it. In every one of those cases the Commerce Department could say: We can take A as a Respondent; i.e. we think A might violate the law, because maybe it's an Italian company, or we think B might violate the law. Is that true of all those cases?",
       "time": "00:46:43.22"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Now, if it's true of all those cases, then I think what the opposite position is, what Mr. Farr said, I think -- I think, you know, I will -- he will say: Look at page 40 and 41 of their brief. When I look at those pages, I am going to see a lot of cases. And I bet, when I look them up, those Commerce cases are all going to use the word \"substantial transformation\". And he will say: You see, that's what they did here. Then he's going to add -- I don't mean to put words in his mouth if the words are wrong, but -- but he's going to add: Look at those tolling cases. Those are all cases where Commerce had a choice of which to consider the sale. It could have considered the sale from the processor A to -- to B to A, the sale if it wanted to; or it could have considered the sale into the United States if it had wanted to, to be the sale for purposes of calculating the price. And so in choosing between those two, either of which it could have chosen, it chose the latter sale, the final sale, because that's how they could calculate the price. But in your case there is no such person A, because the utilities are not people who could be respondents. I mean they are not in the same position. There is no sale onwards that they could choose. So we will go to the other guy, the party -- the person who does the processing. Are you following what I am saying?",
       "time": "00:47:39.31"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And what is the answer to that?",
       "time": "00:49:07.53"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes. But, remember, they are saying in the tolling cases, in my words: Hey, we could have gone after the processor if we wanted--",
       "time": "00:49:35.15"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--if there had been a substantial transformation, because the key to this concept of \"sale\" is the word \"substantial\" transformation.",
       "time": "00:49:43.10"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "In which--",
       "time": "00:50:04.58"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What does -- what does the government do with respect to these other transactions where, indeed, the utility does not provide the feed uranium but just pays for, you know, getting -- getting the rods?",
       "time": "00:50:51.14"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There is no down -- you know, there is no domestic sale there, either. Is it conceivable that there, therefore, can be no dumping in such a case?",
       "time": "00:51:07.32"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't it true that in all of those cases there is no transfer of ownership of the basic product? And here -- and I am not sure you have really addressed it -- it is a fungible product, and you are assuming you can't tell whether -- when it is in process or whether it is one party's or the other's. But if you could tell and you had some way of identifying just which one here, but they wouldn't care because they are all equally valuable, and if it developed that it was actually a third party's product that was being processed, then there would be a transfer of ownership, and there clearly would be a sale. Isn't that true?",
       "time": "00:51:44.86"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you have the same contract you've got here, but you are able to identify that, in fact, there is a difference in the -- in the commodity that -- that -- at least not a different raw material that was sent to France and returned. It is just a substitute. It seems to me that -- in that context, within the meaning of your argument, that there would have been the transfer of title to that -- that commodity.",
       "time": "00:52:35.22"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, isn't it true, if you can't tell, the odds are that there is some product the title to which has been transferred?",
       "time": "00:53:06.58"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can't we assume -- let's assume that there is.",
       "time": "00:53:19.64"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Assume that there are -- are two sources for the uranium, A and B, and it goes to the enricher. A gives it; B gives it. A ends up with B's uranium. Justice Stevens is saying at some point there is a transfer of title.",
       "time": "00:53:23.36"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No. We are asking you to accept that hypothetical, so we can--",
       "time": "00:53:45.38"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Are you saying the utility doesn't have title to what was formerly B's uranium?",
       "time": "00:53:52.80"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The enrichment is done. It's back in the United States. The utility says: This is my uranium. I have title. Do you dispute that?",
       "time": "00:54:03.94"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "How does he get the title from -- to the uranium that was formerly B's uranium?",
       "time": "00:54:12.81"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "At what point did that title transfer?",
       "time": "00:54:20.78"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You don't -- you don't retain ownership of that. And if you go to the bank and say: Show me my money, they are not going to say: Well, here's your money. They -- they have title to it. They own it, and you have a claim against the bank to what you gave them.",
       "time": "00:54:49.72"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Is there any point in time from the time that the -- the processors get ahold of the uranium until the time it leaves their control that if they went bankrupt, anyone other than the utility could get ahold of the product?",
       "time": "00:55:17.74"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. Okay.",
       "time": "00:55:33.18"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but if they go bankrupt because -- I mean let's say they don't have all the uranium. They have got five people who shipped them uranium, and they have only got enough for four. Each of the five can't say: I'm entitled to get mine back.",
       "time": "00:55:44.66"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Ms. Halligan. Mr. Stewart, you have three minutes remaining.",
       "time": "00:58:23.64"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Stewart. The case is submitted.",
       "time": "01:01:03.13"
     }

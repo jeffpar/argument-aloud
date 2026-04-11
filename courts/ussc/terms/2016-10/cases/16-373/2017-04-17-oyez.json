@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2016/16-373/16-373_20170417-argument.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "NEIL M. GORSUCH",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
       },
       {
         "name": "THOMAS C. GOLDSTEIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GORSUCH",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PAUL D. CLEMENT",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument this afternoon in Case 16-373, the California Public Employees' Retirement System v. ANZ Securities. Mr. Goldstein.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You're -- you're just a little fast for me.",
       "time": "00:01:17.34"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I don't want to interrupt you. We know American toll -- American Pipe applies?",
       "time": "00:01:19.66"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I understand.",
       "time": "00:01:46.51"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But the argument that you're making is the one that you describe, I think -- or am I correct, it's the one you say on page 38 of your brief is the easiest way to decide this case?",
       "time": "00:03:07.10"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Statute of repose argument?",
       "time": "00:03:19.16"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "The -- the argument relating to the statute of repose.",
       "time": "00:03:23.04"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Has it happened in the Second Circuit?",
       "time": "00:04:26.94"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is -- is it -- you said you only can bring -- bring a suit if the -- if the price -- price goes down?",
       "time": "00:05:45.45"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What if everybody else's stock in -- in your sector is going up 50 percent, and your stock goes up 5 percent, and you think it's because of a non-disclosure, you can't bring an action?",
       "time": "00:05:53.04"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "As a practical matter or as a formal matter?",
       "time": "00:06:22.20"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But -- but under your -- this is an attack on statutes of repose generally. It says, oh, if you have a statute of repose, everybody will have to sue within three years. That's exactly the point of the statute. That's the whole reason they passed it. (Laughter.)",
       "time": "00:06:30.66"
     },
@@ -191,13 +191,13 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's clearly an argument in your favor, practically, but I think the other side has said that that second sentence is what's called a statute of repose, whatever historically was the case. In CTS, we made a big distinction, and said in such statutes, you cannot toll them, et cetera. And here we're not talking about the action -- you may be right that -- that -- that when you file a class action, if it's certified, that is the action brought within the time, but here there's a second action. Your client leaves the first action. And what does he do after three years? I guess he puts a piece of paper called a complaint in a court and that would seem to be bringing an action. And if the other side says -- I'm just reminding you of these arguments, because you seem to think that they haven't made arguments, they have made arguments -- well, you think they haven't made good arguments. (Laughter.)",
       "time": "00:07:30.05"
     },
     {
       "turn": 26,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Now, look, they say this is not -- this is a strict liability statute. Underwriters, after all, have committed no sin. They haven't the bright mental state. They've done nothing wrong. And in -- in that separate later action, there might not just be a repetition, one, two, three, of what's in the class action, but three new things, four more sentences, maybe 20. So years later, they could -- now, what do you -- please, I -- at some point --",
       "time": "00:08:28.60"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "-- I would like you to deal with those actions --",
       "time": "00:08:58.91"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "-- those arguments.",
       "time": "00:09:01.01"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "He just asks to amend the complaint, which has now been filed 10 years later after he left, opted out a month before, and in that amendment, he says -- this was 1,000 pages, the offering, and on page 463, there are five new sentences which have false facts, we want to put them in too.",
       "time": "00:09:39.47"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Precisely.",
       "time": "00:10:03.41"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "But, Mr. Goldstein, when I see the word \"action,\" I think of lawsuit, traditionally, and \"claim\" as the claims within the lawsuit. And the laws often distinguish between actions and claims. The securities laws do, routinely.",
       "time": "00:10:39.88"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Here, why -- why shouldn't we follow the plain language and the traditional understanding of the term \"action\"? Congress could have use \"claims,\" which is what you're saying, it's the same claims, as Justice Breyer points out, but it's a different action.",
       "time": "00:10:53.83"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Why not?",
       "time": "00:12:10.11"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I mean, I don't like the policy consequences, but as a matter of plain language, why wouldn't we?",
       "time": "00:12:13.01"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I just don't read Jones that way, though. I read Jones as saying the action may contain exhausted claims and unexhausted claims, but it doesn't conflate the two claims.",
       "time": "00:12:24.12"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Goldstein, as I understand your adversary, and he'll speak for himself when he gets up, but a motion to intervene doesn't save you. Because according to him, it's only a separately filed complaint that would be a separate action subject to the three-year period of repose, correct?",
       "time": "00:14:35.18"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That's why I said -- I'm -- I'm just wondering what happens to American Pipe, in terms of not opting out --",
       "time": "00:15:01.94"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- meaning that the Court just denies the class certification. What happens to all of those cases? In normal parlance, the one named plaintiff continues, but how about if there's 10 or 20?",
       "time": "00:15:11.03"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "In that one case --",
       "time": "00:15:27.36"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- or would they be spun off into their own jurisdictions?",
       "time": "00:15:28.98"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "If -- if class certification --",
       "time": "00:15:55.93"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Yes, class certification is denied.",
       "time": "00:15:59.52"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What I'm asking, would it be the same action or would they be spun off into different cases? Because often, maybe common questions are certified --",
       "time": "00:16:01.60"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- and the original courts maintain jurisdiction.",
       "time": "00:16:12.78"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your -- your idea -- the why is that -- is that your theory stems from Rule 23, correct?",
       "time": "00:16:44.73"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And your -- and your rule, which is somewhat different from American Pipe, also comes from Rule 23.",
       "time": "00:16:55.28"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your principle.",
       "time": "00:17:01.66"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Right.",
       "time": "00:17:07.91"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "My concern is that you're using Rule 23 to create, in effect, a legal right, or override a legal right, and it's very clear that Rules of Civil Procedure do not do that.",
       "time": "00:17:12.96"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Where -- where is the ambiguity in -- in no event?",
       "time": "00:18:19.90"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "In no event.",
       "time": "00:18:24.17"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, what does the term \"such action\" mean?",
       "time": "00:18:50.20"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "\"In no event, shall any such action.\"",
       "time": "00:18:53.37"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What do you think the action -- what is the definition of action --",
       "time": "00:18:56.09"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- in that statute?",
       "time": "00:18:59.37"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So it's enough that it's the same claim --",
       "time": "00:20:01.53"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- as in the class action?",
       "time": "00:20:04.05"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Right. Right.",
       "time": "00:20:14.94"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So if -- if a plaintiff in every single judicial district in the country had brought exactly the same claim, those would all be the same action, in your opinion?",
       "time": "00:20:21.86"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And you think Congress had all of this in mind when it wrote, \"In no event shall any such action,\" but it thought it was also clear it didn't need to spell it out.",
       "time": "00:21:03.69"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Yeah. So what did Congress have in mind when it wrote this?",
       "time": "00:21:26.59"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Goldstein, could I ask you to speak to this question of your alternative theories, because in your briefing, the non-tolling theory, if I can call it that, took pride of place. But you haven't really spoken in those terms today. So what am I to make of that?",
       "time": "00:22:48.16"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's not necessarily a question of violating Rule 23. It's using Rule 23 to create a new legal right. That's the difference.",
       "time": "00:24:23.50"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But you need tolling. You don't need it, perhaps, on your second theory.",
       "time": "00:25:01.06"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If we take your second theory, we have to read the words \"be brought\" to mean something like deemed to have been brought when, but -- something like that -- but that won't solve the practical problem you raised, because there will still be cases in which class certification is denied after three years, and all these practical problems will then exist, won't they?",
       "time": "00:25:06.15"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And we need tolling in order to stop that.",
       "time": "00:25:32.03"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why?",
       "time": "00:25:35.69"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why? Why?",
       "time": "00:25:36.83"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Clement.",
       "time": "00:26:22.48"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How about the Clayton Act that was at issue in American Pipe? That doesn't say \"in no event,\" but it did say -- what was the language -- \"forever barred.\" Forever barred commence within 4 years.",
       "time": "00:26:44.52"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How does one know? When one uses the language \"forever barred,\" the other uses \"in no event,\" how do we know whether it's a statute of repose?",
       "time": "00:28:14.29"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But did you --",
       "time": "00:28:57.11"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "The two-tiered structure can be where the second tier just cuts off the discovery rule. So that would perfectly well explain the two-tiered structure just as that, and say, yeah, usually it's one year after discovery, but if you discover it five years later, that's too much. So it just cuts off the discovery rule. And that's the only thing that the two-tiered structure means perhaps.",
       "time": "00:29:27.77"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I suppose one question is, what exactly do -- have we meant when we say a statute of repose? And we've certainly meant something different from a statute of limitations. But I think what we were talking about in Lampf was the cutoff of the discovery rule. It -- it sort of didn't matter whether your claim was going to accrue in the normal way, consistent with the statute of limitations. At some point, we were going to cut it off. And that's what we meant when we said statute of repose, as opposed to some term that cut off a variety of claims that just weren't before us and that we weren't thinking about.",
       "time": "00:30:44.34"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This is --",
       "time": "00:32:06.39"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This is -- American Pipe, at least as many interpret it, is not an equitable tolling provision.",
       "time": "00:32:07.59"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Doesn't -- it doesn't differ -- we don't ask about good faith, and -- and it's not tailored to the individual case. It says when you start the class action, that's it. That's -- that's the critical thing that must be timely.",
       "time": "00:32:25.04"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Clement, I'd like to go through the practical consequences. Okay?",
       "time": "00:33:59.03"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So let me start with the simplest one. Okay? A class action motion is filed. The court dismisses it saying, wrong venue. This should have been in California instead of New York. Under your theory, because a new complaint is filed in California, that statute of limitations or that statute of repose starts to run from the filing of the new complaint, not the old one?",
       "time": "00:34:04.96"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There is a rule that says if you're in the wrong venue, there's an automatic tolling. But you're saying that that rule would not apply in that circumstance.",
       "time": "00:34:40.95"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But so could the judge.",
       "time": "00:34:58.18"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You could -- you can ask for it, but it's still within the judge's discretion whether to transfer or dismiss and let you file anew.",
       "time": "00:34:59.69"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So answer my question.",
       "time": "00:35:12.37"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Under your theory -- under your theory, action means new complaint, new complaint number?",
       "time": "00:35:14.29"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Even though it's asking for the same relief?",
       "time": "00:35:24.68"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "By the same party?",
       "time": "00:35:29.28"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. So that means motions to intervene won't help --",
       "time": "00:35:32.39"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- if the class is ultimately denied.",
       "time": "00:35:36.67"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So what happens when the complaint is denied?",
       "time": "00:35:48.04"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All of those individual complaints -- most of them are not transferred. They're spun off into new complaints in where -- whatever jurisdiction has venue over them.",
       "time": "00:35:51.85"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So what's an opt-out? Why couldn't --",
       "time": "00:36:21.73"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- could the judge have -- or can a judge, who has a class action and tells people, if you opt out, just file a motion to intervene? Under your theory, why can't they do that?",
       "time": "00:36:23.57"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So even --",
       "time": "00:37:41.89"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Even if that's what American tolling did, now that we're looking at the language of the statute, and looking at Rule 23, and what the substance of the statute is, why is his reading irrational?",
       "time": "00:37:43.41"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "If you're not relying on American tolling. He's not, he's relying on the language of the statute and the language of Rule 23.",
       "time": "00:37:59.67"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, you're suggesting we -- there's only one view of the word \"action,\" and -- and the case stops there. And perhaps that's right, but let's say it's not right. Let's just suppose that \"action\" is a word that sometimes it's used one way, and sometimes it's used another way, and we should look a little bit as to the practical consequences of what you're doing. And it seems as though -- and tell me if you think this is wrong -- that the consequences go something like this: If we go your way in this case, any future suit like this, all large investors, the kind of investors CalPERS -- CalPERS is not going to make this mistake again. CalPERS is going to file a protective action for itself, and then it can do what it wants. Opt out, don't opt out, wait and see, whatever. Well, small investors are not going to do that. They're not going to have the faintest idea that they should be doing that. So this is a rule that's kind of guaranteed to create make-work for district courts to be essentially irrelevant for large investors, and for small investors to lose their claims.",
       "time": "00:38:46.66"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I know you think that --",
       "time": "00:39:56.08"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What will happen, what you -- what you have to do to get to his -- I agree -- to get to his result, I agree with you this far. You have to read those words, \"any action be brought.\" And what they mean is the action was brought. It was brought when they filed the class action. Whether it denied class certification or not, that's when it was brought. And this is the same action. It is not a different action. It is the same action. It is the same action because, one, the same words, because, you know, we go through a list, and moreover brought within a reasonable time. Why interpret those words in the way I just said? The reason why is because it is the same action. The other reason why is because you will, even if not so far, discover that people do want to protect themselves and will do so. Whether they are big or small, they will. And, therefore, let's imagine a class action involving 300,000 potential plaintiffs in the class, and imagine you're the district judge, and imagine 300,000 pieces of paper coming across your desk. You'll have to build a new clerk's office. I mean, you see, that's the way their argument goes, I think. I think.",
       "time": "00:41:01.38"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And we do have -- we do have two briefs, one by retired federal judges, one by law professors, tell us that inevitably you are going to have people filing to intervene. And in -- in that respect, assuming that you're right, so that the people who don't intervene within the 3-year period are out, does lead counsel have an obligation to inform everyone in the class, if you don't file a separate action of your own or intervene in this one, you are going to be out?",
       "time": "00:42:53.31"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You mean they're not worried about timeliness because they're relying on the class action?",
       "time": "00:44:39.58"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But just to --",
       "time": "00:44:47.34"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It puts tremendous pressure on the opt-out right, right? We're used to thinking that the opt-out right is a very important part of class actions; it's what saves them from a due process problem, that people actually do get to say, I don't want any part of this. And you're saying they only get to say that within 3 years, which may be not within 3 years of the time the suit was brought; it may be 6 months of the time the suit was brought, or 1 month or something like that. And, you know, if -- if you haven't decided within that month or 6 months that these lawyers are not doing a good job, you've lost your ability forever to do it for yourself.",
       "time": "00:44:53.96"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "All power to you, but, you know, a lot of those settlement hearings are awfully tough.",
       "time": "00:45:46.88"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But Rule 23 did not want that to happen. Rule 23 wanted to allow people to opt out rather than to be confined in the suit for the entire pendency of the suit and then to start fighting the outcome at the -- at the last moment.",
       "time": "00:46:06.66"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It's not much of an opt-out right. Go ahead, opt out, but -- but you can't bring your own claim.",
       "time": "00:46:59.14"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I -- I would like you to go back to the question I asked, because one of the purposes of the Federal rules is that so litigants should know what they're facing. And there's all kinds of notices that have to be sent for class actions, and yet you tell me that there's no obligation of lead counsel, or the court, I assume, when the 3 years -- the time is running, to tell everyone in the class, now either you bring an individual action or intervene in this one, otherwise, you'll never get a penny.",
       "time": "00:48:38.87"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No. But, I mean, there's different levels of repose. I mean, the -- the -- you have repose under his theory, in the sense that you know what people are suing you about. You're still facing a lawsuit in the other case. There aren't going to be any more surprises. You know what's on the table. That's repose. Repose can also mean, in your -- your sense, that everything is done. You're not going to owe anybody anything. But we know that's not the reason, because if you bring your claims within the period, that can extend for 15 -- 15 years, however long these litigations take.",
       "time": "00:51:25.54"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yeah, but they're put -- I'm not -- it seems uncertain whether you're being subjected to new liability. I mean, the liability is the same if you have the class action, including CalPERS, and, as it is, if you then have -- you're facing the class action without CalPERS, but another CalPERS suit. I'm not, you know, sure that that increases your liability.",
       "time": "00:52:32.99"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But at least in -- I mean, it -- it requires, perhaps, more management and scrutiny by the district judges that is possible, but, you know, theoretically, if a big chunk of the class is out, you're not going to pay twice for that, right?",
       "time": "00:53:07.22"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Four minutes, Mr. Goldstein.",
       "time": "00:55:39.93"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:58:24.22"
     }

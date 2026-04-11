@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1991/90-1390/19911210a_90-1390.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "KENNETH STEVEN GELLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "THEODORE SACHS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in No. 90-1390, General Motors Corporation v. Evert Romein. Mr. Geller.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Geller, what is the contract exactly that you say was impaired?",
       "time": "00:04:25.98"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if you look back at the original employment contract with people who were hired before 1981 who were injured and put on disability before then, I assume under the terms of the original program, there would be no coordination of benefits.",
       "time": "00:04:39.09"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That was the original understanding.",
       "time": "00:04:59.00"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So how can that contract be impaired?",
       "time": "00:05:05.12"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I think you could certainly argue that the contract was that of the original understanding between the employer and the employees, that they'd get what the law provided when the--",
       "time": "00:05:53.12"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--when they were disabled and started receiving the benefits.",
       "time": "00:06:07.89"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, for purposes of a contract clause assertion, is it purely a matter of State law or is there a Federal law component to what a contract is?",
       "time": "00:06:27.46"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Geller, are the respondents in this case members of a class?",
       "time": "00:07:09.95"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So when did each of these people go to work for General Motors and for Ford?",
       "time": "00:07:17.53"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What were the terms of their contract? Was it--",
       "time": "00:07:34.28"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--At-will contract?",
       "time": "00:07:37.77"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "When you say lawful, you mean the absolute minimum that could be required by law; is that correct?",
       "time": "00:07:40.51"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That's what you mean when you say the contract was... what was lawful at the time.",
       "time": "00:07:51.33"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Were they represented by a union? Was there a collective bargaining contract--",
       "time": "00:07:58.72"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, how could it have been at will?",
       "time": "00:08:06.34"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but I suppose it probably provided that you couldn't be fired except for cause.",
       "time": "00:08:12.68"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You suppose that is an at-will contract?",
       "time": "00:08:17.68"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, don't say it's an at-will contract if it isn't.",
       "time": "00:08:22.62"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So the essence of the contractual provision that you are arguing here is that the employers are liable to pay what's required for that pay period?",
       "time": "00:08:32.40"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that contract is based on long tradition and usage in Michigan?",
       "time": "00:08:44.40"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, there had been in Michigan some retroactive adjustments of workers' compensation benefits over very minor manners... matters and reaching back just one legislative session, or is that incorrect?",
       "time": "00:09:08.28"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It had always been prospective?",
       "time": "00:09:23.52"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Geller, may I ask, supposing in 1985 that the Chambers case had been decided the other way, then the company would have had to come up with the past-due money, but that would have been because the effective date--",
       "time": "00:11:26.68"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Now, what if the legislature, while the case was pending, had passed this very same statute and said, we don't want the supreme court to make a mistake, so we will say this is what we meant back in 1981 or whatever it was. Would you have the same attack on that statute?",
       "time": "00:11:39.56"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, there is no difference in the reliance interest. You withheld the money in both cases.",
       "time": "00:11:55.19"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you are challenging not just payments since 1985--",
       "time": "00:12:04.09"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--but all the way back.",
       "time": "00:12:06.99"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I don't see analytically how it would be any different if the statute had been passed just before the Michigan Supreme Court had acted.",
       "time": "00:12:09.00"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, there was some prompt reaction.",
       "time": "00:12:30.03"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Wasn't there some prompt reaction to the decision?",
       "time": "00:12:33.10"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you... supposing in '87 they just made the new law prospective... changed--",
       "time": "00:12:41.72"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--It's just the... going back to '81?",
       "time": "00:12:53.25"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Just going back to '81?",
       "time": "00:12:56.45"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, Mr. Geller, under this argument wouldn't the 1981 act have been retroactive the way you are arguing it?",
       "time": "00:14:26.83"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It had adjusted rights that had accrued for already retired employees, didn't it?",
       "time": "00:14:37.06"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It was a lesser amount than it had been before.",
       "time": "00:15:02.14"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Geller, you take the position that these workmen' comp benefits are in effect contractual?",
       "time": "00:15:10.43"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And yet the State court found they were not--",
       "time": "00:15:23.76"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--part of the contract, as a matter of State law.",
       "time": "00:15:27.41"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what if we think that's what they meant, that as a matter of Michigan law, that isn't part of the contract. Now you want us to find as a matter of Federal law that it is?",
       "time": "00:15:33.28"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Geller, I have this problem. It seems to me that whatever else the contracts clause is meant to do it is certainly meant to protect expectations, and I don't really see that you had any expectations here. As far as you knew, when you went into a contract to pay whatever Michigan shall say you will pay in the future, not just during the term of employment, but even after he leaves employment with a disability, Michigan can kick it up as high as it likes, right... prospectively?",
       "time": "00:16:27.83"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So prospectively, retrospective. I mean, I don't see how any of your contractual expectations have been disappointed. You had no contractual expectations.",
       "time": "00:16:59.95"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There is a difference. There is a difference--",
       "time": "00:17:23.07"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--but I am not sure the difference relates to contractual expectations.",
       "time": "00:17:24.40"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, it may be a due process claim, but I don't see how it's a contracts clause claim.",
       "time": "00:17:28.10"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I know you do make that. I have trouble squeezing it under the contracts clause, which I usually think is meant to protect, you know, by God, I have a contract, and your contract says nothing but I will pay whatever Michigan says I will pay, and they say to pay more--",
       "time": "00:17:32.05"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Oh, but they didn't know under 1985 that they'd made the right calculation. For 4 years there they were... I mean, they proceeded perfectly lawfully, but you can't say they were darned sure they were going to win.",
       "time": "00:18:01.92"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, but it bumps into a presumption against retroactively reducing benefit--",
       "time": "00:18:19.46"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Mr. Geller, didn't the '81 statute increase... although it let the pension payments be offset against the workmen's compensation, didn't the level of workmen compensation payments go up?",
       "time": "00:19:18.20"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But not for people who were hurt before?",
       "time": "00:19:44.97"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that... you say that the workmen's compensation payments that were due to... after 1981, that were due to employees who were hurt before were the same as the workmen's compensation payments for employees who were hurt after 1981?",
       "time": "00:20:22.98"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You didn't answer my question. The workmen compensation payments were at the same level for both classes of people?",
       "time": "00:20:50.12"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How about those hurt before 1981?",
       "time": "00:21:09.90"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Would you say the same thing about a minimum wage statute, that that's contractual too?",
       "time": "00:22:28.82"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So that all this government regulation of conditions of employment become contractual really--",
       "time": "00:22:52.80"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--No, but this is... workmen's compensation is a little different because you got a private... anyway, supposing they added a new kind of injury they hadn't included and said that we've just learned that there are a lot of injured former employees of the automobile companies out there who were injured by a certain kind of exposure to something in the plant and we therefore want to retroactively have compensation for them. Would that be permissible?",
       "time": "00:23:48.94"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would be pretty close to the coal miners' case, wouldn't it?",
       "time": "00:24:15.15"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But if seems to me if you have contracted to pay whatever Michigan law says in the future, even after the person has left your employment, that's what you say the contract is... we'll pay whatever Michigan says in the future... why can't you have promised to say we will pay whatever Michigan says we should pay in the future including, if Michigan changes its mind and goes back and decides that we should have paid more for some earlier period.",
       "time": "00:24:43.18"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, if you buy into some of Michigan law--",
       "time": "00:25:10.90"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--why can't you buy into all of Michigan law--",
       "time": "00:25:12.88"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--in which case there's no contracts clause violation.",
       "time": "00:25:15.08"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There always has to be a first time.",
       "time": "00:25:27.12"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Had the legislature passed resolutions earlier saying they had never intended the result that the supreme court of that State--",
       "time": "00:28:13.48"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--That's probably because it wouldn't have taken care of the people from '81 to '82, isn't that right?",
       "time": "00:28:52.62"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Geller. Mr. Sachs, we will hear from you.",
       "time": "00:29:03.91"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose the people who were complaining were already retired and not employees any longer.",
       "time": "00:31:51.13"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I suppose the union probably didn't have any interest in what GM did to these former retirees.",
       "time": "00:32:01.20"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It must not have been a bargainable issue.",
       "time": "00:32:13.99"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think the claim is that it was the prior contract, that the term of the prior contract when they were employed was that the employer would pay to them in the future whatever the then-applicable Michigan law required.",
       "time": "00:32:52.28"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And it makes sense, whether you accept it or not.",
       "time": "00:33:05.43"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Suppose they did with the minimum wage. Suppose Michigan just said, we have had a few years of good prosperity, the auto companies are doing pretty well, we're going to say that the minimum wage you should have paid 5 years ago is going to be raised and you should pay everybody in cash the difference. Is that lawful?",
       "time": "00:34:22.79"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I know--",
       "time": "00:34:48.93"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I don't want to argue with you. Are you going to deal with the due process arguments later?",
       "time": "00:34:55.02"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You will answer this question then.",
       "time": "00:35:00.20"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Immediate revulsion on the part of whom?",
       "time": "00:36:58.64"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Those were upward adjustments?",
       "time": "00:39:03.97"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Those were upward adjustments, the primary retroactivity cases?",
       "time": "00:39:06.10"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Upward for how long?",
       "time": "00:39:10.70"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Excuse me, retroactive for how long?",
       "time": "00:39:16.51"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, did any or all of those statutes you mentioned have the effect of reopening past pay periods?",
       "time": "00:40:01.00"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did it require a retroactive calculation and payment for past months?",
       "time": "00:40:16.38"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Then why do you say there was primary retroactivity in the sense that the petitioner's counsel describe it?",
       "time": "00:40:24.26"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That didn't require any increased payments on the part of the employer--",
       "time": "00:41:00.73"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--That would be simply like waiving a statute of limitations, which we have held is permissible.",
       "time": "00:41:07.77"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Sachs, the petitioner in his argument said he thought his strongest case was the Forbes case, and in the petitioners' brief that case is mentioned three times. You do not mention it at all in your brief. Do you have any response to it?",
       "time": "00:44:22.76"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That was an act of Congress, wasn't it?",
       "time": "00:45:50.05"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And it never came to this Court?",
       "time": "00:45:59.95"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Geller says they are not retroactive in the same sense as these.",
       "time": "00:47:15.65"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So your answer to the minimum wage one is that's okay. You can--",
       "time": "00:48:58.32"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--They decided they didn't give them enough money, that's all. They decided we should have given them more money.",
       "time": "00:49:23.11"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you equating the contract clause with due process--",
       "time": "00:50:01.65"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--When you said there was minimum scrutiny, are you talking about the due process clause?",
       "time": "00:50:06.37"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Not the contract clause.",
       "time": "00:50:11.67"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Spannaus was a contract clause case.",
       "time": "00:50:13.36"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The way... I mean, I don't know what you mean by there has to be some way to solve the problem. Michigan could have solved the problem. They could have taken Michigan funds and paid these people more money. They could have said, gee, we made a terrible mistake, it's our fault, here, here is some more money. The only question is whether this employer should be hit with it, that's all.",
       "time": "00:51:28.84"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Tell me it's necessary in some absolute sense to correct and dispose--",
       "time": "00:51:49.73"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Mr. Sachs, isn't the Chambers opinion of the Supreme Court of Michigan a pretty fair characterization of what they had a legitimate right to expect?",
       "time": "00:52:33.80"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's the opinion of the highest court in the State saying what the legislature meant.",
       "time": "00:52:44.70"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that's just a long way around of saying, they construed the law and... as to what the law meant and they are the final authority.",
       "time": "00:53:12.75"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're talking then about another law, not the law that the Michigan Supreme Court construed in Chambers.",
       "time": "00:53:38.04"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:53:46.24"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that's quite a different point than saying Ford and GM had no expectations whatever based on the 1982 statute, because the Supreme Court of Michigan wouldn't have construed that statuted; it conformed them.",
       "time": "00:54:13.98"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Sachs. Mr. Geller, you have 1 minute remaining.",
       "time": "00:57:02.51"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Geller.",
       "time": "00:58:09.68"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:58:11.24"
     }

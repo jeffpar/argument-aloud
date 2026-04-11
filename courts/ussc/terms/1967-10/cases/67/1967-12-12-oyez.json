@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1967/67/19671212a_67.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "LOUIS STOKES",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "REUBEN M. PAYNE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 67, John W. Terry, et al., petitioners versus Ohio. Mr. Stokes?",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What kind of neighborhood is that, generally, in Cleveland? A business neighborhood?",
       "time": "00:02:44.66"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Downtown retail stores, and offices, and so on?",
       "time": "00:02:51.82"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What time of day was it?",
       "time": "00:03:06.00"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "On a weekday?",
       "time": "00:03:08.56"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What kind of a store is Zucker's Store?",
       "time": "00:04:37.73"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "He said what? I didn't like--?",
       "time": "00:07:40.04"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What was his answer?",
       "time": "00:07:44.10"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "He didn't like them?",
       "time": "00:07:48.82"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Was he in plain clothes?",
       "time": "00:08:25.63"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I suppose the -- your contention here is that the policemen had --there is nothing in the record to indicate that the policeman had any reason to fear bodily harm to himself?",
       "time": "00:12:30.00"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I understand that. But we have to think about your case, and the preceding cases, in whatever relationship may be appropriate, one to the other. Here there is no suggestion, is there, that the policeman had any basis for fear as to his own safety? Am I right? Because there is nothing in the record to indicate that.",
       "time": "00:13:22.28"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What happened here, and perhaps it would be your contention that the policeman was engaged in a search for evidence when he spun Terry around and put his hand inside of his coat. Is that your position?",
       "time": "00:13:53.05"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I don't understand your answer to Mr. Justice Fortas when you said there is nothing in the record to indicate, that the policeman didn't have the concern for his own personal safety, because I thought he said that, based on his intuition, he thought these people were casing the place in order to rob it. Isn't that what he said?",
       "time": "00:14:15.12"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well presumably, then, he would be armed; and the minute he walked up to talk to them, he would quite reasonably be concerned for his own personal safety, I should think.",
       "time": "00:14:34.74"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well this much was in the record, that he thought, whether with, or without, reasonable cause, he thought or suspected that these were armed robbers about ready to hold up a place. I suppose if you walk up to such people, and begin asking them embarrassing questions, you might have some little concern for your safety if you bonafide believe that they have weapons on them. Now that much is in the record.",
       "time": "00:14:58.23"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is that so? Excuse me, is that so. Does the record show that he had --he thought these men were armed, before he put his hands on them?",
       "time": "00:15:27.93"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "He testified to that effect?",
       "time": "00:15:47.78"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But, Mr. Stokes, do you really think that if there is enough to suggest that he had reason to believe they had weapons, if that's so then it is justified for that reason in asking them what they were doing, don't you think he would be justified in the first instance in confirming whether or not they did have weapons before he went on further to interrogate them, or even to interrogate him at all?",
       "time": "00:16:42.00"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That is right, yes, in this colloquy you and Mr. Justice Fortas and Mr. Justice Stewart were having, on the premise that it was reasonable for him to think that they had weapons.",
       "time": "00:17:16.97"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, did you quarrel with the fact that--or do you suggest there had to be more than appeared, before he could ask him a question?",
       "time": "00:17:41.26"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, now, if he had the right to ask them a question, lay that aside for a moment, and he also had reason to think they might have weapons on them, would he have to question before he frisked him for weapons?",
       "time": "00:17:58.12"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No. Would he, in your view, be abusing any right of the three of them in walking up to them and asking their names and what they were doing there?",
       "time": "00:18:23.27"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That, then, the officer has no right to stop and ask, what's your name? What are you doing here? Is that it?",
       "time": "00:18:52.16"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, may we try to get at it, in this way, Mr. Stokes, up to the point where he spun Terry around, had he done anything outside what a policeman might properly do?",
       "time": "00:19:29.69"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, if then at that juncture he had reason to believe they might be armed, did he have to complete his questioning first? Or could he frisk them?",
       "time": "00:19:46.47"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This would be because you do not think the record shows that he had any reason to believe they had weapons?",
       "time": "00:20:10.23"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Then you mean he can't frisk for weapons, without probable cause to arrest? Is that what you re saying?",
       "time": "00:20:42.20"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How long had he been observing?",
       "time": "00:20:52.83"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Stokes, I wonder if that could be broken down a little? I wonder what you would say to this, of course the police officer does have the right to investigate a crime; and this police officer, in this instance, had the right to investigate the crime. He did see what one might well say were suspicious acts on the part of the people whom he thought might be preparing to commit a crime. He had a right, did he not, to pursue that farther to determine whether or not he would have probable cause, perhaps, for an arrest? Pursuant to that, he went to talk to these men. Now, because of the nature of the crime that he suspected, a robbery, he felt that when he went into the company of these three men, against himself alone, that he was in a dangerous position; and, that, therefore, he had probable cause to see if they had weapons on them, not because he had probable cause to believe they had committed a crime, but because in investigative matters he had probable cause to believe that his life was in danger. Under those circumstances, would you think that he did, or did not have a right to ascertain whether he was in a position of danger, by seeing if they had weapons?",
       "time": "00:23:03.02"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Police officers are very often in a position where they might not be able to make an actual arrest, but they are in a position of great danger. Now, where they are in a position of great danger, are they in a position to protect themselves from violence, by looking into the situation to see if anyone is armed to do the violence?",
       "time": "00:25:42.59"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Take a situation of this kind, where a police officer sees someone acting very peculiarly. It might not be in connection with any information he has about any crime. Maybe the person is abnormal, mentally. Maybe he thinks he's insane and he wants to talk to him. But the man shows indications of, he thinks, of violence and he wants to be sure he won't be attacked when he goes to talk to him. He goes up to speak to him, and also ascertains whether he has any weapon on him. Do you think he had a right to do that, as a matter of probable cause that he might be injured himself if he doesn't take precautions?",
       "time": "00:26:43.32"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I'm not arguing with you. I'm just seeing how far we have to go in a situation of this kind. That's the only reason for my question.",
       "time": "00:28:19.85"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Payne?",
       "time": "00:30:53.01"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The question I had in my mind was this, I can understand why you have a difference of words, this scale a little below. I can't, myself, see any difference in, I'm talking about conduct, in having a reasonable suspicion something is about to be done, and in having probable cause to believe something is about to be done.",
       "time": "00:32:45.28"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What do you understand probable cause to mean?",
       "time": "00:34:13.47"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Wait a second. Probable cause to believe something will happen. What do you mean when you say that?",
       "time": "00:34:26.28"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you mind telling me, in your language -- plain ordinary language -- what you understand to be meant when somebody says, for that reason, says that a thing is probable cause to believe that something will happen?",
       "time": "00:34:49.93"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you understand it to mean reasonable grounds to believe something is going to happen?",
       "time": "00:35:41.61"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It does not mean, does it, that it's bound to happen?",
       "time": "00:35:49.19"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Therefore, you've got to have something that is ‘‘reasonable grounds'' for saying you believe it will happen.",
       "time": "00:35:54.99"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Payne, in this case this arresting officer testified, did he not, that he had never seen anybody for a case a joint?",
       "time": "00:36:02.23"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He also testified that he had been on that same area for some thirty years, doing the following things: Checking for pick-pockets, and shoplifters?",
       "time": "00:36:14.64"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So, where did he get his expertise about somebody about to commit a robbery?",
       "time": "00:36:29.47"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Now we're getting intuition by osmosis?[Laughter]",
       "time": "00:36:57.27"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There are exceptions to this. [Laughter]",
       "time": "00:37:30.49"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Seriously, Mr. Payne, the point is that the only thing he noticed was: A man leaves from a position of talking to another man and goes across the street, looks in a window, and goes back. Now, number one, you will agree that everybody who looks in a public window is not casing the joint agreement.",
       "time": "00:37:41.07"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What they did it twice, or three times. How many times?",
       "time": "00:38:07.24"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It was not too clear to me from the record.",
       "time": "00:38:12.74"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That they beared watching, you would say?",
       "time": "00:38:54.94"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They beared watching?",
       "time": "00:38:58.66"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But didn't your own court say they did not have probable cause to arrest, as of this point we are now talking about?",
       "time": "00:41:21.31"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, I mean -- well, we haven't frisked him yet.",
       "time": "00:41:45.90"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So he didn't have probable cause to arrest, when he approached.",
       "time": "00:41:49.54"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And he didn't get probable cause until he put his hands on the butt of the gun.",
       "time": "00:41:56.38"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "-- him until he put his hands on the butt of the gun, in his inside coat pocket.",
       "time": "00:42:04.00"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that right?",
       "time": "00:42:11.45"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When did he get probable cause to arrest?",
       "time": "00:42:12.88"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, he didn't have it, as counsel for petitioner says, he didn't have it when he laid hands on him and turned him around?",
       "time": "00:42:36.69"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Right.",
       "time": "00:42:49.31"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why?",
       "time": "00:42:57.90"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He didn't say he saw the gun bulging, or anything like that?",
       "time": "00:43:04.50"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What was the colloquy at that point?",
       "time": "00:43:47.04"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Payne, regarding the use of -- you have said repeatedly now, if I understand you, that probable cause -- are you saying something like this: that while there may not have been probable cause to arrest, in the sense of taking him to the police station and booking him for some crime, that at least in these circumstances there was probable cause to arrest, in the sense of asking them questions such as: Who are you, and what are you doing here? Is that what you're saying?",
       "time": "00:44:34.72"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You are saying probable cause, in these circumstances -- and I gather what you must mean -- is that if the detainment is an arrest, it was to be a detention only long enough to find out what they were doing. Is that correct?",
       "time": "00:45:12.42"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And that then, if the officer had probable cause to think they had weapons on them, that in those circumstances he was justified in frisking them for weapons. Is that it?",
       "time": "00:45:35.77"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well that's what I understood to be your argument in the use of probable cause. What you're really doing is saying you don't have to change the label; it's still probable cause, and it's still an arrest -- but an arrest, for the purpose merely of asking the question: Who are you and why are we here? And this is a different thing than an arrest for the purpose of taking them to the station house and booking them for a crime. Is that it?",
       "time": "00:46:09.97"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, forgetting Ohio law for a moment, how about for the purposes of the Fourth Amendment?",
       "time": "00:46:45.01"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But I thought you agreed with Justice Black before, that really, reasonable action and probable cause are pretty much synonymous terms?",
       "time": "00:47:01.61"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So we can stick to the jargon of probable cause and make the distinction that way?",
       "time": "00:47:11.16"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "As I see it, what you and your case are really substantially arguing is that to stop a man, or to ask him a question by an officer, is not an arrest under the Fourth Amendment description of an arrest?",
       "time": "00:47:24.07"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It seems to me that that's the real basis of your argument. What you're talking about is an arrest, and you're saying it doesn't arrest him to ask him a question.",
       "time": "00:47:48.14"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And I imagine you're saying, also, it doesn't necessarily arrest him to touch him?",
       "time": "00:48:00.78"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It might be an assault, but not an arrest, under the constitutional meaning?",
       "time": "00:48:07.20"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "He hasn't taken him into custody, you say?",
       "time": "00:48:15.68"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That is, under an arrest?",
       "time": "00:48:18.60"
     },
@@ -951,13 +951,13 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Payne, that's not quite the same thing you said to me.",
       "time": "00:48:21.61"
     },
     {
       "turn": 154,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I don't understand. I thought You said to me earlier that there might be an arrest, for some purposes; and an arrest for some other purposes -- Fourth Amendment purposes; and that an arrest, for the purpose of asking a chap his name -- which follows from a detention -- or, what's he doing here, there might be probable cause for that sort of thing without any violations, even though it could not be in the same circumstances probable cause to take him to the station house and book him for a crime.",
       "time": "00:48:32.59"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It's certainly not an arrest in the sense of taking him to the station house and booking him for a crime; but, if he's detained, isn't it in the nature of an arrest?",
       "time": "00:49:32.78"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, Mr. Payne, couldn't you say that when he laid hands on him and swung him around that petitioner's freedom of movement was arrested?",
       "time": "00:49:42.68"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But that's not arrest.",
       "time": "00:50:00.57"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mean because he only turned him around? It didn't take long to turn him around?",
       "time": "00:50:11.70"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, in this particular case he laid hands on him, and swung him around. How many days later was Payne free to go, from that moment on, in this case?",
       "time": "00:50:20.38"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No. In this particular case, when did he next get out? When did Terry get his freedom?",
       "time": "00:50:43.48"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So his freedom was arrested, for quite a while.",
       "time": "00:50:59.77"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You don't deny he was arrested; you're arguing about what time before he was arrested.",
       "time": "00:51:18.11"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "When did the arrest take place? Just speaking in ordinary terms, now, not little arrest, or big arrest, but speaking in ordinary terms, when was he arrested?",
       "time": "00:51:28.97"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Let's use the Fourth Amendment language, then. When was the first seizure of the person?",
       "time": "00:52:47.79"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You mean when he took Terry and swung him around there was no seizure of the person?",
       "time": "00:53:07.49"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, he had his hands on him and he switched him around. Surely -- there was no seizure of the person?",
       "time": "00:53:17.71"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That word is in the Fourth Amendment, isn't it?",
       "time": "00:53:27.70"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is the difference between seizure and arrest? You know, a seizure -- you don't seize a man -- I mean, you may seize him because you seize something tangible, but that's not what you are talking about in a seizure in the Fourth Amendment. I thought it was an arrest?",
       "time": "00:53:34.08"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "An officer could very easily turn a man around, without arresting him, couldn't you?",
       "time": "00:54:05.76"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It might not be easy, depending on his size --",
       "time": "00:54:11.26"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, he undoubtedly did this when he ordered them to get into the store and turn their palms towards the wall and stand there. At that point, there can be no doubt about an arrest, I guess.",
       "time": "00:54:35.77"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 190,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may have three more minutes to finish.",
       "time": "01:01:18.59"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Your time had expired.",
       "time": "01:01:22.25"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Let me ask you if this is not what you're really asking us to hold -- I'm not saying we shouldn't. You ask us to hold, as I understand it, that no officer has a right to interrogate people, and expect to get an answer, unless he already has in his possession, or in his mind, evidence sufficient to show probable cause that that person has committed a crime, or is about to commit one?",
       "time": "01:03:06.96"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, how far would you take it?",
       "time": "01:03:44.45"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, what about asking him questions and expecting him to answer?",
       "time": "01:04:20.50"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does he has a right to expect an answer, and to do anything whatever if he doesn't get it?",
       "time": "01:04:29.06"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What you're saying is that a policeman does not have the right to ask a person a question on the street and get an answer, or to keep him, or do anything else except just ask him a question, unless he's in possession of sufficient facts to know that he has probable cause to believe that that man has committed a crime or is about to commit a crime?",
       "time": "01:04:52.16"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I said, can ask him a question, but cannot get an answer, and do nothing about it.",
       "time": "01:05:25.87"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "He can arrest him. But supposing he doesn't choose to arrest him? Suppose he wants to do something short of arresting him?",
       "time": "01:05:36.41"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Then the man can go on and off, not answer the question because the officer doesn't have at that time a sufficient amount of evidence to make a case of probable cause that he has committed a crime?",
       "time": "01:05:47.06"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I thought that was it.",
       "time": "01:06:10.32"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well, Mr. Stokes.",
       "time": "01:06:13.05"
     },

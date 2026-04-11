@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/82-372/19830329a_82-372.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "KENNETH STEVEN GELLER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "DANIEL S. MASON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments first this morning in Federal Trade Commission against Grolier Incorporated. Mr. Geller, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Geller, are these documents among those that were refused to be disclosed pursuant to the 1976 order?",
       "time": "00:03:24.59"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So they're the same documents in both cases?",
       "time": "00:03:31.07"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And the Government took no appeal or sought review in any way?",
       "time": "00:03:37.38"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:03:47.95"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And Mr. Geller, in the earlier action, as I understand it, the district court had actually ordered that the documents be disclosed under Rule 26; is that right?",
       "time": "00:03:50.53"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why can't we say that if a district court has ordered disclosure then that's within the category of documents referred to by Sears that are routinely disclosed?",
       "time": "00:04:17.18"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But I suppose they are routinely disclosed if the court orders them to be disclosed.",
       "time": "00:04:59.69"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Geller, your argument suggests that there's a lot more analytical coherence to that exemption than I've ever thought there was. Do you really think that the language \"routinely disclosed\" and so forth lends itself to rather precise application based on analogies to ordinary civil lawsuits?",
       "time": "00:07:49.78"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't there a problem, though, in carrying over the statutory language when you have a totally abstract defendant, the Government, and there isn't any live lawsuit, in which you can ordinarily draw the conclusions you have to draw and decide whether to allow discovery of something or not? It's just kind of a half a lawsuit.",
       "time": "00:08:59.25"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Geller, does Exemption 5 also encompass material that's part of the deliberative process within a Government agency?",
       "time": "00:09:58.54"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And could the Government have claimed a privilege under that aspect of the rule in this case?",
       "time": "00:10:07.78"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And Exemption 7 would not have covered the Government's request here, I take it?",
       "time": "00:10:57.37"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Geller, may I ask you a kind of a... maybe it's not very helpful, but in the attorney-client privilege area, the privilege belongs to the client. In the work product area, is it clear who owns the privilege, whether the client or the lawyer?",
       "time": "00:12:24.09"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You think it's the lawyer rather than... here it's the client that's really relying on it in this case.",
       "time": "00:12:45.53"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand.",
       "time": "00:13:02.92"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you would think in this case, for example, if the lawyer who ran this investigation, whoever it may be, had left the Government service and decided he was willing to waive the privilege, you'd probably assume he could do so?",
       "time": "00:13:23.53"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Geller, I don't mean to be technical, but whose property is the work papers, the Government's or the lawyer's? Isn't it the Government's property?",
       "time": "00:14:07.53"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's what I thought.",
       "time": "00:14:17.63"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But you wouldn't carry that... you don't intimate any analogy as between a private lawyer and his client?",
       "time": "00:14:19.15"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The ownership.",
       "time": "00:14:33.16"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The private lawyer owns--",
       "time": "00:14:34.47"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--and absolutely controls the work product.",
       "time": "00:14:36.53"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But when the Government has a lawyer, the Government and the lawyer are more or less merged into one, are they not?",
       "time": "00:14:41.87"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "For example, when a Government lawyer leaves the Government, the Department of Justice or whatever, he may not take his papers--",
       "time": "00:15:08.38"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--with him--",
       "time": "00:15:18.14"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--unless he has special permission.",
       "time": "00:15:19.88"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But there really is no certainty, is there, under Rule 26 of the Federal Rules of Civil Procedure? There are provisions whereby someone can gain access to documents.",
       "time": "00:18:57.35"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If you're right in your analysis of what the routine discovery language of Exemption 5 means, that is that all the person, the hypothetical plaintiff or defendant making a showing under Rule 26, has shown is relevancy--",
       "time": "00:20:03.00"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--then I presume that work product would be almost automatically denied?",
       "time": "00:20:19.25"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Geller, what do you say about their argument that there should be an exception for documents that show unethical conduct by the lawyer?",
       "time": "00:23:55.51"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it is... or maybe I just get this out of the briefs. But isn't there some basis for believing that the documents indicate that the Government put an informer in their training program and that sort of thing? Or is that just speculation? There's nothing unethical about that, is there?",
       "time": "00:24:17.97"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your \"routinely discoverable\" argument as I understand it means, if there is any burden on the proponent of discovery in the civil litigation context to overcome any slight objection, then it's not routinely.",
       "time": "00:25:10.17"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but it would be an argument that would sustain the judgment below.",
       "time": "00:25:37.98"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are the documents in issue before us? I know the Court of Appeals--",
       "time": "00:26:02.74"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But they were examined by the district judge and by the Court of Appeals?",
       "time": "00:26:26.09"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But they are not in the papers that are here?",
       "time": "00:26:34.82"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Mason.",
       "time": "00:28:33.56"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What showing did they make to get the documents from the judge?",
       "time": "00:29:54.16"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What was the master's order in response to, a motion to produce documents?",
       "time": "00:31:02.98"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And of course you just can't get any document you want by making a motion.",
       "time": "00:31:18.77"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What was the... what's the standard in Rule 37?",
       "time": "00:31:25.19"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What's the standard under Rule 37 to get documents?",
       "time": "00:31:32.70"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What are the other tests? That's what I want to know.",
       "time": "00:31:42.18"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Mason, you seem to make a great deal of these facts, as if they suggested some impropriety on the Government's part. As I understand it, the Government simply sent one employee, a Government employee, to infiltrate, if you want to, a client whom they were having adversary proceedings against. But there was no infiltration of the legal representation of that client.",
       "time": "00:32:37.36"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What ethical violations do you think you have shown?",
       "time": "00:33:08.44"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Why were you talking about the ethical factors so much when you now tell us that you don't know whether you've shown any?",
       "time": "00:33:15.72"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well then why talk about it?",
       "time": "00:33:32.40"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "To cast some sort of a cloud over the argument here?",
       "time": "00:33:34.58"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That's the impression you're giving me.",
       "time": "00:33:39.88"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your brief gave me the same impression.",
       "time": "00:33:42.34"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I'm not sure where you say that, Mr. Mason. It was my impression that Hickman against Taylor laid down the work product rule that work product was not ordinarily or routinely discoverable unless in cases of real dire necessity where the other party simply couldn't get the information in any other way. Now, if it's relevant information, which I assume you think yours is, I don't see why this is the kind of information that couldn't be gotten in some other way.",
       "time": "00:37:52.11"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:38:31.81"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why were they relevant, anyway?",
       "time": "00:38:36.26"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, have you ever tried a lawsuit in which you didn't have to go out and get supplemental evidence, sometimes during... while witnesses were testifying? You never know how your case is going to hold up.",
       "time": "00:39:00.36"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why on earth would you tell the lawyer for the other side? He'd probably prevent it from having any use.",
       "time": "00:39:44.95"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Mason, didn't you a few minutes ago tell the Chief Justice you were not raising any ethical points?",
       "time": "00:40:07.78"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Didn't you?",
       "time": "00:40:16.03"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So now you're raising them.",
       "time": "00:40:18.19"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Mason, do you think then we should adopt a principle that... supposing it's not Judge Fisher in New Jersey but Judge Schmaltz in Wisconsin, and he files a perfectly bizarre order directing the Government to disclose information which they would much rather dismiss their lawsuit than conform to. And say all members of any court which would look at Judge Schmaltz' order, except Judge Schmaltz, would think it's just off the wall. Do you think nonetheless that in an FOIA proceeding one is bound by a discovery order?",
       "time": "00:40:45.57"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you can't really appeal a discovery order. You can get a mandamus on it.",
       "time": "00:41:21.32"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Still just a concurrence.",
       "time": "00:43:54.44"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Mason.",
       "time": "00:45:14.97"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a point on that question. The action that was terminated was the penalty action, is that correct?",
       "time": "00:45:16.27"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that was an action to penalize Grolier-Americana for violating a 1948 order, was that not it?",
       "time": "00:45:21.49"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is the 1948 order still on the books?",
       "time": "00:45:28.73"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, isn't there a possibility that that order might be violated in the future?",
       "time": "00:45:40.12"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me just make sure. I'm not totally sure I understand you. If an identical proceeding to the one that was filed in '72 or '76 were filed again and the Government wanted to use the same investigative technique and the same appraisal of evidence that may be disclosed in these documents, why wouldn't these documents then be related to that potential litigation? I don't quite understand your answer.",
       "time": "00:46:35.38"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would seem... the answer, it seems to me, is that the documents should not be disclosable because there is potential litigation on the horizon. Maybe I don't understand your answer.",
       "time": "00:47:24.34"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why isn't that this case? That's what I'm really asking.",
       "time": "00:47:58.70"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:48:08.82"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I understand.",
       "time": "00:48:15.37"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you also acknowledge the possibility of another enforcement proceeding of the 1948 order, as I understand you.",
       "time": "00:48:17.41"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You'd be happy with that rule, but you'd lose this case.",
       "time": "00:48:30.03"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, and the Government hasn't made this argument. But I was just trying to think it through. Well, you go ahead with your argument. I'm sorry.",
       "time": "00:48:43.53"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Geller?",
       "time": "00:56:53.16"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Geller, you don't really contend it mirrors civil discovery. You're contending it's somewhat narrower, because of the \"routinely\" requirement. If this was discoverable--",
       "time": "00:58:45.14"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Right.",
       "time": "00:58:58.06"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But your view is that really in specific cases it's narrower, FOIA is narrower, whereas the Court of Appeals took the view it was broader.",
       "time": "00:58:59.04"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:59:15.19"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:59:24.09"
     }

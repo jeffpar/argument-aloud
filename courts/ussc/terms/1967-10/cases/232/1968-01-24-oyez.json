@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1967/232/19680124a_232.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "ERWIN N. GRISWOLD",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "MARVIN M. KARPATKIN",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 232 and 233, United States, Petitioner, versus David Paul O'Brien; and David Paul O'Brien, Petitioner, versus United States. Mr. Solicitor General.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How old is the defendant?",
       "time": "00:07:24.86"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And a person can be sentenced under that Act up to what age Mr. Solicitor General?",
       "time": "00:07:30.41"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "21?",
       "time": "00:07:35.78"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "When the offense --",
       "time": "00:07:37.99"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is that on the theory of it being an included offense?",
       "time": "00:08:53.65"
     },
@@ -115,19 +119,19 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What was that charge --",
       "time": "00:09:33.26"
     },
     {
       "turn": 14,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is that brief a --",
       "time": "00:09:33.63"
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- a violation in Section 6, Mr. Solicitor? Is there a charge of violation of Section 6?",
       "time": "00:09:34.31"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, may I -- that's part of what? May I ask you, if this is -- is it -- this is the charge in page 3, is this the only one we're dealing with --",
       "time": "00:10:00.12"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And that's -- that is relied upon to support, the conviction under --",
       "time": "00:10:10.77"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- both 3 and 6, is it?",
       "time": "00:10:15.48"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What case of ours is nearest to this case insofar as valid and conviction is concerned under 6 or is charged under 3?",
       "time": "00:10:38.38"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, any decision that we have rendered saying that a case like this, for his charge, burning a draft card, was sustained a conviction for his not possessing one?",
       "time": "00:11:00.95"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What is the referent of the word “if” that it says you're talking about the evidence or the charge? What you have here --",
       "time": "00:12:01.73"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- what you have here is the specific statement in unmistakable language of the charge, namely, mutilation or destruction.",
       "time": "00:12:11.38"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I know but the quotation that you have read seems to me to indicate that the language used in the indictment has to be susceptible of being construed as language laid under one section or the other or under one statute or the other; that's not true here. All you have here is the argument that the evidence shows that it could have been charged with the violation of 6. But anyway, you said you're coming to that later; so I don't want press it.",
       "time": "00:12:28.18"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. Solicitor General, I don't want to interfere with you or interrupt you but are you saying it would not raise a constitutional issue to charge a man for the violation of one statute and have his conviction affirmed for violation of another statute?",
       "time": "00:13:24.03"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In those facts, he was charged? Now this -- I gather your argument is that this in -- that this charge indicates that mutilate, destroy and change not only charges an offense under one section of the statute but an offense in the (Voice Overlap) true.",
       "time": "00:13:50.97"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Solicitor General, I gather you'd still say this although this charge is only mutilate, destroy and change by burning a certificate without identification of Section 3, I take it you'd make the same argument even had the pleading here --",
       "time": "00:14:11.58"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- identified this to Section 3 with --",
       "time": "00:14:28.42"
     },
@@ -283,13 +287,13 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But this doesn't even refer to the Section.",
       "time": "00:14:43.73"
     },
     {
       "turn": 42,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "No, it doesn't.",
       "time": "00:14:45.78"
     },
@@ -301,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This charge doesn't even refer to this Section (Voice Overlap) --",
       "time": "00:14:49.74"
     },
@@ -313,13 +317,13 @@
     },
     {
       "turn": 46,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Well, are -- I regret having asked the question but it seems to me that we are off on a subsidiary issue but you're here on the constitutionality of this (Inaudible) statute?",
       "time": "00:15:12.28"
     },
     {
       "turn": 47,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In this case.",
       "time": "00:15:22.75"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There is a very obvious difference in that case, isn't it? That involved an affront upon this -- the aesthetic sensibilities of other people. It was not unlike a common law nuisance. In the present case, I guess does not involved that, does not have that (Voice Overlap) --",
       "time": "00:20:42.46"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Or no injury to other people is there in this case?",
       "time": "00:21:11.90"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, I suppose, somebody who had a very sincere belief that the laws against robbery were all wrong could not go express that belief by going around and robbing houses because that would be injuring other people. But here, you don't have any of that quality, do you --",
       "time": "00:21:47.17"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- in the present case?",
       "time": "00:22:08.26"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) is this burning taken place, the privacy of this man (Inaudible) could've been reached by this statute?",
       "time": "00:27:49.35"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why, the publicity (Voice Overlap) --",
       "time": "00:28:00.17"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The statute says nothing about --",
       "time": "00:28:07.69"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, Mr. Solicitor General, I take it that what you're doing is defending the constitutionality of this statute on the grounds that it is designed to punish contumacious conduct. Now, isn't there another approach to it, the statute requires that these cards, draft cards, be kept on the personal possession of the registrant. And that this -- is it arguable that these provisions in (b) were to facilitate in aid in the enforcement of that regulatory provision that is to say that there's widespread burning of draft cards obviously they'll be difficult to enforce that provision, requiring that the draft cards be kept in personal possession of the registrant.",
       "time": "00:29:28.61"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I'm not advancing that as a correct analysis but I have them a little surprised that is your argument seemed to be pitched in terms of the defending the statute as a statute designed to punish contumacious conduct which does bring it closely and perhaps quite closely within the area of free speech.",
       "time": "00:30:40.16"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Putting it on the basis that you and Justice Fortas have been discussing, it wouldn't make a particular difference with it, whether you did this publicly or privately --",
       "time": "00:32:49.80"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you defaced or altered or burned (Voice Overlap) --",
       "time": "00:33:00.67"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, isn't this covered by Cole against Arkansas just the other way Mr. Solicitor General?",
       "time": "00:41:18.48"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You mean there's no unfairness of charging one thing and then justifying the conviction by some total -- reference to some totally different acts so that (Voice Overlap) --",
       "time": "00:41:56.52"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes but the acts are different. One (Voice Overlap) --",
       "time": "00:42:14.47"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- this man was charged for willfully and knowingly mutilating, destroying and changing --",
       "time": "00:42:18.69"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- by burning.",
       "time": "00:42:25.83"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I beg to differ with you. I shall think that a lawyer faced with one charged, that is the charge of burning would have a test ahead of him that differs in material and important respects from the defense of a client charged with non-possession and that is presentation of this case to the jury as marshalling of evidence. The arguments that he presents might be very different from the one than there would be onto the other.",
       "time": "00:42:32.70"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What was the defense of this case in the trial court? You told us that the defendant admitted at least these arguments to the jury. He didn't take the stand himself but that he conceded that he'd violated the statutes. What was the defense before the jury in this case?",
       "time": "00:43:24.50"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, he --",
       "time": "00:43:45.97"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "He asked he jury to decide that --",
       "time": "00:43:46.76"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:43:50.25"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Go ahead, excuse me.",
       "time": "00:43:51.68"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but his defense to the jury would -- was simply, I'm a pacifist, I think this war is morally wrong and I couldn't cooperate with it and that's --",
       "time": "00:44:17.37"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's the only basis upon which he asked the jury not to convict him, was it?",
       "time": "00:44:28.60"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But the maximum -- are the maximum punishments for the two crimes the same?",
       "time": "00:45:29.91"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The same.",
       "time": "00:45:38.69"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Did the Government argue this in the Court of Appeals or is this something that Judge Aldrich thought up on his own?",
       "time": "00:45:56.77"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, of course, I realize that but I wonder if they had --",
       "time": "00:46:14.79"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- fall back position.",
       "time": "00:46:17.23"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What's the statute of limitation?",
       "time": "00:46:26.89"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That I think it would have some bearing on that, on this question.",
       "time": "00:46:39.70"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Karpatkin.",
       "time": "00:47:37.62"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What do you mean by a “verbal conduct” That's not what we're talking about here, is it?",
       "time": "00:49:21.05"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I mean to say, we're talking about the burning of the draft card and now you can say that that is symbolic First Amendment expression if you want to --",
       "time": "00:49:27.84"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- we're not talking about verbal. We're not talking about anything he uttered here, are we (Voice Overlap)?",
       "time": "00:49:38.16"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Suppose this charge was that he had willfully placed the -- this Certificate in his dresser -- drawer all the reason, that you now say that he burned up this way. Would you be -- make any different argument? He said nothing about it with no media person and no publicity to it but the Government discovered he didn't carry it because for all other reasons he burned it here, he hid it or put it away on his dresser-drawer and walked out?",
       "time": "00:50:07.58"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "With the First Amendment question?",
       "time": "00:50:44.59"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But you would nevertheless be otherwise urging your First Amendment argument?",
       "time": "00:51:12.75"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, “manifestation” you mean same public manifestation? In other -- what I'm trying to get at is, are you making a special point of the fact that this was done publicly in the presence of news media with photographs taken and all the rest of it?",
       "time": "00:51:29.45"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, on the -- in the hypothetical I've put to you --",
       "time": "00:51:49.68"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So that symbolic speech requires some public manifestation, does it?",
       "time": "00:52:01.05"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, in my hypothetical, you look -- be hard for -- to it to find any transmission and reception, wouldn't you?",
       "time": "00:52:25.49"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So that probably you wouldn't be making the First --",
       "time": "00:52:32.84"
     },
@@ -847,19 +851,19 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Suppose a soldier --",
       "time": "00:52:49.55"
     },
     {
       "turn": 136,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible) excuse me.",
       "time": "00:52:50.10"
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Suppose a solider over in Vietnam in front of a large crowd, soldiers broke his weapon and said it was a protest against the war in the foreign policy of the government, would that be symbolic speech?",
       "time": "00:52:51.11"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But we have --",
       "time": "00:53:16.97"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We have to go a little farther than just this particular case, do we not?",
       "time": "00:53:17.77"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where do you draw the line?",
       "time": "00:53:45.58"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, there was a lady, Virginia Killims (ph) I think it was who protested the constitutionality of the tax laws. Tax laws require the maintenance of certain books and records. Suppose in order to show her cons -- deep perversion to the tax laws, she had burned her books and records and done it publicly. Would that fall in the same category as your draft case and would you defend it on the same basis?",
       "time": "00:54:10.66"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I don't mean you personally.",
       "time": "00:54:47.38"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That's your problem because now you're right back to a defense to an attack upon the requirement of possession --",
       "time": "00:55:13.32"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- of a draft card. But in the Killims (ph) case, well -- and you seem to concede that if there is a valid governmental purpose attached to the object, the burning of that object can be criminally punished regardless of the impact of the First Amendment.",
       "time": "00:55:22.78"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That's what we're trying to do and I want to know where you -- how you -- if how in your minds hide the scale tips?",
       "time": "00:55:55.40"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I thought the -- I thought it was an enforcement, provides, to help identify people who have registered.",
       "time": "00:58:34.21"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Collective Service registration, no?",
       "time": "00:58:44.28"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Does serve a purpose, doesn't it? It -- isn't its purpose to notify the registrant? Doesn't it serve a notification purpose?",
       "time": "00:59:31.23"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's true and --",
       "time": "00:59:46.14"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- but its not a -- there is some reason that there is such a thing as a registration certificate, is there not?",
       "time": "00:59:47.36"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Notify the registrant, isn't there?",
       "time": "00:59:57.05"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "01:00:00.46"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You mean a boy burnt -- burned up his card, when it serves that function?",
       "time": "01:00:50.62"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, if it serves only a notification purpose, a lot of other information on it, I'm sure. Then does want to have to be told the date of his birth? It has that on it, does it?",
       "time": "01:01:04.62"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The place of his birth? Do I have to be told the place of my birth?",
       "time": "01:01:18.34"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It tells the name and address of some person who will always know my address, the color of my eyes, the color of my hair, my height, my weight, do I have to be told those things if this serves only a notification purpose to me in my classification?",
       "time": "01:01:23.55"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, perhaps, it serves some other governmental purpose. Your suggestion is that all it does is to serve, as I understood you in your colloquy in Mr. Justice Fortas that the only legitimate purpose is that notifies you is that draft classification. And once you get it, you've got the notice and otherwise, it serves no purpose. But obviously there's a lot of information on that which serves, must serve other purpose.",
       "time": "01:01:47.62"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Why not give the Government some information needed in administering the Selective Service Act to have a young man carry a card that would show that he actually did register in a particular place as this certificate shows, Farmington, Town of Farmington, State of Massachusetts and that the date of his registration was 11 -- 12-11-1964 together with the Certificate of the Board on it to the effect that he did actually register. Now, we have millions of people in this country floating around from one part of the country to another. A lot of them are young men. Isn't it the Government entitled to have some knowledge of those facts as obtained from the young men in order to effectually administer the Selective Service law?",
       "time": "01:02:25.31"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Suppose this young man is found out in, let's say, Arizona. He's 19 years old and he has the same attitude that he has here and he refuses to give the Government any information at all. And the Government wants him to have this card so they can know whether he did register in Farmington, Massachusetts or whether he didn't. Don't you think that might be in the event that a lot of young men did this same thing? Don't you think that that might be a manner of concern to the Government?",
       "time": "01:03:38.06"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, but obviously, it must serve a purpose of identification, was it not?",
       "time": "01:04:30.35"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But not only in registration but of identification. It has a lot of things, including indeed that this one does, I noticed. Obvious physical characteristics, scars on right shoulder and wears eyeglass. And as the Chief Justice suggested, why isn't it obviously prepared this way and required to be carried so that the Government may be in a position to enforce the requirements of the Selective Service Act.",
       "time": "01:04:36.66"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Typically, you have a difficult enough constitutional question (Voice Overlap) --",
       "time": "01:05:15.40"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) could not have another because that reason, they extended there heavily on the right to privacy. The man might not want anybody. He might not want the Government to have that information, his constitutional right to privacy, would it be invaded --",
       "time": "01:05:22.15"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- without breaking the law?",
       "time": "01:05:41.42"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But somebody might think of it as insulting and unpatriotic to break a window in the Whitehouse but I suppose you could also -- the person who did it could also be punished criminally regardless of the fact that he might do it to -- as an expression of opinion --",
       "time": "01:07:39.51"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- than to be all of those things, couldn't it?",
       "time": "01:07:58.17"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I think you answered a while ago but I'd like to ask you again. If this man had -- if the petitioner, had done this in private, the privacy of his home and his burned his card, would you be making a constitutional attack on the statute?",
       "time": "01:08:04.07"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But you would?",
       "time": "01:08:38.51"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now, tell me what cases you have that would equate a private burning of a draft card contrary to the statute to be symbolic speech?",
       "time": "01:08:40.40"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Has -- have you got any case in which this Court has ever invalidated the statutes solely because of an improper motive on the part of Congress?",
       "time": "01:09:50.49"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I thought I was commenting on yours beforehand.",
       "time": "01:10:13.17"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "He said not -- we haven't yet explicitly done that. That's the answer I wanted.",
       "time": "01:10:41.67"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So your answer to my question is that you have no authority --",
       "time": "01:10:48.11"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- to support your argument that this Court may look at the motive of Congress and solely at the motive of Congress and on that basis invalidate the statute as unconstitutional.",
       "time": "01:10:51.99"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or do you think Congress (Inaudible) with the symbolic speech.",
       "time": "01:14:30.83"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you saying that -- do you say that, you are getting in to the area where this Court has insisted or refused to get into -- namely to inquire what the motives are (Inaudible) otherwise out of this service?",
       "time": "01:15:05.52"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, continue till the red light is on. You may --",
       "time": "01:16:26.89"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may finish your argument.",
       "time": "01:16:30.57"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that an opinion for the Court.",
       "time": "01:18:11.10"
     },
@@ -1375,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The Metamor case? It might have been.",
       "time": "01:18:18.35"
     },
@@ -1387,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I hadn't argued, I wrote that opinion.",
       "time": "01:18:25.88"
     },
@@ -1399,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But 1,000 --",
       "time": "01:18:32.66"
     },
@@ -1411,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- and I think if -- my Brother Frankfurter wrote a concurring opinion, at least that's at one Meadowmoor case. However, it's not an improper reading.",
       "time": "01:18:34.91"
     },
@@ -1423,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You may be right.",
       "time": "01:18:57.82"
     },
@@ -1435,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, suppose what Congress had in mind was, now despite of this form of dissent because of its effect upon the enforcement of the Selective Service, would you still say that that was an illegitimate purpose?",
       "time": "01:19:33.97"
     },
@@ -1447,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The Meadowmoor case, at least the copy I have here in the United States reports, Mr. Justice Frankfurter wrote the opinion for the Court, Mr. Justice Black for the dissenting opinion.",
       "time": "01:20:09.21"
     },
@@ -1459,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But it's also true of course that not all action is speech, not all action is symbolic speech. Some action is symbolic speech; not all action is symbolic speech.",
       "time": "01:21:16.99"
     },
@@ -1471,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Your problem is where does this fall and that all embracing duality of propositions.",
       "time": "01:21:31.33"
     },
@@ -1483,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But suppose somebody, as an act of protest throws his quivering body in front of or on the railroad tracks and insists on staying there to -- and blocks passenger trains. Now is that symbolic speech or is that outside of the -- or is it action which cannot be defended as symbolic speech because it is an interference with the rights of others.",
       "time": "01:22:49.50"
     },
@@ -1495,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, your problem -- and so your problem here is whether this is protected, as I see at the moment anyway, is whether this is protected as symbolic speech or whether it is an unprotected interference with the process of Government, with a legitimate process of Government.",
       "time": "01:23:36.32"
     },
@@ -1507,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That would simplify if that's the only problem that we have here. That simplifies a great -- but is that your total submission. Do you say that we have to find that this Act was animated by an improper motive on the part of Congress in order to arrive at the result you seek?",
       "time": "01:24:18.91"
     },
@@ -1519,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Would you tell me what they are because so far as I'm concerned, I have great difficulty of reaching a result here based upon which requires this Court to act on the -- as a result of an assessment of the motivation of the Congress. So what are your other grounds?",
       "time": "01:25:06.97"
     },
@@ -1531,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "On the -- and that's because you're -- you say that it does not -- that it is essentially expression, communication of a point of view, number one. Number two, that it does not interfere with the rights of others or with the exercise, performance or execution of any legitimate Government function. And don't -- is that the -- am I stating the position correctly?",
       "time": "01:26:00.39"
     },
@@ -1543,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But we don't have to reach that unless we cross the first one, unless we accept your first position that this is to be considered as if it were speech. If we consider it not as speech but as action which interferes with the rights of others, which is an aggression on the rights of others or an aggression on the performance of governmental functions, do we still have to reach clear and present danger?",
       "time": "01:26:46.31"
     },
@@ -1555,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Examining the statute otherwise by the legislative history, how do you come to that conclusion?",
       "time": "01:29:20.68"
     },
@@ -1567,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, I'm asking you about --",
       "time": "01:29:35.64"
     },
@@ -1579,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I haven't quite understood the scope or part of your argument. Suppose there is nothing in this case except the fact that a man wanted to burn his draft card not to protest but he just wanted to burn his draft card. Would you say that Congress is without power to make it illegal to burn it -- engage in that conduct of burning draft cards?",
       "time": "01:30:03.86"
     },
@@ -1591,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are you saying that Congress is without power to make it against the law to destroy draft cards which it has -- it should -- in order to carry on its business even without any protest in it?",
       "time": "01:31:11.07"
     },
@@ -1603,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I'm trying to emphasize to you the difference between conduct and speech. That can be speech, conduct plus speech. There can be a press advertising. There can be marching backwards and forward engaging in conduct, backwards and forward. Have you any case in mind that has held that the Government is without power to regulate that kind of conduct even though people want to do it in order to picket, in order to express ideas? If so, what is the case?",
       "time": "01:31:29.01"
     },
@@ -1615,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I think you will find an opinion by Mr. Justice Douglas in which I concurred in which we pointed out that those things were different, one was conduct and one was speech and that that's speech plus conduct. Have you found any case of this Court held without more that it's unconstitutional for a state or the federal government to bar marching backwards and forwards in front of a place in order to protest something it's done?",
       "time": "01:32:07.75"
     },
@@ -1627,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You are saying it become kind of balancing when it shown that there's conduct plus speech that there should be some kind of balance and to find out time opponent it is for the Government to enforce its law against the conduct which is included. As I understand it, that's what your argument?",
       "time": "01:33:10.46"
     },
@@ -1639,13 +1643,13 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But I do not think, I know of no case of this Court that has expressly held that violates the constitution or the Government to regulate marching backwards and forwards in front of or around the building, the home, or anything else.",
       "time": "01:33:32.29"
     },
     {
       "turn": 268,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How about Thornhill against Alabama?",
       "time": "01:33:50.84"
     },
@@ -1657,7 +1661,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, it does not. If you read it carefully, you will see it does not.",
       "time": "01:33:53.23"
     },
@@ -1669,7 +1673,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "This Court has held that it did not.",
       "time": "01:33:57.38"
     },
@@ -1681,7 +1685,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That was in Swing, was it not?",
       "time": "01:34:34.82"
     },
@@ -1693,7 +1697,7 @@
     },
     {
       "turn": 276,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Alright, we'll adjourn.",
       "time": "01:35:19.69"
     }

@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/85-701/19861007a_85-701.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES NEVETT STEELE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "FRANCIS H. FOX",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You may proceed when you're ready, Mr. Steele.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It is now a membership corporation, am I correct about that? At the time the events at issue here occurred it was not, but it now is?",
       "time": "00:02:21.69"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I take it it's the organization that apprises the people, not the fund?",
       "time": "00:05:05.78"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Could Congress require that the publisher of a newspaper along with every edition of the newspaper list all the stockholders of the newspaper?",
       "time": "00:06:24.55"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But suppose it changed its mind? Would a requirement like that be constitutional?",
       "time": "00:06:41.97"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why is that different from this?",
       "time": "00:06:49.08"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "To print the list of their advertisements, political advertisements, and what they cost?",
       "time": "00:08:32.16"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But if an ordinary organization, say the Jim Brown Patriotic Society, publishes a list of voting records of all of the Congressmen, that's barred?",
       "time": "00:09:01.66"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And the difference is?",
       "time": "00:09:24.19"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But the voting records themselves is okay?",
       "time": "00:09:57.13"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, is it all that clear that Congress intended to sweep in all non-profit corporations, even if they derive no funds at all from business corporations or unions?",
       "time": "00:10:25.32"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Steele, it's clear... or maybe it isn't clear. Could the Commission... could the Congress constitutionally require an individual who wants to make such a distribution to register and publicly disclose his or her identity and the amount of money that this cost, and so forth?",
       "time": "00:12:07.10"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Does this apply to membership corporations, too? Non-profit membership corporations?",
       "time": "00:13:05.66"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is this one a non-profit membership corporation?",
       "time": "00:13:22.68"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So then it is.",
       "time": "00:13:27.84"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There's no... you're not saying that they don't follow the law?",
       "time": "00:13:29.75"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Steele, I think you said earlier that the... is it 441(b) has its source in the old Corrupt Practices Acts?",
       "time": "00:13:45.65"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Some 80 years ago or something?",
       "time": "00:13:55.22"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's 80 years ago, believe me.",
       "time": "00:14:01.08"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The corruption which provoked that statute at the time, is it the sort of thing that's ordinarily even associated with non-profit corporations?",
       "time": "00:14:04.43"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, even assuming that's what the statute says and that it may embrace non-profit corporations, I suppose the First Amendment question is whether it can be constitutional as applied to a non-profit corporation like this, isn't that right?",
       "time": "00:15:09.58"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's why I wondered. Certainly the kind of corrupt practices which gave us the Corrupt Practices Act, is it or isn't it the case, are not usually associated with non-profit corporations? I mean, non-profit corporations don't have these accumulations of wealth that were the seed for for the problem.",
       "time": "00:15:29.18"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, do you recognize that the First Amendment problem is rather more difficult as addressed to a non-profit corporation than it is to a profit corporation?",
       "time": "00:16:17.00"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Steele, do I detect from one of your earlier comments that you think Congress may have shifted gears to a certain extent in 1947 from 1907 when it brought in unions, I guess many of which are certainly not supposed to be in business to make money?",
       "time": "00:17:24.97"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But sweeping in the union, they also brought in a little neighborhood membership club--",
       "time": "00:18:31.18"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--in Podunk, Mississippi.",
       "time": "00:18:38.40"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Now, that will not wreck the United States.",
       "time": "00:18:41.89"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But most of them are small.",
       "time": "00:19:04.57"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Any book you look at, you'll find that.",
       "time": "00:19:06.87"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But don't you agree that there are a lot of people that think that to urge people to vote is non-partisan?",
       "time": "00:19:40.16"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Steele, what is the threat of corruption that's involved here, even from regular business corporations? You're not talking about business corporations getting together money and giving it to a candidate, or even expending the money in the way that the candidate directs. These are independent expenditures. If there's any connection with the candidate, if they say, you know, in exchange for our doing this would you vote this way, I assume that that would make it a connected expenditure.",
       "time": "00:20:23.11"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So there is none of that involved. What risk of corruption is there in any corporation, profit or non-profit, choosing to support one side or another in a political campaign?",
       "time": "00:20:54.12"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There's something wrong with that? There is something wrong with a political candidate not making any commitment to people that work hard for that candidate?",
       "time": "00:22:04.45"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I understand there's the danger, but I wouldn't describe that as corruption. I would describe that as the normal workings of the political process, that candidates who get elected tend to favor the interests of those who worked hard for their election. If that's corruption, we're in a lot of trouble.",
       "time": "00:22:22.77"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Steele, earlier in your argument you suggested there were three policies that you relied on particularly. One was disclosure, another was the avoidance of corruption, as I understand. But I don't think you've told us what the third was.",
       "time": "00:23:20.68"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Steele. We'll hear from you next, Mr. Fox.",
       "time": "00:24:42.74"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Fox, has it accepted any labor union money?",
       "time": "00:25:49.71"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That isn't critical to your argument, is it?",
       "time": "00:25:55.28"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing a similar organization in a different state did accept money from business corporations. Would it have a lesser claim than you do to First Amendment protection?",
       "time": "00:26:19.48"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think the First Amendment would permit the Government to pass a law requiring disclosure of whether or not there were business corporations contributing to the organization?",
       "time": "00:26:45.13"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But do you object to disclosure for your expenditures?",
       "time": "00:27:36.15"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you don't need to file and say, I have spent this much trying to get these people elected?",
       "time": "00:27:53.78"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you don't object to that?",
       "time": "00:28:03.13"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I didn't think so.",
       "time": "00:28:05.43"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Including your corporation?",
       "time": "00:28:12.29"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand. You object to disclosing, however, the sources of the $250? You object to having to disclose where you got the money that you expended in that fashion?",
       "time": "00:28:18.36"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, isn't that this statute? Doesn't this statute required the separate fund that is set up for this purpose... don't the sources of that income have to be disclosed?",
       "time": "00:28:39.37"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I thought that was... I thought that that was one of your major objections here, that the effect of this scheme is to require your organization with respect to any money that it wants to use for political activity to disclose the names of its contributors, some of whom might want to remain anonymous.",
       "time": "00:29:00.10"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's right. But you could set up a PAC.",
       "time": "00:29:42.46"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Over $200.",
       "time": "00:31:23.58"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Fox, the way you describe those requirements, it seems to me you really have to strain to say they are burdensome. I can see how they would be a nuisance and you have to devote some of your money, some of your time to complying with those. But they're certainly not insuperable, are they?",
       "time": "00:31:26.70"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's because in your submission the First Amendment protects you.",
       "time": "00:32:00.59"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But in connection with expenditures in connection with elections, we have sustained a lot of things that we wouldn't sustain if it were just on someone's right to communicate on a street corner about something.",
       "time": "00:32:05.86"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Fox... I don't want to interrupt in the middle of an answer, but I did have a concern I wanted you to address if you would. Mr. Steele made the point that, with respect to organizations of an ideological character such as the one you represent, receive a great many contributions which perhaps one cannot safely assume would be made for an electoral purpose. They might be very sympathetic with the organization, but not necessarily with the use of the funds to elect candidates. They like the lobbying, they like the research, and all the rest. And that one of the purposes the Government seeks to avoid is the danger that people will be supporting, who might be Democrats who agree with most of the objectives of your organization, but would not want to support Republicans, say. Could you address that concern.",
       "time": "00:33:33.55"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx served by forcing your organization to set up a separate fund, and then you solicit and people know exactly what they're paying for.",
       "time": "00:34:59.84"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, better than this.",
       "time": "00:35:13.91"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why?",
       "time": "00:35:18.61"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That may be so.",
       "time": "00:35:31.88"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But what about the money you raise?",
       "time": "00:35:33.86"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Through the PAC. Then what do you tell the... what does the separate fund say? We're going to use your money for what?",
       "time": "00:35:39.86"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "At least you know it's going to be used for political purposes.",
       "time": "00:35:52.70"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you may not know at all that the corporation's general revenues or general funds are going to be used for political purposes.",
       "time": "00:35:56.71"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Isn't that right?",
       "time": "00:36:09.03"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but at least you'll know in a separate PAC you're going to be operating in the political field.",
       "time": "00:36:14.37"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Fox, just so we're clear about the message here, what you said before led me to believe you were going to assert that the message here is just get out and vote. I didn't read it that way. It was really get out and vote pro-life, and here are the records of people on the basis of who's pro-life and who is not.",
       "time": "00:37:01.10"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it was not just get out and vote, but vote our way and here's something to help you do that.",
       "time": "00:37:19.66"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it's nice to say that, but when you also say vote pro-life doesn't that rather contradict that?",
       "time": "00:37:59.39"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Thank you. [Laughter]",
       "time": "00:38:13.13"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the only pictures are those of the candidates that are pro-life, isn't that right? The others don't get their pictures in?",
       "time": "00:38:38.01"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the Court of Appeals said that only pro-life candidates had their pictures. And the rule for which you contend, or the holding of the lower court, would apply even if the publication expressly said we endorse X, Y, and Z, wouldn't it, please vote for Mister So-and-so?",
       "time": "00:38:52.15"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that's what you're arguing you have a right. And is it not also true... and I'm not saying this makes your position stronger or weaker. But it's not just your organization that's at stake here, but there are a whole range of organizations, I supposed churches and the National Rifle Association, a lot of trade associations, there are all sorts of groups who would be covered by the rule for which you contend?",
       "time": "00:39:14.68"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what if the evil is the one I tried to describe rather clumsily a little bit ago, that you want to be sure the contributors don't just feel they want to contribute to a general cause, but want to know whether they're contributing to an election campaign? What if that's all you're interested in? Doesn't that cut across all these organizations, including yours?",
       "time": "00:40:05.97"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "We have also mentioned the concern that Justice Stevens has.",
       "time": "00:41:15.36"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How is the position expressed, for or against, or what?",
       "time": "00:42:38.43"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Vote him up or vote him down on the one issue?",
       "time": "00:43:08.55"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, where does your corporate till come from, Mr. Fox, other than from the contributions of members?",
       "time": "00:49:26.19"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But aren't those individuals who contribute members?",
       "time": "00:49:39.02"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Your charter does not provide for members?",
       "time": "00:50:19.31"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Who elects the officers and directors?",
       "time": "00:50:25.83"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Fox. Mr. Steele, do you have anything more? You have about six minutes.",
       "time": "00:54:10.78"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:54:18.77"
     }

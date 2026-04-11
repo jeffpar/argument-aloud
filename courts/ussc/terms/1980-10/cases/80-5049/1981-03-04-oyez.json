@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1980/80-5049/19810304a_80-5049.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN T. MCTERNAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "EVERETT F. MEINERS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "M. JAY WHITMAN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments first this morning in Clayton v. International Union and the consolidated case. Mr. McTernan, you may proceed when you're ready.",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, has the Court really held that these are 301 actions? Wasn't the genesis of the Vaca v. Sipes doctrine the cases of Tunstall and Steele, years ago, under the Railway Labor Act, when there was no 301? That is, a failure to represent employees fairly and squarely.",
       "time": "00:04:48.40"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, first of all, he has to show and prove that he was not properly represented through whatever the grievance and arbitration procedure may have been by his representative, the union organization.",
       "time": "00:05:29.68"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And only then, after he's proved that, may he sue the employer. Is that the?",
       "time": "00:05:47.05"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And any suit against the employer would be a plain vanilla 301 action.",
       "time": "00:05:53.24"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, except that the Tunstall and Steele cases were decided in the total absence of anything like 301.",
       "time": "00:06:33.81"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And they were actions only against the union, were they not?",
       "time": "00:06:42.81"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't think you're right there. They were up against both, the railroad and the brotherhood, weren't they? And wasn't the action, the complaint, that then you go to the mediation board? And the fact was the mediation board was appointed by members of the brotherhood and the employer?",
       "time": "00:06:48.75"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you concede, Mr. McTernan, that the liability of the employer under an action such as this is necessarily conditioned on the liability of the union also?",
       "time": "00:08:38.75"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Part of that, I suppose, is that if he sues the employer alone and that case went to judgment, the judgment against the employer should not include any damages that were caused by the union.",
       "time": "00:09:52.28"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, not if the union was responsible for the discharge.",
       "time": "00:10:19.53"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's not a different point if the union had maliciously caused the discharge. I don't know that the employer's going to be liable for back pay.",
       "time": "00:10:30.78"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And what if the union tells a lie to the employer about an employee and the employer discharges him?",
       "time": "00:11:17.29"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, in those cases the employer knows that it's acting under pressure from the union. Suppose it's acting in perfectly good faith and the union just tells it a lie about?",
       "time": "00:11:42.97"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No, no, but the he certainly wouldn't be paying back pay.",
       "time": "00:11:59.12"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right, all right.",
       "time": "00:12:07.18"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. McTernan, may I ask you a kind of a preliminary question? If you assumed, contrary to your argument, that the union did provide a completely adequate remedy, that they had some totally impartial review situation and would give an answer within two weeks, say, would you concede or would you not that in that situation there's a duty to exhaust?",
       "time": "00:12:09.16"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, supposing the collective bargaining agreement has a provision in it that if that review board found there was inadequate representation there's a duty to reopen the arbitration proceeding, and so on. I want to assume for a moment that you could conceive of an adequate remedy. I want to know whatever or not you would still argue... which I don't see why you couldn't, but I just want to know what your view is... would you still say there's no duty to exhaust? Or does this depend on inadequacy? And if there is a duty to exhaust, what's the source of it?",
       "time": "00:13:03.17"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you do concede, do you not, under this agreement that the employee couldn't go indirectly into court? He had to first go to the union and see if the union would press his claim to arbitration?",
       "time": "00:14:54.61"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, yes; we're talking about the grievance procedure.",
       "time": "00:15:13.66"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes; the first stage.",
       "time": "00:15:23.44"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But did the employee ask the union to take it to arbitration?",
       "time": "00:15:35.53"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, but he had to do that, didn't he?",
       "time": "00:15:43.92"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Right.",
       "time": "00:15:49.93"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, Mr. McTernan, in prior cases, I recall, when it was suggested that if the union breached its duty, and therefore the employee shouldn't be bound by defective grievance and arbitration procedures, I recall the arguments on behalf of the employee were that he shouldn't be sent back to arbitration either, because he would be there being represented, or at least accompanied by, or at least with a party in the picture that had shown it incapable of representing him.",
       "time": "00:16:03.51"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No.",
       "time": "00:16:58.26"
     },
@@ -367,13 +367,13 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well.",
       "time": "00:17:34.13"
     },
     {
       "turn": 54,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. McTernan, before you sit down, there's been called to my attention a recent 2nd Circuit case decided about two weeks ago, Johnson v. General Motors. Are you familiar with that one at all and how it bears on this?",
       "time": "00:17:35.02"
     },
@@ -385,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "It might be worth looking into. I'm not saying it's positive one way or the other, but I think it does bear on this issue.",
       "time": "00:17:49.65"
     },
@@ -397,7 +397,7 @@
     },
     {
       "turn": 58,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Meiners.",
       "time": "00:17:59.49"
     },
@@ -409,7 +409,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I might have missed it, but the Union didn't give any reason for withdrawing, it just withdrew; isn't that right?",
       "time": "00:19:21.94"
     },
@@ -421,7 +421,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Meiners, as I've tried to think through this argument that the employer is in an impossible position because he doesn't know the facts, but isn't it correct that the employee has the burden, rather severe burden, of showing arbitrary conduct by the union and what it really amounts to is, you have two defenses? You still have your defense that you didn't reach the contract in the first place, and you have the additional defense that maybe he can't prove arbitrary conduct. It seems to me that's a better position than the employers are in a lot of lawsuits. Well, but not as good a position as you're in right now, having won in the arbitration.",
       "time": "00:20:02.63"
     },
@@ -433,7 +433,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but it's still a tough prima facie case.",
       "time": "00:21:13.91"
     },
@@ -445,7 +445,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's the same legal standard as if the union was a party.",
       "time": "00:21:16.73"
     },
@@ -457,7 +457,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The argument is made in one of the amicus briefs, I don't remember which, that suppose you have a situation in which for some reason the employee elects just to sue the union and doesn't sue the employer. And there the union, in order to establish no damages, finds itself in the position of demonstrating there was no breach of contract. So is it any further--",
       "time": "00:21:37.58"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, as a matter of proving no damages it's certainly relevant.",
       "time": "00:21:59.79"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, they don't have to. I mean, you still have your own defense that you had no breach of contract.",
       "time": "00:22:27.84"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is the employer put in this position you describe every time the union declines to support the employee's claim, or even assuming for perfectly valid reasons, as you do here?",
       "time": "00:23:48.98"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 76,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does this problem for the employer arise every time a union declines to carry the ball for the employee?",
       "time": "00:24:07.14"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 78,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, I'm assuming that.",
       "time": "00:24:23.98"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Except, Mr. Meiners, the real reason, as I understand the briefs, is the reason they abandoned the claim was they thought there was no merit in it.",
       "time": "00:24:55.68"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you're able to prove that, if the facts are as they're described in some of the briefs, it's a fairly simple case.",
       "time": "00:25:02.71"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't really have an exposure for back pay during the period that you could rely on the arbitration award, do you? I think you have a duty... assuming he wins ultimately, you might have to reinstate, but you're not liable to back pay for the interim, I don't think.",
       "time": "00:26:05.44"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would seem to me, just again thinking out loud, that most of the time, I would assume, when the union abandons a claim, it's probably because it doesn't think it has any merit. I assume it does that thousands of times around the country. And normally the company is perfectly able to substantiate the reasons there's no merit to claim. I'm a little puzzled about why it's such a burden. This doesn't necessarily reach the merit of the ultimate outcome of the case.",
       "time": "00:26:22.96"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I thought that the employee has got the burden of proving a breach of duty, and you don't prove a breach of duty just by saying that the union failed to take it to arbitration.",
       "time": "00:27:18.32"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, it's a rather... if reasonable men could have differed about the validity of the claim, the union is going to win. And it's not just a low threshold question that the employer has got to get over.",
       "time": "00:27:31.73"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But here in the discovery, presumably, is you take a deposition of the steward and he says, I investigated the claim and I thought the company was right; that's why I abandoned it.",
       "time": "00:28:32.66"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The real issue in these breach of duty cases, as I understand it, at least in an awful lot of them, is whether or not there was real substance in the claim that the employer breached the contract.",
       "time": "00:28:56.81"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Your employer is the one that knows that. And if you can substantiate, even make a reasonable case, that you fired him for cause, like the contract required, there's not going to be any breach of duty in the union, is there?",
       "time": "00:29:14.39"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But there's also... if one were to adopt the principle that the employee can go directly into court, you're going to inevitably be involved in a lot of line-drawing problems. While some may be simple as Justice Stevens says, that the union simply decided there was no merit to the claim, but there could be conceivably some very complex reasons why the union decided not to process the claim.",
       "time": "00:29:36.40"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How can you get the employer back to the arbitration table when the contract time has... when all he promised to do he's done?",
       "time": "00:30:57.12"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How can you get him back?",
       "time": "00:31:13.55"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you say the same thing in a joint board situation where there was no arbitrator?",
       "time": "00:32:23.93"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They're in rather widespread use though, aren't they?",
       "time": "00:32:41.76"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Teamsters' areas?",
       "time": "00:32:49.37"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 110,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you agree that after the letter that was written, Appendix page 78, that he hasn't got a very enthusiastic advocate in the arbitration proceeding?",
       "time": "00:34:04.15"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 112,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He'd have to go out and get his own counsel.",
       "time": "00:34:21.05"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 114,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Anything in union regulations or the contract that limits his right to get independent counsel in the arbitration?",
       "time": "00:34:48.29"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Normally... not here. Under his contract?",
       "time": "00:34:59.63"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 118,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But here his advocate has in effect entered a guilty plea. Has he not?",
       "time": "00:35:22.49"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 120,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That would go before the arbitration board, wouldn't it?",
       "time": "00:35:31.72"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, you agree that the predicate to getting back to the arbitration table or getting to the contract claim at all is contingent on proving the breach of duty by the union?",
       "time": "00:35:45.22"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which, in the first instance, if you don't require them to... or, in any event, is going to have to be decided by a court.",
       "time": "00:36:13.97"
     },
@@ -805,7 +805,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's true that the National Labor Relations board has held in Miranda Fuel or some case that that's an unfair labor practice, too, a breach of duty by the unions?",
       "time": "00:36:34.86"
     },
@@ -817,7 +817,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If there's a suit filed against the employer and the union claiming the union breached its duty and therefore the employer breached the contract, the courts... before there'll be a recovery against the employer there's got to be proof a breach of duty by the union.",
       "time": "00:36:50.20"
     },
@@ -829,7 +829,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, then, if that's going to have to be tried out, an awful lot of the facts in the case are going to be there.",
       "time": "00:37:11.25"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't understand that, I just don't understand that. If I were an employer I would think that there would have to be proof of a finding by the court that the union breached its duty before the employer would ever have to face the contract provisions.",
       "time": "00:37:43.22"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, then, this has to be tried out in a court, and an awful lot of the facts and the circumstances will already be there on the table.",
       "time": "00:38:05.07"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the breach of duty concept is a fairly flexible one, is it not? That the union is considered to have a great deal of discretion as to what claims to press and what not, and what trade-offs to make in the administration of the contract?",
       "time": "00:38:14.26"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, your time has expired now, Mr. Meiners.",
       "time": "00:39:12.09"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Whitman.",
       "time": "00:39:15.07"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How could you do that in this case, in the light of this letter? How could you reverse your position in the light of this letter?",
       "time": "00:40:56.14"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "On behalf of you.",
       "time": "00:41:09.18"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But that's not what this said. This man says he hasn't got a suit.",
       "time": "00:41:24.04"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's what he says. You could reverse that in the light of this? You can't eat it. It's going to be there.",
       "time": "00:41:29.41"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Whitman, will you help me out on one rather simple point, I guess? What's the source of the duty of the employee to make an attempt?",
       "time": "00:42:51.30"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, is the conclusion that the federal judge should reach... now, it's a kind of the federal judge is both the lawmaker and the decider under your view... that if there's no attempt whatsoever to get the union to review the decision, that ipso facto establishes an inability to prove a breach of the duty of fair representation. Then it would necessarily follow, it seems to me, that the employer would be entitled to the benefit of that holding. Would you agree with that at all?",
       "time": "00:43:48.29"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, but suppose he won't do it?",
       "time": "00:44:30.51"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And then what happens as to the suit against the employer? Dismiss it?",
       "time": "00:44:36.11"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How? He has to, without being able to prove the breach of duty by the union, he can't proceed.",
       "time": "00:44:55.37"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You think this holding, this exhaustion, just protects the union, and that he could still be free to prove your breach of duty in his suit against the employer?",
       "time": "00:45:15.68"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about the Steelworkers' trilogy? The idea of keeping this whole kind of dispute out of the federal courts as much as possible?",
       "time": "00:45:28.61"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does the employee have the same choice as the employer to choose litigation over arbitration?",
       "time": "00:46:21.34"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what would an attempt have involved, Mr. Whitman, in this case?",
       "time": "00:46:49.87"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's all?",
       "time": "00:46:55.12"
     },
@@ -1069,7 +1069,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The President of the UAW?",
       "time": "00:46:56.51"
     },
@@ -1081,7 +1081,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And does he then act on it, or is there some--",
       "time": "00:46:58.82"
     },
@@ -1093,7 +1093,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--Nothing of this nature goes to the general convention, annual convention, or anything?",
       "time": "00:47:13.55"
     },
@@ -1105,7 +1105,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What I'm trying to get at, initially, the first step would have to be a letter to Mr. Fraser?",
       "time": "00:47:53.15"
     },
@@ -1117,7 +1117,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And then some proceeding occurs, and his claim is rejected at that level?",
       "time": "00:47:57.80"
     },
@@ -1129,7 +1129,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Then he has to go to one or the other of two other levels, does he, or whatever it may be?",
       "time": "00:48:04.48"
     },
@@ -1141,7 +1141,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But the second one is what, about six months or more, you suggested, to get to the appeals... convention?",
       "time": "00:48:11.45"
     },
@@ -1153,7 +1153,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Does the union permit counsel in this sort of thing?",
       "time": "00:49:03.15"
     },
@@ -1165,7 +1165,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather you do suggest that the employee says, no, I don't want to take that year and a half to do all this, I want to go ahead with my lawsuit. What the trial judge then has to permit him to do is still establish, if he can in the suit against the employer, as I heard you, that there had been a breach of the duty of representation?",
       "time": "00:49:30.32"
     },
@@ -1177,7 +1177,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, I say, you do suggest that the employee who refuses to go through that recourse in part nevertheless may still prove, in the suit against the employer--",
       "time": "00:49:55.82"
     },
@@ -1189,7 +1189,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "--The breach of the duty of representation?",
       "time": "00:50:05.97"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "So, to that extent, failure to exhaust does not deny him a right to go ahead with his lawsuit, at least against the employer?",
       "time": "00:50:10.75"
     },
@@ -1213,7 +1213,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then he doesn't have to name the union as a party?",
       "time": "00:50:17.59"
     },
@@ -1225,7 +1225,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Dr. Whitman, then, these upper levels of the union appellate process, if I may call it that, that you've described, is the employee very often successful after defeats in the lower levels?",
       "time": "00:50:42.83"
     },
@@ -1237,7 +1237,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But there are thousands of grievances.",
       "time": "00:51:59.58"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In this particular company, it shows on this one, doesn't it, that there are 4,000 already... what is it? this number is 24,060, the number of this grievance. So it meant that before then, there were 24,000 that were denied. This is a lot for one company, isn't it?",
       "time": "00:52:14.51"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is?",
       "time": "00:52:39.24"
     },
@@ -1273,7 +1273,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Whitman, to the extent that's a valid argument, and it's quite persuasive, it should be available to the employer as well.",
       "time": "00:54:04.76"
     },
@@ -1285,7 +1285,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It also goes back behind the J. I. Case case, in effect, doesn't it, where the Court said that under collective bargaining you can't have an individual employee contracting separately with the company?",
       "time": "00:55:03.24"
     },
@@ -1297,7 +1297,7 @@
     },
     {
       "turn": 208,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Doesn't it pervade all of the labor law of the last 40 years, more or less, that there should be exhaustion of all these intermediate efforts before getting into the judicial process? Isn't that the whole concept of it?",
       "time": "00:56:30.57"
     },
@@ -1309,7 +1309,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Whitman, I don't understand your suggestion in that if the employee refuses to exhaust, that means he can't proceed against the union, but nevertheless he may proceed against the employer. Why should he?",
       "time": "00:57:33.87"
     },
@@ -1321,7 +1321,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If he... well, I gather your position is if the... he made no attempt, is what you said.",
       "time": "00:57:48.19"
     },
@@ -1333,7 +1333,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And having made no attempt, he has no further course of action against the unions. Then, why, nevertheless, does he have a cause of action against the employer? Why should he, if the union is to be off, because he doesn't exhaust against the union? Why shouldn't the employer also be? Because if he... it may be decided in the exhaustion, if he does exhaust; the union may decide and he may even agree that the union didn't breach its duty at all.",
       "time": "00:57:54.45"
     },
@@ -1345,7 +1345,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it won't go away if you say that he can proceed against the employer, meanwhile. Your position is that he doesn't even need to stay the action against the employer. He just can go right ahead. And if in the union procedures it's decided that as between the union and this man the union did all that it was supposed to do, why shouldn't the employer be able to take advantage of that?",
       "time": "00:58:28.57"
     },
@@ -1357,7 +1357,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right, let's assume you do, and the union turns him down, and decides that we didn't breach a duty at all and we're not going to go back to arbitration. That is all, we just--",
       "time": "00:59:04.07"
     },
@@ -1369,7 +1369,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--I beg your pardon?",
       "time": "00:59:17.12"
     },
@@ -1381,7 +1381,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Then the suit goes forward against both?",
       "time": "00:59:26.32"
     },
@@ -1393,7 +1393,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Then, I really don't understand, Mr. Whitman, why you can take the position, if he refuses to proceed to exhaust, that lets the union off but not also the employer?",
       "time": "00:59:36.82"
     },
@@ -1405,7 +1405,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, here, the trial judge thought they should both do likewise, is the way it looks.",
       "time": "01:00:08.67"
     },
@@ -1417,7 +1417,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. McTernan.",
       "time": "01:00:17.15"
     },
@@ -1429,7 +1429,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. McTernan, suppose we agree with you about exhaustion, is one of your questions here also that the union should not have been dismissed from the suit?",
       "time": "01:02:03.06"
     },
@@ -1441,7 +1441,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And why is that?",
       "time": "01:02:13.91"
     },
@@ -1453,7 +1453,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so you're just entitled to sue them, that's all.",
       "time": "01:02:20.66"
     },
@@ -1465,7 +1465,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And if you're going to have to prove a breach of representation, you want the union there as a party so you have the advantages of working against the defendant, all the remedies against the defendant?",
       "time": "01:02:31.97"
     },
@@ -1477,7 +1477,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Discovery and other things?",
       "time": "01:02:46.74"
     },
@@ -1489,7 +1489,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But I suppose there is some great advantage to having them as an opponent in the lawsuit rather than as a third-party witness?",
       "time": "01:02:58.60"
     },
@@ -1501,7 +1501,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How much time does all this take, Mr. McTernan?",
       "time": "01:03:26.59"
     },
@@ -1513,7 +1513,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "This case has been over four years, hasn't it?",
       "time": "01:04:13.27"
     },
@@ -1525,7 +1525,7 @@
     },
     {
       "turn": 246,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Had he gone back for arbitration, how do we know but it might have been settled a long time ago?",
       "time": "01:04:47.87"
     },
@@ -1537,7 +1537,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It was conceded, unless you disagree with it... that makes it quite different... that he could get outside counsel and go to arbitration.",
       "time": "01:04:59.80"
     },
@@ -1549,7 +1549,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Not after? Before he started his lawsuit in the district court, are you saying he could not have had arbitration with his own private counsel?",
       "time": "01:05:13.90"
     },
@@ -1561,7 +1561,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because of the provisions of the collective bargaining contract.",
       "time": "01:05:33.05"
     },
@@ -1573,7 +1573,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The procedure was exhausted.",
       "time": "01:05:37.71"
     },
@@ -1585,7 +1585,7 @@
     },
     {
       "turn": 256,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Thank you, gentlemen. The case is submitted.",
       "time": "01:05:42.19"
     }

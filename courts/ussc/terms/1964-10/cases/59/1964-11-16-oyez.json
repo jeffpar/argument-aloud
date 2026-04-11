@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1964/59/19641116a_59.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ARTHUR J. GOLDBERG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
       },
       {
         "name": "LOUIS F. OBERDORFER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GOLDBERG",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "HENRY HARFIELD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 59, United States versus First National City Bank. Mr. Oberdorfer.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That is the taxpayers outside of United States?",
       "time": "00:01:06.85"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Mr. Oberdorfer.",
       "time": "00:02:57.18"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "The delinquency is in respect to those -- with respect [Inaudible]",
       "time": "00:03:00.04"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "They didn't get – [Inaudible]",
       "time": "00:03:11.65"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Oberdorfer [Inaudible]",
       "time": "00:05:48.47"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:06:14.01"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:07:21.00"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:07:35.54"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Does this regulation apply to [Inaudible]",
       "time": "00:10:31.20"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:10:43.13"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:11:03.27"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:11:36.67"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That might not be subject to argument about whether or not the -- about whether or not the facts fit under the regulations --",
       "time": "00:12:55.72"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "– the mere allegation of the Government enough?",
       "time": "00:13:04.88"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This is the deposit of a foreign branch in order in effect to evade taxation.",
       "time": "00:13:26.05"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Also, [Inaudible] yes, the this regulation is still subject to place the jurisdictional question that involved the --",
       "time": "00:13:37.47"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, if the regulation in itself will concur with the jurisdiction in otherwise --",
       "time": "00:13:51.33"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It's there and in the reach of --",
       "time": "00:14:02.75"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Bearing on the reach of some of the arguments that were made, is to the reach of sustaining the Government's position?",
       "time": "00:14:05.16"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "[Inaudible] The issue you want decided, could be decided in the context of the validity of the regulation?",
       "time": "00:14:14.48"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The point is we can't avoid the decision that you're asking us to make, even if we limit this to the consideration of the application of the regulation.",
       "time": "00:14:31.08"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If this case remanded to the District Court to reconsider in the light of the present regulation, which I suppose it would have been if the regulation for example had wholly forbidden this kind of an order. If it were remanded now for reconsideration in light of the regulation, I suppose the same question would still persist?",
       "time": "00:14:54.66"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it would come back up on the same question.",
       "time": "00:15:18.84"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The only time it might not come back up, if you couldn't satisfy the terms of the regulations.",
       "time": "00:15:26.73"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "[Inaudible]",
       "time": "00:15:51.09"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that question isn't really the force?",
       "time": "00:16:46.11"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But I would suppose you would have some questions, which are rather [Inaudible]",
       "time": "00:16:52.11"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The reason I asked the question is I wondered what your position would be if it were clear that they never had jurisdiction over Omar and never would be able to get jurisdiction over Omar.",
       "time": "00:17:11.54"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes.",
       "time": "00:17:21.27"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:19:21.65"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:19:32.23"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:20:25.63"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:22:09.47"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:22:12.15"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:22:25.25"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:22:54.06"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How long would temporary be then? Supposing it was decided you couldn't get jurisdiction? Could you just hang on to this money?",
       "time": "00:23:10.85"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Harfield?",
       "time": "00:25:36.81"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:28:00.94"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:28:15.41"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:28:22.93"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But did the Court of Appeals rely on anything other than the --",
       "time": "00:28:48.02"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "These sorts of rules isn't designed to deal with foreign deposits as against domestic deposits, but in fact, this is much -- that rule would be imposed if the bank is across the street?",
       "time": "00:29:16.67"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] --",
       "time": "00:29:32.61"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you suggest the results in this case ought to be the same as the branch that you are talking about was it in this country?",
       "time": "00:29:33.72"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:29:47.80"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] the Court wouldn't present him there?",
       "time": "00:30:05.01"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because of the foreign law?",
       "time": "00:30:08.19"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:31:42.55"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:31:58.24"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:32:00.42"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:32:04.84"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:32:38.83"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:33:27.24"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:34:37.01"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:34:52.77"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it could be an overseas division, it could include deposits by the American companies who have been subject to --",
       "time": "00:35:24.09"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But I feel that if the Internal Revenue Service proceeds against the main office of the branch to sequester or to enjoin the paying out of funds that the bank may have in anyone of its hundred branches in this country.",
       "time": "00:36:04.20"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If you say that's part of an injunction that is justified, I mean that the Court would have power to enter it, I think if you would say that this is the -- that the main office is an appropriate place to latch on to whatever kind of property this is and wherever it maybe located.",
       "time": "00:36:22.25"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If that is so then, the only difference is this case is that the depositor happens to be or that the branch happens to be located abroad and you have just the extra problem of double liability.",
       "time": "00:36:45.38"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it doesn't have anything to do with where property is located or what kind of a debt it is or anything like that?",
       "time": "00:37:02.78"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it couldn't have?",
       "time": "00:37:08.79"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Otherwise, this Court could never do it in the case if the branch is in this country?",
       "time": "00:37:11.85"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But not before it has any power to do it?",
       "time": "00:37:29.57"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, it's an equity question?",
       "time": "00:37:45.95"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "[Inaudible]",
       "time": "00:38:37.38"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Harfield, you may continue your argument.",
       "time": "00:39:08.16"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:41:16.57"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Harfield, [Inaudible]",
       "time": "00:42:15.79"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:42:53.45"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:43:23.61"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Anyway, [Inaudible]",
       "time": "00:43:38.69"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why is that the case [Inaudible]",
       "time": "00:45:56.11"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Fixed its liability for what, it's already reliable for the funds?",
       "time": "00:46:27.23"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But is it any more than it was before?",
       "time": "00:46:44.63"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I'm getting at it is what's the damage?",
       "time": "00:46:50.97"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does it appear which kind of account is it kept in the bank then?",
       "time": "00:47:34.06"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:52:12.37"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:52:59.31"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:53:40.55"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:53:42.41"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:53:55.27"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:57:11.28"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:58:04.00"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:58:15.84"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:58:34.99"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:58:39.54"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:58:49.51"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Oberdorfer.",
       "time": "00:59:01.49"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Oberdorfer it seems if this was a Court of equity, I suppose the Court could have attached any conditions of -- reasonable conditions which it chose to the issuance of its restraining order or injunction.",
       "time": "01:03:41.01"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Do you suppose it could have gone so far as to provide that, if you the government wants this injunction, you shall be required to hold the bank harmless and indemnified for any possible double liability?",
       "time": "01:03:54.45"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, if there is --",
       "time": "01:04:23.22"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But you could just say, if you want your injunction, those are the conditions to go with it?",
       "time": "01:04:31.38"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And if as you were arguing the risk is very slight, that wouldn't be much of a very onerous condition?",
       "time": "01:04:37.41"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "[Inaudible] with reference to the location of our banks in the that country?",
       "time": "01:04:56.68"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Oberdorfer, do you have any doubt or – what is the situation of this litigation in regard to the new regulation? This is a pending case that isn't over? The bank came in and said, the Commissioner must comply with the new regulation, at this point would he do so or not?",
       "time": "01:05:06.49"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that isn't my question. I mean, does he have to?",
       "time": "01:05:39.51"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Probably he would have to comply with it and do you have any argument with the Mr. Harfield's statement that the United States Courts here regularly refused to recognize orders of Foreign Courts similar to this one?",
       "time": "01:05:57.81"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But he says that -- he makes the assertion that the domestic policy of the Court says that if a Foreign Court entered an order like this, it wouldn't get to first base in one of our Courts here?",
       "time": "01:06:18.39"
     },

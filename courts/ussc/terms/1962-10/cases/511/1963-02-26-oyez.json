@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1962/511/19630226a_511.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ARTHUR J. GOLDBERG",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES ALAN WRIGHT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GOLDBERG",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "BRUCE ALLEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ALLO B. CROW, JR.",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 511, James E. Bush, Petitioner, versus Bruce Allen -- versus Texas rather. You may proceed, Mr. Wright.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Wright, I know you're here trying to prevail on what seemed to you important constitutional questions, but I trust that before your argument is finished, you’ll tell us what do you think is the effect of the supplemental brief which had been filed for the respondent yesterday I think, showing that --",
       "time": "00:02:37.29"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I was thinking, Mr. Wright, not so much of mootness as I was of a -- the equivalent of a confession of error. This -- a psychiatrist this time employed by the State. The State -- State's psychiatrist have now told us that the petitioner here was only partly or not at all responsible for his acts for many years and -- when did this alleged crime occurred?",
       "time": "00:04:45.37"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So that's certainly within many years, however many years it is and -- isn't this then a finding by the State's expert that the -- that the -- this person was probably not guilty?",
       "time": "00:05:13.49"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But we do have it now (Voice Overlap) --",
       "time": "00:05:31.38"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And it -- as I understand your briefs, your earlier briefs, the Texas law is clear and I suppose the law of every state is clear that the person cannot be convicted of the criminal offense if indeed he was not responsible for his acts at the time of the alleged offense.",
       "time": "00:05:33.09"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is this a -- was this the [Inaudible] continued on by [Inaudible] or would there have to be a collateral proceeding. I suppose -- I assume there is some proceeding. In fact, it's available for (Voice Overlap) --",
       "time": "00:05:47.23"
     },
@@ -135,19 +139,19 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Wright, what are --",
       "time": "00:06:39.66"
     },
     {
       "turn": 16,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what if --",
       "time": "00:06:40.24"
     },
     {
       "turn": 17,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- suppose we would've vacated this judgment of conviction and remand to the Court of Criminal Appeals, that's where it would go, would it?",
       "time": "00:06:40.70"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "For reconsideration in light of the dispatch now represented to us by the Attorney General, I take it is that -- of Texas?",
       "time": "00:06:49.16"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. But that -- did that case involved the evidence that indicated also that the man was insane at the time of the crime? Well, that certainly is the import of this affidavit here?",
       "time": "00:08:17.69"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And one of the [Inaudible] to this appeal is before the Texas Court was whether or not this man was insane at the time of the crime, wouldn't it, right on the merit?",
       "time": "00:08:37.67"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's still is one of the issues in the case?",
       "time": "00:08:48.22"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Mr. Wright, what was the procedure utilized in the Bush case in 313 [Inaudible]",
       "time": "00:08:57.51"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What's that Gibbs citation?",
       "time": "00:09:27.93"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, do I -- do I correctly infer from your answers Mr. Wright, that you're not sure what would happen if you were to send -- vacate this [Inaudible]",
       "time": "00:09:34.79"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They could, could they not, in view of the situation and the reason, vacate that judgment as there's no acts or no way for them to proceed or send it to the trial court to determine this new issue again? They had not tried to convict him. I'm just wondering if Texas would finally -- the Texas Court would finally observe unable to meet a situation if it were persuaded that a man had been convicted on the trial, it took place at the time when he was insane.",
       "time": "00:10:00.01"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Wright, the tenor of this is not alone that he was insane at the time of trial, but indeed that he was insane at the time of the commission of alleged offense, is it?",
       "time": "00:11:13.94"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Am I right that there was a finding that he was insane in this particular case? Is that (Voice Overlap) --",
       "time": "00:11:39.38"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "So you might have a complication, might you not, because I suppose that the question here would be whether he had the process and that he's only given the 20 minutes or whatever it was to have a psychiatrist and the State didn't provide a psychiatrist as I understood it rather than they often did in the county --",
       "time": "00:11:56.18"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "-- doctors, whatever you call it. So, you'd -- you would have some complications, would you not, in proceeding in a new case. Did the Court of Appeals has asked -- act on it, Court of Criminal Appeals?",
       "time": "00:12:14.41"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What Court was -- that heard the Bush case before in the 333?",
       "time": "00:13:09.06"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Which court?",
       "time": "00:13:18.95"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "I mean it found the facts, it was the trial court, wasn't there in the Texas procedure? County Court of Criminal Appeals refer the case to the trial judge to --",
       "time": "00:13:21.26"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Johnson?",
       "time": "00:13:38.12"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "That's a different district, isn't it?",
       "time": "00:13:39.76"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "This is in Ellis, isn't it?",
       "time": "00:13:42.48"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Thank you.",
       "time": "00:13:46.34"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:14:54.20"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:15:48.77"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:15:53.08"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:15:55.06"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:15:58.67"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "So, in this case [Inaudible], if that is so, we have the [Inaudible]",
       "time": "00:16:36.15"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:17:07.43"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:17:44.38"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How far do you think those implications go? I suppose a man who is rich enough and I -- there are a good many rich men in Texas, he could get the very best psychiatrist. He wouldn't be confined to Texas. He might -- they might -- the best one in the United States might by common consent be in New York or San Francisco. He could get him. In other words, the -- those implications don't -- you can't read the literal language of that sentence which you quoted from Griffin against Illinois to the -- for the extreme implications of the State's opinion.",
       "time": "00:27:50.98"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, the rules still does -- I mean, the facts whatever the rule may be and whatever the ideal may be, the facts of life are that for better or for worst, the kind of a trial a man gets does to an extent depend on how much money he has and how good his judgment is in selecting lawyers and doctors, isn't that true?",
       "time": "00:29:03.94"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And all the rules in the world aren't going to change those facts of life.",
       "time": "00:29:23.65"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's a matter of degree then because here you did have a physician who had studied psychiatry in medical school. And who, in his private practice, had treated people with minor emotional problems.",
       "time": "00:29:43.12"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:30:10.63"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:30:22.03"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:30:32.97"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:30:48.33"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:30:54.64"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "You filed a [Inaudible]",
       "time": "00:30:55.84"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:31:08.03"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:31:21.21"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:31:22.15"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "On the merits, that jury also -- your defense was not guilty by reason of insanity.",
       "time": "00:31:35.11"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that jury heard substantially the same evidence except not -- but not Doctor Dial and the police chief instead of the jailer or something like that, the sheriff --",
       "time": "00:31:41.28"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And virtually the same --",
       "time": "00:31:51.80"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Plus however, plus the finding of the previous day's jury.",
       "time": "00:31:53.82"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "How was he court appointed?",
       "time": "00:32:36.44"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Had nothing to show that he -- that Bush wasn't available before April 21st for an examination by anybody that Moore was able to produce.",
       "time": "00:32:51.66"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Had there been a continuance before?",
       "time": "00:33:39.74"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Allen.",
       "time": "00:33:56.91"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do you mind addressing yourself first to the question of that latest brief of yours?",
       "time": "00:34:03.11"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Does that have any legal effect?",
       "time": "00:34:55.04"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "he had about -- he had about six years experience in general practice, is that it?",
       "time": "00:36:46.16"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In medical school and then he had about six years practice.",
       "time": "00:37:14.69"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, doesn't the record also show that in order to become a psychiatrist and I know your point that in Texas there is no such a thing.",
       "time": "00:37:19.01"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But in order to become a fellow or whatever it is, it takes five or six years of post graduate study after (Voice Overlap) --",
       "time": "00:37:30.02"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Four to six years?",
       "time": "00:37:37.86"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Before you're allowed to practice at all?",
       "time": "00:37:39.76"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Dr. Dial was donating his services except for his gasoline. How --",
       "time": "00:39:11.22"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How far do you have to come from where he (Voice Overlap) --",
       "time": "00:39:15.60"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "30 miles.",
       "time": "00:39:18.06"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "He was on the faculty of the Southern Methodist.",
       "time": "00:39:21.06"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:39:42.33"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:39:44.10"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:39:54.14"
     },
@@ -915,19 +919,19 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:40:16.63"
     },
     {
       "turn": 146,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "344.",
       "time": "00:40:28.46"
     },
     {
       "turn": 147,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:40:29.46"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:42:32.16"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:43:18.91"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What happened here, [Inaudible] --",
       "time": "00:43:46.01"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand that you aren't -- that you don't agree with how you ought to read this --",
       "time": "00:44:14.44"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- affidavit but (Voice Overlap) --",
       "time": "00:44:17.76"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:44:21.11"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, so we sent it back there now.",
       "time": "00:44:26.97"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Your answer to that after lunch, we'll --",
       "time": "00:44:31.06"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Allen, you may continue your argument.",
       "time": "00:44:42.78"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:45:23.93"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:45:48.40"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:46:19.54"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That it was [Inaudible]",
       "time": "00:46:24.07"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "How long has it been?",
       "time": "00:46:34.89"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "How long?",
       "time": "00:46:36.52"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "[Inaudible]",
       "time": "00:46:42.57"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:46:47.51"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:47:16.04"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "[Inaudible] do you know, of any actual [Inaudible]?",
       "time": "00:47:29.95"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "We don't understand this type of [Inaudible]",
       "time": "00:48:02.08"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "[Inaudible] whether you know -- whether you act to [Inaudible]",
       "time": "00:48:04.78"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Mr. Allen --",
       "time": "00:48:25.11"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "-- before you go into the [Inaudible]",
       "time": "00:48:26.32"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:48:54.46"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:48:57.17"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "On the other hand, there's I supposed there's nothing in our rules that prevent us from doing this or to prevent us from vacating the judgment of the Court of Criminal Appeals and remanding it to the trial court for consideration in the light of this subsequent development. I don't see why we're so bothered with the Texas procedure, the case is here now.",
       "time": "00:49:01.01"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Let me ask you this, Mr. Allen.",
       "time": "00:49:39.14"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You agree with Brother Goldberg, this is -- very commendable of you to have brought this to our attention, this later psychiatric report and yet having done so now you tell us it's meaningless. It has no effect at all. What was the purpose of (Voice Overlap) --",
       "time": "00:49:40.62"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But under your law, as soon as -- if you, [Inaudible] he is certified as being recovered. He goes back to the penitentiary.",
       "time": "00:50:12.57"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "To the penitentiary, is it not?",
       "time": "00:50:19.83"
     },
@@ -1299,13 +1303,13 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, but which --",
       "time": "00:50:23.40"
     },
     {
       "turn": 210,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:50:24.45"
     },
@@ -1317,7 +1321,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:50:32.58"
     },
@@ -1329,7 +1333,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And the fact is Mr. Allen [Inaudible]",
       "time": "00:50:36.45"
     },
@@ -1341,7 +1345,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:51:25.02"
     },
@@ -1353,7 +1357,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:51:28.26"
     },
@@ -1365,7 +1369,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "And the same procedure however, I take it that while [Inaudible]",
       "time": "00:51:30.99"
     },
@@ -1377,7 +1381,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:51:45.79"
     },
@@ -1389,7 +1393,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "00:51:59.56"
     },
@@ -1401,7 +1405,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you say that [Inaudible]",
       "time": "00:54:11.59"
     },
@@ -1413,7 +1417,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:54:29.63"
     },
@@ -1425,7 +1429,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:54:32.51"
     },
@@ -1437,7 +1441,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you say [Inaudible]",
       "time": "00:55:25.09"
     },
@@ -1449,7 +1453,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Do I understand that first your conviction to you as a matter of criminal charge fall [Inaudible] some other place in the United States besides [Inaudible]",
       "time": "00:55:47.30"
     },
@@ -1461,7 +1465,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Suppose you -- the county officer suddenly [Inaudible]. Would you still have [Inaudible]?",
       "time": "00:56:29.38"
     },
@@ -1473,7 +1477,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "[Inaudible]",
       "time": "00:57:03.75"
     },
@@ -1485,7 +1489,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Well, you -- and he had an entire experience as to Bush?",
       "time": "00:57:06.22"
     },
@@ -1497,7 +1501,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "You don't even pretend you've found anything [Inaudible]?",
       "time": "00:57:15.00"
     },
@@ -1509,7 +1513,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose you want to [Inaudible]",
       "time": "00:57:48.18"
     },
@@ -1521,7 +1525,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All we have is [Inaudible]",
       "time": "00:58:08.38"
     },
@@ -1533,7 +1537,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:58:16.01"
     },
@@ -1545,7 +1549,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] suppose that he was sane.",
       "time": "00:58:29.75"
     },
@@ -1557,7 +1561,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Was it -- was it -- didn't it appear there was -- run after -- that the doctor, what is the name, Carter?",
       "time": "01:00:04.29"
     },
@@ -1569,7 +1573,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Compton?",
       "time": "01:00:12.06"
     },
@@ -1581,7 +1585,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Compton knew about this strange behavior of this man of bringing home a -- he was working for and living with a couple there and he would bring home a couple of saddles, and gates, and free trashcans, and would just leave them in the pickup truck and not attempt to hide them [Inaudible]",
       "time": "01:00:13.33"
     },
@@ -1593,7 +1597,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, bring home some scaffolds and just bring home with the odd hours in the night and they say not attempt to him them or anything. That on its face even to a layman doesn't seem like very rational [Inaudible]",
       "time": "01:00:40.31"
     },
@@ -1605,7 +1609,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And apparently he never tried to sell or get any benefit about how these stuff that he bring home.",
       "time": "01:01:23.74"
     },
@@ -1617,7 +1621,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Did he?",
       "time": "01:01:31.98"
     },
@@ -1629,7 +1633,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Did he try to whereas in helping people he said, that was his motive?",
       "time": "01:01:51.37"
     },
@@ -1641,7 +1645,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That his motive was he like to helped people.",
       "time": "01:01:56.96"
     },
@@ -1653,7 +1657,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Mr. Allen, would you say just his word about the question of whether the Court afforded Dr. Dial an opportunity to [Inaudible]",
       "time": "01:02:04.03"
     },
@@ -1665,7 +1669,7 @@
     },
     {
       "turn": 270,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The trial court didn't treat him that way, did it?",
       "time": "01:02:29.21"
     },
@@ -1677,7 +1681,7 @@
     },
     {
       "turn": 272,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, I mean didn't he referred to him as supposed expert or some other soaring [Inaudible]",
       "time": "01:02:44.98"
     },
@@ -1689,7 +1693,7 @@
     },
     {
       "turn": 274,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Oh, I understood he was. I (Voice Overlap) --",
       "time": "01:02:56.56"
     },
@@ -1701,7 +1705,7 @@
     },
     {
       "turn": 276,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well that --",
       "time": "01:03:02.29"
     },
@@ -1713,7 +1717,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What comprehend [Inaudible]?",
       "time": "01:03:24.14"
     },
@@ -1725,7 +1729,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:03:33.60"
     },
@@ -1737,7 +1741,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:03:39.79"
     },
@@ -1749,7 +1753,7 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:03:44.33"
     },
@@ -1761,7 +1765,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "This is a little different ground in answering a question than the -- he refused to give an opinion, didn't he?",
       "time": "01:04:12.38"
     },
@@ -1773,7 +1777,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And he did it because you said he hadn't had time to examine him?",
       "time": "01:04:22.93"
     },
@@ -1785,7 +1789,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And as a matter of fact, there's a lot only their lunch recess.",
       "time": "01:04:27.07"
     },
@@ -1797,7 +1801,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well he says it was not very long anyway.",
       "time": "01:04:34.61"
     },
@@ -1809,7 +1813,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. Is it your -- do the State's position after the time he was allowed at the trial was adequate or that the -- he had plenty of time before that?",
       "time": "01:04:41.53"
     },
@@ -1821,7 +1825,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Allen, I have one other mechanical question. I had seemed to have here a motion for leave to file a brief amicus curiae, but no brief. Has an amicus brief been filed? Do you know?",
       "time": "01:05:13.55"
     },
@@ -1833,13 +1837,13 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Thank you.",
       "time": "01:05:35.43"
     },
     {
       "turn": 299,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Crow.",
       "time": "01:05:41.95"
     },
@@ -1851,7 +1855,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So no brief has been filed?",
       "time": "01:06:00.57"
     },
@@ -1863,7 +1867,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "[Inaudible]",
       "time": "01:06:02.15"
     },
@@ -1875,7 +1879,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "[Inaudible], no, tried in April.",
       "time": "01:06:10.74"
     },
@@ -1887,13 +1891,13 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "In April, 1961.",
       "time": "01:06:15.23"
     },
     {
       "turn": 308,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do I understand it, you are saying that there is no [Inaudible]?",
       "time": "01:06:18.23"
     },
@@ -1911,7 +1915,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:07:15.06"
     },
@@ -1923,7 +1927,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:07:33.16"
     },
@@ -1935,13 +1939,13 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:07:49.85"
     },
     {
       "turn": 316,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The statute reads that way, doesn't it? I thought they read the statute, it said that.",
       "time": "01:07:50.95"
     },
@@ -1953,7 +1957,7 @@
     },
     {
       "turn": 318,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It's no longer beneficial to him, why, he'd be returned to the --",
       "time": "01:08:02.08"
     },
@@ -1965,7 +1969,7 @@
     },
     {
       "turn": 320,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- penitentiary to serve the remainder of his term.",
       "time": "01:08:05.91"
     },
@@ -1977,7 +1981,7 @@
     },
     {
       "turn": 322,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But the statute does say, if medical science won't help him and contribute to his cure, then he goes back to the --",
       "time": "01:08:21.96"
     },
@@ -1989,7 +1993,7 @@
     },
     {
       "turn": 324,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- penitentiary, is that right?",
       "time": "01:08:31.98"
     },
@@ -2001,7 +2005,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Mr. Crow, may I inquire over this, in your statement, the Attorney General, [Inaudible] Criminal Appeals and it comes to the attention of the State. You have it, favorable to the accused pertinent to the question of whether or not the [Inaudible] or guilty of the crime. What is the [Inaudible] Attorney General if he knew something here? So, what does he do with reference to that? Why would he appeal this favor if the court has jurisdiction, an Appellate Court is reviewing it (Voice Overlap) --",
       "time": "01:08:34.44"
     },
@@ -2013,7 +2017,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "-- discovered evidence, State has it, and it bears directly on the question of innocence or guilt which would properly had been admissible on the trial before the jury.",
       "time": "01:09:08.68"
     },
@@ -2025,7 +2029,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "May I ask you therefore, would you think it's permissible to answer from your [Inaudible]. Why is that not done in this case and what do -- as to very specific question? Here is new evidence by the state --",
       "time": "01:09:49.68"
     },
@@ -2037,7 +2041,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "-- which bears upon the question of his innocence or guilt -- to this man because he was insane, they all agree. He did not know right from wrong, he wasn't responsible. He should not have been convicted of a crime. And this evidence has come to the attention of the State as the State now files a [Inaudible] and the State's evidence [Inaudible] people, this evidence would certainly -- would've been pertinent on the question of his innocence or guilt, namely, his responsibility at the time he's committed the crime.",
       "time": "01:10:05.12"
     },
@@ -2049,7 +2053,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "Well, isn't that -- isn't that situation they confront this with?",
       "time": "01:10:39.28"
     },
@@ -2061,7 +2065,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "And would you then state to me in light of that what is the State's position now. What should this Court do under those circumstances?",
       "time": "01:10:43.41"
     },
@@ -2073,7 +2077,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "No, that -- would you then deal with this -- this is new evidence. Here is the doctor (Inaudible)",
       "time": "01:11:11.38"
     },
@@ -2085,7 +2089,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "-- a psychiatrist saying the assumption of the above diagnosis, we would have to assume that James is only partly or not at all responsible for his acts for very many years.",
       "time": "01:11:18.28"
     },
@@ -2097,7 +2101,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "So, here is an expert, state witness, who examined this man after the trial, has said, testified. In fact, the state can file with us except that of the affidavit. He says that his man was lacking in responsibility. It is fair that [Inaudible] for very many years at the time they find this in evidence. Isn't that the exemplary question of newly discovered evidence, is that a [Inaudible], going to the fashion of his guilt during the pendency of an appeal?",
       "time": "01:11:30.46"
     },
@@ -2109,7 +2113,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:12:10.14"
     },
@@ -2121,7 +2125,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "But this is the defense.",
       "time": "01:12:58.67"
     },
@@ -2133,7 +2137,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "And this is a State representation throughout that according to a state [Inaudible], this man was not responsible at the time the crime was [Inaudible]",
       "time": "01:13:02.50"
     },
@@ -2145,7 +2149,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:13:16.89"
     },
@@ -2157,7 +2161,7 @@
     },
     {
       "turn": 352,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What's the purpose of filing up your pleas?",
       "time": "01:13:26.03"
     },
@@ -2169,7 +2173,7 @@
     },
     {
       "turn": 354,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That has no legal effect -- what is the purpose of filing up here, two days before our hearing of the case --",
       "time": "01:13:33.87"
     },
@@ -2181,7 +2185,7 @@
     },
     {
       "turn": 356,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, that's alright but --",
       "time": "01:13:49.81"
     },
@@ -2193,7 +2197,7 @@
     },
     {
       "turn": 358,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well I'm not -- I'm not quarreling about the lack of time we've had but why did you file it here if it had no legal significance?",
       "time": "01:13:59.28"
     },
@@ -2205,7 +2209,7 @@
     },
     {
       "turn": 360,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon?",
       "time": "01:14:11.65"
     },
@@ -2217,7 +2221,7 @@
     },
     {
       "turn": 362,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "01:14:50.59"
     },
@@ -2229,7 +2233,7 @@
     },
     {
       "turn": 364,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You mean, by that it should be [Inaudible] remanded to the Court of Appeals -- to the Criminal Appeals, vacate and remand it in the light of the [Inaudible]?",
       "time": "01:15:59.34"
     },
@@ -2241,7 +2245,7 @@
     },
     {
       "turn": 366,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "[Inaudible]",
       "time": "01:16:16.09"
     },
@@ -2253,7 +2257,7 @@
     },
     {
       "turn": 368,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What to be the State's [Inaudible] before the Court of Criminal Appeals there? I know you have a state attorney but what was -- been given [Inaudible]?",
       "time": "01:16:19.16"
     },
@@ -2265,7 +2269,7 @@
     },
     {
       "turn": 370,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Maybe [Inaudible] to get any conviction?",
       "time": "01:17:00.77"
     },
@@ -2277,7 +2281,7 @@
     },
     {
       "turn": 372,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And grant him a new trial.",
       "time": "01:17:03.59"
     },
@@ -2289,7 +2293,7 @@
     },
     {
       "turn": 374,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You -- you believe that would be the position of your office.",
       "time": "01:17:09.64"
     },
@@ -2301,7 +2305,7 @@
     },
     {
       "turn": 376,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This maybe an unfair question, if it is [Inaudible]?",
       "time": "01:17:55.76"
     },
@@ -2313,7 +2317,7 @@
     },
     {
       "turn": 378,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Even -- that the vacation is [Inaudible]?",
       "time": "01:18:14.60"
     },
@@ -2325,7 +2329,7 @@
     },
     {
       "turn": 380,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But he's been acquitted [Inaudible].",
       "time": "01:18:44.04"
     },
@@ -2337,7 +2341,7 @@
     },
     {
       "turn": 382,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If he should be pardoned now I suppose it could be assumed that civil commitment proceedings would be initiated against him?",
       "time": "01:18:52.23"
     },
@@ -2349,7 +2353,7 @@
     },
     {
       "turn": 384,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Would he end up in the same hospital or a different hospital?",
       "time": "01:18:59.54"
     },
@@ -2361,7 +2365,7 @@
     },
     {
       "turn": 386,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I wondered if --",
       "time": "01:19:14.66"
     },
@@ -2373,7 +2377,7 @@
     },
     {
       "turn": 388,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I want -- in some states they have certain hospitals there for the so-called criminally insane and (Voice Overlap) --",
       "time": "01:19:16.99"
     },
@@ -2385,7 +2389,7 @@
     },
     {
       "turn": 390,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In the -- in the same hospital?",
       "time": "01:19:35.91"
     },
@@ -2397,7 +2401,7 @@
     },
     {
       "turn": 392,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And treated the same way, the same --",
       "time": "01:19:40.48"
     },
@@ -2409,7 +2413,7 @@
     },
     {
       "turn": 394,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Custodial treatment depending upon their condition rather it upon their previous criminal record or the (Voice Overlap)?",
       "time": "01:19:43.63"
     },
@@ -2421,7 +2425,7 @@
     },
     {
       "turn": 396,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:19:48.95"
     },
@@ -2433,7 +2437,7 @@
     },
     {
       "turn": 398,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:20:51.57"
     },
@@ -2445,7 +2449,7 @@
     },
     {
       "turn": 400,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:21:07.65"
     },
@@ -2457,7 +2461,7 @@
     },
     {
       "turn": 402,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] argument here and this Court vacate it sent back to the Texas Court of Criminal Appeals, I'm not sure [Inaudible] before the court because the court was to put this new evidence, [Inaudible]? I assume the state [Inaudible] -- I assumed that its possible if the state -- your office might take a particular provision [Inaudible] Court of Criminal Appeals which it couldn't make here because here, he got a due process question and you are [Inaudible] by the scope of the question here as to what the [Inaudible] --",
       "time": "01:21:12.71"
     },
@@ -2469,7 +2473,7 @@
     },
     {
       "turn": 404,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "– like that [Inaudible].",
       "time": "01:21:51.05"
     },
@@ -2481,7 +2485,7 @@
     },
     {
       "turn": 406,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "That case is here on the merits, isn't it?",
       "time": "01:21:59.88"
     },
@@ -2493,7 +2497,7 @@
     },
     {
       "turn": 408,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "I'll -- just thinking if the -- what the county attorney says at the time depend it -- depends on the time that's elapsed. If we were to vacate the judgment and that is where [Inaudible] all the time and -- so then you could come in, or Mr. Wright, might come in then with some sort of an appropriate motion, could he not before the Court of Criminal Appeals?",
       "time": "01:22:06.24"
     },
@@ -2505,19 +2509,19 @@
     },
     {
       "turn": 410,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:22:41.66"
     },
     {
       "turn": 411,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "When we vacated the --",
       "time": "01:22:42.36"
     },
     {
       "turn": 412,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:22:43.12"
     },
@@ -2529,13 +2533,13 @@
     },
     {
       "turn": 414,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And expand this, the mandate [Inaudible]",
       "time": "01:22:47.15"
     },
     {
       "turn": 415,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "I said, if we vacate it, then its --",
       "time": "01:22:48.53"
     },
@@ -2547,7 +2551,7 @@
     },
     {
       "turn": 417,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "That it's all over. Then Mr. Wright came in, he say, “Let's -- here's the base -- psychiatrist says, if -- this is true.” And then you came in and said, “Well, looks like this man has to have a hearing on this”, then you'd be at a hearing, wouldn't you?",
       "time": "01:22:51.12"
     },
@@ -2559,7 +2563,7 @@
     },
     {
       "turn": 419,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "But apparently he's not dangerous.",
       "time": "01:23:20.77"
     },
@@ -2571,13 +2575,13 @@
     },
     {
       "turn": 421,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Well, maybe he's the guard now of the hospital.",
       "time": "01:23:37.45"
     },
     {
       "turn": 422,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "He didn't take the gates, did he? [Laughter]",
       "time": "01:23:39.48"
     },
@@ -2589,7 +2593,7 @@
     },
     {
       "turn": 424,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "He said what?",
       "time": "01:25:10.73"
     },
@@ -2601,7 +2605,7 @@
     },
     {
       "turn": 426,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Rush it up, yes.",
       "time": "01:25:13.30"
     },
@@ -2613,7 +2617,7 @@
     },
     {
       "turn": 428,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And how much time did they give?",
       "time": "01:25:17.13"
     },
@@ -2625,7 +2629,7 @@
     },
     {
       "turn": 430,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:25:33.06"
     },
@@ -2637,7 +2641,7 @@
     },
     {
       "turn": 432,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:25:36.05"
     },
@@ -2649,7 +2653,7 @@
     },
     {
       "turn": 434,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:25:49.84"
     },
@@ -2661,7 +2665,7 @@
     },
     {
       "turn": 436,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But your point is that there's no record, there's no -- in the record, there's no request for any more time.",
       "time": "01:26:48.41"
     },
@@ -2673,7 +2677,7 @@
     },
     {
       "turn": 438,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "On the event, that's a different request, isn't it? It's not a request for more time for Dr. --",
       "time": "01:27:54.34"
     },
@@ -2685,7 +2689,7 @@
     },
     {
       "turn": 440,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What's his name -- appointed to examine him?",
       "time": "01:28:00.10"
     },
@@ -2697,7 +2701,7 @@
     },
     {
       "turn": 442,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:28:06.55"
     },
@@ -2709,7 +2713,7 @@
     },
     {
       "turn": 444,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:28:22.46"
     },
@@ -2721,7 +2725,7 @@
     },
     {
       "turn": 446,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Wright.",
       "time": "01:28:39.22"
     },
@@ -2733,7 +2737,7 @@
     },
     {
       "turn": 448,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Went scot free?",
       "time": "01:29:31.55"
     },
@@ -2745,7 +2749,7 @@
     },
     {
       "turn": 450,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "You could file -- observe an insanity proceeding?",
       "time": "01:29:34.47"
     },
@@ -2757,7 +2761,7 @@
     },
     {
       "turn": 452,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Yes.",
       "time": "01:29:43.14"
     },
@@ -2769,7 +2773,7 @@
     },
     {
       "turn": 454,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "He wouldn't be sent to a hospital by reason of the verdict?",
       "time": "01:29:44.22"
     },
@@ -2781,7 +2785,7 @@
     },
     {
       "turn": 456,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "He would not be.",
       "time": "01:29:47.85"
     },
@@ -2793,7 +2797,7 @@
     },
     {
       "turn": 458,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Oh, I see Mr. Wright, the -- you said, insane at the time of the act, but sane at the time of the trial.",
       "time": "01:29:50.30"
     },
@@ -2805,7 +2809,7 @@
     },
     {
       "turn": 460,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Oh, I see. I'm sorry. Yes.",
       "time": "01:29:56.29"
     },
@@ -2817,7 +2821,7 @@
     },
     {
       "turn": 462,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But if insane at the time of the trial, what's the verdict if also insane at the time of the act?",
       "time": "01:30:06.11"
     },
@@ -2829,7 +2833,7 @@
     },
     {
       "turn": 464,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] -- in the case you were talking about, there was a finding of insanity at the time that he [Inaudible] --",
       "time": "01:30:24.94"
     },
@@ -2841,7 +2845,7 @@
     },
     {
       "turn": 466,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Here though he wouldn't have that, would you, assuming that --",
       "time": "01:30:42.98"
     },
@@ -2853,7 +2857,7 @@
     },
     {
       "turn": 468,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "-- assuming that this certificate is right, which maybe a valid assumption that he would be insane if he both [Inaudible]",
       "time": "01:30:48.26"
     },
@@ -2865,7 +2869,7 @@
     },
     {
       "turn": 470,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "I understand.",
       "time": "01:30:59.47"
     },
@@ -2877,7 +2881,7 @@
     },
     {
       "turn": 472,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, is there any way to – committing a man a [Inaudible]?",
       "time": "01:31:11.88"
     },
@@ -2889,7 +2893,7 @@
     },
     {
       "turn": 474,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And there's no binding over at all from (Voice Overlap) --",
       "time": "01:31:23.63"
     },
@@ -2901,7 +2905,7 @@
     },
     {
       "turn": 476,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "There's no statute upon it?",
       "time": "01:31:32.48"
     },
@@ -2913,7 +2917,7 @@
     },
     {
       "turn": 478,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "As I understand it, no statute committing him though.",
       "time": "01:31:38.57"
     },
@@ -2925,7 +2929,7 @@
     },
     {
       "turn": 480,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "So you'd have to file several proceedings then have a jury and if the jury found him insane and he's committed.",
       "time": "01:31:42.29"
     },
@@ -2937,7 +2941,7 @@
     },
     {
       "turn": 482,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Do you found him insane as if the jury in the case you gave, well then he would be not committed.",
       "time": "01:31:49.24"
     },
@@ -2949,7 +2953,7 @@
     },
     {
       "turn": 484,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The only time as an automatic commitment as I understand it is upon a finding that he was sane at the time of the crime but insane at the time of the trial.",
       "time": "01:31:57.53"
     },
@@ -2961,7 +2965,7 @@
     },
     {
       "turn": 486,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I agree that we can't [Inaudible] and we have to get this -- we have to either – [Inaudible] or put it aside and in order to put it aside. We have to answer these [Inaudible] --",
       "time": "01:32:46.33"
     },
@@ -2973,7 +2977,7 @@
     },
     {
       "turn": 488,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may -- you may file a -- you may file a brief on that if you wish, Mr. Wright but I would want to foreclose you on the merits of your case irrespective of this affidavit, so I hope you won't neglect that if --",
       "time": "01:33:12.04"
     },
@@ -2985,7 +2989,7 @@
     },
     {
       "turn": 490,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] cases of fact to state courts could find the significance of a -- some [Inaudible] of state law before reaching a constitutional question.",
       "time": "01:36:12.06"
     },
@@ -2997,7 +3001,7 @@
     },
     {
       "turn": 492,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Why didn't the State have the power? I don't understand, it's here on the merits. We vacate the judgment that's been entered by your Highest Court, it lies there just as it did when it first came from the Ellis County Court, wouldn't that be true, not in a file of judgment?",
       "time": "01:36:42.28"
     },
@@ -3009,7 +3013,7 @@
     },
     {
       "turn": 494,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Well then, we'll assume this may not be correct, perhaps you feel that your [Inaudible] would mean too different, we'll assume that you file something with the Court that called their attention what is here, or that that was called to their attention through some source. Would not that Court have the power to consider that and to decide that there should be some sort of a hearing on that particular phase of this problem?",
       "time": "01:37:02.32"
     },
@@ -3021,7 +3025,7 @@
     },
     {
       "turn": 496,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Well, I understood the county attorney to say that very often the State's attorney did call such things to the Court of Criminal Appeals' attention and that sometimes he would recommend himself that there'd be a remand.",
       "time": "01:38:02.97"
     },
@@ -3033,7 +3037,7 @@
     },
     {
       "turn": 498,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What do you say Section 932 (b) to --",
       "time": "01:38:32.81"
     },
@@ -3045,7 +3049,7 @@
     },
     {
       "turn": 500,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it would suspend the affirmance of the conviction.",
       "time": "01:38:59.38"
     },
@@ -3057,7 +3061,7 @@
     },
     {
       "turn": 502,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And he might very well, as I suggested a little earlier, that may probably -- probably he is, isn't it on this -- and I'll say it to myself again. I won't [Inaudible]. It does seem to me on what we now have before us that‘s where he's going to be the rest of his life?",
       "time": "01:39:13.34"
     },
@@ -3069,13 +3073,13 @@
     },
     {
       "turn": 504,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What --",
       "time": "01:39:48.45"
     },
     {
       "turn": 505,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] there is that last part of it, that conviction, well, would he stand convicted?",
       "time": "01:39:48.79"
     },
@@ -3087,7 +3091,7 @@
     },
     {
       "turn": 507,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I say at the very outset that I know that your interest is presenting and trying to get decided in your favor and what's used in important constitutional question I understand that but after all as you recognize, we're faced with deciding an individual case.",
       "time": "01:41:12.49"
     },
@@ -3099,7 +3103,7 @@
     },
     {
       "turn": 509,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Suppose there are some States in the union where there are hardly any psychiatrists. North Dakota, I wonder how many psychiatrists are there.",
       "time": "01:46:30.82"
     },
@@ -3111,7 +3115,7 @@
     },
     {
       "turn": 511,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Where are they appointed?",
       "time": "01:46:45.27"
     },
@@ -3123,7 +3127,7 @@
     },
     {
       "turn": 513,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "To public institutions?",
       "time": "01:46:49.91"
     },
@@ -3135,7 +3139,7 @@
     },
     {
       "turn": 515,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course, the word expert is ambiguous --",
       "time": "01:47:07.62"
     },
@@ -3147,7 +3151,7 @@
     },
     {
       "turn": 517,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Perhaps in that state, they consider any physician an expert.",
       "time": "01:47:11.77"
     },
@@ -3159,7 +3163,7 @@
     },
     {
       "turn": 519,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "[Inaudible] questions that my Brother Stewart suggested namely, as I understand it, certainly he's a [Inaudible] qualified psychiatrist. I gather even the total number of it is something under 7000 or 8000 and only a couple of thousands of them that would get involved in forensic psychiatrics at all. Now, what would you suppose in constitutional terms would be the case if Texas had a panel of state paid psychiatrists and you were allowed to make an application for the examination of your client by one of that group and that was the extent of which that Texas made provision for, a psychiatric assistance for indigents. Would that satisfy your due process claim?",
       "time": "01:50:51.21"
     },
@@ -3171,7 +3175,7 @@
     },
     {
       "turn": 521,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even if there is only one -- you make the application for a psychiatric examination and the only psychiatrist who examines the defendant is a state paid psychiatrist and this is the only medical evidence that is in the case?",
       "time": "01:51:52.06"
     },
@@ -3183,7 +3187,7 @@
     },
     {
       "turn": 523,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how Mr. Wright has the State has paid for him?",
       "time": "01:52:19.24"
     },
@@ -3195,7 +3199,7 @@
     },
     {
       "turn": 525,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It has to be --",
       "time": "01:52:23.70"
     },
@@ -3207,7 +3211,7 @@
     },
     {
       "turn": 527,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- that your (Voice Overlap) --",
       "time": "01:52:24.59"
     },
@@ -3219,7 +3223,7 @@
     },
     {
       "turn": 529,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I don't (Voice Overlap) -- I don't understand, you're accounted for, is that [Inaudible] in order to have a [Inaudible]?",
       "time": "01:52:39.52"
     },
@@ -3231,7 +3235,7 @@
     },
     {
       "turn": 531,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, what is your -- what is your distinction of the guilt [Inaudible]?",
       "time": "01:53:15.69"
     },
@@ -3243,7 +3247,7 @@
     },
     {
       "turn": 533,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well incidentally Mr. Wright, I understand that whatever they are called, the psychiatrists, the general terms, the terms of expert witnesses on this question of insanity, there's considerable disagreement, I should say, within their own profession whether they‘re actually qualified on the question of guilt of innocent -- or innocence as contrasted with their qualifications to treat one who found guilty --",
       "time": "01:54:13.54"
     },
@@ -3255,7 +3259,7 @@
     },
     {
       "turn": 535,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- nevertheless, has to be treated.",
       "time": "01:54:40.81"
     },
@@ -3267,7 +3271,7 @@
     },
     {
       "turn": 537,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I -- they chafe just as much under their rule as I understand (Voice Overlap) --",
       "time": "01:54:55.21"
     },
@@ -3279,7 +3283,7 @@
     },
     {
       "turn": 539,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "As to guilt or innocence?",
       "time": "01:55:22.91"
     },
@@ -3291,7 +3295,7 @@
     },
     {
       "turn": 541,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course in this case, the part of your argument has been [Inaudible] as these arguments traditionally are that the defendant should -- that there should not be an unequal struggle, that the defendant should have something close to the equivalent resources that the State in all its majesty has. And if that argument isn't of much relevance in this case, is it because the State didn't have any psychiatrist. They didn't have any such things.",
       "time": "01:55:25.23"
     },
@@ -3303,7 +3307,7 @@
     },
     {
       "turn": 543,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The State had the burden of proof.",
       "time": "01:55:58.39"
     },
@@ -3315,7 +3319,7 @@
     },
     {
       "turn": 545,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It was this 1924 commitment. The State had the burden of proof and there was the presumption that this man was insane.",
       "time": "01:56:00.20"
     },
@@ -3327,7 +3331,7 @@
     },
     {
       "turn": 547,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the jury was so instructed, and the State had the burden of proof that he was not insane and the State couldn't have just a layman plus this doctor who you say was not qualified as an expert.",
       "time": "01:56:07.17"
     },
@@ -3339,7 +3343,7 @@
     },
     {
       "turn": 549,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's like your handwriting case where you have a layman saying, “Well, that looks like his handwriting. Well, in cross examination you can show that this fellow has no -- is not qualified to say -- to testify because he is -- your case is a little different, isn't it, from the ordinary case that we read about and that they're so much mooted these days where the State is armed with all these resources and the defendant is denied them. Here, the State didn't have any such help and the State has a burden of proof that this man was not insane.",
       "time": "01:56:24.00"
     },
@@ -3351,7 +3355,7 @@
     },
     {
       "turn": 551,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Then you -- but there's no way of knowing had the State had one that you would have been denied one either.",
       "time": "01:57:40.03"
     },
@@ -3363,7 +3367,7 @@
     },
     {
       "turn": 553,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "The handwriting's case as you had referred to in your brief at page 40, that case is where the – [Inaudible]?",
       "time": "01:57:48.89"
     },
@@ -3375,7 +3379,7 @@
     },
     {
       "turn": 555,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:58:30.04"
     },
@@ -3387,7 +3391,7 @@
     },
     {
       "turn": 557,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:58:34.93"
     },
@@ -3399,7 +3403,7 @@
     },
     {
       "turn": 559,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:58:38.58"
     },
@@ -3411,7 +3415,7 @@
     },
     {
       "turn": 561,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:58:50.43"
     },
@@ -3423,7 +3427,7 @@
     },
     {
       "turn": 563,
-      "name": "JUSTICE GOLDBERG",
+      "name": "ARTHUR J. GOLDBERG",
       "text": "[Inaudible]",
       "time": "01:59:15.67"
     },
@@ -3435,7 +3439,7 @@
     },
     {
       "turn": 565,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Suppose the State has [Inaudible]?",
       "time": "01:59:40.32"
     },
@@ -3447,7 +3451,7 @@
     },
     {
       "turn": 567,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "02:00:09.68"
     },
@@ -3459,7 +3463,7 @@
     },
     {
       "turn": 569,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "A big assumption also [Inaudible] competent, after all [Inaudible] the function of the psychiatrist would simply [Inaudible] the State have that kind of an [Inaudible] they ignore the testimony of expert witnesses in order to confuse [Inaudible]?",
       "time": "02:00:21.39"
     },
@@ -3471,19 +3475,19 @@
     },
     {
       "turn": 571,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Exactly what Mr. Justice Harlan is suggesting is that --",
       "time": "02:01:10.43"
     },
     {
       "turn": 572,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "-- that the State is saying that they want [Inaudible].",
       "time": "02:01:14.08"
     },
     {
       "turn": 573,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And he's -- what it -- the system he is suggesting is the system that prevailed at common law until a few decades ago 30, 40, 50 years ago, this was all a testimony you ever had in a case with -- which is the lay testimony generally, a testimony as to the actions and the conduct and the record of the defendant, isn't that correct?",
       "time": "02:01:17.54"
     },
@@ -3495,7 +3499,7 @@
     },
     {
       "turn": 575,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Where was this?",
       "time": "02:01:47.99"
     },
@@ -3507,7 +3511,7 @@
     },
     {
       "turn": 577,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In England?",
       "time": "02:01:49.61"
     },
@@ -3519,7 +3523,7 @@
     },
     {
       "turn": 579,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In every State? I --",
       "time": "02:01:52.30"
     },
@@ -3531,7 +3535,7 @@
     },
     {
       "turn": 581,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, obviously not because they‘re still not in every State --",
       "time": "02:01:56.52"
     },
@@ -3543,7 +3547,7 @@
     },
     {
       "turn": 583,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- [Inaudible].",
       "time": "02:01:59.38"
     },
@@ -3555,7 +3559,7 @@
     },
     {
       "turn": 585,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well, Mr. Wright. Thank you.",
       "time": "02:02:02.49"
     }

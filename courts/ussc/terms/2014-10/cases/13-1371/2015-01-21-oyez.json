@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2014/13-1371/20150121a_13-1371.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "SCOTT A. KELLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MICHAEL M DANIEL",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "DONALD B. VERRILLI, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 13-1371, the Texas Department of Housing and Community Affairs v. The Inclusive Communities Project. Mr. Keller.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "At the time of Smith and Griggs, neither the Title VII nor the ADEA used the words \"disparate impact\", and yet we recognize they apply disparate impact.",
       "time": "00:00:48.12"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You have a problem, because it says \"to refuse to sell or rent. \" et cetera, \"or otherwise make unavailable\", and the agency charged with interpreting that language has determined that it needs disparate impact.",
       "time": "00:01:17.85"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Consequence. It happens to be because that's what you do with housing, but it's a consequence.",
       "time": "00:01:42.31"
     },
@@ -99,19 +99,19 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course, you could say the same thing about \"adversely affect\". I mean, that also is an active verb, right? And it also -- you had to adversely affect by discriminating.",
       "time": "00:02:34.35"
     },
     {
       "turn": 10,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "On the basis of--",
       "time": "00:02:49.52"
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So, you know, I -- the points you make are -- are true enough, but they were also true with -- with respect to Title VII, weren't they?",
       "time": "00:02:51.48"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But after that language is the phrase \"on the basis of\", race, sex, whatever. So it's adversely affect on the basis of the -- whatever the category.",
       "time": "00:03:22.52"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do -- do we take into account at all that in both Title VII and the Fair Housing Act, there was a grand goal that Congress had in mind? It meant to undo generations of rank discrimination. And what was the phrase that this Court used in Trafficante to describe the Fair Housing Act? That its objective was to replace ghettos by integrating -- VII was meant to undo a legacy of rank employment discrimination. So doesn't that purpose give a -- a clue to what Congress was after?",
       "time": "00:03:58.89"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But if I could understand your point, General Keller, you agree with Justice Scalia that \"make unavailable\", it's -- like \"adversely affects\", they're -- they're both verbs. \"Make unavailable\" is just one way to adversely affect. And what you're pinning your argument on is these extra added words in the Title VII statute, right? So that it's -- in the -- in the Title VII statute, it's -- can't even find them. You know what I mean.",
       "time": "00:05:23.09"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Okay. So -- but I don't -- I don't think that that could possibly be right, because then you would be saying that it would be a different statute if, instead of just saying here an employer can't make unavailable, but instead it said an employer can't act in a way that makes unavailable. That would make it completely parallel to the Title VII and the ADEA statutes. And -- and those two things just can't mean the same thing. I mean, all it's doing is to take out a few words, but it's saying the exact same thing, which is either way, an employer can't make unavailable.",
       "time": "00:06:03.78"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "No, but the -- but the thing that's different in this statute is the \"make unavailable\", which focuses on an effect in the same way that the \"adversely affect\" language does. And it just does it a little bit more economically, but the effects-based nature of the provision is still the same.",
       "time": "00:07:06.90"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Make -- \"make unavailable\" is not the same language as \"adversely affect\". That's -- that's all that I'm willing to concede. And I think if you thought that Smith was wrong, which many people do, I suppose you could argue we will not expand Smith. And Smith hung on particular words, \"adversely affect\". Those words don't exist here, and, therefore, since we think Smith was wrong anyway, we're not going to extend it. That's -- that's a reasonable argument, but that's not the argument you're making. What -- what hangs me up is not so much that as it is the fact that Congress seemingly acknowledged the effects test in later legislation when it said that certain effects will not qualify. You know what I'm referring to?",
       "time": "00:07:57.97"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, why doesn't that -- why doesn't that kill your case? I mean, when we look at a -- a provision of law, we look at the entire provision of law, including later amendments. We try to make sense of the law as a whole. Now, you see this statute which -- which has otherwise what is -- make unavailable, and it also has, however, it will not be a violation if these effects are -- are -- you read those together and you say, wow, this -- this law must mean mere effects qualify.",
       "time": "00:08:57.84"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is this in your brief?",
       "time": "00:09:55.27"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I'm sorry.",
       "time": "00:09:57.66"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah.",
       "time": "00:10:00.53"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But the law where it found it here was very clear, because ten circuits had gone the other way and had said that disparate impact was a valid action under the FHA. So leaving the law where you found it, and we presume that Congress knows the law, especially when the law is that clear and that uniform, means, yes, there will be disparate-impact actions except in these three circumstances which we're going to lay out for you very clearly and very precisely.",
       "time": "00:10:11.87"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How do you put \"adversely affect\"? Did they have to write it \"or otherwise adversely affect someone by making the housing unavailable? \"",
       "time": "00:11:07.64"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I mean, it's a little crazy, don't you think, because otherwise adversely affecting someone by making it unavailable. I think it's otherwise make unavailable--",
       "time": "00:11:20.88"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--is the short form of that.",
       "time": "00:11:33.02"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But instead what it did, it took a body of law, some of which had held some practices as disparately -- improperly disparately impacting, like drug addiction and others -- and two others, and said, no, those two won't count, those three won't count. Your reading of those three exemptions is they were unnecessary.",
       "time": "00:11:43.81"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, what do you make of in 1988 where someone wanted to do away with disparate impact and Congress didn't take up that invitation?",
       "time": "00:12:16.09"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But what -- you're -- you're telling us that these amendments which said that certain types of effects will not qualify, that the purpose of that amendment was to prevent erroneous court of appeals' decisions from affecting those particular areas?",
       "time": "00:12:35.20"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's a very strange thing for Congress to do, to believe that those court of opinions -- court of appeals' opinions are wrong and yet to -- to enact these exemptions. So even though those opinions are wrong, they will not apply to these things. I -- that's very strange.",
       "time": "00:12:56.93"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Exactly. And ten circuits had already said there was disparate impact. If they didn't like the disparate-impact analysis, they would have taken up the congressman's proposal. But they didn't.",
       "time": "00:13:35.02"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It changed when -- no, no, no. When 1988 happened, the Solicitor General changed its position, and it has been consistent since then, that when Congress adopted the three exemptions, it -- it recognized disparate impact as applying to the Fair Housing Act. That intentional brief was not in 1988 and not in -- it was after -- that was before 1988, the 1988 amendments.",
       "time": "00:13:58.34"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, General, I thought your argument on the 1988 amendments was as follows: Either the -- the Fair Housing Act contemplated disparate-impact analysis when it was adopted in, when was it, 1968 or it didn't. And the 1988 amendments, which made it clear that there could not be disparate-impact analysis with respect to certain matters surely didn't expand the scope of the 19 -- of what was initially enacted. So the issue is what did Congress intend, what -- what is the meaning of the Act as originally enacted. I thought that was your argument.",
       "time": "00:14:47.02"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But If we're going to be realistic about this, in 1964, when the Civil Rights Act passed, and in 1968, when the Fair Housing Act passed, nobody knew anything about disparate impact. That didn't come up till the Griggs decision, and it was this Court that gave that interpretation to Title VII in light of the purpose of the statute. So to try to look back and say, oh, did they mean disparate impact in '64, when Griggs wasn't on the books till '71, it's a little artificial, don't you think?",
       "time": "00:15:33.42"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It has to--",
       "time": "00:16:20.95"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--It has to construe the plain text of the law, and the law consists not just of what Congress did in 1968, but also what it did in '88. And you look at the whole law and you say, what makes sense? And if you read those -- those two provisions together, it seems to be an acknowledgment that there is such a thing as disparate impact. However, it will not apply in these areas that the 1988 amendment says. We don't just look at each little piece when it was serially enacted and say what did Congress think in -- in '68? What did it think in '72? We look at the law. And the law includes the '68 act and the '88 amendments. And I -- I find it hard to read those two together in any other way than there is such a thing as disparate impact.",
       "time": "00:16:22.13"
     },
@@ -411,13 +411,13 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Of course not, but--",
       "time": "00:17:23.89"
     },
     {
       "turn": 62,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But they make no sense unless there is such a thing as disparate impact. It's -- they are prohibiting something that doesn't exist, right? I mean, you're saying that they prohibit something that doesn't exist.",
       "time": "00:17:25.01"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So you have an argument, and so does the other side have an argument. But I don't want you not to have the chance to answer what to me is a pretty important question. Say there are good arguments on both sides. The law has been against you. There's been disparate impact for 40 years. Now, let me be fair. Maybe it's only 35. And it's universally against you. And as far as I can tell, the world hasn't come to an end. I mean, the form of the question I'm putting is well, maybe Marbury v. Madison was wrong. I don't think it was. But nonetheless, nonetheless, this has been the law of the United States uniformly throughout the United States for 35 years, it is important, and all the horribles that are painted don't seem to have happened or at least we have survived them. So why should this Court suddenly come in and reverse an important law which seems to have worked out in a way that is helpful to many people, has not produced disaster, on the basis of going back and making a finely spun argument on the basis of a text that was passed many years ago and is ambiguous at best?",
       "time": "00:18:05.81"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, well, I don't think. My goodness, if it isn't ambiguous, it would be surprising because ten circuit courts of appeals have all interpreted it the way opposite you and I take it you don't mean it's unambiguous on their side. [Laughter]",
       "time": "00:19:16.08"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no. I don't want you to -- if you'll do me the favor of answering my question.",
       "time": "00:19:37.48"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Which is the question that it's been the law for 40 years of just a little bit less, disaster has not occurred, and why when something is so well established throughout the United States should this Court come in and change it.",
       "time": "00:19:41.55"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You don't like the way it was applied, and I can understand that. But there are many remedies that you have. One is you go to HUD and you say, look at what is happening; this is happening to have the opposite effect that you want. That's one of your arguments. Well, try to convince them. And if not there, you go to a court and say: Court, this is a disparate-impact case, and we have a justification and the justification is strong enough that it survives the empirical effect, and you see if you can get them to agree. You may win; you may lose. But what not to do is to overturn the whole law that has been in effect, I'll repeat for the nineteenth th time, for 40 years with basically helpful effect. Now, that's a question. It didn't sound like one, but it was one. [Laughter] So I'd like to hear what you say.",
       "time": "00:20:12.50"
     },
@@ -489,19 +489,19 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Maybe I'm missing something here.",
       "time": "00:21:23.52"
     },
     {
       "turn": 75,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "How--",
       "time": "00:21:25.20"
     },
     {
       "turn": 76,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Didn't this Court decide Marbury v. Madison?",
       "time": "00:21:25.47"
     },
@@ -513,13 +513,13 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "My question was not really about Marbury.",
       "time": "00:21:30.59"
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, isn't that a big difference, I mean, between the situation here? This Court has never decided this issue. It's just the lower courts have -- have decided it in a uniform fashion. Have we ever before reversed uniform holdings of -- of courts of appeals, even those that have lasted 30 years? The answer is yes.",
       "time": "00:21:33.07"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's why I asked the question. I said why. Why? I'm not saying you couldn't do it. I'm simply saying why. And I don't want to repeat my question for the fourth time, and you began to give an answer and the answer you began to give was based on a constitutional problem that has arisen. And I've taken that in and read it, and do you have other answers or not? I want you fully to answer the question.",
       "time": "00:21:57.29"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Well, you're now talking about application. And let's go back to, you made a statement earlier that this is going to inhibit development of blighted areas. That has to do with the application in this case. If I'm right about the theory of disparate impact, and I can tell you I've studied it very carefully, its intent is to ensure that anyone who is renting or selling property or making it unavailable is doing so not on the basis of artificial, arbitrary or unnecessary hurdles, policies or practices, and it's the Petitioner who has to identify which they are, and to explain why alternatives wouldn't work. If someone's developing a blighted area or an area subject to crime or something else, that's something they can do and that's a criteria, a policy that can't be substituted for something else. So I don't know why you keep saying this is going to affect private development.",
       "time": "00:22:33.80"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But this is not race-based decision-making. Are you saying that the 10 percent plan in -- in colleges is race-based if it's an absolutely neutral policy that happens to address a need, which is to integrate schools?",
       "time": "00:24:05.13"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So why is it wrong to have a neutral policy? Because none of the policies that were imposed here and in most -- in all other cases are race-based. They're policies that are race neutral, but happen to have a better impact in terms of integration.",
       "time": "00:24:24.46"
     },
@@ -579,13 +579,13 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, that--",
       "time": "00:24:56.75"
     },
     {
       "turn": 90,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which is not the case for the 10 percent plan that Texas uses.",
       "time": "00:24:57.19"
     },
@@ -597,25 +597,25 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There's no racial thing in that. If you're in the top 10 percent of your high school class, you go to the State university.",
       "time": "00:25:01.46"
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What was the reason for--",
       "time": "00:25:06.94"
     },
     {
       "turn": 94,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No race about it.",
       "time": "00:25:08.16"
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--What was the reason for it? You can say it's a neutral, 10 percent is neutral; but it's just glaring in the face that the legislature that passed this was very much race-conscious. It was the way that they saw of getting a minority population into colleges. I don't think there's really a doubt that factually that's what prompted the 10 percent plan. When the University of Texas was told its affirmative action plan was no good, then the legislature came back with the 10 percent plan.",
       "time": "00:25:09.21"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--It's not -- liability is not -- well, \"triggered\" is a good word; but it's not imposed because of that. It's imposed because the lower court found, rightly or wrongly -- I don't want to get into the merits of that -- that some of the criteria being used was -- were unnecessary and that was -- and there was no legitimate business reason for it. I could, as Justice Breyer said, quarrel with that conclusion; but that's in application. That's not in the standard that disparate impact imposes.",
       "time": "00:25:53.60"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Daniel.",
       "time": "00:26:49.58"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "We're not talking about this case.",
       "time": "00:27:11.09"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. Why don't you get to the legal issue, if you could.",
       "time": "00:27:14.21"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It isn't the \"unavailable\" word that's the problem. The problem is unavailable on the basis of race. You can say \"unavailable\" a million times, but the statute requires that it be made unavailable for racial reasons. And you're saying, no, it doesn't have to be; it could be unavailable simply because you use some other nonracial reason, which is stupid, right? That's, that's your argument. If it produces a result that is -- is not -- what, I don't know -- that the races have to be in the same proportion as they are in the general population. Right? I mean, that's what you're arguing.",
       "time": "00:27:41.23"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, no, no, no. Racial disparity is not racial discrimination. The fact that the NFL is -- is largely black players is not discrimination. Discrimination requires intentionally excluding people of a certain race.",
       "time": "00:28:30.22"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So let's not -- let's not equate racial disparity with discrimination. The two are quite different, and what you're arguing here is that racial disparity is enough to make -- to make whatever the policy adopted unlawful, right?",
       "time": "00:28:49.12"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Daniel, I had thought that Justice Scalia's question was whether the \"because of\" language precludes a disparate-impact theory; in other words, whether the \"because of\" language signals that it has to have a certain kind of intent which is not part of a disparate treatment, a disparate-impact theory. And I would have thought that your main argument about that is, well, actually, the Court has held numerous times, in the Title VII context, in the ADEA context, in the Rehabilitation Act context, in the Emergency School Aid Act context, that that \"because of\" language can be read to include disparate-impact claims, and that it's at least ambiguous as to whether it should be read so in this case as to this particular statute.",
       "time": "00:29:43.60"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I mean, is that your argument, or is your argument something else?",
       "time": "00:30:40.12"
     },
@@ -735,19 +735,19 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How--",
       "time": "00:30:50.68"
     },
     {
       "turn": 116,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could you--",
       "time": "00:30:51.17"
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--I'm sorry. If you want to, you can complete your answer to Justice Kagan. It was not a hard question.",
       "time": "00:30:51.96"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How is a housing authority supposed to -- if you have a claim of disparate impact, how is a housing authority supposed to cure the alleged problem?",
       "time": "00:30:57.63"
     },
@@ -771,13 +771,13 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Could you--",
       "time": "00:31:13.98"
     },
     {
       "turn": 122,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I'm sorry, I'm sorry. You have made a showing of disparate impact, that the impact and adverse consequences for a particular race. What is the housing authority supposed to do at that point?",
       "time": "00:31:14.60"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Is there--",
       "time": "00:31:55.07"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Is there a way to avoid a disparate-impact consequence without taking race into account in carrying out the governmental activity? It seems to me that if the objection is that there aren't a sufficient number of minorities in a particular project, you have to look at the race until you get whatever you regard as the right target.",
       "time": "00:31:56.40"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, what was, in fact, the remedy? I mean, this was a case where there was litigation, you prevailed, and there was a remedy. So there was disparate impact. And what did the Court say had to be done to cure it, to cure what it saw as the offense to the Fair Housing Act?",
       "time": "00:32:25.85"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Could we go back?",
       "time": "00:33:18.26"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could we go back? I think you've been interrupted. The steps are: First you show that there's -- that the numbers are off. Then the other side tells you what the reason is for why the numbers are off. You, then, have an opportunity or an obligation to come and suggest alternative methods of taking care of the legitimate business need. Correct?",
       "time": "00:33:19.35"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So you -- those are the three steps?",
       "time": "00:33:51.21"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "If you can propose ways that are race neutral, practices that' are race neutral that will have -- take care of their needs, meaning the other side's needs, then you get relief.",
       "time": "00:33:53.69"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Don't you have a tension between two statutes here? I mean, you have the Fair Housing Act; and then there is the law that sets up this tax credit, right? And doesn't that law say that there should be a priority for revitalizing decaying communities?",
       "time": "00:34:18.36"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why shouldn't it get more if the tax law expresses that preference for the revitalization?",
       "time": "00:35:18.32"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can you go back to Justice Scalia's question, please? Because I took -- because I just want to hear your answer to it. As I understood his question, it was you look at the words and the words say, \"make unavailable because of race\". And what you're saying is those words, \"make unavailable because of race\", can include the circumstance where you make unavailable for a reason that has nothing to do with race where the effect of that reason is to cause a racial disparity of significance and it cannot be justified as the least restrictive way to bring about it. That's the point. But you're saying those words are consistent with the longer phrase I just said. Okay. Is there case law or other, aside from this area, which builds your point and says, yes, those words linguistically and legally do include the disparate-impact situation, or can. I take it that's his question and I was looking--",
       "time": "00:35:54.35"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--for an answer somewhat along--",
       "time": "00:36:56.63"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--those lines or any other--",
       "time": "00:36:57.75"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "In Smith, however, the Court -- the plurality opinion cited two additional things. It didn't just say \"because of\" can mean disparate impact. It cited the effects language, which was the subject of some questioning during General Keller's argument, but it also cited the RFOA provision. Now, none of -- neither of those -- I think the latter is more significant and there's nothing like that in Title VIII, is there?",
       "time": "00:37:19.26"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So is that critical to your argument? That the exemptions are critical to your argument?",
       "time": "00:38:17.12"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If there was no disparate impact under the Act as initially enacted, do you argue that the exemptions expanded the Act so that it then, as of 1988, included disparate impact?",
       "time": "00:38:55.09"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, that wasn't really my question. What Congress thought the Act meant in 1988 wouldn't have any significance -- wouldn't have much significance if they hadn't done anything, would it?",
       "time": "00:39:25.89"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "All right. So did what they -- did the things that they actually did in 1988 expand the coverage of the Act?",
       "time": "00:39:43.79"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. General Verrilli.",
       "time": "00:40:50.20"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think your case would be stronger if there had been no court of appeals that had -- that had favored disparate impact. Then -- then you couldn't possibly argue, well, that was put in just to eliminate the erroneous judgments of these courts of appeals in -- in certain areas, anyway. It would be better if no court of appeals had said that--",
       "time": "00:41:58.40"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and Congress had enacted these--",
       "time": "00:42:22.66"
     },
@@ -1029,13 +1029,13 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Can I ask you a question--",
       "time": "00:42:50.77"
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, one concern -- one concern about disparate impact is that it's very difficult to decide what impact is -- is good and bad. Take two proposals. One is a proposal to build new housing in a low income area, it would benefit primary -- primarily minorities; new housing, good thing. The other proposal is to build housing in a more affluent area. It would help promote integration of housing; also a good thing. Which one gets credit for under -- trying to decide the impact? The one that is revitalizing a low-income area or the one that is integrating a high-income area?",
       "time": "00:42:51.16"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, no. But which -- which counts? I mean, which benefits -- you're trying to see if there's a disparate impact on minorities.",
       "time": "00:43:47.30"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "If you give the proposal to the low-income housing in the affluent neighborhood, that certainly benefits integration. If you give the proposal to -- fund the proposal in the low-income area, that certainly helps housing opportunities there.",
       "time": "00:43:54.33"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Good.",
       "time": "00:44:09.06"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And what is the practice here? Because that was the question Judge Jones--",
       "time": "00:44:25.46"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, with respect, I don't think that's responsive. You say you look at which provision is having the disparate impact, but I still don't understand which is the disparate impact.",
       "time": "00:45:19.48"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "In other words, is it the provision that causes more proposals to go to low-income housing in the affluent area? Or is it the provision that causes more -- approval of more proposals in the low-income area? You've got to know what you're shooting at before you can tell if you've missed.",
       "time": "00:45:28.88"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry, I -- and I'll just ask it for the last time and then let you get on.",
       "time": "00:45:54.49"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You're saying you need the justification, but for what? Which is the bad thing to do, not promote better housing in the low-income area or not promote housing integration?",
       "time": "00:45:58.66"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You say you look at what's causing the bad effect, but what's the bad effect?",
       "time": "00:46:11.87"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Do you think that a private developer would ever be found guilty of disparate impact because he owns a piece of property in an affluent neighborhood?",
       "time": "00:46:30.55"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "He's permitted to develop his property, right?",
       "time": "00:46:45.66"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "The disparate impact would be if he fails to sell or make available to people of all races, let's say, the units in that property, correct?",
       "time": "00:46:48.48"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Practice.",
       "time": "00:47:02.12"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. The specific practice--",
       "time": "00:47:04.65"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--that has a business--",
       "time": "00:47:06.31"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Exactly.",
       "time": "00:47:07.84"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I thought the question was, though, I mean, the -- it's not a developer, it's the Department of Housing and Community Affairs, and I thought the challenge went to where they were -- been -- where they were supporting development--",
       "time": "00:47:09.40"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--not the developer, but -- but--",
       "time": "00:47:20.24"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But are you saying that in each case that the Chief Justice puts, there is initially a disparate impact at step one, that is to say, Community A wants the development to be in the suburbs. And the next state, the community wants it to be in the poor neighborhood. Is it your position, it seems to me, and the position of the Respondents, that in either case, step one has been satisfied.",
       "time": "00:47:29.69"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that -- that seems very odd to me.",
       "time": "00:48:00.50"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--Can I ask you a question -- I'm sorry, about Chevron. Should we be concerned here about the use of Chevron to manipulate the decisions of this Court? The -- the Fair Housing Act was enacted in 1968. For 40 years plus, there were no HUD regulations. Then we granted cert in the Gallagher case, and it was only after that and within, I think, days after that that the HUD regulations were issued. And then the Gallagher case settled, and then we issued -- then we granted cert in the Mt. Holly case, and the Mt. Holly case settled. So should we be troubled by this chronology?",
       "time": "00:48:20.57"
     },
@@ -1299,13 +1299,13 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--It was a coincidence.",
       "time": "00:49:50.32"
     },
     {
       "turn": 210,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That was very persuasive.",
       "time": "00:49:51.11"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What -- what rule you select depends on what affect that will have on racial -- racial use of the facility.",
       "time": "00:51:33.10"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You select on the basis of what affect it will have on race.",
       "time": "00:51:43.52"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "To underscore that, because I think everybody is getting confused with this, disparate impact does not go to who they take unless they set up a practice--",
       "time": "00:52:17.83"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--that has that affect.",
       "time": "00:52:29.79"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What you're saying is suppose that the plaintiffs in this case, that side, wins -- to try -- they're trying to win. The defense, on the other -- it's not true that that means all Section 8 housing is now going to be -- or even a large amount is going to be put in rich neighborhoods. First, they can defend on the ground that we don't have that practice, to put it in poor neighborhoods. Second, they can say, yes, we do, but don't you see that isn't going to hurt minorities because it puts those minorities in housing where many of them are, unfortunately, in poor neighborhoods, and it doesn't have the great effect on desegregation that they think. Or third, if they lose on that, they can say but anyway it's justified for a whole bunch of reasons.",
       "time": "00:52:48.41"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So the answer is case by case, they have a specific set of forms that give answers--",
       "time": "00:53:34.11"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and judges judge it--",
       "time": "00:53:40.97"
     },
@@ -1401,13 +1401,13 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and HUD can come in and decide, and there is no need to throw the whole baby out -- or I don't know whether it's the baby or the bath water, whatever you're throwing out. But you don't have to throw out the whole big thing in order to prevent--",
       "time": "00:53:42.93"
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So just -- I'm sorry. So Just so I can understand, because, again, I don't know what you're shooting for. Two different communities, okay? They have these tax credits, whatever to give out. One place, they give it to the housing in the affluent neighborhood; the other, they give it to the house in the low-income neighborhood. They're both sued for disparate impact. In the one, they say, oh, no, no, this is good because we're promoting integration so the impact on minorities is not a problem. And the other says, no, this is good because we're revitalizing low-income neighborhoods and that helps the minorities. They both win?",
       "time": "00:53:54.99"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And General, could I just ask -- I don't know a lot about this area and I take it that one of the things that you are warning us against is seeing the entire area through the prism of this one quite unusual case. And you've referred a few times to sort of the Heartland cases without really getting out what the Heartland cases are. So, for me, what are they?",
       "time": "00:55:54.11"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Sure.",
       "time": "00:56:17.92"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, General. General Keller, you have four minutes remaining.",
       "time": "00:57:00.76"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, you keep saying that, but that's not what happened here. The remedy was not to tell you to move your development from one area to another. The remedy here is -- it did preclude development next to landfills, but it also included other -- other tinkering with the qualifications. But you're going to still need people who want to do--",
       "time": "00:57:19.80"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--what they want to do.",
       "time": "00:57:51.38"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That has to go with your attacks on the remedy. That has -- doesn't have anything to do with what disparate impact as an approach set out by HUD -- direct should be done.",
       "time": "00:57:56.71"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "No.",
       "time": "00:58:16.84"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What they do is what everyone should do. Is before they set up any policies, think about what is the most race-neutral policy. That's a very different thing. That, I think, everyone is obligated to do.",
       "time": "00:58:18.16"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It's only if the other side proves that a qualification has an -- a race effect that's not necessary, can they win.",
       "time": "00:58:35.50"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What in the remedy ordered here was race-based? What remedy said you have to take in 10, 20, 15 percent?",
       "time": "00:59:59.73"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Counsel. The case is submitted.",
       "time": "01:00:24.11"
     }

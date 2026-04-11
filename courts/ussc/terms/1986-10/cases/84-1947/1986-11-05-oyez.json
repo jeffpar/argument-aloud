@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/84-1947/19861105a_84-1947.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL F. CLOSE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "GEORGE RUSSEL MILLER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We will hear arguments next in Cerbone against Conway. Mr. Close, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "This is the kind of a case that gets the legal profession in ill repute, isn't it?",
       "time": "00:02:06.00"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Exactly, and it should have been settled long ago.",
       "time": "00:02:42.95"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "How can people of this type afford the litigation to come up here on it?",
       "time": "00:02:46.14"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How soon are you going to the point in this case?",
       "time": "00:06:39.73"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How soon are you going to get to the Constitutional point about a check that bounced?",
       "time": "00:06:45.49"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "On that point, the respondent tells us that under New York law the respondent's arrest is part of her malicious prosecution claim.",
       "time": "00:07:07.25"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And under New York law, an arrest made without a warrant and lacking probable cause gives a cause of action for malicious prosecution in New York. Is that right? You concede that that's true?",
       "time": "00:07:22.26"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if you'd answer my question, apparently what the respondents tell us is that New York law would give a cause of action for malicious prosecution for the making of an arrest without a warrant and lacking in probable cause.",
       "time": "00:07:47.79"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, let's suppose that they're right, and that under New York law a false arrest claim is part of malicious prosecution. Do the... are you suggesting that we then have to redefine what is malicious prosecution as a matter of Federal law, or what?",
       "time": "00:08:27.86"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is New York law controlling?",
       "time": "00:09:40.41"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, may I just interrupt? How can you say they're out of the case when the Second Circuit said they were in the case?",
       "time": "00:10:17.38"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but only on the State law cause of action. Under the 1983 cause, they... as I understand it... they say the complaint alleges seven hours of detention, great humiliation, ridicule and mental anguish and so forth. And these allegations are quite sufficient to constitute a Constitutional deprivation of liberty action under 1983. So they held for 1983 purposes they were part of the case.",
       "time": "00:10:25.29"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well--",
       "time": "00:10:51.67"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, I don't understand the Second Circuit to be talking about State law there.",
       "time": "00:11:14.21"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I'm puzzled when you say that the seven hours of detention and so forth are out of the case--",
       "time": "00:11:19.99"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--when the Second Circuit, as I read their opinion on page A4, says this is part of their... the basis for their determination that her liberty was affected by what happened.",
       "time": "00:11:26.85"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But false arrest and malicious prosecution are not themselves Constitutional claims. You could have a Constitutional claim, I would think, simply for wrongful deprivation of liberty, which is protected by the Fourteenth Amendment.",
       "time": "00:12:02.08"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And these people were detained for a certain period of time, weren't they?",
       "time": "00:12:19.09"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I mean, the Second Circuit obviously ruled in favor of the respondents on some point, because it's you who are here and not they.",
       "time": "00:13:00.53"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What was the basis upon which you think the Second Circuit ruled in favor of the respondent?",
       "time": "00:13:08.34"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Do you agree with that?",
       "time": "00:13:24.46"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You think that was their reason?",
       "time": "00:13:28.91"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But here, of course, you don't have merely what might be normal elements of malicious prosecution. You have a substantial period of detention.",
       "time": "00:13:55.26"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Close, part and parcel of the conduct that underlies the malicious prosecution claim in this case is that a phony criminal charge was filed, and that the individual charged was required to appear and sit around the court for a long time waiting to enter a plea, and was required to go back I don't know how many times... eight, nine, whatever it was... many times, in addition to the reputational injury. So the sum total of what underlies the malicious prosecution here is a great many appearances that were alleged to be unlawfully imposed on this person, and improperly, because it was a false charge to begin with. Do you think there's any deprivation of liberty involved in that kind of a process?",
       "time": "00:14:28.07"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, this Court has held for example that being suspended from public school as a student for ten days or so is a deprivation of liberty. And yet you say that being hauled in to the criminal court on a false charge and made to wait and appear and reappear is not; is that right?",
       "time": "00:15:41.75"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Criminal case.",
       "time": "00:16:16.91"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But a defendant in a criminal case, though, has to appear.",
       "time": "00:16:30.62"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Close, may I just ask you again-- --What happens if you don't appear?",
       "time": "00:17:13.79"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And where do you end up?",
       "time": "00:17:21.29"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And where do you end up? In the jail.",
       "time": "00:17:23.53"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So you don't consider that important at all.",
       "time": "00:17:29.52"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "0 xxx.",
       "time": "00:17:33.38"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Close, let me just go back... d--",
       "time": "00:18:14.71"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--to this question Justice O'Connor really raised with you before. You say, just these mere allegations. But as I understand it, the statute of limitations bars the separate tort for false arrest, and there's no question about it. But on the malicious prosecution, is it not correct that it was the same prosecution continuing from June of '77 until September of '79?",
       "time": "00:18:16.08"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And now if the action for malicious prosecution is timely, would it not be a part of the cause of action to take into account all of the facts concerning that prosecution, including the detention?",
       "time": "00:18:35.73"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why is that not part of the malicious prosecution claim whether it's a matter of Federal or State law?",
       "time": "00:18:48.65"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's a part of the proceeding which she said was malicious.",
       "time": "00:18:59.14"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "She spent seven hours in detention. It was part of the proceeding. That is the basis of a malicious prosecution case, was it not?",
       "time": "00:19:01.54"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The state law cause of action for false arrest.",
       "time": "00:19:15.33"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Maybe they did err. But they did keep alive the malicious prosecution portion of the 1983 claim.",
       "time": "00:19:20.08"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And what is that makes you so sure that the only evidence that would be admissible in support of that claim is what happened after some intermediate point in the prosecution. I don't understand that. Well, the Court of Appeals itself specifically recited the... this detention as part of the malicious prosecution.",
       "time": "00:19:27.17"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That may be, but they did it. Do you suppose... yes, and do you suppose that evidence of the detention is an element of damages under malicious prosecution?",
       "time": "00:19:48.44"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Don't you suppose that damages can be collected for that as part of the--",
       "time": "00:19:59.81"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Mr. Close, refresh my recollection. Section 1983 doesn't refer to malicious prosecution, does it?",
       "time": "00:20:48.53"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It doesn't refer to any State tort, as such, does it?",
       "time": "00:20:55.62"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It gives a cause of action for violation of someone's Federal right to life, liberty, or property?",
       "time": "00:21:01.23"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So there is no necessary correlation between your cause of action under Section... no reason whatever to believe that there's any necessary correlation between your right of action under 1983, and whatever State cause of action you might have.",
       "time": "00:21:08.19"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it's really quite irrelevant how New York State chooses to define its cause of action for malicious prosecution, isn't it?",
       "time": "00:21:25.17"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And we have to look at each element of what happened here to see whether each separate element... the arrest, the later filing of the criminal complaint... or the prior filing of the criminal complaint, the later proceedings, each separate element to see whether any one of them constituted a deprivation of life, liberty or property without due process.",
       "time": "00:21:31.79"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And it doesn't matter to us how New York chooses to define these things for tort purposes.",
       "time": "00:21:51.24"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, except to the extent... that also, except to the extent that we have to refer to a New York statute of limitations in absence of a Federal one.",
       "time": "00:21:59.20"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, well I... it seems to me... you're confusing me, anyway, and it doesn't seem to me your helping your case by choosing to analyze this on the grounds on New York tort law.",
       "time": "00:22:16.18"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which is not what this suit is about at all. It's about 1983.",
       "time": "00:22:27.97"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what if there had never been... what if there had never been an allegation in this case of a false arrest? Just malicious prosecution.",
       "time": "00:23:00.71"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, and it would have been wrong, you suppose, for the court to consider evidence of detention, as part of the malicious prosecution allegations?",
       "time": "00:23:13.32"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose the allegation is that some person convinced a policeman or a judge to get out a warrant for somebody; we just want to get this person. Let's get him arrested and put him in jail, and these may be trumped up charges, but meanwhile... but we'll get back at them. Let's just suppose it's something as nasty as that, a malicious prosecution case. Couldn't a malicious prosecution case include a plan to keep somebody in jail?",
       "time": "00:23:42.67"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, this person was kept in jail on a trumped up charge, before her allegation.",
       "time": "00:24:26.04"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What do you mean by malicious... again, you're answering a question as to what a malicious prosecution case would consist of. What malicious prosecution case? Under New York law? Under New Jersey law?",
       "time": "00:24:38.71"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are we talking about a malicious prosecution case here?",
       "time": "00:24:53.99"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We are?",
       "time": "00:24:59.08"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought we were talking about a 1983 claim.",
       "time": "00:25:01.90"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Your position is that some of the elements which may go to making a malicious prosecution claim under New York law may constitute a violation of 1983; and others may not.",
       "time": "00:25:27.55"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you have to look at each one to see whether it violates 1983 or not.",
       "time": "00:25:38.81"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "xxx.",
       "time": "00:26:59.39"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In the Joint Appendix.",
       "time": "00:27:03.84"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right.",
       "time": "00:27:06.64"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Close. We'll hear now from you, Mr. Miller.",
       "time": "00:27:11.37"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let's assume that the only thing I think that your client suffered which I would accent as a deprivation of life, liberty or property, without due process, was the detention in the jail facility.",
       "time": "00:28:26.00"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why isn't that time barred?",
       "time": "00:28:44.72"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't care about New York law. I'm talking about 1983.",
       "time": "00:28:54.99"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But there's quite a difference. New York tort law does not require, for recover, a deprivation of life, liberty or property, as the Federal Constitution does. So you can't take every element of whatever tort chooses to define to be an element of a 1983 action.",
       "time": "00:29:07.10"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But I'm not talking about a malicious prosecution tort. I'm talking under 1983 about the deprivation of life, liberty or property without due process of law. I'm not talking about a malicious prosecution tort. Now, just make believe that that's the way I'm going to approach this case. So I want to look and find some deprivation of liberty. And the clear one that I find is keeping your client in custody before the arraignment.",
       "time": "00:29:42.38"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "All right. But that occurred a long time ago. Now why isn't that time barred--",
       "time": "00:30:09.18"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--1983 does not give a cause of action for a conspiracy. Read the text of 1983. It does not give a cause of action for a conspiracy. It gives a cause of action for the deprivation of the life, liberty or property. 1985 gives a cause of action for conspiracy.",
       "time": "00:30:28.64"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can use the existence of a conspiracy to attribute State action to private actors; for that purpose, we've used conspiracy. But have we ever used a conspiracy under 1983... has there ever been a cause of action given for conspiring under 1983? 1983 doesn't speak of conspiring as a cause of action. You know, there are Federal crimes of conspiracy. It's a separate crime in itself. But it's not an offense in itself under 1983, is it?",
       "time": "00:30:51.06"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is there a State tort of conspiracy, do you know, as a separate tort?",
       "time": "00:31:49.49"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Miller, do you think that where a person is not convicted, that speedy trial analysis really adds much to the basic concept of deprivation of liberty?",
       "time": "00:32:52.31"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but surely you could recover for however long or however short it is if you can show simply a deprivation of liberty without due process of law.",
       "time": "00:33:27.06"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your opponent relies heavily on the Hudson v. Palmer and Parratt v. Taylor for the proposition that New York law provided adequate remedies for this detention.",
       "time": "00:33:48.54"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But Parratt went on to say, I think... and I think Hudson v. Palmer reiterated it... that in some situations you had to look at the State remedy that was provided for the petitioner's claim to decide whether there had been any deprivation.",
       "time": "00:34:52.03"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you claim that there is some right, privilege or immunity at issue here other than the due process deprivation?",
       "time": "00:35:48.76"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But these are all under the category of due process?",
       "time": "00:36:22.68"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Didn't you lose your great humiliation, ridicule and mental anguish in your catalog?",
       "time": "00:36:33.26"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you contend that her reputation is any part of the liberty that is protected?",
       "time": "00:36:52.23"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "0 xxx.",
       "time": "00:37:01.56"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And a million punitive. One and one makes two.",
       "time": "00:37:09.59"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And so that is the damage she suffered?",
       "time": "00:37:13.82"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If you can get to it.",
       "time": "00:37:23.27"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that under New York law or Federal law?",
       "time": "00:38:20.76"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what are we doing with it?",
       "time": "00:38:25.26"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "xxx rewrite the law of malicious prosecution of New York, aren't you?",
       "time": "00:38:30.13"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think there's some difference between your ability to recover for the detention in jail for seven hours, and your ability to recover for pain and suffering or loss of reputation for purposes of 1983?",
       "time": "00:40:16.53"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if there hadn't been an illegal detention, you don't think the Paul case would cause you trouble?",
       "time": "00:40:57.53"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did the Second Circuit deal with Paul, or not?",
       "time": "00:41:53.38"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And did it deal at all with the availability of a State remedy?",
       "time": "00:41:58.20"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what would you say if one of the grounds for dismissal was that there's a perfectly adequate State remedy here, and there's just no Constitutional violation as long as there is such a remedy?",
       "time": "00:42:20.34"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what about Parratt and Hudson?",
       "time": "00:42:46.78"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, certainly Hudson involved a claim of intentional abuse of process.",
       "time": "00:43:29.11"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Neither of those involved some illegal imprisonment?",
       "time": "00:44:02.81"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is it your position that Parratt just doesn't reach liberty interests?",
       "time": "00:44:10.09"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's the difference? I thought the line you were drawing was whether it was a procedural due process claim. And I can understand your trying to draw a line there. But if it is a procedural due process claim, what difference does it make whether it's life, liberty or property as the issue?",
       "time": "00:44:27.68"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It doesn't?",
       "time": "00:44:45.55"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That isn't the case here?",
       "time": "00:45:03.99"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Tell me the Federal rights again.",
       "time": "00:45:09.89"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I assume that the courts below didn't address the Sixth Amendment claims at all. They would be open. They just weren't considered, is that right?",
       "time": "00:45:52.44"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So we don't have to consider that? I mean, that's separate and apart and not yet addressed. What we have before us is what--",
       "time": "00:46:06.24"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--the due process claim?",
       "time": "00:46:16.73"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How many of these Federal rights would... that you just mentioned in answer to me a minute ago would be time barred if you couldn't tack them on to the malicious prosecution?",
       "time": "00:46:36.57"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would be time barred?",
       "time": "00:46:48.84"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, no, that's--",
       "time": "00:47:01.32"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Miller. Mr. Close, do you have anything further? You have four minutes remaining.",
       "time": "00:52:17.45"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't it correct that the judgment you're appealing is an order that has the effect of denying a motion to dismiss?",
       "time": "00:53:45.65"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that the case is just ready to get started for trial?",
       "time": "00:53:51.85"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that's all that's at stake, is whether there's enough here to go to trial.",
       "time": "00:53:55.18"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Close. The case is submitted.",
       "time": "00:55:12.84"
     }

@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1984/83-1437/19841205a_83-1437.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
       },
       {
         "name": "DONALD G. PETERSON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JERROLD J. GANZFRIED",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "VICTOR J. STONE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Peterson, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was there any request for injunctive relief in this case, or was it just a damages action?",
       "time": "00:05:46.32"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You prevailed on that point in the trial?",
       "time": "00:06:20.33"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then you're talking about... how much was awarded in the way of damages?",
       "time": "00:06:24.98"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how can a court award $173,000 attorney's fees, where all the plaintiff recovered was $60,000? Don't the attorney's fees have to bear some proportion to the value of what was recovered?",
       "time": "00:06:34.24"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Perterson, can I ask you this one question? Does the record tell us what the hourly rate was as?",
       "time": "00:09:24.16"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How did you... when you made your offer, the $100,000 offer, you said it included attorney's fees, but you picked out an amount, didn't you?",
       "time": "00:10:25.10"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, you did not.",
       "time": "00:10:36.17"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought you just said that it includes attorney's fees.",
       "time": "00:10:37.62"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it was only after the trial judge figured it up that he came up with the $32,000? All right, thanks.",
       "time": "00:10:41.39"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It's only the sum of the two components if the offer included fees. If the offer had just been for the liability, then I don't suppose you'd have it.",
       "time": "00:13:38.94"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you could have made a clearcut offer, couldn't you?",
       "time": "00:14:13.51"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You could have said blank dollars plus blank dollars for fee, couldn't you? Wouldn't that have been an offer?",
       "time": "00:14:17.51"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But it would have stopped us from having to guess, wouldn't it?",
       "time": "00:14:39.29"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, don't we have to guess whether you made an offer of $100,000 for both or one item? Don't we have to guess that?",
       "time": "00:14:54.72"
     },
@@ -227,13 +231,13 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what do we determine?",
       "time": "00:15:06.43"
     },
     {
       "turn": 32,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, your offer was for both, wasn't it?",
       "time": "00:15:08.98"
     },
@@ -245,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What's the pertinent language there?",
       "time": "00:15:16.22"
     },
@@ -257,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is it settled under the rule that the judgment that is actually recovered... when you are making the comparison, is it settled that you take the damages, the actual damages that are awarded plus attorney's fees as the figure to compare?",
       "time": "00:16:00.58"
     },
@@ -269,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if you had made an offer of $60,000, excluding attorney's fees, you offered to settle the substantive issue for $60,000, and then there had been awarded $50,000 in damages and $50,000 in attorney's fees?",
       "time": "00:16:24.20"
     },
@@ -281,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would the rule have applied to you then, or do you know?",
       "time": "00:16:49.59"
     },
@@ -293,13 +297,13 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but I'm still interested in what do you compare.",
       "time": "00:17:21.45"
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If you made a $60,000 offer excluding attorney's fees, what figure do you compare that with after a trial?",
       "time": "00:17:24.98"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right, but that doesn't... wouldn't include attorney's fees.",
       "time": "00:17:37.62"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All right. So if the actual judgment was for less than you offered, you would have the benefit of the rule. But I grant you would still have a hearing on attorney's fees.",
       "time": "00:17:41.54"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you would only be liable for attorney's fees accrued before the date or your office.",
       "time": "00:18:08.41"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You wouldn't be paying for post-offer.",
       "time": "00:18:13.25"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let me see if I understand you, Mr. Peterson. Are you saying that your offer was $100,000 divided up any way you want to?",
       "time": "00:18:18.29"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Peterson, under Rule 68 I gather that a prevailing plaintiff who gets a judgment less favorable than the defendant's offered judgment has to pay defendant's costs accrued after the offer of settlement, as well as absorb the plaintiff's own costs and attorney's fees. Now did you try to recover any post-offer costs from the defendant here?",
       "time": "00:19:54.10"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think you are entitled to those under Rule 68 in your version of it?",
       "time": "00:20:36.76"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would you think 1988 cuts in and says no, you can't get them?",
       "time": "00:20:49.83"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why wouldn't Rule 68 prevail in its special circumstances over 1988 in that situation?",
       "time": "00:21:05.41"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, are you not entitled to it because you're not the prevailing party under 1988, or what?",
       "time": "00:21:33.86"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you think you can or cannot use Rule 68 to get... for your post-offer costs?",
       "time": "00:22:07.58"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it could be significant and certainly we would have to have that in mind, I suppose.",
       "time": "00:22:47.56"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Costs but not attorney's fees?",
       "time": "00:23:02.07"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your time has expired now, Mr. Peterson. Mr. Ganzfried.",
       "time": "00:23:08.22"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Excuse me. Can I ask you just one question? In your view, if there were no Rule 68 and the plaintiff here were entitled... I don't know if the figures are right... to a $170,000 fee under 1988, would you characterize the right to the $170,000 as a substantive right or a procedural right?",
       "time": "00:25:46.74"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Judge Posner apparently thought that was important because of the limitations on what the rules can do; that's the reason I asked the question.",
       "time": "00:26:17.94"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why did they break it down?",
       "time": "00:30:58.04"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why did they break it down, so that the judge could enter a judgment? Is that it?",
       "time": "00:31:01.41"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you think under the Rule, under Rule 68, you can make your offer in either of two ways... including attorney's fees or excluding attorney's fees?",
       "time": "00:31:31.76"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You have to? Why?",
       "time": "00:31:47.12"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If that's your position, then you would disagree with the response given to me by Mr. Peterson in my question to him about the recoverability of post-offer costs of a defendant.",
       "time": "00:32:11.57"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I take it the petitioner seemed to think that you could make the offer just for the amount of the damages and not include attorney's fees.",
       "time": "00:33:04.61"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I am sure that in my thoughts I thought he said he could make the offer just for the amount of, just for damages, not including attorney's fees.",
       "time": "00:33:23.85"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You disagree with him?",
       "time": "00:33:34.49"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You think, then, it's not only that this is a proper kind of an offer but it's the only kind of an offer to be made in a 1988 case, including attorney's fees?",
       "time": "00:33:43.43"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The Rule doesn't quite say that, though. The Rule says \"may make an offer\", and then one of the elements of the offer. It doesn't say \"may\" or \"must\", either one. You just rely on the fact that the words \"with costs then accrued\" are in the sense--",
       "time": "00:34:04.01"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But the verb that precedes it has a \"may\" in it. But, anyway, that's not an issue in this case, is it?",
       "time": "00:34:17.84"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Stone.",
       "time": "00:34:47.82"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you see any ambiguity in that?",
       "time": "00:36:52.15"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, if the offer were accepted, there wouldn't be any more services to be performed, would there?",
       "time": "00:37:17.05"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "May very well? Any other alternative? What fees would there be to get this settlement? Doesn't that cut it off?",
       "time": "00:37:25.46"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What other proceedings could there be? What jurisdiction would any court have after the stipulation were entered?",
       "time": "00:37:41.75"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Just sending somebody down to the courthouse to file the papers; wouldn't that be about all?",
       "time": "00:37:59.65"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You don't agree with your friends characterizing that proposal as an offer to pay $100,000, divided up any way you want between counsel and client, client and counsel? You don't read that offer as that kind of an offer?",
       "time": "00:38:54.47"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What other way could it be read?",
       "time": "00:39:18.75"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "One more hypothetical.",
       "time": "00:40:02.44"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If you had accepted the offer under your practice in your courts, what would you have done... tried to agree with the client on the division of the $100,000 or, if you couldn't agree, then submit it to the court and let the court fix the fee? Which, or what third alternative might there be?",
       "time": "00:40:04.13"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No case from this Court, Mr. Stone, has ever decided that there is a reasonableness requirement in connection with Rule 68, has it?",
       "time": "00:42:07.84"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What seems to be the natural consequence of Rule 68?",
       "time": "00:43:22.49"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Stone, are you speaking of the dimensions of the award in this particular case, or just generally the relationship between the amount of fees and the amount of costs?",
       "time": "00:46:00.09"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What's the breakdown here? Do you have it in mind, dollars?",
       "time": "00:46:22.87"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How much are the costs?",
       "time": "00:46:49.69"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It seems a staggering amount in this setting, but we will check that.",
       "time": "00:47:03.93"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you think if you recover, if you represent a plaintiff and recover a judgment for $50,000 or $60,000 for the plaintiff, do you think you can bill the plaintiff $170,000 for your attorney's fees?",
       "time": "00:47:32.18"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, don't you think the ordinary principle of a billing is that the fee has to have some relationship to the amount recovered where all that's at issue is damages?",
       "time": "00:48:07.37"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And that justifies an award of attorney's fees three times the amount of damages?",
       "time": "00:48:37.64"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Any approved by this Court?",
       "time": "00:49:05.98"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, in these cases where, according to you, they are doing the government's work and they are acting as private attorneys general, and for that reason you pay them five times what the Attorney General gets? Isn't there something wrong with that?",
       "time": "00:49:32.63"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The trial court should give attorney's fees of three times what he gets, the judge gets?",
       "time": "00:50:04.60"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I am just wondering where you go on this.",
       "time": "00:50:13.02"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, did Hensley really get into any of the issues we're dealing with here under Rule 68?",
       "time": "00:50:33.52"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Stone, excuse the interruption, but just to clarify for my benefit, if you would, we have attorney's fees being requested here by each party, in effect. How much in the way of attorney's fees was being requested by the defendants in the original action and how much by the plaintiffs in the original action?",
       "time": "00:52:02.14"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's correct.",
       "time": "00:52:40.45"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the $170,000 was the plaintiff's requested fees and costs?",
       "time": "00:52:42.09"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that $40,000 of costs was included in the $170,000?",
       "time": "00:52:59.80"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If that figure of costs of $40,000 was right, the pre-trial and trial attorney's fees would total $130,000, is that it?",
       "time": "00:53:07.75"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now was it disclosed, am I correct, late in the picture that it was a contingent fee arrangement?",
       "time": "00:53:20.51"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Where are you ever... how do you ever get the right to recover costs? Forget attorney's fees for a moment.",
       "time": "00:55:19.47"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that's a statutory provision?",
       "time": "00:55:35.16"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there something in the Rules about it?",
       "time": "00:55:38.55"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But I would suppose that if you win a civil rights case, a 1988 case, and ask for attorney's fees, which you do in yours, it's awarded, it's taxed as part of costs as under the Rule, pursuant to that Rule.",
       "time": "00:55:48.66"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's what 1988 says.",
       "time": "00:56:07.45"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Stone, may I just ask this question, because it's kind of a theme that underlies a good deal of your argument that the operation of Rule 68 frustrates the purpose of 1988 and, to a certain extent, 1983. How does it frustrate the purpose if it motivates a defendant with a serious case before him promptly to make a serious offer, giving the plaintiff early in the litigation at least the advantage of a real bird in the hand rather than all the contingencies with a long law suit? Isn't that consistent with the purpose of 1983 and 1988?",
       "time": "00:56:59.75"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Doesn't the operation of the Rule have its own built-in test of reasonableness by what happens later? If you don't recover more than the offer, by hypothesis, you fail to... the offer had to be reasonable.",
       "time": "00:57:55.03"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How do you rate this one? How do you rate this offer?",
       "time": "00:59:12.12"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have to leaven that with what happened in--",
       "time": "00:59:21.22"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--You'd have to leaven that with what happened in the trial court.",
       "time": "00:59:26.34"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Stone, I guess there's some indication that Congress wanted to treat fees as costs so that they could be shifted to recovery against cities and states and counties, so apparently they wanted to treat them as costs, at least for that purpose.",
       "time": "01:02:49.71"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I guess the question is whether that purpose is enough to make costs mean something else for a different purpose.",
       "time": "01:03:51.61"
     },
@@ -1139,13 +1143,13 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:04:45.60"
     },
     {
       "turn": 184,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until Monday next at 10:00.",
       "time": "01:04:47.43"
     }

@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2000/99-1295/20001002a_99-1295.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
       },
       {
         "name": "DARRELL D. HALLETT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "KENT L. JONES",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We will hear argument first this morning on number 99-1295 David A. Gitlitz versus the Commissioner of Internal Revenue. Mr. Hallett.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I think your argument under the statute is a strong one. But is there any reason in tax theory or practical equity why Congress would want to allow this result in this particular case? I mean, I understand that the statute may compel this, but is there some underlying rationale to support your position?",
       "time": "00:02:02.02"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What I am asking is why would Congress allow you to use income that you don't pay tax on, to increase the basis and then which would allow you to deduct additional unrelated losses?",
       "time": "00:03:00.44"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I know that's position number one. I'm asking, is there a reason for this?",
       "time": "00:03:17.49"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Hallett, it seems that the Subchapter S shareholder is the only solvent entity who could take advantage of this. The peculiar thing about this provision is that every other taxpayer, say a Subchapter C corporation, a partner in a partnership, the insolvent would have to be that entity, that tax paying entity. But here you have the peculiarity that the Subchapter S corporation, which is not itself a taxpayer, is the insolvent, while the shareholders are highly solvent. And is there any reason why Congress would want to give those solvent taxpayers this advantageous treatment?",
       "time": "00:04:08.04"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it wasn't that way up until... and yet, in 1982... well, let me put it this way, Do you recognize that if the 1982 law was still in place, the government should win?",
       "time": "00:05:49.93"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, but in this case where we have very solvent shareholders and an insolvent Subchapter S corporation.",
       "time": "00:06:17.77"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So it was the change in '84?",
       "time": "00:06:36.99"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And so we would look to a reason for that change if we are trying to understand, as Justice Kennedy asked, whether there might be something other than the words of the statute going for the position you are taking?",
       "time": "00:06:44.04"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Hallett, is it invariably the case that this comes as a windfall to the solvent shareholder? Would the government never recapture the benefit that the shareholder gets?",
       "time": "00:07:23.71"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Accept my characterization of it as a windfall. Would any events in the future enable that benefit to the shareholder to be recaptured by the government?",
       "time": "00:07:46.07"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, suppose the corporation suddenly becomes solvent, its business picks up or in some new sort of business. I assume that at that point the distortion would even out for years, say one, two, three, four and five, because the net operating losses which might otherwise have been deducted against the new income are now diminished by reason of the discharge of indebtedness income.",
       "time": "00:08:20.18"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So there, to answer Justice Scalia's question, there might be, I think there might be some instances in which this distortion, if we can call it that, or windfall, does even itself out?",
       "time": "00:08:48.36"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So it isn't always a windfall or distortion, accepting those characterizations?",
       "time": "00:09:21.00"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And I guess this was in Justice Kennedy's question. The events that deny the windfall character will be in subsequent tax years; is that correct?",
       "time": "00:09:27.84"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Going back to your very initial point about Section 108, if Section 108 had read, \"items of income shall not include. \" instead of \"gross income does not include\", then the government would be right; is that correct?",
       "time": "00:09:43.28"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. I'm saying if it specifically said income from discharge of a debt shall not be treated as an item of income.",
       "time": "00:10:09.30"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Then your whole case would collapse.",
       "time": "00:10:16.70"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So it's the difference between excluding from gross income and specifically stating that it's not an item of income, as the case turns out.",
       "time": "00:10:23.16"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what's supposed to happen? Some disaster must occur in the tax code since the government did at one point push this argument, but it stopped, I want to know what disaster occurs if you just take 108(d)(7)(a), in which it says these things will apply at the corporate level. It says it applies at the corporate level, those three sub... four subsections, (a), (b), (c) and (g); (c) and (g) are just special cases, but (a) and (b) is the main case. It says they apply at the corporate level. What does that mean? It means it doesn't flow through. It's very simple; nothing flows through. The attributes don't flow through. Nothing flows through. All right. Now once you say that, that cures what seems an anomaly from a point of view of policy. Why don't we interpret it that way?",
       "time": "00:11:19.92"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, let's see what it says. It says, in the case of an S corporation, subsections (a), (b), (c) and (g) shall be applied at the corporate level. Now why can I not take those words to mean they shall be applied at the corporate level and only the corporate level, i.e., they do not flow through?",
       "time": "00:12:11.57"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right.",
       "time": "00:12:51.09"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know they say nothing. They say nothing. So what I'm doing is suggesting that because they say nothing one way or the other, one can interpret those words \"shall be applied at the corporate level. \" to mean everything to do with 108 applies at the corporate level in the case of the Subchapter S corporation, and does not flow through. So what I'm asking you is why can I not do that?",
       "time": "00:13:09.03"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I've got that point. Your point is the language.",
       "time": "00:13:42.79"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is there anything other than the language?",
       "time": "00:13:45.47"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Nothing else.",
       "time": "00:13:49.06"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you're--",
       "time": "00:14:03.04"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Is it an answer to Justice Breyer, and I may be wrong about this, that if that interpretation prevailed, there would be some instances in which the shareholder was really entitled to a double tax. In other words, if there were basis left and the basis were not decreased as a result of this interpretation, then the shareholder in effect would be paying a double tax in some instances, or am I wrong about that?",
       "time": "00:14:05.67"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, that the shareholder would be taxed in effect for discharge of indebtedness income even though the corporation was insolvent.",
       "time": "00:14:45.32"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Because the basis would not be reduced.",
       "time": "00:14:52.81"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Hallett, may I go back to an earlier colloquy, and that is, as I understand it in this case, the tax attributes, at least under your theory, they wouldn't... that would be an academic question because the losses here were entirely wiped out against the increased basis. Isn't that right? There were no losses left.",
       "time": "00:14:55.59"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I take that to be the case here, that the losses were totally absorbed.",
       "time": "00:15:51.89"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But that's not... we don't have the next tax return before us, so we don't--",
       "time": "00:16:17.85"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Why do you say it's no anomaly? I would think with an ordinary corporation the chance of an insolvent corporation ending up with a lot of positive income in the year of insolvency is pretty low. With an individual, the chance of an individual ending up with a lot of positive income in the year of insolvency is pretty low. In the case of an S corporation, the chance that a shareholder of the insolvent S corporation could have a lot of positive income in that year is pretty high. And therefore, if we accept your intention for an S corporation, your interpretation, we reach as a practical matter quite a different result in terms of tax windfalls than you do in the other two instances.",
       "time": "00:17:31.99"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question about... nobody seems to discuss in the briefs about, 108(2)(e), which says, it seems to say in so many words, (e)(1), it says (e)? You know what I'm talking about? It's on page 36 of the appendix. (b) says \"reduction of tax attribute\" and it lists the things that are reduced.",
       "time": "00:19:04.09"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And the last thing listed is the basis of the property of the taxpayer.",
       "time": "00:19:41.63"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why doesn't that--",
       "time": "00:19:45.63"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--They are what, Mr. Hallett?",
       "time": "00:21:18.49"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Hallett. Mr. Jones, we'll hear from you.",
       "time": "00:27:34.68"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Jones, would you clarify whether you are indeed walking away from the rationale of the Tenth Circuit which was not about the characterization of this as income, but was a timing question, as I understand it.",
       "time": "00:28:15.06"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you did argue the theory that the Tenth Circuit accepted; you argued it in the Court of Appeals.",
       "time": "00:28:44.46"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "To put Justice Ginsburg's question another way, if you do not prevail on your argument that it's not income, I take it you don't ask us to accept a backup position that reflects the view of the Circuit on timing.",
       "time": "00:29:30.29"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, we don't think it's a problem. Let's assume that we simply reject that argument. I want to know if the backup argument, if you think that as a matter of sound, statutory construction, I think this is what Justice Ginsburg was asking, for us to accept the timing rule adopted by the Circuit.",
       "time": "00:30:11.25"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "1336 or 66?",
       "time": "00:30:49.04"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now Mr. Jones, we've got some 20 pages in the appendix of statutory sections. When you cite a statutory section, could you refer us to the page of the appendix on which it is?",
       "time": "00:30:53.94"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But Mr. Jones, isn't that antithetical to the... is it in 1017 the general timing rule that you take this in the next year, not in the year of the--",
       "time": "00:31:51.09"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--If you think that the timing rule is changed here, it's surprising that you didn't make any suggestion of that in your brief.",
       "time": "00:32:30.26"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Let me see if I can get you to focus precisely on the point I'm trying to understand. You have just told us that in the Tenth Circuit brief we will not have found this unusual approach to the timing question. We would not have found that in the government's argument. We certainly don't find it in our brief in this Court. I'm just trying to determine whether the government at least considered it an alternate argument in the lower courts and for some reason abandoned it here.",
       "time": "00:33:25.10"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did you present it the same way in the Tenth Circuit?",
       "time": "00:34:11.28"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So if I look at the government's brief, I'll find that corroborated?",
       "time": "00:34:22.18"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did you address the issue you are now addressing in the Tenth Circuit?",
       "time": "00:34:26.13"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Did you address the issue you're presenting to us in the Tenth Circuit other than--",
       "time": "00:34:29.81"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--in footnote 14 of your brief.",
       "time": "00:34:33.66"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes, but for whatever reason, this argument that you now say is so obvious on the face of the Code, was this referred to in your argument to the Tenth Circuit other than in a footnote, footnote 14 of your brief?",
       "time": "00:34:38.32"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I didn't dig this out myself. It was stated in your opponent's presentation. Is it inaccurate?",
       "time": "00:34:57.53"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "This does not constitute income. You made that explicit argument?",
       "time": "00:35:33.99"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Are there past cases in which the IRS has argued that something is not income, or is this a first?",
       "time": "00:35:56.37"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You know, it seems a little contradictory to say that under Section 108, the taxpayers here have to pay some sort of tax whether you call it a deferred tax or just a price on something that you say isn't income of any type. It just seems contradictory. And I'm concerned, if we say it's not income, that there may be other items that are currently considered to fall within section 61 as income that all of a sudden we find aren't. And I don't know how far that would take us if we--",
       "time": "00:36:16.96"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Excuse me. That means it won't be treated as income to the shareholder.",
       "time": "00:37:35.25"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You are not talking about whether in the abstract it's an item of income. They have to say that it's not treated as an item of income because otherwise it normally would be.",
       "time": "00:37:38.64"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May we go back to the formulation that gross income does not include? Well, that same formulation is also used for tax exempt bond interest.",
       "time": "00:38:25.69"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "For life insurance proceeds, and even though it says the same exact words, does not... gross income does not include, we know that those do up the basis.",
       "time": "00:38:37.17"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But the words of the statute are the same. Gross income does not include.",
       "time": "00:39:05.67"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And forgiveness of indebtedness--",
       "time": "00:39:20.20"
     },
@@ -819,13 +819,13 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But that was addressed by your adversary. He said well, suppose you have a corporation which is insolvent by a million dollars, and part of that is a 950,000 dollar indebtedness. There's a world of difference. It amazes me that the government says this isn't income.",
       "time": "00:39:34.13"
     },
     {
       "turn": 130,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or to put it more simply, if my bank told me, you know, forget about your mortgage. Boy, I'd feel a lot richer. You are telling me that that is not an accretion of wealth? That's unbelievable.",
       "time": "00:39:54.09"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Given that is before the Court, what was your answer to Justice Ginsburg. I was having exactly the same problem. I accept its a loophole, for argument's sake. If it was a terrible loophole, this would not be the first loophole that Congress wrote and it won't be the last. And maybe it would be the last, marvelous. There are 31 separate... 29 separate subsections of this statute that use the words \"gross income does not include\". And I take it in respect to every one of those but one, you will say they are items of income. And obviously one thing I would be reluctant to do is to take those same words \"gross income does not include\", and say that those are items of income in every instance but this one. Or in every instance but three. Or create a new spider web of rules as to when the words \"gross income does not include\" does mean it is none the less items of income but doesn't in other. That's the problem I'm facing. And to say \"it's Congress's clear intent\" doesn't help me solve that problem.",
       "time": "00:40:37.90"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And are you saying it's always the same, those words 29 subsections whatever they are referring to is never an item of income or do you mean sometimes is and sometimes isn't?",
       "time": "00:41:58.44"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Never? What for example about a lessor's income? There's a reference here to a payment by a lessor of a certain kind of rent which I thought surely would increase basis.",
       "time": "00:42:21.14"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then it's income when it hurts the taxpayer in later years?",
       "time": "00:42:54.51"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Could you answer one other question which is,... but it's going to sound as if it's on your side so be tempted to agree but don't agree because you haven't pushed this argument and I want to know why. It seemed to me that the strongest point was the words keeping it at the corporate level. Because if you kept it at the corporate level no problem I can think of would be caused and it eliminate the loophole and seems consistent with the language, but you have not pushed that argument. And therefore there must be some disaster in tax law lurking.",
       "time": "00:43:13.62"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What do you think Congress did then in '84? I take it that taxpayer is conceding that if the 82 law remained in place a Subchapter S shareholder would be just like a partner in partnership and could not get this benefit?",
       "time": "00:45:33.16"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But there was a change in 108, and it seemed to me that what you were essentially arguing is that we should undo the change that Congress made in 108. And you are telling me, no, the change in 108 didn't do anything? Or what?",
       "time": "00:45:56.28"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If they applied at the shareholder level then you have a solvent shareholder.",
       "time": "00:46:29.82"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Right. But what was the effect of saying take it at the corporate level so that the insolvent is the corporation?",
       "time": "00:46:45.80"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, didn't somebody point out to Congress or didn't Congress know that a Subchapter S corporation is quite different from a Subchapter C corporation?",
       "time": "00:47:02.85"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you just me the rationale was that all corporations should be treated alike.",
       "time": "00:47:21.18"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But Congress was explicit there in a way it isn't here.",
       "time": "00:48:12.70"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Didn't Congress say that there won't be any increase in basis?",
       "time": "00:48:20.47"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And here we don't have anything that says it won't be an increase in basis.",
       "time": "00:48:26.98"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you will concede that to say basis will not be increased is something a lot clearer than what you are presenting to us?",
       "time": "00:48:42.28"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So why didn't they make that same statement with respect to this, knowing that the courts were all over the lot?",
       "time": "00:48:57.09"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What was the year of the real estate provision?",
       "time": "00:49:12.24"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "93.",
       "time": "00:49:15.03"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So I am asking about when they made that change in 93 and they said basis will not be increased. Why didn't they just say, well, let's do the same thing for subchapter S corporations?",
       "time": "00:49:16.99"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But I'm just simply asking you why didn't they make that same change to say explicitly basis will not be increased, since that would have cured--",
       "time": "00:49:36.33"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Yes, but couldn't they have said \"now we are adding this provision. \" \"And we are making this thing explicit. \" \"To make the statute compatible we ought to make that same provision elsewhere. \"",
       "time": "00:49:55.21"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There are certain words that are used.",
       "time": "00:50:25.29"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes. And why wasn't it made clear then? Basis is not increased, with respect to this subchapter S?",
       "time": "00:50:29.18"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "No, we are not. We have a provision that says those words expressly. You are asking them--",
       "time": "00:50:43.76"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--I thought it was in the statute itself.",
       "time": "00:50:50.59"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Its not in the statute itself in any case?",
       "time": "00:50:56.07"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there a provision of the Internal Revenue Code that says basis will not be increased that was a change that was made in the statute, not legislative history?",
       "time": "00:51:14.30"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Perhaps I will look for it. It's that real estate... I am sure that you must be familiar with it and I thought that in that statute itself those words appeared.",
       "time": "00:51:33.97"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Except that Section 61 of Title 26 says that income includes income from discharge of indebtedness. I mean that's a germinal provision.",
       "time": "00:52:02.94"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:52:16.09"
     },
@@ -1197,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So that is the normal rule.",
       "time": "00:52:18.79"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And it also says it does not include income from a lot of other things. I mean, as Justice Breyer was pointing out earlier, there are a lot of other things as to which it says the same thing. And all it means is that although gross income would normally mean this, for purposes of subchapter S, it will not mean that. But that does not mean... it is in the abstract, not income. I thought the argument you are making here--",
       "time": "00:52:35.48"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Was this some article in a law review you are talking about.",
       "time": "00:54:08.60"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In a treatise?",
       "time": "00:54:15.19"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How has the Court of Appeals come out on this issue?",
       "time": "00:54:19.73"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, I meant just the Court of Appeals. The Court or Appeals ruled for the government on this issue.",
       "time": "00:54:29.48"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Have other Court of Appeals ruled against the government on this point?",
       "time": "00:54:34.93"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In fact, no Court of Appeals has agreed with the government on this point, has it? Is there any Court of Appeals that has agreed with this argument?",
       "time": "00:55:05.32"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The answer is no.",
       "time": "00:55:19.70"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why didn't the government argue this in the other courts?",
       "time": "00:55:24.25"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Which you now disagree with?",
       "time": "00:55:35.51"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that can't be controlling. There's no reason to simply distort the tax code to avoid a wind fall in this particular case.",
       "time": "00:56:30.03"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let's assume the insolvent corporation... I'm sorry. What's the presumption you refer to.",
       "time": "00:57:02.43"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could it not end up being a double tax in the other direction? Let's assume an insolvent chapter S corporation that later recovers. All right. The taxpayer would never have gotten the increase of his basis that arises from this reduction of indebtedness and therefore could not offset against any future gain that he gets from the corporation. Is that fair?",
       "time": "00:57:18.01"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Than you, Mr. Jones. Mr. Hallett, you have two plus minutes.",
       "time": "00:58:17.05"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Hallett. The case is submitted.",
       "time": "01:00:20.04"
     }

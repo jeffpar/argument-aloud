@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2005/04-1477/20060117a_04-1477.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL T. KIRKPATRICK",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CARTER G. PHILLIPS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "JAMES A. FELDMAN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument next in Jones v. Flowers. Mr. Kirkpatrick.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Kirkpatrick, I don't recall what... what the rule is. Does notice have to be given by registered mail? Would it... would it be adequate notice in the... in the ordinary case to send notice by regular mail?",
       "time": "00:00:58.48"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but do we have a case that says that, you have to use registered mail?",
       "time": "00:01:42.98"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I didn't think we did. And it would seem to me that especially when you have the taxpayer's name and address on file, I doubt whether it would be a denial of due process to send notice by regular mail to that address. And if... if that satisfies due process, the State would never have known that it did not reach the individual.",
       "time": "00:01:48.15"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And it seems... it seems mean to punish the State for going the extra mile and sending the notice by registered mail because that informed them that it didn't reach him.",
       "time": "00:02:12.59"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why?",
       "time": "00:02:53.38"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In Mullane, it was regular mail. It wasn't certified mail. Right?",
       "time": "00:02:55.78"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And isn't it 100 percent clear that there were a number of those addressees who didn't get the letter?",
       "time": "00:03:02.05"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And yet, their answers were cut out by the decision, and the Court said that was okay.",
       "time": "00:03:12.86"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you have another factor here that wasn't present in Mullane; that is, the person who received notice has a statutory obligation to advise government of the current address. The people involved in Mullane had no such obligation to notify anybody of their current address.",
       "time": "00:03:59.66"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It wasn't the government in... in Mullane it wasn't the government.",
       "time": "00:04:32.98"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "How do... how do we... I mean, this was the problem I... I had with... with your... your brief here, and it's the same problem Justice Ginsburg has. What kind of weight, what significance do we give to this obligation to keep the government informed? On the face of it, it seems like a... an obligation that ought to get considerable weight. Everybody knows that if you own real estate, you've got to pay real estate taxes on it. You're going to have a hard time doing that if they don't know where to send the bill, and so on. So it seems like a very reasonable obligation for the government to put on you. What weight do we give that in... in the analysis?",
       "time": "00:04:40.93"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And then that would be so even if there were not affirmative obligation on the property owner.",
       "time": "00:05:38.79"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You'd say, well, if they... if they send the... the notice to the last address they had, or if they send it... since we're talking about real estate, maybe if they send it to the... to the property, nothing wrong with that. So that's kind of a wash.",
       "time": "00:05:44.28"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No. But I want to know what Mr.... I mean, it does not relieve it of some constitutional obligation, and we're trying to figure out what that is. And... and the point of my question is in figuring out what it is, what significance do we give to the affirmative obligation on the part of the property owner to keep the government informed of the address.",
       "time": "00:06:09.59"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right. Then... then it has no significance ever because the... the State has an obligation to use the best address it has, whether he's got an obligation to... to keep the address updated or not. And... and this is the... the tough point for me with your case. It seems to me that your case depends on our saying the obligation to keep the... the address current has absolutely no significance.",
       "time": "00:06:36.56"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And he also had a continuing obligation to inform the government of his address. One fact about this case that... perhaps it was in the record and I missed it. At the time the property was sold, how much did Mr. Jones owe, taking account of the back taxes, the interest, the penalties, all that?",
       "time": "00:08:36.23"
     },
@@ -251,31 +251,31 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How did they find him, by the way?",
       "time": "00:10:07.32"
     },
     {
       "turn": 36,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you tell me--",
       "time": "00:10:07.90"
     },
     {
       "turn": 37,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--how in your opinion?",
       "time": "00:10:08.13"
     },
     {
       "turn": 38,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Oh, excuse me.",
       "time": "00:10:08.96"
     },
     {
       "turn": 39,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How did they find him?",
       "time": "00:10:10.14"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. I'm not saying how did they? How in your opinion should the Post Office Department or the government have found him?",
       "time": "00:10:16.93"
     },
@@ -299,13 +299,13 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask--",
       "time": "00:10:46.62"
     },
     {
       "turn": 44,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So they find 13 people called Gary Jones or G. Jones in Little Rock. Now, what do they do?",
       "time": "00:10:46.85"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I interrupt with this question? Do you think all those steps were constitutionally mandated?",
       "time": "00:11:02.13"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What was constitutionally mandated in your view?",
       "time": "00:11:10.18"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you would not include posting on the... posting a notice on the house as constitutionally mandated.",
       "time": "00:11:22.44"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, they can... they can do--",
       "time": "00:11:35.49"
     },
@@ -365,7 +365,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--a lot things.",
       "time": "00:11:36.93"
     },
@@ -377,7 +377,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm trying to decide what they must do.",
       "time": "00:11:37.16"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would that be constitutionally sufficient if they posted a notice?",
       "time": "00:11:48.51"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, now so it would not be constitutionally sufficient if that's all they did.",
       "time": "00:11:59.39"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So what is the constitutional minimum that would be sufficient?",
       "time": "00:12:05.52"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would be decided on a case by case basis depending on the particular facts in the case.",
       "time": "00:12:15.94"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And your opponent argues very persuasively the mechanical rules are very important in this particular area of government business.",
       "time": "00:12:30.78"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But I take it in... in this case... I mean, I... you're probably right that it would have... it would have worked here, but I... I take it that in the absence of that... that hindsight, you would say that in... in the regular case that simply posting notice on the house, after the letter is returned, would not be enough, that the... that the posting on the house would be sufficient only if they had exhausted other efforts to get a better address so that in this case, going back to Justice Breyer's example, they... they'd have to follow up whatever it is, the 18 G. Joneses or Gary Joneses that they could find in the phone book before they could then fall back and resort to posting on the house. Is... do I understand you correctly?",
       "time": "00:13:18.09"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, the search of... the search of what? Just Little Rock or the State of Arkansas? What if this guy had moved to Chicago? They... he'd be out of luck under your approach then.",
       "time": "00:14:30.04"
     },
@@ -473,13 +473,13 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How many people--",
       "time": "00:14:59.65"
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does... does it follow from your argument that someone who purchases at a tax sale, before they conclude the purchase, should find out what the State has done?",
       "time": "00:15:00.08"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And the purchaser from that purchaser the same. In other words, if Flowers had sold to X, then X has to make the same inquiry because he sees I guess what, a quit claim deed or a tax sale. So before a purchaser can purchase from Flowers, that purchaser too must see whether or not they hired an outside agency and so forth.",
       "time": "00:15:17.77"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, isn't it required to do that under your title, if you're going to have your title set aside by Jones?",
       "time": "00:15:43.12"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, what about the purchaser from Jones? If... pardon me... from Flowers. If Flowers has spent the money, then that purchaser is out of luck.",
       "time": "00:15:59.38"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So one of the consequences of your rule is to devalue any property sold by the government because it is open to this kind of challenge for deficiency in title. So you've now devalued the property in the hands of the State.",
       "time": "00:16:24.49"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, Mr. Kirkpatrick? In Arkansas, is the tax... tax delinquency a matter of public record so a prospective purchaser would find it by making a title search?",
       "time": "00:16:55.67"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it could be revealed by a title search?",
       "time": "00:17:11.86"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Would this case come out differently? You know, if your client had an obligation to keep the State informed of... of his... his address so that they could send the tax bills to him, suppose the statute, in addition to simply reciting that obligation, said, and if the taxpayer does not keep the State advised of his current address, any notice mailed to the last address that he gave will suffice for all purposes.",
       "time": "00:17:30.22"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Suppose it said that explicitly. Would that... would that make this case come out differently?",
       "time": "00:18:10.92"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why? I mean, the State can punish people for not doing what the law tells them to do, and here the State is saying we tell you to keep us... you keep us advised of your... your address. If you don't, I guess we could throw you in jail for half a year, but we're not doing to do that. We're just going to say that... that your... your punishment for violating the law is that this kind of a notice will suffice.",
       "time": "00:18:17.02"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but there... no, but this is a consequence of violating the law of... of Arkansas. Certainly the State can impose consequences for violating its law.",
       "time": "00:18:52.09"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You know, and my next question is going to be, if you way it would come out differently, then isn't... isn't it sort of silly to make the State come on and say that? If they could do the same thing by simply reciting what's going to happen, why... why should we make them do that?",
       "time": "00:19:03.73"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could they fine him for not... could they fine him for not... for not keeping them advised of... of where... where his tax address is?",
       "time": "00:19:51.05"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They could. Right. Could they fine him... how much money did you lose here?",
       "time": "00:20:01.38"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could they fine him $70,000?",
       "time": "00:20:07.78"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's pretty harsh, but do you think this Court would strike it down?",
       "time": "00:20:11.58"
     },
@@ -671,13 +671,13 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You do.",
       "time": "00:20:15.26"
     },
     {
       "turn": 106,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I frankly don't see the difference between failing to keep the State advised as to your residence and failing to pay your taxes. He knew he had a duty to pay the taxes.",
       "time": "00:20:17.28"
     },
@@ -689,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And should not that figure into the analysis?",
       "time": "00:20:28.74"
     },
@@ -701,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, no, I understand that. But doesn't... he would know whether the taxes had been paid or not.",
       "time": "00:20:43.96"
     },
@@ -713,7 +713,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, this is a very unique fact situation. We're trying to announce a rule that will govern the typical transaction. And is it not true that typically the homeowner will know whether or not he's paid his taxes?",
       "time": "00:21:11.57"
     },
@@ -725,7 +725,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But he has to make mistakes for 2 or 3 years running before it's significant.",
       "time": "00:21:29.60"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but how long do the taxes have to be in arrears before they can send him a notice and start the proceeding running?",
       "time": "00:21:50.54"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Mr. Kirkpatrick, you distinguish Mullane. You recognize that a lot of the people never got that notice, and you said there were many people involved there, that you could rely on others. It's also how much of a burden are you going to put on the notice giver when you have a large class involved. There was a figure... and I forgot what the number was... of how many notices are... don't succeed in delivery.",
       "time": "00:22:37.39"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "His wife is living in the house?",
       "time": "00:23:41.54"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Were they divorced?",
       "time": "00:23:45.04"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So he owns the house. She doesn't. She must not pay any taxes, and she sees these letters coming from him registered and says, oh, they're his problem. That's basically what could have happened.",
       "time": "00:23:46.68"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If you have that kind of relationship with your wife, doesn't he have an obligation to watch what's going on?",
       "time": "00:24:02.24"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Did they leave a notice?",
       "time": "00:24:27.03"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Phillips, we'll hear from you.",
       "time": "00:26:07.26"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Maybe this day... in today's world, a registered letter is worse than ordinary mail. That is, I don't think... my understanding is that the post office, unlike FedEx and unlike UPS, if you're not home, they leave a... a notice, you know, and you check a box, and if you check the box, they'll leave it off the next day. We don't live in a... my wife isn't home. My wife works. And... and most wives no longer stay home to get the mail, and we don't all have butlers at the door. And you call up the post office. They say, oh... if you get through to a human being, which takes 15 minutes, after you go through the menu, they say, phone the post office branch. And they say go get in the car, find a parking place, get in the line, and there's half a morning gone. Now, why is that a reasonable way? Why can't they do what FedEx does? This is a world... husband works, wife works, two children are screaming. We've got to get them to the doctor. We have to have them at school. They have appointments all morning, and there's nobody home. So whatever they did with Mullane and said registered mail is fine, why isn't it unreasonable to use that system rather than use FedEx's system?",
       "time": "00:27:25.97"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, why not? It says calculated. It may be. Now, you tell me why it's so remarkable because I think I could take judicial notice of what life is like for most families in the world today, that they don't have butlers, et cetera.",
       "time": "00:28:46.14"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But--",
       "time": "00:29:11.40"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--But the whole point... at least I understand... of Justice Breyer's question is that you have taken a step to make it more difficult for the mail to get through by insisting that the person be there to sign for it, and it's obviously more likely than not he's not going to be there. And if you had just used regular mail and dropped it off, I think more likely he would have gotten it.",
       "time": "00:29:15.57"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No. The purpose of certified mail is to make sure you know if it didn't get to the person. And you knew that and then you didn't do anything about it.",
       "time": "00:29:39.59"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Wait. Let... let them do that. Fine. Just have a little box and the person signs and says, tomorrow leave it at the house, just like FedEx does. [Laughter]",
       "time": "00:30:11.73"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "This is the FedEx rule of due process.",
       "time": "00:30:26.57"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "This is the FedEx rule of due process. [Laughter]",
       "time": "00:30:29.24"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But is the Chief Justice not correct that ordinary mail is more apt to get to the destination than certified mail?",
       "time": "00:30:43.31"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But even if it's marginal--",
       "time": "00:30:53.14"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--the... the principal purpose of the certified mail is to let the sender know whether or not the notice was received. It would seem that a State that decides to... to make it necessary in every case to find that answer should have some... some purpose in doing so and... and, therefore, some follow up that would occur when it's not delivered.",
       "time": "00:30:54.79"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but you also know that nobody got the notice. If nobody signed for it and took it, nobody read the letter.",
       "time": "00:31:28.33"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, you would know that the letter was not opened and read by the addressee.",
       "time": "00:31:39.76"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if it isn't opened and read--",
       "time": "00:31:48.24"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--if it isn't opened and read, they didn't get notice. They didn't get actual notice.",
       "time": "00:31:49.11"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask one other question I intended to ask your opponent? How many States have rules that require something more?",
       "time": "00:31:58.94"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Including... including Arkansas. Didn't Arkansas change its law so now it requires if you... if it's unclaimed, they have to do personal service?",
       "time": "00:32:20.09"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This taxpayer, though--",
       "time": "00:32:35.15"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--This taxpayer... even though he failed to give notice of his current address, this taxpayer would be entitled under the current statute to personal service.",
       "time": "00:32:37.23"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought he still lived in--",
       "time": "00:33:00.96"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--I thought he still lived in Arkansas.",
       "time": "00:33:01.73"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Homestead.",
       "time": "00:33:07.28"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I see.",
       "time": "00:33:09.69"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Right.",
       "time": "00:33:12.73"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, counsel, one thing you did... your client did was provide notice by publication in a local newspaper.",
       "time": "00:33:31.28"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Why do you bother doing that?",
       "time": "00:33:37.73"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You don't... you don't rely on that as in any way discharging your constitutional obligation to provide notice to the... to the homeowner.",
       "time": "00:33:53.30"
     },
@@ -1157,13 +1157,13 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "See what you think of this. If in fact the letter--",
       "time": "00:34:46.34"
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What would you think of a rule that said--",
       "time": "00:34:47.73"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--What would you think of a rule that said if you use certified mail and it returns uncollected, the additional step you must take, you just send ordinary mail?",
       "time": "00:34:49.88"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--No, we skip that. What about... you know, I was thinking precisely the same, but just with slightly... if you get the letter back and you don't have the FedEx rule, you either have to have the FedEx rule or send a letter.",
       "time": "00:35:49.01"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, because the purpose is to get reasonably calculated to get notice, and in the world today, there are an awful lot of houses where nobody is home, you know, and there's no convenient way for them to go to the post office without giving up a certain amount of work. And so they say, forget it. If it comes from the lands division or something, who cares? Now, that... I don't know how you'd know how many there are like that, but it's a question of reasonable calculation now to get the mail through.",
       "time": "00:36:05.78"
     },
@@ -1211,13 +1211,13 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is it a tiny minority--",
       "time": "00:36:44.76"
     },
     {
       "turn": 196,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not even sure it protects that minority. I think there are a lot of people who won't be home when the... when the postman comes with the... with the registered letter, but there are very few who... who won't take the trouble to... to pick it up. I mean, it may be--",
       "time": "00:36:46.10"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Can--",
       "time": "00:37:21.64"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--But isn't there a second purpose for... for sending it certified mail? And that is, it assures that it doesn't get lost. I think they track it closer. They can tell you where the letter is. I think each post office has to record that they've received it and so forth.",
       "time": "00:37:30.18"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Whereas if you just sent it regular mail, it may have been lost.",
       "time": "00:37:44.66"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This... this assures that it reaches the destination.",
       "time": "00:37:48.84"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose... suppose we had a case where the homeowner has kept the Lands Commissioner informed of her current address, does everything she was supposed to do except at the time this notice, certified mail notice... at the time of the delivery attempt, she's hospitalized having a quadruple bypass, so she never gets it. And then what... what are the consequences of that?",
       "time": "00:37:52.46"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But your--",
       "time": "00:39:32.10"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--But your... your position is, though, when you've got the certified letter returned is you have no obligation to do anything further.",
       "time": "00:39:38.55"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it seems to me that even you might not have an obligation, it seemed to me you would have a motivation to do more because you want to collect your taxes.",
       "time": "00:39:56.22"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which is sort of puzzling to me as why the States don't have a... an affirmative interest in providing the best notice that they can.",
       "time": "00:40:03.07"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Is it of any--",
       "time": "00:41:20.70"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Is it of any relevance to consider the burden or the obligations that this rule that petitioners advocate place on downstream purchasers?",
       "time": "00:41:22.41"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Oh, you would get the whole... you'd just get a little bit less because the cost of notice is borne by the purchaser and if they have to do a Google search or use one of these other services, it's going to add a little bit more to their cost, and you're just going to get a little bit less. It's not going to interfere with the administration of the program.",
       "time": "00:41:53.60"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "For getting the property--",
       "time": "00:42:16.32"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--for getting the property in this case, we're at 20 percent of its market value. It's... it's worth another $500 to you.",
       "time": "00:42:18.94"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, no, no. That's... Mr. Phillips, property bought at... at delinquent tax sales is usually bought at far less than its market value.",
       "time": "00:43:05.06"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Your... your friend said that the $80,000 comes from the fact that it... at the... at the auction, it... the opening bid is one quarter of the fair market value. He said something like that.",
       "time": "00:43:42.60"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well... well, was the opening bid $20,000? So it was at least one quarter of the--",
       "time": "00:44:02.58"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I see.",
       "time": "00:44:08.98"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And the $20,000 would have been a permissible bid even if the market value was $40,000.",
       "time": "00:44:15.91"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Would your argument be any different if there weren't a statutory obligation to keep the government informed of the... of one's mailing address?",
       "time": "00:44:23.85"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But it seems to me unrealistic to assume that the average citizen would know that duty more clearly than he'd know the duty to pay his taxes.",
       "time": "00:44:56.99"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is there a provision of Arkansas law that if in fact they do track down the property owner and he is at an address different from the last address that he had given, that the expense of tracking him down may be charged to him, along with the delinquent taxes, penalties, and so on?",
       "time": "00:45:20.64"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So in practice the answer is no?",
       "time": "00:45:54.87"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Phillips. Mr. Feldman.",
       "time": "00:46:02.42"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, but redeliver... you have to be there to sign for it again.",
       "time": "00:46:52.62"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Well, then... then the problem--",
       "time": "00:46:57.00"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I'm thinking... what I'm thinking is that where... where you're trying to reach a person, the means has to be reasonably calculated. I'm simply saying a means today is not reasonably calculated to reach the average person unless it gives him the choice of getting it when he's not home. All right? Now, there are two ways that could happen. One, you could modify that form or, second, the simple rule would be if it comes back undelivered, mail them a letter.",
       "time": "00:46:59.53"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I didn't say all that.",
       "time": "00:47:57.49"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I said do either. What I... what I was thinking of, which isn't clearly I think coming across, is send it certified mail, by all means. Fine. He either has to sign and say, leave it off tomorrow, I'm not home, or if the post office doesn't make that available, then if the letter comes back undelivered, the person who's trying to send him notice has to send him an ordinary letter.",
       "time": "00:47:59.17"
     },
@@ -1577,7 +1577,7 @@
     },
     {
       "turn": 256,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Of course, none of this would have been sufficient if we were talking about your... your client, the IRS. They do far more extensive effort to find the individual before they sell property for delinquent taxes.",
       "time": "00:49:27.13"
     },
@@ -1589,7 +1589,7 @@
     },
     {
       "turn": 258,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, which way is that... I mean, the fact that he tried six times and he wasn't there should have told the State this isn't working.",
       "time": "00:50:44.91"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, but your position is they don't have to do anything.",
       "time": "00:52:15.01"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, Mullane said that we look to what a person who really wanted to find the person would do. A person who really wanted to find Mr. Jones and got the certified letter back saying, nobody is claiming this, would have done something more.",
       "time": "00:52:47.24"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 264,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Which... which you agree does no good at all. Right?",
       "time": "00:53:51.19"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 266,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "When is the last time you read legal notices in a newspaper?",
       "time": "00:53:57.07"
     },
@@ -1649,7 +1649,7 @@
     },
     {
       "turn": 268,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Have you ever done it?",
       "time": "00:54:01.98"
     },
@@ -1661,7 +1661,7 @@
     },
     {
       "turn": 270,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No. [Laughter]",
       "time": "00:54:05.85"
     },
@@ -1673,7 +1673,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I think a lot of people who buy property at tax sales do read those notices regularly.",
       "time": "00:54:09.74"
     },
@@ -1685,7 +1685,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But Mullane, as Mr. Kirkpatrick pointed out, involved masses of people. This was a common trust fund, and the reliance was on that a goodly number of them would get notice and they were kind of stand ins for the ones who didn't. But here, we're dealing with a single individual.",
       "time": "00:55:04.04"
     },
@@ -1697,7 +1697,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why isn't... why isn't the simple answer to that concern to say, look, there's no way to tell in advance or, you know, by any general rule, at least not legislatively, how far they've got to go to try to find the correct address, but they know where the house is and they've got at that point to go to the house and put a notice on the door? That's simple, easy. Why... why isn't that the answer?",
       "time": "00:56:00.54"
     },
@@ -1709,7 +1709,7 @@
     },
     {
       "turn": 278,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Sure.",
       "time": "00:56:23.87"
     },
@@ -1721,7 +1721,7 @@
     },
     {
       "turn": 280,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Feldman. Mr. Kirkpatrick, you have 4 minutes remaining.",
       "time": "00:56:55.02"
     },
@@ -1733,7 +1733,7 @@
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "With... with respect to the fact that your client did not alert the State to its change of address, is there anything in the record about whether that his separation was permanent or is that a gradual thing? I mean, did he not know if this was a permanent change of address or what?",
       "time": "00:58:48.59"
     },
@@ -1745,7 +1745,7 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You may finish.",
       "time": "01:01:02.82"
     },
@@ -1757,7 +1757,7 @@
     },
     {
       "turn": 286,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:01:10.93"
     }

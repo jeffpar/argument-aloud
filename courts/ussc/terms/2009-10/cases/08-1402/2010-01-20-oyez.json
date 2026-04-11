@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2009/08-1402/20100120a_08-1402.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "B. ERIC RESTUCCIA",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JAMES STERLING LAWRENCE",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in Case 08-1402, Berghuis v. Smith. Mr. Restuccia.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The -- I don't know if this is relevant or how to use it, but years ago, I took a course in this kind of thing at the Kennedy School. I was teaching, and they said the only way you could figure out what -- what's what here is you use something called 1,000 balls, and 60 of them are red, and 940 are black, and then you select them at random, and -- and 12 at a time. You know, fill 12 -- fill a hundred with 12 in each. And when we tried to do that, just for the interest of it, I -- I found that you would expect, with these numbers, something like a third to a half of juries would have at least one black person on it. Now, that may be wrong, because I am not a mathematician, but -- but putting that together, it looks as if there is a pretty big disparity.",
       "time": "00:01:59.73"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "On the other hand, that isn't what they testified to, so I guess you're going to tell me just ignore it and forget it.",
       "time": "00:02:55.63"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, you know, maybe it's the only way to do it, that the statistician stays with these urns, which I guess they have computer programs for.",
       "time": "00:03:13.91"
     },
@@ -95,25 +95,25 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I -- I don't know, in other words, and maybe I should just -- I hate to write something, like, saying 2 and 2 is 6.",
       "time": "00:03:23.38"
     },
     {
       "turn": 10,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But we don't have any urns here. [Laughter]",
       "time": "00:03:30.72"
     },
     {
       "turn": 11,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. You can skip it, if you want. If there's any comment, fine.",
       "time": "00:03:33.95"
     },
     {
       "turn": 12,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I think your point was that Duren was quite different in the numbers--",
       "time": "00:03:37.95"
     },
@@ -125,7 +125,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--starting out with women 54 percent of the population, and then dwindled to 14.5 percent of the -- of the jurors, available jurors.",
       "time": "00:03:43.62"
     },
@@ -137,7 +137,7 @@
     },
     {
       "turn": 16,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I guess the point is, just following up, it's not that you're going to say 2 plus 2 is 6. I suppose, under AEDPA, all you have to do is say 2 plus 2 is somewhere between 3 and 5, right?",
       "time": "00:03:58.05"
     },
@@ -149,7 +149,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I interrupt with this question that goes both to what Justice Ginsburg asked and the other? Should we treat all areas the same, depending -- say it's -- the disparity between a jurisdiction which has only 3 or 4 percent of a minority should be treated similarly to a jurisdiction where they have 30 or 40 percent?",
       "time": "00:04:35.81"
     },
@@ -161,7 +161,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't it perfectly obvious that you're going to have dramatic differences where you only have a very small percentage, as in -- in Grand Rapids, for example, and where you have a major percentage as you did in Duren.",
       "time": "00:05:10.35"
     },
@@ -173,7 +173,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But -- but I suppose the thrust of Justice Stevens's question was that if you have a very small population that we are concerned with, then the disparity can be very substantial, especially if you use the comparative disparity.",
       "time": "00:05:45.71"
     },
@@ -185,7 +185,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And I think -- at least, I was interested in that aspect of his question.",
       "time": "00:06:00.98"
     },
@@ -197,7 +197,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes, but we have a halfhour. I'd kind of like to know how to--",
       "time": "00:06:18.17"
     },
@@ -209,7 +209,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you -- but your test is 10 percent. And if you have a minority, what is it here? 7 point -- whatever it is. 7--",
       "time": "00:06:37.67"
     },
@@ -221,7 +221,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--It's under 10 percent. That would mean that a district is free to just disregard all the people who are under 10 percent of the population.",
       "time": "00:06:47.65"
     },
@@ -233,7 +233,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You would suggest that in a population that has 9 percent of any group, protected group, that if they didn't have one person serve on a jury per year of that group, that that would not -- under an absolute disparity test using the 10 percent figure, that would not give rise to any kind of suspicion?",
       "time": "00:07:13.40"
     },
@@ -245,7 +245,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "It would not meet the Duren's second prong.",
       "time": "00:07:39.25"
     },
@@ -257,7 +257,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Does that make any sense to you?",
       "time": "00:07:42.54"
     },
@@ -269,7 +269,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, I don't think that -- that any court has suggested that the complete absence of the protected group in that kind of number wouldn't give rise to a fair representation claim. That's why this Court, the Michigan court, and many others have said that the absolute disparity test just can't be used in every circumstance.",
       "time": "00:07:48.68"
     },
@@ -281,7 +281,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I don't. The question I have you for you is -- that's what you have been advocating, or at least your brief suggested we should. Wouldn't it be better for to us leave this in the hands of the courts to sort of figure out what test is better under what circumstances than us announce a flat rule that would lead to a result like the example that I just used?",
       "time": "00:08:24.18"
     },
@@ -293,7 +293,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, I agree that if a protected group is 1 percent of the population, that it's not likely that their absence is going to give rise to any flags.",
       "time": "00:09:05.32"
     },
@@ -305,7 +305,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But I think there is a difference. I don't -- I just don't know statistically where. And we have to leave this in the judgment of the lower courts as to where between 1 and 9 or 1 and 10 a difference makes sense. And that's what the courts are saying, is: We can't use one test to determine that.",
       "time": "00:09:14.47"
     },
@@ -317,7 +317,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's wrong--",
       "time": "00:10:21.49"
     },
@@ -329,7 +329,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Yes. What's wrong with a rule?",
       "time": "00:10:22.47"
     },
@@ -341,7 +341,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "With a rule? With picking a number, rather than leaving it up to the courts of appeals or the district courts to use different numbers, different times? I don't have to review all of these cases all the time. Why don't we pick a number? You want 10, right?",
       "time": "00:10:25.45"
     },
@@ -353,7 +353,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes--",
       "time": "00:10:41.90"
     },
@@ -365,19 +365,19 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I don't know. The one thing I learned from the urn business is it never turns out the way you think. [Laughter] For example, it had the example of, like, the eight: There are eight out of a hundred, and you run this thing a thousand times, and you'll discover that there is one black juror on about half the juries, or a third, anyway. That's much more than I would have thought intuitively. And I might not have even read the example correctly. So you see why I -- I'm at sea, as soon as you tell me to be a statistician. I even got a book called Statistician for Lawyers. That didn't help me very much.",
       "time": "00:11:26.51"
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That's why Las Vegas makes a profit, right? [Laughter]",
       "time": "00:12:05.65"
     },
     {
       "turn": 56,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, it does depend, doesn't it, on the size of the -- the urn? In other words, if it's a smaller-- [Laughter] If it's 10,000 of these balls and you are going to go through it 10,000 times, it's more likely that you are going to get a sample that reflects the overall percentage, correct?",
       "time": "00:12:11.16"
     },
@@ -389,7 +389,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Are you -- are you saying that systematic exclusion -- and we are assuming good faith, no intent to discriminate--",
       "time": "00:13:10.20"
     },
@@ -401,7 +401,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--that systematic exclusion is always proven or disproven by statistics?",
       "time": "00:13:16.59"
     },
@@ -413,7 +413,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well--",
       "time": "00:13:27.74"
     },
@@ -425,7 +425,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--And I'll -- I'll allow you to answer, of course, but--",
       "time": "00:13:29.25"
     },
@@ -437,7 +437,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--If not, how do we show systematic exclusion? Again, assuming good faith, no intent to discriminate.",
       "time": "00:13:31.16"
     },
@@ -449,7 +449,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "The statistical issue is very interesting, but I -- I wonder, if we were not looking at this through AEDPA, why we -- why a court should necessarily have to start with the question -- with the elements of the prima facie -- with the question of whether there is unconstitutional underrepresentation, when in the end, as I understand Duren, the defendant has to identify some aspect of the jury selection process that has a disproportionate impact on the group involved and is unreasonable? And unless that can be done at the outset, why struggle with these statistics? Now, here, to illustrate, the aspect of the jury selection process that the Sixth Circuit thought was unreasonable was the prior practice of choosing the jurors first for the district courts, the misdemeanor courts, rather than the circuit courts, the -- the felony courts. But the -- the trial judge, it seemed to me, address this in -- in a very thoughtful way, and he said there just isn't any proof that this old system had that effect. And it's hard for me to see how it could have that effect, unless the -- the number of jurors chosen for the district courts in Grand Rapids was disproportionate to the number chosen for the district courts in the other jurisdictions within the county. So that seems to me to be the end of the case. And why does it make sense to -- to struggle with this rather complicated statistical problem, if at the end of the day, it's going to come down to something of that nature?",
       "time": "00:14:05.05"
     },
@@ -461,7 +461,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Didn't the Michigan Supreme Court do essentially what Justice Alito suggested, that they said: We'll give you the benefit of the doubt, go on to the third. But on that third, it seems to me there's nothing that shows us what was the representation in the district before they made the change vis-à-vis the circuit courts, was there?",
       "time": "00:15:58.90"
     },
@@ -473,7 +473,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That -- that's in the -- in the circuit court. Do we know what the figures were just for the district court?",
       "time": "00:17:46.18"
     },
@@ -485,7 +485,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But isn't it possible -- it's awfully hard to get these percentages when you get small numbers, as you do. But doesn't it seem intuitively obvious that if you give the district courts first crack of -- of the size of the pool that has more of the African-American potential jurors in it than the other, that it's -- it's bound to have an impact?",
       "time": "00:18:33.31"
     },
@@ -497,7 +497,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:19:03.80"
     },
@@ -509,7 +509,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But -- but there's a much higher percentage of African-Americans in Grand Rapids than there is in the county as a whole.",
       "time": "00:19:07.22"
     },
@@ -521,7 +521,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But -- but the jurors that served on the district court, were they -- were they taken from the entire county, too, or just from Grand Rapids?",
       "time": "00:19:32.87"
     },
@@ -533,7 +533,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the district court jurors could -- could include as many jurors who are not from Grand Rapids as they could from Grand Rapids?",
       "time": "00:19:46.81"
     },
@@ -545,7 +545,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:19:53.21"
     },
@@ -557,7 +557,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry. That -- I'm confused.",
       "time": "00:19:54.73"
     },
@@ -569,7 +569,7 @@
     },
     {
       "turn": 88,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I thought it was the other way around. I thought Grand Rapids gave however many -- you know, 30 percent to the pool and then took Grand Rapids people back?",
       "time": "00:19:56.59"
     },
@@ -581,7 +581,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I -- apparently, we were not communicating correctly.",
       "time": "00:20:15.72"
     },
@@ -593,7 +593,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:20:21.42"
     },
@@ -605,7 +605,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the--",
       "time": "00:20:28.04"
     },
@@ -617,7 +617,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--So the jurors who served on the district court were primarily from Grand Rapids, rather than Kent County as a whole?",
       "time": "00:20:29.38"
     },
@@ -629,7 +629,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me just ask you--",
       "time": "00:20:43.32"
     },
@@ -641,7 +641,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--a factual question. Could they put on the district court jurors who did not come from Grand Rapids?",
       "time": "00:20:44.45"
     },
@@ -653,7 +653,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, then, inevitably, if you give the district court jurors first, a pool of African-American jurors are going to be larger serving in the district court than in the -- in the felony court.",
       "time": "00:20:55.65"
     },
@@ -665,7 +665,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. So, is there anybody who said whether -- if all -- they all take their jurors first, the districts, and Grand Rapids uses a higher percentage of jurors. So now there -- and they have more of the black jurors, so that there are fewer left over--",
       "time": "00:21:29.38"
     },
@@ -677,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--That could be. Now, is there any -- in this record, does anybody say whether that's okay or not? I mean, to -- to have people serve jury duty near where they live or nearer where they live, on its face, is not so bad. Did -- did anybody say whether this is good or bad?",
       "time": "00:21:43.76"
     },
@@ -689,13 +689,13 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Are you--",
       "time": "00:22:22.13"
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do you have to be a -- a resident of the district in order to serve as a juror in the district court?",
       "time": "00:22:22.68"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You have to be?",
       "time": "00:22:29.19"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So then if this system were not in effect, and if Grand Rapids had to take white jurors from other counties as opposed to a larger percentage of black jurors from Grand Rapids, then you'd have a claim in Grand Rapids, wouldn't you?",
       "time": "00:22:30.69"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you -- you'd have a jury pool in Grand Rapids that wouldn't reflect the larger number of blacks in Grand Rapids.",
       "time": "00:22:48.40"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you're damned if you do and damned if you don't, right?",
       "time": "00:22:55.41"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So -- so do we have any evidence in the record that -- I gather this whole claim depends upon Grand Rapids having more need for jurors per capita than anywhere else?",
       "time": "00:22:58.18"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So do we have any evidence in the record that that's the case?",
       "time": "00:23:09.85"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I would suppose that's something we can find out pretty easily, right? I mean, you look and see how many jurors are pulled for -- how many jurors Grand Rapids needs in a particular period--",
       "time": "00:23:25.14"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--compare it to how many jurors Rockland needs.",
       "time": "00:23:35.10"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Let me get that. If -- if a procedure routinely results in statistical underrepresentation that is significant, is that not a clear showing of systematic exclusion?",
       "time": "00:23:59.11"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, yes -- no, that's -- it's a hypothetical.",
       "time": "00:24:17.74"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Routinely results in significant underrepresentation, then that is automatically systematic exclusion?",
       "time": "00:24:20.88"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And then they would not have -- have gone on to the systemic issue, because the disparity was so marked, just on the -- just on the numbers?",
       "time": "00:24:32.55"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I mean, isn't the -- I'm trying to think about the third prong of -- of--",
       "time": "00:24:45.81"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--of Duren. Isn't -- if it's routine and it's predictable and it's constant, isn't that always due to systematic exclusion?",
       "time": "00:24:49.29"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But concluding that it's systematic doesn't mean that the defendant wins. It just means that the State has to -- has to justify the -- the mechanism that's causing -- that's causing this -- this situation.",
       "time": "00:26:48.57"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "One point of information: What is the Michigan ID?",
       "time": "00:27:39.29"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask this factual question: Am I correct in understanding that Michigan in fact has changed the practice with regard to giving priority to--",
       "time": "00:27:56.01"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Yes.",
       "time": "00:28:03.01"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Lawrence.",
       "time": "00:28:04.10"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "If you had a community with one African-American, your argument would be the same, if that's the disparity? That means every -- every minority is left off the jury.",
       "time": "00:28:45.34"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I guess I'm -- I guess I'm echoing Justice Stevens's question of whether or not this type of statistical analysis really works when you're dealing with relatively small numbers.",
       "time": "00:29:17.13"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, but there you were dealing with an express exemption. There was an exemption for a woman, and also in the record was that the jury clerk was sending out notices saying: Women, if you do not wish to serve, return the summons to the judge named on the reverse side as quickly as possible. And then, further -- systematic -- if the card was not returned, if a card sent to a woman was not returned, it was automatically assumed that she did not wish to serve. There was no follow-up. So there was all kinds of evidence of systematic problems in Duren that are not present here.",
       "time": "00:29:55.95"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where did the Court say that?",
       "time": "00:30:50.99"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. You -- if that statement is true, then -- then there is -- there's no third part to the three-part test. I thought Duren established a three-part test.",
       "time": "00:31:09.92"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the third one was that you had to establish -- after having already established the disparity, you had to establish that there was a selection process which caused the disparity. And you are telling us that you don't have to proceed to step 3. Once you show the disparity, it is assumed that it is the product of the system.",
       "time": "00:31:21.27"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Oh, that was after -- that was after showing the systematic factors. It was the plaintiff's burden -- or the defendant in the case, Duren -- burden to show there was a systematic factor. That was the automatic exception for a woman and how it worked in practice. After all of that, then Justice White tells us, the State could still come back and say yes, that's true, but there were other reasons why women didn't show up. Maybe they were disproportionately elderly, or maybe they were involved with child care. That's what -- that's what Duren said, that the -- showing a systematic factor was the plaintiff's burden, and then the State could justify why the numbers came out that way.",
       "time": "00:32:11.17"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How do you reconcile that with the third test? Please tell me how you reconcile that statement with the fact that it did set forth a three -- a three-prong test.",
       "time": "00:33:26.72"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where does it say that?",
       "time": "00:33:53.52"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Where does it say that?",
       "time": "00:33:54.92"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "It says that the State has to show that it has a reason, a good reason, for -- the aspect of the selection process that has been identified as causing the disparity. But does it say that it's the State's obligation to go through every factor that may cause the disparity and justify every one? Or is it the defendant's obligation to point to some aspect of the selection -- of the -- of the system that causes the disparity? Then once the defendant identifies that, then the State can show if it -- can try to show that there's a good reason for it.",
       "time": "00:34:08.09"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Do I understand your siphoning theory to depend upon Grand Rapids drawing a disproportionate number of jurors from the pool?",
       "time": "00:35:20.56"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That results in fewer minorities going up to the county court, right?",
       "time": "00:35:32.73"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Removed from the county--",
       "time": "00:35:47.63"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Where -- where in the record is it established that Grand Rapids had a disproportionate need for jurors from the pool?",
       "time": "00:35:49.38"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, if it's -- if your theory depends upon Grand Rapids drawing a disproportionate number and it is not in the record that Grand Rapids drew a disproportionate number, I think that means you lose.",
       "time": "00:36:01.23"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But that's the only factor that the Sixth Circuit identified as illegitimate, was this -- was this siphoning system.",
       "time": "00:36:48.73"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "It rejected everything else, didn't it?",
       "time": "00:36:58.97"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, why is it -- I'm just not clear in my mind. Why is this siphoning bad? My impression, which may be wrong, is you -- you have a thousand people in the room, let's say, and if you let the district courts choose first, people will serve nearer where they live. Now -- and so most of them would rather serve nearer where they live. And the result of that could be, for the reasons that were stated, that then there are fewer minorities on the more general jurors that draw from a wider area, and I don't know about the merits of that. I mean, I see a negative, and I see a positive. So is it -- it doesn't seem to me obviously bad, nor is it obviously good. So what should I do?",
       "time": "00:37:10.16"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right.",
       "time": "00:37:54.11"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, but -- but that's just the explanation of the problem that we're seeing.",
       "time": "00:38:10.81"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The problem we're seeing is that if Grand Rapids has a higher juror utilization rate and they have a higher minority population, then you will end up with the leftover juries having a lower minority population. Now, the explanation for that is that you choose the district judges -- you choose the district jurors first. My question to you is: I -- if you're just a -- I'm not instructed in this area. If you were just to tell me, what do I think of that, I would say I'm not sure. I think you have fewer minorities, that's true, but people get to serve closer to home. Now -- now, can you enlighten me a little bit about this?",
       "time": "00:38:14.71"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Of course. Of course, but we have to look at this on a proportional basis, right? Grand Rapids is also sending a higher number of jurors to the pool than -- than the small rural county.",
       "time": "00:39:21.96"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Your -- your theory depends upon Grand Rapids drawing not just a proportional number, if it's contributing 30 percent and it draws 30 percent; your theory depends upon Grand Rapids contributing 30 percent to the pool and drawing 40 percent.",
       "time": "00:39:32.91"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And so, what -- what did it result in? It resulted over a 6-month period and a difference between 18 percent underrepresentation and 15 percent. And your adversary says that's not statistically meaningful difference, that 3 percent, because it only takes a difference of a couple of people to change it from 18 to 15.",
       "time": "00:40:18.49"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What's -- what's unreasonable about that argument?",
       "time": "00:40:42.08"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You can't -- you are comparing apples and oranges, because your pre-spike was over a year and your post-spike was over 6 months. We don't know what would have happened -- or didn't have statistics of a year or longer.",
       "time": "00:41:04.65"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, I wouldn't say that, but I still haven't -- I will try again. Forget the cases. As I'm hearing this, all I'm hearing is: Well, if you let the -- if you say that the wider area should choose first, you will get a higher number of minorities, but very tiny number; I mean a very small addition, one or two people. And if you do it the way they're doing it, you'll lose those one or two people, but you will let people serve closer to home. So I just think -- as a person, not as a judge -- that's why I am letting you answer it as a judge -- but I mean, I'd say, well, it doesn't sound like much of a big deal. And -- and I do see an advantage in this, of the way they are doing it, so, now, you tell me what's -- what's wrong with that?",
       "time": "00:41:59.15"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How is that? Don't those people then have to become professional jurors? They have to serve on every jury, or you're going to have the disproportion that the statistics show.",
       "time": "00:43:32.87"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May I stop you there for a moment? Because one of the things that was in the Duren opinion was that a child care excuse would be okay. I think Justice White said at the end, now, I'm not touching the typical hardship excuses, and one of them was child care, and that is -- certainly, in the early '70s, was going to disproportionately affect women. You have far fewer women if you give a child care exemption.",
       "time": "00:44:36.88"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But this -- he wasn't talking about individual cases.",
       "time": "00:45:18.94"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me just--",
       "time": "00:46:02.38"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Let me make sure I understand your position. Assume that there is an -- an identifiable disparity of 2 percent or 3 percent, or whatever it might be to get to the threshold of being significant, that's entirely caused by the fact that the members of the minority have personal excuses that justify non-service. What do you do with that case? Do you find that it was -- it's unconstitutional, or don't you?",
       "time": "00:46:06.01"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It is. It's assuming--",
       "time": "00:46:37.89"
     },
@@ -1343,13 +1343,13 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I didn't--",
       "time": "00:46:48.66"
     },
     {
       "turn": 218,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, that's policy. Can't you say that that is systematic exclusion because it's part of the system?",
       "time": "00:46:49.02"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But is it unconstitutional, is what I'm trying to find out. Society benefits because -- if you make them serve; the society benefits if you grant the excuses, too.",
       "time": "00:46:54.63"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there -- is there a Federal district that corresponds to this Kent County? Is there a Federal district court that would be calling jurors in -- in the same geographical area?",
       "time": "00:47:32.32"
     },
@@ -1385,7 +1385,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you don't have -- you don't have comparable -- comparable records for what was going on in the -- in the district court?",
       "time": "00:48:17.63"
     },
@@ -1397,7 +1397,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:48:30.20"
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Are there -- are there courts that you know of that do what you are suggesting needs to be done? When a juror does not show up, the judge issues a bench warrant, and -- and the police are sent out to arrest the person and drag the person into court, or somebody says, I am a single parent, and I have children, and I'm too poor to have a nanny or an au pair, and, therefore, please excuse me; and they say, no, you have to find some way of getting here. Are there courts that do that?",
       "time": "00:48:34.93"
     },
@@ -1421,7 +1421,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Sterling, I don't -- you seem to acknowledge that, to make your case, you have to show that Grand Rapids district drew from the pool a disproportionate number of people. Why -- why do you have to prove that? If Grand Rapids contributes to the pool an inordinate, disproportionate number of the minority -- blacks in this case -- even if Grand Rapids simply took back a proportionate number from the pool, it would still have a disproportionate effect on reducing the number of blacks in the overall pool, wouldn't it?",
       "time": "00:49:26.25"
     },
@@ -1433,7 +1433,7 @@
     },
     {
       "turn": 232,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Your answer to Justice Scalia's question is -- is no, right? Because the idea is, if Grand Rapids sends up a pool that's 30 percent minority and if it takes back the same number as everybody else, it's going to get -- the county is going to get the same proportion. It's only when they take back more. They have the more heavily African-American pool, and they are going to draw from it more than everybody else is drawing from theirs, so there will be fewer African -- Americans to go to the county.",
       "time": "00:50:38.72"
     },
@@ -1445,7 +1445,7 @@
     },
     {
       "turn": 234,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But you have no evidence that Grand Rapids takes back more than its share, proportionally, than anybody else.",
       "time": "00:51:12.78"
     },
@@ -1457,7 +1457,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "At the county level?",
       "time": "00:51:31.76"
     },
@@ -1469,7 +1469,7 @@
     },
     {
       "turn": 238,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes. Was there any evidence that your venire -- that minorities were underrepresented on your venire?",
       "time": "00:51:33.56"
     },
@@ -1481,7 +1481,7 @@
     },
     {
       "turn": 240,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Where is that in the record?",
       "time": "00:51:40.65"
     },
@@ -1493,7 +1493,7 @@
     },
     {
       "turn": 242,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Help me--",
       "time": "00:52:19.82"
     },
@@ -1505,7 +1505,7 @@
     },
     {
       "turn": 244,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Help me -- help me with the math. If there were one more African -- American, what would the percentage be? Pretty close to what you're saying it should be, right?",
       "time": "00:52:22.60"
     },
@@ -1517,7 +1517,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Can we go back to your point about -- that there was a big change when the draw came from the circuit first, before the districts. I thought it was agreed that, before, there was an 18 percent, on average, comparative difference and, after, 15 percent. That doesn't sound like a big change.",
       "time": "00:52:57.74"
     },
@@ -1529,7 +1529,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But a step -- a step in the right direction is not enough. You were adducing that to prove that the prior system had a significant effect, and it turned out, it didn't have a very significant effect. It doesn't prove your point to say, well, it's a step in the right direction. If it's insignificant, it's insignificant. Whether it's insignificant in the right direction or the wrong direction doesn't matter.",
       "time": "00:53:38.05"
     },
@@ -1541,7 +1541,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I still don't -- I don't understand this problem of -- of you have to show that they took back more than they contributed. Let's assume that Grand Rapids is -- is entirely black, and its entire delegation that goes to the pool are all black, okay? And let's assume that those blacks are 10 percent of the -- the totality, and there are no blacks from anywhere else, okay? Then Grand Rapids takes back simply the number of people it -- it took, its set, which would be 10 percent, and it takes black -- takes back all of the blacks, who are the Grand Rapids residents. All of the other districts would thereby have zero percent blacks instead of 10 percent, which is what they ought to have.",
       "time": "00:54:19.55"
     },
@@ -1553,7 +1553,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Exactly.",
       "time": "00:55:20.15"
     },
@@ -1565,7 +1565,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Exactly. So why expect the other districts to have 10 percent blacks simply because Grand Rapids contributed 10 percent of the totality, all of whom were black? There -- then there's a requirement for each district to have 10 percent blacks, right? But if Grand Rapids takes back its -- its -- the people it sent, there are no more blacks left to go around.",
       "time": "00:55:24.14"
     },
@@ -1577,19 +1577,19 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Isn't that the case--",
       "time": "00:55:59.43"
     },
     {
       "turn": 257,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what if--",
       "time": "00:56:00.17"
     },
     {
       "turn": 258,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--If -- if Grand -- if Grand Rapids uses a disproportionate number of jurors in its district courts, then you are going to have this problem -- the only way to fix the problem would be to have a separate jury system for the district courts. If you have the -- the circuit courts going first, then the people in the district courts are going to have the problem that you identify. If you have a system in which it's all done randomly -- circuit court, district court -- the people who come toward the end are going to have the problem. So I don't see any way out of this, if in fact there was a statistical basis for it, other than having a separate selection process for the district courts. Is that what you think is necessary?",
       "time": "00:56:00.97"
     },
@@ -1601,7 +1601,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--All right. So is--",
       "time": "00:57:07.36"
     },
@@ -1613,7 +1613,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That was a question of what was permitted. Here you're trying to say this is required. The school's case was, these are measures the district could take if it wanted to. But you are saying these are measures the district must take because the Constitution requires it. They are quite different settings.",
       "time": "00:57:17.14"
     },
@@ -1625,7 +1625,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--What about the -- the more I listen, the more I think you think there are a lot of things people could do. They could send three letters; they could explain in the letters why it's important to come; they could try reversing the thing a little bit with the districts first or not first -- all kinds of things. But what -- but now you're forcing them into this legal rubric. So what about a decision, which you wouldn't like, probably, but it would say we can't say that they're unreasonable in respect to not having all of these, but there -- who knows? You know, when they get around and others try them, et cetera. In other words, unreasonable/reasonable is one standard, and ambiguity plays a -- a role here, too, that might be helpful.",
       "time": "00:57:57.93"
     },
@@ -1637,7 +1637,7 @@
     },
     {
       "turn": 266,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel.",
       "time": "00:59:03.53"
     },
@@ -1649,7 +1649,7 @@
     },
     {
       "turn": 268,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Restuccia, you have 2 minutes remaining.",
       "time": "00:59:05.31"
     },
@@ -1661,7 +1661,7 @@
     },
     {
       "turn": 270,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:59:59.43"
     }

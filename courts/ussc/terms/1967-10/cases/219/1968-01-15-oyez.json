@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1967/219/19680115a_219.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "JACK JOSEPH",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ROBERT S. RIFKIND",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 219, The Peoria Tribe of Indians of Oklahoma et al., Petitioners, versus the United States. Mr. Joseph.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did you say how many Indians there were in this group?",
       "time": "00:03:05.68"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It's alright I just thought you said something as to the number, it is important part?",
       "time": "00:03:12.15"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Which were those two cases?",
       "time": "00:06:48.55"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Alright. United States against Blackfeather and Mille?",
       "time": "00:06:56.07"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Thousand Lakes?",
       "time": "00:07:03.90"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Thank you.",
       "time": "00:07:06.74"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, do I correctly remember that the other two cases involved an obligation by the United States to pay interest.",
       "time": "00:07:34.55"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is that right?",
       "time": "00:07:46.96"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, this case does not involve an obligation by the United States to pay interest, but it does involve by your argument an obligation on the United States either to pay up money to the Indians or alternatively to invest in income producing stocks or bonds, is that correct?",
       "time": "00:07:48.69"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So that -- now let me ask you one further question. If there were nothing here except a breach of trust by the United States in its failure to sell the lands properly so as to realize the full amount that it should have realized on those lands, if that's all we had, you would not argue that the Indians were entitled to interest, would you?",
       "time": "00:08:11.92"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That's solely based upon on the language to which I referred mainly that the United States must either forthwith payout the money to the Indians or must invest the money, which you say is equivalent to an obligation on the United States to pay interest.",
       "time": "00:08:44.58"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Are you willing to state it in the negative that way or you insist on the affirmative of it that, the government isn't obliged to pay over all the money or isn't obliged to pay over -- to invest all of the money in bonds that it is necessary to do one or the other.",
       "time": "00:09:09.60"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "This is brought under a special act at the time?",
       "time": "00:10:12.32"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Incidentally whole you are on that I notice really before you -- in the conclusion of your brief you ask for interest at the rate of 6% from June 1857 through 1860 and the 5% from 1860 to 1934 and thereafter such rate of interest as the Court deems appropriate. Well I really have two questions. What is the basis for that specific prayer and secondly have you figured out how much money that would be?",
       "time": "00:12:01.83"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What did you say?",
       "time": "00:12:57.07"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If it doubles it in --",
       "time": "00:13:23.95"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Simple interest?",
       "time": "00:13:26.09"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And it would therefore be something more than $1 million?",
       "time": "00:13:30.76"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well I thought you might have figured out --[Attempt to Laughter]",
       "time": "00:13:45.63"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I didn't quite understand the -- you gave the answer to my second question, why the differing rates here?",
       "time": "00:13:56.24"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let me see how you understand the government's argument. If the contract or if the treaty had only said we will sell the lands and pay over to you the proceeds, that's all they'll say. Now would you say that the government denies that the ability -- it's obligation for interest in that respect?",
       "time": "00:18:30.13"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would say that the government could promise to pay over and then not pay over and be liable only --",
       "time": "00:18:51.94"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And be liable only for the principal?",
       "time": "00:19:00.42"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well how about -- what is your position on that?",
       "time": "00:19:07.22"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you have to take that position to win?",
       "time": "00:19:28.39"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well no -- let me get to the other part. What if the contract or the treaty just said that government promised to sell the lands and to invest the proceeds?",
       "time": "00:19:37.35"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that includes interest?",
       "time": "00:20:02.18"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think the government concedes that much?",
       "time": "00:20:04.29"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Only in Blackfeather though isn't it, the fact that there was an express agreement for interest?",
       "time": "00:24:27.70"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes, and your problem here on the brief is what I think you said a little while ago you got to persuade this Court that we have to reach a conclusion, that this provision that you rely on amounts to a covenant by the United States to pay interest and I take it that you agree that the mere breach of fiduciary duty will not result in an obligation or on part of the United States to pay interest.",
       "time": "00:24:52.45"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well that, they make new law, it's contrary to Indian heart to pay, isn't it?",
       "time": "00:26:46.40"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now that's different matter. That's what I thought you are on – your argument that it is, but if there's a breach of a fiduciary duty by the United States towards the Indians and no contract provision requiring the payment of interest, then there's no liability on the United States to pay interest.",
       "time": "00:27:19.04"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Am I right?",
       "time": "00:27:41.73"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Rifkind?",
       "time": "00:28:36.71"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Did the Claims Commission expressly deal with this?",
       "time": "00:31:14.67"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You know where in the record?",
       "time": "00:31:19.82"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's not all dealing with this?",
       "time": "00:31:35.26"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Stating the general rule that you began with that doesn't have very much to do with this case if I may say so.",
       "time": "00:31:39.16"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Interest doesn't run on a judgment against the government, everybody believes it.",
       "time": "00:31:46.68"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] that if the money was paid out it was to be invested?",
       "time": "00:32:03.35"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I gather that your brief concede that, you had pay on --",
       "time": "00:32:27.97"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is in this case a promise by the United States to invest this money. It wasn't paid out, we know it wasn't paid out.",
       "time": "00:33:14.44"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So if it wasn't paid out it supposed to be invested.",
       "time": "00:33:26.24"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Alright. So we should take this case as though the United States promised to invest a $172,000 that they didn't invest?",
       "time": "00:33:30.91"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Isn't that right? The person paid out, therefore it should have been invested.",
       "time": "00:33:42.28"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the interest needed to be annually paid to the Indians?",
       "time": "00:33:47.43"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand that, but the point is against you that --",
       "time": "00:34:06.23"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The government should have handed $172,000 to invest, but it didn't.",
       "time": "00:34:12.30"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so it didn't invest it.",
       "time": "00:34:16.91"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In breach of its promise.",
       "time": "00:34:21.09"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "$172,000 more which it didn't?",
       "time": "00:34:39.80"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This Article 7 says the interest to be annually paid to them, the Indians?",
       "time": "00:35:02.93"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "00:35:14.90"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "This is what a mutual fund will do for -- [Laughter]",
       "time": "00:35:37.37"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I beg your pardon.",
       "time": "00:35:43.86"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do you consider what the government has done here is doing equity to these Indians?",
       "time": "00:36:01.77"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And after holding it for over 100 years?",
       "time": "00:36:19.80"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Claims given some rights to adjudicate the rights of individuals when the government made an agreement to do something and then broke it.",
       "time": "00:36:41.33"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do you think the government has lived up its obligation under this treaty unless --",
       "time": "00:36:53.66"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Even though it delays over a 100 years.",
       "time": "00:37:19.82"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Fulfill the exact agreement that it made with the Indians?",
       "time": "00:37:23.02"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you say then it would been error of Indian Claims Commission to have said that in order to do equity to the Indians under our statutory authority, in order to do that we will pay interest on this claim you said that would be error.",
       "time": "00:37:58.90"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but it had already said that the Indian Claims Commission may grant equitable compensation, to that extent it has authorized it to do equity as the Chief Justice suggests?",
       "time": "00:38:44.77"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it's one thing to say the United States wouldn't have been liable to pay interest if it had actually gotten the money invested and hadn't received any return on it then if the Indians have sued perhaps United States would say, well all we have to do is to invest, but isn't it something else again when they didn't even invest the money? Didn't have it to invest when they should had it to invest and the Indian never have a chance to earn any interest on it?",
       "time": "00:39:29.70"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because of sovereign immunity.",
       "time": "00:40:37.26"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Except for this Act sovereign immunity would protect the government from any action for the value of the blacksmith's shop, except for this Act the Indians couldn't sue for this $1,72,000, could they?",
       "time": "00:40:46.00"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well that depends on what you think the extent the waiver was in term of using equitable and that kind of --",
       "time": "00:41:13.78"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Except for sovereign immunity though, a contract like this would normally result in type litigation and the recovery of interest.",
       "time": "00:41:47.42"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Or the contract between private parties, authorized private parties to wait a 110 years and then sue and get the hold of it.",
       "time": "00:42:05.72"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What I say is --",
       "time": "00:42:19.42"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Rifkind there have been a number of cases in which various Indian Tribes have alleged under the Indian Claims Act that the United States has wrongfully taken their land and haven't there been awards made to those Indian tribes some of them very large amount, relating to takings back in the 19th Century, is that right?",
       "time": "00:42:27.54"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And in any of those cases has interest been allowed?",
       "time": "00:42:56.98"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I'm sorry, that's not the kind of case I am putting here.",
       "time": "00:43:04.64"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Despite the fact that those are in the sense of the way cases where land has been taken from the Indians in breach of sort a fiduciary duty, is it right?",
       "time": "00:43:09.85"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well at least --",
       "time": "00:43:26.66"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Is Indian cases Fifth Amendment cases?",
       "time": "00:43:28.25"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright so taking case from that I put, kind of case that I put to you, the law has grown up so that the Indians are given a sum of money under this Act, but they are not given interest dating back to the time of taking despite the fact that there is at least something resembling breach of fiduciary duty and that's part of this whole what I may refer to as sort of a package deal enacted by the Congress to -- in an attempt to alleviate the wrong that's been done to the Indians in the past, is that right?",
       "time": "00:43:30.75"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well that's why, as I understand it both you and your advisory agree that in this case if there is nothing that you can't just define or spell out the specific language of this treaty, an obligation to pay interest there is no obligation?",
       "time": "00:44:13.47"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "To pay interest.",
       "time": "00:44:32.07"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would be an affect on the [Inaudible]",
       "time": "00:44:35.91"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So there would be [Inaudible]",
       "time": "00:44:48.43"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "[Inaudible] allowed by the Congress?",
       "time": "00:45:05.49"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I just have this case that Justice Brown's opinion in this case before me, it wasn't all that clear. You correctly fore stated it but it was to do so doing the pleasure of Congress and the actual money was paid over in 1852 and they gave them interest till what 1884.",
       "time": "00:45:56.94"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I think this case would cause you considerable trouble?",
       "time": "00:46:19.91"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "During the pleasure of Congress.",
       "time": "00:46:38.11"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, not as a contract.",
       "time": "00:46:43.61"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Something on [Inaudible] I guess that's not the correct word, but it is hardly an absolute right to receive 5% that the Chief's had, wasn't it?",
       "time": "00:46:46.42"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yeah and yet the Court said nonetheless it was a right?",
       "time": "00:47:00.82"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, there weren't [Inaudible] There is of course is a default in duty under 7 because they didn't realize the proceeds that were supposed to be administered under and in accordance with Article 7, of course it is a breach of the --",
       "time": "00:51:10.83"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What misconduct over the years and not giving the Indians any benefit to alter the provision with the treaty, isn't that misconduct? What do you call it? A 100 years to defy people of their rights under a solemn treaty made by the President and affirmed by Congress.",
       "time": "00:51:37.32"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "All you are saying is a question, what is it if it is any misconduct?",
       "time": "00:52:04.08"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "As to that --",
       "time": "00:52:47.66"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Wasn't it misconduct there?",
       "time": "00:52:49.99"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 189,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But you chose the word misconduct and said there was no misconduct, what do you call it?",
       "time": "00:52:59.19"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Or the President could have sold the land then and invested the money?",
       "time": "00:53:23.33"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There have been a lot of Presidents in 100 years.",
       "time": "00:53:39.88"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There have been a lot of Presidents in 100 years who could have remedied that situation?",
       "time": "00:53:43.45"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Are you talking about the rights arising under the treaties?",
       "time": "00:55:21.08"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 200,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "00:57:33.78"
     }

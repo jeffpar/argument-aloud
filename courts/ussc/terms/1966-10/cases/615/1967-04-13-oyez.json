@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1966/615/19670413a_615.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "JOSEPH E. BRILL",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD UVILLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 615, Ralph Berger against the people for the State of New York. Mr. Brill?",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What are the total directions of the orders have been extended?",
       "time": "00:04:15.48"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Do you mind telling us what kind of a device it was?",
       "time": "00:04:24.55"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you mind telling us what kind of a device it was that was used?",
       "time": "00:04:29.49"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Bug is not very descriptive --",
       "time": "00:04:36.21"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It was not a wire tap in the conventional --",
       "time": "00:04:40.88"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Why do you say it wasn't a wire tap then?",
       "time": "00:05:17.03"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "They picked up conversations in room, not of telephone?",
       "time": "00:05:25.32"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The point is the pick up device was housed in the telephone equipment?",
       "time": "00:05:33.35"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But not as part of a wire tap --",
       "time": "00:05:38.34"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It wasn't -- it was restricted to what went over the telephone then?",
       "time": "00:05:40.95"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if the -- it didn't even hear both into the telephone conversation, it just -- it just heard what was said in the room?",
       "time": "00:05:47.42"
     },
@@ -195,13 +195,13 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Did it get the other end of the conversation?",
       "time": "00:05:58.21"
     },
     {
       "turn": 26,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "On the telephone?",
       "time": "00:06:02.72"
     },
@@ -213,7 +213,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But I gather Mr. Bill, this could have housed without any relation whatever to the telephone. It might have been housed somewhere else in that room.",
       "time": "00:06:47.98"
     },
@@ -225,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But the authorization lies to get telephone conversation, would it not?",
       "time": "00:07:09.45"
     },
@@ -237,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "So, where's the warrant?",
       "time": "00:07:29.84"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "691 continued --",
       "time": "00:07:47.88"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The conversation that they take place in Room 1001 at 22 West 42nd – 48th.",
       "time": "00:08:15.85"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Is that an attorney's office?",
       "time": "00:08:42.11"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Whose -- whose office was that?",
       "time": "00:08:45.67"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Excuse me Mr. Brill --",
       "time": "00:09:34.56"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What is the record as to how the thing was put in each of the group, who did it?",
       "time": "00:09:36.47"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How did they get in? How did they get into the office?",
       "time": "00:10:14.21"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, may I ask, it does not appear that his entry in either instances was on the authority of the landlord or owner of the building or otherwise?",
       "time": "00:10:20.61"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, is there any basis for an inference of the trespass in the --",
       "time": "00:10:51.21"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In fact, it is only those as far as the tenants are concerned isn't it?",
       "time": "00:10:58.46"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And the only authority in any event I gather for those entries of the orders that you referred us to?",
       "time": "00:11:09.22"
     },
@@ -381,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "They -- they don't say anything about how they get in, do they?",
       "time": "00:11:22.28"
     },
@@ -393,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Just authorize -- authorize in the power to overhear and record by means of any instruments, what may take place, but nothing about any authority to go in no matter how you get in, isn't it?",
       "time": "00:11:27.87"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It's just like a search warrant --",
       "time": "00:11:52.79"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, as far as the authority the purported authority to enter is concerned, the order has the same effect, is it not, as authorizing an officer to do the search warrant?",
       "time": "00:12:00.24"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "They weren't certain on your client, were they?",
       "time": "00:12:13.40"
     },
@@ -441,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Was this war -- warrant limited to a day or an hour or any particular time?",
       "time": "00:12:24.43"
     },
@@ -453,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The 60 days is provided by statute?",
       "time": "00:12:44.45"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Brill, does New York have a statute comparable with the federal 3109 requiring the before service of a warrant, notice of entry and announcement of purpose?",
       "time": "00:12:51.35"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But that doesn't apply with this?",
       "time": "00:13:12.06"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But this said -- this didn't use airways just before the transmittal to the receiving machine?",
       "time": "00:13:20.81"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "As you know the Federal Communications Commission recently issued an order governing certain transmission by devices like this. Would this have satisfied that --",
       "time": "00:13:50.22"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Where was the room in which --",
       "time": "00:14:05.41"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Where was the room in which the recording was placed?",
       "time": "00:14:08.26"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "The other building?",
       "time": "00:14:26.15"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there a separate statute in covering wire tap orders?",
       "time": "00:21:53.52"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not embraced within this statute?",
       "time": "00:22:01.54"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What happened to the tape? Was the entire tape of all recordings produced in court?",
       "time": "00:22:06.03"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well -- well, if that's the content that just picked up while the conversations that didn't deal with the --",
       "time": "00:23:25.59"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But the only prosecutions that came out of the whole business are the ones that we have here?",
       "time": "00:23:42.75"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "When an order of this kind is made, is there any requirement for return to be made to the Court of what -- what was found or anything?",
       "time": "00:24:56.71"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What is -- what is the recordation of this -- of this order? Where -- where does it take place and under what circumstances can it be determined? What's in it?",
       "time": "00:25:09.52"
     },
@@ -633,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But there is no public record made of the fact that an order of this kind was made?",
       "time": "00:26:06.65"
     },
@@ -645,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But this is entirely a star chamber proceeding. There is no -- no public record made to the fact that this kind of an order was entered ever?",
       "time": "00:27:08.61"
     },
@@ -657,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I gather that you are coming separately to the business is probable cause?",
       "time": "00:27:52.29"
     },
@@ -669,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But now you tell us that there's no limitation whatever, just a general get what you can and it may develop many or no crime, is that it?",
       "time": "00:27:58.09"
     },
@@ -681,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And well, I suppose you tell us on the probable cause whether there's any requirement of pinpointing some particular crime you apprehend, would you?",
       "time": "00:28:12.25"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Are the applications in the --",
       "time": "00:33:00.85"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you one question?",
       "time": "00:38:45.84"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose this was not the electronic eavesdropping, would you say that there have to be applications to the judge and order under the constitution for plain ordinary everyday eavesdropping could be engaged in?",
       "time": "00:38:48.37"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So, why would one be required, suppose that they were not in a house, they won't use without somebody on the outside of the house, in the street?",
       "time": "00:39:43.74"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understand it wouldn't, but would you -- would you think that that somehow violates the Constitution?",
       "time": "00:39:58.21"
     },
@@ -753,25 +753,25 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's all. I thank you.",
       "time": "00:40:19.30"
     },
     {
       "turn": 119,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, in other words, suppose instead of an order that put this eavesdropping mechanism, the order was hide a policemen the closet in the Neyer's office.",
       "time": "00:40:20.52"
     },
     {
       "turn": 120,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Or under the bed?",
       "time": "00:40:31.62"
     },
     {
       "turn": 121,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yeah.",
       "time": "00:40:32.82"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Would one be the if that's been accepted warrant issue, could it issue under the New York Act or is this relate just to --",
       "time": "00:40:42.06"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Have you had any experience with that in New York?",
       "time": "00:40:54.51"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The Court just related then to electronic eavesdropping –",
       "time": "00:40:59.84"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "– before getting it --",
       "time": "00:41:03.80"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather thought you are emphasizing that this is if I've forgotten your word trespass or something rather --",
       "time": "00:41:18.23"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Trespassory invasion and I take it, well, they're authorized the mechanical device or a police officer in the closet it would still have the aspect with trespassory invasion?",
       "time": "00:41:27.34"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I suppose you would have the same reaction, if Mr. Steinman after say the first -- first event or first business arrangement with the police and then begin working with the police and -- but no one knew it. And he -- and he sat in his own office or in Mr. Neyer's office and had conversations with many people and reported them to the police.",
       "time": "00:41:39.94"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, would that be -- you would -- with or without a warrant, I supposed you would say that word unconstitutional too?",
       "time": "00:42:15.67"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But in the situation that Justice White put to you, there would be no trespass, would there?",
       "time": "00:42:36.78"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You went to Mr. Neyer's office, would that be a trespass? But you wouldn't think that made any difference whether it was a trespasser or not, would you?",
       "time": "00:42:46.08"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, I would stop putting it in Mr. Steinman's office where he turns State evidence and was willing that the -- that the person or the electronic device be put in this room. There is a difference there because there would be no trespass as to Steinman, would there?",
       "time": "00:42:55.85"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, that's all I was talking about.",
       "time": "00:43:18.54"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you call that constitutionally intolerable?",
       "time": "00:43:22.39"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "We have a case on that?",
       "time": "00:43:43.21"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose you want to know that you would find it's constitutionally intolerable whether Steinman had conversations in his own office or in Neyer's office, as long as he was working with the police and the others didn't know it?",
       "time": "00:43:47.70"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that would be true whether he carries a “minifon” or not?",
       "time": "00:44:34.91"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Then you would have the same reaction, wouldn't you?",
       "time": "00:44:38.40"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may.",
       "time": "00:45:17.80"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Uviller",
       "time": "00:45:20.29"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, doesn't the privilege against self-incrimination cut across your argument with respect to this minifon?",
       "time": "00:47:01.34"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, as if you say its like a search warrant, it is?",
       "time": "00:47:16.99"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I see, your reliance is on Schmerber?",
       "time": "00:48:27.96"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did you have challenge to Boyd or the concurring opinion of the majority?",
       "time": "00:49:32.35"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, that certainly is not the history of the Fifth Amendment of the privilege against self-incrimination?",
       "time": "00:50:38.52"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That's been -- that's been an accuracy of testimonial privilege of saying its --",
       "time": "00:50:46.83"
     },
@@ -1083,19 +1083,19 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But how are you helped if you -- you are -- if there is a wall erected between the Fourth and the Fifth Amendment, but nevertheless this is a Fifth Amendment violation here? I take it that the stipulation here means that the words which were garnered and some other might take it from Mr. Berger's own lips.",
       "time": "00:51:13.76"
     },
     {
       "turn": 174,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Oh, yes.",
       "time": "00:51:39.99"
     },
     {
       "turn": 175,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "The words that were garnered by this surreptitious trespass were incriminatory. I take it that that's what we have to assume from the stipulation?",
       "time": "00:51:40.55"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, that raises the Fifth Amendment problem, how are you helped?",
       "time": "00:51:54.14"
     },
@@ -1119,13 +1119,13 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "In the Miranda case, he was talking in the cell in the precinct -- in his precinct, he wasn't really tortured. He was talking voluntarily in that sense, but he was in an atmosphere, we said of coercion.",
       "time": "00:52:10.56"
     },
     {
       "turn": 180,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And he at least knew that he was talking to the police agents, but here you have a man talking without knowing that he's talking to police agents --",
       "time": "00:52:27.22"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And it would be putting hard I should think to say that this was a voluntary like on the part of Mr. Berger, wouldn't it?",
       "time": "00:52:41.28"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, it's quite a different kind of problem?",
       "time": "00:53:06.50"
     },
@@ -1161,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "There's no Pardon at this stage --",
       "time": "00:53:11.00"
     },
@@ -1173,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No pardon, -- no Mr. Pardon --",
       "time": "00:53:13.51"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Of course, the seizure of a letter by a subpoena or the seizure of a letter by a warrant doesn't have in it the element of voluntariness that we normally associate it with?",
       "time": "00:54:17.16"
     },
@@ -1197,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Go ahead",
       "time": "00:54:32.35"
     },
@@ -1209,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What happens to him if he refuses to submit to the search and it's -- but it's a lawful warrant? What happens to him? Do the police say, “Well, that's okay? Thank you very much. Goodbye.”",
       "time": "00:55:02.72"
     },
@@ -1221,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And you would say that's not coercive that that doesn't involve any element of coercion?",
       "time": "00:55:24.98"
     },
@@ -1233,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "It just says that you have a choice between making yourself incriminatory statements or going to jail, that's all?",
       "time": "00:55:36.93"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "The problem is -- the problem is to whether -- the problem is whether the compelled action, the two -- two questions. One is the action compelled in a sense; and two is, whether the action is in violation of constitutional right. And there you have when you're talking about the -- whether this is a voluntary action or whether it has an element of involuntariness and I was suggesting as a remote hypothesis that where a man is required to do something on pain of going to jail that that may not be totally voluntary. Next question is whether -- what he is being compelled to do is something if the State can properly compel the citizen to do or whether it is in violation of the citizen's constitutional rights.",
       "time": "00:56:23.08"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Oh, you've quite misunderstand me, of course you do. I'm talking about conversation. I'm talking about something that a person says, so well within the scope to which the Amendment applies. I'm talking about conversations, statement of the person that is obtained from him either by the an application of force as in the old days or by a surreptitious trespass as it seems to me a current practice in some areas right now.",
       "time": "00:57:36.33"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I ask you with this. Suppose this had been -- every fact we had in the Silverman except that you had a Court order, I gather under the statute, the police would have been free to use the Silverman type of device --",
       "time": "00:58:56.59"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now suppose -- suppose we had everything except the -- here we got the Court order, you'd still say, “Silverman is not trespassory?”",
       "time": "00:59:09.76"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "If you had the Court order?",
       "time": "00:59:20.35"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Even though in fact -- well, I mean you say the order for, I had trouble, I must say, seeing whether there's anything in this order which says to a policeman you can drive a spike mic into Mr. Neyer's office wall. I don't know how you find that in there but do you tell me that's what -- that's interpreted to me, is that it?",
       "time": "00:59:28.20"
     },
@@ -1317,13 +1317,13 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Why don't we know how the police did this? Why -- why is it?",
       "time": "00:59:58.34"
     },
     {
       "turn": 213,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Aren't you quite willing to assume that the police -- that the police did something here which without the order would be trespass?",
       "time": "01:00:02.06"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Alright. I mean, that's what you -- so we can assume that there was a -- this criminal trespass absent the orders in this --",
       "time": "01:00:11.82"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Getting -- in getting -- now, just getting into the place --",
       "time": "01:00:23.15"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "– just getting into the place that they must have got a key or they broke the door down or something to take it --",
       "time": "01:00:26.26"
     },
@@ -1371,19 +1371,19 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well as I read the --",
       "time": "01:00:46.12"
     },
     {
       "turn": 222,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "A legalized burglary is that –",
       "time": "01:00:51.12"
     },
     {
       "turn": 223,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "As I read these cases from the 18th Century -- in the 18th Century, they were -- they were tested by usage of a trespass action.",
       "time": "01:00:54.56"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "There was John Wilkes, wasn't it? There was Entick and Carrington and so on?",
       "time": "01:01:03.94"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Trespass action --",
       "time": "01:01:11.75"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "So this would be a trespass but for this warrant?",
       "time": "01:01:13.26"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And I take that this could have happened in my house if I lived in New York, maybe I'm glad that I don't [Laughter] but is that right?",
       "time": "01:01:40.93"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No but could it happen -- could they -- could one of these orders authorize the same thing in my home?",
       "time": "01:01:54.88"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "But isn't that really the difference between the Osborn situation and this, that is to say in Osborn, there's the chance anyway that the conversation would be -- that was reported would be pinpointed and --",
       "time": "01:03:04.19"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Would be pinpointed and related to the subject as to which there was presumably a showing of probable cause and that's the difference between minifon in the Osborn situation and this sort of a universal recording of whatever goes on and including I assume many things that had no relationship or whatever to the showing of probable cause?",
       "time": "01:03:20.01"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And even if what -- what to get in the way of conversation proves an entirely different crime from that -- for which you got the authorization?",
       "time": "01:05:15.24"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I just wonder in this case, suppose they turned up some conversation of confession to a murder?",
       "time": "01:05:55.14"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It would be another case, what would New York do about it?",
       "time": "01:06:02.00"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And prosecute it?",
       "time": "01:06:06.53"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Harris, Harris. The Harris case stands very exactly on the proposition, doesn't it?",
       "time": "01:06:37.66"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "They were looking for two cancel $10,000.00 checks as I remember and they found some false selective service.",
       "time": "01:06:42.47"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Forged selective service",
       "time": "01:06:51.98"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yeah. With the prohibition in that case.",
       "time": "01:06:58.63"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Books and record.",
       "time": "01:07:01.82"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think this is really -- you can go ahead but that -- what -- is there really anything seized at all?",
       "time": "01:07:40.08"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is it -- what if the police -- what if the warrant authorized the policeman to hide in the closet? They had no recording device or anything else, they just listened and came out to testified to what he heard, is there a seizure?",
       "time": "01:07:51.53"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, does it make any difference -- does it make any difference though? Let's assume -- let's assume there wasn't any seizure, you still got the same problem, right?",
       "time": "01:08:18.29"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why?",
       "time": "01:08:33.89"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, I know but there's no -- it doesn't mean that – that's what I say you still have the same thing left even if you say there isn't anything -- there isn't any seizure. The fact that there's evidence offered and testimony offered, it doesn't mean there was a seizure?",
       "time": "01:08:36.86"
     },
@@ -1647,7 +1647,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It doesn't have to be a seizure to file in the -- to violate the Fourth Amendment and there could be a search that but no seizure or whatsoever that violates the Fourth Amendment.",
       "time": "01:08:53.09"
     },
@@ -1659,7 +1659,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I just don't -- this doesn't appear to me that it makes much difference when you call a seizure, not as you saw this thing problem that --",
       "time": "01:09:25.69"
     },
@@ -1671,7 +1671,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- it is not about seizure then?",
       "time": "01:09:33.15"
     },
@@ -1683,7 +1683,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That is to include of an illegal search or something like that?",
       "time": "01:09:51.49"
     },
@@ -1695,7 +1695,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Excuse me.",
       "time": "01:10:06.32"
     },
@@ -1707,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did I understand you to say that, you do not think the Fourth Amendment prohibits a search or seizure, but only a search and seizure?",
       "time": "01:10:07.12"
     },
@@ -1719,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I'm not talking about the exclusionary rule. I'm talking about the protection of the Amendment. I had supposed that included both an unlawful search and in unlawful seizure separately or collectively?",
       "time": "01:10:19.41"
     },
@@ -1731,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Could be crucial, isn't it?",
       "time": "01:10:47.00"
     },
@@ -1743,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Couple of the -- three or four weeks ago, an argument here on the building inspection, the opposite of Frank against Maryland, the question is inspection, not the seizure, no issues there not -- whether or not as the Fourth Amendment, it does protects people from being inspected. It's not seized and I suppose that a policeman that just walks through a door without a warrant with no probable cause or anything else or didn't report that walked through the house, seized nothing saw nothing there was no criminal case pending or anything might well be -- might well be sued or something.",
       "time": "01:11:06.70"
     },
@@ -1755,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Successfully --",
       "time": "01:11:53.76"
     },
@@ -1767,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- because of the Fourth Amendment?",
       "time": "01:11:55.34"
     },
@@ -1779,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if they were sued under the Civil Rights Act?",
       "time": "01:12:03.09"
     },
@@ -1791,13 +1791,13 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but for violation of constitutional right?",
       "time": "01:12:09.04"
     },
     {
       "turn": 292,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What will -- would there be a –",
       "time": "01:12:13.67"
     },
@@ -1809,7 +1809,7 @@
     },
     {
       "turn": 294,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In the case that Justice White puts you?",
       "time": "01:12:16.81"
     },
@@ -1821,7 +1821,7 @@
     },
     {
       "turn": 296,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll have a recess now.[Recess] Mr. Uviller, you may continue.",
       "time": "01:14:29.85"
     },
@@ -1833,7 +1833,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Equivalent to what?",
       "time": "01:15:06.82"
     },
@@ -1845,7 +1845,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That would be overruled in federal law?",
       "time": "01:15:24.91"
     },
@@ -1857,7 +1857,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Are those in your brief?",
       "time": "01:15:49.69"
     },
@@ -1869,7 +1869,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That was -- I just happen to read yesterday this Entick reread, Entick versus Carrington, that was the argument that they made there? The words were in furtherance of the conspiracy, the letters obtained.",
       "time": "01:16:21.88"
     },
@@ -1881,7 +1881,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you object to telling me your idea of what was meant by the mere evidence rule?",
       "time": "01:17:02.85"
     },
@@ -1893,7 +1893,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What was back to the practice from the Star Chamber of getting and collecting letters?",
       "time": "01:17:31.05"
     },
@@ -1905,7 +1905,7 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Oh, yes. But I mean in terms of the immediate background of Entick and Carrington were the vows of Colonel Sydney and the rest of them --",
       "time": "01:17:43.38"
     },
@@ -1917,7 +1917,7 @@
     },
     {
       "turn": 312,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- were sent to their death on the letters that were found?",
       "time": "01:17:52.67"
     },
@@ -1929,7 +1929,7 @@
     },
     {
       "turn": 314,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "As they define it as broadly as you do? I mean, something in furtherance of the conspiracy of the crime?",
       "time": "01:18:09.12"
     },
@@ -1941,7 +1941,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, that's in the Camden and as I've read Entick and Carrington puts the two together. He condemns a general warrant and he condemns the use of testimonial evidence?",
       "time": "01:18:23.44"
     },
@@ -1953,7 +1953,7 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, even a Cook would disagree with you on that? And there was -- as you know of a great tempest about the search for stolen property.",
       "time": "01:19:38.41"
     },
@@ -1965,7 +1965,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Contraband?",
       "time": "01:19:50.96"
     },
@@ -1977,7 +1977,7 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "It seems startling to me with all respect to have a suggestion that entire history of search and seizure, the English history, our own history which were also crown as to be reread and reinterpreted in terms of property instead of human liberty and I'm afraid that what you're saying sounds that way to me?",
       "time": "01:20:19.81"
     },
@@ -1989,7 +1989,7 @@
     },
     {
       "turn": 324,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, if you -- if you limited that to the Fourth Amendment search and seizure, and if you limited it to verbal statements, perhaps history would not in the future because in those days they did not have the blessing under these magnificent devices by which people's words could be picked up and recorded surreptitiously?",
       "time": "01:21:18.21"
     },
@@ -2001,7 +2001,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I don't know how you can say that with great confidence because that assumes that a warrant can issue for the search of anything?",
       "time": "01:24:16.94"
     },
@@ -2013,7 +2013,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "And that there's a school of thought that thinks that there are two parts of the Fourth Amendment; One that has its own privacy that can't be penetrated even by the judge and that the other can be by a warrant?",
       "time": "01:24:26.84"
     },
@@ -2025,7 +2025,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, that's what Bradley must have meant in Boyd?",
       "time": "01:24:54.14"
     },
@@ -2037,7 +2037,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well you would -- your -- your first opponent on that would be Collie and I think his first edition of constitutional limitations for quite the opposite view, later followed by Bradley. Well anyway, there's a -- that of quite of an argument about the seizure and --",
       "time": "01:25:44.90"
     },
@@ -2049,7 +2049,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, for example, would your – I thought they asked this question yesterday Mr. Uviller, would your principle go as so far as to say that a search warrant, probable cause, properly issued and all the rest of it could reach as the only evidence involved against the accused, his own confession which he happened to hide in the desk door beside to abandon with some made sort there and it's all of the face friend and then they went out and get along?",
       "time": "01:26:04.02"
     },
@@ -2061,7 +2061,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But even reached out with it?",
       "time": "01:26:31.74"
     },
@@ -2073,7 +2073,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I know it can't, but you can't avoid it. You got to reach that case too?",
       "time": "01:26:37.59"
     },
@@ -2085,7 +2085,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well assume that.",
       "time": "01:26:51.09"
     },
@@ -2097,7 +2097,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But then he -- then he's the only one who knows anything about the crime and here's the record confessing to it, changes his mind and puts those on desk drawer.",
       "time": "01:26:52.65"
     },
@@ -2109,7 +2109,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well now, this -- this I take it as if they'll -- I mailed a letter to you and you -- but -- isn't those – think the other case a little bit?",
       "time": "01:27:09.76"
     },
@@ -2121,7 +2121,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, then you really didn't think that there's absolutely no place or whatever for the Fifth Amendment.",
       "time": "01:27:26.57"
     },
@@ -2133,7 +2133,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, I'm --",
       "time": "01:27:38.47"
     },
@@ -2145,7 +2145,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Even though, there -- they've tried to reach it through a search warrant rather than a subpoena or anything else?",
       "time": "01:27:41.56"
     },
@@ -2157,7 +2157,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes. But that --",
       "time": "01:27:50.18"
     },
@@ -2169,7 +2169,7 @@
     },
     {
       "turn": 354,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- that's the case where you try to reach something which was in fact compelled by confession, I think, but you reach it all with a search warrant?",
       "time": "01:27:50.90"
     },
@@ -2181,7 +2181,7 @@
     },
     {
       "turn": 356,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "01:28:01.78"
     },
@@ -2193,7 +2193,7 @@
     },
     {
       "turn": 358,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why do you – at the time this was made. I thought he had it in his possessions and the government issued a subpoena and says, “Bring to me at once, his confession he made,” would that not be compulsion?",
       "time": "01:28:10.27"
     },
@@ -2205,7 +2205,7 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If you don't think that a search warrant would then be -- it will be substituted with it. Well, I can't get it by subpoena because of compulsion, I will just get a search warrant and go get it. I know it's [Inaudible]",
       "time": "01:28:27.51"
     },
@@ -2217,7 +2217,7 @@
     },
     {
       "turn": 362,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If only you would have to be -- you would have to be there was no compulsion.",
       "time": "01:28:41.44"
     },
@@ -2229,7 +2229,7 @@
     },
     {
       "turn": 364,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If only you'd say there would say there would be a compulsion not at the time of the confession, but at the time of the issuance of the subpoena?",
       "time": "01:28:48.79"
     },
@@ -2241,7 +2241,7 @@
     },
     {
       "turn": 366,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I know that he doesn't identify it. He just --",
       "time": "01:29:01.89"
     },
@@ -2253,7 +2253,7 @@
     },
     {
       "turn": 368,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You mean if he responds to this?",
       "time": "01:29:06.61"
     },
@@ -2265,7 +2265,7 @@
     },
     {
       "turn": 370,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And here it is --",
       "time": "01:29:08.80"
     },
@@ -2277,7 +2277,7 @@
     },
     {
       "turn": 372,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The --",
       "time": "01:29:09.93"
     },
@@ -2289,7 +2289,7 @@
     },
     {
       "turn": 374,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "The compulsion of the subpoena or --",
       "time": "01:29:10.78"
     },
@@ -2301,7 +2301,7 @@
     },
     {
       "turn": 376,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. But what if the subpoena -- all the subpoena says, “Bring all the papers in your desk,” and he brings all the papers in the desk.",
       "time": "01:29:12.46"
     },
@@ -2313,7 +2313,7 @@
     },
     {
       "turn": 378,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And -- and that is the compulsion?",
       "time": "01:29:22.49"
     },
@@ -2325,7 +2325,7 @@
     },
     {
       "turn": 380,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you think it's different if somebody against his will walks through the door and picks the papers with this warrant and picks the papers out of the -- out of his desk in his room?",
       "time": "01:29:37.72"
     },
@@ -2337,7 +2337,7 @@
     },
     {
       "turn": 382,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't think you have to take this position that to be consistent with all -- every other part of your case.",
       "time": "01:29:57.94"
     },
@@ -2349,7 +2349,7 @@
     },
     {
       "turn": 384,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There's still room in Fourth Amendment though you forgot about this. If you say the overall -- the overall test is reasonableness in terms of what you can search and seize, to search for and seize, it very easily that be said at the constitutional matter, there's a difference between one thing and another of what you can search for. One not to be reasonable, one that might not be reasonable, it might not be reasonable to search and seizure of private right.",
       "time": "01:30:18.57"
     },
@@ -2361,7 +2361,7 @@
     },
     {
       "turn": 386,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It's tenable you don't have to go all the way for this – on the word unreasonable. That has no -- that has no very -- it doesn't mean that you have to able to seize anything?",
       "time": "01:30:49.46"
     },
@@ -2373,7 +2373,7 @@
     },
     {
       "turn": 388,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But I think it is central to your argument even on that approach that you something about the Gouled?",
       "time": "01:31:46.30"
     },
@@ -2385,7 +2385,7 @@
     },
     {
       "turn": 390,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Gouled, isn't it?",
       "time": "01:31:53.85"
     },
@@ -2397,7 +2397,7 @@
     },
     {
       "turn": 392,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I know about that.[Laughter]",
       "time": "01:32:03.47"
     },
@@ -2409,7 +2409,7 @@
     },
     {
       "turn": 394,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That's the reason.",
       "time": "01:32:07.26"
     },
@@ -2421,7 +2421,7 @@
     },
     {
       "turn": 396,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you think that Gouled is deciding and what it did on the basis of the reasonableness or the totality of circumstances involved in the search and seizure?",
       "time": "01:32:28.31"
     },
@@ -2433,7 +2433,7 @@
     },
     {
       "turn": 398,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It said that but do you think if they ignored the fact that constitutes – the Fourth Amendment says, reasonable search and seizures did not consider all of the circumstances such as sleeping in the office at night or at daytime, and surreptitiously taking his favorites [Attempt to Laughter] away. Do you think that had anything to do with that decision?",
       "time": "01:32:52.52"
     },
@@ -2445,7 +2445,7 @@
     },
     {
       "turn": 400,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But you did read that that's a part of the circumstances --",
       "time": "01:33:19.75"
     },
@@ -2457,7 +2457,7 @@
     },
     {
       "turn": 402,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "– when you determine whether it's a reasonable search and seizure, wouldn't it?",
       "time": "01:33:22.21"
     },
@@ -2469,7 +2469,7 @@
     },
     {
       "turn": 404,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you also depend on all the circumstances?",
       "time": "01:33:25.80"
     },
@@ -2481,7 +2481,7 @@
     },
     {
       "turn": 406,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, that's what I'm talking about.",
       "time": "01:33:40.63"
     },
@@ -2493,7 +2493,7 @@
     },
     {
       "turn": 408,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that a circumstance to determine on the whole as to whether or not that was a reasonable or unreasonable search?",
       "time": "01:33:43.35"
     },
@@ -2505,7 +2505,7 @@
     },
     {
       "turn": 410,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And you wouldn't want to overrule it?",
       "time": "01:33:55.36"
     },
@@ -2517,7 +2517,7 @@
     },
     {
       "turn": 412,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But you're objecting to it your statement which from your standpoint as I gather it attempts seems to make it “per se rule” out of a situation where under the general rule, you decide under all of the circumstances of the case if whether it's reasonable or unreasonable?",
       "time": "01:34:14.79"
     },
@@ -2529,7 +2529,7 @@
     },
     {
       "turn": 414,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That is -- even though that is true, why shouldn't there be some record made of what was obtained and have that made a public record? They could provide that it couldn't be opened unless and -- unless it became necessary in some proceeding or something, but why wouldn't they'd be entitled, if it's a search and seizure, why wouldn't that be entitled under the same kind of protection that one gets on a search warrant? But here although there hundreds and hundreds of judges around the State and thousands of police officers who can engage in this traffic and not one of them is subjected to any supervision in the manner in which he did it. Now, do you think that comports with Due Process?",
       "time": "01:37:06.01"
     },
@@ -2541,7 +2541,7 @@
     },
     {
       "turn": 416,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "When a man goes to trial, does he know whether there has been one of those orders made against him?",
       "time": "01:39:05.01"
     },
@@ -2553,7 +2553,7 @@
     },
     {
       "turn": 418,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is the order filed in the proceedings of the case?",
       "time": "01:39:14.83"
     },
@@ -2565,7 +2565,7 @@
     },
     {
       "turn": 420,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "So that he can say, well, they did have my room wired up and now all I have to do is to find out what they did there and how they got it, and so forth. Is that in the record before us?",
       "time": "01:39:18.20"
     },
@@ -2577,13 +2577,13 @@
     },
     {
       "turn": 422,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, how does he find out about in the first instance? I don't think --",
       "time": "01:39:56.98"
     },
     {
       "turn": 423,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Notified in advance that they intend to use this kind of evidence?",
       "time": "01:39:59.12"
     },
@@ -2595,7 +2595,7 @@
     },
     {
       "turn": 425,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Oh, he is?",
       "time": "01:40:02.78"
     },
@@ -2607,13 +2607,13 @@
     },
     {
       "turn": 427,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "01:40:05.27"
     },
     {
       "turn": 428,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I mean how is that -- I mean, is there anything by statute which requires that or is that?",
       "time": "01:40:05.90"
     },
@@ -2625,7 +2625,7 @@
     },
     {
       "turn": 430,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "No, no. No -- I'm -- I'm representing -- I have no idea where the State got its evidence. I don't know anything about this? I'm representing the -- how do I get -- you know I'm representing someone who's under indictment or information. How do I get notice of the fact? That's what I want.",
       "time": "01:40:11.61"
     },
@@ -2637,7 +2637,7 @@
     },
     {
       "turn": 432,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Since there's no statute, I take it the practice must differ by counties. This maybe so in New York County, but not necessarily in Queens or --",
       "time": "01:40:42.98"
     },
@@ -2649,7 +2649,7 @@
     },
     {
       "turn": 434,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "01:40:57.34"
     },
@@ -2661,7 +2661,7 @@
     },
     {
       "turn": 436,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "It becomes a part of the Court record?",
       "time": "01:41:32.48"
     },
@@ -2673,7 +2673,7 @@
     },
     {
       "turn": 438,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In what circumstances?",
       "time": "01:41:35.05"
     },
@@ -2685,7 +2685,7 @@
     },
     {
       "turn": 440,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Where?",
       "time": "01:41:39.00"
     },
@@ -2697,7 +2697,7 @@
     },
     {
       "turn": 442,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And where its -- where that testimony is used?",
       "time": "01:41:39.76"
     },
@@ -2709,7 +2709,7 @@
     },
     {
       "turn": 444,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "How about the evidence obtained through leads?",
       "time": "01:41:48.93"
     },
@@ -2721,7 +2721,7 @@
     },
     {
       "turn": 446,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is that by -- is that by decision or by statutory decision?",
       "time": "01:42:11.69"
     },
@@ -2733,7 +2733,7 @@
     },
     {
       "turn": 448,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And by that does he have to call the witnesses and ask them what they heard over this time or how does he get that information with his motion to suppress?",
       "time": "01:42:16.50"
     },
@@ -2745,7 +2745,7 @@
     },
     {
       "turn": 450,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:42:29.16"
     },
@@ -2757,7 +2757,7 @@
     },
     {
       "turn": 452,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there any -- is there any statutory ban on constituting the police revealing this information that maybe that they then have seen on tapes except in connection with a criminal proceeding?",
       "time": "01:43:08.97"
     },
@@ -2769,7 +2769,7 @@
     },
     {
       "turn": 454,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Just why -- just why doesn't he have standing, I didn't quite get that?",
       "time": "01:45:09.00"
     },
@@ -2781,7 +2781,7 @@
     },
     {
       "turn": 456,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And for this we stick to the four corners of the affidavit?",
       "time": "01:46:24.35"
     },
@@ -2793,7 +2793,7 @@
     },
     {
       "turn": 458,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, I mean that's all we go with the --",
       "time": "01:46:28.61"
     },
@@ -2805,7 +2805,7 @@
     },
     {
       "turn": 460,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "By there -- by being there you mean, just the appropriate --",
       "time": "01:46:59.98"
     },
@@ -2817,7 +2817,7 @@
     },
     {
       "turn": 462,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes, I mean just the affidavit?",
       "time": "01:47:02.99"
     },
@@ -2829,7 +2829,7 @@
     },
     {
       "turn": 464,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "01:47:04.77"
     },
@@ -2841,7 +2841,7 @@
     },
     {
       "turn": 466,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Brill, you had some time left --",
       "time": "01:48:28.81"
     },
@@ -2853,7 +2853,7 @@
     },
     {
       "turn": 468,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, how did you get to -- how did you get to notice here with the --",
       "time": "01:49:39.21"
     },
@@ -2865,7 +2865,7 @@
     },
     {
       "turn": 470,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Do you have to take the initiative, is that it?",
       "time": "01:49:44.94"
     },
@@ -2877,7 +2877,7 @@
     },
     {
       "turn": 472,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, did the -- did the prosecution after you filed the motion just what would say, that's right there it is or you have to get a judge to tell him co-partner if you get something?",
       "time": "01:50:48.37"
     },
@@ -2889,7 +2889,7 @@
     },
     {
       "turn": 474,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, it was going to get -- you got the indication how, because the judge ordered the prosecution to give you something or because the prosecution voluntarily gave?",
       "time": "01:51:39.99"
     },
@@ -2901,7 +2901,7 @@
     },
     {
       "turn": 476,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, then happen -- what appears in the record on page 22?",
       "time": "01:52:01.41"
     },
@@ -2913,7 +2913,7 @@
     },
     {
       "turn": 478,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It says, Your Honors --",
       "time": "01:52:06.93"
     },
@@ -2925,7 +2925,7 @@
     },
     {
       "turn": 480,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes. Well, I wasn't talk to that. I was talking about the -- about Mr. McCanna said there right under --",
       "time": "01:52:51.25"
     },
@@ -2937,7 +2937,7 @@
     },
     {
       "turn": 482,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The people now state that we intend to introduce evidence in the course of the trial which has been obtained over an eavesdropping device. This eavesdropping device was installed in Room 801 at 15 East 40, 854 I rather say.",
       "time": "01:53:02.35"
     },
@@ -2949,7 +2949,7 @@
     },
     {
       "turn": 484,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Why? Am I mistaken, I thought I've reading these briefs. I seen somewhere statistics as to the number of these which have been authorized in various years?",
       "time": "01:53:23.82"
     },
@@ -2961,7 +2961,7 @@
     },
     {
       "turn": 486,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I wondered where are those statistics could come from if all the --",
       "time": "01:53:56.28"
     },
@@ -2973,7 +2973,7 @@
     },
     {
       "turn": 488,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Those figures were in the respondents' brief like --",
       "time": "01:54:14.78"
     },
@@ -2985,7 +2985,7 @@
     },
     {
       "turn": 490,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Uh-hmm.",
       "time": "01:54:18.82"
     },
@@ -2997,13 +2997,13 @@
     },
     {
       "turn": 492,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Thank you.",
       "time": "01:54:28.92"
     },
     {
       "turn": 493,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Brill, may I ask, am I correct in thinking that none of your Fourth Amendment argument rests on any construction of the Fourth Amendment, the Warrant Clause, as required to the clause itself, the service of a warrant?",
       "time": "01:54:30.86"
     },
@@ -3015,7 +3015,7 @@
     },
     {
       "turn": 495,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You do not make that argument?",
       "time": "01:54:57.95"
     },
@@ -3027,7 +3027,7 @@
     },
     {
       "turn": 497,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I know that it does. But you don't say that the Fourth Amendment Warrant Clause requires the actual service of a warrant. Here of course, there wasn't any service. A warrant is obtained and it's executed in the way we now understand it was executed?",
       "time": "01:55:01.94"
     },
@@ -3039,7 +3039,7 @@
     },
     {
       "turn": 499,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's what I was trying to get at. Are you arguing that there can be compliance with the Warrant Clause, however, proper the warrant, however, much the problem it caused, there can be compliance with the Warrant Clause, only if also the service upon somebody to warrant, are you arguing that?",
       "time": "01:55:41.39"
     },
@@ -3051,7 +3051,7 @@
     },
     {
       "turn": 501,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "01:58:16.02"
     }

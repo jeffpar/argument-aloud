@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/85-792/19861110a_85-792.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "HENRI F. RUSH, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOSEPH L. MANSON, III",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "HAROLD A. ROSS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "JOHN B. O'CLARKE, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We will hear arguments next in two consolidated cases, Interstate Commerce Commission against Brotherhood of Locomotive Engineers and Missouri-Kansas-Texas Railroad Company against Brotherhood of Locomotive Engineers. You may proceed whenever you're ready, Mr. Rush.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Rush, did the respondents in this case raise their argument about their rights under the collective bargaining agreement before the ICC at its hearings on the merger?",
       "time": "00:03:18.21"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, how is it that they can raise them later? Raise that argument later?",
       "time": "00:03:35.49"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why aren't they precluded from doing that?",
       "time": "00:03:45.26"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You took the position that it was perfectly all right for them to come in later and raise the issue; is that it?",
       "time": "00:04:14.95"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Exactly. So it may turn on timeliness, when they can raise it. If they didn't raise it then, why can they now? It just... I don't understand.",
       "time": "00:04:37.90"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It isn't just that. It isn't just not raising before the agency. It's not filing an appeal within 60 days under the Hobbes Act, as they're supposed to.",
       "time": "00:05:06.48"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So how do you get around that here? And that's jurisdictional, so you really shouldn't be talking to the merits if we don't have jurisdiction.",
       "time": "00:05:17.94"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay, now how is that? The Commission denied the petition to clarify, right?",
       "time": "00:05:39.45"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then there was filed a petition to reconsider the denial of the petition to clarify, right?",
       "time": "00:05:48.31"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the appeal that we have before us is from that denial of the petition to reconsider, isn't it?",
       "time": "00:05:55.60"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Was an appeal filed from the petition to clarify?",
       "time": "00:06:06.69"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not what the statute reads like. 49 U.S. C 10327(g) says that an interested party may petition to reopen and reconsider an action of the Commission under regulations of the Commission. But goes on to say that, notwithstanding this subtitle, an action of the Commission under this section is final; that is, the denial of the petition to clarify, is final on the date on which it is served. And a civil action to enforce, enjoin, suspend or set aside the action may be filed after that date. So the Hobbes Act 60 days would have begun running when the petition to clarify was denied, wouldn't it?",
       "time": "00:06:21.53"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A petition to reconsider stays the... tolls the running of the Hobbes Act?",
       "time": "00:07:22.92"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Judicial review of what? Of the original order?",
       "time": "00:07:41.80"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why was that even open? Why was... let's do it more simply. Let's assume you have an ordinary ICC order, in a rate-making or any other proceeding. Sixty days have gone by. Within those 60 days, a petition for reconsideration is filed. Then the 60-day time limit expires. Then the petition for reconsideration is decided. No appeal has been filed in the interim. May an appeal now be taken from the original order?",
       "time": "00:08:00.77"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Within the 60 days?",
       "time": "00:08:38.13"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And then the 60 days expire. That's not how the Hobbes Act reads.",
       "time": "00:08:40.35"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not what Eagle-Picher says. It's not what any D.C. Circuit case says that I'm aware of. In fact, the D.C. Circuit has advised the ICC practitioners explicitly that they should file the motion for reconsideration with the agency, and simultaneously file an appeal to protect their rights, because the motion for reconsideration does not preserve the 60-day period.",
       "time": "00:08:53.39"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I'd like to know what they were. Could you--",
       "time": "00:09:23.49"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Let me make sure I understand your argument now. We had here the denial of the petition to clarify, all right.",
       "time": "00:10:08.79"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And your argument is that the petition to reconsider the denial, what, tolls the 60-day period as long as that petition is pending, the 60-day period is tolled?",
       "time": "00:10:15.14"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But what do you do with the statute that says, notwithstanding the ability to file a motion for reconsideration, notwithstanding it, an action of the Commission under this section is final on the date in which it was served, and a civil action to enforce or suspend it may be filed after that date?",
       "time": "00:10:40.08"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It may be filed. It must be filed for purposes of statutory limitation purposes.",
       "time": "00:11:11.88"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So long as the appeal is filed within the 60 days?",
       "time": "00:11:37.66"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That does seem... that does seem to... that does seem to disregard the 60-day reference in the statute. Well, isn't this a matter for your opposition as well as for you?",
       "time": "00:11:41.80"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx real substance to it, you'll win.",
       "time": "00:11:57.31"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you want a ruling on the merits?",
       "time": "00:12:19.24"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "One more question. We've just been talking about filing the reconsideration for the petition to clarify. Okay, the petition to clarify itself was filed more than 60 days after the original decision here was rendered, right?",
       "time": "00:12:50.28"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So your theory would not even cover that?",
       "time": "00:13:08.30"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How do you enable us to get into the merits of the original order on the basis of the petition to clarify?",
       "time": "00:13:14.39"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's all you need to get around the 60 days of the Hobbes Act? Just file a petition to clarify, and then the 60 days can be extended indefinitely?",
       "time": "00:13:38.59"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, how does it work out here? Why couldn't all of the points raised in that petition for clarification, which is really more like a petition for reconsideration, it seems to me, why couldn't all of them have been made at the time of the original proceeding, or urged before a court within 60 days after the original proceeding?",
       "time": "00:13:54.90"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's the end of it then, as far as Eagle-Picher is concerned, isn't it?",
       "time": "00:14:16.77"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, nor is Eagle-Picher... nor is Eagle-Picher a decision of this Court.",
       "time": "00:14:27.04"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Rush, if the respondents had raised the issue of their collective bargaining rights during the original ICC hearings on the merger, would the agency have considered them, the ICC?",
       "time": "00:14:31.94"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the respondents seem to be suggesting that had they done so they wouldn't have been heard. And I wondered what your position was.",
       "time": "00:14:55.22"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Are there any limits as to what the ICC can exempt under this statute? Or does the exempted action have to be germane to the transaction?",
       "time": "00:15:05.91"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why don't you spend a couple of minutes on the merits before your--",
       "time": "00:16:18.48"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Mr. Rush, can I ask just one question. In the Commission's view, when did the exemption from the Railway Labor Act take place? On October 20, when the original transaction was approved, or later on, when all the petitions were denied?",
       "time": "00:17:29.97"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't contend that the exemption became effective automatically on October 20, 1982?",
       "time": "00:17:49.04"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but nothing has been overturned since then.",
       "time": "00:18:19.07"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, that's not quite right, I guess, because... well, okay.",
       "time": "00:18:22.53"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Rush. We'll hear now from you, Mr. Manson.",
       "time": "00:18:38.88"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "xxx any of the questions in the petitions reserved?",
       "time": "00:19:52.68"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would that also... would that also have been true if the terms of the trackage lease agreements had not said anything about who would do the crewing?",
       "time": "00:23:02.44"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But Mr. Manson, what did the statement in the ICC labor protective conditions, to the effect that collective bargaining rights shall be preserved, mean?",
       "time": "00:23:49.67"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure what you're saying. You mean it preserves collective bargaining rights except with respect to those matters that are specifically disposed of by the agreements?",
       "time": "00:24:49.29"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, why wasn't the Commission's order qualified then? You say that the statement doesn't mean literally what it says, that not all collective bargaining rights are preserved. So why wasn't it qualified?",
       "time": "00:25:39.97"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Manson. We'll hear next from you, Mr Ross.",
       "time": "00:28:38.27"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's jurisdictional though, isn't it? Isn't the Hobbes Act jurisdictional?",
       "time": "00:29:37.88"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, if that's the case, the parties simply by agreeing not to raise it can't confer jurisdiction on us, can they?",
       "time": "00:29:41.55"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Ross, Eagle-Picher isn't a decision of this Court.",
       "time": "00:30:13.46"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But if all that was properly brought to the Court of Appeals was a refusal of the Commission to, in effect, rehear a petition to clarify, I would think the standard of review would be dramatically different than if you were really bringing the merits before it properly?",
       "time": "00:30:35.33"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the merger agreements it approved specifically said that the railroads would or might use their own crews. Those were the agreements that were approved.",
       "time": "00:31:41.70"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Had all these other ones contained specific provisions like that where the railroads said that they would use their own crews?",
       "time": "00:32:20.41"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's the case in which the consolidation agreement said specifically that--",
       "time": "00:34:07.53"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--What is the citation... is that the only example that you have of how the Commission previously has written opinions like this that didn't mean what they appear to me to mean on their face?",
       "time": "00:34:20.80"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Ross, may I just ask you to clarify for a minute why you didn't ask in the original proceedings that the ICC specifically eliminate the part of the application that had to do with the crews on trackage rights?",
       "time": "00:37:12.73"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That the Commission would?",
       "time": "00:37:39.62"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If you thought what the Commission had actually done didn't protect you, I would have thought you would have appealed right away?",
       "time": "00:38:16.12"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it wasn't a suggestion. It just stated flat out that was what they were going to do. You knew what they were going to do from reading the application.",
       "time": "00:38:34.17"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I guess behind this whole thing is your view that somehow the collective bargaining agreement gave the union you represent the right to have its crews used?",
       "time": "00:40:01.73"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does the record show what the collective bargaining agreement provided? Has that ever been furnished or attached?",
       "time": "00:40:16.49"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the merger statute that the ICC was operating under in this case didn't have any specific requirement of accommodation, did it?",
       "time": "00:42:20.38"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But there's no contention that there was a failure to impose that here, is there?",
       "time": "00:42:44.75"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Rosee. Mr. Clarke?",
       "time": "00:43:35.40"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say, it specifically provides. What is the antecedent of \"it\"?",
       "time": "00:48:10.86"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Clarke, I still don't understand, if you're right that the ICC just doesn't have authority to upset these collective bargaining rights, and if you read in the application what the intention of the merging railroads was with regard to the crews, you could see for yourself that that was not in accord with your view.",
       "time": "00:49:25.24"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why, then, wouldn't you have gone into the ICC hearing initially and said, eliminate that from the application?",
       "time": "00:49:49.19"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But did you directly address the crew trackage right problem?",
       "time": "00:50:39.85"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And yet it was perfectly clear in the application was intended.",
       "time": "00:50:53.45"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That is the sticking point.",
       "time": "00:50:58.13"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That you should be able to lie in wait--",
       "time": "00:50:59.52"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--seeing this, and then come in later; that's the point.",
       "time": "00:51:03.39"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Clarke?",
       "time": "00:51:26.25"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can I ask you another question? Supposing in October of 1982, all of the arguments that have been had here in this Court and since then were fleshed out before the Commission at that time, and the Commission said, well, we think we'll change the policy we've followed in the past, and with respect to the crew assignments, we think it makes sense, A, to let the leasee railroad use its own crews, and, B, not to have any strikes or arbitration over that issue, and that is what we intend, and so forth. Would they have had... and we say, we further find that it's necessary in order to effectuate the consolidation promptly and carry out the purposes of the act to do it that way... would they have had statutory authority to enter that order at that time?",
       "time": "00:51:27.08"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're saying they had a statutory duty to leave open the question of who would crew the trains?",
       "time": "00:52:59.71"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even though it might result in a strike and prolonged arbitration?",
       "time": "00:53:06.63"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but those things could both be preserved and have them nevertheless decide who will crew the train?",
       "time": "00:54:27.25"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you say that was true even if there was no loss of employment on the landlord railroad?",
       "time": "00:55:14.05"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I'm assuming there's no loss of work on the landlord railroad. Just, you supplement additional operations over the same lines at different times.",
       "time": "00:55:37.08"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's the best way for us to satisfy ourselves that his indeed been the practice?",
       "time": "00:58:12.08"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your time has expired, Mr. Clarke. Mr. Rush, do you have anything more? You have two minutes left?",
       "time": "00:59:22.32"
     },
@@ -1055,13 +1055,13 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Rush. The case is submitted.",
       "time": "01:02:09.71"
     },
     {
       "turn": 170,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until Wednesday next at 10:00.",
       "time": "01:02:12.70"
     }

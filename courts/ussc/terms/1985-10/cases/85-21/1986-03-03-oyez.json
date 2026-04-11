@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/85-21/19860303a_85-21.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
       },
       {
         "name": "DOUGLAS V. RIGLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DONALD L. FLEXNER",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments first this morning in Square D Company against Niagara Frontier Tariff Bureau. Mr. Rigler, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Are you asking that Keogh be overruled?",
       "time": "00:02:02.75"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Specifically?",
       "time": "00:02:07.82"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Do you lose if we don't overrule?",
       "time": "00:02:28.74"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "If we don't overrule Keogh.",
       "time": "00:02:32.63"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I ask this question? If there had been no violation of the filed rate schedules, would you be making the same argument?",
       "time": "00:03:49.77"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "I am not sure I understand the case either, but if the filed rates had been specifically approved by the Interstate Commerce Commission, would you be here?",
       "time": "00:04:29.80"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Assuming no violation.",
       "time": "00:04:40.81"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "I understand the ICC has not approved this particular rate schedule. It rarely approves them as a matter of practice, but does the mere filing of... if the rates have been filed and not violated... that was my original question... I take it you would still be here.",
       "time": "00:05:02.85"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Yes.",
       "time": "00:05:27.46"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "You would still be here.",
       "time": "00:05:29.76"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "So the allegations of ignoring their own rate schedule are not essential to your claims.",
       "time": "00:05:31.68"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, would you have any remedy at all before the ICC?",
       "time": "00:08:21.33"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I understand that, but--",
       "time": "00:08:38.18"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--why couldn't you get relief before the ICC?",
       "time": "00:08:40.09"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The statute probably wasn't running, then, was it?",
       "time": "00:09:20.01"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, go ahead.",
       "time": "00:09:27.64"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why else--",
       "time": "00:09:32.75"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--What would be your measure of damages?",
       "time": "00:09:54.51"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but in this antitrust case what would you measure your damages by?",
       "time": "00:10:03.07"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How would you know that?",
       "time": "00:10:17.73"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How would you decide that?",
       "time": "00:10:20.54"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You wouldn't have to resort to the ICC at all to establish what a reasonable rate would have been?",
       "time": "00:10:36.26"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right. Well, isn't it possible under your theory that a court or jury could afford damages on the basis of a hypothetical rate that would have been unlawful under the Interstate Commerce Act?",
       "time": "00:11:28.77"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It is certainly possible, though, and it could subject carriers to very conflicting standards with respect to filed rates, it seems to me.",
       "time": "00:11:45.39"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did the Maritime Commission have ratemaking authority?",
       "time": "00:13:13.13"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Wallace.",
       "time": "00:14:46.17"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If they violated the Interstate Commerce Act, isn't there some sort of relief before the Interstate Commerce Commission?",
       "time": "00:17:02.09"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "There is no possibility of reparations then from the ICC?",
       "time": "00:18:31.75"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Wallace, is the Solicitor General's office asking that Keogh be overruled specifically?",
       "time": "00:18:46.65"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What is the answer to the question? Are you asking Keogh be overruled or not?",
       "time": "00:19:34.65"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Wallace, could you refresh my recollection on the Carnation case? I though that was just a challenge to the procedure, the ratemaking agreements, which would have been exempt if they follow it. I didn't think there was any problem of rates having been approved or filed in that case. Were the rates filed with the Maritime Commission?",
       "time": "00:22:35.41"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand, but of course that was an immunity case, and here the question is whether the Keogh takes away a remedy.",
       "time": "00:23:12.55"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the conduct itself remained unlawful, as the--",
       "time": "00:23:35.85"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Your position would be the same in this case if the ICC had instituted an investigation of some of these rates and specifically approved them, found them to be within the zone of reasonableness.",
       "time": "00:24:22.38"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, but you would still say that a suit for damages would lie.",
       "time": "00:24:56.74"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you would say even though the ICC had approved the rate, the rates might have been lower except for the conspiracy.",
       "time": "00:25:10.53"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You think the measure of damages in that situation would be the difference between what the rate might have been and the rate that was charged?",
       "time": "00:25:38.44"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, if the rates had been lower, if there hadn't been a conspiracy, and the rate had been lower, all the competitors would have been paying a lower rate, too, so how would there have been damage to the business and property?",
       "time": "00:26:04.06"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Wallace, just one quick question. Does your argument apply equally to railroad carriers? This is a motor carrier case.",
       "time": "00:26:32.22"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Flexner?",
       "time": "00:26:55.76"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you telling us that if the flaws and deficiencies in Keogh are correct, Congress should change that, not this Court. Is that it?",
       "time": "00:28:30.56"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I did not read Judge Friendly's position as suggesting Keogh was wrong when it was decided. Do you read his opinion that way?",
       "time": "00:29:19.06"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And then it is changed conditions, is it not?",
       "time": "00:29:32.05"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Flexner, the Solicitor General suggests that the question of what the rate should have been absent the alleged collusion or antitrust activity could be referred by the Court to the Interstate Commerce Commission, so that would satisfy your concern.",
       "time": "00:33:37.87"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But there is nothing inherently existing in the statutory framework, is there, to prevent a court from referring the question to the ICC?",
       "time": "00:35:07.26"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Flexner, you said a moment ago that in Keogh the rates proposed by the defendants there could not have been approved by the Commission. Why is that?",
       "time": "00:36:47.14"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But nevertheless the rates were reasonable rates and were approved?",
       "time": "00:37:29.62"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Keogh itself said or assumed or stated that the government could get after the conspirators.",
       "time": "00:37:45.24"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Flexner, I understand your basic position, but I don't see how... there would be some situations in which a revocation of the existing rate would provide no remedy at all. For example, supposing economic conditions were such that normally rates would be declining, and the conspiracy resulted in preserving the rate by using... just declining to file a change when you normally would. You get no remedy by revoking the--",
       "time": "00:39:58.30"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, I understand your point. That is what Congress said. It is quite clear, however, that if you lose in this case, you are subjected to a great deal of exposure that you don't have now.",
       "time": "00:40:35.64"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your treble damages and whatever changes.",
       "time": "00:40:45.01"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, I don't think you can argue that there are existing remedies that take care of the problem. It may be the remedies Congress intended. But that is quite different from saying that they have got adequate remedies.",
       "time": "00:40:50.45"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Sure, and there is nothing they can do if you preserve a rate against an otherwise... a decline that would otherwise normally follow.",
       "time": "00:41:06.60"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is there any... what could the Commission... what could the Commission do about rates that are no longer in effect? I suppose the rates have been changed over the years, and a lot of the rates that they are complaining about are no longer in effect. What could the Commission do about that?",
       "time": "00:41:24.89"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you say if these people claim they were hurt by a rate that was set ten years ago and was in effect for two years, that is just tough, they should have gotten after it then.",
       "time": "00:42:14.64"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So they are just barred.",
       "time": "00:42:30.46"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So they have no remedy.",
       "time": "00:42:32.45"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They have no remedy before the Commission except with respect to a rate that is now in effect.",
       "time": "00:42:35.49"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What makes you think the Commission wouldn't apply some tolling doctrine if there is an allegation of conspiracy and concealment?",
       "time": "00:42:47.28"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why shouldn't they? I mean, consistent with normal statute of limitations laws, if there has been a concealment, why wouldn't you expect that statute to be told for the Commission itself and allow the retroactive setting aside of filed rates?",
       "time": "00:42:57.26"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it if the Commission as far as money is concerned could only give reparations.",
       "time": "00:48:49.91"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That may be so, but as far as money is concerned, there would be reparations then, but reparations would only be given if the rate was unreasonable.",
       "time": "00:49:13.37"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you would say that if these conspiratorial... if these rates which were set by a conspiracy turned out to be reasonable, there wouldn't be any relief before the Commission.",
       "time": "00:49:23.95"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but they would decide... they would say, well, certainly these carriers didn't abide by the right procedures to sake joint rates, but nevertheless the rates they came up with were within the zone of reasonableness. No reparations. Isn't that right?",
       "time": "00:49:39.98"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No reparation.",
       "time": "00:50:02.26"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I wonder, Mr. Flexner, if your argument would apply assuming there was a rate increase and the Commission took a look at it and then revoked it under the ATA case, so you wouldn't have a filed rate. Then why couldn't they get treble damages then?",
       "time": "00:51:07.23"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Maybe they will never do that.",
       "time": "00:51:30.86"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did the District Court have power to stay the proceeding until it found out whether the ICC might revoke the rates?",
       "time": "00:51:45.67"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What did the Bullwinkle Act do about antitrust immunity?",
       "time": "00:53:11.59"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But nobody else? it gave express antitrust immunity.",
       "time": "00:53:20.82"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But there is no argument in this case that that express immunity would apply.",
       "time": "00:53:39.22"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you insist that you complied with the procedures?",
       "time": "00:53:51.15"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's assume that it were proved that you did not comply, that your clients did not comply with those procedures, there would be no express immunity.",
       "time": "00:53:59.54"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think that immunity that they were talking about was just immunity from government suit?",
       "time": "00:54:11.44"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Rigler.",
       "time": "00:55:11.91"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think that the considerations expressed by Judge Friendly and to some extent reiterated in the government's brief now have escaped the attention of Congress over the years?",
       "time": "00:56:15.59"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You left out in that list of cases the Southern Motor Carrier case. Do you think that is consistent with that--",
       "time": "00:57:19.09"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Do you think the Reed-Bullwinkle Act was response to Keogh or a response to the Georgia case.",
       "time": "00:57:33.29"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He was saying what his position would be at trial, I think. We understand. We assume your facts for the purposes--",
       "time": "00:58:25.18"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--You say Reed-Bullwinkle was a Congressional effort to--",
       "time": "00:59:11.28"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--comprehensively deal with this. You would think that you would find more evidence that they intended to overrule Keogh.",
       "time": "00:59:21.17"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "After all, Keogh was a case of statutory construction.",
       "time": "00:59:41.44"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It certainly wasn't a constitutional law case, was it?",
       "time": "00:59:50.64"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, so--",
       "time": "00:59:57.26"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--The statutory construction had been on the books a long time, and here comes Reed-Bullwinkle. You would think Congress would have dealt specifically with private antitrust actions if it was dealing with the cold question of antitrust immunity.",
       "time": "01:00:04.22"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Thank you, gentlemen. The case is submitted.",
       "time": "01:01:25.26"
     }

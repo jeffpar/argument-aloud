@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1531/19851209a_84-1531.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
       },
       {
         "name": "BRIAN E. THIEDE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES KROGSRUD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "RONALD J. BRETZ",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Thiede, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask at this point, supposing the judge... at that point there had been a lawyer sitting in the courtroom and he said, \"I'll appoint Mr. Smith as your lawyer. \" Smith said, \"I'm too busy to talk to you now. \" \"I'll see you in three or four days. \" Would the rule the apply, or not?",
       "time": "00:04:14.68"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, under your view should--",
       "time": "00:04:33.31"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--You would say, then the police could still initiate interrogation?",
       "time": "00:04:37.25"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me just stop you there for a minute. Suppose he was non-indigent, had his own lawyer and knew it all the time. Is it proper in the... he already had a preliminary hearing and the police know who his lawyer is. In your view, is it all right for the police to initiate interrogation without telling counsel?",
       "time": "00:05:10.33"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, this is after the preliminary hearing.",
       "time": "00:05:30.42"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The case has begun, though, hasn't it? The criminal process has begun?",
       "time": "00:05:40.68"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There is a charge?",
       "time": "00:05:46.90"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, suppose he shows up with a lawyer at that hearing. He's got plenty of money. And then the lawyer leaves and the police take him back to the police station after that very hearing. Can they initiate--",
       "time": "00:06:06.62"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--You don't think it's possible to set up a procedure whereby as soon as he makes a request like that you would immediately be notified? You don't think you're capable of doing that?",
       "time": "00:07:37.81"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What happens if the man says, I want a lawyer, my own lawyer, at this preliminary hearing. Can he have a lawyer?",
       "time": "00:07:53.81"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, then why can't he have a court appointed lawyer?",
       "time": "00:08:07.71"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why can't he have a court appointed lawyer?",
       "time": "00:08:10.48"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If he can have a paid lawyer, why can't he have a court appointed lawyer?",
       "time": "00:08:15.32"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, when you pick him up and you give him the Miranda warnings--",
       "time": "00:08:41.45"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--And you tell him you will appoint a lawyer for him, you don't appoint him until after the preliminary hearings?",
       "time": "00:08:45.04"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that right?",
       "time": "00:08:53.45"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that correct?",
       "time": "00:08:55.43"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought you said the Magistrate couldn't appoint him.",
       "time": "00:08:57.51"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, who can appoint him?",
       "time": "00:09:02.68"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there is a list of lawyers for a preliminary hearing?",
       "time": "00:09:21.04"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought you said you didn't.",
       "time": "00:09:31.13"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Am I confusing, or are you confusing?",
       "time": "00:09:38.65"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And in the meantime anybody can question him?",
       "time": "00:10:15.41"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why did you mean when you said you would appoint a lawyer for him, you meant 12 days hence?",
       "time": "00:10:21.43"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you just said so.",
       "time": "00:10:29.36"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did I misunderstand that?",
       "time": "00:10:31.00"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don't question him until he gets a lawyer?",
       "time": "00:10:50.12"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that correct?",
       "time": "00:10:53.77"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What is this 12-day period?",
       "time": "00:11:15.95"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You mean, during those 12 days he's not examined by the police?",
       "time": "00:11:25.65"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Thiede, does Michigan also proceed sometimes by way of indictment following grand jury investigation?",
       "time": "00:12:23.14"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And then there would be no preliminary hearing, there would be a grand jury indictment, arraignment and trial?",
       "time": "00:12:33.59"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But it can precede the trial?",
       "time": "00:12:46.04"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And in that circumstance, would your position be the same?",
       "time": "00:12:50.99"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The police wanted to question after the arraignment and when counsel had been requested?",
       "time": "00:12:56.19"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It would have to be... what would your position be?",
       "time": "00:13:08.72"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I suppose it is not explained to a defendant at arraignment in Michigan that there is this difference, as you see it?",
       "time": "00:13:26.07"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think the defendant would perhaps... if unsophisticated, at least, understand that the attorney that was requested at arraignment would be an attorney that would be available to assist during questioning or a lineup or something of that--",
       "time": "00:13:54.17"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--And they can get a confession? I mean, I'm confused.",
       "time": "00:14:24.17"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What is the language used at arraignment, when the defendant is asked--",
       "time": "00:15:07.19"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I interrupt with a question?",
       "time": "00:15:37.49"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing a particular judge or magistrate, I forget the exact title, at that particular hearing went ahead and said, by the way, I might as well also explain to you what the Miranda warnings are, and he reads him the Miranda warning and then gets all through and says, now, do you want to fill out the form. The fellow says, yes, I want a lawyer, but it's kind of ambiguous. What would your position be?",
       "time": "00:15:39.50"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even if the judge had given him the substance of the Miranda warning?",
       "time": "00:16:05.38"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You are saying the police would have... even if it's ambiguous and even if the other case is... even if he has a lawyer, you still say the police have a right to initiate--",
       "time": "00:16:21.67"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--I guess they can do that before arraignment. Don't they have that interval of time before arraignment?",
       "time": "00:16:49.80"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Isn't there a period of time before arraignment?",
       "time": "00:16:59.74"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "When the police clearly can go in and make an inquiry after giving Miranda rights?",
       "time": "00:17:04.02"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you simply want to extend that time to post-arraignment and until the preliminary hearing?",
       "time": "00:17:09.34"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That's what you're saying?",
       "time": "00:17:16.29"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Wait a minute. I thought that during this 12-day period they could come in 20 times a day and ask him again about the Miranda--",
       "time": "00:17:31.46"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Didn't you say that you can ask him if he's changed his mind?",
       "time": "00:17:43.14"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How many times can you advise him of his Miranda rights?",
       "time": "00:17:57.20"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And all of the million times, you can ask him a question?",
       "time": "00:18:03.16"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that your idea of not questioning?",
       "time": "00:18:07.16"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that your idea of not questioning?",
       "time": "00:18:10.24"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You said that if he doesn't get a lawyer, you should stop questioning.",
       "time": "00:18:14.19"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And in the second breath you say, you continuously question about his Miranda rights.",
       "time": "00:18:19.30"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Did these ask for an attorney?",
       "time": "00:19:06.09"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did these petitioners ever ask for an attorney?",
       "time": "00:19:09.28"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why?",
       "time": "00:19:28.57"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Didn't get enough out of him the other times?",
       "time": "00:19:31.35"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just ask one other question. At the point in... that the Michigan Supreme Court considers significant in this case, the hearing, whatever you properly call it, in your view had the Sixth Amendment right to counsel attached?",
       "time": "00:20:50.43"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The thing that puzzles me about your position is, if you agree that the Sixth Amendment right is attached, normally we're a little more strict after the Sixth Amendment right attaches than under the Fifth Amendment right under Miranda. You are in effect saying that there should be less protection in the Sixth Amendment context than there would be in the Miranda context?",
       "time": "00:22:10.86"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, in one case you could initiate conversation and in the other you can't?",
       "time": "00:22:30.53"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Thiede, would you be making the same argument in a jurisdiction which used office of the public defender for representation of indigents, and where after the arraignment, if counsel is requested and the public defender is designated, the public defender traditionally steps in and takes over for all purposes including lineups or questioning by the police and so forth?",
       "time": "00:23:18.15"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You would make the same argument?",
       "time": "00:23:46.06"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You think you would be as persuasive about it?",
       "time": "00:23:47.88"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So, your argument really is a result of an unusual procedure for representation for indigents?",
       "time": "00:24:05.21"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why shouldn't the line be drawn at the initial appearance or arraignment stage? What's the matter with that? Does everybody understand that?",
       "time": "00:25:40.11"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In your sequence, supposing during this 12-day period they decide to question him, say two or three days later, and just before they question him a lawyer calls up and says, \"I've been appointed and I want to come in and talk to him. \" Could they say, \"We're sorry, you can't talk to him for two days because we want to find out if he wants to waive? \"",
       "time": "00:26:30.95"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what if he says, \"I'll be over there in two hours. \" and they then say, \"Well, before he gets here I'd like to ask him if he would like to waive his rights. \" Could they do that?",
       "time": "00:26:54.56"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Before the lawyer does?",
       "time": "00:27:08.62"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You think they would have that obligation?",
       "time": "00:27:17.27"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why doesn't Massiah just prevent the officers from going to him at all once the criminal proceeding has started?",
       "time": "00:27:24.94"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but when they go to him at all, once the right to counsel is attached and the case is begun, what they want is information, they want to interrogate him?",
       "time": "00:27:50.31"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why shouldn't Massiah just prevent them from even--",
       "time": "00:28:03.16"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--So, the Michigan Court said this request for counsel at the arraignment, that is what triggered a rule like Edwards?",
       "time": "00:28:56.61"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Krogsrud.",
       "time": "00:29:32.43"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Krogsrud, do you think that the right to counsel made available by the Miranda case under the Fifth Amendment is a more easily waived right than the right to counsel contained in the Constitution in the Sixth Amendment?",
       "time": "00:33:22.10"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why should that be?",
       "time": "00:33:39.90"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but of course if an individual clearly wants to talk to the police, no matter how high the standard of waiver, that standard could be met. We're talking about, I suppose, slightly more ambiguous circumstances, and then you say that... where it's the Miranda right to counsel involved, you need less in the way of waiver than where it's the Sixth Amendment right to counsel?",
       "time": "00:34:44.45"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, counsel, suppose... suppose the defendant had not, at the arraignment said, \"I want counsel\".",
       "time": "00:38:42.61"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but what if he hadn't said it?",
       "time": "00:38:56.76"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The right to counsel attached then, didn't it?",
       "time": "00:38:58.85"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And he said, I don't care to have counsel appointed. Could the officers then have gone to him?",
       "time": "00:39:02.55"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's what I... that's what your argument that you're just making says, once the criminal process is really begun, the officers must stay away from him unless he goes to them?",
       "time": "00:39:11.53"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Whether or not he's said what he said at the arraignment?",
       "time": "00:39:22.81"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if the defendant in this case had approached the officers?",
       "time": "00:40:05.04"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I was thinking you would say that a much higher standard of waiver would be required than in Edwards.",
       "time": "00:40:23.27"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You are asking for a good deal more than the Michigan Supreme Court gave you.",
       "time": "00:40:35.69"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Aren't you?",
       "time": "00:40:42.50"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, because they hinge their entire analysis on his request for counsel.",
       "time": "00:40:43.97"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you say that isn't even necessary to win this case?",
       "time": "00:40:50.38"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's the only argument you've made.",
       "time": "00:41:04.83"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask, at this hearing as it is handled in Michigan, what does the judge do if the defendant says, \"I don't want a lawyer\"? Does he have kind of a Faretta type waiver, or does he just say, no lawyer requested, and that's the end of it? Is there any careful inquiry?",
       "time": "00:41:18.81"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Bretz.",
       "time": "00:41:39.24"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You don't mean to suggest that that suspended any need for the warning, do you?",
       "time": "00:44:07.71"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Even if they were not aware that a warning had in effect been given and that counsel was on the way?",
       "time": "00:44:29.19"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How often does a defendant say at his arraignment, \"I don't want counsel\"?",
       "time": "00:45:59.75"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You hardly ever see it?",
       "time": "00:46:10.09"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I suppose you could argue that any police officer who knows that an arraignment has taken place should assume that he's asked for counsel?",
       "time": "00:46:14.01"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Brewer.",
       "time": "00:51:05.87"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "There are no further questions? Thank you, gentlemen. The case is submitted.",
       "time": "00:52:02.32"
     }

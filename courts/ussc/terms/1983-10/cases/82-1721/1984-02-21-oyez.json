@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/82-1721/19840221a_82-1721.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "EVAN L. SCHWAB",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MALCOLM L. EDWARDS",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in Seattle Times v. Rhinehart. Mr. Schwab, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Where were these papers filed at the time they were sought, Mr. Schwab?",
       "time": "00:00:29.90"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, was it on file or not?",
       "time": "00:00:40.69"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, how about the rest of the answer to the Chief Justice's question?",
       "time": "00:01:07.32"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The only things that you sought had been already been filed in the public record?",
       "time": "00:01:11.33"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, I'm afraid my question wasn't really clear enough. Ordinarily, the returns on pretrial proceedings, discoveries, interrogatories, are not on file in the clerk's office. They remain in the custody of the lawyers until they are offered in evidence. Now, were these things that you were seeking in the possession of the clerk or still in the possession of the lawyers?",
       "time": "00:01:48.18"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So that... so far as that stuff is concerned, your right of access to it really depends on the court order, doesn't it?",
       "time": "00:02:23.39"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On the--",
       "time": "00:02:34.20"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, but your original right of access to it under the discovery rules depended on the decision of the Superior Court in Washington to grant your discovery.",
       "time": "00:02:38.68"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, in a sense, the order that conditions your access to the discovery is of the same parcel with the order that granted you discovery, isn't it?",
       "time": "00:03:05.33"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If the court had denied you discovery altogether in this order and just said no, you can't have it, would you be here with this argument?",
       "time": "00:03:17.96"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But no First Amendment right to discovery.",
       "time": "00:03:36.35"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, could we take just a little... let's take a specific example. Suppose that you had noticed a deposition, and you wanted it, and the deposition was taken, or the other side had. Now, do you say that even if the deposition was never filed, never used at court, that you would have the right to publish it?",
       "time": "00:04:03.40"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even if it is just in the possession of the lawyers and both lawyers say it is none of your business?",
       "time": "00:04:44.53"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I would think... that position, I take it, that isn't dependent upon your being a defendant in the libel suit.",
       "time": "00:04:50.10"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if you weren't a party to this case and it was just any civil case in which a deposition had been taken and the results were in the possession of the lawyers? I thought your argument was that the press has the right to have access to those depositions?",
       "time": "00:05:02.52"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it is... but you certainly would say that if a deposition was filed in court, that you had the right of access to it.",
       "time": "00:05:18.22"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, yes.",
       "time": "00:05:52.34"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:05:54.87"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Let me see if I have got this... the picture is a little confused because your client is a litigant and is also seeking some information not as a litigant but as a representative of the media.",
       "time": "00:06:17.57"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What about two private parties who have a lawsuit and they are taking depositions pretrial and they are having interrogatories, and none of them are filed; they remain in the possession of the lawyers? Are you suggesting that those are part of the public record until and unless they are offered in evidence?",
       "time": "00:06:34.08"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that's what you answered to me before, isn't it?",
       "time": "00:07:20.28"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Schwab, in both your answers to the Chief Justice's question and to Justice Blackmun, you refer to access cases and then intimate this is not an access case.",
       "time": "00:07:26.98"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How do you define an access case?",
       "time": "00:07:37.01"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And of course, I suppose if you were just... if the press were just a litigant in a tax case in which there were depositions, you wouldn't be making the same arguments that you are making here. I suppose the reason you are making these arguments is that you are a defendant in a libel suit.",
       "time": "00:07:55.65"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would not, what... in a tax case you have a First Amendment right to access?",
       "time": "00:08:23.04"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You have First Amendment right to publish it.",
       "time": "00:08:33.68"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Schwab, you are not making that argument as a litigant.",
       "time": "00:08:41.60"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Your right to publish, you are making that argument as a litigant?",
       "time": "00:08:45.90"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, you mean as a news media litigant? Suppose you were not?",
       "time": "00:08:56.51"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It would?",
       "time": "00:09:03.01"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You have no cases to support you on that from around here, giving the press superior rights to another litigant, do you?",
       "time": "00:09:14.40"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, how does publication further your interests as a litigant?",
       "time": "00:09:28.06"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Before the trial has been held?",
       "time": "00:09:45.11"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, then you are asserting right as media, not as a litigant.",
       "time": "00:09:49.31"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Publish in what, in their journal?",
       "time": "00:10:14.54"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "To publish it where, in their journal?",
       "time": "00:10:16.19"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You can use it as a litigant, of course, can't you?",
       "time": "00:10:36.47"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And you are, I repeat, asking for a special right because your client happens to be a newspaper.",
       "time": "00:10:40.52"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how can you tell whether someone has First Amendment rights at stake in the litigation?",
       "time": "00:11:00.32"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I thought you just were arguing that any litigant, when he gets discovery, has a First Amendment interest in being able to publish the results of the discovery.",
       "time": "00:11:15.26"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And just anybody in any kind of a case. But that isn't the same argument you made two minutes ago. In any kind of a case.",
       "time": "00:11:24.24"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In any kind of a case, whether it is libel or tax or science or environmental or whatever?",
       "time": "00:11:40.56"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, does a defamation litigant have a greater First Amendment right than any other kind?",
       "time": "00:11:48.84"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, this is independently, then, of this being a defamation suit in your argument for a First Amendment right to publish.",
       "time": "00:12:02.25"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And yet you are talking only about a litigant's right, and you are not talking about a litigant's right who just happens to be the defendant in a libel suit, or you are not talking about a litigant's right just because he's a member of the press.",
       "time": "00:12:37.57"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then it would be your view, if you postulate this hypothetical question, proposition, an individual sues a bank, his own banker for any reason you can conceive of. They take a lot of pretrial discovery by way of testimony an interrogatories, and each lawyer for each side keeps them in his own office, none of them are filed. Do you say that there is some First Amendment right of someone to publish that information before it is ever offered in evidence?",
       "time": "00:12:53.03"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, then, could one of the litigants take a page ad, let's say, in the Seattle Times, and... or two pages, even better, and publish all these pretrial depositions over the objection of the other party?",
       "time": "00:13:38.73"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do we have to go that far?",
       "time": "00:14:03.44"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What difference does it make that it was not relevant? What difference does it make that it was not relevant to the issues if it is material that the public is interested in? If relevance to the issues is the determining factor, then you might as well just wait until the case is tried.",
       "time": "00:15:11.88"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you say that a lawyer who is a free-lance writer on the side would have the same First Amendment right?",
       "time": "00:15:38.55"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He would?",
       "time": "00:15:52.12"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I don't see how you can argue that, Mr. Schwab, because the Superior Court should have... could have said no, we are not going to give you any discovery in this case. We follow this rule that when you get into very private subjects, we just don't allow discovery. Why can't the Superior Court equally well say that we will allow discovery here, but as a condition to this access that we are granting you to this information, you are not to publish it? I don't see how you could call that a prior restraint.",
       "time": "00:16:10.15"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When the access that you get is made conditional in the very granting of the access.",
       "time": "00:16:42.29"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, how about the Snepp case?",
       "time": "00:17:06.92"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Suppose you have two lawyers in some heavy litigation of the kind we are talking about who are dismayed at the prospect of the excessive cost of pretrial discovery and interrogatories, and they agree informally that plaintiff's lawyer will submit a series of informal questions by letter to the defendant's lawyer, and they will reciprocate, and these will be answered informally, and yet with a stipulation both ways that to the extent relevant to the case, if it ever goes to trial, these may be used in evidence as admissions. Now, this is all in the lawyers' offices. You say someone has a First Amendment right to publish that?",
       "time": "00:17:51.43"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Who would have that right?",
       "time": "00:18:45.25"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Either side.",
       "time": "00:18:48.24"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Now, what about, what about demand of the local newspaper to get at those things?",
       "time": "00:18:50.16"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But either litigant could take a coupe of pages in the local newspaper and put it all there?",
       "time": "00:19:02.30"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "When you say our First Amendment, now, are you speaking--",
       "time": "00:19:48.83"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--as a representative of... well, are you speaking of your client as the press or as a litigant?",
       "time": "00:19:51.88"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well--",
       "time": "00:20:01.49"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Are they they same?",
       "time": "00:20:04.47"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Schwab, may I ask you this question? Would you concede that any of the information that is gong to be obtained through discovery could be made subject to a protective order if it was properly drafted and made a lot of findings?",
       "time": "00:23:42.71"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, as long as some is, isn't it a virtual certainty that we are going to have a federal question in every case in which there is such information?",
       "time": "00:24:02.71"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That we're going to have to we're the last court of resort for discovery all over the country if you--",
       "time": "00:24:12.88"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--So every good cause for a protective order raises a First Amendment issue.",
       "time": "00:24:22.59"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask you this, too. How soon will this case be tried? How close are you to a trial date?",
       "time": "00:24:31.32"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Had there not been an appeal from the protective order, how soon do you suppose you would have been ready for trial?",
       "time": "00:24:40.96"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if that had happened, then you could have gone in and asked for all the information to be released. There's no longer any need for secrecy.",
       "time": "00:24:50.73"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if you just adopted a policy of not having the lawyers turn anything over to their client? Sometimes a discovery order just restricts the access to the information to the lawyers. Then by definition, whatever the newspaper published would be gotten elsewhere. I suppose you couldn't prepare for trial. I suppose that's your problem.",
       "time": "00:25:51.62"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "This is that tough a case.",
       "time": "00:26:13.29"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, to be sure I understand, are we dealing with two different types of materials here, some which haven't yet been produced and some which have been produced before there was any protective order issued.",
       "time": "00:26:19.64"
     },
@@ -935,13 +935,13 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Okay.",
       "time": "00:26:42.12"
     },
     {
       "turn": 150,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is there any risk in this process of making it very difficult or even impossible to get a jury that hasn't heard a lot about the evidence before the case comes to trial?",
       "time": "00:26:42.65"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, but the other cases you're referring to didn't always have that. Nebraska and Stuart did, but you say that's no risk here.",
       "time": "00:27:06.65"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Mr. Schwab, it would help me if you could tell me whether the issue that is primarily involved in this case is limited to names and amounts of contributors to the defendant... to the plaintiff organization, names and amounts of money contributed.",
       "time": "00:27:56.49"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "That's the essence of what you are interested in.",
       "time": "00:28:18.23"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, if they are tax returns, you are not--",
       "time": "00:28:22.47"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--Well, suppose instead of the party who claimed it had been libeled were one of the nationally known ministries, Protestant, Catholic, Mohammedan, whatever, with millions of subscribers, members and donors, your position would have to be the same, wouldn't it?",
       "time": "00:28:28.89"
     },
@@ -1013,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Well, let's suppose a newspaper made the sort of claims that have been made according to the pleadings here in this case, they were sued for libel--",
       "time": "00:28:53.24"
     },
@@ -1025,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--So the fact that this particular sect, Rhinehart's organization, is as you characterize it something of a charlatan really doesn't make any difference, does it, in terms of your theory?",
       "time": "00:29:12.55"
     },
@@ -1037,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "None whatever.",
       "time": "00:29:29.01"
     },
@@ -1049,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In what you postulate, he means to have it go public when, as, and if it gets into the courtroom but not before, necessarily, isn't that so?",
       "time": "00:30:11.24"
     },
@@ -1061,7 +1061,7 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You are not suggesting that all of the material that is covered by pretrial discovery goes in evidence in a lawsuit?",
       "time": "00:30:27.78"
     },
@@ -1073,7 +1073,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "A fraction of it goes in.",
       "time": "00:30:35.60"
     },
@@ -1085,7 +1085,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just ask one question? I am sorry, I hate to use... is it perfectly clear we have a final judgment here? This case hasn't been tried has it?",
       "time": "00:30:40.84"
     },
@@ -1097,7 +1097,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You will not be charged with that time, counsel. Mr. Edwards?",
       "time": "00:31:11.28"
     },
@@ -1109,7 +1109,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "A promise made by whom?",
       "time": "00:32:11.48"
     },
@@ -1121,7 +1121,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The preceding counsel thought he was obligated as a result of discovery to file--",
       "time": "00:33:00.55"
     },
@@ -1133,7 +1133,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Mr. Rhinehart's income tax returns with the clerk of the court?",
       "time": "00:33:06.62"
     },
@@ -1145,7 +1145,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, your clients were plaintiffs in this lawsuit, weren't they, Mr. Edwards, and to a certain extent they do give up rights of... to a very large extent they give up rights of privacy when you bring a lawsuit for libel.",
       "time": "00:37:27.95"
     },
@@ -1157,7 +1157,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, now, just a minute. You say a party has a right of access to the courts.",
       "time": "00:38:03.66"
     },
@@ -1169,7 +1169,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now, are you saying that is some kind of an independent, federal, constitutional right to go into the Superior Court of King County and plead a case?",
       "time": "00:38:09.39"
     },
@@ -1181,7 +1181,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, okay, now. Where does one... from what source does one get a right to go into the Superior Court of King County and sue a newspaper for libel or sue anybody for anything else?",
       "time": "00:38:28.61"
     },
@@ -1193,7 +1193,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, did he say that was a... did the Chief Justice say that was a federal constitutional right?",
       "time": "00:39:03.59"
     },
@@ -1205,7 +1205,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "He was talking natural law.",
       "time": "00:39:17.69"
     },
@@ -1217,7 +1217,7 @@
     },
     {
       "turn": 196,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, isn't one answer to the question posed to you that the legislature of the State of Washington at least gave that right to all the people in Washington?",
       "time": "00:39:24.93"
     },
@@ -1229,7 +1229,7 @@
     },
     {
       "turn": 198,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And that's... you don't need to go beyond that to find it in the federal constitution, do you?",
       "time": "00:39:34.03"
     },
@@ -1241,7 +1241,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You wouldn't, you wouldn't, you wouldn't say that... you wouldn't say that as a plaintiff furnishing discovery under this protective order that if information was actually relevant and was introduced at trial that the protective order would prevent publication?",
       "time": "00:39:41.52"
     },
@@ -1253,7 +1253,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even though, even though, even though technically you could say the information would be... if it were published, would be used for something besides litigation.",
       "time": "00:40:07.00"
     },
@@ -1265,7 +1265,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you say once it is actually legitimately filed in court or used in the litigation, it is open to the public then.",
       "time": "00:40:20.86"
     },
@@ -1277,7 +1277,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Unless there is something special. I suppose in trade secret cases and whatnot there's a lot of things that remain sealed forever.",
       "time": "00:40:32.68"
     },
@@ -1289,7 +1289,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you don't claim any of this information would be sealed forever if it were used in defense, legitimately used in defense or in prosecution of that.",
       "time": "00:40:43.28"
     },
@@ -1301,7 +1301,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even subject to the... even subject to the secrecy order?",
       "time": "00:41:26.19"
     },
@@ -1313,7 +1313,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Edwards, if your position in your petition for certiorari is correct that all these constitutional privacy interests are invaded by a discovery order, and Mr. Schwab's position that his clients' and all sorts of other clients' First Amendment interests are invaded if there is a protective order, then isn't Justice Stevens' earlier question to Mr. Schwab brought about in double, so to speak, that every single discovery order that a court makes is now a matter of federal constitutional import?",
       "time": "00:41:33.44"
     },
@@ -1325,7 +1325,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let me... suppose the newspaper had published a story that the main supporters to this sect or this group are the following people, and you sued them and said that's a lie, that's libelous. And the newspaper then said, well, gee, we at least, in order to prove truth or falsity, we need your membership, your contribution list.",
       "time": "00:42:37.39"
     },
@@ -1337,7 +1337,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, would you say that they weren't entitled to get the contribution list?",
       "time": "00:43:13.47"
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but.",
       "time": "00:43:20.88"
     },
@@ -1361,7 +1361,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You might still be... you might still win on a protective order, though, and say that we have to furnish it if we want to be a plaintiff in this case, but it should be furnished under a protective order.",
       "time": "00:43:27.90"
     },
@@ -1373,7 +1373,7 @@
     },
     {
       "turn": 222,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, then, once the deposition or the interrogatory is offered in evidence, it would lose any right of privacy, would it not?",
       "time": "00:43:52.53"
     },
@@ -1385,13 +1385,13 @@
     },
     {
       "turn": 224,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Unless, as suggested, it was a patent case or a national defense case, something of that type.",
       "time": "00:44:09.64"
     },
     {
       "turn": 225,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You just agreed that your position is that if it were used at the trial legitimately, then it is open to the public.",
       "time": "00:44:14.53"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you don't have to find a federal right of access to courts to sustain the position of the Supreme Court of Washington in this case because they found as a matter of state policy that the access to courts was all-important.",
       "time": "00:45:43.75"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was all-important, or very important.",
       "time": "00:45:59.43"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Schwab? You have three minutes remaining.",
       "time": "00:47:27.80"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you think the public is entitled to be present at the hearings, at pretrial discovery depositions?",
       "time": "00:50:21.45"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Why does... if you concede, as you seem to, that there is no public right of access to the actual taking of the deposition, what's the difference between that and access to the record of that deposition hearing?",
       "time": "00:50:43.39"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted. We will hear arguments next in Capital Cities Cable v. Crisp.",
       "time": "00:51:09.53"
     }

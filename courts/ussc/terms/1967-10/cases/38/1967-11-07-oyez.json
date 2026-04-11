@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1967/38/19671107a_38.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "IRWIN L. LANGBEIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID FERBER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WILLIAM P. SIMMONS, JR.",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "[Inaudible]",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:08:29.89"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That was on the tax issue.",
       "time": "00:09:07.68"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:09:13.02"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "On behalf of the company?",
       "time": "00:15:04.82"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:15:23.97"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "As a result if there was recovery the recovery would go into the assets of --",
       "time": "00:15:32.84"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Mr. Langbein, how is the state point which you are asking this Court to decide?",
       "time": "00:20:13.51"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yeah go ahead.",
       "time": "00:20:25.40"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well I see there is no dispute as to that proposition of law. The question is how to try in this case? Is there any dispute as to that proposition of law?",
       "time": "00:20:54.12"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright.",
       "time": "00:21:10.96"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I thought you also relied on the fact on [Inaudible] mentioning with that trustee [Inaudible]",
       "time": "00:21:50.98"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That trustee became the president on the of the reorganized company?",
       "time": "00:22:01.94"
     },
@@ -203,13 +207,13 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "[Inaudible]",
       "time": "00:22:40.95"
     },
     {
       "turn": 28,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "[Inaudible]",
       "time": "00:22:43.59"
     },
@@ -221,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "We are asked to look at the record here and determine that the trustee was derelict in his fiduciary duty in the respect which you have been discussing and on that basis to confirm that the reorganization plans should be set aside?",
       "time": "00:23:22.35"
     },
@@ -233,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Kind of a [Inaudible]",
       "time": "00:24:09.82"
     },
@@ -245,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "On which line I gather that we should agree with the SEC that it should be a prophylactic rule [Inaudible]",
       "time": "00:24:15.65"
     },
@@ -257,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well I – but suppose there was a conclusion that a prophylactic in the these circumstances is indicative?",
       "time": "00:24:37.69"
     },
@@ -269,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "That will be a general application, would that have the affect to setting aside this plan?",
       "time": "00:24:47.96"
     },
@@ -281,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well if it did then why should we be concerning with all the other things?",
       "time": "00:24:54.84"
     },
@@ -293,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "On this issues that you are speaking that you've addressed yourself so far?",
       "time": "00:25:21.31"
     },
@@ -305,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Necessarily to be getting into the record and all these matters and in fact the proper rule of law is a prophylactic rule?",
       "time": "00:25:27.37"
     },
@@ -317,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well it seems to me that the only prophylactic rule is urging that the trustee is not going to be trustee of the company and that's been set aside plan that [Inaudible] president of the company but it's otherwise make the plan exactly as it was?",
       "time": "00:26:02.47"
     },
@@ -329,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know you do but it's the only that's wrong with the plan, is that the trustee is the president of the company, where you can get a new President of the company.",
       "time": "00:26:25.79"
     },
@@ -341,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Exactly that's the answer to this, that's just credit isn't it, but there are other things wrong with this plan that must be cured. You say that trustee would not only become president of the company but in the process of compromising certain claims that there wasn't enough done to later comprise on and that the Court had also in approving the compromise.",
       "time": "00:26:37.58"
     },
@@ -353,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don't know why -- did you ever object to, did you client ever object to trustee being president [Inaudible]",
       "time": "00:27:26.63"
     },
@@ -365,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There are proceedings available in reorganization [Inaudible] trustee on that?",
       "time": "00:27:47.12"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "00:27:57.28"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Nobody trust, nobody trust [Inaudible]",
       "time": "00:28:04.97"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:29:41.30"
     },
@@ -413,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:29:46.37"
     },
@@ -425,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:29:53.91"
     },
@@ -437,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:30:56.04"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why do you on the claims, why do you need to go beyond just saying that there is no, not sufficient places in the record for these compromises?",
       "time": "00:32:40.68"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you don't need to get these other charges of alliances and fraud, do you?",
       "time": "00:32:51.11"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If all the record showed that the trustee walks in the Court that here are some claims which have been objected to, but I recommend they be compromised at X dollars and the Court said fine, X dollars. Your position is that just about all that happened and it's insufficient.",
       "time": "00:32:59.39"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "[Inaudible]",
       "time": "00:35:17.35"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:38:07.88"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:38:30.20"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:38:32.59"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:38:55.76"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In certain organizations, the SEC is obligated to the write a report on the plan?",
       "time": "00:39:26.20"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And did you say you don't recall any cases since the early 1940s in which you have not objected to the trustee becoming President of a company of reorganization?",
       "time": "00:39:31.47"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Did you take the position having objected and the trustee having nevertheless appointment President of the new company, did you take position of that invalidates the plan?",
       "time": "00:39:56.58"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I understand that's place that you have failed to expose your [Inaudible] you assert that position, but suppose your position were disallowed, did you thereafter take the position that invalidated the plan and made any distinction between the time and the occasion of which you make your objection and the consequences of the disallowance of your objection. Because here you are saying not merely that it was wrong for the court below to approve the plan, to approve that feature of the plan, the trustee as a President, but you are saying that, that such approval invalidate the plan in this ground for setting aside?",
       "time": "00:40:21.95"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That was the reform that the, a basic reform that the statute put in by requiring a disinterested trustee.",
       "time": "00:42:53.75"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And if you have a disinterested trustee, truly so meeting all the requirements to the letter in the statute then what's wrong with such a very high minded disinterested person becoming President of a reorganized corporation?",
       "time": "00:43:01.77"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Suppose he fell from grace only after the all the other terms of the plan had been approved, suppose this paragon and all these trustees are supposed to be paragons of virtue and suppose this paragon continue to be a paragon that everything else was decided and then he was invited to neighborhood salon by the dominant merging interest in the company and they discuss the matter quietly and they reluctantly agree that he would become President of the company. Does that make any difference in the absoluteness of the SEC's view?",
       "time": "00:43:55.51"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I suppose you realize what you are arguing for is -- goes against agreement of various fashionable practices --",
       "time": "00:46:15.31"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well I just happened to think if we galaxy of former Generals and what not who head up the big corporations of America who had served the Pentagon in [Inaudible] positions.",
       "time": "00:46:28.51"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I am not trying to defend them I am just saying that [Laughter] perhaps you are talking about a symptom of a disease that's much broader in this Chapter 10?",
       "time": "00:46:47.70"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Were these compromises, does a record show that these compromises were made after the trustee was approached with respect of becoming President of the company?",
       "time": "00:48:13.99"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "There are lots of temptations to which even an independent trustee [Inaudible] for example on the questions of abuse, trustees would know for example that this case in these two companies to which you refer, would have a lot to say about whether he gets a $100,000 or $500,000 as fees?",
       "time": "00:48:32.03"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What you are saying maybe perfectly valid moral point that is to say that because of the difficulty of knowing just when trustee agreed to become a President or when came the idea and also because there is a prospect that he might become President of the company, he might make unduly favorable settlements if the people who were merged with control, it maybe correct or moral idea, but when you say that should be a principle of law assisted on by this Court rather than something that Congress to legislate here I suppose is a very serious problem.",
       "time": "00:48:57.81"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You're saying that you got to do some fairly rough at least arbitrary things with respect to time. Now when the man that's presumably when this man was appointed as trustee was independent then he later fell from grace?",
       "time": "00:50:06.83"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:52:39.59"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:53:13.69"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:53:21.43"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:53:40.74"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:55:18.37"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:55:44.12"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What would that bill have provided?",
       "time": "00:55:56.70"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:56:14.29"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could I ask you, let's assume to the moment that the Court agreed that you want the contesting President [Inaudible] and agreed with the plan I believe outside of the conformation that [Inaudible]",
       "time": "00:57:14.84"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:57:51.12"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] to your argument just a while ago [Inaudible] trying to that there would be settlement and maybe something wrong with the settlement [Inaudible]",
       "time": "00:57:58.80"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think that without you're so called prophylactic rule wouldn't just be cured or satisfied by appointing a new President.",
       "time": "00:58:36.43"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "00:58:48.45"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you do argue I suppose that the Court doesn't go along with you know, this trustee's President if the reorganization was never -- the confirmation was nevertheless be set aside under the ground, several other grounds.",
       "time": "00:59:40.99"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But the answer, question I asked Mr. Langbein, I gather, my understanding the SEC position that we agree that there should be a prophylactic rule that automatically that means this whole organization has been unscrambled and started over.",
       "time": "00:59:55.66"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What do you mean most of the way?",
       "time": "01:00:14.87"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Go all the way.",
       "time": "01:00:16.21"
     },
@@ -917,13 +921,13 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why wouldn't you have to go back have the 166 [Inaudible] because that's the place after that he was first supposed to be President. I would think that its into your, since that's the critical part of the reorganization, because you have to have it done by someone you felt was the President.",
       "time": "01:00:47.65"
     },
     {
       "turn": 147,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That's -- on theory say that people running for President do all sorts of [Inaudible]",
       "time": "01:01:04.14"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well he had been, the first reorganization plan had him as President.",
       "time": "01:01:15.32"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And then that was knocked over and he made an investigation under 157.",
       "time": "01:01:19.10"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I think this would be the very time where you would say obviously you have to.",
       "time": "01:01:27.28"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well this wouldn't be upset if we adopted your basic position again, that the whole thing was unscrambled with.",
       "time": "01:01:34.87"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Simmons.",
       "time": "01:01:48.19"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] If the Court says these compromises are in fact they are vulnerable because nothing appears in the record, they maybe absolutely not a compromise but there isn't enough [Inaudible]",
       "time": "01:04:30.30"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I'm just saying.",
       "time": "01:04:53.86"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:06:41.22"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:07:21.67"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:07:38.93"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:07:41.04"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:09:13.72"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:11:02.44"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:12:19.57"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:12:45.65"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:12:54.81"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:13:08.62"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:13:26.24"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What percentage of their claims were the unsecured creditors?",
       "time": "01:17:47.42"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the preferred claims just about to took the all the value?",
       "time": "01:18:05.38"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And what percentage of the unsecured creditors claim was actually recognized in a way of stock, I suppose they got stock didn't they?",
       "time": "01:18:28.42"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the preferred claims [Inaudible]",
       "time": "01:18:46.50"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible]",
       "time": "01:18:51.85"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was the Merrill claim, a maritime name case?",
       "time": "01:20:05.35"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Otherwise Merrill's claim was just an unsecured claim?",
       "time": "01:20:18.23"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Inaudible] mortgage claims that are that were also settled they were paid in cash?",
       "time": "01:20:31.06"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible",
       "time": "01:21:00.60"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Unless they are -- unless they have a claim that the company could not recognized?",
       "time": "01:21:12.95"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:21:20.42"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:21:30.54"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:21:34.16"
     },
@@ -1307,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:21:44.82"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:22:03.67"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did the claims against outsider with the trustees just existed at one point, did those claims against outside [Inaudible] compromises that were approved?",
       "time": "01:22:25.99"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that would certainly increase the assets of the company, if those claims were good and they were collected?",
       "time": "01:22:39.04"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Claim to extent the claim to extent that the claim is made here that trustee did not pursuit claims that should have been pursued, if the trustee should have pursued then he would have collected the money.",
       "time": "01:22:52.62"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There would have some more assets to the company.",
       "time": "01:23:06.09"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And those claims you say wash out with the company?",
       "time": "01:23:16.91"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "[Inaudible]",
       "time": "01:23:52.06"
     },

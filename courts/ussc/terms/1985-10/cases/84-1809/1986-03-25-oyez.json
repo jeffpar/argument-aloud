@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/84-1809/19860325a_84-1809.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "MARCY J.K. TIFFANY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "BRUCE W. GRAHAM",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments next in the Federal Trade Commission against Indiana Federation of Dentists. Ms. Tiffany, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -55,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That was the extent of their boycott, wasn't it, just not providing the ex-rays?",
       "time": "00:03:27.30"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They didn't refuse to serve patients that were covered by these health plans?",
       "time": "00:03:41.56"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Tiffany, the Commission refused to find that it had the result of diminishing competition among insurers, did it not?",
       "time": "00:05:30.70"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The Commission seems to have conducted a sort of abbreviated rule of reason analysis here, not really doing a full-blown inquiry into the economic effects of the boycott, as I understand it.",
       "time": "00:05:43.42"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think an abbreviated rule of reason analysis is justified?",
       "time": "00:06:19.53"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is there something in this record that indicates that furnishing these ex-rays would be a step to contain costs?",
       "time": "00:08:57.33"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Did the Commission make any findings about that?",
       "time": "00:09:11.48"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, with respect to the ex-rays.",
       "time": "00:09:24.73"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did the Commission uphold that finding?",
       "time": "00:09:40.59"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How widespread is this practice?",
       "time": "00:10:38.53"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that may be a desirable goal or policy, but you were going to get around to saying how that restrains competition.",
       "time": "00:11:33.00"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I mean, how their conduct restrains competition, even if it maybe isn't in the public interest in terms of cost containment.",
       "time": "00:11:45.84"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I know, but-- --How would that affect the competition among dentists?",
       "time": "00:12:08.07"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is that an injury to competition?",
       "time": "00:12:28.50"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "When the patient can't find a dentist who will send his ex-rays in? Does that restrain competition?",
       "time": "00:12:37.61"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Ms. Tiffany, Judge Fairchild's concurring opinion, he didn't join Judge Coffey's opinion, he says pretty clearly that no evidence was developed on the validity of an assumption that a dentist's policy of refusal of cooperation has any significance in competition among dentists, and the FTC decision fails to analyze the proposition. I take it you disagree with his opinion.",
       "time": "00:12:58.54"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It seems to me that the two... talks about, you know, this is the battle for cost containment and this is the big picture. We have to figure out what evidence was developed right here in this case, and not go to generalizations.",
       "time": "00:13:24.40"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But how about the failure of the FTC to make a finding that it affected competition among insurers?",
       "time": "00:14:29.53"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Aren't you just trying to come in the back door with something the FTC refused to let in the front door?",
       "time": "00:14:37.57"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now, what the FTC declined to find was that the dentists' concerted action reduced competition among insurers. Now, it seems to me when you say that the insurer is really another buyer and he was competing as a buyer, you are insisting there was a finding that the FTC refused to make.",
       "time": "00:15:10.32"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Who is the buyer here? Is it the ultimate patient who wants dental services?",
       "time": "00:15:47.20"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What is the product here? Is it the advice necessary in order to monitor dental services?",
       "time": "00:16:00.36"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that the product?",
       "time": "00:16:13.63"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No?",
       "time": "00:16:15.28"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I would have thought perhaps the product was the advice or evaluation services that insurers provide in competition with dentists.",
       "time": "00:16:44.12"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, maybe it is just a product effect, not a price effect.",
       "time": "00:17:14.22"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Among dentists? Competition between dentists, among dentists? Is that it?",
       "time": "00:17:35.92"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That is all they really find, is, it resulted in reducing or eliminating competition among dentists as to their policy of dealing with third party payers.",
       "time": "00:17:44.26"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That is what they really focused on, isn't it?",
       "time": "00:17:54.38"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, spell that out a little. How did eliminating competition with respect to their policy dealing with third party payers, how did that reduce competition among dentists? Is it that if some dentists furnished ex-rays and some didn't, the ones that furnished them might get more patients?",
       "time": "00:18:19.41"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because the word would get around that here these hardnoses won't really cooperate with my insurance company?",
       "time": "00:18:43.57"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the Commission could have said a little more than it did, it seems to me.",
       "time": "00:19:09.06"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "One of the rules around in agencies, and I take it the FTC is an agency--",
       "time": "00:19:22.90"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--One of the administrative rules is that you explain what you do.",
       "time": "00:19:31.93"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Adequately.",
       "time": "00:19:36.26"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Whether there is evidence in the record or not.",
       "time": "00:19:38.50"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "To whom do the ex-rays belong? To the patient or the dentist? Do you know?",
       "time": "00:20:45.89"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If the... would the dentist have broken some ethical rule if the patient had directed him to send the ex-rays to the insurer and he had refused?",
       "time": "00:21:00.80"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but if a patient comes in and says, I want the ex-rays you took of me, will the dentist give it to him?",
       "time": "00:21:26.85"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now.",
       "time": "00:21:38.91"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Were they?",
       "time": "00:21:39.88"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does not the dentist have a professional interest in maintaining the ex-rays, at least by copy, in case he is conceivably sued for malpractice later, and he needs the ex-rays to defend himself?",
       "time": "00:21:48.10"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Graham.",
       "time": "00:25:49.91"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the Commission at least said that no elaborate analysis was necessary to define the market, that this group spanned the state, and it was the state that was the relevant market. I grant you it was in a footnote, but they said it anyway.",
       "time": "00:27:46.65"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They spoke briefly to the definition of the market, the geographical market, anyway, and certainly there wasn't much question about what the product market was, is there?",
       "time": "00:28:14.38"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Graham, can I ask a kind of preliminary question? As I understand it, this was a proceeding under Section 5 of the Federal Trade Commission Act. And the conclusion of the Commission was that there was... an unfair method of competition had been found. There wasn't really a Sherman Act issue on its own terms in the case, was there?",
       "time": "00:28:49.66"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I notice they cited some Section 1 cases, but the section of the legal discussion is all under the rubric of Section 5. Do you think that makes any difference? I don't know whether it does or not.",
       "time": "00:29:11.59"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think it is necessary to find a Section 1 violation in order for there to have been a Section 5 violation?",
       "time": "00:29:37.02"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think that is a necessary element of their case?",
       "time": "00:31:52.29"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In a price case would it be necessary to show that there was an impact on price?",
       "time": "00:31:59.90"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you prove an agreement to fix price, do you have to prove anything more?",
       "time": "00:32:07.20"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It is part of your submission that they must prove an impact on price in this case?",
       "time": "00:32:26.70"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Did they prove an impact on price in Professional Engineers?",
       "time": "00:32:47.69"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But did they prove an impact on price?",
       "time": "00:32:58.83"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you think they have to in this case?",
       "time": "00:33:03.69"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, whatever you call this case, do you think it is an essential ingredient of the Commission's case that they prove an impact on price in this case?",
       "time": "00:33:07.44"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, they claim they did.",
       "time": "00:33:21.68"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But what I am really trying to find out is whether you think they had to prove an impact on price.",
       "time": "00:33:24.90"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why shouldn't an insurance company at least have a backup diagnosis of its own if it is going to pay the bill?",
       "time": "00:35:53.58"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, now, your opposing counsel said that these dentists assisting the insurance companies didn't use just the ex-ray.",
       "time": "00:36:21.75"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why can't an insurance company say, all right, we don't have as much time as the dentist to spend on these individual cases, we have got to process them, we are going to make our backup judgment just on the basis of ex-rays?",
       "time": "00:37:04.18"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You can't say that is not cost containment.",
       "time": "00:37:46.34"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "He is probably not going to opt to have treatment done if the insurance company won't pay for it.",
       "time": "00:38:04.47"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but how can you say the diagnosis is improper?",
       "time": "00:38:25.05"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but that is a proper diagnosis for prescribing treatment, isn't it? Is there something unethical or improper about an insurance company writing a policy saying that when there are two alternate methods of treatment, we will reserve the right to decide which one we will pay for?",
       "time": "00:38:50.11"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, adequate for determining what they will pay for. Don't they have that right? I don't understand this.",
       "time": "00:39:14.58"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Can't they say, the reason we won't pay for a gold filling is because we think a plastic filling is cheaper and that that is adequate? Can't they say that?",
       "time": "00:39:29.42"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Who should determine... do you think they must, there is some legal rule they have to say whatever the doctor... for whatever the dentist thinks is appropriate?",
       "time": "00:39:46.70"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They thought the insurance company ought to send a dentist out and review the files on every patient, and the insurance company said, that would be much more expensive, and will run up the cost of insurance. Isn't that what it is all about?",
       "time": "00:40:04.06"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even though it is a more expensive way and the cost of insurance would go up.",
       "time": "00:40:18.84"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I think there were findings to the effect that the processing method of going to the office by individual dentists would be a good deal more expensive. I thought that was in the... even Judge Coffey acknowledge that, I thought.",
       "time": "00:40:25.39"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that's why they didn't want to supply the ex-rays.",
       "time": "00:40:52.66"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you tell me again, just so I have it, why did the... what was the purpose of this refusal to supply ex-rays, in a nutshell? Why didn't the dentists want to do it?",
       "time": "00:41:03.88"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They didn't want the insurance companies to engage in unethical practice of dentistry.",
       "time": "00:41:17.86"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that the basic reason, they thought it was... the insurance companies would be unlawfully engaged in the practice of dentistry if they cooperated?",
       "time": "00:41:25.21"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Didn't the dentists submit a narrative explanation of what work they were proposing would be done?",
       "time": "00:41:41.69"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And isn't that available to the insurance company to review?",
       "time": "00:41:50.23"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So they aren't relying just on the ex-ray at all. They have the benefit of the narrative explanation. Isn't that so?",
       "time": "00:41:56.78"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But from what you have said, there was more supplied to the insurance company than just the ex-ray. There was the proposed work, the outline of the work to be done and the narrative description and the opinion of the examining dentist, so the insurance company has all that available plus the ex-ray if it is furnished.",
       "time": "00:42:33.11"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, what else would they get by going to the dentist's office?",
       "time": "00:43:01.18"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Which was acceptable to the Indiana group?",
       "time": "00:43:07.76"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you don't propose that the insurance company has to physically examine the patient, surely.",
       "time": "00:43:38.22"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I follow up with just one question on that, Mr. Graham? Mr. Graham, it is your position if they supplied the ex-rays, that might lead to the unethical practice of dentistry. What if they supplied everything but the ex-rays, and then the insurance companies did the best they could without the ex-rays? Would that be the unethical practice of dentistry by the insurance companies?",
       "time": "00:43:56.59"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But weren't they willing to do that, supply everything else they wanted except the ex-rays?",
       "time": "00:44:20.09"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Was it the dentists who insisted on having an insurance company person come to the office? Weren't they willing to send in a partial file just excluding the ex-ray?",
       "time": "00:44:29.92"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why didn't that raise exactly the same ethical problem as sending in the ex-rays without more material?",
       "time": "00:44:40.04"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In both instances the insurance company was trying to decide whether to pay the claim, wasn't it, whether it had the ex-ray or not?",
       "time": "00:44:54.61"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What treatment they would pay for.",
       "time": "00:45:07.19"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Has this sort of a boycott by dentists spread to other states? Do you know?",
       "time": "00:45:32.24"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Do you have anything further, Ms. Tiffany?",
       "time": "00:50:25.38"
     },
@@ -1135,13 +1135,13 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "00:50:31.12"
     },
     {
       "turn": 184,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The Honorable Court is now adjourned until tomorrow at 10:00.",
       "time": "00:50:35.00"
     }

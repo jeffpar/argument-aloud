@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1988/87-1816/19890118a_87-1816.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "JOSEPH M. MELILLO",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "THOMAS D. CALDWELL, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 87-1716, Paul Green v. The Bock Laundry. You may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "These rules are applicable in both criminal and civil proceedings, aren't they?",
       "time": "00:03:51.58"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So when they say the defendant in these rules, they could mean the criminal defendant?",
       "time": "00:03:59.25"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why can't it? Why can't you say that the rule is talking about prejudicial effect to the criminal defendant? There is no criminal defendant in a civil case and therefore, the outweighing doesn't apply.",
       "time": "00:04:27.84"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What was the old common law rule? Let all this evidence of prior convictions in, right?",
       "time": "00:04:53.56"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, can you make that general a statement? I mean up until the time of the codification of the Federal Rules of Evidence, it depended on the laws of the various states, didn't it?",
       "time": "00:05:27.23"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you take the position that Rule 403 is applicable?",
       "time": "00:05:58.68"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Would you say that Rule 403 applies even in a criminal case, where the prior felony is one of honesty?",
       "time": "00:06:17.74"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:06:30.40"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What did he mean by the collateral criminal matter?",
       "time": "00:07:16.78"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, how does it make sense in that way? What standard would you work under?",
       "time": "00:07:31.09"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, also the language would then just change the word \"defendant\" to \"witness\", because the witness would always be the person who had committed the crime, against who, you know is being impeached.",
       "time": "00:07:54.82"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The trouble with that, of course, is you never think of prejudice to a witness. You talk about prejudice to the parties to the case, normally.",
       "time": "00:08:13.04"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And what is your position in reference to witnesses?",
       "time": "00:08:20.22"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, to begin with, where do I look... rule 403?",
       "time": "00:08:35.53"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, why not 403?",
       "time": "00:08:51.33"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "403 is more general than 609, isn't it?",
       "time": "00:09:07.00"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, the exception is not specific, except as to criminal matters. But there are so many different ways of slicing the question here. The provision, itself, which says it will be considered, as opposed to the exception, could be regarded as quite specific, for both criminal and civil matters.",
       "time": "00:09:33.24"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, why would you conceivably want this evidence to come in, in a criminal case, and not in a civil case? I mean I can understand why you might want the exception to apply only in a criminal case and not in a civil case, but why would you want the whole rule of admitting this evidence to apply only... only in criminal cases?",
       "time": "00:10:28.91"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, was... was this designed to protect the integrity and reputation and privacy of the witness or the integrity of the fact-finding process?",
       "time": "00:11:32.33"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but as Justice Scalla's question suggests, I should think that in the criminal process the danger of prejudice is, is much greater.",
       "time": "00:11:44.97"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In, in, in the first class of criminal offenses?",
       "time": "00:12:06.09"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the Conference Report says in one sentence, doesn't it, that the Committee decided that they were not interested in considering the prejudice to a witness.",
       "time": "00:12:59.04"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but they don't say in a criminal matter.",
       "time": "00:13:10.46"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "They did not say the criminal defendant either.",
       "time": "00:13:19.53"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, as the rule went over to Congress from us, you would have lost.",
       "time": "00:13:35.23"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the only thing that happened to it was this provision for balancing if a... with respect to if it would prejudice the defendant.",
       "time": "00:13:51.92"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it was talked a lot about.",
       "time": "00:14:06.88"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Wasn't most of the real worry about criminal defendants?",
       "time": "00:14:14.27"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, well, certainly you would have... you would have the same worry apply to witnesses generally.",
       "time": "00:14:18.74"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Civil, criminal, anything.",
       "time": "00:14:30.31"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is your position that only subpart (1) of 609(a) applies only to criminal cases, or is it subpart (2) as well? Is, is the Court free to apply 403 and to exclude evidence that a witness, or a party in a civil case, had been convicted of a crime involving false statement?",
       "time": "00:15:23.68"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the point is that you can use the reference to the defendant which makes so little sense as applied to a civil defendant, to just eliminate the sole portion of 609 which says, and the Court determines that the probative value outweighs its prejudice to the defendant, you could use to eliminate that much. Or you could use it to eliminate all of (1), or I suppose you could use it to eliminate both (1) and (2) and I was just trying to get what your theory is. You say at least one and you are noncommittal as to the rest.",
       "time": "00:16:16.88"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, rule (2)... I mean number (2), seems to just be an exception to the exception for criminal cases.",
       "time": "00:17:13.09"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the first exception to Rule 609(a) deals apparently with criminal defendants.",
       "time": "00:17:24.90"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And it says that you will limit the types of crimes or the evidence of prior crimes as against criminal defendants in a criminal case. But section... part (2) says that you won't limit introduction of the crimes of dishonesty. Now, the beginning of Rule 609 just states, as a general purpose, that for the purpose of attacking credibility of witnesses, evidence of prior conviction shall be admitted. That is the general rule... it shall be admitted. And part (1), apparently makes an exception for the criminal defendant in a criminal case; and (2) makes an exception to that exception in criminal cases. I mean that seems to be the import of the rule, doesn't it?",
       "time": "00:17:35.98"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I am not sure of the relevance of it. Are the states in some disarray on this or is a uniform consensus emerged as to whether or not such impeachments are desirable in a criminal... civil trial?",
       "time": "00:18:54.87"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That is I thought.",
       "time": "00:19:14.00"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but if the states are in disarray then a state, other than Pennsylvania has a different rule, and what we decide would be in conformity with that. So, whatever we do, there is going to be some forum shopping.",
       "time": "00:20:10.68"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, the worst instances are in Pennsylvania, I take it?",
       "time": "00:20:35.12"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why shouldn't we adopt the standard rule of statutory construction that the rules say and Congress clearly intended that the rules, as a whole, should apply both in civil and criminal cases?",
       "time": "00:22:12.70"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That is right, except... and... and any exception from that rule, caused by the irrationality of the languages, should be narrowed as much as necessary... should be narrowed to the degree essential to eliminate the absurdity. And that would be eliminated simply by saying, you don't get an exception when it outweighs its prejudice to a civil defendant. That portion of it is deleted. I mean, it seems to me that the burden is on you to show why a section in a... in a provision of law that is meant to apply to both civil and criminal should not apply to both, and, and, and that the exception that we read into the text of the statute should be as now as is necessary to solve the problem. And you are giving us an interpretation that really goes much further than is necessary to solve the absurdity problem.",
       "time": "00:22:35.06"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Thank you, Mr. Melillo. Mr. Caldwell, we will hear now from you. ARGUMENT OF THOMAS D. CALDWELL, JR. FOR THE RESPONDENT--",
       "time": "00:24:03.05"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Caldwell, did you try this case below?",
       "time": "00:24:25.47"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "This is a products liability case, isn't it?",
       "time": "00:24:31.79"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Where the man's arm was literally torn off from his shoulder?",
       "time": "00:24:35.87"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Just as a matter of tactics, why were these prior felonies introduced?",
       "time": "00:24:40.61"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Was there a feeling that the accident didn't happen at all?",
       "time": "00:24:53.89"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Did you want to make a liar out of him?",
       "time": "00:24:59.71"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In what respect?",
       "time": "00:25:02.99"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Then why did you need the felony convictions?",
       "time": "00:26:40.16"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Carried to an extreme, your theory would almost relegate a felony injured... a felon who is injured... almost prevent him from recovering, ever.",
       "time": "00:27:01.74"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But we are not talking about a criminal defendant. We are talking about a civil plaintiff, here.",
       "time": "00:27:42.65"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "There is a bit of a distinction between the two.",
       "time": "00:27:46.78"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, suppose... suppose in this case, that the chief designer for the company was named as a co-defendant, and he testified about the design of the machine. And the plaintiff seeks to impeach him, what ruling... he has been convicted, say, of theft?",
       "time": "00:28:08.88"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And, and how do you justify that interpretation of the statute?",
       "time": "00:28:50.96"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do those... do those lead to a statutory argument at the end?",
       "time": "00:29:01.00"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... so the impeachment testimony would be admissible to impeach the defendant?",
       "time": "00:30:09.99"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm... I'm... I'm assuming that he is a defendant, and the defendant is not entitled to the balancing test?",
       "time": "00:30:27.27"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, no, in the hypothetical that I put.",
       "time": "00:30:34.28"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So, in my hypothetical, the impeachment is admitted and there is no balancing test?",
       "time": "00:31:05.46"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that is because the statute is not read strictly?",
       "time": "00:31:15.35"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So if we are not going to read the statute strictly, why don't we give the balancing test to the plaintiff?",
       "time": "00:31:21.94"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In other words, the statute is ambiguous, and we are to go to the legislative history?",
       "time": "00:33:21.60"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Caldwell, on that point, I know it is clear that the rules are applicable. In your review of the history, was there any discussion at all, that you found, of the possible application of the rule in a civil case?",
       "time": "00:40:41.92"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what I am really asking is, is it consistent with your reading of the legislative history that everybody was thinking about criminal cases throughout the discussion and did not really give any thought to the civil application?",
       "time": "00:41:01.77"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It is not.",
       "time": "00:41:14.21"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I understand that, but the problem, that triggered the reconsideration was a criminal case and it is clear that they wanted to change the rule in criminal cases. I am just... I am not... I don't know of any evidence, one way or the other, but I am just wondering if they talked about the civil problem at all?",
       "time": "00:41:24.30"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "After the die was pretty well cast, yes.",
       "time": "00:41:53.68"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I guess there is a move afoot now to amend the rule, to apply a sort of 403 balancing, is that right?",
       "time": "00:42:06.51"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The ABA has made a recommendation on other groups, is that right?",
       "time": "00:42:17.60"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "All right.",
       "time": "00:42:26.62"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The balancing test applies in some cases governed by the rules, even under your submission--",
       "time": "00:47:04.60"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Thank you Mr. Caldwell. Mr. Melillo, you have six minutes remaining.",
       "time": "00:47:51.11"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Melillo, before your brief, something has occurred to me while I have been listening to this. You do acknowledge that in criminal cases, the witnesses for the prosecution are subject to this rule?",
       "time": "00:47:57.15"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So Congress must have thought that at least in criminal cases, it does serve the truth finding function to impeach any witness who has a felony?",
       "time": "00:48:12.78"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why would Congress think that is an appropriate rule in criminal cases, except of course, where it harms the defendant; but not think that it is an appropriate rule in civil cases?",
       "time": "00:48:24.24"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Would--",
       "time": "00:48:52.99"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, if 403 would cut across everything like that, they wouldn't have needed to worry about putting some reservation in this rule.",
       "time": "00:50:45.81"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Tell me if 403 is applicable, the way they amended the rule was absolutely useless.",
       "time": "00:51:06.99"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if the balancing test was going to be applied, in any event, under 403, they certainly didn't need to provide especially for it in 609.",
       "time": "00:51:19.49"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Especially you would have thought that if 403 is going to apply... if it applied anywhere, it would apply to the criminal defendant.",
       "time": "00:51:31.54"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Melillo, the case is submitted.",
       "time": "00:52:25.99"
     }

@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/86-104/19870303a_86-104.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES R. KAPEL",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JAY ALAN SEKULOW",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We will hear arguments first this morning in No. 86-104, Board of Airport Commissioners of the City of Los Angeles versus Jews for Jesus and others. Mr. Kapel, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Kapel, may I ask a preliminary question or two? There was a resolution passed by the airport board, whatever it's called.",
       "time": "00:01:01.62"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was that resolution binding without city council approval?",
       "time": "00:01:15.03"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Has the city council ever approved it in fact?",
       "time": "00:01:30.09"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And in another preliminary inquiry, would the airport be a public forum under California constitutional law?",
       "time": "00:01:46.46"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How about the Hoffman case making a railroad terminal a public forum?",
       "time": "00:02:08.73"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was the state law point argued in the courts below?",
       "time": "00:02:24.44"
     },
@@ -135,13 +139,13 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Thank you.",
       "time": "00:02:31.27"
     },
     {
       "turn": 16,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I ask a question before you proceed, Mr. Kapel? Has this ordinance ever been enforced against anyone?",
       "time": "00:02:32.59"
     },
@@ -153,7 +157,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Specifically?",
       "time": "00:02:42.70"
     },
@@ -165,7 +169,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "When people have not left, have they been prosecuted?",
       "time": "00:03:01.58"
     },
@@ -177,7 +181,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "So this is a facial challenge?",
       "time": "00:03:26.18"
     },
@@ -189,7 +193,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That means, I take it, that if we disagree with you that it is a public... if we disagree with you that it's a public forum, what result should accrue?",
       "time": "00:03:29.12"
     },
@@ -201,7 +205,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Suppose we're worried about the allegations of unequal enforcement of it?",
       "time": "00:03:56.72"
     },
@@ -213,7 +217,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Suppose we're worried about the allegations of unequal enforcement, the Christian Science reading room, for example, and the advertisement about environmental matters that are alleged to have been in the airport. That issue is not before us?",
       "time": "00:04:03.68"
     },
@@ -225,7 +229,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What I'm asking is, do we have to reach that? Suppose we find, as you want us to find, that this is not... that this is not a public forum, but suppose we're also concerned that the rules against First Amendment activity have not been applied even-handedly. What should our disposition be?",
       "time": "00:05:09.88"
     },
@@ -237,7 +241,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And we can make that determination here.",
       "time": "00:05:52.72"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did the lower court base its decision in part on that?",
       "time": "00:05:56.70"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So we wouldn't have to... and the Ninth Circuit did the same?",
       "time": "00:06:10.60"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So if we're worried about these other matters, we could remand and let them decide whether there's been unequal enforcement, couldn't we?",
       "time": "00:06:16.74"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Counsel, is your position one of all or nothing, that it either is a traditional public forum or it is not? Do you have any room at all for what the Court has recognized in some cases, a limited public forum status?",
       "time": "00:06:24.52"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course, you have presented nothing by way of evidence to counter-balance the thing. It seems to me you're taking an all or nothing position here. And if you lose, maybe we can't take an intermediate way out, as we have done in some cases.",
       "time": "00:07:32.97"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, you said airport related, and you said, things needed by the traveller. You don't define airport related in terms of necessity, that everything there is absolutely necessary for the traveller. You don't need a Christian Science reading room. Maybe it helps, but... is that your test?",
       "time": "00:07:54.18"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But not necessary for the traveller?",
       "time": "00:08:22.64"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And without a Christian Science reading room.",
       "time": "00:08:32.78"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "However, if it's something like the reading room that provides a place to sit while you're waiting for planes, and maybe to obtain peace of mind before you get up in the storm, or something like that, why wouldn't the literature that is passed out by these people perhaps serve some airport related function?",
       "time": "00:08:36.34"
     },
@@ -357,7 +361,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but they read newspapers, which is something to pass the time and occupy the traveller and perhaps give him peace of mind.",
       "time": "00:09:12.61"
     },
@@ -369,7 +373,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why wouldn't reading the literature that these people pass out be airport related in the same sense as reading a newspaper is?",
       "time": "00:09:18.73"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why is that any different than passing... than offering it for sale by the news vendor?",
       "time": "00:09:29.22"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but could they then, just as they have... and consistently with the general policy decide, this is good health literature that will help the passenger be comfortable if there's a thunderstorm or something; we ought to set aside an area of 10 square feet and let them have a booth to pass it out, just like the Christian Science people can pass out Mary Baker Eddy's writings?",
       "time": "00:09:46.03"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, I understand. But wouldn't it be consistent with the policy, couldn't they have come... I'm not suggesting they must... but could they consistently with the policy have said, we think this is good literature that would be helpful for the passengers to read instead of Time Magazine or Science and Health or whatever else it might be?",
       "time": "00:10:21.01"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but you keep going to the waiting area. But isn't the reading activity that the newspaper offered, isn't that also airport related in the same sense, that it's something the traveller wants to do.",
       "time": "00:10:59.62"
     },
@@ -429,7 +433,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why isn't it equally conceivable that travellers might want to read the literature of the Jews for Jesus?",
       "time": "00:11:11.20"
     },
@@ -441,7 +445,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are the news people allowed to hawk their newspapers by walking around in the terminal selling them?",
       "time": "00:11:24.44"
     },
@@ -453,7 +457,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that isn't how your ordinance reads. I mean, that isn't the limitation. The limitation isn't for the conduct of First Amendment activities by walking around the terminal, is it?",
       "time": "00:11:39.51"
     },
@@ -465,7 +469,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What specifically is prohibited?",
       "time": "00:11:50.49"
     },
@@ -477,7 +481,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So I'm a Congressman flying from Washington to Hawaii, and I have to transfer planes in Los Angeles. I make an appointment with an aide to talk over some national issues, and I say, let's meet inside the airport, and we want to talk over the pros and cons of some national issues. That's in violation of the ordinance?",
       "time": "00:11:54.90"
     },
@@ -489,7 +493,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Speech is not an activity? What is an activity? Suppose that the representatives of Jews for Jesus just stand there and they do nothing but speak, they don't even pass out anything; they just speak, just the way I would be speaking to the Congressman?",
       "time": "00:12:29.93"
     },
@@ -501,7 +505,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh really? It's only the passing out of the literature that's the problem?",
       "time": "00:12:48.36"
     },
@@ -513,7 +517,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I couldn't give the Congressman a piece of paper. I could talk to him if he came?",
       "time": "00:13:07.62"
     },
@@ -525,7 +529,7 @@
     },
     {
       "turn": 80,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, isn't the ordinance designed in part to prevent obstruction of the passage of people along the concourses on the way to the planes, and coming out from the planes?",
       "time": "00:13:15.21"
     },
@@ -537,7 +541,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is there anything in the record to show exactly what they do? Like grab hold of your arm and don't let you walk, and stand in front of you and not move? Is that in the record?",
       "time": "00:14:14.23"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "-- do.",
       "time": "00:15:00.75"
     },
@@ -561,7 +565,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What is wrong with what these people do?",
       "time": "00:15:03.07"
     },
@@ -573,7 +577,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how can you prohibit something that doesn't do anything wrong?",
       "time": "00:15:10.37"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what right do you have to stop it?",
       "time": "00:15:29.81"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could it stop all red-headed people from using it?",
       "time": "00:15:41.53"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Why not?",
       "time": "00:15:45.24"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why isn't this discriminatory? You're singling out one group of people.",
       "time": "00:15:49.58"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You have singled out people that you don't want to use your facilities?",
       "time": "00:16:03.25"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 100,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "0 xxx.",
       "time": "00:16:21.71"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are they welcome to come in and visit and just stand there?",
       "time": "00:16:23.42"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what are they doing other than that?",
       "time": "00:16:29.13"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If they're just standing there holding up their book and saying nothing else, is that prohibited?",
       "time": "00:16:40.00"
     },
@@ -693,7 +697,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what are they doing other than that?",
       "time": "00:16:50.33"
     },
@@ -705,7 +709,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Kapel, may I go back for a second? The resolution itself uses the term, prohibits First Amendment activities.",
       "time": "00:17:28.09"
     },
@@ -717,7 +721,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it doesn't use the term, airport related activities, does it? Or am I wrong on that?",
       "time": "00:17:37.93"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:17:46.82"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But what is prohibited by the resolution is, quote, First Amendment activities, unquote, I think; isn't that right?",
       "time": "00:17:50.94"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The resolution.",
       "time": "00:17:58.25"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Correct. But the conduct that is prohibited by the resolution is, quote, First Amendment activities, unquote, as I read it. Of any individual or any... engages in First Amendment activities and so forth, he's directed... the city attorney to institute appropriate litigation. But does the ordinance define the term... or the resolution define the term, First Amendment activities?",
       "time": "00:18:41.67"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does that mean that if, for example, one of these people wore... carried a sign, say they were a sandwich, you know, one of these wooden signs, that said, Jews for Jesus, whatever their message might be. Would that... that would violate it, I suppose?",
       "time": "00:19:03.43"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And I take it if a political candidate came in and said, vote for Joe Smith, carried a banner or something like that, that would violate it?",
       "time": "00:19:19.56"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that would... and what if he just spoke out loud and went around shaking hands with people? That would be against the resolution... a candidate?",
       "time": "00:19:29.78"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So basically, whatever the First Amendment protects, the resolution prohibits? It's how it reads. What I turn to the person next to me and say, good morning, how are you?",
       "time": "00:19:46.82"
     },
@@ -825,7 +829,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't have a First Amendment right to turn to the person next to me and say, good morning, how are you?",
       "time": "00:20:01.36"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Now let me just be sure I understand. The sidewalk you refer to is the external sidewalk. If you want from United to American outside, where you take the bus, that's okay.",
       "time": "00:20:44.47"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if you walk on your internal, where you walk about half a mile down these alleys, that's prohibited in there, isn't it?",
       "time": "00:20:51.98"
     },
@@ -861,13 +865,13 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's not part of the sidewalk.",
       "time": "00:20:58.57"
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You know I guess what we're talking about is overbreadth problems. That's not the basis on which the court below went. But don't you see some problems of overbreadth here, just banning all First Amendment activity?",
       "time": "00:20:59.82"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, clearly there are. I mean, the language of the resolution is very simple. It says that the central terminal area is not open for First Amendment activities by any individual or entity. And that covers the good morning to the person next to you, under the literal terms of it. There is absolutely no attempt to define it in this resolution, is there?",
       "time": "00:21:38.57"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "0 (xxx) I mean, the resolution says it. I don't--",
       "time": "00:22:29.58"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, in your answers to questions, you've identified some First Amendment activities that are forbidden; some that are not forbidden, as you interpret the ordinance.",
       "time": "00:22:44.64"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Some First Amendment activities are and some First Amendment activities that aren't.",
       "time": "00:23:00.21"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you haven't banned... you haven't banned just some types. I mean, that's the problem. If you read it, you've banned all types. But again, maybe your point is that that's not what's before us. That that's an overbreadth problem, and all we have before us is a decision below that says that this is a public forum, and you have to allow all types. And that even if it weren't overbroad it would be no good. Is that--",
       "time": "00:23:28.81"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That's what I thought.",
       "time": "00:23:53.27"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you one other question? Some airports, out in front of the airport, they do have a covered area, so you're sheltered from the rain, and there may even be kind of like a tunnel where you drive in. Supposing the airport decided to make its sidewalks outside part of the airport by appropriate constructive devices, and decided to extend the ban to the outside sidewalks... what are now outside sidewalks as well? I suppose your theory would be the same, that they could do that, couldn't they?",
       "time": "00:25:31.80"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And they could probably include the parking lot, too. It's a big area. It's all devoted to airport function, and the driveways up to it. Everything inside the sign that says, you are now entering Los Angeles Airport or whatever it is.",
       "time": "00:26:14.61"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You mean outside the airport. By permitting it outside the airport?",
       "time": "00:26:40.81"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I still don't understand how you keep saying that the airport permitted you to do it outside. They haven't a blame thing to do with outside. They're not doing any great favor by letting you do it someplace else. Am I right or wrong?",
       "time": "00:26:49.24"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you have any ordinance to protect you on that? You're just taking that right out your--",
       "time": "00:27:36.10"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Well, the Board's policy is limited by the statute; am I right? Does the statute give them the right to legislate as to the sidewalks: yes or no?",
       "time": "00:27:44.55"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is the sidewalk, quote, airport property?",
       "time": "00:28:07.44"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that in this record?",
       "time": "00:28:13.88"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It says so in this record?",
       "time": "00:28:14.78"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Thank you.",
       "time": "00:28:22.33"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Kapel. We'll hear now from you, Mr. Sekulow.",
       "time": "00:28:25.64"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean just generally that any airport... any airport that's open to the public is a public forum?",
       "time": "00:28:57.41"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you would say that nothing that the city could do could... could close it, or to... or to put it in a category other than a public forum?",
       "time": "00:29:12.20"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So it's like a sidewalk, they just can't--",
       "time": "00:29:28.86"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--How has it been created by tradition if airport authorities close them?",
       "time": "00:29:32.83"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean what is the tradition with respect to major airports?",
       "time": "00:29:39.11"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So there is no tradition with respect to major airports; is that true or false?",
       "time": "00:29:47.04"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is it?",
       "time": "00:29:54.76"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So that is the tradition, what's happened in the past 12 years?",
       "time": "00:30:10.91"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought about that city gates thing. Is it... do you really think that the analog is the city gate? Or wouldn't the analog be, to go back to the time of the Constitution, wouldn't it be the inn at which the coach would stop to pick up passengers. And they'd all assemble there and sit down in the dining room and eat a piece of mutton or something. Were... were Jews for Jesus allowed inside these inns? Do you think so? They were private operations, weren't they?",
       "time": "00:30:40.74"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, but come back to a place where travellers gather to use transportation. Why has that been historically the place, like city gates, where there's classic First Amendment proselytizing and argumentative activity? I don't know.",
       "time": "00:31:34.94"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The innkeeper couldn't throw somebody out, saying I don't want to have any... you know, no politics, no religion in my inn. We want happy people.",
       "time": "00:32:05.44"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But he traditionally was a private operation, that's the point. And the railroad station traditionally was a private operation, wasn't it?",
       "time": "00:32:21.53"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But what's your answer as to the private versus public ownership of a railroad terminal in this tradition?",
       "time": "00:32:42.49"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In the railroad terminals?",
       "time": "00:32:59.75"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And yet there's no question that people could have been thrown out of there by the owners of the terminals.",
       "time": "00:33:02.96"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And weren't almost all of the railroad terminals privately owned?",
       "time": "00:33:10.51"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Have you ever seen a station where people stand around in groups and discuss things?",
       "time": "00:33:21.37"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Have you ever seen a station or an airport where people stand around and discuss problems at all?",
       "time": "00:33:28.61"
     },
@@ -1299,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You have?",
       "time": "00:33:36.40"
     },
@@ -1311,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you get in Grand Central Station around 5:00 o'clock, and you'll get run over.",
       "time": "00:33:39.73"
     },
@@ -1323,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "xxx home to dinner, not on religion.",
       "time": "00:34:01.79"
     },
@@ -1335,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because there are a lot of people?",
       "time": "00:34:27.42"
     },
@@ -1347,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, that's the reason: Because there are a lot of people?",
       "time": "00:34:29.98"
     },
@@ -1359,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Counsel?",
       "time": "00:34:48.38"
     },
@@ -1371,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Excuse me for interrupting you. You agree, of course, that the airport authority could adopt reasonable time, place and manner regulations?",
       "time": "00:34:49.49"
     },
@@ -1383,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Yes, right.",
       "time": "00:35:02.23"
     },
@@ -1395,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Now, the facts in this... facts in this case, as I recall them are, that a minister of Jews for Jesus was physically handing out literature.",
       "time": "00:35:03.23"
     },
@@ -1407,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "That's correct? Assume for the moment that the airport adopted a resolution that permitted that type of literature, or any type of literature, for example, to be disseminated from the equivalent of a newsstand. Would that be satisfactory? That resolution, as a manner restriction?",
       "time": "00:35:14.80"
     },
@@ -1419,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Analogous to distributing newspapers.",
       "time": "00:35:39.61"
     },
@@ -1431,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Can you think of any place where it wouldn't be compatible? Let's say the Capitol, right across the lawn there. Couldn't you set up little booths for various groups that want to pass out literature to the tourists coming? Would that interrupt the--",
       "time": "00:36:16.78"
     },
@@ -1443,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Oh, I think it wouldn't, but Congress just says, we don't want it here. This is not what the building is for. We don't want it. We could live with it, but we don't want it. Why can't the airport say that?",
       "time": "00:36:34.07"
     },
@@ -1455,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's your test. If it's, number one, a public area; and number two, it wouldn't interfere with the public purpose--",
       "time": "00:37:12.18"
     },
@@ -1467,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--substantially, the activity must be allowed?",
       "time": "00:37:19.47"
     },
@@ -1479,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's a vast extension of the public forum doctrine to date, it seems to me.",
       "time": "00:37:36.75"
     },
@@ -1491,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought the rule was that when it is a public forum, you must allow those activities to the extent they're compatible with the other things occurring in that public forum. But you're converting that to a rule that if there is a compatible activity, it's a public forum?",
       "time": "00:37:58.42"
     },
@@ -1503,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You have to establish that it's a public forum first. I agree with the proposition you just stated. Does the activity interfere with the primary purpose of the public forum? But you have to establish first that it is a public forum, and that's what I thought we were discussing here.",
       "time": "00:38:26.07"
     },
@@ -1515,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You mentioned the sidewalk in front of this building. What about the plaza out in front?",
       "time": "00:39:20.58"
     },
@@ -1527,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "xxx test you're applying?",
       "time": "00:40:10.58"
     },
@@ -1539,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You just look at the sky and say it is?",
       "time": "00:40:14.90"
     },
@@ -1551,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought it depends on tradition, essentially.",
       "time": "00:40:17.88"
     },
@@ -1563,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about the plaza in front of this courthouse?",
       "time": "00:40:38.16"
     },
@@ -1575,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that doesn't trouble you?",
       "time": "00:40:51.64"
     },
@@ -1587,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That's how you get a history. Under your theory, if the government from day one had banned discussion on the streets, there would be no tradition of public discussion on the streets, and therefore the streets would fail your test.",
       "time": "00:40:57.37"
     },
@@ -1599,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but we don't know about the hypothesis, whether they would have done it or not, if the government had banned it.",
       "time": "00:41:21.72"
     },
@@ -1611,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, tell me a little bit about those laws that were challenged in 1789.",
       "time": "00:41:36.10"
     },
@@ -1623,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, pin it down to within 40 or 50 years, will you?",
       "time": "00:41:43.01"
     },
@@ -1635,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where was this?",
       "time": "00:42:01.55"
     },
@@ -1647,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Somewhere in the United States?",
       "time": "00:42:04.42"
     },
@@ -1659,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Sekulow--",
       "time": "00:42:30.61"
     },
@@ -1671,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--suppose that we disagree with the court below and think that this is not a traditional public forum, did... did you argue below that in any event under the California constitution it would be a public forum, and must be open?",
       "time": "00:42:32.03"
     },
@@ -1683,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But the courts below never reached the state law question?",
       "time": "00:42:57.95"
     },
@@ -1695,7 +1699,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And if we decided the federal constitutional issue here against you, would it be your position that the state law might nevertheless require it to be open?",
       "time": "00:43:03.21"
     },
@@ -1707,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, suppose we decide against you on the federal Constitution? I'm trying to inquire whether you think it then is still open to you and your client to raise the state constitutional issue?",
       "time": "00:43:25.37"
     },
@@ -1719,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why then shouldn't the court below have decided the state issue first?",
       "time": "00:43:38.15"
     },
@@ -1731,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Let me ask one other question, too. Did you argue overbreadth of the statute below?",
       "time": "00:44:04.43"
     },
@@ -1743,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's not before us, though, right?",
       "time": "00:45:01.89"
     },
@@ -1755,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So we should decide this case as though the question is, could LAX like the Capitol promulgate a nicely, narrowly crafted rule that says, no religious proselytizing on these grounds, right, and that's the issue? Could LAX do that? If it's a public forum, it couldn't. If it's not a public forum, presumably it could.",
       "time": "00:45:06.03"
     },
@@ -1767,7 +1771,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Putting it more precisely, you're asking us to affirm the judgment on other grounds than the ones relied on by the Ninth Circuit, which we do all the time?",
       "time": "00:45:49.13"
     },
@@ -1779,7 +1783,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but I mean you have not abandoned your overbreadth arguments.",
       "time": "00:46:01.07"
     },
@@ -1791,7 +1795,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if we think it's overbroad, we have to affirm, don't we?",
       "time": "00:46:03.82"
     },
@@ -1803,7 +1807,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Sekulow--",
       "time": "00:46:09.15"
     },
@@ -1815,7 +1819,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--suppose your group stood in the... with the permission of the newsstand and handed it out inside of the newsstand. Would that be prohibited?",
       "time": "00:46:10.66"
     },
@@ -1827,7 +1831,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Assuming that they don't close the newsstand.",
       "time": "00:46:43.78"
     },
@@ -1839,7 +1843,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could he stand in the middle of that with the permission of the newsstand and hand out these pamphlets?",
       "time": "00:46:47.34"
     },
@@ -1851,7 +1855,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Sekulow, they lease space. Has Jews for Jesus leased space?",
       "time": "00:47:57.74"
     },
@@ -1863,7 +1867,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, then, they're not the same situation.",
       "time": "00:48:03.71"
     },
@@ -1875,7 +1879,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "They're paying a lease. And presumably, you could lease space, as well.",
       "time": "00:48:07.43"
     },
@@ -1887,7 +1891,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I understand that. But it does not avail you to argue about the Christian Science reading room because they have leased space. So it just doesn't support your argument, at least in my view. I don't see how it does.",
       "time": "00:48:25.12"
     },
@@ -1899,7 +1903,7 @@
     },
     {
       "turn": 309,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that's like saying that the Methodist Church, which owns the property on which the church is located, because they preach religious doctrine in there, somebody else who doesn't own a church should be able on the street outside to hold their church service. No case his ever held that.",
       "time": "00:49:06.44"
     },
@@ -1911,19 +1915,19 @@
     },
     {
       "turn": 311,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but what you're saying is if... anything the Christian Science people can do by leasing, you want to be able to do without leasing. And no case has ever held that.",
       "time": "00:49:40.45"
     },
     {
       "turn": 312,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Your Honor, we're not taking it that far.",
       "time": "00:49:50.23"
     },
     {
       "turn": 313,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Well, I hope not.",
       "time": "00:49:51.32"
     },
@@ -1935,7 +1939,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, we don't know that either. We could certainly leave that to the lower court to figure out if there was some problem there.",
       "time": "00:51:42.70"
     },
@@ -1947,7 +1951,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Sekulow, would you explain to me, because I really don't understand this from your argument, what is it that makes a public forum special as opposed to any public building? Because as I understand your argument, I think what it boils down to saying is, that any public building must be allowed to be used for free speech activities to the extent that such activities are not incompatible with the other uses of the building. Now, if you adopt that as a principle, why do you need a public forum doctrine? You don't need it. Doesn't it totally gobble up the concept that there are some buildings where you cannot... you don't even have to have reasonable time, place and manner restrictions?",
       "time": "00:52:00.65"
     },
@@ -1959,7 +1963,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But even in a public forum, you are allowed to place such restrictions as are necessary to make the speech compatible with whatever else is going on.",
       "time": "00:53:15.76"
     },
@@ -1971,7 +1975,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In a park, and so forth. So then what difference is there between a public forum and a nonpublic forum, in your view of the world?",
       "time": "00:53:26.53"
     },
@@ -1983,7 +1987,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could you... could LAX pass a rule that you people cannot go beyond the metal detector, and only those who are riding go beyond a metal... would that be a good rule?",
       "time": "00:54:34.68"
     },
@@ -1995,7 +1999,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I said nobody but riders.",
       "time": "00:54:53.78"
     },
@@ -2007,7 +2011,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Could be made or would be made? You say, could be made. You know, you can argue that the building's a cat. But I mean, would be made.",
       "time": "00:55:03.31"
     },
@@ -2019,7 +2023,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I want to know just how far you go.",
       "time": "00:55:17.27"
     },
@@ -2031,7 +2035,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Restrict your answer to my question.",
       "time": "00:55:31.78"
     },
@@ -2043,7 +2047,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And not add to it.",
       "time": "00:55:35.62"
     },
@@ -2055,7 +2059,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Thank you.",
       "time": "00:55:53.05"
     },
@@ -2067,7 +2071,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just follow up on Justice Marshall? Suppose... what about a particular congested area, like ticket lines and that sort of thing? Could they also perhaps restrict them from there?",
       "time": "00:55:58.61"
     },
@@ -2079,7 +2083,7 @@
     },
     {
       "turn": 339,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You are taking the position that they're all public forums if there is general public access. The only inquiry you would make, once you've determined that there is general public access to the building, is whether free speech activities are compatible.",
       "time": "00:56:36.99"
     },
@@ -2091,7 +2095,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the question of whether it's appropriate isn't necessarily the same as the question whether it's compatible. I mean, take my hypothetical about the Capitol. It's compatible, in the sense that they can run their business over there with booths passing out religious literature and political literature. They could run their business anyway. But it's just never been done. This is not the place for it. They have just said, it's not the place for it. You would not allow that to be said, would you?",
       "time": "00:57:12.90"
     },
@@ -2103,7 +2107,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could I... do you stand by all the stipulations of fact that are in the record?",
       "time": "00:58:33.13"
     },
@@ -2115,7 +2119,7 @@
     },
     {
       "turn": 345,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Sekulow. Mr. Kapel, you have two minutes remaining.",
       "time": "00:58:39.86"
     },
@@ -2127,7 +2131,7 @@
     },
     {
       "turn": 347,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Like a good ordinance drafter?",
       "time": "00:59:08.05"
     },
@@ -2139,7 +2143,7 @@
     },
     {
       "turn": 349,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Kapel. The case is submitted.",
       "time": "01:00:03.11"
     }

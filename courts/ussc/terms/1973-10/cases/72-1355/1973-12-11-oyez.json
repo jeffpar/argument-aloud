@@ -3,35 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1973/72-1355/19731211a_72-1355.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "DONALD S. EISENBERG",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will resume arguments in United States against Matlock. Mr. Eisenberg.",
       "time": "00:00:00.00"
     },
@@ -43,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Eisenberg, where is the --",
       "time": "00:02:11.45"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Where is Pardeeville, Wisconsin?",
       "time": "00:02:12.45"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Small town?",
       "time": "00:02:20.42"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In the same county as Madison?",
       "time": "00:02:22.26"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I take it there's nothing in the record about the local police knowing Gail or Mr. Matlock or anything.",
       "time": "00:02:56.49"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Wasn't there some testimony that she had the top two drawers in the dresser and he had the bottom two?",
       "time": "00:04:26.88"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You do not think that permits any inference of joint occupancy?",
       "time": "00:04:35.74"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He didn't undertake to prove, for example, that he rented that room and paid $75.00 a month and that it was his room exclusively?",
       "time": "00:06:31.92"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Exclusively? It --",
       "time": "00:06:47.17"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, then on the suppression hearing, however, the testimony would be developed, I assume, that this woman was like the meter reader, not really an occupant of that house, and neither actual nor apparent authority to consent to any entry.",
       "time": "00:12:37.62"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, but then on your suppression hearing you would demonstrate his infirmities of his situation, wouldn’t you?",
       "time": "00:14:02.80"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "No question about that.",
       "time": "00:14:24.92"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could you straighten me out? Did the two lower courts here go on a basis that there was no actual authority for the search?",
       "time": "00:16:13.97"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And both of them found there was apparent authority?",
       "time": "00:16:22.82"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, let’s assume the rule was that it was a reasonable search if there was apparent authority. Now, both -- if that were the rule, both courts would’ve sustained the search below.",
       "time": "00:16:28.95"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the -- so you asked us to -- in effect to disagree with both courts with respect to apparent authority in the first place.",
       "time": "00:16:43.36"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don’t? I thought you said that there was no apparent authority in this case.",
       "time": "00:16:53.67"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you ask us then to -- do you say, “Alright, there was apparent authority” or not? Both courts found that to be true.",
       "time": "00:16:59.33"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So there was apparent authority and you rest your case then on that there must be actual authority, that they should do.",
       "time": "00:17:12.80"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Apparent authority. That’s what the case turns up.",
       "time": "00:17:18.15"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Okay.",
       "time": "00:17:20.79"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "They’re being applied in many districts, aren't they?",
       "time": "00:17:55.53"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How about Wisconsin? Are the district judges generally applying them now?",
       "time": "00:18:00.48"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you think it was admissible to prove apparent authority?",
       "time": "00:18:57.64"
     },
@@ -337,7 +341,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, isn’t that true so far? That's a -- if you’re going on apparent authority, with respect to apparent authority, you might get a different answer on admissibility than with respect to actual hearing.",
       "time": "00:19:24.02"
     },
@@ -349,7 +353,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that’s maybe a different -- that that's a different.",
       "time": "00:19:44.77"
     },
@@ -361,7 +365,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That isn’t a hearsay objective.",
       "time": "00:19:47.57"
     },
@@ -373,7 +377,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That’s just an irrelevancy that -- but it’s not a hearsay.",
       "time": "00:19:53.70"
     },
@@ -385,13 +389,13 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have --",
       "time": "00:20:17.94"
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "It’s like you almost have to disagree with the lower courts.",
       "time": "00:20:18.18"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "With apparent authority.",
       "time": "00:20:22.48"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And you haven’t cause petition on those issues are you?",
       "time": "00:20:38.21"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But the testis the -- the legal test is what this case is going to turn on.",
       "time": "00:20:44.92"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you. Mr. Wallace, do you have anything further?",
       "time": "00:20:59.07"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where are you?",
       "time": "00:21:34.14"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Mr. Wallace. Mr. Eisenberg, you appeared here at our request and by our appointment.",
       "time": "00:24:27.70"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "On behalf of the court, we express our appreciation for your help not only to your client but to the court.",
       "time": "00:24:33.79"
     },

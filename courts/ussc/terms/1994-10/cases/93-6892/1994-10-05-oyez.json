@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1994/93-6892/19941005a_93-6892.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
       },
       {
         "name": "JOSEPH W. GANDERT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "LAWRENCE G. WALLACE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 63-6892, Matthew Wayne Tome v. The United States. Mr. Gandert.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say it's inconsistent with the plain language of the rule. You don't question that the statement was offered to rebut, do you?",
       "time": "00:03:18.40"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is that question?",
       "time": "00:03:37.81"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, let's go through the language phrase by phrase. The testimony has to be, is offered to rebut an express or implied charge against the declarant of recent fabrication or improper influence or motive. Now, it doesn't say it has to rebut. It says it's offered to rebut.",
       "time": "00:03:54.90"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So you say the court has to make a decision and then the jury has to make the same decision?",
       "time": "00:04:29.62"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But in all sorts of evidentiary rulings it's a question of relevancy. The trial judge says, yes, this could be of use to the juror. A reasonable juror might be helped by this. The trial judge doesn't say, if I were the fact-finder I would be persuaded by it. Why shouldn't the same rule apply here?",
       "time": "00:05:01.26"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you think the Federal Rules of Evidence simply froze the common law in place?",
       "time": "00:05:47.86"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the rules have also been interpreted to mean that they have liberalized admissibility of evidence, that that was one of their purposes.",
       "time": "00:06:07.57"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that's the only change that the advisory committee's notes mention.",
       "time": "00:07:21.64"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The grammar's against you, isn't it? If we were to read it the way you, you were reading it to start with in such a way that the word recent modifies not only fabrication but influence or motive. That's correct, isn't it... yes.",
       "time": "00:07:28.98"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Wouldn't the natural way, if that were the intent, to... the modifier recent apply to all three, wouldn't the natural way to write it have been recent fabrication, comma, improper influence or motive? But you've got an extra or in there which suggests to me at least that recent refers to fabrication but not necessarily to the others in the series.",
       "time": "00:07:47.99"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, the reason it was put into the rule may be that it was intended simply to modify fabrication. It seems to me that your argument about the retention of the common law rule is an argument that has pretty much got to rest on things like the failure to note that they were in this respect revising the common law, or the rejection of the Weinstein approach, et cetera, as opposed to the grammar, because it seems to me the grammar is a problem for you unless you can explain it otherwise to me.",
       "time": "00:08:25.91"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "If we find that recent modified simply fabrication, do you lose the case?",
       "time": "00:09:34.88"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, can you walk me through the rule? If recent fabrication doesn't help you, are you then admitting the testimony to rebut an improper influence?",
       "time": "00:09:49.78"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, improper in your view, then, does modify motive?",
       "time": "00:10:06.32"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, is it an improper motive to want to be with your maternal parent?",
       "time": "00:10:19.63"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is that improper?",
       "time": "00:10:33.90"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I suppose it would be improper in the context that it's improper to allow you, to allow the witness to change their testimony. It's improper only in that sense.",
       "time": "00:10:56.69"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Gandert, here's the problem that you confront if you sever the recent, the word recent from the latter part, namely from improper influence or motive. As long as recent is attached to the words, you can make the argument that the purpose of the rebuttal has to be a temporal purpose. You can show that no, this is not recent. You must be showing no, this is not recent, I had the same story before. But once you take away the word recent, there are a lot of ways to rebut improper influence or motive. For example, in this case, it seems to me it tends to disprove the improper motive if you can show that I had this story way back at the beginning before my mother had a chance to plant this story in my mind, whereas if it just came out at trial, it would be much more likely that it was the result of coaching. That argument is available unless the word recent applies to improper motive.",
       "time": "00:12:15.32"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not talking about what it concerns, I'm talking about your reading of the text. Why does it not tend to disprove an improper motive, namely the improper motive of wanting to live with my mother instead of my father? Why doesn't it tend to disprove that, if you say, I had this story a long time ago? The more recent it is, the more likely it is I was calculating how I could get to live with my mother. It tends to disprove it, doesn't it?",
       "time": "00:13:36.31"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, it may not tend to disprove a recent improper motive if you can show that, well, that statement was not before the motive arose anyway, but it would tend to disprove the existence of any improper motive whether recent or not.",
       "time": "00:14:12.19"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you don't disprove the motive to rebut a charge of recent or improper... oh, I see, you think you must have to eliminate the existence of the motive. I thought all you have to eliminate to rebut is the fact that the motive was the reason for your statement.",
       "time": "00:14:56.53"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, I stand by my view that it certainly tends to disprove that in this case, if you can show, this is not something that I've been pumped up for at trial, that my mother put in my ear in order to get me to go back to live with her, as I want to do, but rather, I said this way back, long before it's at all likely that anybody put the notion in my head. Why isn't that probative?",
       "time": "00:15:20.02"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What you've just said indicates that you're modifying what you said earlier. That is, you've made the flat statement, it would not have come in, and now you've just mentioned that, well, it might well have come in under a different rule.",
       "time": "00:16:09.87"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Which would make this whole thing academic, right, if it could, at least the three pediatricians... were they pediatricians +/? could come in under 803(4), is it?",
       "time": "00:16:23.63"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "All of it might come in under the catch-all.",
       "time": "00:16:33.83"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, the trial judge seemed to have some confusion about whether it would come in, would have to have a limiting instruction that it would be hearsay, that hearsay somehow, even if it fell under an exception, wasn't admissible for all purposes, it would have to be admitted... it was very confusing, I thought. Maybe you could tell me if I'm wrong about this. If something falls under a hearsay exception, then it comes in as evidence and you don't need to have a limiting instruction.",
       "time": "00:17:23.72"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If the rule speaks in terms of, in such a way that grammatically it seems that the word recent modifies only the word fabrication and not the word improper influence or motive, doesn't... and if you're correct about the common law, doesn't that suggest that this rule differs from the common law?",
       "time": "00:19:44.90"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, it--",
       "time": "00:20:25.51"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, I don't think the committee operated like it was said Congress did in the last case. I mean, if you read subsection (B), it seems to me quite precise... \"consistent with the declarant's testimony and is offered to rebut an express or implied charge against the declarant of recent fabrication or improper influence or motive. \" Now, that's all internally consistent and, really, I think for the reasons Justice Souter stated, it hurts you, because recent doesn't modify the words improper influence or motive.",
       "time": "00:20:32.26"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you saying that we should simply ignore the language of the rule and revert to the common law?",
       "time": "00:21:41.30"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Could you answer that yes or no?",
       "time": "00:21:50.34"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Gandert, why don't you go back to your first point and emphasize the word rebut, and would your argument not be that a prior consistent statement does not rebut an improper motive or influence unless it occurred before that arose?",
       "time": "00:22:09.47"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the word rebut is the key to your case, is it not?",
       "time": "00:22:26.10"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if it's made after the motive or the improper influence occurred, it doesn't have any probative force as rebuttal.",
       "time": "00:22:36.82"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's your point. Then what purpose does the term recent serve, then? Under that view, recent is superfluous.",
       "time": "00:22:44.16"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, then, why does rebut have to mean totally demolished? Why can't rebut, or doesn't, isn't the common understanding of rebut mean to weaken, to offset, to have some effect to weaken the testimony that you are attempting to offset?",
       "time": "00:23:09.23"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I never knew it was traditional to say to rebut means you have to totally demolish, bowl over, that it would be enough to weaken the force of opposing evidence.",
       "time": "00:23:54.80"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Now you're backing off the stress on the word rebut and going back to the terms of the exceptions.",
       "time": "00:24:20.53"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Excuse me, may I say, why isn't that right? That is, if you go back, assuming the language is ambiguous, let's assume it's ambiguous. If it were ambiguous, you say, look to the common law. If you look to the common law at that time, this tended to be treated as, you had to be a premotive. But the reason it had to be premotive was because the courts believed that if it wasn't premotive, it wasn't relevant. So then when you codify all that, why wouldn't now, that reason being what it was, the proper thing be for the courts to look at this problem under Article IV of the rules of evidence, which has to do with relevance, rather than Article VIII, which has to do with hearsay?",
       "time": "00:25:26.30"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It just happens to be, but I mean, they recodified the thing. The language permits it. Why wouldn't you go back to the purpose of what was going on and say, in terms of the purpose, we'll now look at it under relevance, and you could have said under this case, hey, this is hardly relevant, and the prejudice is unbelievable, and therefore keep it out?",
       "time": "00:26:12.44"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The rule would presumably have read that prior consistent statements by witnesses may be admitted if relevant, period.",
       "time": "00:27:07.88"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Gandert. Mr. Wallace, we'll hear from you.",
       "time": "00:27:26.05"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would you agree on that basis, Mr. Wallace, that even if it were not admissible under 801(d)(1)(B)(3), it might nevertheless be admissible on the ground the district court relied on?",
       "time": "00:28:44.01"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:28:59.38"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Wallace, may I ask you before you go further to say a word about the grammar on the question whether the adjective recent does modify anything other than fabrication? When I asked your opposing counsel that question, I said that it seemed odd that if recent was intended to modify improper influence or motive, that there simply wasn't a comma after the word fabrication, and Justice Stevens and I have been having an exchange of notes, and one of the things that has come up, and I think your brother perhaps suggested it, too, is that if the further modifier, improper, modifies both influence and motive, and that seems to be the accepted view, that would be a reason for putting the word or after fabrication. Do you think that may be the answer, so that the grammar perhaps is at best ambiguous here?",
       "time": "00:29:40.99"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, which point, the first one?",
       "time": "00:30:48.17"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But do you think it would make much sense to read the word recent as modifying the phrase, improper influence, that what they're concerned with is a recent... only with a recent improper influence?",
       "time": "00:31:37.98"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Wallace, I am impressed by the fact that this rule does not say you can admit it in order to rebut the charge that the witness is lying. A witness can be lying for a lot of reasons. It's only recent fabrication or improper influence or motive. Now, the mere fact that the person was... you know, gave the same story earlier, I guess you could say indirectly refutes the fact of an improper motive, but very indirectly. All it really proves is that the person is telling the truth now, but that's not what the rule wants you to get at. It wants you to get at rebutting the motive, and the only way you directly rebut the motive, it seems to me, is to show that the statement was made before the motive even ever arose.",
       "time": "00:33:44.20"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I agree with that, that--",
       "time": "00:36:28.39"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--it's used for a broader purpose, but the test for its admissibility is still the narrow, old test, and that test is not to show that the witness is telling the truth, and it's very peculiar that it's put that way. It's not admitted to... you know, if the witness' testimony is contradicted or sought to be impeached. It doesn't speak that broadly, only particular kinds of charges, and it seems to me that those charges are only directly... directly rebutted by the fact that the prior statement was made before, before that motive could have existed.",
       "time": "00:36:30.45"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Once it comes in, that's true.",
       "time": "00:37:40.66"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it doesn't come in unless it is going to the motive, and if... this rule would not even have any application if the defendant just came in and tried to show that this child witness was lying, and said nothing about why she was lying, just, she was lying. You could not get it in under this rule, simply say, well, she's been telling the same story all along. No, no, I haven't impugned her motive. It's only by impugning the motive the... now, that makes me think that the evidence must go directly to the motive--",
       "time": "00:37:43.01"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and it only goes directly to the motive as opposed to going to whether she's telling the truth more generally, which is not the point.",
       "time": "00:38:09.83"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But for fabrication your opponent can rely upon the word recent. Exactly.",
       "time": "00:38:43.68"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What rescues it from mere cumulativeness is the time differential, isn't that so? It seems to me, Mr. Wallace, your position is that the rule as written has the same meaning as if it said, consistent with the declarant's testimony, and lends credibility to that testimony.",
       "time": "00:38:48.24"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Any prior consistent statement would help a witness who's not very articulate.",
       "time": "00:39:47.02"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "There's a specific exception to the hearsay rules for such statements. I mean, I don't know why you'd want to shoe-horn it under that.",
       "time": "00:40:15.78"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why doesn't that suggest that the trial judge should have let it in under the catch-all? Then you wouldn't have any problems about limiting it to rebuttal, and it could come in without any restrictions.",
       "time": "00:41:34.87"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Wallace, is there any difference between the interpretation that you are urging upon us and a rule which simply reads that prior consistent statements may be introduced when the veracity of the witness' statements on the stand is challenged, as a practical matter? Can you conceive of any, many, if any situations in which this rule would apply, the rule I expressed would apply where this one wouldn't?",
       "time": "00:43:29.05"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It says implied or expressed, doesn't it? I mean, is impliedly or expressly... how does the rule read?",
       "time": "00:44:28.09"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but isn't every charge--",
       "time": "00:44:47.37"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Mr. Wallace, isn't every charge of lying implicitly a charge that one is lying for an improper motive? I mean, within the context of courts, we don't recognize proper motives for lying, so it picks it all up.",
       "time": "00:44:49.76"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, you can have a faulty memory without any improper motive. Just, you didn't see the perpetrator as well as you thought you did. The room was dark, or something.",
       "time": "00:45:19.91"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, you can have improper influence--",
       "time": "00:45:53.92"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Police showing an alleged criminal with photo... or, a witness, rather, pictures of a suspect in a case, and that can influence the person in an improper way without any particular motive to lie. I'm not sure that you have to have a, the evil intent that you describe in order to be an untruthful witness, and it can still be an improper influence even though no evil motive is associated with it.",
       "time": "00:45:55.59"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And there, if you said, well, I identified this person before I saw the picture, that would clearly rebut the charge.",
       "time": "00:46:25.52"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But unless the police make it clear, unless the cross-examiner makes it clear that that's where he's putting the blame, or unless the cross-examiner says, I certainly do not suggest that Mr. So-and-so has an improper reason for doing it, he's just mistaken, unless the implicit objection is couched in that way, it would be fair, usually, to take the kind of attack through cross-examinations, attack on veracity, and therefore there would be an implicit imputation of motive.",
       "time": "00:46:35.19"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Wallace, that's one of the problems with this case. The evidence may well have been admissible under the catch-all, and unfortunately a case in which evidence that really has probative force is being used to test the scope of this rule, which normally would apply in quite different cases. That's one of the problems the case presents, I think, because these are very appealing facts that they provide to you.",
       "time": "00:47:24.73"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Fine. If that's so, if I can... this is what's bothering me about the case. As I understand it, if you proceed under this hearsay exception, the particular one, you don't proceed under the catch-all, to get in under the catch-all, particularly because of the confrontation clause, you have to have special indicia of reliability. In this case, I take it, because of this exception, you don't, but you say, that's okay, because what's supposed to happen here is just what you read. What's supposed to happen here is that they're supposed to over to Article IV, to the regular rules on relevance versus prejudice, and apply that. All right, so I can understand that as a coherent picture. Then when I apply it to this case, I say, did that happen here? My goodness. In this particular case, as I read it, there is a child, 6 years old, who is in the court, not being able to be cross-examined very thoroughly because she can't answer most of the time, and then when you look back at this particular set of evidence, if the relevancy we're supposed to look to is the relevancy to show lack of a motive, all these statements were made after the mother took the child, and the mother could have told the child in the car, hey, I want you to stay with me. So the relevancy seems small, and if you look at the prejudice, it looks like this was the evidence on the basis of which the defendant was convicted, so what I don't understand is, if in fact you're supposed to read this provision to incorporate or at least refer by reference, say, judge, look at this, if you're just saying it twice, fine, let it in under this rule, but go back and look at 403. That didn't seem to happen here, or did it?",
       "time": "00:50:22.96"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is it highly probative on the issue for which it was offered, highly probative on the issue of whether or not there was a motive to lie by the witness?",
       "time": "00:53:08.81"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I see that. I guess--",
       "time": "00:53:34.93"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Let me be quite specific, then. If you're reading the rules in hand, should we then say, if we agree with you, yes, this is the correct way to interpret these rules, but we can't find in the record here that there was actually an explicit, a weighing of relevance versus prejudice, and had there been such, it would have... might have come out differently? Is that--",
       "time": "00:53:37.68"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Well-- --Mr. Wallace, do I gather what you're saying is it was more likely under the circumstances of telling the doctor or the babysitter that she was not lying in that setting than it was likely when she said it on the stand? Is that--",
       "time": "00:54:38.21"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--So what you're saying is that you can infer from the record that the judge made the balancing test that Justice Breyer asked you whether or not it was made on the record?",
       "time": "00:55:25.71"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You say, just infer it from the fact that he let it in?",
       "time": "00:55:39.86"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So then we always infer that the rule that Judge Breyer refers to has been adverted to and used?",
       "time": "00:55:45.59"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Wallace--",
       "time": "00:56:01.95"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I'm not sure I agree with that. What the statute requires is not that it refute the assertion that the testimony is the product of the motive. If you read it literally, what it says is the implied charge against the declarant of improper influence or motive, and I don't see... this very negligibly refutes the existence of the motive.",
       "time": "00:56:04.18"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It may... it may more substantially refute the fact that she testified to this effect because she wanted to be with her mother, but how does it refute the fact that she wanted to be with her mother? I don't--",
       "time": "00:56:33.18"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Thank you, Mr. Wallace. Mr. Gandert, you have 2 minutes remaining.",
       "time": "00:57:00.10"
     },
@@ -1023,13 +1027,13 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Gandert. The case is submitted.",
       "time": "00:57:59.55"
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Tuesday next at ten o'clock.",
       "time": "00:58:02.10"
     }

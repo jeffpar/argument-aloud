@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2024/23-970/23-970_20241113-argument.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "CLARENCE THOMAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "KETANJI BROWN JACKSON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "AMY CONEY BARRETT",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "NEIL M. GORSUCH",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BRETT M. KAVANAUGH",
+        "title": "JUSTICE"
       },
       {
         "name": "NEAL KUMAR KATYAL",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE THOMAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE JACKSON",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BARRETT",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GORSUCH",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAVANAUGH",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DEEPAK GUPTA",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "COLLEEN E. ROH SINZDAK",
-        "role": "advocate"
+        "title": "MS."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument this morning in Case 23-970, NVIDIA versus Ohman J:or Fonder AB. Mr. Katyal.",
       "time": "00:00:00.08"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "What would this complaint look like if it had complied with the heightened pleading standards?",
       "time": "00:02:24.11"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Mr. Katyal, I  --I guess my concern is that you appear to be requiring for plaintiffs to actually have the evidence in order to plead their case, and I didn't understand the pleading standards, even with particularity, to require that they have the documents, nor do I understand how they could have the documents when discovery hasn't occurred yet.",
       "time": "00:03:28.27"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "No, I understand.",
       "time": "00:04:03.38"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But  --but the typical plaintiff  --",
       "time": "00:04:04.32"
     },
@@ -115,13 +115,13 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- in a situation like this -- MR. KATYAL:  Sure.",
       "time": "00:04:05.79"
     },
     {
       "turn": 12,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- because the company has the documents  --",
       "time": "00:04:07.08"
     },
@@ -133,7 +133,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Okay.",
       "time": "00:04:11.22"
     },
@@ -145,7 +145,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Right, but the SEC is not pleading this case.",
       "time": "00:04:15.20"
     },
@@ -157,7 +157,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "We have plaintiffs --",
       "time": "00:04:17.71"
     },
@@ -169,7 +169,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- who are bringing these allegations, and you're right that  they reference documents, that documents are important to their claim of scienter. But I guess the standard that I hear you wanting us to require would cause them to have to have such level of detail about the contents of the documents that it would seem that they would need to have the documents, right?",
       "time": "00:04:19.19"
     },
@@ -181,7 +181,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But why are the details necessary in certain cases?  I mean, part of my concern is that you seem to be wanting a bright line that says the contents of the documents are necessary, and I can imagine a number of scenarios in which that might not be the case. So we have someone -- for example, many employees who are at a board meeting, many board meetings during the relevant period of time. They say memos were circulated with regularity talking about this kind of thing. We can't remember exactly the data points, but the discrepancy between what was -- the CEO was saying publicly and what was appearing in the documents  that we were reviewing was glaring, and we remember that, and we know that.",
       "time": "00:05:10.04"
     },
@@ -193,7 +193,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "I don't understand why that's not enough for the pleading stage.",
       "time": "00:05:55.36"
     },
@@ -205,7 +205,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "No, no, no. My hypothetical is we do know what it said. We knew what it said at the time, says the employees. What we don't remember for today in this moment, as we are alleging, exactly what the data points were, but --",
       "time": "00:06:26.28"
     },
@@ -217,7 +217,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- we  --we -- our testimony is that documents that we saw that had the relevant information were given to the CEO during this meeting at the same time that the CEO was saying something else externally.",
       "time": "00:06:40.03"
     },
@@ -229,7 +229,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Why  --why do we need the data points, is my question.",
       "time": "00:06:55.04"
     },
@@ -241,7 +241,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Katyal  --",
       "time": "00:07:10.53"
     },
@@ -253,7 +253,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- could I stop you a moment?  Tell me what rule you want us to adopt.",
       "time": "00:07:11.54"
     },
@@ -265,7 +265,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, you know something, it  --it sounds to me -- and I am concerned about your cert petition because you made two allegations in your cert petition. The first one was similar to this, but you said you wanted a bright-line rule that you need to have particularized X description of the document. That's what you said in your -- in your cert petition. But Tellabus -- Tellabs, our case, alleged that the CEO knew or should have known that the company's internal sales reports were not consistent with its public statements, but they did not allege the precise contents of those reports. We rejected the petitioner's argument there that the plaintiff failed to describe the documents in enough detail. It's an issue of fact. Is there enough detail? Now you're spotting us that it's a very long complaint. We often don't grant cert to error-correct. Is this entire case just an error correction?",
       "time": "00:07:30.36"
     },
@@ -277,7 +277,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "These particular documents are not precise enough?  I'm not actually sure what rule we could articulate that would be clearer than our cases already say.",
       "time": "00:08:31.79"
     },
@@ -289,7 +289,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, except that I've gone through the complaint, all right, and we have any number of employees, some of them who created the documents, others who were present when the documents were being discussed, others who -- only one who wasn't present during the relevant time but who set up what the creation of the documents showed, and others who were present during the time who said there were many, many crypto sales, many more than the $150 million that your client claimed, and he kept saying that it was a small part of the business, all right? And yet all of these employees are saying, no, it's not a small part of the business. One of them was familiar with China, and it was a huge part of China's business. And others were familiar with Europe. I -- I -- I guess I'm going back to this is pure error correction that you're asking us to do.",
       "time": "00:08:50.70"
     },
@@ -301,7 +301,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Tell me your rule.",
       "time": "00:09:55.26"
     },
@@ -313,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "No, it's because you --",
       "time": "00:10:18.86"
     },
@@ -325,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- because you told us there was a 5-to-2 split. And, in fact, there is no split. None of the cases you cited in the split hold the rule that you're claiming.",
       "time": "00:10:20.22"
     },
@@ -337,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "No. Two of them -- the Second Circuit and the Anderson case, which is the only one in your merits brief that you go through, that case was the court simply saying the witness was talking to us about one thing in the reports but not about the scienter that was necessary for the second thing.",
       "time": "00:10:33.90"
     },
@@ -349,7 +349,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right, counsel  --",
       "time": "00:11:48.55"
     },
@@ -361,7 +361,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- one last thing on your expert rule.",
       "time": "00:11:52.05"
     },
@@ -373,7 +373,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Your expert rule sounds very much like Justice Alito's concurrence. Is it?",
       "time": "00:11:54.30"
     },
@@ -385,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm -- I'm -- I'm totally dubious of that, but your other side can get you the factual argument on that because I've read through the allegations, and the employees were talking about constant sales reports that tracked every item that was being sold either to a gamer or to a cryptocurrency marketeer, and they were talking about the exact nature of the documents that were being created and the fact that there were many, many more sales than the 150 million that he was claiming.",
       "time": "00:12:21.18"
     },
@@ -397,13 +397,13 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Could we go to the  --",
       "time": "00:13:15.75"
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Counsel, one thing that concerns me about both sides' presentation, it's a little black and white. I gather you wouldn't be terribly upset about a complaint with a lot of direct evidence and, you  know, some expert reports that sort of help shore that up. And I'm assuming the other side would be fine if -- if it -- you know, the balance was -- was the other way. Now, if I think that the positions on both sides are a little too absolute, how do you find sort of the sweet spot in terms of when the PSLRA is satisfied?  I mean, it can't be just a little bit of direct evidence because that statute was intended to do something. On the other hand, it seems to me you can't insist on only the direct evidence before a complaint goes forward. So, if -- if I don't think it's black and white, how do  --what -- how do I decide where the balance is?",
       "time": "00:13:17.23"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But, Mr. --",
       "time": "00:16:19.35"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- Mr. Katyal, your -- your description and your discussion and your argument sounds to me like summary judgment stage kind of discussion. In other words, you -- you seem to be suggesting that this is the evidence that they have related to your, you know, client's misconduct and it's not enough. And I would appreciate that if we were at the summary judgment stage. What I don't understand is, at the pleading stage, the allegations being made, how you are saying what I understood your rule to be as stated in your question presented is there the contents of the documents have to be alleged with particularity. And I'm still stuck on that as a -- the only way in which a plaintiff can sufficiently allege scienter in this kind of circumstance. I don't know why that is.",
       "time": "00:16:20.25"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "No, I'm saying in a documents case.",
       "time": "00:17:25.94"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "In a documents case --",
       "time": "00:17:28.67"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- you can have a world in which you're not necessarily quoting from  --",
       "time": "00:17:30.08"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- pointing to the contents.",
       "time": "00:17:35.03"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "And yet your rule suggests that that case would have to be dismissed --",
       "time": "00:17:37.26"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- because it's not particularized.",
       "time": "00:17:41.98"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "So I'm misunderstanding your rule.",
       "time": "00:17:43.97"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So can I ask you a  -- give you a couple hypotheticals to test what that means? First hypothetical, you have a complaint that alleges that on Monday, the CEO tells a few subordinates:  I just read this -- these internal documents and it looks like sales of our principal product are down. And then, on Tuesday, he goes out and tells the public:  Sales of our principal product are up.",
       "time": "00:17:53.54"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Is that particularized enough?",
       "time": "00:18:20.65"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Okay. So sort of just a statement, you know, I'm not giving you numbers, I'm not giving you a lot of, you know, this document -- this -- this product did one thing and this product did one -- another thing. I'm just saying sales were down, sales were up.",
       "time": "00:18:27.02"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yeah. Sales were down and sales were up.",
       "time": "00:18:50.16"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Okay. Suppose that the document  -- excuse me  --the complaint doesn't have these --these allegations that he said something about the documents to a bunch of subordinates, but, instead, it's  --it  --it's  --he has made the same public statement, sales are up, and the plaintiffs come up with a lot  -- and -- and -- and the plaintiffs come up with a lot of evidence that shows two things. The first is that he constantly reads documents about sales, all right, and the second is they come up with a lot of sort of outside evidence that sales were, in fact, down. So they don't have him saying \"I read the document and the document says X,\" but there's a lot of evidence that really indicates that the document said X because that's the evidence in the world.",
       "time": "00:18:57.13"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So --",
       "time": "00:20:21.52"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- as I hear what you're saying, you're not really saying that you have to -- I mean, you're -- you know, that you have to have the -- the contents of those documents, as long as what the complaint alleges, yo u know, and plausibly so, is that he stares at a lot of documents and the evidence suggests that the documents would have said something that's quite different from what he presents to the public.",
       "time": "00:20:22.74"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And so that's not -- you know, that's good for you and that's bad for you. That's not a bright-line rule, and that's good for you because we don't like bright -line rules in this context and have said so a thousand times. But it's bad for you because, as the -- as -- as what you're saying from the podium in terms of the rule you think we should adopt gets more and more like the sort of thing that we usually ask for, it becomes less and less clear why we took this case, number one, as Justice Sotomayor suggested, and, number two, why you should win it.",
       "time": "00:20:47.41"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Mr. Katyal, why isn't that error correction,  though?  I mean, kind of returning to Ms. -- to Justice Sotomayor's point, if we think your bright-line rule fails for the reasons Justice Kagan is suggesting, why isn't your answer that you're giving Justice Kagan simply asking us to go through the complaint and explain why it's not good enough?",
       "time": "00:22:09.00"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "But it articulated the rule as we said it in Matrixx and Tellabs.",
       "time": "00:22:36.34"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Well, they did say --",
       "time": "00:23:01.71"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- they did say that -- on that, they did say, Mr. Katyal, that it  -- it -- it -- it beggars belief to think that a CEO would not have been aware --",
       "time": "00:23:02.60"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- of the source of such a large portion of the company's income --",
       "time": "00:23:14.92"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- especially given the evidence here that this CEO was very interested in sales channel data.",
       "time": "00:23:20.64"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "And so why -- so why -- you may disagree with that comparative conclusion, but why isn't that a comparative conclusion?",
       "time": "00:23:28.78"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Well, but that -- that -- that is acknowledged elsewhere in the opinion and it may be not emphasized enough for your taste and  -- and, therefore, may be wrong as a matter of error correction. But there is a comparative analysis that was performed.",
       "time": "00:24:05.07"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Again --",
       "time": "00:24:24.18"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- might be wrong, but there's a comparative analysis.",
       "time": "00:24:25.63"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Let me ask you a question on --",
       "time": "00:24:40.38"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- on that while I've got you and then I'll let you go. I promise. Do you take the position of Professor Grundfest that an expert opinion can never be used to help establish particularized facts?",
       "time": "00:24:41.98"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "So it can be used to supplement them --",
       "time": "00:25:01.71"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- like any other circumstantial evidence?",
       "time": "00:25:04.62"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Okay.",
       "time": "00:25:09.74"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Thank you.",
       "time": "00:25:10.94"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. I -- I just have one question about an analogy. I  -- I guess maybe I -- I don't -- I've never heard the analogy the complaint eats itself. What -- what does that mean? (Laughter.)",
       "time": "00:25:14.48"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It's very vivid, but I don't know  --",
       "time": "00:25:30.17"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Okay. I'm not sure how that's eating itself, but I'll take your word.",
       "time": "00:26:40.95"
     },
@@ -847,13 +847,13 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Thomas? Justice Alito?",
       "time": "00:26:47.02"
     },
     {
       "turn": 134,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, let me go back to the Prysm report. Would you dispute the proposition that if the discrepancy between what Mr. Huang stated and the figures in the Prysm report were true, that the inference drawn by the Ninth Circuit would be a legitimate inference at the 12(b)(6) stage?",
       "time": "00:26:49.13"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, I don't really understand how you and perhaps your  -- your friend think that reports like this, opinions by experts on a highly technical subject,  are supposed to be handled at the 12(b)(6) stage. The facts that Prysm relied on are set out with some particularity, are they not?",
       "time": "00:28:03.76"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Yeah. And you  --",
       "time": "00:28:59.09"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- and -- and you claim, and you -- maybe you're right, that the model is flawed, the data is not reliable. But this is a highly technical subject, and I just don't understand how a court is supposed to evaluate that at the pleading stage. You talk about Daubert, but Daubert is not a case that sets out a standard to determine whether a complaint -- whether a -- a claim should be dismissed at that  --at that stage. So what --what is  --what is a court to do at the pleading stage when it is presented with highly technical information that is beyond the capability of a judge to evaluate at that stage? It's different at that stage than at trial, when there --there's an opportunity to have a cross-examination  --",
       "time": "00:29:00.51"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- of the expert, qualify the expert, ask the expert questions. It's a puzzling question to me.",
       "time": "00:29:54.91"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Okay. Well, one more question along these lines. You draw a distinction between fact and opinion. But isn't it true that it is a fact that Prysm reached certain conclusions?  Is that not a particularized fact?",
       "time": "00:30:36.64"
     },
@@ -925,19 +925,19 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Thank you.",
       "time": "00:31:14.42"
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Sotomayor? Justice Kagan?",
       "time": "00:31:15.13"
     },
     {
       "turn": 148,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "If I understood your answers to Justice Alito, you're not suggesting that there's any special rule relating to expert evidence, expert reports. You're just saying that this was a terribly flawed report, is that correct?",
       "time": "00:31:18.52"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yeah, I mean, once again, it just seems to me that you're asking us to engage in a kind of analysis that we are not very good at and weren't expecting to when we took this case, to decide whether this particular report is flawed or not in the way that you suggest.",
       "time": "00:31:45.28"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Do you think that the Royal Bank of Canada report is flawed in the same way?",
       "time": "00:32:22.18"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, what do -- what do you -- I mean, presumably, it's out there in the world, right?  Presumably, you've read it --",
       "time": "00:32:31.09"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- the Royal Bank of Canada report --",
       "time": "00:32:36.13"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- which concluded that NVIDIA understated its crypto -related revenues by more than a billion dollars.",
       "time": "00:32:37.81"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "The report is not one sentence, is it?",
       "time": "00:32:45.68"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But, again, it's --",
       "time": "00:33:04.14"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But, again, you're  -- you're -- you're not saying that it's -- we shouldn't -- it --it doesn't go into the mix because it's an expert report in any way.",
       "time": "00:33:06.46"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It's just like:  What was that based on?  Is that a good report?",
       "time": "00:33:15.37"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Is the -- is the Prysm report a good report?  Is any other report that they can come up with a good report? That's what you're asking us to evaluate.",
       "time": "00:33:20.24"
     },
@@ -1069,7 +1069,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Thank you.",
       "time": "00:33:38.13"
     },
@@ -1081,13 +1081,13 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Gorsuch?",
       "time": "00:33:42.38"
     },
     {
       "turn": 173,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "So we've talked about how the case has kind of migrated from the first QP into more fact-intensive questions for us, and I'm wondering whether that's, after your discussion with Justice Kagan, where we are on the second QP, which was whether a plaintiff can satisfy the PSLRA's particularity requirement by relying on an expert report to substitute for particularized allegations of fact. And what I'm hearing today is, well, sometimes an expert report might be able to do that if it itself is particularized. And this one is not. It's not a categorical rule that expert reports are off the table.",
       "time": "00:33:44.44"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I understand  --",
       "time": "00:34:46.83"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- I understand your concerns very well with respect to this report, but it does strike me that there's some delta between what you're asking us to do today and what your QP 2 says.",
       "time": "00:34:47.63"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "No, no. But, if  --if we had a really robust report here that you really couldn't take issue with that concluded that there were a billion dollars in understated revenues, you're telling us that that report would be okay, and that would be useful for understanding whether --",
       "time": "00:35:18.49"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- the PSLRA -- the PSLRA is met, right?",
       "time": "00:35:35.66"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Yeah, and if the details -- if it all added up.",
       "time": "00:35:41.70"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "If two plus two equaled four all the way through the report and  -- and -- and it was -- it was rigorous and robust and disclosed, then we would have a claim?",
       "time": "00:35:44.33"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Yeah.",
       "time": "00:35:59.94"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Right.",
       "time": "00:36:02.13"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Yeah.",
       "time": "00:36:03.65"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Yeah.",
       "time": "00:36:06.33"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Thank you.",
       "time": "00:36:08.57"
     },
@@ -1231,19 +1231,19 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Thank you.",
       "time": "00:36:10.44"
     },
     {
       "turn": 198,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Kavanaugh?",
       "time": "00:36:11.16"
     },
     {
       "turn": 199,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "So how would you summarize then the analytical or legal mistake that the Ninth Circuit committed that you think would create problems going forward for PSLRA litigation?",
       "time": "00:36:12.29"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "And you think the Ninth Circuit's different from other circuits if this opinion were to stand on how those kinds of cases are treated?",
       "time": "00:37:33.74"
     },
@@ -1267,19 +1267,19 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Thank you.",
       "time": "00:38:20.14"
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Barrett? Justice Jackson?",
       "time": "00:38:21.07"
     },
     {
       "turn": 205,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "So, Mr. Katyal, I -- I am worried about what I see as the delta between what you're asking for here today and what you asked for in your petition and what you argued in your brief, and I'm trying to reconcile the two. So I just heard you say to Justice Kavanaugh that particularity requires answering what the CEO knew and when did he know it. That's the rule that you want us to put forward?",
       "time": "00:38:23.45"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Right, right, right. So -- okay. And then I think, in order to reconcile that with what you have already said in your briefing, you would have to say and the only way to do that in any case of that nature is to allege the contents of the documents, because I don't know that you can get away from having said over and over again, including in your question presented, that the allegation of the contents of the documents is important.",
       "time": "00:38:59.45"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "So  --",
       "time": "00:39:32.04"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Right.",
       "time": "00:39:35.88"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "No, I understand that. But I --you don't need to append the document to your complaint.",
       "time": "00:39:41.45"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But you have to allege the contents. I mean, so --",
       "time": "00:39:45.44"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- your answer to Justice Kagan's hypotheticals, I think, would come out differently because she did not in her hypotheticals talk about allegations that spoke of the content of the documents.",
       "time": "00:39:48.71"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "That was hypo one.",
       "time": "00:40:10.76"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "And then she  -- then she -- then she -- didn't she migrate from that to  say --",
       "time": "00:40:12.41"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- that the employees say these kinds of documents are circulated, we know the CEO looks at these kinds of documents, and his statements were different?",
       "time": "00:40:17.72"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "So they  -- so you have to have the contents of the documents?",
       "time": "00:40:35.25"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "I know. But your argument doesn't have the \"or\" in it. Your argument says:  \"Where, as here\"  --and I'm reading from the summary of argument  --\"a plaintiff seeks to establish scienter by relying on allegations that internal company documents contradicted public statements, the plaintiff must allege the contents of those documents.\"",
       "time": "00:40:50.06"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "\"Otherwise, the allegations are insufficiently particularized because they do not describe what the documents said.\"",
       "time": "00:41:07.84"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "So I was led to believe from that kind of language that really, your rule is you have to allege  --",
       "time": "00:41:15.54"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- what the documents say.",
       "time": "00:41:22.24"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "And if we disagree with that, you lose, right?  Because that's the rule you're asking for.",
       "time": "00:41:33.06"
     },
@@ -1471,13 +1471,13 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Thank you.",
       "time": "00:41:51.01"
     },
     {
       "turn": 238,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Gupta.",
       "time": "00:41:51.89"
     },
@@ -1489,7 +1489,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "I understand your argument, but what does  --what is your definition of particularity and how do you think it plays a role in your complaint?",
       "time": "00:44:04.93"
     },
@@ -1501,7 +1501,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "Well  --well, what is it?",
       "time": "00:44:21.09"
     },
@@ -1513,7 +1513,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "So how does that work in the -- what work does it do in your complaint?",
       "time": "00:44:35.97"
     },
@@ -1525,7 +1525,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "But you don't think you have to go as far as an old fact pleading regime in order to sort of meet this definition of particularity?",
       "time": "00:45:29.78"
     },
@@ -1537,7 +1537,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You say the complaint has to have enough particular allegations. As I was asking Mr. Katyal, I think we shouldn't lose sight of the fact that the PSLRA had very particular objectives in mind. And it seems to me if  --if you're -- you're using words like \"enough,\" it's not clear to me that that's going to allow the statute to  --to be very effective. So how am I supposed to handle that conundrum?  This  -- this statute, as I said, wanted to accomplish some very specific objectives, and if enough is enough to get over it, that doesn't -- it seems to me that might  -- that the statute might have had more in mind.",
       "time": "00:46:11.14"
     },
@@ -1549,7 +1549,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank  --",
       "time": "00:48:30.97"
     },
@@ -1561,7 +1561,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, go ahead.",
       "time": "00:48:33.50"
     },
@@ -1573,13 +1573,13 @@
     },
     {
       "turn": 254,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you.",
       "time": "00:49:24.45"
     },
     {
       "turn": 255,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Could I hear about the other two?",
       "time": "00:49:25.62"
     },
@@ -1591,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Thank you.",
       "time": "00:51:15.67"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "May I -- may I follow up on that, Mr. Gupta?",
       "time": "00:51:17.12"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "So, if we're going to treat this case as error correction, I've got some error correction kind of questions for you.",
       "time": "00:51:20.57"
     },
@@ -1627,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "The first is your friend on the other side, Mr. Katyal, would say that when it comes to the falsity that you're relying predominantly on two former employees, 1 and 2, and 5's kind of the out of the picture after the Ninth Circuit's decision, for example. And 1 is five layers below the CEO and in China. And Number 2 left the company right at the beginning of the class period and, therefore, can't inform what happened thereafter. Would you give me your responses to those?",
       "time": "00:51:27.43"
     },
@@ -1639,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Got that.",
       "time": "00:52:39.91"
     },
@@ -1651,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "How about 1?",
       "time": "00:52:41.34"
     },
@@ -1663,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "The five  -- five layers below the CEO, they emphasized.",
       "time": "00:52:52.07"
     },
@@ -1675,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Well, he's the guy who -- who knows the data, knows what goes into the sales reports that he sends up the chain. And then you've got the other guy saying and the CEO looked at these sales reports with -- with great interest routinely.",
       "time": "00:53:21.87"
     },
@@ -1687,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "At least up until the time I left.",
       "time": "00:53:35.81"
     },
@@ -1699,7 +1699,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Okay. All right. Okay. I got it. On -- on the -- on the second question, on -- on --on the expert report, another fact-bound error correction. Prysm relied on, as -- as we've heard, a proprietary model that was undisclosed. Is that a problem?  Why  -- why isn't that a problem?",
       "time": "00:53:38.82"
     },
@@ -1711,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Pretty expensive math I have to guess, but  -- (Laughter.)",
       "time": "00:54:15.43"
     },
@@ -1723,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Right, right.",
       "time": "00:55:10.20"
     },
@@ -1735,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "That 69 percent?",
       "time": "00:55:18.56"
     },
@@ -1747,13 +1747,13 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "If you had to -- keep going, sorry.",
       "time": "00:55:20.89"
     },
     {
       "turn": 284,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "If you want to finish that up, that might turn out to be useful for us, so go ahead.",
       "time": "00:55:23.03"
     },
@@ -1765,7 +1765,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "That's it?  You got it?",
       "time": "00:55:29.40"
     },
@@ -1777,13 +1777,13 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Okay. Thank you. Thank you.",
       "time": "00:55:30.91"
     },
     {
       "turn": 289,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "If you had to summarize why you think Judge Sanchez was wrong, how would you -- how would you summarize that?",
       "time": "00:55:32.05"
     },
@@ -1795,7 +1795,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, Judge Sanchez thought that the majority had not paid sufficient attention to opposing inferences. You have laid out the allegations from which you claim one can infer that Huang knew that what he said was false, but under Tellabs, that had to be weighed against competing interests. And Judge -- as I understood Judge Sanchez's opinion, he said that was not done, and he pointed in particular to Figure F. So what is wrong with that?",
       "time": "00:56:24.74"
     },
@@ -1807,19 +1807,19 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, Judge  --",
       "time": "00:58:38.04"
     },
     {
       "turn": 294,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "That's a  --",
       "time": "00:58:38.34"
     },
     {
       "turn": 295,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- Judge Sanchez said that he thought that the slide showed that the crypto SKU was drawing sales away.",
       "time": "00:58:38.54"
     },
@@ -1831,7 +1831,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Among miners, it was drawing sales away from the GeForce GP -- GPU. Is that incorrect?",
       "time": "00:58:50.18"
     },
@@ -1843,7 +1843,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "So I'm focused a little bit on the demands of particularity at this stage. You -- you -- in part of your response to Justice Alito right there, you sa id we don't have to prove our case in a summary judgment-like fashion. And -- and that's what I thought, but I'm just wondering whether that's actually the case. The Chief Justice asks, well, what was the point of the PR --P -- PSLRA?  And  --and is it possible that the PSLRA was really, with its particularity requirement, demanding that plaintiffs have the kinds of evidence that would be necessary to demonstrate the inferences that they would want the Court to draw?",
       "time": "00:59:42.77"
     },
@@ -1855,7 +1855,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "And I appreciate that, but I -- I guess I'm just trying to understand what the standard is. What  --so, if you don't have to demonstrate through the presentation of evidence that your inferences are correct or that you have enough evidence to show a jury that your inferences are correct, then what is the work of particularity? I mean, your -- your colleague on the other side suggests that you do have to have enough detail about the contents of the documents in order to do something. But I can't separate that out from saying you have to have the documents themselves --",
       "time": "01:00:52.77"
     },
@@ -1867,7 +1867,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- in some way.",
       "time": "01:01:31.35"
     },
@@ -1879,7 +1879,7 @@
     },
     {
       "turn": 305,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. If I could just pick up on that point. In requiring particularity, the PSLRA was at least raising the bar when you talk about, you know, you have to have some evidence of this or that. Congress went out and saw a real problem there and wanted to do something about it. So the idea that, oh, you're going to have varying levels of particularity with respect to the evidence is kind of a hard standard to apply. I mean, if it is just, oh, you look  -- you know, it's a case-by-case basis, and we're going to have to wait for 25 or however many years until some general rule is distilled, it doesn't seem to me that the statute is doing what they  meant it to do.",
       "time": "01:02:02.92"
     },
@@ -1891,7 +1891,7 @@
     },
     {
       "turn": 307,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I'm not sure what they were looking for is verbosity. I mean -- (Laughter.)",
       "time": "01:03:27.64"
     },
@@ -1903,7 +1903,7 @@
     },
     {
       "turn": 309,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--I hope not anyway.",
       "time": "01:03:32.36"
     },
@@ -1915,7 +1915,7 @@
     },
     {
       "turn": 311,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Right.",
       "time": "01:03:37.43"
     },
@@ -1927,13 +1927,13 @@
     },
     {
       "turn": 313,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank -- thank you. Justice Thomas, anything further? Justice Alito?",
       "time": "01:03:51.17"
     },
     {
       "turn": 314,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Do you think that motive has any role to play in the analysis of scienter?  I know you don't have to prove motive. Do you think it's relevant?",
       "time": "01:03:54.84"
     },
@@ -1945,7 +1945,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So, if the  -- I mean, if the real figure is one and a half billion dollars or over a billion dollars and Mr. Huang says no, it's a hundred million --",
       "time": "01:04:08.83"
     },
@@ -1957,7 +1957,7 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- what motive could he have for making a statement that is so far off and that is, if you are correct, if the over a billion dollars figure is correct, is surely going to be -- going to come to light with severe consequences?",
       "time": "01:04:19.28"
     },
@@ -1969,7 +1969,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Yeah. Well, what's wrong with it?",
       "time": "01:04:42.39"
     },
@@ -1981,7 +1981,7 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "So your -- your answer -- I was struck by the SG's answer, well, it's like a Ponzi scheme. And  -- and you really don't have a better explanation?  It's a Ponzi scheme?",
       "time": "01:05:42.05"
     },
@@ -1993,7 +1993,7 @@
     },
     {
       "turn": 324,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "This  --",
       "time": "01:05:53.01"
     },
@@ -2005,7 +2005,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "-- gigantic company with highly sophisticated officers is engaging in a Ponzi scheme?  All right. Maybe.",
       "time": "01:05:55.26"
     },
@@ -2017,19 +2017,19 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Thank you.",
       "time": "01:06:21.12"
     },
     {
       "turn": 329,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Sotomayor?",
       "time": "01:06:22.81"
     },
     {
       "turn": 330,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, I see two purposes  -- there may be others -- to the PSLRA particular -- particularity requirement. It has two purposes, I think:  to ensure that defendants know exactly what to defend against and to prevent frivolous lawsuits. The allegations in this complaint are pretty clear. They have to defend against whether crypto mining was driving their business during the --the class period, corr ect?",
       "time": "01:06:24.20"
     },
@@ -2041,7 +2041,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And to defend against it, all they have to do is show the sales records that all of these employees say exist, correct?",
       "time": "01:06:53.94"
     },
@@ -2053,7 +2053,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Katyal seemed to suggest in his responses to one of my questions, I think it was, that the SEC has those records. Are you aware of the SEC -- you don't have them?",
       "time": "01:07:02.85"
     },
@@ -2065,7 +2065,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What happened to that SEC case?",
       "time": "01:07:42.38"
     },
@@ -2077,7 +2077,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But no admission of liability?",
       "time": "01:07:48.14"
     },
@@ -2089,7 +2089,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And just to be clear, you don't have whatever records the SEC got?  If they got the sales records or not, you don't know?",
       "time": "01:07:56.91"
     },
@@ -2101,7 +2101,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "The government would probably tell us that. Okay. Thank you.",
       "time": "01:08:06.18"
     },
@@ -2113,13 +2113,13 @@
     },
     {
       "turn": 344,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Kagan?",
       "time": "01:08:09.27"
     },
     {
       "turn": 345,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "If I just could go back to the questions that Justice Alito asked you, because it strikes me that, from your answer, the Ponzi scheme is actually a bad term for what you're suggesting. A Ponzi scheme is like you're -- you're -- you're never going to get caught up.",
       "time": "01:08:10.19"
     },
@@ -2131,7 +2131,7 @@
     },
     {
       "turn": 347,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And it's just dishonesty after dishonesty after dishonesty to try to hide that fact. But you're not suggesting that. You're actually saying that if things had worked out a little bit differently  --",
       "time": "01:08:24.87"
     },
@@ -2143,7 +2143,7 @@
     },
     {
       "turn": 349,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "-- in the market for crypto and --and in the  -- and in other markets that NVIDIA was involved in, NVIDIA is now the company that's sending the stock market into the stratosphere, we would never have known about this.",
       "time": "01:08:35.83"
     },
@@ -2155,7 +2155,7 @@
     },
     {
       "turn": 351,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "You know?  So Mr. Huang might have been making a pretty good bet here.",
       "time": "01:08:52.16"
     },
@@ -2173,13 +2173,13 @@
     },
     {
       "turn": 354,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "I'm sorry, Justice Gorsuch? Justice Kavanaugh?",
       "time": "01:09:11.51"
     },
     {
       "turn": 355,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "How much money is at stake in this case, in other words, if you were to prevail ultimately in the class?",
       "time": "01:09:14.93"
     },
@@ -2191,7 +2191,7 @@
     },
     {
       "turn": 357,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "What are you seeking? Like, if you ran the table, what -- what are you seeking roughly?",
       "time": "01:09:37.38"
     },
@@ -2203,7 +2203,7 @@
     },
     {
       "turn": 359,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Rough?",
       "time": "01:09:45.26"
     },
@@ -2215,7 +2215,7 @@
     },
     {
       "turn": 361,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "So you don't have any idea how much you would be seeking?",
       "time": "01:10:05.36"
     },
@@ -2227,7 +2227,7 @@
     },
     {
       "turn": 363,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Okay. And the concern, I think, raised by the amici is the fraud by hindsight that you've heard Mr. Katyal, and I just want to --",
       "time": "01:10:09.64"
     },
@@ -2239,7 +2239,7 @@
     },
     {
       "turn": 365,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "-- give you a chance to respond. The idea is of the effects on the American economy if businesses -- anytime a stock price falls, you can get an expert and you can get past a motion to dismiss, and that has a  -- as you read in the amici, you know all this, but has a significant effect on the American economy and that while it's painful for us to get into th e facts and have to actually, you know, dig into the facts, the Ninth Circuit opinion, so the amici say, is a blueprint for getting past the motion to dismiss in a way that's contrary to what Congress thought and will have negative effects on the American economy and that it's our role to make sure that we have policed the lines Congress drew so that the economy is not harmed. So  --",
       "time": "01:10:19.01"
     },
@@ -2251,7 +2251,7 @@
     },
     {
       "turn": 367,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "If Judge Sanchez's opinion had been the majority opinion, would you have sought cert?",
       "time": "01:12:18.47"
     },
@@ -2263,7 +2263,7 @@
     },
     {
       "turn": 369,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Really? (Laughter.)",
       "time": "01:12:32.22"
     },
@@ -2275,13 +2275,13 @@
     },
     {
       "turn": 371,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "I wouldn't bind yourself like that, but anyway, thank you.",
       "time": "01:12:34.34"
     },
     {
       "turn": 372,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Barrett? Justice Jackson? Thank you, counsel.",
       "time": "01:12:38.19"
     },
@@ -2293,7 +2293,7 @@
     },
     {
       "turn": 374,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Ms. Sinzdak.",
       "time": "01:12:44.10"
     },
@@ -2305,7 +2305,7 @@
     },
     {
       "turn": 376,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "Do you think particularity is used in the same way it's used in Rule 9(b) of the Federal Rules of Civil Procedure?",
       "time": "01:14:21.07"
     },
@@ -2317,7 +2317,7 @@
     },
     {
       "turn": 378,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So I  --I take it you think the PSLRA was intended to do a good bit more than simply keep out frivolous lawsuits?",
       "time": "01:14:54.96"
     },
@@ -2329,7 +2329,7 @@
     },
     {
       "turn": 380,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No. But my question was, do you think it was intended to do more than simply keep out frivolous lawsuits?",
       "time": "01:15:14.35"
     },
@@ -2341,7 +2341,7 @@
     },
     {
       "turn": 382,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, you said it was designed to ensure adequate allegation of scienter, that it imposed a  --a heightened particularity standard. All those other things that you listed.",
       "time": "01:15:25.03"
     },
@@ -2353,13 +2353,13 @@
     },
     {
       "turn": 384,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Okay.",
       "time": "01:15:48.57"
     },
     {
       "turn": 385,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Ms. Sinzdak, so let's say that we don't adopt for scienter this  -- this bright-line rule. Mr. Katyal suggested that for the comparative standard at least as cogent and compelling as the alternative, that the Ninth Circuit, while parroting the rule, didn't adequately apply it. It seems to me that if we rejected the bright-line rule, we could either affirm, as you suggest, or perhaps  --I'm not saying we do -- but if we agreed with Mr. Katyal, we could vacate and remand and say you stated the right standard, but you didn't adequately apply it. Does the government really have a dog in that fight and, if so, why?",
       "time": "01:15:49.88"
     },
@@ -2371,7 +2371,7 @@
     },
     {
       "turn": 387,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Thank you.",
       "time": "01:17:00.70"
     },
@@ -2383,7 +2383,7 @@
     },
     {
       "turn": 389,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Do you think that the settlement with the SEC has any legal relevance here?",
       "time": "01:17:02.95"
     },
@@ -2395,7 +2395,7 @@
     },
     {
       "turn": 391,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, would it be admissible if the case were tried?",
       "time": "01:17:39.04"
     },
@@ -2407,7 +2407,7 @@
     },
     {
       "turn": 393,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "I just wondered why you mentioned it.",
       "time": "01:17:50.26"
     },
@@ -2419,7 +2419,7 @@
     },
     {
       "turn": 395,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Just  -- just to dirty up",
       "time": "01:17:52.71"
     },
@@ -2431,7 +2431,7 @@
     },
     {
       "turn": 397,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "In your brief, yeah.",
       "time": "01:17:56.82"
     },
@@ -2443,7 +2443,7 @@
     },
     {
       "turn": 399,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Thank you.",
       "time": "01:18:04.49"
     },
@@ -2455,7 +2455,7 @@
     },
     {
       "turn": 401,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Mr. Katyal then  -- if -- I may have totally misunderstood him, but I thought he said that whatever he gave to the SEC proved his case and not his opponent's case.",
       "time": "01:18:06.49"
     },
@@ -2467,7 +2467,7 @@
     },
     {
       "turn": 403,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But whatever he said the documents showed is not anything that you're prepared to say they showed?",
       "time": "01:18:43.87"
     },
@@ -2479,7 +2479,7 @@
     },
     {
       "turn": 405,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Other than that  --what you read?",
       "time": "01:18:50.29"
     },
@@ -2491,7 +2491,7 @@
     },
     {
       "turn": 407,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You answered the Chief by saying there was one purpose, frivolous lawsuits. I thought the  --there was a second purpose, which was to ensure that defendants knew what they were defending against.",
       "time": "01:18:59.96"
     },
@@ -2503,7 +2503,7 @@
     },
     {
       "turn": 409,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Counsel, you've end -- you've ended answering me, right?",
       "time": "01:19:35.72"
     },
@@ -2515,13 +2515,13 @@
     },
     {
       "turn": 411,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Yeah.",
       "time": "01:19:38.07"
     },
     {
       "turn": 412,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "If the dissent had been the majority, what problems would have been created going forward from your perspective?",
       "time": "01:19:39.51"
     },
@@ -2533,7 +2533,7 @@
     },
     {
       "turn": 414,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "So that goes to your answer to Justice Barrett's question it sounds like then?",
       "time": "01:19:54.68"
     },
@@ -2545,7 +2545,7 @@
     },
     {
       "turn": 416,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Anything further? Thank you, counsel. Rebuttal, Mr. Katyal.",
       "time": "01:21:53.06"
     },
@@ -2557,7 +2557,7 @@
     },
     {
       "turn": 418,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:27:10.49"
     }

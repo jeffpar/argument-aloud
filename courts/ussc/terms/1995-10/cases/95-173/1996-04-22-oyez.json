@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1995/95-173/19960422a_95-173.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
       },
       {
         "name": "LAWRENCE S. ROBBINS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MIGUEL A. ESTRADA",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number v. United States. Is that the correct pronunciation of your client's name, Mr. Robbins?",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Degen. Very well. Proceed.",
       "time": "00:00:13.68"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "When you say it cannot be squared with due process, Mr. Robbins, do you mean that if Congress had enacted such a provision it would be unconstitutional?",
       "time": "00:02:02.39"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What leads you to think that Congress wouldn't have that authority?",
       "time": "00:02:25.09"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I mean, are you talking about a case?",
       "time": "00:02:30.31"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you talking about a decision of this Court that supports that proposition?",
       "time": "00:02:32.16"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where did your client reside before he went to Switzerland?",
       "time": "00:02:58.77"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And when did he go to Switzerland?",
       "time": "00:03:04.03"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And when was the indictment handed down?",
       "time": "00:03:11.32"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If... supposing the district judge in this case had made a finding that he left the United States in order to avoid pleading to the indictment, would that make the outcome any different, in your view?",
       "time": "00:03:16.00"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that Congress wouldn't?",
       "time": "00:03:44.28"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that's so even if you make a general appearance in the action?",
       "time": "00:04:03.09"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes.",
       "time": "00:04:09.07"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Again, the powers of Congress under the Due Process Clause. Assume that there's a general appearance in the action but a refusal to make discovery or a refusal to appear because you're a fugitive from justice. Couldn't the Congress of the United States say, in that case we can take judgment against you?",
       "time": "00:04:13.35"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Robbins, I thought you were not contesting that as far as the forfeiture is concerned Mr. Degen would have to be treated like any other litigant, so if he didn't show up, say, for a deposition, didn't comply with all the discovery requirements, out he goes. I thought that you were saying as far as the forfeiture proceeding is concerned, he can't have any advantage because of his fugitive status, and if I'm wrong in that, please tell me.",
       "time": "00:05:01.29"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought your case was, he has a right, the right that any litigant would have, to defend the forfeiture proceeding.",
       "time": "00:05:51.63"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "He's not stripped of that right because there's a criminal prosecution against him.",
       "time": "00:06:01.41"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But as to the forfeiture proceeding, he would have to comply with all the requirements the court would impose on anyone who's contesting a forfeiture.",
       "time": "00:06:05.93"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a civil matter, though. You wouldn't argue--",
       "time": "00:06:40.82"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--What... assuming, even apart from any rule, that the failure to show up made it impossible for the Government to perfect its forfeiture case, perhaps because the material forfeited was in the possession of the defendant, in a case like that, rule or no rule, I take it you would agree that there would be no due process violation in disentitling the person to defend any further.",
       "time": "00:06:50.86"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If the district court were to order him to appear in Nevada for a deposition, could he then be served with criminal process in the criminal case?",
       "time": "00:07:41.97"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And would that be constitutionally objectionable, in your view?",
       "time": "00:08:03.35"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, suppose it wasn't. Suppose the district judge says, we do have these foreign claimants, and I always require them to come to Reno, or Las Vegas, and give their depositions.",
       "time": "00:08:19.28"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We've said that that's okay in civil matters, where the reason the person doesn't want to appear generally is that he will be served in other civil cases. We've said it's perfectly okay for a State to say, you make a general appearance or you do not appear at all.",
       "time": "00:09:23.38"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I would think that it's a lot easier to say it for the criminal case. The interest of the State is much greater.",
       "time": "00:09:40.13"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, supposing the district court said, I don't require all civil forfeiture defendants to come to Las Vegas, but I'm going to require you to come to Las Vegas, because I'm exercising my discretion and that's the way I choose to exercise it.",
       "time": "00:10:05.76"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You sound as though your client might be planning to violate such an order.",
       "time": "00:10:40.15"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "In your... I take it for pure purposes we could consider this as a case in which the defendant is happy to send his lawyers, he's happy to comply with every order. What he'd like to do is send in one piece of paper, which piece of paper would be absolutely conclusive in his favor, and the judge says, I'm sorry, I won't look at the paper. Since you're not here, you lose, period.",
       "time": "00:11:06.75"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that right?",
       "time": "00:11:33.89"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes. Since you're not here in the other case, you lose. Now, we're used to doing that in an appeal where, after sentencing, for example, the defendant runs away, and you concede we can do that there.",
       "time": "00:11:39.86"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You can say, we won't look at your paper, we won't look at the brief, you lose.",
       "time": "00:11:53.81"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Now, what line do you draw?",
       "time": "00:11:57.45"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "When I say, what line are you drawing, after all, there are a lot of intermediate cases. He runs away before sentencing. Can the judge then sentence him?",
       "time": "00:12:21.10"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If, in fact, the judge wants to levy a fine, and he wants to produce one piece of paper which will show he has no money, does the judge have to look at that piece of paper?",
       "time": "00:12:34.28"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, I'm asking you for your... I mean, you're absolutely right that's where I'm driving. What I want to see is what's your line. You agree, I take it, the judge doesn't have to look at the piece of paper when he ran away before appeal. The judge doesn't have to look at the piece of paper when he runs away before he's being fined at sentencing. But you're saying the judge does have to look at the piece of paper when it's a forfeiture of property, and what's the distinction?",
       "time": "00:12:50.26"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Robbins, may I ask you a question? You may recall that there are some lawyers who argue that the Double Jeopardy Clause require the two proceedings to be brought as one.",
       "time": "00:13:51.04"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You've heard such an argument. [Laughter] Well, if the Constitution commands these proceedings be treated as one, how can you consistently argue in this case that we must treat them as totally separate--",
       "time": "00:14:01.48"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--which is the heart of your argument, that we should ignore the criminal case and just look at what can be done in the civil case?",
       "time": "00:14:12.72"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And it's constitutionally permissible for us to treat them as separate proceedings.",
       "time": "00:14:22.63"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even if not, you would say that if they are brought as separate proceedings they have to be treated as separate proceedings.",
       "time": "00:14:34.52"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's not a very irrational position, is it?",
       "time": "00:14:40.08"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Robbins, in answer to Justice Scalia's question about the special or general appearance, you indicated that that was right that a State could say, either you stay out and forfeit whatever we have, or you come in for all purposes, but my understanding is that on the Federal side if the property is in the custody of the court, you could make a limited appearance and say, I'm coming in for purposes of defending my property, but nothing else that I own is going to be subject to the court's authority. I thought that's... on the Federal side, that has been the Federal practice, whatever the Texas rule may be.",
       "time": "00:15:35.37"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, that's what a limited appearance is. I'm there, I'm fighting out the case, but the only thing that's going to be subject to the judgment is the property.",
       "time": "00:16:25.33"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I guess the actual parallel in the State civil case anyway would not be whether you subject yourself to general counterclaims or whatnot that are relevant to that suit, but rather, I guess the parallel would be a State that says if you make even a special appearance in one case you are liable to being sued in separate cases. I don't know any state that does that.",
       "time": "00:16:48.62"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Could the judge decline to give the usual weight and credit to the sworn affidavit because of the defendant's absence? He'd say, I have this paper in front of me, but number 1, this man's a fugitive. I'm going to discount this.",
       "time": "00:17:52.40"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's not only possible, is it permissible?",
       "time": "00:18:15.90"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Maybe it isn't that separate a case. I mean, certainly that's what the Government is going to argue in these cases. It would be quite different if it were a totally unrelated piece of civil litigation that you're talking about, but this is, in fact, simply a piece of civil litigation that has a lot to do with the criminal case. Why can't we consider them effectively joined?",
       "time": "00:18:48.91"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but that had to do with the fact that the appellate proceedings did not relate to the same court, that they didn't have to do with an offense to the dignity of the same court, and therefore couldn't be within the inherent powers of that court.",
       "time": "00:19:31.92"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But here it is the same court.",
       "time": "00:19:45.79"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Because it was only the appellate process that was the business of that court.",
       "time": "00:20:03.77"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It had to do with the identity of courts rather than the absolute identity of lawsuits.",
       "time": "00:20:09.06"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, could--",
       "time": "00:21:35.37"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Do those who are assisting him in remaining abroad, couldn't they be liable for harboring a fugitive?",
       "time": "00:21:37.16"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Forget the extraterritoriality aspect of it so far as the forum. Suppose he was in New York State, and he was being hidden out--",
       "time": "00:21:44.33"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--But is that the case now? What is the status?",
       "time": "00:22:18.28"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That is, on that part of it, is it... is there a dispute with the Government over what happened? Is it the case that he could not come to this proceeding because, at the request of the United States, the Swiss had arrested him, tried him, and put him in prison?",
       "time": "00:22:21.40"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Are we dealing with the case of a person who could not show up because he was in prison because the Swiss authorities acted on American request, or not, or what is the status of that?",
       "time": "00:22:35.12"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "He hasn't been tried yet in Switzerland?",
       "time": "00:23:01.74"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Robbins, did the petitioner raise in district court the claim that the Swiss arrest ended his fugitive status?",
       "time": "00:23:12.88"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So it was not raised in the district court because it hadn't occurred.",
       "time": "00:23:31.87"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Robbins. Mr. Estrada, we'll hear from you.",
       "time": "00:23:43.36"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say the defendant's participation in the civil forfeiture threatens the criminal case?",
       "time": "00:24:33.33"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But couldn't that be dealt with by a judge administering the civil discovery rules?",
       "time": "00:25:24.30"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But Mr. Estrada, wouldn't that be possible even if he appeared in the criminal case, that he could use civil discovery in the forfeiture case to find out the same information?",
       "time": "00:26:02.94"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why couldn't they have done that in this case?",
       "time": "00:26:32.64"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So it boils down to a question of money. It's not the dignity of the court, you want the money.",
       "time": "00:26:54.26"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Which is to get the money.",
       "time": "00:27:02.53"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That's-- --But how long can a... how long can the criminal indictment stand without dismissal if he fails to appear in response?",
       "time": "00:27:28.11"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "All right, and presumably the Government could stay the civil forfeiture and put a hold, in effect, on any transfer of title the property. The property will be secure. So what has the Government lost?",
       "time": "00:27:43.70"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it seems to me that the... it isn't as though the Congress hasn't addressed this problem. It has, and it has given you a remedy. The remedy is to stay the civil action until the criminal action is completed, and you say that remedy is inadequate. Well, maybe go back to Congress and get an additional remedy for this kind of a case.",
       "time": "00:28:09.27"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, there's no finding here, Mr. Estrada, that the petitioner is a fugitive.",
       "time": "00:29:05.57"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Whereabouts on page... you're talking about the white--",
       "time": "00:29:28.06"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--In that sense of the word, I take it.",
       "time": "00:29:55.41"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "If he does--",
       "time": "00:30:37.80"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--If he does, why not handle it at that stage instead of saying you... you're at total default. We are predicting what's going to happen if we were to allow you to come in and defend, and Mr. Estrada, one striking difference between this and Molinaro, where the fugitive entitlement doctrine started, there the defendant is away and he says, aha, if I'm vindicated on appeal, I'll come home, but if they're going to affirm my conviction... so there was no way to enforce the court's judgment. Here, all the property is arrested. It's in the court's control, so he can't get his hands on any of that property.",
       "time": "00:30:38.74"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But Mr. Estrada, suppose the defendant says, I don't want to face a total forfeiture, and I realize this argument you're making. I would rather have some defense than none, so if the district court wants to issue any kind of protective orders so that I won't get premature... a pre-vision of the criminal case, so be it, but at least give me some chance to defend. The Government, in order to effect its interest in not having more disclosure than in the criminal case doesn't have to say, you can't come in at all. It can say--",
       "time": "00:32:23.17"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Yes.",
       "time": "00:32:56.39"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Are you saying there are no circumstances in which he could defend that would not involve disclosing the Government's case?",
       "time": "00:33:36.65"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, why in the example that you just gave does that example support you? Why, in the case in which the Government knows because of its criminal evidence the property came from some other source than inheritance, couldn't the Government simply go to the court and say, we have evidence to rebut? We will make a good faith offer of proof without disclosing the evidence itself, and therefore you in fact ought to stay the proceeding so that we don't have to disclose our case. I suppose your answer is, well, we want the money, but--",
       "time": "00:33:58.34"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--But the fact is, in each instance what it comes down to is not your incapacity to defend your own position, and not your incapacity, in effect, to meet the evidentiary position that you feel is unfairly being foisted upon you, but rather, it comes down in every instance to the fact that you want the property now rather than the property at some later time when the two proceedings could be dealt with in an orderly fashion. So it seems to me that it all boils down to kind of a time-money argument.",
       "time": "00:34:33.44"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But you don't hold the same in respect to misrepresentation cases, restitution cases, fraud cases, dozens of other cases in which the Government might have civil remedies. You're not going to say all those, also, are forfeited, are you?",
       "time": "00:35:19.28"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And the same, then, here. Not-- --The same, then, here.",
       "time": "00:35:40.91"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But isn't there a difference between a rule that says, you can't present... have certain discovery, present certain defenses, that's what people are asking you, and a rule that says, you can't come into court at all. You can't present any claim, any defense, anything.",
       "time": "00:35:46.17"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Isn't one of the Government's possible losses if the petitioner's suggestion... the same thing that a statute of limitations would provide, witnesses' recollections get stale--",
       "time": "00:36:26.09"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--If the thing is brought to trial 8 years from now, the Government may have had a good case now, but the witnesses may not be around, they may have died in the meantime.",
       "time": "00:36:37.92"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, if he has no obligation to show up, I suppose the societal value is even Steven. It's neither positive nor negative.",
       "time": "00:37:17.46"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then why don't we have a set of rules that obligates him to show up. You just conceded that he wasn't obligated to show up.",
       "time": "00:37:31.76"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but Mr. Estrada, by hypothesis you're assuming you can never compel him to come to the United States, is that correct?",
       "time": "00:38:03.26"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Other than by this... by using the civil procedure to do so. If you can't compel him to stand trial on the criminal case, you haven't lost anything by proving and winning your civil case. You still get the same property, but you had to prove it instead of using this sanction to get it, and you end up with the property but no criminal judgment, and the reason you can't get a criminal judgment is you don't have authority to compel him to come from Switzerland to the United States.",
       "time": "00:38:09.73"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You still end up with exactly the same result.",
       "time": "00:38:33.16"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He's not buying his way out of it, he's just staying in Switzerland.",
       "time": "00:38:39.99"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You haven't given it up for good. The only thing you've given up is by putting in your proof you've disclosed to him the witnesses who will testify against him in the criminal case. That's the only thing you have to give up.",
       "time": "00:39:06.82"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The tactical advantage in the criminal case may or may not be all that important.",
       "time": "00:39:17.16"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He's not getting any discovery. I'm assuming that the trial judge in this case could say, you can have no discovery, but he's going to say to you, you can't get the property without proving you're entitled to it.",
       "time": "00:39:27.41"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh, but you are. Aren't you saying you're entitled to the property even without the prima facie showing?",
       "time": "00:39:45.31"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, if you've made the prima facie showing, why haven't you already disclosed your case, then?",
       "time": "00:39:50.88"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So it boils down to your fear that you would open the door to criminal discovery, then.",
       "time": "00:40:19.37"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That's your real fear here.",
       "time": "00:40:25.15"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You answered a question about that before, and I'm not sure that I understood your answer. Justice Stevens alluded to the problem a second ago. Let's assume that he tries to get criminal discovery. Why isn't it perfectly open to the Government in that event to say, don't give him the discovery, because if you do you will be providing discovery in fact in a criminal case to which he is not entitled, a case in which he will not appear, and for that reason, court, use your discretionary authority not to allow discovery. Why can the Government not be protected that way?",
       "time": "00:40:29.37"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So it's not a discovery issue then. As you say, it just pushes it further. You want to put in a minimal case. You want him to know as little as possible consistent with your capacity to... in effect, to justify the forfeiture.",
       "time": "00:41:23.73"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It's not discovery. It's nondisclosure.",
       "time": "00:41:37.63"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, no, we realize--",
       "time": "00:41:53.32"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--No, I realize you're happy in that case, but what it boils down to, though, it seems to me, though, is that as you say, it's not really that we can't protect... we, the Government, cannot protect ourselves in discovery. We simply don't want to have to put on a comprehensive case, because in doing so we might provide some advantage to him for use in the later criminal case if it is later tried.",
       "time": "00:41:54.98"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well then, help me out again.",
       "time": "00:42:22.00"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, you're not endangering it. You're endangering it in the sense that you would be disclosing more of your case than any rule of criminal discovery requires you to disclose. That's what you mean by endanger, isn't it?",
       "time": "00:42:33.52"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So this doesn't sound like it's a rule of the trial court's discretion.",
       "time": "00:43:18.22"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But from all you have said, I presume that it would have been an abuse of discretion for the trial judge not to entertain your motion--",
       "time": "00:43:32.85"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--to disentitle him here.",
       "time": "00:43:42.36"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If we have that rule, I suppose we're telling all other countries in, at least countries with an open judicial system, that if there is a criminal charge filed against a United States national living in the United States that person's property can be forfeited if the person doesn't go to the foreign country to answer their charges.",
       "time": "00:43:54.89"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, you're asking us to adopt a rule that a foreign national must come here to defend against... well, or a person with dual nationality must come here to defend a criminal charge or he's going to lose his property automatically.",
       "time": "00:44:23.72"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And I suppose it works the other way around.",
       "time": "00:44:40.73"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course, that's no problem if we're worried about foreign countries copying us and thereby prejudicing American citizens. Many foreign countries already allow criminal prosecutions in absentia--",
       "time": "00:44:58.18"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--The situation is already worse than that.",
       "time": "00:45:11.21"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You would take the same position even if he were not an American citizen, wouldn't you?",
       "time": "00:45:15.01"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:45:18.51"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then with respect to that, don't you have authority, or couldn't an authority be exercised over him if Congress so chose that could not be exercised over someone who's not a citizen, and there is the old Blackmer case.",
       "time": "00:45:32.58"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There is authority to call back our citizens to answer for charges here, but that kind of subpoena wasn't sent to him, was it?",
       "time": "00:45:45.54"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Estrada, tell us about fugitives from justice. Is it, indeed, not an obligation of a citizen to present himself when he knows that there's an arrest warrant out for him?",
       "time": "00:46:09.89"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not a separate crime, though.",
       "time": "00:46:25.23"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not a separate crime to be a fugitive from justice.",
       "time": "00:46:26.12"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Perhaps because there's no use in it. The guy's already a fugitive from one crime.",
       "time": "00:46:30.34"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The only purpose of such a statute would make him a fugitive from two crimes.",
       "time": "00:46:37.56"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I guess you could have another statute making it a crime not to end your fugitive status. That would be three crimes that you can violate. [Laughter]",
       "time": "00:46:40.24"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but also you'd say the Government could take... Congress could pass a statute saying that anyone who's been indicted and who does not appear in due course without... all his property may be forfeited, period.",
       "time": "00:46:48.33"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:47:01.17"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Subject to notice and ability to appear.",
       "time": "00:47:25.02"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you could prove that--",
       "time": "00:47:26.83"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Is there any international norm on that, did you find?",
       "time": "00:47:27.70"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Any international norm about whether country anywhere in the world can say to all citizens of the world once we file a criminal indictment against you, you have to travel here, no matter how far, and if you don't, you lose all your property.",
       "time": "00:47:31.56"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Is that ever... did you look that up at all?",
       "time": "00:47:42.78"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Would the same rule apply if a victim sued in the district of Nevada for harm caused by an absent defendant based on a crime in the indictment, an assault, say?",
       "time": "00:48:25.82"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And I take it on a long arm statute there'd be jurisdiction so that that judgment would be enforceable personally against the defendant, I suppose.",
       "time": "00:48:44.40"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Automatic liability. Well, not--",
       "time": "00:48:51.55"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--If there's a prima facie case.",
       "time": "00:48:54.47"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If there is a prima face case.",
       "time": "00:48:56.75"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Estrada, what is the difference... what does the Government lose when it has the funds in the court, what can't it do that it could do if the forfeiture had gone through as you're urging?",
       "time": "00:49:38.12"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you can put them in an interest-bearing account.",
       "time": "00:50:01.54"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, he'll probably die before the Government does. You'll get it eventually. [Laughter]",
       "time": "00:50:22.29"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "At that point you go ahead with the civil case. He's beyond your criminal punishment anyway.",
       "time": "00:50:28.15"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "My question is, that's... is there something concrete, that's different about saying, we're entitled to it now, and saying we've got the principal in the bank and we're getting interest on it, and so we're getting the time value, we're getting... we're not getting the principal, but we're getting the interest?",
       "time": "00:50:38.32"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but you're entitled to it if you can prove it, but you want to get it without proving it.",
       "time": "00:51:30.27"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well--",
       "time": "00:51:36.05"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Estrada. Mr. Robbins, you have 5 minutes remaining.",
       "time": "00:51:50.35"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is Karen Degen in the United States?",
       "time": "00:53:24.95"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So a discovery order was entered against her but not against Brian?",
       "time": "00:53:30.55"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In that same exchange, what is the argument when you said, I would point out, Your Honor, that Mr. Degen is no longer a claimant in this case, he's merely a witness?",
       "time": "00:54:09.93"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Robbins, what they did, what they showed is comparable to what a plaintiff would have to show in the case of an ordinary civil default judgment, right, make an ex parte showing of the entitlement to money damages.",
       "time": "00:55:21.38"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not against the law, you mean not criminal?",
       "time": "00:56:15.95"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I question whether it's not against the law, to fail to appear.",
       "time": "00:56:19.30"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Robbins.",
       "time": "00:56:35.01"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 301,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:56:36.31"
     }

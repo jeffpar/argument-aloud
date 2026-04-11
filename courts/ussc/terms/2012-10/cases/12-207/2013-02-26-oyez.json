@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2012/12-207/20130226a_12-207.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
       },
       {
         "name": "KATHERINE WINFREE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "MICHAEL R. DREEBEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "KANNON K. SHANMUGAM",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument next this morning in Case 12-207, Maryland v. King. Ms. Winfree?",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's really good. I'll bet you if you conducted a lot of unreasonable searches and seizures, you'd get more convictions, too. [Laughter] That proves absolutely nothing.",
       "time": "00:00:28.25"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So that's its purpose, to enable you to identify future criminals, the perpetrators of future crimes? That's the purpose of it? I thought that that wasn't the purpose set forth in the -- in the statute.",
       "time": "00:00:49.49"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And I'm having a hard time understanding the bail argument. Because in my time, most bail decisions were made at the time of arrest. And here the arrest was in April and the results didn't come up until August.",
       "time": "00:01:21.23"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And yet, he was detained anyway, correct?",
       "time": "00:01:37.18"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "And -- and there might be a case where someone's gotten out, but it would be the rare case.",
       "time": "00:01:40.55"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "You don't use it routinely for the bail determination.",
       "time": "00:01:49.48"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, it doesn't include the time to collect the sample, send it to you or the time to do the match. It's just to do the genome rapid, correct?",
       "time": "00:02:10.65"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Your procedure limits the collection to certain violent offenses, right?",
       "time": "00:03:33.25"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But your argument would not be so limited, would it? Under your theory, there's no reason you couldn't undertake this procedure with respect to anybody pulled over for a traffic violation?",
       "time": "00:03:40.44"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I understand. But there's no reason you couldn't, right? I gather it's not that hard. Police officers who give Breathalyzer tests, they can also take a Q-tip or whatever and get a DNA sample, right?",
       "time": "00:04:02.15"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, how long does it take to -- to undergo the procedure? You say, ah and then--",
       "time": "00:04:26.32"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How about a Terry stop? A Terry stop?",
       "time": "00:04:41.14"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But these -- these are all cases, I mean, the dominant use is to solve what they call cold -- cold cases, and you gave one example. This case is another. A rape committed 6 years before, right? And there was no reasonable suspicion, there was no nothing, right? And the suspicion comes up only because the DNA sample comes back as a match. So is it the -- this is a -- a very reliable tool, but it's not based on any kind of suspicion of the individual who's being subjected to it, right?",
       "time": "00:05:15.40"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I do. [Laughter]",
       "time": "00:06:10.24"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But, Ms. Winfree, that can't be quite right, can it? I mean, such a person, assume you've been arrested for something, the State doesn't have the right to go search your house for evidence of unrelated crimes; isn't -- isn't that correct?",
       "time": "00:06:39.72"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "It doesn't have the right to search your car for evidence of unrelated crimes.",
       "time": "00:06:51.78"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Just because you've been arrested doesn't mean that you lose the privacy expectations and things you have that aren't related to the offense that you've been arrested for.",
       "time": "00:06:55.68"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, and if there were a real identification purpose for this, then I understand that argument. But if it's just to solve cold cases, which is the way you started, then it's just like searching your house, to see what's in your house that could help to solve a cold case.",
       "time": "00:07:16.19"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, but if that's what you're basing it on, then you're not basing it on an arrestee. I mean, then the Chief Justice is right, it could be any arrestee, no matter how minor the offense. It could be just any old person in the street. Why don't we do this for everybody who comes in for a driver's license because it's very effective?",
       "time": "00:07:58.49"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "All right. So now, I see two lines of cases, okay? The Fourth Amendment, which says you can't do a search without a warrant and probable cause. And Samson. And most of your brief argument was based on Samson. As I read Samson, it was the special relationship between the parolee or the probationary person, that line of cases, and the assumption being that they're out in the world, I think, by the largesse of the State. So a State has a right to search their home just as it would their cell essentially. Why is that true for an arrestee? What about -- what creates this special relationship that permits you to intrude, search their home, search their car, search their person, to solve other cases?",
       "time": "00:08:23.57"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Because you're going to have to tell me why searching their person is different than searching their home or car.",
       "time": "00:09:22.64"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "There's no other case but Samson in that line that permits searches on this balancing.",
       "time": "00:10:20.73"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So what I want to know is what's the legal theory now? How far do we let the State go each time it has some form of custody over you in schools, in workplaces, wherever else the State has control over your person?",
       "time": "00:10:26.30"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can I ask you a particular specific quick question?",
       "time": "00:11:01.62"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "As I read this, this concerns people arrested for a felony, a crime of violence, attempted crime of violence, burglary or attempted burglary.",
       "time": "00:11:05.28"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And so we're not talking about people who are driving cars and traffic stops and all these other things.",
       "time": "00:11:15.15"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The only thing we have to decide is whether a person, where there's probable cause to arrest a person for those four crimes, their fingerprints are all taken.",
       "time": "00:11:20.62"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And whether they also can take DNA, that's the issue.",
       "time": "00:11:28.62"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. Nothing else. Thank you.",
       "time": "00:11:32.56"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--Thank you, counsel. Mr. Dreeben?",
       "time": "00:11:37.08"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Yes, but that doesn't mean, for example, that you can go into their house without a warrant.",
       "time": "00:12:42.69"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, this is a factual question. I understand your emphasis on the fact that it only looks at 26 loci and they are supposedly not connected in any way with other information. Does the sample that you retain -- can it be evaluated more broadly? In other words, saying, well, the law says we only look at these 13, but we have this saliva, we want to look at all sorts of other stuff.",
       "time": "00:13:05.72"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Well, Mr. Dreeben, is it really? Because if this were like fingerprints, I think that you would have a quite good case. But as I've been reading about this, it seems as though the technology is not the same as the fingerprint technology; and because the technology is different, it is used differently. Fingerprints you go in, you put in a fingerprint, there is identifying information that comes back to you in 5 minutes, right? This, you put in something, and Ms. Winfree said was 11 to 17 days, in this case it's four months. And it doesn't seem to be used because the technology doesn't allow it to be used as the kind of routine identifier that fingerprints does. So am I wrong about that?",
       "time": "00:14:15.55"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That part surprised us. Then do you think the States are wrong? I mean, they all say in their brief, in footnote 10: DNA identification database samples have been processed in as few as 2 days in California, and although around 30 days has been average. So I guess the technology is there now to process this in 2 days, not 9 days.",
       "time": "00:15:29.09"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "In the case of -- do you have any information -- are there instances with fingerprints where returns have not come back for as long as 30 days, or are they all, or almost all, done in 5 minutes?",
       "time": "00:15:59.80"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Before you get on to -- before you go to that, fingerprints have been taken I believe from people who are booked for offenses for many, many, many years; isn't that right?",
       "time": "00:16:25.51"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "When did the FBI's AFIS system for comparing fingerprints by computer begin?",
       "time": "00:16:37.39"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, the question that I had was this: If the constitutionality of taking fingerprints is dependent on the speed with which a fingerprint comparison can be done now by a computerized system, would that mean that the taking of fingerprints was unconstitutional back in, let's say, the '50s when that wasn't possible and fingerprints could only be compared manually?",
       "time": "00:17:06.42"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Dreeben, could I understand how this works exactly? The swab is taken, and if I -- there is a database which is known offenders and there is a database which is kind of crime scene DNA; is that correct?",
       "time": "00:17:50.20"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And when the swab is taken and it's put into the system, you check that against the crime scene DNA database; is that correct?",
       "time": "00:18:04.49"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Do you check it -- does Maryland check it against the known offenders database?",
       "time": "00:18:15.48"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Because that suggests that right now it's functioning as let's solve some crimes, which is a good thing, you know, that we should solve some crimes, but not as an identification device. Because here if it were an identification device you would be comparing it to the known offender database, not to the cold case database.",
       "time": "00:18:30.58"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Dreeben, can you explain how it works, mechanically? Because I understand, at least maybe this is just the Maryland statute, but if you can't use the swab that is taken from the arrestee when he is arrested -- it can't be used, it's inadmissible -- then you do it again. You do it -- but what it does supply is probable cause, because you found out that he was a perpetrator of a rape 6 years ago. Then you have probable cause and you get a warrant and do it again. What -- what is the reason for the doubling -- the doing it twice?",
       "time": "00:19:56.38"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That argument only makes sense if we're in your future world where it's 90 minutes, right?",
       "time": "00:21:05.53"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "It depends on, if we have a situation such as Maryland says 11 to 17 days, the footnote, whatever, the amicus brief says something else, but you are not going to put off the bail hearing for 2 weeks.",
       "time": "00:21:13.25"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "That doesn't explain why you can't go into his home.",
       "time": "00:21:56.71"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I mean, you know, if the whole issue is how dangerous is he, you should be able to go into his home, into his car, to any place he has visited, to just sort of run rampant in his life to make sure that he is not a bail risk.",
       "time": "00:22:00.18"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But you are, because what you are saying really is law enforcement need alone, without any suspicion whatsoever of another crime, permits you to take this information from the person and use it.",
       "time": "00:22:24.11"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "According to Samson and Knights, you're dealing with people who are still subject to the -- a criminal sentence.",
       "time": "00:23:04.01"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But the typical special needs case is one in which we say there's no law enforcement interest, that there's an interest other than the interest in solving crime.",
       "time": "00:23:34.29"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "When you started, Mr. Dreeben, you started by saying, you know, they have a reduced expectation of privacy and we have important interests. You went right into free-form balancing. That's typically not the way we do it. If we said to you, look, you know, the way we do it is, you need a warrant, and if you -- there is some exceptions, then you have to put yourself into a well-recognized exception where you can search without a warrant. And that's especially the case when there is no suspicion whatsoever. How would you do it? How would you do it short of free-form balancing? What exception are you a part of?",
       "time": "00:23:57.16"
     },
@@ -675,13 +675,13 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "The key principle is the Fourth Amendment--",
       "time": "00:24:42.52"
     },
     {
       "turn": 106,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is it -- is it your position that this is a search incident to an arrest?",
       "time": "00:24:44.35"
     },
@@ -693,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why isn't this is a search incident to an arrest?",
       "time": "00:24:53.88"
     },
@@ -705,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Just -- just like taking the pockets out and -- and seeing what's in the person's overcoat and so forth is a search incident to an arrest.",
       "time": "00:24:57.86"
     },
@@ -717,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but our -- our search incident to arrest cases don't allow that. That's sort of the point. They -- they allow you to search for firearms, they allow you to search for material that relates to the crime for which the person has been arrested. But you can't search the person for other stuff.",
       "time": "00:25:41.21"
     },
@@ -729,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Evidence relating to matters other than the crime of arrest?",
       "time": "00:26:12.54"
     },
@@ -741,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Dreeben. Mr. Shanmugam?",
       "time": "00:27:03.91"
     },
@@ -753,7 +753,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "He was held -- he was held with probable cause--",
       "time": "00:27:24.51"
     },
@@ -765,7 +765,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--and his -- and his custody was restrained. He was in a police station.",
       "time": "00:27:30.73"
     },
@@ -777,7 +777,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Were handcuffs put on him during the transport process, do you know?",
       "time": "00:27:34.90"
     },
@@ -789,7 +789,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But they -- they could -- they could have been.",
       "time": "00:27:40.32"
     },
@@ -801,7 +801,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So his liberties were constrained in all of those respects. He would have to take off most of his clothes, subject to a patdown search.",
       "time": "00:27:43.03"
     },
@@ -813,7 +813,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "They could look -- they could look in his -- in his briefcase.",
       "time": "00:27:51.31"
     },
@@ -825,7 +825,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I think -- I think there is some merit to your argument in that regard. In Samson, he was a parolee, and he actually, as I recall, signed a -- a consent form as part of the probation.",
       "time": "00:28:16.64"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, that is right. But I'm curious as to why your position is that -- let's say he served his time. He's no longer subject to the criminal justice system. He's not on parole, he's not a probationer. You concede that the DNA evidence can be taken from him, correct?",
       "time": "00:28:30.97"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "What is the pertinence of the fact -- I mean, this is not something that people are or can keep private. I mean, if you're in the interview room or something, you take a drink of water, you leave, you're done. I mean, they can examine the DNA from that drink of water.",
       "time": "00:29:25.15"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Doesn't that compromise the -- the expectation of privacy?",
       "time": "00:29:41.53"
     },
@@ -873,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "No, it's not a--",
       "time": "00:30:08.61"
     },
@@ -885,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "--My question was not trying to get at whether it's a search or not, it's whether -- it's getting at the reasonableness of the expectation of privacy that the -- your DNA is protected from examination when it's left wherever you happened to have been.",
       "time": "00:30:10.13"
     },
@@ -897,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I mean, isn't that part of the -- isn't that part of the question, whether there is a legitimate expectation of privacy in a person's DNA?",
       "time": "00:30:52.97"
     },
@@ -909,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, I know, but you're simply just -- you're -- I guess that's begging the question. And -- but I'd just be repeating my question -- how legitimate is it to you to expect privacy in something that the police can access without you even knowing about it, without any voluntary or involuntary -- if you take a drink of water, if you leave behind a cigarette butt?",
       "time": "00:31:03.01"
     },
@@ -921,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Shanmugam, I -- I wouldn't have made the concession that you've made, that this case is about reasonable expectation of privacy. If there's no reasonable expectation of privacy, there's no search. But here, there is a search. You have a physical intrusion. You -- you pull a guy's cheek apart and stick a -- a swab into his mouth. That's a search. A reasonable expectation of privacy or not.",
       "time": "00:31:51.41"
     },
@@ -933,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I thought you did.",
       "time": "00:32:14.44"
     },
@@ -945,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, do you think the intrusion is worse when you just take a swab and you go inside somebody's cheek, as opposed to rolling fingerprints? Which is the greater intrusion?",
       "time": "00:32:23.47"
     },
@@ -957,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Which is--",
       "time": "00:32:38.56"
     },
@@ -969,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--Well, the thrust of a lot of what we have been presented with in the briefs and what we have heard this morning -- and by the way, I think this is perhaps the most important criminal procedure case that this Court has heard in decades. The attorney for the State began by listing a number of crimes just in Maryland that had been solved using this. So this is what is at stake: Lots of murders, lots of rapes that can be -- that can be solved using this new technology that involves a very minimal intrusion on personal privacy. But why isn't this the fingerprinting of the 21st century? What is the difference? If it was permissible and it's been assumed to be so for decades, that it is permissible to fingerprint anybody who's booked, why is it not permissible to take a DNA sample from anybody who is arrested?",
       "time": "00:32:58.90"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, as to the first, in our cases involving searches for -- where a urine sample is taken to determine drug use. The urine can be analyzed for all sorts of things besides the presence of drugs, and the Court has said in those cases, we are only going to consider that -- we are considering that this is a reasonable search with respect to the determination of whether the person has taken drugs, not all the other information--",
       "time": "00:34:07.78"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--that can be obtained from it.",
       "time": "00:34:34.02"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "What are your other two distinctions?",
       "time": "00:35:06.57"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I would like to give a complete answer to what Justice Alito and Justice Kagan both were asking, I think. To summarize that, if I look in terms of intrusion, I am not talking legally; I am talking practically. It doesn't seem to me -- I can argue that it is certainly a much lesser intrusion than fingerprints. You have to stand there, have the thing rolled; stick out your tongue. I mean, it's hard to say it's more for me. I'm not saying for others. Accuracy, it's much more accurate, and that doesn't just help the defendant. There is a whole brief here filed by the victims that have case after case where people spent 5 years in prison wrongly and where this system and the CODIS helped victims avoid being arrested and sent to jail when they were innocent. So it works both ways. So one, it's no more intrusive. Two, it is much more accurate. And three and four and five, how it's different and worse in practice, is what I would ask you to summarize.",
       "time": "00:35:29.77"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And by the way, when you talk about what information you could get out of it, there is a brief filed by leading scientists in the field. And I came away from the brief thinking there isn't much more information, because fingerprints can be abused, too. Of course, you can learn loads from fingerprints. Photos, try photos; my God, you could learn a lot: Who he was, who -- you know, so all these things could be abused. But I came away from that brief, frankly, to think, well, in terms of the possibility of abuse, it's there, but these other things, photos, too.",
       "time": "00:36:34.21"
     },
@@ -1041,13 +1041,13 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, you tell me in light of that hostile question-- [Laughter] --I would like you -- I would like you to tell me, okay, it's different from fingerprints and worse because of one, two, three, and I will write it down and I'll remember it.",
       "time": "00:37:10.69"
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He gave us one and two. I have been waiting for three. Will you drop the shoe? [Laughter]",
       "time": "00:37:23.11"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Shanmugam, this seems to me a real distinction in this case as it's been litigated. I take what the government is saying is something like: Give us 5 years and those won't look very different. In other words, we will be able to do in 5 years time exactly what we can do with fingerprinting, except it will be, as Justice Breyer says, more accurate. So we are just about 5 years ahead of that, so give us a break.",
       "time": "00:38:01.82"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "A person has been arrested for a felony and is in custody. Do the police, does the justice system have an interest in knowing whether that person committed other crimes?",
       "time": "00:39:01.19"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "My question is whether or not the police who have John Doe in custody for a felony have an interest in knowing at the outset or within a few weeks time whether or not that person has committed other crimes?",
       "time": "00:39:35.13"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But they also have a reason for keeping him in custody.",
       "time": "00:40:06.80"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And my question is, do they have an interest and a legitimate interest in knowing if that person has committed other crimes?",
       "time": "00:40:10.92"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "There are two different, two different interests. One is we want to solve unsolved crimes; and the other is we want to be sure -- we have someone in our custody and we want to be sure, before he is released back into the community, that he isn't a person who has committed five violent crimes before that. Now, your brief says, well, the only interest here is the law enforcement interest. And I found that persuasive because of the concern that it's going to take months to get the DNA back anyway, so they are going to have to release him or not before they know it. But if we are in a position where it now takes 90 minutes or will soon take 90 minutes to get the information back, I think that's entirely different, because there you can find out whether -- it's just tied in with the bail situation, do you want to release him or not.",
       "time": "00:40:31.75"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That's because, that's because we are not yet at a situation where it takes 90 minutes. Sure, it's not going to do you any good if it's taking 4 months or whatever it took in this case. But if it's at the point where it's 90 minutes, it would be critical to make that determination.",
       "time": "00:41:28.62"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, let's put it this way. Let's say the judge or the magistrate is going to make a bail determination and he says: Well, it's important to me to know whether you are going to commit another crime. So we are not saying you have to give a DNA sample, but it will enter into my calculation if you refuse to do it.",
       "time": "00:42:02.27"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, what does that mean? Is that okay or not?",
       "time": "00:42:24.29"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, we do it -- doesn't that sound just like a Breathalyzer? You are pulled over, they say, we want you to take a Breathalyzer test. They say, you don't have to, but if you don't your license is suspended for 6 months or whatever. Why isn't that the same thing?",
       "time": "00:42:34.23"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But we are also talking about identity. I assume that in Maryland and in a number of States the time between release on bail and return for trial is more than four months. And if it's found as an identity matter that this person has a criminal record or that they are -- is suspected of serious crimes, that is a mandatory ground for reconsideration of bail. And you say there is no interest in that.",
       "time": "00:44:00.52"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought fingerprinting -- Mr. Shanmugam, I thought fingerprinting was used to determine whether they -- the person has a record. We have this person and now we check the fingerprints to find out if he has a prior record, that's different from to find out if he has committed a crime that we don't know about. But are fingerprints used to determine whether the person has a prior record?",
       "time": "00:44:48.73"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What was the purpose of fingerprinting before it was possible to make fingerprint comparisons by computer?",
       "time": "00:45:38.08"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Well, I would assume that before it was possible to do computer searches, the way in which fingerprinting established identification, what it did in that respect was to identify the person arrested on this occasion so that if the person was arrested again, then the police would know that it was the same person. There was no way of -- no practicable way of taking the fingerprints of somebody who was booked and determining whether that person -- you didn't have anything to compare it to. And they certainly -- you couldn't do it manually.",
       "time": "00:46:11.24"
     },
@@ -1227,13 +1227,13 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Can we go back to--",
       "time": "00:46:57.03"
     },
     {
       "turn": 198,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Yes, so you know that on day one you have arrested -- you've arrested Mr. X, and then a year later you arrest somebody else and you know it's Mr. X again. And DNA can do exactly the same thing except more accurately.",
       "time": "00:46:57.68"
     },
@@ -1245,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I think I can totally lose this because I have a confusion that you can clear up. There is something to what you say. I see what you are saying. But what does this word “ identification ” mean? It's used for identification. We have a person who's been arrested. He writes his name down, Mr. Smith. Maybe he's lying. We have his picture. Well, his picture's pretty good. If he turns up in a bar somewhere in the future, we can look, see, and that's awfully good. And now you say, well, what is fingerprinting doing that photos aren't doing in terms of identification? What does it do in terms of just identification?",
       "time": "00:47:51.00"
     },
@@ -1257,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What does it do?",
       "time": "00:48:27.34"
     },
@@ -1269,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What does that mean, confirming his identity? We have, you mean what, what exactly?",
       "time": "00:48:32.49"
     },
@@ -1281,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, really? I mean, do you think the fingerprints -- where do you go to find out if he's Alonzo King? A lot of people have never had their fingerprints taken before.",
       "time": "00:48:44.32"
     },
@@ -1293,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But to determine what his name really is.",
       "time": "00:48:55.44"
     },
@@ -1305,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right. You want to determine what his name really is plus his adjudicated criminal history, and here we have the DNA, which I guess might or might not help determine what his name really is; and his criminal history, it does about the same. And also fingerprints are sometimes used to -- for unsolved crimes, and they are sometimes used for unsolved crimes but your point really is more for unsolved crimes. Have I got it?",
       "time": "00:49:01.85"
     },
@@ -1317,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "--Counsel, so I am really worried about the question you haven't satisfied me with, which is I agree completely that today it's used primarily and almost exclusively for purposes of solving other crimes. But let's -- is this -- the question that I think one of my colleagues asked, is that only because technology hasn't moved fast enough? You said we have to look at the constitutional principles 5 years from now when they will use it to pull up a guy's criminal history. Not unsolved crimes, but criminal history. Get to that day.",
       "time": "00:49:49.34"
     },
@@ -1329,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Tell me what the -- why you would then say that would still be unconstitutional.",
       "time": "00:50:30.91"
     },
@@ -1341,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Right. Let's assume we go under a normal Fourth Amendment, you need probable cause to search.",
       "time": "00:50:45.68"
     },
@@ -1353,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Just suppose -- I mean, I guess the question is would this be unconstitutional? It's not the world we are living in now, but let me -- 10 years from now the government says, we are really switching over to a fingerprint system -- to a DNA system and what that system is going to allow us to do, is it's going to allow us to identify, and it's going to allow us to bring up the old criminal history and it's going to allow us to see whether there are also unsolved crimes that we can tag to this person and discover that he's really, really dangerous. All right? And so the government puts that system into effect. Is it constitutional?",
       "time": "00:51:22.39"
     },
@@ -1365,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I was interested in a broader thought process, actually. Do you mind giving it to me?",
       "time": "00:52:08.38"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Which is, there is something inherently dangerous about DNA collection that is not the same as fingerprinting.",
       "time": "00:52:14.32"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You disclose all of this intimate private information when you take a drink of water and leave -- leave the glass behind.",
       "time": "00:53:52.53"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What if someone has a bloody shirt and throws it away in the trash -- in a public trash can along the street, you are saying that the police can't analyze that without a search warrant?",
       "time": "00:54:21.05"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But your client was convicted of the offense of arrest.",
       "time": "00:55:26.71"
     },
@@ -1425,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And it was a serious offense punishable by up to 10 years imprisonment--",
       "time": "00:55:30.48"
     },
@@ -1437,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--Isn't that correct? And he was sentenced to 4 years.",
       "time": "00:55:36.72"
     },
@@ -1449,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "For Fourth Amendment purposes -- for Fourth Amendment purposes, do you think that it is -- that it is permissible to take a DNA sample from someone who is convicted of an offense that would qualify as a felony under common law?",
       "time": "00:55:51.36"
     },
@@ -1461,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "When they're no longer in the custody of the State, does the government have to destroy it? They served their time and their privileges have been restored.",
       "time": "00:56:20.30"
     },
@@ -1473,7 +1473,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does a felon who's been arrested have a reduced expectation of privacy at the time of arrest?",
       "time": "00:56:35.56"
     },
@@ -1485,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Does a felon -- does a person who has been arrested for a felony have a reduced expectation of privacy at the time of his arrest?",
       "time": "00:56:44.41"
     },
@@ -1497,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Ms. Winfree, you have 3 minutes remaining.",
       "time": "00:57:18.38"
     },
@@ -1509,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How can I base a decision today on what you tell me is going to happen in 2 years? You say, in 2 years we will have this rapid DNA available, but we don't now. Don't I have to base a decision on what we have today?",
       "time": "00:59:17.46"
     },
@@ -1521,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, but if we believe that the purpose of it has much to do with whether it's legitimate or not, you can't demonstrate that the purpose is immediate identification of the people coming into custody. You just can't demonstrate that now. Maybe you can in 2 years. The purpose now is -- is the purpose you began your presentation with, to catch the bad guys, which is a good thing. But you know, the Fourth Amendment sometimes stands in the way.",
       "time": "00:59:44.03"
     },
@@ -1533,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:01:03.89"
     }

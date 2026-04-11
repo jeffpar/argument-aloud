@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1970/444/19701013a_444.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "WHITEFORD S. BLAKENEY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "WILLIAM J. WAGGONER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "ANDREW A. VANORE, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "JAMES M. NABRIT, III",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "444, Moore against Charlotte -- excuse me, Moore against Charlotte-Mecklenburg and 498.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Blakeney, you may proceed whenever you're ready.",
       "time": "00:00:22.24"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Are you able to draw in a dictionary distinction between those two words?",
       "time": "00:02:51.20"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Your clients are -- who is -- Mrs. Moore and others?",
       "time": "00:04:01.98"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I don't need to know their names, I'm rather just -- in that, but they are the parents of white public school children as well as of Negro public school children or only white public school children?",
       "time": "00:04:07.20"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Both.",
       "time": "00:04:17.67"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "What do you do about the problem of disestablishing a jury segregated school system?",
       "time": "00:04:20.39"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "In your own time?",
       "time": "00:04:34.27"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Because taking what you said literally then there is no power.",
       "time": "00:04:43.69"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "To disestablish?",
       "time": "00:04:52.91"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But if a person is -- we assume, he is caught in a ghetto that was established by the state?",
       "time": "00:05:17.83"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "And he is too -- he doesn't have the resources to get out. What is your solution then?",
       "time": "00:05:24.72"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That nature take its course?",
       "time": "00:05:32.27"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Would you consider that the defendant, the constitution if the School Board not the Court, the School Board closed all of the entirely Negro schools and provided public transportation of the students of those schools into other schools to accomplish the dismantling as they saw it?",
       "time": "00:08:07.04"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does it prohibit it?",
       "time": "00:08:47.17"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In other words, your answer --",
       "time": "00:08:50.29"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Your answer to my question would be then that the School Board could not close these schools and transport the students out to other schools in the outlining districts?",
       "time": "00:08:52.16"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Your argument is based entirely on the Fourteenth Amendment of the United States Constitution and not at all on a federal statute, is it?",
       "time": "00:14:06.26"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Entirely on the constitution?",
       "time": "00:14:15.04"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And your clients are the parents of school children. They're no teachers. You don't represent any teachers in the Charlotte public school system?",
       "time": "00:14:18.93"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And therefore you are making no claim with respect to the constitutionality vel non of the integration of faculty?",
       "time": "00:14:34.72"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is the --",
       "time": "00:19:20.27"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is the longest distance this record shows?",
       "time": "00:19:22.53"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You don't really say that as a matter of that absolutely a school board never sent the child away from his neighborhood for any reason?",
       "time": "00:20:04.09"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I suppose that they'd be a lot of good reasons to send the children away from neighbor. You say they should not -- wherever they send them, they shouldn't do so on account of race?",
       "time": "00:20:17.31"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you say that gerrymandering, racial gerrymandering, pairing transportation or --",
       "time": "00:20:27.32"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- done on a racial basis are invalid.",
       "time": "00:20:34.85"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I suppose you would say the majority to minority transfer rule is equally invalid.",
       "time": "00:20:38.67"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, if there is no compulsion involved, would you still say it's invalid. I thought your --",
       "time": "00:20:50.12"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- attention were that it was a very compulsory assignments.",
       "time": "00:20:54.42"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if two children applied for a transfer under the majority to minority transfer rule and one of them is White and one of them is Black and the transfer is to a school with a White majority and a Black minority. The two children transferring will not both be transferred, only one of them?",
       "time": "00:21:16.01"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The Black one will get the transfer, the White one won't?",
       "time": "00:21:39.18"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or the reverse if the transfer from a White school is requested.",
       "time": "00:21:42.32"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You say it's invalid?",
       "time": "00:21:49.50"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I see that you told Justice Stewart that you didn't rely on it on any federal statute.",
       "time": "00:22:05.13"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "I see you cite the federal statute that it's in the Civil Rights Act of 1964.",
       "time": "00:22:11.26"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Because the statute, do you think is restricted to de facto segregation rather than the jury?",
       "time": "00:23:21.12"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it issues a directive to federal judges.",
       "time": "00:23:43.18"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In the Sections in the 2006 (a).",
       "time": "00:23:47.85"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Are you suggesting then that Green was improperly decided in the constitution?",
       "time": "00:24:19.17"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's right. That was still dual zone.",
       "time": "00:24:59.37"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What did Charlotte-Mecklenburg do for the 10-year period after Brown? Since you say that's what Brown said?",
       "time": "00:27:30.70"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What did they do for 10 years?",
       "time": "00:27:39.31"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Like what? What specific was done?",
       "time": "00:27:44.09"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When? When was that (Voice Overlap) --",
       "time": "00:27:54.00"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what did they do for the eight years after ‘55",
       "time": "00:27:58.85"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes sir.",
       "time": "00:28:04.04"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And in ‘65, what you did was to draw boundaries and when you drew those boundaries, how much fixing did you get?",
       "time": "00:28:15.40"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How much?",
       "time": "00:28:29.26"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You said, it was very clear in the record.",
       "time": "00:28:31.70"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's it.",
       "time": "00:28:36.78"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, do you recognize that there is a need for Government compulsion to desegregate and setup a unitary system?",
       "time": "00:28:55.52"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Do you have any quarrel with that?",
       "time": "00:29:06.23"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's not my question. Is it not true that you are required to take affirmative action to disestablish the segregated system? Is it or not?",
       "time": "00:29:21.63"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And just leave it as is?",
       "time": "00:29:40.42"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My question is, you say just take the governmental hand off and let it stay like it is, is that your position?",
       "time": "00:29:49.63"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Would you still have the segregated system?",
       "time": "00:30:00.37"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What if the Government tell in Section 55. The Government told them, you've got to go to that White school and you can't go to any school but that school. Didn't the Government do that?",
       "time": "00:30:13.53"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The Government of North Carolina.",
       "time": "00:30:28.80"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, you didn't have segregated schools? You had segregated schools.",
       "time": "00:30:32.14"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You rely so much on Brown, but what about Green?",
       "time": "00:30:49.25"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Green.",
       "time": "00:30:54.11"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I don't think this Court reversed Brown, I'm just saying that Brown is a more recent case.",
       "time": "00:31:04.93"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Green is?",
       "time": "00:31:12.21"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And Green said, you can have pupil placement.",
       "time": "00:31:13.54"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you Mr. Blakeney. Mr. Waggoner.",
       "time": "00:32:30.51"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That isn't the instruction that the state court gave it though --.",
       "time": "00:33:32.57"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "As I understand your argument is based on the fact that the constitution forbids discrimination on account of race.",
       "time": "00:33:50.71"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And that it forbids discrimination even when the effort maybe the beneficent one who's trying to prevent discrimination.",
       "time": "00:33:59.41"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Discrimination.",
       "time": "00:34:10.36"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That is the key.",
       "time": "00:34:12.34"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do I understand you are now transporting 20,000 more than you did last term?",
       "time": "00:35:22.73"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where'd you get the buses?",
       "time": "00:35:28.19"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But I gather you haven't bought any new buses, is that it?",
       "time": "00:36:07.81"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Wagoner.",
       "time": "00:36:21.25"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Since we are addressing to some factual matters, there would be a considerable amount of busing would there not, under the board's plan in this case, right, intra-zonal busing, would there not be?",
       "time": "00:36:22.12"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Because of the size and the odd shape of some of those --",
       "time": "00:36:36.96"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- gerrymandered zones that the board created?",
       "time": "00:36:39.92"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "There would be necessarily.",
       "time": "00:36:43.84"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course if they -- the board has a choice consistent with your opposition that if the board has a choice of locating a new school in a Black zone or White zone or on the border, and chooses the border because of racial considerations, would you think that was stretching Brown or not?",
       "time": "00:37:43.97"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They built somewhere?",
       "time": "00:38:10.98"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They would -- that would be on other -- for other reasons. But what if there was a choice?",
       "time": "00:38:22.70"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And they decide, “Well, we're going to built where we'll have the -- most Blacks and Whites going to school together?",
       "time": "00:38:29.51"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, they needed new schools somewhere but it could easily be a half mile this way or half mile that way.",
       "time": "00:38:41.30"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you would suggest that a school board as part of its educational decision making could say we choose to educate -- if we have a choice we prefer to educate Whites and Blacks together rather than separate.",
       "time": "00:39:02.84"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And if we have some legitimate decisions to make, that such as location of the school, drawing of zone lines, we just prefer to get as many applicants as possible. Do you think that would be permissible even though they are specifically taking race into account?",
       "time": "00:39:20.67"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What's a --",
       "time": "00:39:42.41"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Perhaps let's say, (Inaudible) in drawing the zone line in deciding where to go to school?",
       "time": "00:39:43.34"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Vanore, whenever you're ready.",
       "time": "00:42:11.08"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I presume you are saying segregation was outlawed whatever you called it?",
       "time": "00:43:43.54"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Nabrit.",
       "time": "00:48:37.13"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where have you printed these statutes so that I can see the exact part of it which you say is unconstitutional?",
       "time": "00:50:21.87"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Number what?",
       "time": "00:50:58.49"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "20?",
       "time": "00:51:01.40"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And that is the part you are claiming, is that correct?",
       "time": "00:51:11.71"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Beginning those two (Voice Overlap)?",
       "time": "00:51:28.65"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I heard him the same way except for the because clause. That's not the reason he said he thought it violated Brown.",
       "time": "00:52:29.96"
     },
@@ -1215,13 +1219,13 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Because of the compulsion of people to attend certain schools or be a -- based on their race?",
       "time": "00:52:45.06"
     },
     {
       "turn": 196,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "All he said that --",
       "time": "00:52:52.28"
     },
@@ -1233,7 +1237,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "-- was that in obeying the Brown decision in his opinion they went a little thing barred, that's all I understood he said.",
       "time": "00:52:53.59"
     },
@@ -1245,7 +1249,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And I didn't understand you saying the abandonment any of the arguments --.",
       "time": "00:53:03.82"
     },
@@ -1257,7 +1261,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, Mr. Nabrit, I'm looking at the statute and -- so I want to know which part of those sentences you say is unconstitutional?",
       "time": "00:53:19.93"
     },
@@ -1269,7 +1273,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In that entire synopsis, no student --",
       "time": "00:53:36.57"
     },
@@ -1281,7 +1285,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- will be assigned or compelled to attend any school on account of race. Surely it didn't hold that's unconstitutional, did it?",
       "time": "00:53:40.98"
     },
@@ -1293,7 +1297,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "No student should be compelled to attend or not attend a school on account of race was held unconstitutional?",
       "time": "00:53:54.67"
     },
@@ -1305,7 +1309,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you think that part of it is unconstitutional?",
       "time": "00:54:14.76"
     },
@@ -1317,7 +1321,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, that's what the constitution says.",
       "time": "00:54:29.60"
     },
@@ -1329,7 +1333,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And that's what we held. You can't discriminate on account of race.",
       "time": "00:54:32.49"
     },
@@ -1341,7 +1345,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "We‘re done with that argument, I thought that is what we had held in every case and that's what your client had been insisting on in every case.",
       "time": "00:54:42.58"
     },
@@ -1353,7 +1357,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But this --",
       "time": "00:55:21.01"
     },
@@ -1365,7 +1369,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But this --",
       "time": "00:55:22.36"
     },
@@ -1377,7 +1381,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "This provision of the statute --",
       "time": "00:55:23.81"
     },
@@ -1389,7 +1393,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- simply says that there shall be no discrimination.",
       "time": "00:55:25.78"
     },
@@ -1401,7 +1405,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- the clause I've just read to you.",
       "time": "00:55:31.29"
     },
@@ -1413,7 +1417,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, there's a saying that people can be compelled to go to a school or to refrain from going to a school because of their race.",
       "time": "00:55:43.18"
     },
@@ -1425,7 +1429,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well at least that one is something and then if that's -- if the whole clause is held unconstitutional, I don't see any part of it can be based on that clause.",
       "time": "00:56:00.18"
     },
@@ -1437,7 +1441,7 @@
     },
     {
       "turn": 232,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Nabrit, are you distinguishing in the application of the statute between its application and the abstract of that sentence and its application in the context of a remedy for what was stricken in Brown?",
       "time": "00:56:13.39"
     },
@@ -1449,7 +1453,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Intent of whom?",
       "time": "00:57:29.46"
     },
@@ -1461,7 +1465,7 @@
     },
     {
       "turn": 236,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You mean --",
       "time": "00:57:33.53"
     },
@@ -1473,7 +1477,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You're not I hope relying on -- have probing the mind of the legislature?",
       "time": "00:57:42.41"
     },
@@ -1485,7 +1489,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I can understand your --.",
       "time": "00:57:48.59"
     },
@@ -1497,7 +1501,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I would of course reject to that from the beginning, absolutely.",
       "time": "00:58:38.77"
     },
@@ -1509,7 +1513,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) by a subterfuge. What you're saying is, can't be discriminated against by subterfuge.",
       "time": "00:58:44.87"
     },
@@ -1521,7 +1525,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Page number 281?",
       "time": "00:59:47.22"
     },
@@ -1533,7 +1537,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did that --",
       "time": "01:01:32.39"
     },
@@ -1545,7 +1549,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did that -- the finding show -- did that finding show how far it would have been to the nearest school, nearer than the 79 miles trip?",
       "time": "01:01:34.38"
     },
@@ -1557,7 +1561,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did it juxtapose those --",
       "time": "01:01:49.76"
     },
@@ -1569,7 +1573,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But not --",
       "time": "01:03:10.24"
     },
@@ -1581,7 +1585,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But not for the purpose of creating a balance or ratio of race, religion or national origin, you don't claim that do you?",
       "time": "01:03:13.04"
     },
@@ -1593,7 +1597,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's what this is directed to.",
       "time": "01:03:21.88"
     },
@@ -1605,7 +1609,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "As I understood, I want to be sure quite about this, someone has argued as you are saying that the state would be without the power to pass a regulation doing away entirely with busing, the constitution would permit, is that your argument?",
       "time": "01:04:45.39"
     },
@@ -1617,7 +1621,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It's our logic in this case --",
       "time": "01:05:11.31"
     },
@@ -1629,7 +1633,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I didn't see it.",
       "time": "01:05:16.68"
     },
@@ -1641,7 +1645,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well the reason I asked for it, I had always thought that was within the power of the state to operate schools or not as it so tendered without federal litigations and I would suppose that the State of North Carolina would repeal all its laws providing public schools that no one could insist that the federal constitution --",
       "time": "01:05:50.76"
     },
@@ -1653,7 +1657,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And I think the same thing about busing.",
       "time": "01:06:18.59"
     },
@@ -1665,7 +1669,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I thought the state's power was plenary to determine whether or not it had schools.",
       "time": "01:06:37.85"
     },
@@ -1677,7 +1681,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I didn't think we have any --",
       "time": "01:06:48.03"
     },
@@ -1689,7 +1693,7 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But we found there was a discrimination now on account of not closing them all down.",
       "time": "01:06:58.23"
     },
@@ -1701,7 +1705,7 @@
     },
     {
       "turn": 276,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That was under Equal Protection --",
       "time": "01:07:31.09"
     },
@@ -1713,7 +1717,7 @@
     },
     {
       "turn": 278,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The equal protection?",
       "time": "01:07:31.86"
     },
@@ -1725,7 +1729,7 @@
     },
     {
       "turn": 280,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Under the state law.",
       "time": "01:07:35.11"
     },
@@ -1737,7 +1741,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What I was talking about was absolute abolition of public schools, I wouldn't think it could be any question about that. A state's power to do that are absolutely to do away with buses.",
       "time": "01:07:36.74"
     },
@@ -1749,7 +1753,7 @@
     },
     {
       "turn": 284,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Were any of those findings on the busing issue disturbed by the Court of Appeals?",
       "time": "01:11:48.54"
     },
@@ -1761,7 +1765,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, except the proceedings last summer of last July and August haven't been through the Court of Appeals yet.",
       "time": "01:12:02.20"
     },
@@ -1773,7 +1777,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But then he found some more facts --",
       "time": "01:12:17.07"
     },
@@ -1785,7 +1789,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- about the buses that haven't -- and those that hasn't gone to the Court of Appeal.",
       "time": "01:12:19.42"
     },
@@ -1797,7 +1801,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "01:12:35.19"
     },
@@ -1809,7 +1813,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I gather, experiencing the last couple of weeks is to confirm the (Inaudible)",
       "time": "01:12:41.03"
     },
@@ -1821,7 +1825,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible) they've got the buses, they barred the state --",
       "time": "01:12:53.43"
     },
@@ -1833,7 +1837,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You have to take in to account the -- .",
       "time": "01:13:02.21"
     },
@@ -1845,7 +1849,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that also on the next year?",
       "time": "01:13:06.46"
     },
@@ -1857,7 +1861,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Nabrit --",
       "time": "01:14:06.86"
     },
@@ -1869,7 +1873,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Nabrit, if you permit me to say so, I think this business about busing and whether it is 23 dollars and 40 cents throughout the State of North Carolina and $20.00 of per pupil per year in Charlotte-Mecklenburg, the county buses they have and how old they are and what the mileage is, it's of some interest but so far as I'm concerned, is really collateral and peripheral to the basic question that this case poses. The first sentence of the statute, the sentence that -- the first sentence that was held on to be unconstitutional doesn't say anything about busing. It just says no student shall be assigned or compelled to attend any school on account of race, creed, color, or national origin or for the purpose of creating a balance or ratio of race, religion, or national origins. Now, that involves a fundamental question and that is it seems to me the fundamental question in this case. And that question exists whether or not the children walk or go by horseback or public transportation or buses. If you are right of course, buses are going to be needed if it -- where and if the distances are great but that's a rather peripheral to the basic question, isn't it? Or am I all wrong when we get to the --",
       "time": "01:14:08.52"
     },
@@ -1881,7 +1885,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, but that begins with the proposition. This I appreciate is at least a tripartite controversy but the -- if you begin with the proposition that it's the duty of the school board to maximize compulsory integration to the extent that it is A; feasible or B; reasonable or C; humanly possible. That's one thing but the question is whether that is the constitutional duty of a school board, isn't that the basic question?",
       "time": "01:15:50.57"
     },
@@ -1893,7 +1897,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Voice Overlap) it's just a collateral issues.",
       "time": "01:16:29.68"
     },
@@ -1905,7 +1909,7 @@
     },
     {
       "turn": 310,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, standing right there, do you have any quarrel with that as a statement of legislative policy or school board policy? Laying aside for a moment (Voice Overlap) --",
       "time": "01:18:51.44"
     },
@@ -1917,7 +1921,7 @@
     },
     {
       "turn": 312,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Laying aside for a moment, the situation where it has as its purpose to frustrate the mandate of Brown.",
       "time": "01:19:08.90"
     },
@@ -1929,7 +1933,7 @@
     },
     {
       "turn": 314,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is the Solicitor General filed an amicus brief in this case?",
       "time": "01:20:15.35"
     },
@@ -1941,7 +1945,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And either a -- 444, 498?",
       "time": "01:20:19.82"
     },
@@ -1953,7 +1957,7 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That would be a different lawsuit.",
       "time": "01:23:38.95"
     },
@@ -1965,7 +1969,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Being with the Court -- we are now compelled in a general case like this. We look into the question to determine whether if schools in this country have been put at the right places to --",
       "time": "01:23:44.71"
     },
@@ -1977,7 +1981,7 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would you require us to review the questions with reference to the constitutional validity of the state, wouldn't the school that just had been placed and somewhat -- case other than -- when directly raise that point, that's what I thought.",
       "time": "01:24:41.50"
     },
@@ -1989,7 +1993,7 @@
     },
     {
       "turn": 324,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) they did not restraint them from building a school, did he?",
       "time": "01:25:18.96"
     },
@@ -2001,7 +2005,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, by this Court that if -- it's wrong, it would seems that the pattern probably be wrong all over the United States and we would have to -- our courts would be busy trying cases of whether schools are located at the right spot constitutionally.",
       "time": "01:25:24.74"
     },
@@ -2013,7 +2017,7 @@
     },
     {
       "turn": 328,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Nabrit, let me try this question out on you. If this statute that you challenge here today had been adopted by the state on its admission to the union and enforced strictly from the beginning, right down the present time, would you have any -- would you have a quarrel with it?",
       "time": "01:26:37.71"
     },
@@ -2025,7 +2029,7 @@
     },
     {
       "turn": 330,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I said enforced it.",
       "time": "01:27:08.93"
     },
@@ -2037,7 +2041,7 @@
     },
     {
       "turn": 332,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If the state had adopted it and enforced it, there wouldn't have been any segregation, would there? And then you would --",
       "time": "01:27:11.14"
     },
@@ -2049,7 +2053,7 @@
     },
     {
       "turn": 334,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then the statute [Laughter] it'd be would be all right, wouldn't it?",
       "time": "01:27:30.92"
     },
@@ -2061,7 +2065,7 @@
     },
     {
       "turn": 336,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If the statute was 200 years old strictly enforced right from the beginning?",
       "time": "01:27:36.48"
     },
@@ -2073,7 +2077,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, if this statute is unconstitutional, it's only because the constitution requires precisely what the statute prevents in the circumstances to this case. You're saying the constitution of the United States requires assignments based on race in this case. It requires it because past discrimination that as a matter of remedy, you would say that the constitution absolutely requires it. Otherwise, I suppose the statute would be constitutional.",
       "time": "01:28:44.03"
     },
@@ -2085,7 +2089,7 @@
     },
     {
       "turn": 340,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or would you say or are you saying --",
       "time": "01:29:24.48"
     },
@@ -2097,7 +2101,7 @@
     },
     {
       "turn": 342,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or are you saying that the United States Court or any judge has got some or United States Court has got some discretion as to how it affects the remedy. And that a state statute which purports to interfere with his discretion is invalid?",
       "time": "01:29:27.97"
     },
@@ -2109,7 +2113,7 @@
     },
     {
       "turn": 344,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Which one are you saying?",
       "time": "01:29:53.85"
     },
@@ -2121,7 +2125,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That the constitution requires it.",
       "time": "01:29:56.61"
     },
@@ -2133,7 +2137,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You can say Brown says that racial discriminations in the school assignments are unconstitutional and we should have a remedy to the situation by making some more racial assignment?",
       "time": "01:30:29.42"
     },
@@ -2145,7 +2149,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Voice Overlap) Well, why didn't you answer yes?",
       "time": "01:30:45.63"
     },
@@ -2157,7 +2161,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is what?",
       "time": "01:31:52.86"
     },
@@ -2169,7 +2173,7 @@
     },
     {
       "turn": 354,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But suppose it did, would you think that as unconstitutional?",
       "time": "01:32:31.42"
     },
@@ -2181,7 +2185,7 @@
     },
     {
       "turn": 356,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you think it'd be unconstitutional?",
       "time": "01:32:37.61"
     },
@@ -2193,7 +2197,7 @@
     },
     {
       "turn": 358,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But yet the Charlotte problem -- do you think it is unconstitutional to have schools whether the main objective is to have them close to the children in the surrounding community whether they call them neighborhood schools or anything else?",
       "time": "01:32:40.40"
     },
@@ -2205,7 +2209,7 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) The problem is that the state has been racially defining schools, then that's a different problem to this. If you are saying that they passed laws that are required people to concentrated in one section rather than another, I think you would admit that's quite a different lawsuit?",
       "time": "01:33:15.37"
     },
@@ -2217,7 +2221,7 @@
     },
     {
       "turn": 362,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) One of the relation is set down by laws of the state? Well, they aren't?",
       "time": "01:33:49.86"
     },
@@ -2229,7 +2233,7 @@
     },
     {
       "turn": 364,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What law of North Carolina?",
       "time": "01:34:01.80"
     },
@@ -2241,7 +2245,7 @@
     },
     {
       "turn": 366,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) pretty big job to assign to us, isn't? Try to rearrange the areas of all the nation where the people have naturally concentrated at one place because of poverty or because of wealth or because of something else.",
       "time": "01:34:31.97"
     },
@@ -2253,7 +2257,7 @@
     },
     {
       "turn": 368,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Isn't that more than a court order have to do it?",
       "time": "01:34:48.12"
     },
@@ -2265,7 +2269,7 @@
     },
     {
       "turn": 370,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But what's what been going on?",
       "time": "01:35:04.59"
     },
@@ -2277,7 +2281,7 @@
     },
     {
       "turn": 372,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, then your complaint should be against what the Government has been doing there, wouldn't it? How can you rearrange the whole country in such fashion?",
       "time": "01:35:18.03"
     },
@@ -2289,7 +2293,7 @@
     },
     {
       "turn": 374,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes. But do you think its good by challenging the place people live and not letting them have schools in their areas?",
       "time": "01:35:30.94"
     },
@@ -2301,7 +2305,7 @@
     },
     {
       "turn": 376,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But I understand that you want to hold people miles and miles and miles in order to get an equal percentage of the races in the schools, that they don't.",
       "time": "01:35:49.98"
     },
@@ -2313,7 +2317,7 @@
     },
     {
       "turn": 378,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that right? Maybe I'm just --",
       "time": "01:36:02.67"
     },
@@ -2325,7 +2329,7 @@
     },
     {
       "turn": 380,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's the neighborhood schools at the outlining districts that some part of the neighborhood?",
       "time": "01:37:10.62"
     },
@@ -2337,7 +2341,7 @@
     },
     {
       "turn": 382,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:37:20.73"
     },
@@ -2349,7 +2353,7 @@
     },
     {
       "turn": 384,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:37:26.52"
     },
@@ -2361,7 +2365,7 @@
     },
     {
       "turn": 386,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "01:37:31.00"
     },
@@ -2373,7 +2377,7 @@
     },
     {
       "turn": 388,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "What was the school board's plan, vis-à-vis that that would be --",
       "time": "01:39:09.52"
     },
@@ -2385,7 +2389,7 @@
     },
     {
       "turn": 390,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "01:39:16.79"
     },
@@ -2397,7 +2401,7 @@
     },
     {
       "turn": 392,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Nobody, nobody in this case say there really is advocating the HEW.",
       "time": "01:39:31.19"
     },
@@ -2409,7 +2413,7 @@
     },
     {
       "turn": 394,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And except the Solicitor General on a very unenthusiastic way as I understood it.[Laughter]",
       "time": "01:39:38.34"
     },
@@ -2421,7 +2425,7 @@
     },
     {
       "turn": 396,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now the parties to this litigation until we got here, no court and none of the parties in their brief had very much good to say for the HEW plan. I'm just trying to put that on you.",
       "time": "01:40:15.52"
     },
@@ -2433,7 +2437,7 @@
     },
     {
       "turn": 398,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Nor does that the HEW plan purport to be a neighborhood plan either.",
       "time": "01:40:30.22"
     },
@@ -2445,7 +2449,7 @@
     },
     {
       "turn": 400,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I think it -- I think -- surely you're not saying, makes no difference to the child?",
       "time": "01:41:30.16"
     },
@@ -2457,7 +2461,7 @@
     },
     {
       "turn": 402,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Might be separated from his brothers and sisters, he might be transported 15 miles, they have to go to a school, one of them is two miles away and one of them is 6 miles away. I think, if there's something to the concept of the neighborhood schools, that's worthy of consideration in this Court, particularly and we have to divide while looking at maps.",
       "time": "01:41:38.23"
     },
@@ -2469,7 +2473,7 @@
     },
     {
       "turn": 404,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, aren't they natural?",
       "time": "01:42:50.39"
     },
@@ -2481,7 +2485,7 @@
     },
     {
       "turn": 406,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You mean, they find findings that they are artificial, the neighborhoods are artificial?",
       "time": "01:42:58.21"
     },
@@ -2493,7 +2497,7 @@
     },
     {
       "turn": 408,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, now --",
       "time": "01:43:16.46"
     },
@@ -2505,7 +2509,7 @@
     },
     {
       "turn": 410,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I'm not saying to you sir that what I -- we understood is, we've been understating from the first case, if this plain discrimination on account of race take on emphasis, I think we should correct under the constitution but I -- it disturbs me, so I had to challenge the whole arrangement of the living practice as in the way of life that the people all over this nation.",
       "time": "01:43:17.64"
     },
@@ -2517,7 +2521,7 @@
     },
     {
       "turn": 412,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Don't have any schools or people who moved to places because they are close to a school?",
       "time": "01:44:11.73"
     },
@@ -2529,7 +2533,7 @@
     },
     {
       "turn": 414,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible) case to this question (Inaudible) that you considered Judge McMillan's findings as to state action after 1954, after Brown, essential to that sort of a verdict?",
       "time": "01:44:38.80"
     },
@@ -2541,7 +2545,7 @@
     },
     {
       "turn": 416,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "01:45:09.83"
     },
@@ -2553,7 +2557,7 @@
     },
     {
       "turn": 418,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Voice Overlap) state action imposed in 1954, as you come to this court with the history of racial deseg -- racial seg -- racially segregated schools up to 54, would you be defending this case as you are now, you had -- in the orders you are (Inaudible)?",
       "time": "01:45:13.91"
     },
@@ -2565,13 +2569,13 @@
     },
     {
       "turn": 420,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Certainly you would.",
       "time": "01:45:38.90"
     },
     {
       "turn": 421,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Inaudible).",
       "time": "01:45:39.91"
     },
@@ -2583,7 +2587,7 @@
     },
     {
       "turn": 423,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I just wanted -- if you're not taking a little more baggage, you don't have to do it.",
       "time": "01:45:51.53"
     },
@@ -2595,7 +2599,7 @@
     },
     {
       "turn": 425,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well if you can show us, in any of these particular things, where the order has been approved which show in the record discrimination against the race, then I'll be interested in but I don't like this whole theory trying to condemn a whole practice and do away with what I considered to be a valuable part of our concise -- I believe its just traditional, of the neighborhood school idea?",
       "time": "01:48:09.77"
     },
@@ -2607,7 +2611,7 @@
     },
     {
       "turn": 427,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you consider that Judge McMillan's findings with reference to the jury segregation arising out of racial covenants, zoning, I'm not speaking out of school zoning ordinances and regulations essential to its inclusions?",
       "time": "01:49:34.12"
     },
@@ -2619,7 +2623,7 @@
     },
     {
       "turn": 429,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Not --",
       "time": "01:50:05.79"
     },
@@ -2631,7 +2635,7 @@
     },
     {
       "turn": 431,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The transfer could be consistent, why did you offer evidence on the subject and why did he make findings on it if its irrelevant?",
       "time": "01:50:06.69"
     },
@@ -2643,7 +2647,7 @@
     },
     {
       "turn": 433,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Pursuant to the Chief Justice's question, I understood that this post 1954 state action evidence was introduced and considered by Judge McMillan as bearing upon the question of whether these schools in the context of original rule -- an original dual system could still be regarded as racially identifiable?",
       "time": "01:51:07.37"
     },
@@ -2655,7 +2659,7 @@
     },
     {
       "turn": 435,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's the question on what to do first.",
       "time": "01:51:50.94"
     },
@@ -2667,7 +2671,7 @@
     },
     {
       "turn": 437,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "01:52:22.90"
     },
@@ -2679,7 +2683,7 @@
     },
     {
       "turn": 439,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Counsel we have conserved some little time of yours to process our question and if after lunch there are some points that you wish to make that you feel you haven't covered on your argument in chief, we'll give you some additional time.",
       "time": "01:52:41.44"
     },
@@ -2691,7 +2695,7 @@
     },
     {
       "turn": 441,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Five or ten minutes (Voice Overlap) how much you need.",
       "time": "01:53:03.65"
     },
@@ -2703,7 +2707,7 @@
     },
     {
       "turn": 443,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well.",
       "time": "01:53:19.58"
     },
@@ -2715,7 +2719,7 @@
     },
     {
       "turn": 445,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Or perhaps --",
       "time": "01:58:14.03"
     },
@@ -2727,7 +2731,7 @@
     },
     {
       "turn": 447,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you Mr. Nabrit. Proceed.",
       "time": "02:03:19.15"
     },
@@ -2739,7 +2743,7 @@
     },
     {
       "turn": 449,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think you have 13 minutes counsel.",
       "time": "02:03:36.35"
     },
@@ -2751,7 +2755,7 @@
     },
     {
       "turn": 451,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If you find you'll need a little more, we'd extend that.",
       "time": "02:03:43.41"
     },
@@ -2763,7 +2767,7 @@
     },
     {
       "turn": 453,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Blakeney, I take the case (Inaudible) no discrimination but it so happens that there are some white schools and some black schools in the city by whatever circumstance caused it, there are black schools and white schools and some black and white school.",
       "time": "02:11:14.54"
     },
@@ -2775,7 +2779,7 @@
     },
     {
       "turn": 455,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the school board says to itself, “We think we'll have a better educational result right across the board, people will come out better citizens if they're educated together. So we are going to pair some schools. We're going to make sure that all through -- all the grades education is furnished to blacks and whites together rather than separately. Not because we're required to, not because there's any -- we have to give a remedy for anything. We just think as an educational matter, it's going to -- versus the public interest to do it this way.” So they go to your black child and say, you be -- you have been going to this school, but you're not going to this school anymore. You're going over here to another school where you can go to school with whites and they have said to the white people the same thing. I take it you wouldn't say that as prosperity?",
       "time": "02:11:40.15"
     },
@@ -2787,7 +2791,7 @@
     },
     {
       "turn": 457,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is it -- yes or no? Is it prescribed or not under -- and since it's the position you took a while ago?",
       "time": "02:12:38.10"
     },
@@ -2799,7 +2803,7 @@
     },
     {
       "turn": 459,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All the school board says that we concede freely that the reason you aren't going here is because we want blacks and whites to go to school together.",
       "time": "02:12:54.95"
     },
@@ -2811,7 +2815,7 @@
     },
     {
       "turn": 461,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the -- this is a racial -- to that extent it is a racial reason for the change. We want them to be educated together.",
       "time": "02:13:03.85"
     },
@@ -2823,7 +2827,7 @@
     },
     {
       "turn": 463,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Nothing whatsoever in the geography that would indicate and they said, this used to be the first sixth grades here but it isn't going to be the first sixth grades anymore, its going to be the junior high school and you're going to have to go to grade school over here with all the rest of the -- with all the other people who are going to those grades.",
       "time": "02:13:21.18"
     },
@@ -2835,7 +2839,7 @@
     },
     {
       "turn": 465,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the school board says, “We are -- we're going to force you against your will to be educated with members of the opposite race.” That's our decision, we're going to force you to do that, we think its better for education, would -- you would say that unconstitutional?",
       "time": "02:14:03.90"
     },
@@ -2847,7 +2851,7 @@
     },
     {
       "turn": 467,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well --",
       "time": "02:14:41.86"
     },
@@ -2859,7 +2863,7 @@
     },
     {
       "turn": 469,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the only -- the school board had really concedes, the only reason we're making this chain is to make sure that blacks and whites go to school together.",
       "time": "02:14:43.88"
     },
@@ -2871,7 +2875,7 @@
     },
     {
       "turn": 471,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you say that that's critically your position?",
       "time": "02:14:54.61"
     },
@@ -2883,7 +2887,7 @@
     },
     {
       "turn": 473,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "02:14:59.88"
     },
@@ -2895,7 +2899,7 @@
     },
     {
       "turn": 475,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But what if you are wrong on that, that a school board could do what I just described?",
       "time": "02:15:05.98"
     },
@@ -2907,7 +2911,7 @@
     },
     {
       "turn": 477,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But lets assume the school board could do what I have described, consistently with Brown on the Fourteenth Amendment. Could -- does that make any difference in terms of your argument about the acceptability of this order of the District Court in this case?",
       "time": "02:15:18.69"
     },
@@ -2919,7 +2923,7 @@
     },
     {
       "turn": 479,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Blakeney, when was this bill passed, on ‘69? But no busing (Voice Overlap) --",
       "time": "02:16:16.83"
     },
@@ -2931,7 +2935,7 @@
     },
     {
       "turn": 481,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Yes, that the no busing bill, what month?",
       "time": "02:16:23.19"
     },
@@ -2943,7 +2947,7 @@
     },
     {
       "turn": 483,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, suppose that same bill had been passed in ‘55, we wouldn't have this problem, would we?",
       "time": "02:16:30.35"
     },
@@ -2955,7 +2959,7 @@
     },
     {
       "turn": 485,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, isn't there a difference between when you passed this bill or do you admit that this bill was passed for the expressed purpose of upsetting the judgment of the District Court?",
       "time": "02:16:42.91"
     },
@@ -2967,7 +2971,7 @@
     },
     {
       "turn": 487,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, why was it passed?",
       "time": "02:16:58.70"
     },
@@ -2979,7 +2983,7 @@
     },
     {
       "turn": 489,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, it was after the '65 decision of this Court, wasn't it, the District Court?",
       "time": "02:17:09.67"
     },
@@ -2991,7 +2995,7 @@
     },
     {
       "turn": 491,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "If I was --",
       "time": "02:17:21.48"
     },
@@ -3003,7 +3007,7 @@
     },
     {
       "turn": 493,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well --",
       "time": "02:17:23.68"
     },
@@ -3015,7 +3019,7 @@
     },
     {
       "turn": 495,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, yes it's obvious it was after '65 because of the '69.",
       "time": "02:17:24.68"
     },
@@ -3027,7 +3031,7 @@
     },
     {
       "turn": 497,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And don't we have to consider it in that context.",
       "time": "02:17:31.68"
     },
@@ -3039,7 +3043,7 @@
     },
     {
       "turn": 499,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Not just as an ordinary statute that was passed 80 years ago?",
       "time": "02:17:36.50"
     },
@@ -3051,7 +3055,7 @@
     },
     {
       "turn": 501,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, Mr. Blakeney, Mr. Waggoner, Mr. Vanore. Thank you Mr. Nabrit. The case is submitted.",
       "time": "02:18:38.71"
     }

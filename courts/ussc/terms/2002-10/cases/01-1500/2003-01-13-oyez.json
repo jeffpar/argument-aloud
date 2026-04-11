@@ -3,47 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2002/01-1500/20030113a_01-1500.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "THOMAS C. GOLDSTEIN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MATTHEW D. ROBERTS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "DAVID W. DEBRUIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 01-1500, Eric Cornell Clay versus The United States. Mr. Goldstein.",
       "time": "00:00:00.00"
     },
@@ -55,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are you talking about now our retroactivity cases?",
       "time": "00:02:07.20"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The--",
       "time": "00:02:09.49"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, those come from quite diverse contexts.",
       "time": "00:02:24.60"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Link... Linkletter was really a bygone era by the time Congress passed AEDPA.",
       "time": "00:03:15.60"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought that their... amicus wrote, you know, a pretty good argument on that side, and I thought one of his better points, which is that if we're looking at the... the 1-year limitation from a person in State proceedings, what it says is, it runs from the latest of the date on which judgment became final by the conclusion of direct review, or the expiration of time for seeking such review; and then when you look to the parallel for somebody in Federal proceedings, it says it becomes final from the date on which the judgment of conviction becomes final. In other words, they use the first half of the sentence, doesn't use the sentence... the second; and in... in the State proceeding it has two, and here it has one, and he says you have to give some meaning to that difference.",
       "time": "00:04:05.68"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, no, it doesn't, see, because you have became final by the conclusion of direct review, and then we have the date on which judgment of conviction became final, and he's saying that he would interpret it so they mean the same thing.",
       "time": "00:05:11.86"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but the... the... that doesn't... the sentence doesn't end with judgment became final. It goes on to say, by the conclusion of direct review, or the expiration of the time for seeking such review.",
       "time": "00:06:15.25"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So you are saying that in the... within 2244(d)(1), those words are surplusage, they don't do anything, that... the... that 2244 would mean the same thing if there were a period after \"became final\".",
       "time": "00:06:33.36"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But... but you're going to get State post-conviction review in connection with Federal habeas cases because of the exhaustion requirement.",
       "time": "00:08:11.05"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but you can also say that they had to give a special meaning of finality so that we could respect the processes of the States and make it clear that the... all of the State procedures had to be exhausted, as the Chief Justice indicated, because of the intrusive nature of... of habeas jurisprudence, of habeas orders from the Federal courts, and so you can read this as... as being an exception to this general Federal rule when, in fact... that brings me to another point... you can address both. I... I had... I had thought, as the amicus brief does indicate, that finality usually does mean from the date of the issuance of the mandate, and then you go back and you toll if there's... if there's discretionary review.",
       "time": "00:08:37.40"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "When you're... when you're appealing from the district court to the court of appeals, when does the term, final... what does the term of final mean there, as to the district court judgment?",
       "time": "00:11:07.13"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:11:20.70"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, characterize for... for us, then, your understanding of the amicus view. I thought their view is that it just becomes tolled. The minute you... the minute you file the appeal it becomes tolled, so there's no problem.",
       "time": "00:11:28.79"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Oh, I should think the normal rule does include the tolling exception that I... that I... we've just explained.",
       "time": "00:11:53.34"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Goldstein. Mr. Roberts, we'll hear from you.",
       "time": "00:12:43.88"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What about an appeal from the district court to the court of appeals?",
       "time": "00:13:16.65"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And yet that's contrary to a lot of other things, is it not? I mean, you can't go into the district court 60 days after your time... after the district final judgment was entered and still maybe have 30 more days to appeal, and the district court isn't going to do anything.",
       "time": "00:13:29.20"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why... why should those be different?",
       "time": "00:14:00.61"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Except that... except that they wrote the two sections differently. That... that certainly is something of a reason.",
       "time": "00:14:48.38"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I... I thought they would intend it in order to show special respect for the processes of the State, so that a State has completely exhausted all of its procedures for determining what the law ought to be--",
       "time": "00:15:04.97"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--before they're disrupted by a Federal judgment.",
       "time": "00:15:19.56"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But I... I think, Mr. Roberts, that as I pointed out in the question to petitioner's counsel, 2250... 44(d)(1) doesn't just stop with the word, final, it goes on to kind of explicate the possible... possible meanings.",
       "time": "00:17:04.31"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Do you--",
       "time": "00:18:23.39"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Do you think it makes any difference that in 2255 Congress used the phrase, judgment of conviction, and in 2244(d)(1) it simply used the word, judgment?",
       "time": "00:18:25.44"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, usually variations in language mean variations in meaning.",
       "time": "00:18:43.34"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Roberts, refresh my recollection. Was 2255 and 22... and 2240(d)(1) enacted as part of the same statute?",
       "time": "00:20:02.72"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I wouldn't think that. I would... I would think that where you say, on the one hand, where it becomes final by (a) or (b), and elsewhere you simply say, where it becomes final--",
       "time": "00:20:50.48"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--I would think that the latter means, even if it becomes final in some other fashion. Now, that happens not... that happens not to help the respondent here.",
       "time": "00:21:03.07"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But I... but I do think that that's the more natural--",
       "time": "00:21:12.32"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Don't you think that's the more natural--",
       "time": "00:21:18.27"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--That's right, broader.",
       "time": "00:21:19.38"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What the broader would be.",
       "time": "00:21:23.86"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Not necessarily.",
       "time": "00:21:36.48"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Oh, if... if you applied the Russello presumption here, you... you would be applying the presumption that I just described, namely in... in one section, it limited it, in... in the other section, it didn't limit it at all. You'd think the latter section would be broader, not narrower.",
       "time": "00:21:49.90"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's... that's what Russello said.",
       "time": "00:22:07.99"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, but what I--",
       "time": "00:22:40.32"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--That gets you into the argument of whether there is an ordinary meaning of final.",
       "time": "00:22:41.40"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Roberts. Mr. de Bruin, we'll hear from you.",
       "time": "00:23:28.08"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let's... let's review the Russello presumption. Russello had an earlier section where the more general word was limited. What... what was the... what was the... the... what was the general word involved in that case?",
       "time": "00:25:14.73"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Any... any interest acquired. That's what the later provision said, and the earlier provision said, any interest in the enterprise acquired.",
       "time": "00:25:42.43"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Okay, and... and what Russello said is, where you have a limitation in the earlier one, an interest in any enterprise, and then the later one just says, any interest, we assume that any interest is broader. It's not limited by, in any enterprise. Now, if you apply... and I think that's entirely reasonable, but if you apply that same principle here, what it comes to is that where in the early one it says final by reason of (a) and (b), and in the later one, it just says, becomes final, you would think the later one would... would include (a), (b), and maybe (c), (d), (e), but it certainly wouldn't be narrower than the earlier one, which is what you're insisting it is. In other words, it seems to me Russello cuts exactly against your position, rather than for it.",
       "time": "00:25:54.41"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But aren't you picking one of the two means of finality that's set forth in the earlier provision? You're saying in the later provision it only means one of those two. That's not Russello at all. That's the opposite of Russello.",
       "time": "00:27:12.91"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I... I think what you'd have to say is, it means those two perhaps plus some others.",
       "time": "00:27:28.06"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Or on the issuance of a mandate.",
       "time": "00:27:59.26"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It surely does.",
       "time": "00:28:11.84"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You seem to take only one part of the definition, because 2244 says, on direct review, or the expiration, but you seem to accept that 2255 does encompass direct review. That is, if someone actually files a petition for cert, then the finality rule would not kick in.",
       "time": "00:28:33.24"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You would also... what... they... they also... the Government gave meaning to the... gave meaning to the difference by saying, even if you're right about that, becomes final, becomes final includes expiration of time. That's their argument. And as to the first thing, by direct review, that includes expiration of time, too. They just put it in to make sure it was not the habeas route in the States, and then they put the second clause in really to save Federal judges from being confused about what happens in the California Court of Appeals, what happens in the lower inter... intermediate State courts to make sure that... that this ordinary Federal situation was seen as applying to cases as they wend their way up through the State court system, too.",
       "time": "00:30:28.04"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I think that's... that was... I heard that being given, in any case. Are you following? Was I clear enough?",
       "time": "00:31:20.68"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:31:25.63"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If you... if you--",
       "time": "00:32:18.60"
     },
@@ -655,13 +659,13 @@
     },
     {
       "turn": 103,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--Right.",
       "time": "00:32:45.12"
     },
     {
       "turn": 104,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If... if, in fact, you could read it, as Justice Scalia suggested, which I think maybe you could, or as the way the SG suggested for the sake of argument, is there any argument that you shouldn't? I mean, it sounds simple, clear, uniform; everybody'd understand it. Is there any reason not to read it that way if the language permits it?",
       "time": "00:32:45.48"
     },
@@ -673,7 +677,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, but then you're answering my question, no. You're saying, there is no reason not to read it that way if you could, with the language, but the language doesn't permit it.",
       "time": "00:33:15.37"
     },
@@ -685,7 +689,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's your argument.",
       "time": "00:33:24.90"
     },
@@ -697,7 +701,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And I take it as a no, that if it did permit it, there isn't any good reason.",
       "time": "00:33:26.76"
     },
@@ -709,13 +713,13 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It wouldn't render that language superfluous if you interpreted it the way I suggested, which is that... that finality in the second provision includes not just the two specifications in the first, but also some other unnamed aspects of finality, which we don't have to decide upon in this case, but which doesn't help your case.",
       "time": "00:33:41.29"
     },
     {
       "turn": 113,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Well, I mean--",
       "time": "00:34:05.13"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Go ahead.",
       "time": "00:34:06.48"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If... if you're... if you're going to say that 2255, by contrast with 2244(d)(1) must mean something broader, then... though, the broader you define finality, the more difficult it is for a petitioner to make his case, it seems to me... a habeas petitioner. If there are any number of different ways that a judgment can become final, that... that is bad for the person seeking habeas relief.",
       "time": "00:34:13.26"
     },
@@ -751,13 +755,13 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But that makes sense--",
       "time": "00:35:19.76"
     },
     {
       "turn": 120,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "--I suppose you could answer Justice Scalia by saying that these are exceptions to the ordinary rule of finality, although the statute doesn't quite read that way. They're... they... or they are special extensions--",
       "time": "00:35:20.15"
     },
@@ -769,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--of the ordinary rule of finality.",
       "time": "00:35:34.35"
     },
@@ -781,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. de Bruin, I'd like to take you back to that word, mandate, because finality means different things in different contexts. The most basic finality rule is when the district court disassociates itself from the case, and then the case is lodged on appeal. It's final for, say, preclusion purposes at that point. This Court dates from, not from the mandate in the court of appeals, but take, for example, our rule on cert. Doesn't it run from the entry of judgment in the court of appeals, not from the later time when a mandate is issued?",
       "time": "00:35:49.21"
     },
@@ -793,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So where do you make up the mandate rule as a general rule?",
       "time": "00:36:31.22"
     },
@@ -805,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Am I right that our rules don't refer to the mandate date at all, that it's always the entry of judgment?",
       "time": "00:36:58.86"
     },
@@ -817,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I think your case would be persuasive if, indeed, there was a generally understood meaning of finality, and... and that's the part of your brief I focused on, and I just don't think you carry the day. I just think, as Justice Ginsburg points out, it means a lot of different things. So once that's the case, all you have to rely upon is this principle that... that where... where a thing is said two different ways in a statute, there must be a reason. You have to give them different meaning. That isn't an absolute principle, and it... it has all sorts of exceptions. I mean, it... it just depends. For example, if you say, from the day of entry of judgment in one section of the statute, and in another section of the statute it reads, from the day judgment was entered, do you really think you have to give different meaning to those two formulations? Of course not. It all depends on what... what the other factors involved are, and here--",
       "time": "00:37:39.72"
     },
@@ -829,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--I don't see any other factor, unless you show that finality has a normal meaning, which... so that the earlier provision is giving it some peculiar meaning. That... that would be persuasive--",
       "time": "00:38:41.66"
     },
@@ -841,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--but... but I don't think you carry the day on that point.",
       "time": "00:38:53.46"
     },
@@ -853,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you admit that for one part of that clause, Congress didn't mean any different. The... if there is a petition filed, if there is, in fact, a cert petition filed, then State and Federal prisoners got treated alike, so it's the... the only place, as I understand it, where you're saying there's a difference is whether the time for filing a petition counts even when the... there... no petition is filed.",
       "time": "00:39:27.40"
     },
@@ -865,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So under your reading, it might be that the judgment becomes final, the court of appeals judgment becomes final when the mandate comes down, even though the petitioner has filed a cert petition. It could mean that.",
       "time": "00:40:20.85"
     },
@@ -877,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Am I wrong in thinking that the general understanding is that when you file a cert petition, that the finality is suspended until that petition is disposed of?",
       "time": "00:41:14.81"
     },
@@ -889,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. de Bruin, I think I understand your argument based on the different wording, but... I think this question was asked before, too: is there any reason why Congress might want to give Federal post-conviction petitioners less time than State post-conviction petitioners?",
       "time": "00:42:31.67"
     },
@@ -901,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, it isn't clear on the point that I asked you about, because I thought that the court of appeals said yes, if you actually file your petition for cert, then the time doesn't run until the petition is disposed of. I thought... you... you said that's ambiguous, but I don't think that that's what the court of appeals said.",
       "time": "00:46:30.87"
     },
@@ -913,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But in terms of confusing things, if we were to take that view of it, it would, because everybody assumes, well, you file your cert petition, then it's on hold until--",
       "time": "00:48:12.31"
     },
@@ -925,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--That's... that's not quite tolling. If... if you... if you waited for, say, 40 days before you filed, does the 40 days count again? Do you tack, or do you get a whole new period?",
       "time": "00:48:49.91"
     },
@@ -937,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So... so that's not quite like tolling, I think.",
       "time": "00:49:03.88"
     },
@@ -949,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. de Bruin, and the Court thanks you for your help to the Court with your amicus brief in this case.",
       "time": "00:50:56.91"
     },
@@ -961,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Goldstein, you have 3 minutes remaining.",
       "time": "00:51:03.62"
     },
@@ -973,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Which set of Rule 33 are we talking about?",
       "time": "00:51:37.34"
     },
@@ -985,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "To what set, what--",
       "time": "00:51:41.91"
     },
@@ -997,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Criminal procedure.",
       "time": "00:51:44.91"
     },
@@ -1009,7 +1013,7 @@
     },
     {
       "turn": 162,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, you say it's settled. It's settled in the Ninth Circuit?",
       "time": "00:52:17.12"
     },
@@ -1021,7 +1025,7 @@
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I thought his point was it was an even broader universe.",
       "time": "00:53:27.70"
     },
@@ -1033,7 +1037,7 @@
     },
     {
       "turn": 166,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, I... I thought you were talking about Justice Scalia's--",
       "time": "00:53:40.21"
     },
@@ -1045,7 +1049,7 @@
     },
     {
       "turn": 168,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Goldstein. The case is submitted.",
       "time": "00:54:18.62"
     }

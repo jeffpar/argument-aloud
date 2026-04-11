@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1998/98-5864/19990303a_98-5864.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "MIGUEL A. ESTRADA",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "PAMELA A. RUMPZ",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 98-5864, Tommy David Strickler v. Fred W. Greene. Mr. Estrada.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your second point would cover both default and prejudice, then, I take it.",
       "time": "00:01:53.66"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure what you mean by your second point. You mean if there's a Brady violation, that's the end of it, you don't have to show cause and prejudice?",
       "time": "00:02:06.67"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of cause, well, let me ask you about cause here. How was this Brady violation discovered, and why could it not have been discovered prior to the filing of the State habeas petition?",
       "time": "00:02:47.99"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Couldn't that have been obtained before the filing of the State habeas?",
       "time": "00:03:57.85"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The same thing?",
       "time": "00:04:01.40"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wasn't one of the claims in the State habeas precisely a Brady violation? Wasn't that one of them?",
       "time": "00:04:24.49"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "With respect, I'm asking a question. I--",
       "time": "00:04:34.62"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Wasn't it part of the inadequate assistance of counsel claim that was made at one time in State habeas? They said one of the reasons for inadequate assistance of counsel was, he didn't make a Brady motion, so isn't the Brady... the allegation that there was no Brady motion subsumed in the inadequate assistance of counsel?",
       "time": "00:04:36.66"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And one of those things you say was that he did not pursue a Brady violation.",
       "time": "00:05:57.32"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So he was on notice at that point that the Brady violation issue should have been pursued, and yet he did not pursue it.",
       "time": "00:06:02.55"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Okay, but if he had failed-- --But that's ineffective assistance of counsel, certainly it must be ineffective assistance of counsel because the Brady violation at least theoretically would have turned up something.",
       "time": "00:06:18.28"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But in any case, I think it's also your argument that, even assuming that they would sensibly have thought at least of a Brady claim, there would still have been cause here, because, consistently throughout the litigation, the Commonwealth of Virginia had taken the position that in fact they had an open file and therefore that, after all, would be cause not to pursue the claim any further than you went.",
       "time": "00:07:10.43"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, leaving Brady aside, and correct me if I'm wrong, leaving Brady aside, my understanding is that Virginia does not have in its open file or in its prosecutor's file investigative reports such as Claytor's, correct?",
       "time": "00:08:02.08"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but I had thought part of your submission was that you couldn't get these reports under Virginia rule because they're investigative reports that are not disclosable.",
       "time": "00:08:23.33"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Absent Brady.",
       "time": "00:08:32.72"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but then you're making Brady more or less self executing. If you don't produce under Brady, it's automatically cause.",
       "time": "00:09:00.48"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Concealment suggests something affirmative though, does it not?",
       "time": "00:09:34.54"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Not just a failure to disclose, but an effort to actually hide.",
       "time": "00:09:42.43"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And I take it that's-- --And you do... you do assert here that there was a representation by counsel for the State, both at the trial level and then again by the Attorney General on post conviction.",
       "time": "00:09:53.23"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You do not at the trial. You do not at the trial level assert that he said there were... you had the open files, and everything relevant was in the open files.",
       "time": "00:10:08.92"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You... that statement is only made in the middle of the State habeas proceeding and therefore cannot explain your failure to do anything at the commencement of the State habeas proceedings. You were deceived after you had already been in default of your obligation.",
       "time": "00:10:19.67"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But prosecutors always say they comply with Brady. And you're in effect saying, once there's a representation we've complied with Brady, you have no independent obligation to pursue a Brady violation, and I just don't think you have any law for that play.",
       "time": "00:11:05.04"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That says nothing more than what Justice Kennedy says. There's always an implicit representation, and sometimes an explicit representation by the prosecution that it has turned over the files that the law requires it to turn over. That's always an implicit... every Brady violation constitutes that, and therefore you're in effect saying you don't have to show cause as well as not having to show prejudice once there's a Brady violation.",
       "time": "00:12:44.25"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May I ask you something about a procedural course, even before you get into all of this? I understand there's a notion of exhaustion. That's why we require you go through the State habeas, first. Nothing more was known at the Federal level than was known at the State level. The motion for discovery, for sweeping discovery that was made successfully in the Federal court, was not made in the State court. So a remedy that was availed of in the Federal court was not even sought. Now, if they had asked and the State said no, you can't discover, and then you came to Federal court and asked for the same thing, that would be one thing, but what excuses the failure to make in the State court the procedural move that you made in the Federal court?",
       "time": "00:14:05.25"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Whenever you ask for the court's help, you implicitly ask for whatever you should have asked for, is that the principle you want us to accept?",
       "time": "00:16:11.15"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You should have asked for these... for the documents that related to your client that were the documents of the investigation. And I don't see how a general throwing yourself upon the assistance of the court complies with that. The court has some basis to know more precisely what it is you're seeking from the State.",
       "time": "00:16:18.48"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not just say, give us help for whatever we need.",
       "time": "00:16:39.25"
     },
@@ -387,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And it had nothing to do with Brady or not specifically to do with... it was just a total, sweeping, discover anything about this case--",
       "time": "00:17:10.32"
     },
@@ -399,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--psychiatric evidence--",
       "time": "00:17:17.49"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Mr. Estrada, the State seems to suggest that the petitioner's lawyers knew of the witness Stoltzfus' materials at the time of the trial. How do you respond to that? I understand that to be--",
       "time": "00:17:39.90"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--one of their claims.",
       "time": "00:17:56.17"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What we're really talking about here are a series of statements made over a period of time by the witness Stoltzfus, right?",
       "time": "00:18:00.23"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You had some of them, three of them?",
       "time": "00:18:13.89"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And we take the case on that assumption.",
       "time": "00:18:24.45"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And so how do you respond to their assertion that you had them all?",
       "time": "00:18:30.98"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that isn't the point, whether you had the other five documents. Yeah, they said you didn't have the other five documents, but the point is whether you had reason to believe during the trial that in fact this witness's testimony had been considerably elaborated over the course of her interviews with the prosecution and with the boyfriend of the deceased.",
       "time": "00:19:30.20"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "True, but that isn't the issue, whether he could have confronted the witness. The issue is whether he should have at that point pursued a Brady claim.",
       "time": "00:20:15.27"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "In other words, you have three documents that you're conceding for the sake of argument here would have put you on notice, in effect, of just what you would have suspected at the trial, and that is should she talked with the--",
       "time": "00:20:46.38"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, I--",
       "time": "00:21:28.49"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, may I take you back to one other representation, because we were on the State habeas, and then we got off it, and there's just one thing I want to make sure I'm clear on. In the State habeas the ineffective assistance claim, or one ineffective assistance claim referred to the failure to file a Brady motion.",
       "time": "00:21:29.90"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You were asked... I don't remember whether it was by the court or put on as, it were, on the spot by the State in saying, do you have any specific reason to believe, or any evidence that you were in fact prejudiced.",
       "time": "00:21:49.26"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And your response to the court was, no, that's why we want discovery.",
       "time": "00:22:01.78"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay, expert assistance. I take it at that point that the State in effect was mute in the sense that the State obviously did not say at that point, well, you know, there may be some material that's exculpatory that we haven't provided.",
       "time": "00:22:10.41"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Do you--",
       "time": "00:22:32.70"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--What did they say?",
       "time": "00:22:34.38"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The open file representation?",
       "time": "00:22:43.63"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:22:48.49"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Respondent agrees with what, that Strickler concedes something?",
       "time": "00:23:23.01"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, can we get down to the harm? I mean, you said it was no question that this woman had been several times interviewed by Claytor. That was clear when she was on the stand. That was tipped off in the three letters that we assume... documents that you had. So that was known, that she had several times met with the State's investigator. It was also known in one of those letters that she said my memory is sometimes muddled, one of the letters that we assume--",
       "time": "00:24:02.15"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--And as I understand it, although you've used the word concealment, there's no suggestion here that it was anything but some kind of negligence involved that these weren't turned over.",
       "time": "00:24:31.44"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I didn't think that, but I'd really like you to concentrate on the prejudice for this reason. Kyles was a case where the argument was that the Brady materials really made a case for actual innocence. Here, as I understand, it's not... that's not the claim. You are not claiming, or are you, that Strickler would be a nonparticipant? I thought that the only thing that you thought you could do with this is to say, the chief man was Henderson and not Strickler.",
       "time": "00:25:16.22"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But they went on abduction as well as armed robbery, did they not?",
       "time": "00:26:18.49"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But clearly you're not contending your client was not implicated in this killing.",
       "time": "00:26:41.18"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You would be on very shaky ground, I would think, in view of the evidence, if you did.",
       "time": "00:26:46.85"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if Stoltzfus had not testified, are you saying there wouldn't have been enough evidence to go to the jury?",
       "time": "00:27:03.76"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I have one question, just on this line. The one question I have is, I'd like you to state precisely what the prejudice in your opinion is, assuming that you're right on every other matter.",
       "time": "00:27:21.86"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You have to show cause and prejudice.",
       "time": "00:27:36.56"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's the same question you began to answer to the Chief.",
       "time": "00:27:39.44"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And I'd like to know precisely what, in your opinion, does the prejudice... because the circuit said there is no prejudice. There was loads of other evidence, and I agree that Donna Tudor is a little shaky. That's one point in your favor, but what precisely is the prejudice?",
       "time": "00:27:41.99"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, look, she... I want to be more precise than that. I take it Mrs. Stoltzfus, assuming she didn't know what she was talking about and hadn't even appeared, what would have happened is you wouldn't have established that your client kidnapped this woman.",
       "time": "00:28:07.45"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Fine. You wouldn't have established what happened at the parking... with the car at the beginning, in the shopping mall. But this murder didn't take place then, it took place much later, there were other witnesses, et cetera, and so that's what I want you to address.",
       "time": "00:28:21.68"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So what I should do to satisfy myself is read through the record, and if I think there is sufficient evidence, leaving Ms. Stoltzfus aside, and discounting Ms. Tudor, if I think nonetheless there is sufficient evidence so I have no doubt, or virtually no doubt that your client was at the place where this woman was killed, and participated in a kidnapping, I should then reject your argument?",
       "time": "00:29:00.41"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. Good. Why not?",
       "time": "00:29:25.29"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You left out Virginia Smith. What I'm trying to drive at is, is it that you're saying the prejudice comes from your client being there, or is it that you're saying it's from what he did there?",
       "time": "00:29:55.26"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or both.",
       "time": "00:30:05.64"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Estrada. Ms. Rumpz, we'll hear from you.",
       "time": "00:30:12.89"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well now, if we accept the argument that the State represented all along that everything that complied with Brady was in the open file, then does it matter that he didn't seek discovery?",
       "time": "00:30:45.47"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No, representation that everything complying with Brady was in the open file.",
       "time": "00:31:10.23"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But it seems to me-- --In your view, at that time was there grounds for a Brady motion?",
       "time": "00:31:58.97"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, when he filed the State collateral... the habeas in the State collateral proceeding.",
       "time": "00:32:06.19"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "What was the ground for the Brady motion at that time?",
       "time": "00:32:13.29"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, to... to succeed on the Brady, on a motion to have Brady discovery in the State collateral proceeding, do you not have to show some reason to believe that Brady material was withheld?",
       "time": "00:32:35.04"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Or am I wrong about that?",
       "time": "00:32:49.92"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, but as I under-- --But I need to know what was the good cause? That's all I need to... what was the cause for a... to grant a Brady motion at the State collateral proceeding?",
       "time": "00:33:16.19"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but don't you have to show that there's cause for a Brady viol... don't you have to show that there's reason to know that she might have changed her story?",
       "time": "00:33:43.17"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But may I just ask on that point, at the... in your motion to dismiss at the commencement of the State collateral proceeding, you represented, or the State did, given that counsel were voluntarily given full disclosure of everything known to the Government, there was no need for a formal motion. So your position many months later was that everything you knew had been turned over; is that right?",
       "time": "00:34:38.07"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that was the position of the State of Virginia at that time.",
       "time": "00:35:09.35"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, you said known to the Government. Doesn't that mean any agency of the Government for purposes of Brady? I mean, Brady... it's very clear at this point that the Brady obligation does not depend on the prosecutor's particular knowledge of an item of evidence. If anyone representing the Government in that investigation had the evidence, the Government has an obligation to turn it over. So that when you make a... or when someone made a statement that everything known to the Government had been disclosed, and it's in connection with, among other things, a Brady issue that arises because of the ineffective assistance of counsel motion, isn't the only natural reading of that response to be, yes, for Brady purposes everything known to the Government has been disclosed? Isn't that the fair reading?",
       "time": "00:35:20.51"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it may not have been intended by the warden, but isn't that a proper basis upon which defense counsel could have understood it and, if so, why in the world is that not adequate cause for going no further?",
       "time": "00:36:13.76"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it raised a claim of ineffective assistance predicated upon the failure to make a Brady motion. The only way that claim of ineffective assistance could have succeeded would ultimately have been with a showing of prejudice. Assuming you get over the prong of reasonable competence, you then have to show prejudice. In order to show prejudice you at least would have to have shown Brady prejudice, and therefore the... it seems to me the filing of that motion raised the entire Brady issue right then and there. And the response of the State was, there's no reason to go into this court because the State, the Government has turned over all the evidence that it's gotten.",
       "time": "00:36:49.30"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "All right, then let me ask you this.",
       "time": "00:37:41.87"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let me ask you this. Let's assume that motion had been pursued. And let's assume that the... that counsel for the petitioner here had demonstrated to everyone's satisfaction, including the court's, and the court had said so, that in fact the lawyer's failure to file a Brady motion during trial, or at the trial stage, had in fact been an inadequacy. It had been a failure of reasonable representation. Would the State at that point then have said, okay, we concede that there should be a new trial for failure of assistance of counsel?",
       "time": "00:37:43.87"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "My question is, would you have conceded error. And I think the answer is, of course you wouldn't have conceded error.",
       "time": "00:38:25.17"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You would have said, look, they've only gone half way on the ineffective assistance point. They've got to prove prejudice, and in order to prove prejudice they would have to have shown that if the Brady motion had been filed there would have been material forthcoming. And if that material had been forthcoming, there is a reasonable probability within the meaning of that term in Brady that the result would have been different. You would have required them to show prejudice. And the reason I make this argument is that you're saying, oh well, that's... filing an inassistance motion is not like filing a Brady motion. And my point is, of course it's like filing a Brady motion, because you would not have conceded that they were able to succeed on the ineffective assistance unless they had proved what in effect would have been a Brady violation.",
       "time": "00:38:30.68"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, sure. Ms. Rumpz--",
       "time": "00:39:23.16"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--I notice that the opinion of the supreme court of Virginia in the State habeas proceeding came down in January 1995, which I think was somewhat before our decision in the Kyles case. When were the... do you know when the actual proceedings in the Augusta County trial court were conducted in that case?",
       "time": "00:39:24.38"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:39:46.28"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you. What is... may I just finish up, because my reason for calling your attention to the statement in the... your motion to dismiss was not as profound as what you've discussed with Justice Souter. It was to ask you whether, given the fact that the State at that time, which presumably would have read the newspapers at the time of trial and all the rest, was still able to say they thought everything had been turned over to the defendant. Why is it that you can say the defendant should have read the newspapers and figured out otherwise a long time earlier? Do you understand my question?",
       "time": "00:40:01.91"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You earlier said to me, well, they were on notice that there was... might well have been a Brady claim because the newspaper stories indicated that this wouldn't have... may not have been reliable, a lot of other stuff. But then 2 years later you're saying the State is still taking the position that everything relevant had already been turned over, so it seems to me you can't have it both ways.",
       "time": "00:40:40.78"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Maybe the State was lying. You don't have to take the position that the State wasn't lying, do you? [Laughter]",
       "time": "00:41:06.29"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, I know you'd like to, but is that essential to your case? Let's assume it was a misrepresentation by the State. Would that make any difference?",
       "time": "00:41:14.03"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But is said-- --It said, Counsel, we're voluntarily giving full disclosure of everything known to the Government, which suggests that they knew about the police files... which suggests that they didn't know about the police files. I think that's your view. Let me ask you this, did the lawyers at this time know about the police files?",
       "time": "00:41:41.51"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:42:00.74"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And don't you also think, no, that the prosecutor didn't know at the time of trial?",
       "time": "00:42:06.81"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And do you also agree that if he had known of them, he would have had a duty to turn them over?",
       "time": "00:42:19.39"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't agree with that?",
       "time": "00:42:23.97"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What about Brady?",
       "time": "00:42:31.02"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "This is dynamite impeachment material. Let's just assume that.",
       "time": "00:42:37.22"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I think it is. But in all events, one of the things that puzzles me in this case, and I don't know which way it cuts, is it seems to me that any attorney, trial, habeas, prosecutor, defense, ought to know that there's witness notes taken by the officer, and nobody seems to ask for them, and I'm baffled by that.",
       "time": "00:42:44.57"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's my next point. As trial counsel it's not completely clear, assuming they're not Brady material, that he could get these notes anyway, is it? He'd have to call Claytor to the stand, he, the defense counsel, and ask Claytor, did you take any notes?",
       "time": "00:43:15.87"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's about the only way you could do it, I suppose.",
       "time": "00:43:33.25"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Under Virginia law, once she says she talked to Detective Claytor, can the defense counsel say to the prosecution, I'd like Claytor's notes, please, and be assured that he'll get them?",
       "time": "00:43:47.02"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Pardon me?",
       "time": "00:43:55.31"
     },
@@ -1299,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "That's what I thought. Is-- --Ms. Rumpz, are you going to get to the prejudice half of the case?",
       "time": "00:43:56.68"
     },
@@ -1311,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Thank you.",
       "time": "00:44:03.03"
     },
@@ -1323,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That isn't the argument given by the Fourth Circuit. The Fourth Circuit says, let's assume that Stoltzfus never testified. There was no prejudice, because even if she hadn't testified, Strickler never contested that he abducted and robbed Whitlock. In fact, counsel for Strickler argued to the jury during the guilt phase they should convict Strickler of first degree murder rather than capital murder because Henderson rather than Strickler actually killed Whitlock. Thus, Stoltzfus' testimony was not critical to the Commonwealth's case, especially in view of the overwhelming evidence in the record independent of Stoltzfus' testimony. That's the Fourth Circuit's argument.",
       "time": "00:44:58.99"
     },
@@ -1335,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, but I want to know what you think of that argument, because when I read this sentence, in fact, counsel for Strickler argued to the jury during the guilt phase that they should convict Strickler of first degree murder rather than capital murder because Henderson rather than Strickler actually killed Whitlock. When I focused on that I wondered, I'm not sure about Stoltzfus' testimony. Maybe it is critical, because maybe it was Stoltzfus who said that because Strickler was the gang leader, that put the idea in the jury's mind that indeed Strickler was the one who threw the rock, or helped throw the rock, or directed the throwing of the rock, and without that testimony the jury would have thought no such thing. Now, why isn't that prejudice?",
       "time": "00:45:38.50"
     },
@@ -1347,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, I'm not talking about that. It certainly matters whether the jury thought Strickler was somewhere on the edge of the area in a car looking the other way, or whether Strickler participated in the throwing of the rock and killing the victim. That's-- --At least for purposes of the sentence it matters. Yes, that's what I'm talking about, just for purposes of the sentence. So I would think it would matter a lot whether the jury did or did not think that Strickler was involved and participated in the actual killing.",
       "time": "00:46:29.12"
     },
@@ -1359,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Doesn't it? Does that not matter whether he participated or not? You're free to please disagree with me if you do. I mean--",
       "time": "00:47:03.93"
     },
@@ -1371,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--don't... yes.",
       "time": "00:47:09.05"
     },
@@ -1383,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, but suppose Strickler was in the car looking the other way. Would that make a difference under Virginia law?",
       "time": "00:47:20.00"
     },
@@ -1395,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right.",
       "time": "00:47:24.24"
     },
@@ -1407,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. What Stoltzfus' testimony establishes is that Strickler was the leader of the group, and that makes it more likely that Strickler would have participated in the killing itself, rather than been looking the other way. That's the chain of reasoning.",
       "time": "00:47:28.30"
     },
@@ -1419,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Now, I want you to address that chain of reasoning.",
       "time": "00:47:43.41"
     },
@@ -1431,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You can pick it apart, or say it's irrelevant, whatever you like.",
       "time": "00:47:45.38"
     },
@@ -1443,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Required two people.",
       "time": "00:48:08.13"
     },
@@ -1455,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Somebody else to hold the victim.",
       "time": "00:48:12.97"
     },
@@ -1467,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why is that? I never did follow... if she had just been raped and brutally attacked, isn't it possible that she was immobile at that time?",
       "time": "00:48:16.57"
     },
@@ -1479,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I think your response that you gave to Justice Breyer is rational and responsive, but it's very thin evidence. And if you couple it with Stoltzfus' testimony that what... a Mountain Guy or Mountain Man, who was Strickler, was really the agitator, the prime actor the whole time she observed them at the shopping center, and this was the prosecution's case, it would seem to me fairly clear that he was the one that killed her. And without that testimony you have something... a very, very different case.",
       "time": "00:48:48.71"
     },
@@ -1491,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Were they discounted as being just microscopically also similar to Henderson's? Was there any test of Henderson's hair so we could know? I mean--",
       "time": "00:49:41.81"
     },
@@ -1503,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--This... this--",
       "time": "00:49:51.60"
     },
@@ -1515,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--You said that there was overwhelming evidence, apart from Stoltzfus' testimony, that Strickler was the one, the prime mover in the abduction and the robbery of Whitlock. So I notice there was one witness that Mr. Estrada didn't mention, and that was Virginia Smith. Tell us what is your strongest case for saying there was overwhelming evidence without this witness.",
       "time": "00:49:53.20"
     },
@@ -1527,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Who were those two people?",
       "time": "00:50:41.51"
     },
@@ -1539,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but I don't think the argument is the implication of Strickler in the murder. I think the question that arises, at least it's my question that arises on the prejudice issue, is this. Stoltzfus' testimony was not only, as has been pointed out, that Strickler seemed to be the lead person in this group, but the testimony also was that Strickler was slightly crazy. And when we get to the point of trying to assess the probability that Strickler and not Henderson was the person who smashed the skull with the rock, the fact that the person is agitated to the point of being strange and weird and crazy is certainly evidence which I think the jury would have considered in saying, yes, the probability is that he was the one who used the rock and for that reason our discretionary decision at the sentencing phase is going to be to recommend death. Without her testimony it seems to me the State's case, as it were, for that train of reasoning would have been weaker--",
       "time": "00:50:58.82"
     },
@@ -1551,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--and for that reason it seems to me that there may be materiality as to the discretionary sentencing decision.",
       "time": "00:52:12.52"
     },
@@ -1563,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, regardless of what he's claimed, the question is whether the jury would have come to the same discretionary decision if, as... and let's say on the reasoning of the Fourth Circuit, if her testimony had been excluded, was subject to very substantial impeachment on cross examination. And it seems to me that the answer is quite possibly not. And that, it seems to me, is the strongest argument for materiality here, and I want to know what your response is to that.",
       "time": "00:52:24.24"
     },
@@ -1575,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Oh, and that goes to their guilt? That goes to their eligibility, I presume under Virginia law--",
       "time": "00:53:06.73"
     },
@@ -1587,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--for the death penalty. But my question is directed to the jury's ultimately discretionary decision. The jury says, okay, we understand that each one of them is subject to the death penalty. We understand the joint triggerman rule. Our question is... will, either, I guess, if they weren't joint trials, our question is, will Strickler get the death penalty. And the suggestion is that this woman's testimony in showing him as the leader and a bit of a nut is testimony that would have probably had an influence on the jury, without which the jury might well have come to a different discretionary decision.",
       "time": "00:53:10.86"
     },
@@ -1599,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But the jury might have said, this witness is unreliable.",
       "time": "00:54:06.10"
     },
@@ -1611,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mightn't it?",
       "time": "00:54:09.70"
     },
@@ -1623,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That's death eligibility, and that's conceded. There's no question about that.",
       "time": "00:54:24.56"
     },
@@ -1635,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why didn't Henderson get the death penalty?",
       "time": "00:54:59.02"
     },
@@ -1647,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What was the instruction?",
       "time": "00:55:05.24"
     },
@@ -1659,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So they could have found him ineligible--",
       "time": "00:55:17.99"
     },
@@ -1671,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--under the Henderson instruction.",
       "time": "00:55:19.91"
     },
@@ -1683,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wasn't there other direct evidence of... that he was the one that dropped the rock?",
       "time": "00:55:29.07"
     },
@@ -1695,7 +1699,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What other than Tudor? What was the evidence other than Tudor?",
       "time": "00:55:43.09"
     },
@@ -1707,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Anything else? Just Tudor.",
       "time": "00:55:45.97"
     },
@@ -1719,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is there any reason why Tudor would have wanted to put it on him rather than on Henderson?",
       "time": "00:55:52.45"
     },
@@ -1731,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Strickler was her boyfriend as opposed to Henderson--",
       "time": "00:56:11.85"
     },
@@ -1743,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Did she testify at the Henderson trial, too, and was the prosecution's theory there that Henderson was the second man?",
       "time": "00:56:16.05"
     },
@@ -1755,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Was she ever indicted for anything?",
       "time": "00:57:06.39"
     },
@@ -1767,7 +1771,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Was she ever indicted for anything?",
       "time": "00:57:11.49"
     },
@@ -1779,7 +1783,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Of course, she had all the jewelry from the victim and all and so forth, didn't she?",
       "time": "00:57:23.02"
     },
@@ -1791,7 +1795,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But Henderson had the watch, as I recall, and--",
       "time": "00:57:37.32"
     },
@@ -1803,7 +1807,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Henderson gave the watch to his girlfriend.",
       "time": "00:57:39.54"
     },
@@ -1815,7 +1819,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's a wash.",
       "time": "00:57:42.38"
     },
@@ -1827,7 +1831,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "None of that goes to the sentencing factor, however.",
       "time": "00:58:09.55"
     },
@@ -1839,7 +1843,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, because she was an extremely credible witness. Everybody thought she was telling the truth.",
       "time": "00:58:32.69"
     },
@@ -1851,7 +1855,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, in order to prove his innocence he would have had to do that, but in order to disprove the notion that he was the ringleader and all, he wouldn't have had to do that.",
       "time": "00:59:01.98"
     },
@@ -1863,7 +1867,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you have to acknowledge that she was not as credible a witness as Stoltzfus was.",
       "time": "00:59:13.79"
     },
@@ -1875,7 +1879,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes. I mean, she had all sorts of reasons why one could be skeptical of her. Maybe she told the truth 100 percent and Stoltzfus apparently did not, but nevertheless, the way they appear to the jury you can't be sure which one seemed the more credible.",
       "time": "00:59:18.34"
     },
@@ -1887,13 +1891,13 @@
     },
     {
       "turn": 307,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Rumpz. The case is submitted.",
       "time": "00:59:41.25"
     },
     {
       "turn": 308,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until Monday next at ten o'clock.",
       "time": "00:59:43.26"
     }

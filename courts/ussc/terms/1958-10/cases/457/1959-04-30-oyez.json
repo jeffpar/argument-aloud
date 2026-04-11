@@ -3,39 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1958/457/19590430a_457.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
       },
       {
         "name": "WESLEY R. ASINOF",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "J. DWIGHT EVANS, JR.",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 457, Horace Ingram, L. E. Smith, Mary Law et al., Petitioners, versus United States of America. Mr. Asinof.",
       "time": "00:00:00.00"
     },
@@ -47,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Relating to what?",
       "time": "00:01:03.33"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "How many were tried at the same time?",
       "time": "00:01:21.59"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "26.",
       "time": "00:01:24.43"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "How many lawyers for the defendants?",
       "time": "00:01:31.07"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Didn't the Court of Appeals and the District Court find him to be a principal?",
       "time": "00:03:12.71"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did the evidence bear on the profit of the -- of the petitioners other than Ingram?",
       "time": "00:03:54.29"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What their take was out of this profit and --",
       "time": "00:04:03.80"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- was charged?",
       "time": "00:04:05.79"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Nothing at all?",
       "time": "00:04:07.18"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "We don't know whether they got $10 a day or whether a sizable share in the profit?",
       "time": "00:04:08.78"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What -- what other testimony was there, except that interesting item that the income, or was it the gross, was reduced to $3,500 a day?",
       "time": "00:05:25.71"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What else was there bearing on the size of the operation?",
       "time": "00:05:35.92"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you say there is nothing in the record to indicate what the -- what the monetary reward of Smith, Mary Parks Law, and Rufus Jenkins were.",
       "time": "00:06:13.03"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You say the -- the record is bad.",
       "time": "00:06:26.38"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Whether they, being a very small -- whether they had a very small remuneration or whether they had a good-for-sized chair in it.",
       "time": "00:06:31.79"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But was there anything in the record from which a jury could barely draw the inference that this was a -- this was a large-scaled money making enterprise and that the three people, three petitioners here, other than Ingram had an important stake in the profit making.",
       "time": "00:06:56.32"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not a word, you say?",
       "time": "00:07:18.82"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was there --",
       "time": "00:07:27.16"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was there any other -- was there any evidence to indicate the relationship of those three that I've named to Ingram showing that they were -- that they must have been in the know both of what was going and what was done or what was not done?",
       "time": "00:07:28.50"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You don't --",
       "time": "00:07:49.76"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You don't deny that?",
       "time": "00:07:50.32"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You guys --",
       "time": "00:07:52.05"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- are clear on that?",
       "time": "00:07:52.28"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Because of that, is it suggested that, therefore, they must have known what Ingram was about?",
       "time": "00:07:56.33"
     },
@@ -335,13 +339,13 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And it's one of your chief burdens to destroy that argument, is it not?",
       "time": "00:08:19.80"
     },
     {
       "turn": 52,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Was there any proof in the record to the tax was due?",
       "time": "00:08:24.81"
     },
@@ -353,7 +357,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, is there any question that, under the law, the excise tax was due?",
       "time": "00:08:45.78"
     },
@@ -365,7 +369,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And there is no question that it wasn't paid.",
       "time": "00:08:51.20"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand that.",
       "time": "00:08:59.98"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I mean, the effect of -- of liability for a nonpayment --",
       "time": "00:09:01.31"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- of --",
       "time": "00:09:05.85"
     },
@@ -413,7 +417,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- of federal -- of wages -- wages for the tax.",
       "time": "00:09:06.59"
     },
@@ -425,7 +429,7 @@
     },
     {
       "turn": 66,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "This is one of the facts that brought this establishment up under Georgia law.",
       "time": "00:11:41.90"
     },
@@ -437,7 +441,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "So, if that's right --",
       "time": "00:12:25.73"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- why do you treat the two disjunctively?",
       "time": "00:12:27.65"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, that would -- that would be proof, certainly, of Ingram.",
       "time": "00:13:05.63"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, would it be true in your view? Would it follow inferentially that it would be true as to these other three even under state law?",
       "time": "00:13:08.99"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 76,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now. Mr. Asinof, you may proceed.",
       "time": "00:13:36.09"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 78,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You mean, as a matter of permissible inferences that a jury could draw from this record?",
       "time": "00:15:11.69"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 80,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It might make a distinction between the so-called banker running in that respect.",
       "time": "00:15:39.74"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 82,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "There could be.",
       "time": "00:15:44.69"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 84,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But if they were employees of the banker, might they not have his interest in mind in concealing the --",
       "time": "00:15:46.30"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "They'd have to read what is in a man's mind when --",
       "time": "00:16:02.68"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 88,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- he's in an illegal project?",
       "time": "00:16:05.76"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It was -- it was rather essential in order to keep out of the net of the state to have this enterprise carried on secretly, illicitly.",
       "time": "00:16:22.10"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And not to make a disclosure to the fact that it was being carried on. Is that right?",
       "time": "00:16:35.88"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, if there had been a -- if the federal law had been obeyed, Ingram would have to write -- make a public statement, in effect, that “I am carrying out a lottery,” wouldn't he?",
       "time": "00:16:40.30"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That being so, why is it a non-reasonable inference that these other people, no matter what their state is in relation to his business was, that these other people must therefore have known that he didn't comply with federal law because if he had complied with federal law, the goose would have been cooked.",
       "time": "00:16:54.60"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, why doesn't that -- why isn't that practical fact a sufficient basis for inference by the jury that these people knowingly helped him in carrying on a business in -- in evasion of a federal duty?",
       "time": "00:17:14.89"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But -- but an agreement --",
       "time": "00:17:37.44"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is true. They could not be convicted. It could not -- they could not permit the substantive federal offense. Well, then, they were not within its purview, but does that mean they couldn't have conspired with him that he should evade --",
       "time": "00:17:39.11"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- his duty?",
       "time": "00:17:53.30"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I am suggesting the evidence is derived from the fact that they -- that they helped him to carry on a business. They helped him to carry on a business in disobedience to the federal duty to make a disclosure and pay a tax, and they knew that they were helping consciously to help him evade the federal law because it requires just less than moronic intelligence to know he couldn't have made the disclosure without, as I say, putting it onto his business.",
       "time": "00:18:01.61"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He could not have paid his tax and registered could he?",
       "time": "00:18:34.73"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And -- and not come -- not an unfair practice if it were to the state authorities?",
       "time": "00:18:39.86"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Would it be difficult for them, if he actually -- if he actually registered? Just what is the process? Where would he be doing that?",
       "time": "00:18:48.48"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where?",
       "time": "00:18:58.70"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "In Atlanta, and wouldn't that be accessible to the state authority?",
       "time": "00:19:00.22"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, is it an awfully big Jump? Is it too big a jump? That's the real question.",
       "time": "00:19:06.53"
     },
@@ -749,7 +753,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is it too big a jump that that is as much evidence as though he had told these fellows “now, you want to keep -- be very careful because I don't want to get in trouble with the federal authorities”? Suppose there is evidence to that extent.",
       "time": "00:19:11.06"
     },
@@ -761,7 +765,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You think that --",
       "time": "00:19:26.46"
     },
@@ -773,7 +777,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That would have been a conspiracy, --",
       "time": "00:19:27.82"
     },
@@ -785,7 +789,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- although they could not be prosecuted for the substantive offense.",
       "time": "00:19:29.21"
     },
@@ -797,7 +801,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Now, what I'm suggesting to you is that are they saying “be very careful because I see that I don't get in the clutches of the federal law” if he, in effect, -- in effect, told them that, by their knowledge -- inevitable knowledge that he'd be -- did make a disclosure to the District or -- what is he called?",
       "time": "00:19:32.79"
     },
@@ -809,7 +813,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The Director in Atlanta, the state authority would be wise to.",
       "time": "00:19:51.12"
     },
@@ -821,7 +825,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I -- I suggested the difference between a department store and this because a department store owner isn't under an almost inherent compulsion or temptation, to put it mildly, not to pay. That isn't true of a -- that isn't true of -- in carrying on any legitimate business. The fact of the illicit cashing of the business, under Georgia Law, gives important proof that he doesn't want to give the publicity that he would be afforded by the state authorities if he did comply with the federal Act.",
       "time": "00:20:35.37"
     },
@@ -833,7 +837,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that right?",
       "time": "00:21:09.03"
     },
@@ -845,7 +849,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Asinof, doesn't -- doesn't that same law require him to keep posted in his -- his place of business a copy that receipt?",
       "time": "00:21:15.70"
     },
@@ -857,7 +861,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:21:32.43"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, but if the law did require that then it wasn't done and those who are working with him in this illicit project were trying to protect his interest, might -- may not be protecting him against --",
       "time": "00:21:32.98"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 142,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- against detection for not having -- having posted in his place of business.",
       "time": "00:21:49.29"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that --",
       "time": "00:22:00.68"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is that a separate offense, --",
       "time": "00:22:01.43"
     },
@@ -917,7 +921,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not to post?",
       "time": "00:22:03.36"
     },
@@ -929,7 +933,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And what is the punishment for that?",
       "time": "00:22:04.60"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 152,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Is there any question about whether it was posted or not?",
       "time": "00:22:07.92"
     },
@@ -953,7 +957,7 @@
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Either way?",
       "time": "00:22:12.56"
     },
@@ -965,13 +969,13 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:24:00.77"
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Just before you sit down, Mr. Asinof, if I may, may I -- I just want to clear. Do you question the accuracy of the instructions to the jury given by the trial judge?",
       "time": "00:24:01.22"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Assuming the evidence was sufficient, do you think the instructions were inaccurate --",
       "time": "00:24:18.49"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- statement of the law?",
       "time": "00:24:23.98"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You did not?",
       "time": "00:24:27.19"
     },
@@ -1019,13 +1023,13 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Thank you.",
       "time": "00:24:31.75"
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Evans.",
       "time": "00:24:34.46"
     },
@@ -1037,7 +1041,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, isn't --",
       "time": "00:35:21.15"
     },
@@ -1049,7 +1053,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- isn't it conceded by the petitioners that the evidence was very clear to support a finding that there was a large-scale numbers operation going on and -- and an effort on -- by all parties concerned in it to conceal it? Isn't that all conceded here?",
       "time": "00:35:21.62"
     },
@@ -1061,7 +1065,7 @@
     },
     {
       "turn": 172,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you saying, as to the conspiracy to evade tax, was a gambling tax?",
       "time": "00:36:42.95"
     },
@@ -1073,7 +1077,7 @@
     },
     {
       "turn": 174,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What do you say the Court of Appeals' statement that it was not necessary for the Government to prove, in connection with that charge, either that a tax was due or that the tax had not been paid?",
       "time": "00:36:48.94"
     },
@@ -1085,7 +1089,7 @@
     },
     {
       "turn": 176,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And I read you brief to --",
       "time": "00:37:03.96"
     },
@@ -1097,7 +1101,7 @@
     },
     {
       "turn": 178,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I beg your pardon?",
       "time": "00:37:05.96"
     },
@@ -1109,7 +1113,7 @@
     },
     {
       "turn": 180,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, the pickup man didn't have to.",
       "time": "00:37:43.95"
     },
@@ -1121,7 +1125,7 @@
     },
     {
       "turn": 182,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, my question to you is can you hold the pickup man on the theory that they were engaged in a conspiracy to evade taxes, meaning the banker's taxes, without proof that it -- there is some proof that a tax was due and that it was not paid.",
       "time": "00:37:52.83"
     },
@@ -1133,7 +1137,7 @@
     },
     {
       "turn": 184,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the Court of Appeals did not sustain the conviction, as I read its opinion, on that ground. The charge was, as you have -- as you have vindicated, namely, that they could infer from this evidence that the tax had not been paid, and so forth. But, the Court of Appeals did not uphold it on that ground and, as I see it, they never evaluated the record in terms of that being an essential part of the Government's case.",
       "time": "00:38:43.45"
     },
@@ -1145,7 +1149,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you admit that it is? Can't there be a conspiracy to evade taxes that are not due or not paid because -- and because it's a conspiracy in 1959 to evade taxes due and payable in 1960?",
       "time": "00:39:12.53"
     },
@@ -1157,7 +1161,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you think -- I am asking you. Do you think it is necessary that a conspiracy to -- for the evasion of these wagering taxes that involve -- should relate to taxes that are due and payable and have not been paid?",
       "time": "00:39:38.08"
     },
@@ -1169,7 +1173,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is it -- anymore in a conspiracy to murder means that there must have been a murder?",
       "time": "00:40:01.50"
     },
@@ -1181,7 +1185,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "My difficulty with your case is very different. My difficulty is that the only places on which you can -- on which in this case, as I see it, a conviction for a conspiracy on the part of -- of people who are not liable substantively under the Act, a charge for conspiring with the man who was is that from the mere fact of their employment in being certainly subsidiary position with a money interest in relation to the enterprise that is, as to which there is no evidence, from the mere fact that they were employed in this enterprise, the jury was allowed to infer and the judgment must be sustained that they conspired, cooperated, collaborated, actively were engaged in a partnership with him for the nonpayment of that tax because, presumably, they knew (a) that a tax had to be paid and (b) that he wasn't going to pay it.",
       "time": "00:40:42.02"
     },
@@ -1193,7 +1197,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was there any -- before you do that, people may be important and even indispensable. A man may have just as a fellow who beats -- just gives one beat to a drum in a long symphony may be indispensable, but it doesn't follow that, therefore, he knows what everybody else in the enterprise says they do. Was there any evidence in this case, anything brought home to these nontaxable people, that the taxes -- that there such a thing as federal taxes and there's a duty to pay them, and that Ingram was not going to carry out that duty, was there a conscious cooperation other than the fact that this was a lottery?",
       "time": "00:42:18.16"
     },
@@ -1205,7 +1209,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Any what they asked -- was there any -- was there any -- any evidence that some had the knowledge of the existence of such a -- of the wagering -- what's -- what's the Act called, technically?",
       "time": "00:42:59.47"
     },
@@ -1217,7 +1221,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The Wagering Tax Act, was there any knowledge of the existence of such a federal statute brought over them?",
       "time": "00:43:13.26"
     },
@@ -1229,7 +1233,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Or would you say that, as a matter of law, it must be presumed that they knew there was such a statute? I take no stop in such a fictitious assumption that people know the law.",
       "time": "00:43:20.28"
     },
@@ -1241,7 +1245,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I think all the law that a man is supposed to know that I don't know, I don't see why I should attribute knowledge to laymen.",
       "time": "00:43:29.45"
     },
@@ -1253,7 +1257,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand Ingram.",
       "time": "00:43:47.78"
     },
@@ -1265,7 +1269,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I have no trouble with him.",
       "time": "00:43:48.93"
     },
@@ -1277,7 +1281,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Do you mind if I -- is there anything in the record to show that there was a -- a newspaper campaign that the Atlanta Constitution printed a lot of stuff showing how the -- the federal tax was being evaded and that that take away the executive, anything like that?",
       "time": "00:44:25.32"
     },
@@ -1289,7 +1293,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "All you're saying is that these people couldn't have been so interested as not to know there was such a law. That's what you're saying?",
       "time": "00:44:42.14"
     },
@@ -1301,7 +1305,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, not -- does it also show that -- that these three people knew that the federal authorities were at their heels.",
       "time": "00:45:47.71"
     },
@@ -1313,7 +1317,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I should think you're inferring on -- inferring on inferences. I mean, that my trouble with the case.",
       "time": "00:45:59.30"
     },
@@ -1325,7 +1329,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "To their knowledge?",
       "time": "00:46:39.58"
     },
@@ -1337,7 +1341,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "How did --",
       "time": "00:46:44.83"
     },
@@ -1349,7 +1353,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "How did it appear in the record?",
       "time": "00:46:45.98"
     },
@@ -1361,7 +1365,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, but they might be escaping the local police or the state police. Have you got state police on -- in Georgia, whatever they've got?",
       "time": "00:46:49.62"
     },
@@ -1373,7 +1377,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The County.",
       "time": "00:46:57.57"
     },
@@ -1385,7 +1389,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This is, after all, a criminal case and people are going to jail.",
       "time": "00:47:00.82"
     },
@@ -1397,7 +1401,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And there is such a thing as beyond reasonable doubt.",
       "time": "00:47:05.45"
     },
@@ -1409,7 +1413,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Which -- which its knowledge has not been brought home to them.",
       "time": "00:47:14.97"
     },
@@ -1421,7 +1425,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's just by your inference.",
       "time": "00:47:19.50"
     },
@@ -1433,7 +1437,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "They were entitled not to. I mean, --",
       "time": "00:47:24.37"
     },
@@ -1445,7 +1449,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You can't make it your case out of their mouths, you know.",
       "time": "00:47:28.75"
     },
@@ -1457,7 +1461,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did they know that they were apprehended by federal officers or did they merely know they were apprehended?",
       "time": "00:47:42.78"
     },
@@ -1469,7 +1473,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The problem isn't with you, Mr. Evans, the trouble is with your record.",
       "time": "00:47:58.52"
     },
@@ -1481,7 +1485,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But that is the thing --",
       "time": "00:48:16.84"
     },
@@ -1493,7 +1497,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That is the case. That's what I meant to put to you a little while ago. The case is that an operation of this magnitude carried on for so long of continuous period in which these people played an important role, support sufficient basis for allowing the jury to infer that they knew, in the first, the requirements of the federal law and that, from that knowledge and their share in the enterprise, presumably, that in the requisites of criminal prosecution, they actively -- what they did and what they failed to do falls with the active conscious planning with Mr. Ingram. Is that right?",
       "time": "00:48:20.71"
     },
@@ -1505,7 +1509,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's the case, --",
       "time": "00:49:06.42"
     },
@@ -1517,7 +1521,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- isn't it?",
       "time": "00:49:07.62"
     },
@@ -1529,7 +1533,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I wonder if you would -- I wonder if you would now tell us exactly what evidence there was against Law and Smith.",
       "time": "00:49:09.73"
     },
@@ -1541,7 +1545,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And, that -- that would bear on what you're speaking about now. As I understood counsel, there's only one bit of evidence against Law and that was that, at the time of the raid or whenever it was, she had in her possession some tickets. I understood him to say that's the only thing in the record. Now, will you tell me over and above that, what there is concerning her and also those who were -- set and situated.",
       "time": "00:49:20.26"
     },
@@ -1553,7 +1557,7 @@
     },
     {
       "turn": 254,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "00:49:55.53"
     },
@@ -1565,7 +1569,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Incidentally, when was this federal statute enacted?",
       "time": "00:50:15.70"
     },
@@ -1577,13 +1581,13 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Thank you, thank you.",
       "time": "00:50:19.91"
     },
     {
       "turn": 259,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When did we finally pass on it, Mr. Evans?",
       "time": "00:50:22.47"
     },
@@ -1595,7 +1599,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "When did we pass on it?",
       "time": "00:50:25.50"
     },
@@ -1607,7 +1611,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That slows it down for delay, doesn't it?",
       "time": "00:50:31.67"
     },
@@ -1619,7 +1623,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Don't let --",
       "time": "00:50:38.16"
     },
@@ -1631,7 +1635,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I didn't mean to divert you from the Chief Justice's question.",
       "time": "00:50:38.97"
     },
@@ -1643,7 +1647,7 @@
     },
     {
       "turn": 269,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "If there is anything more on Bar and Smith, just read it briefly, please.",
       "time": "00:54:47.61"
     },
@@ -1655,7 +1659,7 @@
     },
     {
       "turn": 271,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Asinof.",
       "time": "00:56:46.98"
     },
@@ -1667,7 +1671,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Don't you say, Mr. Asinof, that, at most, what the evidence shows here is a conspiracy which is subsidiary to a subsidiary conspiracy?",
       "time": "01:00:05.04"
     },
@@ -1679,7 +1683,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In other words, that the basic conspiracy was to operate an illegal lottery, illegal under the laws of Georgia.",
       "time": "01:00:13.41"
     },
@@ -1691,7 +1695,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that a subsidiary to that conspiracy was to conceal the operation of that illegal activity, and that illegal conspiracy, and necessary to that subsidiary concealment conspiracy was not to pay the federal tax.",
       "time": "01:00:21.60"
     },
@@ -1703,7 +1707,7 @@
     },
     {
       "turn": 279,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, Mr. Asinof, as I see it, there are two -- two different crimes here, of course, the state crime and the federal crime. The state crime is only a misdemeanor, but to conduct the gambling operation like this without paying the -- the tax -- a federal tax is -- is more than a misdemeanor, isn't it?",
       "time": "01:01:13.23"
     },
@@ -1715,7 +1719,7 @@
     },
     {
       "turn": 281,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, it's --",
       "time": "01:01:40.66"
     },
@@ -1727,7 +1731,7 @@
     },
     {
       "turn": 283,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:01:42.19"
     },
@@ -1739,7 +1743,7 @@
     },
     {
       "turn": 285,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:01:44.53"
     },
@@ -1751,7 +1755,7 @@
     },
     {
       "turn": 287,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well -- Yes.",
       "time": "01:01:44.94"
     },
@@ -1763,7 +1767,7 @@
     },
     {
       "turn": 289,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, that -- that makes it a felony. Now, why should we be forced to the conclusion that the -- the main conspiracy was to avoid the state law, which was only a misdemeanor, where it was just as essential if he was going to -- to operate the -- the gambling affair without punishment, that he must conceal the fact that he hadn't paid his tax?",
       "time": "01:01:45.89"
     },
@@ -1775,7 +1779,7 @@
     },
     {
       "turn": 291,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Why is one subsidiary to the other?",
       "time": "01:02:15.14"
     },
@@ -1787,7 +1791,7 @@
     },
     {
       "turn": 293,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, the operation was as flagrant as you indicate it was. It might well be that they were more afraid of the Federal Government than they were of the State Government.",
       "time": "01:03:09.25"
     },

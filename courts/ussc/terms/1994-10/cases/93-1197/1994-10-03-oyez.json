@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1994/93-1197/19941003a_93-1197.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "LAWRENCE ALLEN KATZ",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "HUGH H. WELSH",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 93-1197, Albert Hess and Charles F. Walsh v. the Port Authority Trans-Hudson Corporation. Mr. Katz.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Why does one follow from the other? Is it necessarily so that if PATH has immunity... well, is it necessary to sort of... if the Port Authority has immunity that PATH does? PATH is a wholly owned subsidiary, as it's described.",
       "time": "00:00:34.19"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But if a State created a corporation and gave it all the immunities of the State, it wouldn't necessarily follow that it would have immunity as a matter of Federal law. That would still be for us to determine.",
       "time": "00:00:57.72"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So I'm not... so nothing turns, in your view, on the fact that this is a wholly-owned subsidiary of the Port Authority?",
       "time": "00:01:07.26"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Then that's the analysis that we have to follow here, isn't it?",
       "time": "00:01:30.81"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But in any case, the terms of the corporate charter have nothing to do with our inquiry except insofar as it identifies the powers of the corporation and allows us to determine whether the corporation is equivalent to the Authority, and hence whether the Authority is equivalent to the State.",
       "time": "00:01:38.06"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you don't think anything turns on that first inquiry, as I understand your brief. You treat PATH just as if it were the Port Authority.",
       "time": "00:02:14.77"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But if it is the same, it's not because its charter says it's the same, it's because under straight Eleventh Amendment analysis it is the same. Nothing is added by their saying, this is the same, any more than anything is added to the analysis by the Port Authority's enabling act saying this is the State.",
       "time": "00:02:26.21"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes. Well, it may work one way and not the other way. That is to say, if the Port Authority is not entitled to sovereign immunity, surely PATH is not, but if the Port Authority is, perhaps PATH is and perhaps it isn't. Would you agree with that?",
       "time": "00:02:58.62"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let's take a similar internat... do you think that is enough just with those givens we can say it's not entitled to sovereign immunity, neither a State nor--",
       "time": "00:04:24.90"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Right.",
       "time": "00:04:39.29"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right, nor can it act... can a State require its action.",
       "time": "00:04:41.40"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes.",
       "time": "00:04:48.68"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What about an international organization like OPEC, for example, an international organization of sovereigns to operate in one particular field, or what about something like a joint command of a military operation like a crusade in Europe, I mean, the unified forces?",
       "time": "00:04:49.35"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Really?",
       "time": "00:05:28.55"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You think OPEC is suable in American courts?",
       "time": "00:05:29.18"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I'm talking about sovereign immunity in the international sense, which has a lot of bearing upon what sovereign immunity in the Eleventh Amendment is.",
       "time": "00:05:38.65"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You see, I've always thought that an organization like OPEC surely is not suable.",
       "time": "00:05:49.22"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No individual nation can control it. Just as in a joint military operation no individual State can control it. It has to have the consent of all.",
       "time": "00:06:04.36"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think you're wrong, but-- --Mr. Katz, am I wrong in thinking that you are relying dominantly on, this is an entity that raises its own money and pays its own way? I thought that that's what... you were emphasizing that and not the business of who controls, or how is the control spread.",
       "time": "00:06:25.83"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, can we talk about that a little bit? The States are liable up to $100,000?",
       "time": "00:07:00.00"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Even up to the $100,000?",
       "time": "00:07:41.32"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What about the other side of the coin? If the Port Authority and the related entities make money, and there's something left over, that goes back to the States?",
       "time": "00:07:44.80"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But why should the fact that two States are involved, or two sovereigns are involved, eliminate sovereign immunity? It seems to me you have double the claim to sovereign immunity, if anything. I don't understand that it follows.",
       "time": "00:08:41.09"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, that's very true--",
       "time": "00:09:08.30"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--but so what? That's very true, but so what? I mean, we've said that the Eleventh Amendment is simply a reflection of preexisting notions of sovereign immunity that came along with our union before the Eleventh Amendment was even adopted.",
       "time": "00:09:09.11"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It seems to me that those standard conceptions of sovereign immunity extend to two sovereigns acting jointly just as they extend to a single sovereign.",
       "time": "00:09:21.96"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's true, but why does that lead to the conclusion... that says they cannot act jointly without the approval of Congress, but why does it follow from that that when... moreover, which is what you're saying, when they do act jointly, they no longer have sovereign immunity the way they used to? I don't see how that follows.",
       "time": "00:10:09.78"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, are you saying as a matter of law if there's a bi-State entity it does not have Eleventh Amendment immunity?",
       "time": "00:10:37.37"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You would apply no different test to a bi-State entity than to a single State entity, then. Is that--",
       "time": "00:10:58.65"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, in the Lake Country Estates there's certainly no suggestion, as I read the opinion, that the analysis is different because it's a bi-State entity rather than a single-State entity.",
       "time": "00:11:25.21"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, the reason... I thought you had just said your main argument doesn't have to do with who controls, or it's bi-State, but it has to do with how this organiz... what it's operation is, how it pays for that operation. That would be the same if it were one State or two States, right?",
       "time": "00:11:53.45"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I tried to ask you about whether the States would receive any surplus revenues, and you never really answered the question. You went off--",
       "time": "00:13:15.94"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--in a different direction.",
       "time": "00:13:24.38"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, it is possible that the States may receive surplus revenues under this scheme?",
       "time": "00:13:26.81"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And have there ever been years in which there were such revenues that the States shared?",
       "time": "00:13:31.41"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then you're saying as a matter of law a bi-State entity cannot have Eleventh Amendment protection. You don't need to examine all these other factors, because in no bi-State entity will you find that one State can act on its own.",
       "time": "00:14:18.52"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but you've agreed with several totally inconsistent propositions, it seems to me. First, no bi-State entity can have Eleventh Amendment... second, that it depends on the facts and circumstances. What is your position?",
       "time": "00:14:38.10"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, just tell me.",
       "time": "00:14:54.74"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't that kind of a silly approach? If Congress wanted there to be immunity from suit in Federal courts, all it would have to do would be to say in its consent there should be immunity from suit in Federal court. Then you don't have to worry about all the details of the structure.",
       "time": "00:15:24.51"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What's the intent got to do... as I understand it, what Justice Stevens has suggested is not Eleventh Amendment immunity. It would be the equivalent of statutory immunity created for this entity by Congress on the theory that the Compact is treated as Federal law.",
       "time": "00:15:47.47"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, let me ask you... and I suppose this is just a theoretical question, but let's assume that in this case we were to find an intent on the part of the compacting parties, approved by Congress, to extend immunity to PATH. Would you lose, in that case?",
       "time": "00:16:40.56"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Because we took a case, as I understand it, to decide what the Eleventh Amendment provides, and I think you have agreed with me that whatever this immunity might be based on intent with congressional approval, it wouldn't necessarily be Eleventh Amendment immunity.",
       "time": "00:17:04.73"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then the Treasury factor isn't important at all. Even if this is the biggest moneymaker for the State, it wouldn't matter, as long as the States intended it to be immune?",
       "time": "00:17:41.69"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It looks to the Treasury factors when there's any doubt whether you're suing the State. If you sued a department of the State to get the State to get particular State action, is there any doubt the Eleventh Amendment would apply, unless there's a--",
       "time": "00:18:15.63"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Treasury or no Treasury, you can't sue a State agency as such.",
       "time": "00:18:34.32"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's one factor, but don't make it the be-all and end-all. It's certainly a sufficient factor, I think. I'm not sure it's anywhere near a necessary--",
       "time": "00:18:47.81"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--That all reduces back down to your basic argument that you have no sovereign immunity unless you are within the control of a single State, and that being within the control of two sovereign States suddenly eliminates sovereign immunity.",
       "time": "00:20:46.30"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's derivative of two sovereigns. The two sovereigns are the only people that can exercise control over it instead of one sovereign. You know, two sovereigns are twice as good as one sovereign, it seems to me, not half as good.",
       "time": "00:21:25.45"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, do you agree with that, counsel? Why isn't two sovereign... isn't two sovereigns just half of the control that a State usually has?",
       "time": "00:21:39.28"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right, so--",
       "time": "00:21:53.55"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--and that's almost always the case with any State agency, so why isn't your argument that, sui generis, this is a category where no State, no Eleventh Amendment immunity can apply?",
       "time": "00:21:54.84"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Would you make a distinction between an entity that enriches the State by making... or makes its own money, so it doesn't deplete this Treasury. That's your big Treasury factory. It doesn't deplete the Treasury. It may enrich the Treasury, but should that... those be equal? 1) It doesn't deplete the Treasury, 2) It enriches the Treasury.",
       "time": "00:22:35.96"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And if it did, would that account against your argument? This large Treasury factor... I understand the part they don't deplete the Treasury. If it swells the Treasury, does that indicate it's a State agency?",
       "time": "00:23:18.26"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the fact that they can do it jointly by agreement with one another, we have to rule that out of accounting?",
       "time": "00:23:43.30"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what do you do? It's their money. If New York and New Jersey agree, it's their money.",
       "time": "00:23:58.09"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Katz. Mr. Welsh, we'll hear from you.",
       "time": "00:24:14.11"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask a background question? You mentioned that between 1922, or whenever it was they formed this, and 1951, they retained their sovereign immunity?",
       "time": "00:27:34.15"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Those were all... all those were New York and New Jersey cases, were they?",
       "time": "00:27:51.64"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What did a person injured by the negligence of the Port Authority do during that period? Was there just no remedy?",
       "time": "00:27:54.66"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Resolutions passed by whom?",
       "time": "00:28:10.82"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:28:16.42"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But how would that be different from the Bolden and the later cases involving Pennsylvania, just a one-State authority? It seems that those later Third Circuit Cases accept that the Treasury factor is prime. That is, is this entity making its own money.",
       "time": "00:29:06.93"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But they did say, did they not, that it was probably the most important factor, and they distinguished the Third Circuit... whose decision is before us for review... distinguished the Port Authority cases on the ground that the States really would come to the rescue of the Port Authority, that the State's credit really did stand behind that entity?",
       "time": "00:29:40.27"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you want us to say that the Port Authority is an arm of the State of New York?",
       "time": "00:31:45.54"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it seems it has a more autonomous existence than that when the State of New York has to go into court to sue it.",
       "time": "00:31:53.55"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "To compel it to take action that it wishes, that New York wants.",
       "time": "00:32:03.76"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you're not saying that one may sue the Port Authority only by going to the Attorney General and having him bring the suit in your stead, are you?",
       "time": "00:33:23.42"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But a suit for damages is otherwise.",
       "time": "00:33:40.93"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You mean, if the Port Authority were trespassing on my property, as a private property owner I couldn't obtain an injunction?",
       "time": "00:33:48.48"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And does PATH have the same protection--",
       "time": "00:34:09.41"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--that only the Attorney General can enjoin PATH?",
       "time": "00:34:13.44"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I thought PATH was created by the Compact. Am I--",
       "time": "00:34:30.15"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, that... I mean, just saying it doesn't make it so. If we're in agreement, and I think you are, that whether sovereign immunity on the part of an entity exists or not depends to a large degree upon the functions that that entity performs, simply creating a subordinate entity which may do something that is not essential to State action and what-not, and that does not bring any money into the State Treasury or take any money out, if you do that, even though you say it shall share in all the sovereign immunity that I have, that wouldn't be effective, would it?",
       "time": "00:34:37.94"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you have to convince us not only that the Port Authority but that PATH meets the test that you've been talking about.",
       "time": "00:35:07.11"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure you answered my question. Do you agree that we have to look to the activities and the functions performed by PATH?",
       "time": "00:35:47.98"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Then can you tell me-- --For instance, if a State said that a municipality were to have Eleventh Amendment immunity, as a matter of Federal law we would just ignore that. We would look to see what the function was.",
       "time": "00:35:58.58"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The fact that the State says it is not controlling.",
       "time": "00:36:09.41"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Welsh, if it's the function that counts now, how does this PATH differ from the Pennsylvania... the Southeastern Pennsylvania, the New Jersey Transit, and why... explain to me rationally why PATH would get immunity that Southeastern Pennsylvania Transit Authority didn't have in the Third Circuit's view and the New Jersey Transit rail operators didn't have.",
       "time": "00:36:28.37"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And in the other cases they were appointed by--",
       "time": "00:37:30.56"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--May I ask a question about your... you earlier explained to us in injunctive actions that the citizen has to go to the Attorney General to bring the action. That, of course, is in State court cases.",
       "time": "00:38:02.90"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In a Federal... if there were a Federal question such as whether the authority had violated an environmental statute or something like that, would you contend the same procedure had to be followed?",
       "time": "00:38:12.27"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That the Federal court would not have jurisdiction of an individual's complaint unless the individual went to the--",
       "time": "00:38:21.24"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Do you have any authority for that?",
       "time": "00:38:28.68"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can enjoin the officer acting on behalf of the authority--",
       "time": "00:38:44.51"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--just as you can enjoin a State officer.",
       "time": "00:38:48.04"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're talking about Federal court actions now, but you couldn't do that in the State court, I don't suppose.",
       "time": "00:39:06.08"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your bar would apply to an action brought against an officer of PATH as well as PATH itself, wouldn't it?",
       "time": "00:39:11.22"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In State court?",
       "time": "00:39:22.53"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So why does anybody bother with the Attorney General, then?",
       "time": "00:39:41.32"
     },
@@ -1139,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you one other question, since I've interrupted you already? The first argument that we made in our opinion for the Court in the Lake Country Estate was a plain language argument, that the plain language of the Eleventh Amendment applies to suits against \"any one State\". What's your response to that argument?",
       "time": "00:40:14.37"
     },
@@ -1151,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Except that in the Lake Country opinion we said there was, based on the plain language.",
       "time": "00:40:46.93"
     },
@@ -1163,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So there's nothing in the Compact that would justify reading additional meaning into the limited language of the amendment. That's at page 401.",
       "time": "00:41:33.65"
     },
@@ -1175,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you think there's something in this Compact that justifies a departure from a general rule that the Eleventh Amendment means what it says.",
       "time": "00:41:45.98"
     },
@@ -1187,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Welsh, I thought you were going to say that we've also had cases subsequent to Lake Country which say that the Eleventh Amendment means more than it says, that it is simply exemplary of a sovereign immunity which was assumed to exist even before the Eleventh Amendment was passed, and that--",
       "time": "00:42:05.22"
     },
@@ -1199,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--it simply addressed the most common instance of it.",
       "time": "00:42:24.39"
     },
@@ -1211,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that is all post Lake Country.",
       "time": "00:42:28.92"
     },
@@ -1223,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And different language--",
       "time": "00:42:32.41"
     },
@@ -1235,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, I guess the reason might be the lack of political control. Each State is controlled by its citizens, but a bi-State agency is not.",
       "time": "00:43:06.33"
     },
@@ -1247,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's controlled only half by each State, and you are creating an entity, a new governmental entity which is now exempt from suit. This is a very serious immunity.",
       "time": "00:43:14.71"
     },
@@ -1259,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "For a fixed term of years at the pleasure of the Governor, or what?",
       "time": "00:44:32.98"
     },
@@ -1271,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And New York unilaterally can remove New York appointees?",
       "time": "00:44:47.00"
     },
@@ -1283,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You say for both of them their actions can be vetoed by the Governor within 30 days?",
       "time": "00:45:10.63"
     },
@@ -1295,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Line-item veto, or--",
       "time": "00:45:35.53"
     },
@@ -1319,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What would the resolutions deal with, proposed future projects?",
       "time": "00:45:46.75"
     },
@@ -1331,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Could a resolution dealing with personnel matters--",
       "time": "00:46:11.60"
     },
@@ -1343,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Is this... are you describing the Port Authority of New York and PATH?",
       "time": "00:46:29.66"
     },
@@ -1355,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Welsh, you were candid enough to say that you have a little problem with Bolden and Fitchik, and I think it might be helpful... you say the Third Circuit seems to be going in the opposite direction in those cases.",
       "time": "00:47:13.83"
     },
@@ -1367,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But they did say without qualification that who pays the judgments is the most important factor. Bolden I think said that fairly flat-out, didn't it, and there's another... what do you make of the Puerto Rican Port Authority case saying you have to look at the function that's being performed... running a railroad, operating a dock?",
       "time": "00:47:33.82"
     },
@@ -1379,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm referring to Royal Caribbean against--",
       "time": "00:47:58.80"
     },
@@ -1391,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Yes, by a well-respected jurist. [Laughter]",
       "time": "00:48:07.05"
     },
@@ -1403,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What functions does PATH perform here that you would characterize as essentially governmental functions?",
       "time": "00:48:43.82"
     },
@@ -1415,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I mean, they can say it's so, but is it so? I mean, most railroads are not run by States. I think it's rather unusual to have a State-run railroad, isn't it?",
       "time": "00:48:58.46"
     },
@@ -1427,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "We haven't held Washington Metro to be immune, right?",
       "time": "00:49:46.93"
     },
@@ -1439,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Huh?",
       "time": "00:49:50.43"
     },
@@ -1451,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, we, us here, I don't mean... I don't mean--",
       "time": "00:49:55.34"
     },
@@ -1463,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I never... I never use the editorial Mr. Welsh. I never do that.",
       "time": "00:49:59.48"
     },
@@ -1475,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You're not urging that that WMATA case is distinguishable, that it wouldn't be consistent to hold WMATA... why don't you just tell us what was the reason for the holding of immunity in WMATA?",
       "time": "00:50:07.07"
     },
@@ -1487,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What about who pays? Who pays?",
       "time": "00:50:45.32"
     },
@@ -1499,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, maybe our multifactor test doesn't work very well.",
       "time": "00:51:31.66"
     },
@@ -1511,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Welsh. Mr. Katz, you have 5 minutes remaining.",
       "time": "00:52:33.59"
     },
@@ -1523,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Katz, before you get off that question, why should it make a difference whether there is technically an obligation on the part of the State of New York and New Jersey to come to the assistance of a now-bankrupt Port Authority, or PATH? I mean, if, in fact, the alternative is that the whole Port... you don't really think New York and New Jersey are going to let the Port Authority cease to function.",
       "time": "00:54:23.01"
     },
@@ -1535,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not... there are good reasons why New York would not be entitled to sovereign immunity, but I question whether the good reason is just simply the State of New York does not bear the expenses of the City of New York.",
       "time": "00:55:01.05"
     },
@@ -1547,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If in all other respects the unit in question is at a State level, is performing State functions, is governed by State officers, I don't know that it makes a whole lot of difference whether technically the funds come directly out of the Treasury or the functions are so important to the State that, as a practical matter, if the entity is bankrupt the State is going to have to reach into its pocket to support it. It doesn't seem to me to be a factor of that overwhelming significance.",
       "time": "00:55:18.21"
     },
@@ -1559,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They're subject to a veto in 10 days of anything that they do, which, of course, you know the councilmen from New York are not.",
       "time": "00:56:06.51"
     },
@@ -1571,13 +1575,13 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Katz. The case is submitted.",
       "time": "00:57:22.37"
     },
     {
       "turn": 256,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until ten o'clock tomorrow.",
       "time": "00:57:26.56"
     }

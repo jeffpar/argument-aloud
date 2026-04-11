@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2002/01-1120/20021203a_01-1120.delivery.mp3",
     "speakers": [
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
       },
       {
         "name": "DOUGLAS G. BENEDON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       },
       {
         "name": "ROBERT G. SCHWEMM",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "MALCOLM L. STEWART",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We will now hear argument in Number 01-1120, Meyer against Holley. Mr. Benedon.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose... suppose that I were to agree with you and the Court were to agree with you as to your criticism of the Ninth Circuit's reasoning and... and that it agreed with you too that general principles of agency and corporate liability apply. Based on this record, could we go on to say that under California law and real estate law generally, the real estate salesman is the agent of the broker, and therefore the broker is liable under agency law?",
       "time": "00:01:37.01"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Or... or would I have to... would we have to remand before we did that? Because this is discussed in the... in the respondents' brief, and the respondent makes it quite clear. And maybe you disagree, but the... the law is cited on page 15 of the red brief, that under California law, the broker is the principal. And I take it the principal would be liable under respondeat superior in this case.",
       "time": "00:02:13.96"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If... if we find who the principal is, we know the principal is going to be liable.",
       "time": "00:02:40.21"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Under California law the broker is the principal.",
       "time": "00:02:43.89"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But isn't it fair to say that... or isn't it? Maybe you'll take issue with this, that the corporation operates as a broker only because it has the individual's broker license assigned to it.",
       "time": "00:03:13.81"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is... is there any California law saying that... that the corporation is the principal in a situation like this and not the holder of the... not the... not the named broker?",
       "time": "00:03:38.42"
     },
@@ -135,13 +135,13 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "This... this is a--",
       "time": "00:03:56.71"
     },
     {
       "turn": 16,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Let me ask the opposite. Is there any California case in which the named broker in the corporation has been held liable as the principal solely because he's the named broker?",
       "time": "00:03:57.74"
     },
@@ -153,7 +153,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes. That's what I'm talking about.",
       "time": "00:04:11.85"
     },
@@ -165,7 +165,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So-- --Is there a difference in the licenses, the individual license that Justice Kennedy was referring to and that's mentioned on page 15 of the red brief, the individual broker license and the statement that the individual broker licensee is vicariously liable and the broker who holds the license under the corporate name? Are those different certificates?",
       "time": "00:04:15.37"
     },
@@ -177,7 +177,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you this question? You explained to Justice Scalia that there is no California case holding a corporate broker liable in this situation, as I understand. Are there any California cases going the other way? Has it ever... has the issue ever been presented to the California courts?",
       "time": "00:05:14.77"
     },
@@ -189,7 +189,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So in this case the individual could be subject to discipline, but not to liability. Is that--",
       "time": "00:06:02.74"
     },
@@ -201,13 +201,13 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Yes.",
       "time": "00:06:08.11"
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What were your other reasons. You said you... you had a multi-faceted answer, or something like that. What... what are the other--",
       "time": "00:06:08.77"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--prongs or the other facets of your answer?",
       "time": "00:06:15.42"
     },
@@ -231,13 +231,13 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is that--",
       "time": "00:07:14.94"
     },
     {
       "turn": 32,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Suppose it were the majority rule that a real estate broker is the principal for the salesman. Would we follow that rule generally?",
       "time": "00:07:15.56"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And again, I'm... I'm referring to the red brief at pages 14 and 15 which sets this... this out. You say there's a distinction because there's a corporate broker and... and an individual broker.",
       "time": "00:07:25.97"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Now, we... I... we can explore that a little bit. But suppose it were the... the general rule in most of the States that had addressed the subject that the broker is the principal.",
       "time": "00:07:38.56"
     },
@@ -273,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I... I was simply addressing the point of whether or not State law as opposed to Federal law controls. And if it's the general law in most States that the broker is the principal, then that would certainly be sufficient for the imposition of liability under this Federal scheme. Would it not?",
       "time": "00:07:58.23"
     },
@@ -285,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought you said those were general common law principles that are... presumably the States would share.",
       "time": "00:08:28.97"
     },
@@ -297,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then if I understand your argument correctly, you're saying that the discussion, whether it's California law or Federal common law, is in this case at least academic because under California law, if you were to apply it, there is no relief for these plaintiffs, that the only remedy where it's... the license is held in the corporate name is a disciplinary sanction?",
       "time": "00:09:12.60"
     },
@@ -309,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Only... only by these corporate brokers or... or by... by individual brokers?",
       "time": "00:09:46.87"
     },
@@ -321,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:09:53.72"
     },
@@ -333,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But I thought you said that if... if this were a license to an individual broker, if this were held... the license were held by Meyer as an individual... that he would then have a principal agent relationship with Crank. Is that not so?",
       "time": "00:10:01.81"
     },
@@ -345,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there an issue in this case about piercing the corporate veil as a means of holding Meyer liable?",
       "time": "00:10:52.62"
     },
@@ -357,13 +357,13 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But they came--",
       "time": "00:11:30.48"
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Was there some reference to veil-piercing in the respondents' brief in the Ninth Circuit?",
       "time": "00:11:30.65"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, didn't... refresh my recollection. Doesn't this come up on a motion for summary judgment?",
       "time": "00:11:51.08"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes.",
       "time": "00:11:58.76"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which was denied and then there was a motion for summary judgment.",
       "time": "00:11:59.40"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:12:06.09"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right. Now, so if it came up on a motion for summary judgment, then whatever... whatever evidence the plaintiffs were going to rely on for the veil-piercing would have had to have been brought forward. Isn't that right?",
       "time": "00:12:10.05"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And what did they bring forward?",
       "time": "00:12:24.46"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Sole ownership is the only thing--",
       "time": "00:12:27.73"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--I thought that if... that a judgment winner, as the Holleys are at this stage, can defend the judgment on another ground. In other words, the Ninth Circuit ruled in their favor and now they're saying, well, here's another theory on which we could prevail. I didn't know... certainly they can't get an immediate victory, but if they attempt to defend the judgment on that basis, aren't they then entitled to go back and make the case rather than taking from them their victory and saying you lose? They say, but we have another theory that would be viable. Up till now, we won with this one. Why isn't that altogether appropriate they should now be given a chance to air that other theory in support of the judgment?",
       "time": "00:12:41.34"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even if... even if it had been raised, my understanding is in... in order to have it sent back on the... on the basis that although the court below relied on one theory, it could have relied on the other, the motion for summary judgment put the plaintiff to his proof to... to at least come up with facts, the assertion of facts, not the demonstration of them, but the assertion of facts that would support the other theory. And the only fact contained here is control. So if control is... does not suffice to pierce veils, that's the end of the case, it seems to me.",
       "time": "00:13:55.73"
     },
@@ -483,19 +483,19 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought there were a bunch of things. I mean, the Government in its brief lists a whole bunch of things. He was the sole shareholder. He was the president. He did control it. He paid the taxes in his own Social Security number. He made various transactions that violated the terms under which it was supposed to be the corporate form, and he didn't train the person properly.",
       "time": "00:14:34.53"
     },
     {
       "turn": 74,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, they have a list of things which I take it they didn't just make up, that they're there in the record.",
       "time": "00:14:59.07"
     },
     {
       "turn": 75,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Then... and then they say that, well, in the Ninth Circuit brief, what it says in the footnote is that evidence... evidence will show that Meyer is the sole shareholder of Triad, and thus an argument to pierce the corporate veil would be meritorious. Well, they don't list all those things in that footnote. That's true. But we should send it back and let the Ninth Circuit decide. I guess that's basically their argument, and I think I want to hear as complete a response to that as... as you have. Maybe I've heard it already.",
       "time": "00:15:03.78"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Was it not even asserted? I mean--",
       "time": "00:16:12.01"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--to survive the motion for summary judgment, you don't have to prove it, but you have to say I... you know, I will prove it.",
       "time": "00:16:15.69"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It wasn't even asserted.",
       "time": "00:16:22.54"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, in the footnote... they mention it in the footnote.",
       "time": "00:16:26.92"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that's... that's... you're quite right.",
       "time": "00:16:32.30"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't know what that means. While it was alleged, it was never proven at the summary judgment stage.",
       "time": "00:16:46.28"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There... there was no evidence brought in at all to establish it.",
       "time": "00:16:52.48"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, was... was there an affidavit on their side claiming that?",
       "time": "00:16:59.72"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes. How did it get raised?",
       "time": "00:17:05.46"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So at the summary judgment stage, they didn't rely on that is what you're saying.",
       "time": "00:17:16.93"
     },
@@ -627,19 +627,19 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "They didn't.",
       "time": "00:17:20.36"
     },
     {
       "turn": 98,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Okay.",
       "time": "00:17:20.53"
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Correct. And did you deny it?",
       "time": "00:17:21.07"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And you said there was no genuine issue... no triable issue at the summary judgment stage, that there were no facts?",
       "time": "00:17:38.90"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, if the question is the... the liability of Mr. Meyer... and at the summary judgment stage, it's not a trial. You don't prove your case at that point. It's only if there's no genuine triable issue.",
       "time": "00:17:53.68"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But what was the relevance of whether he was the owner or not? I don't quite understand.",
       "time": "00:18:26.50"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Alter ego, but not piercing the corporate veil, is that--",
       "time": "00:18:33.07"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--I'm sorry. I didn't understand you.",
       "time": "00:18:38.27"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They were arguing that. So they were arguing the pierce-corporate-veil theory then.",
       "time": "00:18:54.53"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the... but the purpose of investigating the sole ownership issue was to determine whether or not they could pierce the corporate veil. Is that right?",
       "time": "00:19:03.73"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Which seems to me as though their issue of whether they could pierce the corporate veil was at least raised, and the question is whether their claim of sole ownership was sufficient to establish that point. Maybe I'm misunderstanding something.",
       "time": "00:19:14.24"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But... but now I'm just a little puzzled about the extent to which it was raised in the district court. Was there a debate on the... in the district court as to whether your client was the sole owner or not?",
       "time": "00:19:43.90"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And what was the purpose of that debate in the district court? Wasn't it for the very same reason?",
       "time": "00:19:54.14"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, maybe I... I don't remember the facts correctly. But I thought that control was really not in dispute. I thought that the... the person to whom he transferred stock didn't get all the stock, did he, or did he get just some of the stock?",
       "time": "00:20:16.88"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So he still would have had control.",
       "time": "00:20:30.27"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I see.",
       "time": "00:20:36.21"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Not... not that it was enough for piercing the veil, but that it was enough for what?",
       "time": "00:20:42.61"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "On what basis? Not on veil-piercing--",
       "time": "00:20:49.96"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--basis.",
       "time": "00:20:52.72"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. You don't have to pierce the veil.",
       "time": "00:21:05.98"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But just returning one... once again to the broker problem. I'm looking at Gipson versus Davis Realty, which is a case by Judge... written by Judge Molinari. It's cited on page 15 of the respondents' brief. That was a standard respondeat superior case where the broker... pardon me... where the salesman is in an automobile accident and they seek to hold the principal for the damages caused by the accident within the course of his employment. And this is the case where the statement is made that the broker is liable for the misconduct or... or malfeasance of... of the agent in the course of... of his employment. And it's a case much like this where there's a corporation that holds the license. There... there doesn't seem to be a... a distinction between the corporate license and... and the broker license that you made. Is that... was the law changed since the Gipson case, or--",
       "time": "00:21:12.38"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, it was relied on in the respondents' brief.",
       "time": "00:22:17.64"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, as I understand the facts of the case, it was an individual who held the license and he operated through a corporation. That's... that's-- --Well, again, I would say that what California decides to do is not what needs... can be what determines under the... the Federal statute.",
       "time": "00:22:34.16"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Very well. Mr. Schwemm.",
       "time": "00:23:16.22"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, could prove or... or claimed they could prove in response to the motion. I mean, you... you don't have to sit back and say, I wonder what they might be able to prove. You... you have to have made an offer of proof, and... and what the court held was that none of the facts that you claimed you could prove would suffice. Isn't that an accurate description of... of what... what the holding of the court was?",
       "time": "00:25:11.31"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--isn't that true that... that you have to have something more than simply a person being a sole owner of a corporation? Otherwise a person couldn't create a corporation with himself as a 100 percent owner.",
       "time": "00:25:56.81"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. So they're... what they're saying is you didn't allege anything than that, and you certainly didn't support anything other than that with affidavits or other... or other offers of proof.",
       "time": "00:26:08.88"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:26:18.69"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Well, if you... if you didn't, then you're out of luck, aren't you?",
       "time": "00:26:20.38"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because?",
       "time": "00:26:24.92"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no. I'm not saying 12(b)(6). I mean on summary judgment.",
       "time": "00:26:29.51"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Okay. I have your complaint here on page 16 and 17 of the joint appendix. First claim, Fair Housing Act. I don't see anything there about... about veil-piercing or anything like that. Where... where is it in the complaint?",
       "time": "00:27:12.27"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no. Or anything even vaguely like that. I mean, what it seems to say is that Mr. Meyer himself did all these things, or through his agent. Now, that's... that's what it says.",
       "time": "00:27:28.68"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, I see where it says he owned the corporation. What I don't see is something that says, and therefore he is liable because he owned it. I mean, it just seems to be the part where you're describing the parties.",
       "time": "00:28:00.87"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. I mean... to be honest with you, I'm not... I'm just debating with myself whether you... we should send this back to the Ninth Circuit, tell them work this out or not. And district court judges are not mind-readers. They... they can't make up what you're saying in a complaint unless you say it and unless you argue it. So... so that's why I'm pressing you on this. I'm... I'm trying to find the particular point where you really made this point to the district court so the judge would focus on it and make a decision.",
       "time": "00:28:33.79"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, he didn't seem to, in his opinion, understand it because the only reference he has to veil-piercing seems in a footnote in a paragraph. And what he seems to be saying there is referring to a different argument, the argument that there could be no veil-piercing because he didn't even own this corporation. And he says, that... that's really wrong. It's not true. Or maybe he said it was right, but he was wrong if he said it was right.",
       "time": "00:29:08.09"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "This was at the summary judgment stage?",
       "time": "00:29:43.88"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "32 of the joint appendix.",
       "time": "00:29:53.99"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, had you alleged any of these things? I mean, opposing counsel referred in his argument to an allegation that the individual taxpayer ID number was being used. Did you allege that in... in the complaint somewhere?",
       "time": "00:31:01.12"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. Where is it? I mean, this is what we're fishing for. Did you allege anything beyond the mere claim of sole ownership?",
       "time": "00:31:13.58"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes. I got it.",
       "time": "00:31:33.27"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes. Did you allege anything... I mean, okay, we've got sole ownership. We've got taxpayer ID. Did you allege anything else that might be a basis for piercing the veil?",
       "time": "00:31:35.01"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You're... the point you're making is that you are not certainly required under the Federal rules to set out your... any theory of the pleadings. You just have to state facts showing that there's a claim for relief.",
       "time": "00:32:08.49"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Schwemm, can I ask you this question? We really didn't grant certiorari to decide--",
       "time": "00:32:42.51"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--a California question as esoteric as this one is. And I'm just wondering, do you defend the rationale of the Ninth Circuit and do you defend the... do you abandon reliance on any Federal defense here?",
       "time": "00:32:48.16"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Or Federal regulation.",
       "time": "00:33:03.03"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then is your piercing-of-corporate-veil theory a Federal theory or a State law theory?",
       "time": "00:34:04.95"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but your opponent says that the... the results under California law is he can be disciplined if he fails to do so, but there are no California cases holding him personally liable if he fails to do so.",
       "time": "00:35:48.48"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think it's right or wrong?",
       "time": "00:36:05.20"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, can... can I go back to an earlier point you made. You said that California law says that the corporate broker, the... the one who's designated for the corporation, has to exercise control over the... over the brokers in the corporation. That may well be true. The... the issue is not whether he... he has to exercise control. It's whether he exercises control in his personal status or rather exercises control as an officer of the corporation. If it's in the latter capacity that he exercises control, he... he should not have personal liability. It's the corporation that has liability.",
       "time": "00:36:44.00"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, as I understand the California law, this broker could not operate under that license on his own. The only way he could use that license was as an officer of the corporation. Isn't that correct?",
       "time": "00:37:28.21"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, yes, but... sure, of course, there can. But... but it's... it's corporation law that... that the officers of the corporation are not one of those other principals.",
       "time": "00:38:34.61"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you think the Gipson case that you cited in your brief is on all fours with your case?",
       "time": "00:39:00.49"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, so that means you can't have a corporation. If... if you want to run a real estate corporation, you can't do it because there has to be a broker's license, and you're going to be personally liable. What's the use of having a corporation then?",
       "time": "00:39:45.70"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but if he defrauds a client or, I mean, anything that's going to involve big money on the part of the corporation is going to come back on the head of the individual broker. So you're saying if you want to be in the brokerage business, you cannot do it as a practical matter in the corporate form.",
       "time": "00:40:24.87"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's... well, no. That... that's what you say the California law says.",
       "time": "00:40:42.58"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's even tougher than... than what most States provide for lawyers.",
       "time": "00:41:20.68"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No. It isn't analogous at all. Lawyers... lawyers can... can avoid personal liability. California doesn't give personal liability there, does it? I mean, my statute here says there's an officer who's designated by a corporate broker license, and that officer is responsible for supervision and control of activities conducted on behalf of the corporation. So that suggests that he's conducting that supervision on behalf of the corporation, and so it's the corporation that would respond in... in... under the principle of respondeat superior.",
       "time": "00:41:27.16"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Evidently that's what California has held, and given the wording, it seems reasonable.",
       "time": "00:42:01.34"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I only have 74 pages in my joint appendix. You said it was joint--",
       "time": "00:42:53.03"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Oh.",
       "time": "00:43:00.54"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Got you.",
       "time": "00:43:02.24"
     },
@@ -1359,13 +1359,13 @@
     },
     {
       "turn": 219,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "On the major question that we took the case to decide, what... what's--",
       "time": "00:43:19.00"
     },
     {
       "turn": 220,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "the general rule... well, we can ask the Government... what the general rule for when we look to State law and when we look to Federal law. Certainly State law informs what the Federal law ought to be. That's... that's Faragher and Burlington.",
       "time": "00:43:23.83"
     },
@@ -1377,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Schwemm.",
       "time": "00:43:47.82"
     },
@@ -1389,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Stewart.",
       "time": "00:43:52.48"
     },
@@ -1401,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do we look to general Federal common law agency principles, or are we bound by State agency law, Mr. Stewart?",
       "time": "00:44:22.37"
     },
@@ -1413,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you think it's fair to read the complaint that was filed as putting anyone on notice that it was a veil-piercing case?",
       "time": "00:45:02.62"
     },
@@ -1425,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Where?",
       "time": "00:45:14.92"
     },
@@ -1437,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Could you read it to us?",
       "time": "00:45:15.75"
     },
@@ -1449,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Because it's not clear to me.",
       "time": "00:45:18.72"
     },
@@ -1461,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I don't think if I read that complaint, I would read it as one that was proceeding on a veil-piercing theory.",
       "time": "00:45:23.01"
     },
@@ -1473,7 +1473,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I would have thought it was proceeding on the designated broker theory.",
       "time": "00:45:29.65"
     },
@@ -1485,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that would be consistent with a corporation that's wholly adequately funded and... and whose... which... whose veil cannot be pierced.",
       "time": "00:45:58.13"
     },
@@ -1497,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But it isn't... I mean, look. The judge is sitting there on a motion to dismiss the complaint, and he reads the complaint. And when he reads the complaint, he looks to claims, and he sees first claim, Fair Housing Act, which doesn't have a word about this theory. And apparently in the brief, a different theory was produced, the one that's been produced today, that the reason they're liable is not because we want to pierce the veil, but because it's Mr. Meyer who's really the holder of the license in some sense, and that is sufficient. So not surprisingly, the district court says that. He says any liability against Meyer as an officer of Triad would attach only to Triad in that plaintiffs have not urged theories that could justify reaching Meyer individually, with one exception. And he then goes and discusses the exception. Well, if I were a district judge, I would have thought I had done my job at that point unless somebody came in and petitioned for rehearing and said, judge, you missed something, which no one did.",
       "time": "00:46:20.05"
     },
@@ -1509,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. Sole. Let's try sole theory.",
       "time": "00:47:30.15"
     },
@@ -1521,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "In the footnote.",
       "time": "00:47:36.05"
     },
@@ -1533,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Of... of course, what was raised is we get Meyer because Meyer holds the license, and even though it's held in the name of the corporation, that really doesn't matter.",
       "time": "00:48:06.02"
     },
@@ -1545,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, maybe it is.",
       "time": "00:48:33.76"
     },
@@ -1557,7 +1557,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Stewart, as... as I understand the theory of why the failure to bring forward affidavits or some... some evidentiary proof of these matters at the summary judgment stage was not necessary, as I understand it, the plaintiffs' theory is it wasn't necessary because the piercing-the-veil portion of the complaint never made it to the summary judgment stage. It had been dismissed on the face of the complaint. Is that correct?",
       "time": "00:49:03.57"
     },
@@ -1569,7 +1569,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now, was there an appeal of that dismissal on the face of the complaint?",
       "time": "00:49:35.60"
     },
@@ -1581,7 +1581,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What portion? Was... it was an appeal of the... of the portion of the complaint that dismissed... dismissed a... a veil-piercing--",
       "time": "00:49:51.62"
     },
@@ -1593,7 +1593,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Well, so in addition to the complaint being very vague, the... the appeal of the dismissal was pretty vague too. I... I don't understand what... I mean, if you were objecting to the dismissal of the... of... of a veil-piercing theory, you... you should have, it seems to me, come forward and say, I object to dismissal of that theory.",
       "time": "00:50:17.80"
     },
@@ -1605,7 +1605,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Stewart, I'm... I'm confused about one procedural point. Was there not a final judgment in the district court--",
       "time": "00:51:10.10"
     },
@@ -1617,7 +1617,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--at the end of the rope, one final judgment that says that defendant wins and then you... from that final judgment you can take up all the rulings against the verdict... the... the judgment loser?",
       "time": "00:51:17.79"
     },
@@ -1629,7 +1629,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the final judgment would include all the rulings on the way to that final judgment disposing of the entire case.",
       "time": "00:51:52.61"
     },
@@ -1641,7 +1641,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You don't... you don't rely in your submission on the proposition that under California law, the broker is liable.",
       "time": "00:53:27.41"
     },
@@ -1653,7 +1653,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And is that because you accept the distinction between a corporate broker... a broker's license which is in the corporation?",
       "time": "00:53:37.90"
     },
@@ -1665,7 +1665,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose in a majority of the States, the broker is liable for the... I forget the... intervening corporate... suppose in a majority of the States, the broker is liable for the acts of the salesperson.",
       "time": "00:53:55.82"
     },
@@ -1677,7 +1677,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Yes.",
       "time": "00:54:06.80"
     },
@@ -1689,13 +1689,13 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Stewart.",
       "time": "00:54:21.57"
     },
     {
       "turn": 275,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Benedon, you have 7 minutes left.",
       "time": "00:54:23.22"
     },
@@ -1707,25 +1707,25 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you.",
       "time": "00:54:33.55"
     },
     {
       "turn": 278,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I--",
       "time": "00:54:34.29"
     },
     {
       "turn": 279,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Oh, excuse me.",
       "time": "00:54:34.59"
     },
     {
       "turn": 280,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I do have... I'm still... what is... what is your response to the... to the assertion that it was not necessary for the plaintiffs to bring forward any affidavits or evidence at the summary judgment stage because on the... on the veil-piercing issue... because that issue was no longer alive at the... at the summary judgment stage. It had been dismissed on the complaint.",
       "time": "00:54:35.11"
     },
@@ -1737,7 +1737,7 @@
     },
     {
       "turn": 282,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In other words, you... you concede that then and... and you... you fall back on... on the simple fact that the veil-piercing theory was never... was never really contained in the complaint.",
       "time": "00:55:09.29"
     },
@@ -1749,19 +1749,19 @@
     },
     {
       "turn": 284,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But it is actually. I mean, it says that... that the... the defendant violated the Fair Housing Act when his agent discriminated.",
       "time": "00:55:21.84"
     },
     {
       "turn": 285,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's what it says in paragraph 41.",
       "time": "00:55:30.72"
     },
     {
       "turn": 286,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And then previously in paragraph 13, it lists a whole lot of facts about the relationship of Mr. Meyer to the company including the fact about the tax numbers and so forth. And so what they say is, you know, the complaint doesn't have to spell out every theory, but it does state some facts there from which this basis could be fairly inferred, and therefore it shouldn't have been dismissed. Rather, they should have had at least an opportunity to argue it. I... I take it something like that is their claim.",
       "time": "00:55:33.07"
     },
@@ -1773,7 +1773,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, the allegations are just what I had said, paragraph--",
       "time": "00:56:17.57"
     },
@@ -1785,7 +1785,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yes.",
       "time": "00:56:19.88"
     },
@@ -1797,7 +1797,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Benedon. The case is submitted.",
       "time": "00:57:26.84"
     }

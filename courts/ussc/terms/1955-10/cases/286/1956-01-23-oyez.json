@@ -3,39 +3,39 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1955/286/19560123a_286.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SHERMAN MINTON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
       },
       {
         "name": "HILBERT P. ZARKY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MINTON",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "MELVIN D. WILSON",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No 286, Commissioner -- Commissioner of Internal Revenue versus Southwest Exploration Company.",
       "time": "00:00:00.00"
     },
@@ -47,7 +47,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Zarky.",
       "time": "00:00:37.83"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is it physically indifferent to the Commission or the Government which rule he takes?",
       "time": "00:04:08.41"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:04:21.10"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 9,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Are you following the Court of Claims or the other court?",
       "time": "00:04:30.13"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "This is a fixed, is illogical, irrational, disinterested matter of principle for you take it. Is that it?",
       "time": "00:04:37.16"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:04:47.39"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MINTON",
+      "name": "SHERMAN MINTON",
       "text": "Do these upland owners become owners in common, tenants in common with the -- and with the driller?",
       "time": "00:13:55.06"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE MINTON",
+      "name": "SHERMAN MINTON",
       "text": "How is the interest to tax then?",
       "time": "00:14:09.85"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE MINTON",
+      "name": "SHERMAN MINTON",
       "text": "They didn't attach to this oil -- the oil itself. They had no interest in that oil in place.",
       "time": "00:14:17.19"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE MINTON",
+      "name": "SHERMAN MINTON",
       "text": "They had a suit. It had to sue in any event for a debt if they didn't get their money, wouldn't they?",
       "time": "00:14:25.31"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How much would they get? I can't understand all those cases. I want to find out how much (Voice Overlap) --",
       "time": "00:27:59.32"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, what I mean is this. As I understand it they had this depletable ownership there, whatever California had given. Gave it to this man and he had to get permission from the upland man to put a pipe through there or something to (Inaudible)",
       "time": "00:28:05.49"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And both of them were sanctioned in order to get their oil in there.",
       "time": "00:28:24.46"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They couldn't out without it. As I understand it these upland people, according to their contract in agreement, were to get 17 1/2% of the net profit, all through the term of taking that oil out.",
       "time": "00:28:27.44"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) --",
       "time": "00:28:41.88"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "All right. Now, how much, if you follow Judge Madison, how much would each one get of the depletion allowed?",
       "time": "00:28:43.41"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The second one.",
       "time": "00:28:54.54"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's it not from -- but that's -- that's getting me mixed up. So, what I want to get at is, as -- as I read it, maybe I'm am wrong, maybe it is too simple to my mind and that's what I meant. As I understood it is what is that 17 3/4%?",
       "time": "00:29:01.67"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "He -- that meant property.",
       "time": "00:29:19.05"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "He -- did he get it so long as that'd keep oil coming out of it?",
       "time": "00:29:20.95"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Now, what percentage of the depletion would he get, 17 3/4%?",
       "time": "00:29:25.36"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well if -- if only of the dollars it receives.",
       "time": "00:29:48.30"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- from what the other -- now, that's what I'm getting. Would the other man who had traded whether he gets the remainder of the 100 cents on the dollar of that depletion?",
       "time": "00:29:51.31"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So that you would have a --a division. Suppose they were partners. One of them had 17 3/4% and was up on the other of the end of wing. Under the depletion of that, each one would get 80%, wouldn't he?",
       "time": "00:30:04.60"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that the result of Judge Madison's opinion.",
       "time": "00:30:16.80"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And so we cannot -- we can know that whatever we've decided in the other case.",
       "time": "00:30:22.15"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That each one gets the percentage according to the average he will get between now and the time it's all depleted.",
       "time": "00:30:26.43"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would the upland man, who has -- who's getting 17 3/4% until it's all over --",
       "time": "00:30:43.40"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- he wouldn't get any depletion at all.",
       "time": "00:30:48.45"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So what the actual result they either claim, though instead of having this arrangement, they were part, one having 17 3/4, and the other the remainder of the percentage. Under Judge Madison's, opinion is that the way it would be divided the depletion of that?",
       "time": "00:31:02.48"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What -- what -- why not?",
       "time": "00:31:20.69"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "27 1/2% on their part.",
       "time": "00:31:55.92"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But I --",
       "time": "00:32:12.93"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose there are $100,000 depletion in one year, how do they divide it under the Madison point of view?",
       "time": "00:32:30.65"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I don't care who it's paid to. $100,000 depletion as a whole. That's what is paid on depletion?",
       "time": "00:32:44.68"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Or maybe it does, but is that -- is it possible to know?",
       "time": "00:32:54.58"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, there might be -- it's possible that there might be a $100,000 paid, isn't it?",
       "time": "00:33:01.16"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- the depletion would be (Voice Overlap) --",
       "time": "00:33:11.65"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, that's (Voice Overlap) -- taking all that out, it was $20,000. How much would each one get?",
       "time": "00:33:18.08"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "00:33:34.15"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That is with Madison formula. On the other, Southwest would get it all?",
       "time": "00:33:35.38"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's what I said, under the Ninth Circuit.",
       "time": "00:33:41.36"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Subject to you all these qualifications in Madison's formula which has figured the total depletion in accordance with the (Inaudible)",
       "time": "00:33:43.12"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 89,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Wilson.",
       "time": "00:33:58.08"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 91,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How -- how were the uplands then draining that by slanting well?",
       "time": "00:39:12.14"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess, now, Wilson.",
       "time": "00:46:57.95"
     },

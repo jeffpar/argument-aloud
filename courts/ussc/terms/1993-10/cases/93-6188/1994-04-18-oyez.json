@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1993/93-6188/19940418a_93-6188.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES A. ROTHFELD",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "MATTHEW R. GUTWEIN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in 93-6188, Roy Heck v. James Humphrey. Mr. Rothfeld.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Let me ask you, if I may, Mr. Rothfeld, about the theory under which your case was brought under 1983. Did it involve... did it claim that things which happened at the respondent's... or the petitioner's trial violated the Constitution?",
       "time": "00:01:15.59"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And is it logical to say that if your client were to win his case, that still would not, under some sort of collateral estoppel doctrine, vitiate the judgment of conviction?",
       "time": "00:01:40.73"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is this-- --What would be an example of one of their claims, and the constitutional basis for it?",
       "time": "00:02:35.67"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that really does have a bearing on the trial, doesn't it? I mean, you wouldn't be claiming the destruction of evidence if you weren't interested in that evidence being used at the trial.",
       "time": "00:02:57.51"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Could it be asking for consequential damages for false imprisonment?",
       "time": "00:03:25.12"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Wrongful imprisonment?",
       "time": "00:03:29.00"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, let's just stick to the first category. Could they claim them?",
       "time": "00:03:50.97"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, if they did claim them, then it really would go to the heart of the lawfulness of the imprisonment and conviction.",
       "time": "00:03:56.34"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but in... if that's the... if the answer turns out to be that there would have been no conviction and there is being a claim... and a claim is being made for consequential damages, then the State, in that case, is faced with the possibility of sitting back and doing nothing and letting the damages pile up or letting the person go.",
       "time": "00:04:28.81"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And I suppose if the damages amount to anything in substance, the State is going to say we'd better get this guy out of here before he costs us any more money.",
       "time": "00:04:46.51"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Rothfeld, what about just looking to normal tort principles. This is an old Federal tort statute. I assume it incorporates normal tort principles such as causality. It seems to me that one of the standard requirements, if you're bringing a cause of action which depends upon the unlawfulness of a conviction, is that the conviction have been set aside. You cannot bring a tort action for malicious prosecution, for example, unless you've been acquitted. Why should you be able to bring this tort action for those constitutional violations that hinge upon innocence without first getting the conviction set aside or having been declared innocent? I mean, other violations, for example unreasonable searches and seizures, I suppose you can sue on, no matter what, but your damages from being unlawfully detained, you're entitled to them only if you're unlawfully convicted. And why shouldn't we apply normal tort principles saying you're not... you're considered to be lawfully convicted unless and until that's set aside.",
       "time": "00:05:07.91"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's just normal tort law.",
       "time": "00:06:12.90"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, it goes... but it goes also to just standard questions of respect for the validity of outstanding judgments. You have a judgment here that is deemed correct and it has not been set aside.",
       "time": "00:06:27.03"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And yet you're contending that you can ask for damages for the enforcement of that judgment. And I think the underlying concern is whether this suit should just be dismissed on its merits at the outset.",
       "time": "00:06:39.54"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I suppose... excuse me. Go ahead. I suppose we do, when one of the issues is whether or not we should stay this suit or allow it to be dismissed. If most of these cases, most of your damages are going to be foreclosed by the existence of the criminal judgment, then it seems to me that you have a very, very weak case for saying that the suit and this action should remain in the docket of the district court.",
       "time": "00:07:12.50"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if it wasn't adjudicated but could have been adjudicated?",
       "time": "00:08:23.73"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes, but surely if you claim that there was a destruction of evidence by the State and which violated the Constitution, that could have been raised at trial.",
       "time": "00:08:50.35"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And why do you say the parties are different here?",
       "time": "00:09:19.13"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, are you so sure that that wouldn't... that that wouldn't be treated as the same parties, for issue preclusion?",
       "time": "00:09:36.72"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose the State is paying the counsel fees, providing counsel. Suppose the State is providing counsel to the defendants?",
       "time": "00:09:53.35"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Ginsburg.",
       "time": "00:10:07.10"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In control of the litigation.",
       "time": "00:10:48.85"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Of course, you could say the same thing in all the malicious prosecution cases. The State is not going to be bound if the individual officer loses for malicious prosecution. Nonetheless, we don't allow the action to proceed. The basis for not allowing it has never been res judicata or claim preclusion or issue preclusion; it's just been you don't bring this tort action until you've established that, indeed, your incarceration is unlawful.",
       "time": "00:11:13.51"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, no, in malicious prosecution you don't get into the courthouse. You are not allowed to show that it's unlawful. You go over to the criminal side and get it set aside, or you win your prosecution... you win in the criminal case. You can't come in when you're in jail and sue somebody for malicious prosecution, you simply can't, whether there's issue preclusion, claim preclusion, or not, you can't do it.",
       "time": "00:11:49.82"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, I don't think, Mr. Rothfeld, you can separate... you can have this very narrow jurisdictional analysis that you're trying to limit it to, as opposed to the merits. I mean, we've got to be concerned with how this affects traditional notions of res judicata and tort actions and that sort of thing.",
       "time": "00:12:18.29"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Neither of those cases involved attacks or what could be attacks on judgments of conviction.",
       "time": "00:13:05.81"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It didn't... it couldn't have held with respect to judgments of convictions since those were not involved in either of them.",
       "time": "00:13:16.71"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, hasn't every court of appeals that's considered this decided that the State prisoner cannot bring a section 1983 damages action to challenge the constitutionality of the conviction, in effect?",
       "time": "00:13:58.96"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "They seem to be pretty uniform, and I thought in Tower against Glover, which I don't believe you cited, we reserved the question.",
       "time": "00:14:19.14"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Rothfeld, may I leave theory for a moment and ask you a question about practical effect. Is it fair to say that at least in most States, the effect of the exhaustion rule, which is... which you are protesting, would really simply require you to complete the direct appeal? Because I'm assuming that most States would require a Fourth Amendment issue to be raised at trial or before trial, and if it were not, would not allow it... would find it barred or waived on State habeas, so that as a practical... if that is true as a practical matter, would the rule that you object to in effect require you to do anything more, in practice, than simply complete the direct appeal?",
       "time": "00:15:21.25"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah.",
       "time": "00:16:10.87"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It'll be... won't that be true in most cases? I mean, isn't that generally the State rule?",
       "time": "00:16:28.30"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What was the... what was the proceeding in this case that was thought to be available by the Seventh Circuit?",
       "time": "00:16:53.95"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there anything that could come up in habeas. I was trying to think if there was anything that you couldn't convert into a 1983 damage claim that you could bring for specific relief, let me out. Is it not so that every habeas claim could be stated alternately as a 1983 damage claim?",
       "time": "00:17:27.45"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if you're right, then wouldn't this make a massive change. You could always... if you would rather go into Federal court and in damage format, you could always do that, bypass any State postconviction remedy, and skip Federal habeas as the first step.",
       "time": "00:18:17.42"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Rothfeld, in Tower, which Justice O'Connor referred to, there is an express statement that we have not decided this point yet, and it also refers to Preiser. I mean it's not as if it were written in ignorance of Preiser, the Tower statement.",
       "time": "00:19:22.28"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So that insofar as holdings are concerned, we really haven't decided this question, that is whether a 1983 damages action which would amount to a collateral challenge to judgment of conviction could proceed?",
       "time": "00:19:57.09"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you don't agree, then, with the statement in Tower that we have never decided whether 1983 could proceed without exhaustion?",
       "time": "00:20:45.71"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why didn't you cite Tower in your brief?",
       "time": "00:21:01.12"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Roth, under your theory, if you can proceed first in section 1983 suit for damages, I assume the petitioner would not then have any issue preclusion against him if he subsequently sought habeas?",
       "time": "00:21:47.02"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, even if he lost that 1983--",
       "time": "00:22:10.19"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--He can go right into Federal habeas and make claims all over again, based on the same facts, I assume.",
       "time": "00:22:12.34"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why? You think he's estopped? I wouldn't have thought so.",
       "time": "00:22:34.86"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I thought there were cases holding that there isn't any issue preclusion there.",
       "time": "00:22:40.07"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Uh-hum.",
       "time": "00:22:48.07"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I've lost the exchange here. You were talking about his being estopped after he exhausts and then he comes back with a 1983 action.",
       "time": "00:22:57.49"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes, and loses.",
       "time": "00:23:07.39"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Why shouldn't it work the other way, that if you litigate and lose in 1983 on the same issue, you should lose it... I mean why isn't that Federal adjudication just as good as the State adjudication would have been, if you--",
       "time": "00:23:33.10"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--So then you're changing the answer you just gave to Justice O'Connor saying you would be subject to issue preclusion.",
       "time": "00:23:48.22"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you say issue of preclusion isn't applied in Federal habeas. Are you speaking of the rule going back to Salinger against Lazlo where they said that your one... one habeas petitioner dismissal doesn't bar the bringing of another?",
       "time": "00:24:27.25"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Rothfeld. Mr. Gutwein.",
       "time": "00:25:00.72"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, that may be true as a general rule, but why should it be true in a Fourth Amendment case when there is a practical matter? Under Stone there isn't any Federal habeas so that there's no... there's no Federal policy of exhaustion that needs to be served. Why don't we have a separate rule for Fourth Amendment issues?",
       "time": "00:25:43.98"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So in Fourth Amendment cases you're resting it not on the habeas exhaustion requirement, but on an independent rule of comity.",
       "time": "00:26:21.03"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But the rule of comity, in effect, would enact an exhaustion requirement for 1983 which is not required by habeas policy?",
       "time": "00:26:59.02"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I'm not concerned about what the States may do, but, I mean, it seems to me that your strongest argument is, as a general rule leaving aside the particular claim involved, that if you don't, in effect, have the rule that you want, you in effect are allowing an end run to be made in the habeas exhaustion rules. And you concede that that argument doesn't apply when the claim is a Fourth Amendment claim because under Stone v. Powell there isn't going to be a Federal relitigation anyway.",
       "time": "00:27:19.38"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay. And as a practical matter, then, it seems to me that your argument for comity is really an argument for an exhaustion requirement under 1983 which is independent of Federal habeas policy.",
       "time": "00:27:53.23"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What was my first theory? [Laughter]",
       "time": "00:28:14.11"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yeah, but that doesn't apply here because of Stone.",
       "time": "00:28:26.80"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I thought he was.",
       "time": "00:28:39.45"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, that doesn't mean he wouldn't complain about it. Maybe he didn't know it was barred by the statute of limitations.",
       "time": "00:29:31.00"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm curious about your statement about being barred by limitations with regard to the second issue in the case. Is it your position that this claim would be barred by limitations? And, if so, how does that cut with respect to the question of whether one should stay the proceeding or dismiss it?",
       "time": "00:29:54.82"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then... then you've given us an incorrect answer with respect to these allegations because these are not barred by the limitations.",
       "time": "00:30:23.73"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You can't have it both ways.",
       "time": "00:30:34.66"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because it would be tolled.",
       "time": "00:30:43.19"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because--",
       "time": "00:30:46.36"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--So he has... I'm a little puzzled. It would be barred because at the time he filed the complaint 2 years had run between the time of the search and the time of the filing of the complaint.",
       "time": "00:31:08.74"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if he had not filed any complaint at all, but waited until he set aside his conviction and then filed a complaint, it would have been tolled.",
       "time": "00:31:25.83"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, wouldn't it depend if the search was alleged to have infected his conviction? Suppose it was a search unrelated to his conviction? Suppose the product of that search was not introduced at trial? Then there would certainly be no time bar, right?",
       "time": "00:31:45.45"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah.",
       "time": "00:32:12.25"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Was the search.",
       "time": "00:32:14.58"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then it would be... it would be... there's no basis for saying that he had to bring a habeas action first, and therefore it would be time barred.",
       "time": "00:32:18.75"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. But, now, what if it... what if the evidence was introduced? Is your position it is automatically subject to a prior habeas action you have to exhaust?",
       "time": "00:32:26.79"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yeah, but you... but you still... don't you argue that the exhaustion requirement applies and that he has to go to habeas first, no?",
       "time": "00:32:52.61"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is that? What if he says in his 1983 argument in his petition; this evidence was introduced but I acknowledge that its effect in the conviction was harmless error? What if he says that in his 1983 action?",
       "time": "00:33:01.20"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then he doesn't have to exhaust, okay, right.",
       "time": "00:33:22.08"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what if he doesn't say it, but it's really a close question?",
       "time": "00:33:26.42"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do we assume that it did infect the conviction, or do we look into the facts?",
       "time": "00:33:31.92"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What harmful effects? What harm accrues to the State where he's not asking for damages for his continuing incarceration... there I can see the State would say, well, gee, you know, he's been held... we're civilly liable for day... or somebody is, for his day-by-day incarceration; we'd better let him out. All that's involved is a past unlawful search and seizure; it's uncertain whether that infected his conviction or not. Why not let the 1983 proceed, so long as he's only claiming damages from the search and seizure? What harmful effect would there be to let it proceed?",
       "time": "00:34:01.05"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you say... you say that there's issue preclusion. The State court would be bound by the 1983 determination.",
       "time": "00:35:00.27"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, let's decide now whether it does or doesn't, I mean.",
       "time": "00:35:09.46"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't... why should we make this prisoner exhaust simply because the State voluntarily chooses to cause itself to be bound by the... I mean if it's an automatic issue preclusion thing, it seems to me you have a strong case. But if, as you're telling me, it's not automatic and that there will be issue preclusion only if the State is confident enough or stupid enough, one or the other, to come in and manage the defense, I don't see that that has any claim to our equitable consideration. The answer for the State is stay out of the case.",
       "time": "00:35:48.08"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Gutwein, there's one point that you made a little bit earlier, and I wanted to make sure I understood it properly. That is on the second part, whether this case should have been dismissed or held in abeyance. You said Indiana law is crystal clear there would be tolling. If that's true, then would you object to a dismissal without prejudice conditioned on your agreement not to raise any limitation bar should this litigant come back, after exhausting, into the Federal forum on a 1983 claim?",
       "time": "00:37:20.51"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You know, I bring this up because it's done routinely when States dismiss a case for forum nonconvenience. There's no mechanism for transfer from one State to another, so the State judge will usually say, well, I'll dismiss this case but I don't want the plaintiff to be left when he goes into State number two and faces statute of limitation defense. Or defendants will say, sure, we'll waive the statute of limitations, dismiss, and the plaintiff can rebring it in the convenient forum. So I'm suggesting that why wouldn't that mechanism apply here? Maybe you could have a caveat about he's got to be diligent about reinstating the litigation. But you would have no objection to making the dismissal without prejudice, conditioned on your not raising the statute of limitations.",
       "time": "00:38:28.83"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask a question on that relief. In this case his damages all seem to flow from his confinement, as you read the complaint, but he has this allegation about destroying his wife's clothing and so forth. Supposing instead of destroying his wife's clothing, he said he destroyed my house, they burned it down, or did some... caused some serious physical property damage as well as keeping him, could he maintain that action? Could he claim damages for the loss of property during an illegal search without exhausting?",
       "time": "00:39:57.19"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He could.",
       "time": "00:40:24.95"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even though the proof... say that the allegations he would prove would, incidentally, also demonstrate that the conviction is improper. A set of facts... you can see what I mean.",
       "time": "00:40:29.05"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Even though he has one count in his complaint for damages that are totally unrelated to his conviction.",
       "time": "00:40:58.41"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, he could have dependents who could use the money. I mean, there could be cases in which the money would have a present value that wouldn't be very useful to him if he had to wait till his kids graduated from school, from college.",
       "time": "00:41:38.19"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes. But as Justice Souter pointed out, you may be talking about... this is a kind of confused complaint, but you could have a complaint that is totally Fourth Amendment based, so there's no Federal habeas relief later on, and in which one of the claims is for property damage that doesn't affect his conviction, even though it might also establish the conviction is bad. And you say he should nevertheless wait until... why should he wait in that case?",
       "time": "00:42:05.04"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What about a case in which he alleges that he was brutalized in obtaining a confession from him, and he wants just damages covering the pain and suffering of going through the beating, and that's all he asks for, but, again, it might show that the confession... you know, the conviction should be--",
       "time": "00:43:39.06"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--He'd still have to wait there too, wouldn't he?",
       "time": "00:43:52.56"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What if he said, nevertheless the confession was true, so I really am guilty, but I still want damages for the beating I took, what about that case?",
       "time": "00:44:06.02"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Who does he make... who does he give that assurance to? I mean the judge that he's bringing the suit before, or does he file an affidavit, acknowledgement of guilt which will later be binding upon him in the State habeas proceeding. I don't know how he goes about doing this.",
       "time": "00:44:21.70"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But it was true. If he says that in his complaint, then his complaint does not question the State proceeding, okay. So he has to say it in his complaint. Well, I don't know that even that is correct under some of our precedents which say that the reason for suppressing... it is not a defense for the State in trying to get a confession admitted to show that, in fact, it's true, if it was, in fact, coerced. So that an acknowledgement that a statement he made was true but nonetheless coerced would still require its exclusion at trial, I think.",
       "time": "00:44:49.39"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Isn't it true generally that a judicial admission in one case doesn't carry over to the next? Say an admission... you make a request... in response to a request for admission under Rule 36, if you do that in one case are you stuck by it in the next case and the next case?",
       "time": "00:45:30.44"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, how does that practical consideration transfer into the theory that you want us to adopt in this case? Are you saying that just as a matter of comity, that these cases should all be dismissed if they implicate some of the actions of prosecuting officials that were performed in connection with obtaining the conviction, just have a broad rule of comity--",
       "time": "00:47:44.70"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--That is that sweeping?",
       "time": "00:48:08.67"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I'm wondering if those might not go even beyond attacking the legality of a conviction. As we've indicated by some of the hypotheticals here, some of these determinations, some of these inquiries will not necessarily bear on the validity of the conviction. But I had thought you were indicating that even those suits should be held in abeyance until the lawfulness of the custody and the conviction had been determined.",
       "time": "00:48:34.59"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You'd have none of those problems if you agreed to stipulate that you won't raise this statute of limitations if the plaintiff ever sues you again on this claim, with reasonable diligence.",
       "time": "00:50:59.45"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I thought you agreed that that would be all right, that you would stipulate to a dismissal without prejudice, conditioned on your not raising the statute of limitations should the plaintiff come back to court after exhaustion.",
       "time": "00:51:19.22"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You'd be happy... you're not stipulating that we have authority to impose it.",
       "time": "00:51:32.45"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, it's done in forum nonconvenience cases because that is an equitable doctrine, after all.",
       "time": "00:51:36.97"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But you're claiming that you have a right to dismissal without that stipulation, aren't you?",
       "time": "00:51:45.13"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Gutwein. Mr. Rothfeld, you have 4 minutes remaining.",
       "time": "00:52:10.05"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why not apply kind of an analogy of Rose against Lundy and say that if there's doubt about the thing, dismiss.",
       "time": "00:53:19.41"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's also an equitable proceeding so that we have... I mean it's a prerogative writ, so we have much more discretion, traditionally, in refusing to grant the petition.",
       "time": "00:54:55.51"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is the essence of your argument this is just like the old days when you had a claim at law or a claim for specific relief in equity, you could pick which one you want?",
       "time": "00:55:48.32"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But, what if you were to be asked to stipulate that you can proceed if you would agree not to urge any issue preclusion or res judicata in any subsequent habeas?",
       "time": "00:56:22.05"
     },
@@ -1355,13 +1355,13 @@
     },
     {
       "turn": 219,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Rothfeld. The case is submitted.",
       "time": "00:56:38.94"
     },
     {
       "turn": 220,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable Court is now adjourned until tomorrow at 10 o'clock.",
       "time": "00:56:41.98"
     }

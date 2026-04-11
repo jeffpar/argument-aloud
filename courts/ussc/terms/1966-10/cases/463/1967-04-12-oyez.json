@@ -3,43 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1966/463/19670412a_462.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "HUGH SMITH",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "NORTHCUTT ELY",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Washington Public Power Supply System, Petitioner, versus Federal Power Commission et al. Mr. Smith.",
       "time": "00:00:00.00"
     },
@@ -51,7 +55,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Your time is up.",
       "time": "00:06:53.44"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Ely.",
       "time": "00:07:00.04"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you one question --",
       "time": "00:07:10.48"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- before you start?",
       "time": "00:07:11.92"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose your application has been granted and the other one had been denied, could they then have gotten a new dam at the point they wanted it? Or would that have excluded any other dam at that point?",
       "time": "00:07:14.59"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "00:07:36.28"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would that have been in conflict?",
       "time": "00:07:44.97"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The earlier one –-",
       "time": "00:07:53.05"
     },
@@ -147,19 +151,19 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "The one --",
       "time": "00:07:54.49"
     },
     {
       "turn": 20,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The one covered by the preliminary permit.",
       "time": "00:07:55.06"
     },
     {
       "turn": 21,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes, the one covered --",
       "time": "00:07:56.56"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Yes.",
       "time": "00:08:01.45"
     },
@@ -183,13 +187,13 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If that's true, why should one be exclusive of the other, if they are there at the same time --",
       "time": "00:08:19.50"
     },
     {
       "turn": 26,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Here's the other one.",
       "time": "00:08:25.40"
     },
@@ -201,7 +205,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes, by priority.",
       "time": "00:08:29.77"
     },
@@ -213,7 +217,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But they also claimed that your -- the agency or group, whatever you want to call it doesn't qualify as a municipality.",
       "time": "00:09:13.65"
     },
@@ -225,7 +229,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That's before the Ninth Circuit now, isn't it?",
       "time": "00:09:34.50"
     },
@@ -237,7 +241,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, that would have bear upon this perhaps.",
       "time": "00:09:51.70"
     },
@@ -249,7 +253,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you explain -- will you explain exactly what you mean by that?",
       "time": "00:21:46.17"
     },
@@ -261,7 +265,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "As it works.",
       "time": "00:21:49.78"
     },
@@ -273,7 +277,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Who shall have preference?",
       "time": "00:22:08.00"
     },
@@ -285,7 +289,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are you saying that if a private agency applies to in proper form under 7, thereafter a municipality appear -- applies that the preference to the municipality overcomes the preference, if there are a preference of the company?",
       "time": "00:22:27.65"
     },
@@ -297,7 +301,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Yes.",
       "time": "00:22:53.45"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's right.",
       "time": "00:22:55.90"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Would you say then that the municipality (Voice Overlap) --",
       "time": "00:23:13.11"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Even though the company applied first?",
       "time": "00:23:17.63"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How can you say that you had no interest in the one the company applied for if it was one that would exclude you from getting the one that's close by to it?",
       "time": "00:24:03.23"
     },
@@ -357,7 +361,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Oh, I gather you concede however that the -- that if the Commission had -- if the company applied for a license on Pleasant Valley, that they would have had priority on that site?",
       "time": "00:25:09.23"
     },
@@ -369,7 +373,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And the fact that they'd been granted the permit would give them a priority over you on that site?",
       "time": "00:25:37.53"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's right.",
       "time": "00:25:44.04"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Ely can I ask you a question?",
       "time": "00:27:40.62"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is this view, this interpretation as to the scope of the claimant wasn't before the Commission and incurred in other cases before it?",
       "time": "00:27:42.04"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "This clearly did -- did your client fight for a permit or a license on Nez Perce?",
       "time": "00:28:27.15"
     },
@@ -429,7 +433,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "For a license?",
       "time": "00:28:33.74"
     },
@@ -441,7 +445,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "When?",
       "time": "00:28:34.86"
     },
@@ -453,7 +457,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "In what position did the company take on your Nez Perce application, I take it, of opposition?",
       "time": "00:29:01.55"
     },
@@ -465,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Because it conflict of High Mountain Sheep?",
       "time": "00:29:07.14"
     },
@@ -477,13 +481,13 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:29:10.17"
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that they -- that they had priority or what?",
       "time": "00:29:10.49"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I take it that would -- that probably didn't come to ahead until (Inaudible), we're losing out Nez Perce, went for High Mountain Sheep.",
       "time": "00:29:27.55"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:29:37.74"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I gather their position would be if this were Nez Perce rather than High Mountain Sheep that it did.",
       "time": "00:29:43.23"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, what -- your application rejected on Nez Perce?",
       "time": "00:30:00.03"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "00:30:08.89"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is to mend the drafts.",
       "time": "00:30:10.50"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In what grounds did the examiner reject this?",
       "time": "00:30:18.67"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you just one --",
       "time": "00:30:42.86"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You say it's not material yet on -- is that it, on your viewpoint that -- Justice Douglas have asked you several times about whether your company was a municipality.",
       "time": "00:30:45.26"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is -- what kind of company is yours?",
       "time": "00:30:55.23"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "It's a joint effort on the part of municipality.",
       "time": "00:32:04.69"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "To take advantage of the preference provisions of the Act.",
       "time": "00:32:07.97"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Are these districts somewhat like the rural electrification?",
       "time": "00:32:16.77"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well --",
       "time": "00:32:56.42"
     }

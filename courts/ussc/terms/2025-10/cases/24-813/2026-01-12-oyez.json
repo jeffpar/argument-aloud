@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2025/24-813/24-813_20260112-argument.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "CLARENCE THOMAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "KETANJI BROWN JACKSON",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ELENA KAGAN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SONIA SOTOMAYOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "AMY CONEY BARRETT",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BRETT M. KAVANAUGH",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "NEIL M. GORSUCH",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL D. CLEMENT",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE THOMAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE JACKSON",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAGAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOTOMAYOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BARRETT",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KAVANAUGH",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "AARON Z. ROPER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE GORSUCH",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "J. BENJAMIN AGUINAGA",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We will hear argument this morning in Case 24-813, Chevron versus Plaquemines Parish. Mr. Clement.",
       "time": "00:00:00.29"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "Mr. Clement, how would your argument differ if this were pre-2011?",
       "time": "00:02:32.19"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "But you do admit that this is quite a dramatic change to the removal statute?",
       "time": "00:03:37.31"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But, Mr. Clement, in the text of the statute, Congress also says that adding those words was a conforming amendment. And we have case law that indicates that conforming amendments don't make substantial changes. So I'm a little worried about the suggestion that this is a substantial change in light of Congress's statutory statement that  this is a conforming amendment.",
       "time": "00:04:15.79"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But we do have amici here, an amicus brief that talks about another  option that really does make sense of the conforming amendment analysis. In other words, this amicus -- and I'm referring to the Governor John Bel Edwards brief  --indicates that in the House report and in the legislative history, Congress explained that what it was trying to do when it added \"or relating to\" was expand the types of actions that could be brought. In other words, there had previously been concern that pre-discovery suits were not able to be removed. Congress explicitly  changed the statute to include them and then put \"or relating to,\" says the amicus and the House report, put \"or relating to\" as a conforming amendment to that change. So what's your response to that theory, which doesn't require us to view \"or relating to\" in  --in its broadest sense?",
       "time": "00:05:18.12"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How far  -- I'm sorry. Finish.",
       "time": "00:07:46.54"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "How far upstream do you carry \"relating to\"?  Let's say you have a vertically integrated company, you know, a lot of inputs, changes along the way, and at the end of it, they're selling a product to the government. Does \"relating to\" go to the step that's, you know, 10 -- 10 steps above that, where they're buying the materials, they're shaping the material, all this other stuff?",
       "time": "00:08:02.75"
     },
@@ -135,13 +135,13 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "What if --",
       "time": "00:09:55.46"
     },
     {
       "turn": 16,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I'm not sure that's satisfactory to me. The way you're defining this \"but-for\" now, something could fall apart. So how about an employer's strike --",
       "time": "00:09:55.65"
     },
@@ -153,7 +153,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- or an employment dispute of a critical engineer of some sort?",
       "time": "00:10:11.65"
     },
@@ -165,7 +165,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Depend on what? That's the problem because, if we define it as  --",
       "time": "00:10:23.11"
     },
@@ -177,7 +177,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "-- if we define it as capaciously as you do, I'm not sure what the  stopping point would be or how we would limit the application to this case.",
       "time": "00:10:27.17"
     },
@@ -189,7 +189,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So  --but that -- you  --you seem to be arguing that the only defense is a federal defense, which is part of the test, right?",
       "time": "00:11:03.12"
     },
@@ -201,7 +201,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Right.",
       "time": "00:11:11.92"
     },
@@ -213,7 +213,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "I didn't see your brief taking on the government's position that  strongly, but you do -- you did so here in your opening statement. And -- and you answered Justice Thomas by saying that the government's position would expand our case law in saying that a reg  -- that regulation alone could give you the nexus. So how would you limit the government's position, that it's not regulation alone, it's regulation plus what?",
       "time": "00:11:56.72"
     },
@@ -225,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "But that's true of most regulation, environmental regulation, for  example, so I don't think that standing alone is enough.",
       "time": "00:12:43.40"
     },
@@ -237,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Mr. Clement, let -- let's imagine that I agree with you about the definition -- about the causal connection here and I think it's broad. I'm trying to decide what would be left on remand if I  --if I took that position, whether we should just remand and let the Fifth Circuit figure it out and apply the law to the  facts or whether we should do that ourselves and actually hold that the suit is removable. One thing I'm worried about is the colorable federal defense. The Fifth Circuit  didn't pass on that below. And you say that Respondents don't dispute it, but the Fifth Circuit hasn't decided. Judge Oldham talked about it in his dissent. That's one thing. The other thing is we've never addressed whether the federal officer has to be a federal officer now or at the time the conduct occurred. And in the Meadows case, which was pretty recent, Chief Judge Pryor said, well, it has to be at the time currently, which would not apply to your clients. So if you could address those two.",
       "time": "00:14:40.59"
     },
@@ -249,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Yeah.",
       "time": "00:15:35.76"
     },
@@ -261,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Well, I don't  --I don't know whether it makes sense or not  because, as you say, we didn't take up that question before. I just don't want to  implicitly resolve it here because it's a live one.",
       "time": "00:17:03.92"
     },
@@ -273,13 +273,13 @@
     },
     {
       "turn": 38,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Justice Thomas? Justice Sotomayor? Justice Kagan?",
       "time": "00:17:25.04"
     },
     {
       "turn": 39,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mr. Clement, you spoke in your opening about the apparent anomaly  between putting the vertically integrated oil companies in federal court and having the oil-producing companies that don't have refining capacity, didn't have refining capacity, in state court, and you said we  oughtn't to worry about that. But putting  --putting aside for now the Solicitor General's alternative theory, which would treat them alike, I mean, why isn't that just a bizarre outcome when you consider that this entire suit is about the thing that both sets of those companies have in common, not about the thing that separates them?",
       "time": "00:17:30.22"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And -- and when \"acting under,\" are you saying that every federal contractor is acting under?",
       "time": "00:19:07.35"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Mm-hmm.",
       "time": "00:19:54.41"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And then, on \"related to,\" which is pretty broad, so, you know, the fact that you still have \"related to,\" I'm not  sure how much that work does in terms of limiting this. But, you know, take a hypothetical where you  --it's not wartime and there's plenty of crude to go around, and the government doesn't have a particular interest  in what happens at the production level as opposed to what happens at the refining level. But it's still, of course, true that the crude oil is the single component of the -- the aviation gas. Is that enough?",
       "time": "00:20:05.60"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "So all the rest is atmospherics?  The fact that the government was super-concerned about this and, you know, was really looking at the production activities too  in order to ensure that the refiners got the crude that they needed, even if that wasn't the case, just the fact that the crude was the  component product is enough?",
       "time": "00:20:46.35"
     },
@@ -339,13 +339,13 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Gorsuch?  Justice Kavanaugh?",
       "time": "00:22:20.09"
     },
     {
       "turn": 50,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "There seems to be a concern about the fairness of the state court system that underlies your position in this case. What is that concern?",
       "time": "00:22:23.10"
     },
@@ -357,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "And do you have specific concerns in this case about the state court system, or is it more the general concerns, historical concerns, and the procedural points that you're -- just mentioned?",
       "time": "00:24:10.33"
     },
@@ -369,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Right. And then you mentioned earlier -- and I don't know if  you meant this to be a test, so I want to clarify whether you want this as something  you're suggesting should be in the opinion. Would enjoining the activity have a direct negative effect on the government?  Was that  something that you were suggesting as a test or just a comment you were making about the application of this test  --case?  Because the word \"direct\" could, of course, assume large significance going forward.",
       "time": "00:25:05.18"
     },
@@ -381,19 +381,19 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Thank you.",
       "time": "00:26:30.59"
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Barrett?",
       "time": "00:26:31.38"
     },
     {
       "turn": 58,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "A couple of factual questions. In thinking about how settled the factual record is here for purposes of applying a test, it seemed like there was -- I understand all the reasons why PAW is a federal agency from your point of view. I understand  all of the evidence from that. But I kind  -- do --do you understand Respondents to contest that point at all? Because it seems in some places like they cast doubt on it. Is that settled?",
       "time": "00:26:32.36"
     },
@@ -405,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Okay.",
       "time": "00:27:43.11"
     },
@@ -417,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Okay. Second question is Louisiana says that you grossly mischaracterize whether the state is trying to hold you liable for the World War II activities. You know, Mr. Aguinaga says, no, no, no, no, this is just about the defense. The only thing that's relevant is they're  showing that the activities were lawfully commenced before the Louisiana statute was enacted. I've read the expert report, I mean, and  --and I can see why, right. Is it the expert report that's leading you to say that, yes, we're actually being held -- they're  trying to hold us liable for that as opposed to having it be relevant solely for the defense?",
       "time": "00:27:56.12"
     },
@@ -429,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Right.",
       "time": "00:29:34.41"
     },
@@ -441,19 +441,19 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Thanks.",
       "time": "00:29:37.69"
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Jackson?",
       "time": "00:29:38.52"
     },
     {
       "turn": 68,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "So assuming that I think that \"of\" or  --or \"relating to\" was just a mere conforming amendment and, therefore, we're still in the land of causal nexus, but-for nexus, I thought your client had a pretty good argument that you satisfied that,  but it seemed like you were giving it up in your conversation with Justice Thomas. So can you help me to understand what  --maybe I'm misunderstanding what is necessary for but-for causation, but I thought that the argument was that there was a connection, a sufficient nexus, between the avgas contracts and the production of crude  oil, which is what is being alleged here.",
       "time": "00:29:39.89"
     },
@@ -465,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Please.",
       "time": "00:30:28.90"
     },
@@ -477,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Mm -hmm.",
       "time": "00:30:49.39"
     },
@@ -489,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Right. I mean --",
       "time": "00:31:09.13"
     },
@@ -501,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "-- I  --I thought all the arguments and the things that you were  saying, for example, to Justice Kagan, the stuff about the wartime context and the actual product here was your answer to why this isn't -- why this would satisfy a but-for context  -- a --a but-for test.",
       "time": "00:31:10.31"
     },
@@ -513,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Yeah.",
       "time": "00:31:25.32"
     },
@@ -525,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Yeah.",
       "time": "00:32:13.44"
     },
@@ -537,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Let me just -- let me just ask you really quickly about the Fifth Circuit's opinion because I understood them to  be requiring a contractual directive with respect to crude oil production, and it seems to me that that test is even more stringent than a but-for. Am I right about that?  I mean, that's what seems wrong about the Fifth Circuit's test.",
       "time": "00:32:19.28"
     },
@@ -549,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Thank you.",
       "time": "00:32:48.71"
     },
@@ -561,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Roper.",
       "time": "00:32:50.28"
     },
@@ -573,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "Would your approach apply to contract disputes with employees also?",
       "time": "00:33:53.36"
     },
@@ -585,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "Don't you think it's odd, though, that, as I think Justice Jackson alluded to, that this is simply a conforming amendment and it's doing so much substantive work?",
       "time": "00:34:34.49"
     },
@@ -597,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, you're -- you're right, obviously, that \"relating to\" is very broad, but it's hard to  see where you stop. I mean, is it a butterfly effect?  You know, the butterfly flaps its  wings and it has the end result halfway around the world?",
       "time": "00:35:46.16"
     },
@@ -609,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "So you want us to do the same thing we did in the prior case and just say, well, there might be hard cases down the line, but we're not -- I mean, how many times are we supposed to say that?",
       "time": "00:36:37.30"
     },
@@ -621,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "So could you summarize that into a test of some sort?  It  seems to be part of your argument in your brief that the goals of the federal officer removal  statute can provide a useful limit on the seemingly expansive reach of the \"relating to\"  phrase, but how do you articulate that?",
       "time": "00:37:39.43"
     },
@@ -633,13 +633,13 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "Well, that's too broad.",
       "time": "00:38:08.83"
     },
     {
       "turn": 99,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I mean, isn't that going to be true of any federal contractor? Presumably, a federal contractor is doing  something that the federal government needs. So, if you enjoin the federal contractor,  you're going to be impairing the operations of the federal government. That -- that seems as though you have a federal contractor, you meet your test.",
       "time": "00:38:09.42"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Well, you just said \"directly impede,\" and Mr. Clement put  -- took that word out of Justice Kavanaugh's formulation --",
       "time": "00:38:56.40"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- notably.",
       "time": "00:39:04.11"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "And I can easily see that in different product lines, one might say  I have a contract in one product line, but over here, interference over here in another product line will impair my ability to meet my government contract in the first. Thoughts?",
       "time": "00:39:05.43"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "So you'd have us put \"direct\" into Mr. Clement's test?",
       "time": "00:39:28.30"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "You wouldn't?  But I think you  --I think you said \"direct\" in response to Justice Kagan. So I -- I'm just  trying to get to the bottom of it.",
       "time": "00:39:32.29"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "We're back to  --",
       "time": "00:39:45.08"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- we're back to the Chief's butterfly effect problem then.",
       "time": "00:39:46.67"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "The big bang is related to you being here today, counsel, right?",
       "time": "00:39:50.70"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Oh, I guarantee you he would. (Laughter.)",
       "time": "00:40:26.72"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But Congress also said what it was doing in the report. This is the thing that is a little troublesome for me,  that to the extent that you are relying on arguments about what Congress actually intended  as opposed to just looking at the words of the statute, it seems to me we're in the territory where we look at the House report and see what Congress said about what it was doing. And in the House report, Congress described the existing causal nexus  requirement, saying that federal officers \"must demonstrate a causal connection between the charged conduct and the asserted official authority.\"  And in the testimony Congress  looked at during that time, consistently, people said we're not trying to change that standard. So, if we are interested in being consistent with what Congress intended, I don't understand why the evidence doesn't show that  Congress was not trying to change the stand -- the standard.",
       "time": "00:40:57.82"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "No, but you said Congress is coming in eyes wide open relative to our case law. And what I'm saying is, yes, and then they wrote what it is that they were trying to do in the report.",
       "time": "00:42:01.43"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Do you think they lose if I disagree with you?",
       "time": "00:42:40.92"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "I mean, do you not  -- do they not meet the causal nexus test here?",
       "time": "00:42:44.81"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "No, I mean on these facts, does Chevron lose if we disagree with you about the causal nexus requirement?",
       "time": "00:42:55.47"
     },
@@ -819,13 +819,13 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Justice Thomas? Justice Sotomayor, anything further? Justice Kagan?",
       "time": "00:43:56.20"
     },
     {
       "turn": 130,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I'll give you a hypo, Mr. Roper. Suppose there's a airline crash of some kind and somebody brings a lawsuit. It's  a private airline, and somebody brings a lawsuit and says there's a defective part. And the air  -- the airplane manufacturing company says, you know, this part that you're talking about, it also goes into all the airplanes that  we make for the federal government, which is a very substantial part of our business, so if you enjoin us from using this part, it's really going to affect the federal government. Does that mean that that suit, which is a standard state tort suit, should be removed?",
       "time": "00:44:01.38"
     },
@@ -837,7 +837,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "But we  --but -- but  -- but, if they're just asking for damages, which would effectively prevent  --you know, it's like, oh, my gosh, if we're going to be  subject to damages here, we better find another part, so that would affect the way that the federal government is going to -- maybe the federal government even asked for this part. You know, what -- what happens then?",
       "time": "00:44:57.25"
     },
@@ -849,7 +849,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "What does it mean to have a colorable federal defense?",
       "time": "00:45:42.85"
     },
@@ -861,7 +861,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "I mean, one of the issues here, right, is that each of the three parts of this, you can always say, oh, well,  that, it'll be taken care of by the other prong of the test. But each of the three prongs is  setting a really low bar, including the federal defense prong. It's not like you have to have a federal defense. It's you have a  -- have to have a colorable federal defense, which is just barely above frivolous.",
       "time": "00:46:07.84"
     },
@@ -873,13 +873,13 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Gorsuch?",
       "time": "00:47:16.87"
     },
     {
       "turn": 139,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "You  --your argument in your brief had a lot to do with the production of crude as opposed to the refining activity. That wasn't a central feature of -- of  --of the Petitioners' argument. And Respondents contend that it was waived below. Thoughts?",
       "time": "00:47:19.49"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "You're saying it was  -- it was presented to the district court.",
       "time": "00:47:50.53"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "But not to the court of appeals.",
       "time": "00:47:53.63"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "That  --that's enough for me.",
       "time": "00:48:08.58"
     },
@@ -927,19 +927,19 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Thank you. Appreciate it.",
       "time": "00:48:09.51"
     },
     {
       "turn": 148,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Kavanaugh?",
       "time": "00:48:10.99"
     },
     {
       "turn": 149,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "If we define \"relating to\" too narrowly from your perspective, what are the effects on the  federal government going forward?",
       "time": "00:48:11.84"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "And does that worry extend to incentives for military contractors going forward then?",
       "time": "00:49:50.34"
     },
@@ -963,13 +963,13 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Thank you.",
       "time": "00:50:15.64"
     },
     {
       "turn": 154,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Barrett?  Justice Jackson?",
       "time": "00:50:16.74"
     },
@@ -981,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Mr. Aguinaga.",
       "time": "00:50:19.63"
     },
@@ -993,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "How much can you rely on Watson, which is quite different factually. It's a heavily regulated company versus -- and it was pre-2-11, 2011. So how much work does Watson actually do for you?",
       "time": "00:52:02.44"
     },
@@ -1005,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Mr. Aguinaga, I have a question about whether you designated the parishes' counsel to represent you in the Fifth Circuit. On pages 34 and 35 of your brief, you try to run away from the concession that counsel made before the Fifth Circuit on the \"acting under\" prong and you say, well, Louisiana didn't appear. But didn't the counsel for the parishes represent you and appear on your behalf and concede that point?",
       "time": "00:55:14.89"
     },
@@ -1017,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "But you did -- I mean, the parishes' counsel did speak on your behalf, so if I read that transcript  differently, then it does bind you too?",
       "time": "00:56:41.20"
     },
@@ -1029,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Yeah.",
       "time": "00:56:52.24"
     },
@@ -1041,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Mr. Aguinaga --",
       "time": "00:57:18.70"
     },
@@ -1053,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "-- another question. Do you understand there to be a factual dispute about whether PAW is a federal agency?",
       "time": "00:57:19.32"
     },
@@ -1065,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BARRETT",
+      "name": "AMY CONEY BARRETT",
       "text": "Yeah.",
       "time": "00:57:30.24"
     },
@@ -1077,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Counsel, I'm a little concerned about what I see as a conflation of the different prongs in your argument. You've said a couple times that what  we should be looking for is \"acting under\" conduct or did the defendant commit those acts while \"acting under\" a federal officer. And that's not the way I understood the statute to be read. I thought \"acting  under\" was one prong and it was related to the authority that you have as this defendant, whether you're a federal officer yourself or  you're not, but you are acting under the authority of the federal government. And then we have the \"for or relating to any act.\"  Mr. Clement says the who, the what. I see that. And you, I think, are collapsing them. So can you help me to understand why you're not?",
       "time": "00:58:28.99"
     },
@@ -1089,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But doesn't that follow from our case law?  I guess I can't figure out how Willingham comes out the same  way if you're right.",
       "time": "01:00:00.53"
     },
@@ -1101,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "So are you saying that the act must be directed by the federal -- that the act in question has to be directed by the federal officer in order to give grounds for removal?",
       "time": "01:00:40.65"
     },
@@ -1113,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "Is that what you're saying -- no?  Okay.",
       "time": "01:00:51.18"
     },
@@ -1125,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE JACKSON",
+      "name": "KETANJI BROWN JACKSON",
       "text": "But, I mean, that is what the Fifth Circuit said here, didn't it?  I mean, that was the  -- the basis for the Fifth Circuit's ruling, was that the production of the crude was not directed by the contracts. And so that's why, right?  I mean, am I wrong about that?",
       "time": "01:01:02.68"
     },
@@ -1137,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE KAVANAUGH",
+      "name": "BRETT M. KAVANAUGH",
       "text": "Well, can I give you an opportunity to respond to the amicus brief from General Myers and Admiral Mullen,  which says, among other things, that the Fifth Circuit's approach would set a dangerous precedent that could adversely impact our national security, discouraging private parties from taking direction from federal officers for fear of future liability, weakens our armed forces while strengthening our enemies. Devastating implications for our national  defense are not hypothetical after September 11th. For example, our nation needed specialized protective equipment which the military did not have. If private-sector parties producing the equipment had said no, fearing future liability, that would have left our troops at great risk. So I just want to give you an opportunity to respond to that fairly strongly worded amicus brief from General Myers and Admiral Mullen.",
       "time": "01:06:26.62"
     },
@@ -1149,13 +1149,13 @@
     },
     {
       "turn": 184,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. Justice Thomas?",
       "time": "01:08:20.64"
     },
     {
       "turn": 185,
-      "name": "JUSTICE THOMAS",
+      "name": "CLARENCE THOMAS",
       "text": "As a practical matter, what difference does it make to be in state court as opposed to federal court?",
       "time": "01:08:22.74"
     },
@@ -1167,13 +1167,13 @@
     },
     {
       "turn": 187,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Sotomayor?",
       "time": "01:08:52.88"
     },
     {
       "turn": 188,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "If you were to lose on the \"acting under,\" do you automatically lose on the \"relating\"?  If we  accept the Fifth Circuit's view, then how do you win?",
       "time": "01:08:55.23"
     },
@@ -1185,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE SOTOMAYOR",
+      "name": "SONIA SOTOMAYOR",
       "text": "What do you do with the \"relating to\" language?",
       "time": "01:09:27.11"
     },
@@ -1197,13 +1197,13 @@
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Kagan?",
       "time": "01:10:06.65"
     },
     {
       "turn": 193,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "And could you respond to the Solicitor General's alternative argument just so I'm sure I know what your -- your view of that is?",
       "time": "01:10:08.19"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Yeah. How about a substantive response?",
       "time": "01:11:05.35"
     },
@@ -1227,19 +1227,19 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE KAGAN",
+      "name": "ELENA KAGAN",
       "text": "Thank you.",
       "time": "01:12:11.50"
     },
     {
       "turn": 198,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Gorsuch?",
       "time": "01:12:12.42"
     },
     {
       "turn": 199,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "On the \"relating to\" point, I didn't hear you make an argument that it's a mere conforming amendment. Thoughts?",
       "time": "01:12:14.20"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I -- no, I understand that. That's not really my question. I'm trying to get at, did it do  nothing, or do those words that Congress added mean something?  And I didn't hear you --",
       "time": "01:12:28.65"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- contest that they mean something. And, in fact, the test is a very broad one, you concede in your brief.",
       "time": "01:12:39.33"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "Am I right about that?",
       "time": "01:12:45.76"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "I understand that. But there's been a suggestion that the result of that  --",
       "time": "01:13:18.71"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "-- is that it doesn't change the standard and it remains \"for\" and not \"for or relating to.\"  But I don't hear you in your briefs at least suggest that argument. I hear you  admitting that \"relating to\" is quite a broad test.",
       "time": "01:13:22.38"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE GORSUCH",
+      "name": "NEIL M. GORSUCH",
       "text": "No, I understand the mismatch point. But you agree that those words have meaning and that they change the meaning of this statute?",
       "time": "01:13:59.41"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Justice Kavanaugh?  Justice Barrett? Justice Jackson? Thank you, counsel. Rebuttal, Mr. Clement?",
       "time": "01:14:09.01"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, counsel. The case is submitted.",
       "time": "01:17:22.14"
     }

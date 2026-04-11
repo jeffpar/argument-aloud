@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1989/88-1503/19891206a_88-1503.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM H. COLBY",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ROBERT L. PRESSON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "KENNETH W. STARR",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this today in No. 88-1503, Nancy Beth Cruzan v. the Director of the Missouri Department of Health. Mr. Colby.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Colby, is it clear... I'm... I'm not sure it... it seems to me that there may be some dispute on the point as to whether she could have been fed manually if that had not been done. Apparently your opponents say that it is... it would have been more difficult, but that she could have been fed manually by... by massaging the food down her throat or something of that sort. Is that correct or not?",
       "time": "00:01:29.12"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Colby, at the time the family said, yes, go ahead and insert the feeding tube, if they had refused that permission, would the state law have required that refusal to be honored? Was the family's consent required at the time for the insertion of the tube?",
       "time": "00:02:40.57"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "By state law?",
       "time": "00:03:09.17"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that by statute or by some state common law?",
       "time": "00:03:11.89"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what if they refused? Is there a procedure then, whereby the state would go in and have a guardian appointed? Or does the state, if the patient is in a state hospital, simply accept that refusal and allow the patient to die of malnutrition?",
       "time": "00:03:38.36"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that a prediction of fact or is that a statement of law? You say it's your belief that they would have accepted it. Would the state have to have accepted it? I mean suppose the parents were Christian Scientists, or for some reason did not want a relatively ordinary surgical procedure to be performed, would the state have to... would the state have to accept that determination, or would the state not be able to appoint a guardian and have the guardian make it?",
       "time": "00:04:11.76"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Colby, do you think that a competent adult has an absolute constitutional right to refuse food and water?",
       "time": "00:06:25.75"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How about if no feeding tube is required?",
       "time": "00:06:51.30"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Can the... can the adult, the competent adult absolutely refuse food and water in a hospital setting, and the state can't override that decision?",
       "time": "00:06:56.45"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The individual isn't very competent then.",
       "time": "00:07:21.06"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why do you presume it's irrational? I mean, let's assume the person is in a state close to as hopeless as this individual here, and the person says, I want to die. I am of sound mind and it is my desire to die.",
       "time": "00:07:44.55"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could a state overrule that?",
       "time": "00:08:04.34"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well... well, then change it from a vegetative state, it's just a state of enormous pain, deformity, quality of life is... is... is nil, and the person says, I want to die.",
       "time": "00:08:14.22"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I'm asking Justice O'Connor's question. Must... must the state allow that person... must the state allow that person to refuse food and water?",
       "time": "00:08:31.96"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now, can that-- --Well, what... what's your... what's your standard for... for irrationality? Do you mean it's an objective test; someone else decides whether a person's particular decision is rational or not?",
       "time": "00:09:02.45"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, who... what does inappropriate mean?",
       "time": "00:09:33.23"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose the evidence were to the contrary, and the evidence was that for reasons of her own moral philosophy she thought that life systems should never be terminated. Would the state have to respect that?",
       "time": "00:10:26.12"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, in this case, then, if the state has to respect both wishes, cannot we view this case as being one in which the state simply is saying that there must be a mechanism where the state can make a clear determination of what the wishes were one way or the other, and if that determination cannot be made, the state simply opts for life. Is that the... is that the way this case comes to us?",
       "time": "00:10:42.39"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No, it's not... it's not all situations. It's where the wishes of the person cannot be determined with accuracy, as the state... as the state understands it.",
       "time": "00:11:42.46"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Don't we... don't we have to get to that question here? Because the state said that the evidence is just insufficient to really know what the patient's wishes were. You don't ask us to overturn that factual assessment of the evidence, do you, or not?",
       "time": "00:12:20.40"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But if you lose on that, then you must get to the question of the... of the authority of the parents.",
       "time": "00:13:44.99"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, but you said before that we don't. That in the case of a Jehovah's Witness who says, my child would not want medical treatment, the state will intervene and say, we don't care. Your child will. Now, you say that that's a religious belief and therefore it can be disregarded, but isn't... and this... but isn't this a philosophical belief? Is that any different? I mean, some people think living is better than not living, not matter how terrible the life may be. I mean, go back and read ancient philosophers fighting that old battle. And other people think no, if the quality of life is not good, let's end it. That's a philosophical debate, just as the Jehovah's Witnesses have a religious view of the matter. Why can't the state take a position, we don't deal with philosophy, we deal with physics, and life will be preserved?",
       "time": "00:14:25.90"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Colby, in that situation, a person acknowledged to be in a persistent vegetative state, do you think that there is some kind of per se rule, or presumption that federal... the federal Constitution mandates be applied, that that person would prefer to die? I mean, is that your position? That the state must, because of the federal Constitution, apply some kind of a presumption there?",
       "time": "00:16:02.98"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you think the patient has an interest in making sure that the patient's fundamental wishes are followed, at least?",
       "time": "00:16:56.88"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So the patient has an interest in making sure there is not some erroneous determination made--",
       "time": "00:17:11.91"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--about the patient.",
       "time": "00:17:20.00"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think the federal Constitution, then, says that the state can't require clear and convincing evidence, for example?",
       "time": "00:17:21.91"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, wait a minute. Please, let's get back to the question. May a state, under the federal Constitution, require at least clear and convincing evidence of the patient's intent?",
       "time": "00:17:56.69"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, of course, it seems to me you assume the conclusion. You're trying to set up an antithesis in the Fourteenth Amendment between life and liberty, both of which are protected, but you assume that there is a liberty to have... to die without clear and convincing proof, and that's the very issue in the case. So you simply assume that issue when you say liberty. On the other hand, life, you don't have... there's no assumption to be made. We know there's life here in some... in some sense.",
       "time": "00:18:55.97"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that assumes--",
       "time": "00:20:19.73"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--That assumes what we're trying to find. You say that liberty is inconsistent with an ordered procedure to find out what her intent would be.",
       "time": "00:20:23.18"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you think the Constitution requires a state to allow the nearest relative to make the decision, or can the state require a judicial proceeding to make that determination?",
       "time": "00:20:56.83"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Some kind of independent decision-making body, such as we might require to determine whether someone must be committed to a mental institution or that sort of--",
       "time": "00:21:13.94"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Is it enough if the family members are allowed to testify and state, as an evidentiary matter, their understanding of their daughter's wishes?",
       "time": "00:22:09.28"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Does... does... does the family have any interest over and above being kind of a repository for what the wishes of the patient are? In other words, once the family has said what they have to say about what the patient might have wanted, does the family, in your submission, have any additional role? Are their own wishes to... given any particular regard?",
       "time": "00:22:31.29"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So what's your answer?",
       "time": "00:23:07.82"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The family does have an interest over and above what it can say about what the patient's wishes were?",
       "time": "00:23:14.39"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You don't represent... and it doesn't make any difference that the person is an adult and not a minor... the patient?",
       "time": "00:23:33.58"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Colby, I don't know any other area where we allow the family to make a physical decision for a family member, a child... minor child. I don't know any other area where the state will put certain limits on those decisions, and when the family's decision is what the state considers an unreasonable one, the state will make the decision. Now, is that where your... where your argument leads? That if the state decides that the family members, in deciding that this person would want to live, or ought to live, if the state decides that those family members are unreasonable, that no one, as you say, would want to live in this... in this permanent vegetative state, can the state then not make the same decision in the place of the family members who are being unreasonable about it?",
       "time": "00:24:20.04"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So the state can require the hospital... the state can require a hospital to cease providing this kind of medical care? That's where your argument leads?",
       "time": "00:25:13.60"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's not a matter of being abusive, any more than the Jehovah's Witness parents are being abusive. The state just determines that the decision that has been made is an unreasonable one.",
       "time": "00:25:42.35"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, beyond whether her wishes are clear... that's a different question. We're arguing under the Chief Justice's hypothesis: the right of the family to decide. Doesn't the right of the family to decide lead inevitably to the right of the state to decide?",
       "time": "00:26:00.64"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You mean articulate reasons that are specific to this patient?",
       "time": "00:26:25.26"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But what I... what I still don't quite understand from your argument, is it your view that if the actual wishes of the patient are unknowable... in many cases, I suppose, you just wouldn't know. You can't really get evidence that... people don't expect to find themselves in this position... that in that event, the state can always turn down and always insist that the patient continue to live?",
       "time": "00:26:28.81"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because your argument seems to focus entirely on trying to ascertain the intent of the patient.",
       "time": "00:26:50.41"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Colby, let me follow through a little bit on the Chief's... the Chief Justice's inquiry. In this case, the expense is entirely that of the State of Missouri, is it not?",
       "time": "00:27:26.41"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Let's change that and make it that the expense was that of the family and that Mr. Cruzan had seven other children and limited resources, would your argument be any different? Would the welfare of the other children be a factor entering into the decision?",
       "time": "00:27:37.94"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "We seem to have overlooked, here, too, what the findings of the trial court were. Everyone's speaking about what the Missouri Supreme Court did by a 4-3 decision.",
       "time": "00:28:21.82"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Colby. Mr. Presson?",
       "time": "00:28:35.89"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Or his the family?",
       "time": "00:29:32.89"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Patient or the family?",
       "time": "00:29:35.08"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In the best interest of... you... you said it would be in the best interest of the patient, and I'm asking--",
       "time": "00:29:39.48"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "--do you include the family also?",
       "time": "00:29:44.52"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "The answer is no, even though the expense were on the family, which it is not in this case, and even though there were other siblings?",
       "time": "00:29:47.47"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "But what if it were, is my question?",
       "time": "00:29:59.18"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, you're evading the answer, aren't you?",
       "time": "00:30:04.03"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, and if they were required so under Missouri law, though, that is Justice Blackmun's question. Then I presume the constitutional question before us would be the question of whether they can be compelled to pay under Missouri law.",
       "time": "00:30:29.91"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:30:44.92"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The question whether they can be compelled to pay is quite separate, I assume, from the question of whether they have the right to demand that the... that the life of the individual not be continued.",
       "time": "00:30:54.69"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Presson, you started your argument by saying that the state has the right to have a judicial officer make a decision of this kind. Under Missouri law, could the judge ever authorize the withdrawal of the life support procedures if there was no certain evidence with regard to the intent of the patient? Could there ever be circumstances that would justify that?",
       "time": "00:31:07.35"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What... what kind of circumstances would justify that?",
       "time": "00:31:33.00"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, why... why... why would that be different? Is that just because it's a different amount of dollars ano cents involved? Here it costs about 10,000 a month, supposing it cost 100,000 a month with all--",
       "time": "00:31:59.15"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--So dollars would not be relevant, even?",
       "time": "00:32:08.84"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The one factor that would be relevant would be discomfort to the patient, pain?",
       "time": "00:32:13.14"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what else would be?",
       "time": "00:32:19.21"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But what's... why... why is that significant, except in a dollars and cents way? What difference does is make if it's three nurses instead of one, or two tubes instead of one? Why does that matter?",
       "time": "00:32:24.69"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if there is no pain involved, so what? Why does that make a difference? I don't understand.",
       "time": "00:32:37.36"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it has... for your opponents to win, it has to stem from the Constitution. We can't decide this on a common law basis. We don't have the--",
       "time": "00:32:52.69"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Yes, but the procedure has to have some kind of standard by which things are done. You had a procedure here, and a trial judge concluded that the matter could go differently. You have a procedure in place, but--",
       "time": "00:33:06.70"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--The question for me is what is the standard? And is there any possibility of withdrawing the support in the event that the patient's desires are not knowable? Because I would think that would be the typical case.",
       "time": "00:33:18.42"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that would depend on proof of pain?",
       "time": "00:33:31.85"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Pain or a lot... well, a more elaborate procedure than we have here?",
       "time": "00:33:35.80"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Effective at doing what? This is 100 percent effective at sustaining life, and that's all it does.",
       "time": "00:33:53.84"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How can you have 50 percent effectiveness in that sense? I don't understand you.",
       "time": "00:33:58.40"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The two factors are, one, how invasive is it? Which is, to me, how expensive is it, because the patient doesn't really know whether there are one, two, three or a hundred tubes placed in--",
       "time": "00:34:25.46"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Well, that's all we have to decide is a PVS patient. Would Missouri law make any distinction in that respect between the fact that this is just hydration and nutrition, as opposed to another kind of procedure?",
       "time": "00:34:40.66"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I simply don't... shoot, I simply don't understand that argument. If one procedure will sustain life for 20 years and another will sustain life for 10 years, which one is the better, and why is one better than the other? And they're equally invasive. And the patient in each case is in a persistent vegetative state.",
       "time": "00:35:26.57"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "How can the state draw a distinction between those two?",
       "time": "00:35:42.15"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, you said 50 percent would be the different case, and I'm asking you why?",
       "time": "00:35:45.01"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you're suggesting it might be in the best interest to keep her alive for 20 years, but it would not be in the best interest to keep her alive for 10 years.",
       "time": "00:35:56.14"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what are... what are you referring to 50 percent versus 100 percent? What does that mean, other than a difference in the period which the patient will live?",
       "time": "00:36:09.63"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And you think that rational, competent patient might say, yes, I want to remain in this state for 20 years, but if I can only stay in this state for 10 years, I wouldn't do it? That's what you're saying. [Laughter]",
       "time": "00:36:34.84"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what... what other factor is there if the patient has no sense of feeling whatsoever and no pain and nothing else? The only difference is the length that he or she will survive, if I understand the facts. Maybe I don't.",
       "time": "00:36:49.19"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well... but then, what did you mean by that? What did you mean by the degree of effectiveness?",
       "time": "00:37:11.27"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr.... Mr. Presson, maybe... maybe you're... you're being confused by assuming that this is cost-free to the state. Aren't there two situations? I suppose where somebody else is paying for it, and volunteers to pay as much as it will cost to provide the treatment, then the only interest the state has in... in mind is the welfare of the individual? But I suppose if the state is paying for it, it is reasonable for the state to say, how heroic are these measures? How much is it going to cost the state, versus what the state can use those funds for otherwise? In that situation, where the state is paying for it, I assume that the state can say, well, there is a certain entitlement to basic medical care, but we're not going to pay for heroic measures. Isn't... isn't that one factor the state can take into account?",
       "time": "00:37:27.88"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you... you... the court below said guardians just don't have this kind of power. They don't have that kind of authority under the state law.",
       "time": "00:39:20.55"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And I suppose all you need to do to prevail is to say the state is entitled to prefer another... another decision-maker besides the guardian.",
       "time": "00:39:30.34"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, Mr. Presson, do you think that the State of Missouri has articulated some clear standard here? It's the best interests of the patent?",
       "time": "00:40:08.82"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That's not what the court said, though?",
       "time": "00:40:26.80"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that what the Supreme Court of Missouri said?",
       "time": "00:40:29.60"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I... I'm... I'm... I have been concerned because in reading the opinion, it was not clear to me what the standard was that the Supreme Court of Missouri had said.",
       "time": "00:40:48.46"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And is that the... the objective of a court review in a situation like this?",
       "time": "00:41:17.98"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the state says the evidence must meet a clear and convincing standard?",
       "time": "00:41:27.05"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, is it within the authority of the Missouri court to say that they won't consider at all certain types of evidence such as was offered in this case?",
       "time": "00:41:34.59"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "There is no federal limitation whatever on the decision that a state might make about what evidence is relevant to the best interest standard?",
       "time": "00:41:47.50"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Could it say we will never listen to evidence given by a family member on this question?",
       "time": "00:42:03.26"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes or no?",
       "time": "00:42:12.88"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, the supreme court... the supreme court here said the evidence offered at the hearing was inherently unreliable and insufficient. Do you think all of that evidence should be so characterized? Is there any limit by virtue of the federal Constitution to that decision?",
       "time": "00:42:35.99"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Presson, I gather from your answer that you think that Missouri could not enact a law that said in the event an individual is unconscious, normal medical procedures to keep that individual alive will be applied unless the individual has left word in writing that he does not want his life to be maintained or that he wants that judgment to be made by someone else. Missouri couldn't pass a law like that?",
       "time": "00:43:18.74"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It excludes all sorts of evidence as to what his genuine intent was, but he did not leave it in writing and, therefore, Missouri says this is the procedure. We, you know... we think it's an extraordinary thing to kill someone, and we're not going to assume the individual writes... wants that unless he leaves word in writing beforehand. Couldn't Missouri adopt a law like that?",
       "time": "00:43:47.43"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But then you're changing your answer to Justice O'Connor. What you're saying is the state could exclude all evidence other than a written instrument satisfying the statute of wills or something like that.",
       "time": "00:44:16.46"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's what Justice Scalia posits, and you answer... you give him one answer and you give Justice O'Connor a different answer because you said to her that, no, they could not exclude certain kinds of evidence.",
       "time": "00:44:27.25"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, what is your answer to that hypothetical? I was going to ask you that very question because here the state relied on the general interest in life. Would that general interest be sufficient to require that life be maintained even when the patent had unequivocally executed the kind of instrument that Justice Scalia described?",
       "time": "00:45:01.64"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is that based on the assumption that a... that the state could override a competent person's refusal to receive medical treatment?",
       "time": "00:45:22.65"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if that's... if that's true, then, in your view there's no use our even inquiring whether that right survives incompetency because there is no right.",
       "time": "00:45:49.53"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Getting... getting back to the competent person, I assume your answer would be a competent person could not refuse food or water if the state determined otherwise, even if that person were in great pain?",
       "time": "00:46:35.56"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Presson, before you sit down, I'd like to ask a... an impertinent and perhaps an improper question. Have you ever seen a patient in a persistent vegetative state?",
       "time": "00:47:03.08"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You have seen Nancy?",
       "time": "00:47:20.21"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Any others?",
       "time": "00:47:22.16"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "How come?",
       "time": "00:47:24.49"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Your time has expired, Mr. Presson. Thank you. General Starr.",
       "time": "00:48:02.64"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask, on that, why do they disagree? What is the reason for their disagreement? The same views in the state's, the general interest in life?",
       "time": "00:49:10.38"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So they would clearly disagree with any decision to terminate life?",
       "time": "00:49:41.00"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It would be inconsistent with their mission, wouldn't it?",
       "time": "00:49:46.70"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. General, in New York, if the evidence is clear and convincing with respect to food and hydration, the choice would be honored?",
       "time": "00:54:45.90"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The state could not say this is tantamount to suicide and we may override that choice?",
       "time": "00:54:56.72"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but suppose the state did say that we just put food and hydration in a different category and we never will do it no matter what the evidence is. What about the due process clause?",
       "time": "00:55:07.56"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And that's one of them?",
       "time": "00:55:28.73"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And so the state could not do that under the due process clause?",
       "time": "00:55:30.48"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know but suppose--",
       "time": "00:55:41.45"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Suppose the state says, we're never going to honor a choice by the patient or by the parents or anybody else where food and hydration is concerned? Would the due process clause forbid that?",
       "time": "00:55:43.50"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, but is there--",
       "time": "00:56:10.39"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But Mr. Solicitor General, I would be interested, could there be a case in which the federal Constitution would require relief for the patient, in your view, or is it absolutely up to the states, 100 percent? At least you have... you must have a position on that.",
       "time": "00:56:14.61"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well--",
       "time": "00:56:35.52"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Let's give a specific example, supposing there were evidence in this case that the patient was suffering continuous pain. Maybe it's very mild, but continuous discomfort, and you had clear evidence of the intent of the patient; everybody agreed that it would be in the best interest. Would the Constitution permit the state to say, we're very sorry but our interest in maintaining... the general interest in life is so strong that we will not permit this to be--",
       "time": "00:56:39.07"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--How about modest pain? That's my... just the slightest, but continuous pain, a very slight discomfort.",
       "time": "00:57:05.64"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So you would agree, though, that the federal Constitution is implicated by the... by this kind of issue?",
       "time": "00:57:25.01"
     },
@@ -1587,7 +1587,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "All right.",
       "time": "00:57:33.80"
     },
@@ -1599,7 +1599,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Absent suffering, you just don't know, notwithstanding clear intent and everything else, just like the fact, clear evidence of intent, you're just not sure what the answer is there?",
       "time": "00:57:35.19"
     },
@@ -1611,7 +1611,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm just... I'm... I perhaps am just repeating a question. Is the federal Constitution implicated... I'd like to have this question answered... if there is no pain but there's unequivocal evidence of the patient's intent to have withdrawal of the system in this situation?",
       "time": "00:57:46.28"
     },
@@ -1623,7 +1623,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, General Starr. Mr. Colby? You have one minute remaining.",
       "time": "00:58:18.41"
     },
@@ -1635,7 +1635,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Colby. Your time has expired. The case is submitted.",
       "time": "00:59:10.20"
     }

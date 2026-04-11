@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1993/92-1450/19931201a_92-1450.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
       },
       {
         "name": "LAWRENCE A. MANSON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD H. SEAMON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN H. BISBEE",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument first this morning in No. 92-1450, Cynthia Waters v. Cheryl Churchill. Mr. Manson.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Manson, do you mean no evidence on the record as it now stands? Assuming that you prevail on the question you're now arguing, it doesn't follow that you get summary judgment, do you? Because isn't... wouldn't it be open to the plaintiff then to show that, indeed, the relevant offices did know that the--",
       "time": "00:01:55.40"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Yes.",
       "time": "00:02:21.08"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Could be construed, but not had to be construed.",
       "time": "00:03:40.06"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, doesn't she have her own evidence of what she said, and wasn't there anyone else? Was it only those two people? And weren't there preceding events from which one might infer that that speech concerned... was a matter... on a matter of public concern?",
       "time": "00:03:59.00"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And you say there's no credibility issue at all involved in that, that it's open and shut, that all that the defendants knew about was that she was grousing?",
       "time": "00:04:41.74"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How did it come out later that those reports were inaccurate?",
       "time": "00:07:27.08"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But how did it... how did it... what was the basis on which the employer learned more later?",
       "time": "00:07:34.67"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, she... she responded at the grievance hearing and she wasn't allowed to put in her evidence.",
       "time": "00:08:03.40"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, if she had been allowed to do that, isn't it likely that it would have come out that that was, in fact, part of the substance of the conversation that... that was... that is at issue here?",
       "time": "00:08:45.95"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, it's possible that if she had allowed to discuss the subject that she wanted to discuss, that it would have come out too, isn't it?",
       "time": "00:09:01.00"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, is your theory that good faith is an absolute defense?",
       "time": "00:09:19.11"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose the employer has a rule that you have to have a permit before you hold a meeting in the cafeteria. And the employee holds a meeting in the cafeteria to talk about a matter of public concern and the employer fires the person because they didn't have a permit, but the employer's wrong, they did have a permit; what result?",
       "time": "00:09:36.82"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "No. Assume it's a valid time, place, and manner rule. You have to have a permit before you meet in the cafeteria; that's a valid rule. Let's at least assume it is.",
       "time": "00:10:06.06"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, under... under my theory, the... under my hypothetical, the employer acts under a mistaken assumption of fact. In fact, the employee was engaging in protected speech.",
       "time": "00:10:31.17"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I should think so. That has to be your answer, that that employer is guilty of a wrongful firing, and it would be a wrongful firing of somebody who wanted to have a meeting with a proper permit for a matter of public interest, just as it would be a wrongful firing of somebody who wanted to have a meeting on a different subject. But you have to take the position, it seems to me, that it's no First Amendment violation, it's just a wrongful dismissal.",
       "time": "00:10:45.63"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Manson, you've spoken several times, as you did in your brief, about the need to prove that the... in effect, the motivation of the employer was retaliation against protected speech. Now, our cases have gone into motivation when the issue has been was the... was the reason for the discharge something that was unprotected, as opposed to a response to that which was protected. But have we ever held that retaliation is, in fact... an across-the-board retaliation for protected speech is, in fact, a requirement for liability?",
       "time": "00:11:12.74"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But the issue in that case, as I understand you, as you have just phrased it, is whether, in fact, the impetus for the employer's action was the protected speech or the remarks about the success of the assassination attempt. But it doesn't follow from that... when the contest in the case is between what was the cause, it doesn't follow from that that we have pronounced an across-the-board rule that retaliation against protected speech... in other words, an intent test as opposed to an effects test is always going to be the test here. And I'm... I'm not sure that we have a case that does hold that.",
       "time": "00:12:33.87"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, wasn't Mount... wasn't Mount Healthy a dual motivation case?",
       "time": "00:13:19.36"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but my question is do we have cases that discuss the first prong as a requirement totally independent of the issue that arises with the second? And, I mean, for example, we've... to counter it as recently as Simon & Schuster, we're talking about an effects test. We said we don't care what the motivation was here. It's the effect that we're concerned with. And it strikes me as odd that we would have an entirely different standard in the context that you're dealing with. Mr. Manson, I understood you to say that what you're talking about is the mistake as to the content of the speech. If the employer was right about the content of the speech, that it didn't contain anything... any matter of political concern, not... are you talking about motive at all in that respect? You're talking about a mistake as to the words that were spoken.",
       "time": "00:13:29.79"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, I thought you were. I thought that the... that you were relying on statements that what was said was grousing, and what was said was not on a matter of public concern.",
       "time": "00:14:35.39"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well that's different from taking the same speech and saying what was the motive for it, or what was the effect of it. We're looking at, as I understand it, two separate versions of what happened. One person said I heard grousing and the other person is saying I spoke about matters of public concern. I thought that's what was the nature of your case.",
       "time": "00:14:50.85"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it perfectly clear that some of that information that they knew about had no relationship to matters of public concern? Like a statement that one of the nurses was ruining the hospital, and I forget, there are two or three things that arguably raise questions that might... might have some public interest in.",
       "time": "00:16:04.35"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, you described the impact by describing what one of the witnesses said was going to happen to personnel, but there's no evidence that that really happened.",
       "time": "00:16:29.08"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But there isn't any evidence that they had any staffing problems, was there?",
       "time": "00:16:52.61"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I see.",
       "time": "00:17:00.26"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Manson. Mr. Seamon, we'll hear from you.",
       "time": "00:17:02.55"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mount Healthy was a case in which the contest was a contest as between motivations, wasn't it?",
       "time": "00:18:00.53"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand that. Why would mixed motive make a difference if motive doesn't make a difference?",
       "time": "00:18:22.38"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I don't... then I don't understand why your response is... Mount Healthy still, mixed motive or not, is right on point.",
       "time": "00:18:34.68"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That... why would mixed motive make a difference if what your real motive is doesn't make a difference?",
       "time": "00:18:42.42"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, couldn't... couldn't it make a difference if, in fact, there... there would be a compete... there was a competing justification, and the question is whether that justification was the operative one, as opposed to a justification of retaliation against protected speech.",
       "time": "00:18:51.83"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I still... I still don't understand... I still don't understand that. It seems to me the inquiry in Mount Healthy was whether the motive for firing was the unlawful motive.",
       "time": "00:19:23.38"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And the assertion was, well, there may have been mixed motives and... but, still, doesn't it assume that you have to prove the bad motive?",
       "time": "00:19:34.54"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but the... there was something independent of the speech. I can't remember what it was. But wasn't it true that the thought was even if the bad... the protected speech had not been made, that she would have been fired anyway? Isn't that right, that was the defense?",
       "time": "00:19:53.28"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "She did have a bad personnel record. Here there is no question about the fact that she was fired because she made a particular group of statements on a particular date, which they didn't realize were protected is the defense. But she was clearly fired because she made a particular speech which they say was protected.",
       "time": "00:20:07.52"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but the speech is the... is... was the basis for the discharge.",
       "time": "00:20:32.28"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And-- --But isn't this case different from Mount Healthy in that the question is what was the speech? Now, whether the person was fired for what was the speech, or was fired for a different reason, is a different question from what was the speech? Here the employer thinks the speech is one thing when the employer acts, but it turns out to be something else. I thought that's what this case was, and that... that such a case has not been seen.",
       "time": "00:20:37.27"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And if the employer was right about what the speech was, there wouldn't be any First Amendment argument to make.",
       "time": "00:21:09.59"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It's only because the employer thought the words were one thing, when, in fact, it appears they may have been something quite different.",
       "time": "00:21:17.92"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I had a question that I think you could be very helpful with. If you had a situation like this in Federal employment, how would the employee put forward that claim?",
       "time": "00:21:41.53"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Take a nonprobationary employee. Apart from the administrative process, would there be any judicial review?",
       "time": "00:22:21.48"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Could you come directly to court, skip over that?",
       "time": "00:22:47.97"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do any of these matters go through a collectively bargained arrangement?",
       "time": "00:23:10.41"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Seamon, your time is about to expire, and I did want to ask a question, please. The district court said that even if the... part of the conversation was protected, there was another part that was inherently disruptive.",
       "time": "00:23:32.96"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "By any version of the facts. And therefore the firing was justified on that basis. The court of appeals disagreed with that. Is there a sufficient factual basis to grant summary judgment one way or another on that?",
       "time": "00:23:52.73"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes. Is it not possible for speech to be insubordinate even though it deals with a subject of public concern? Must a hospital allow all of its personnel, in particular supervisory personnel, to go around and tell subordinate employees this is the worst hospital in the world? Must that be allowed?",
       "time": "00:24:56.98"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is that a question... mixed question of fact in law? What is the question, whether it's justified as inherently disruptive?",
       "time": "00:25:40.02"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr Seamon. Mr. Bisbee, we'll hear from you.",
       "time": "00:26:51.65"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Bisbee, I wish you would turn to the question presented, which is that the understanding of the employer at the time of the action. The employer's understanding, according to the question presented in the cert petition, was that the... there was... the speech that was involved was unprotected insubordinate speech. So the question is at that time, the time of the firing, the employer believes that the words spoken were unprotected, insubordinate speech; doesn't find out until later the First Amendment protected cat... that's the question presented. Who phrased that question?",
       "time": "00:28:09.65"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you don't--",
       "time": "00:28:57.24"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Isn't that what the question... isn't that what the Seventh Circuit treated the question as being?",
       "time": "00:28:59.85"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, what question did the Seventh Circuit address?",
       "time": "00:29:06.33"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "The Seventh Circuit said it didn't matter that the employer didn't know that the words spoken were protected speech. Didn't the Seventh Circuit say that?",
       "time": "00:29:26.89"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "More than said we held... it said we hold that ignorance of the nature of the employee's speech is inadequate to insulate officials from the 1983 act.",
       "time": "00:29:57.51"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Bisbee, to further Justice Ginsburg, when they're summarizing at the end of their opinion, they say we further hold as immaterial whether the defendants knew the precise content of Churchill's conversation, for they knew or should have known. This is the language of the court of appeals itself.",
       "time": "00:31:04.68"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but we... we granted certiorari on a question presented, and you can assume that we want to... we want to hear argument on that question.",
       "time": "00:31:35.43"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Bisbee, do I take it that what you're saying is you had a triable case on what that employer understood at the time?",
       "time": "00:32:43.67"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "All right, but so that's quite--",
       "time": "00:32:50.67"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--different from the... That was the question that I was asking your adversary. Even if the Seventh Circuit is wrong that... and it doesn't matter that the employee believed the speech was unprotected at the time the employer acted, would the summary judgment be appropriate. And he said you didn't come forward with anything to show that the employer understood, at the time it was acting, that it was dealing with protected speech. But what did you come forward with at the time of summary judgment in the district court to make out a case that at the time this woman was fired, the people who fired her knew that she was dealing in protected speech?",
       "time": "00:32:52.35"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Bisbee, do you take the position that everything... that on the record that the Court has before it in considering summary judgment, that all of the speech by the employee was protected, all of it was protected speech, or is some of it unprotected in your view?",
       "time": "00:34:01.03"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No, on the basis of the record--",
       "time": "00:34:27.81"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Before the court for summary judgment.",
       "time": "00:34:30.71"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Not all of it.",
       "time": "00:34:39.09"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And in... and in answering that question, you bear in mind the Connick case which dealt with criticism of the management of the district attorneys office, whether it was well managed and had good morale, where the Court said that was not a matter of public concern?",
       "time": "00:34:44.12"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Uh-huh.",
       "time": "00:35:00.27"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So a portion of the speech went to that.",
       "time": "00:35:11.37"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "A portion of the speech went to that.",
       "time": "00:35:14.46"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Let me ask you another thing. Do you think that even protected speech could also serve to demonstrate sufficient disruption to the employer's operation that a firing could be justified?",
       "time": "00:35:25.27"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:35:46.40"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I'm not sure it disregarded that. Justice O'Connor's question is, even assuming that it was about the cross-training issue, might that not be a valid cause for discharge? Does every employee of a... of a public hospital have a right to go about running down the hospital to subordinates simply because that employee doesn't like the way the hospital's being run, and that is a public issue and therefore it can be done constantly?",
       "time": "00:36:30.33"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, in the best of good faith, in the best of good faith.",
       "time": "00:37:05.78"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If she had been telling this to the super... to the board of trustees of the hospital or someone who had the authority to change the situation that she thought was bad for the public, I could understand it. But telling it to a subordinate nurse, what did she hope to achieve by telling it to... to one of the cross-trainees except dissatisfaction?",
       "time": "00:37:43.84"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To criticize the operation, so long as it's a public operation, all of the employees must be free to run down the operation to subordinate employees--",
       "time": "00:38:24.45"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Even though the subordinate employees can't do anything about it.",
       "time": "00:38:31.92"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A person of no authority in the operation to make the changes that she thought were necessary.",
       "time": "00:38:42.39"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but that may be a justification for employee free speech, but under the balancing test certainly some of what Justice Scalia says is relevant. To whom the speech is addressed was... could this person do anything about it, that sort of thing.",
       "time": "00:39:25.58"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, don't you think-- --That would be a much stronger case for you. I'd have a lot more trouble with that firing than I would with this one.",
       "time": "00:40:04.79"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, counsel--",
       "time": "00:40:15.79"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Do you agree that an employer can have reasonable rules on time, place, and manner for addressing problems of public concern.",
       "time": "00:40:17.31"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And would you agree that one of those rules might be that you don't criticize the hospital during the middle of an operation, of a surgical operation?",
       "time": "00:40:27.21"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Bisbee-- --Does... yes. --The Seventh Circuit may have had the wrong fix on the case, but it did say twice that its holding is if the employer is ignorant of the nature of the speech, it doesn't matter, that's not insulating. And I want you to tell me, as far as that's concerned, how that can be squared with a qualified immunity, with the very reason for being of a qualified immunity doctrine? If a person acts on the basis of credible but ultimately, it turns out, wrong information, how can such a person not have qualified immunity?",
       "time": "00:41:14.90"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, that's... unfortunately that's the question that cert was granted on.",
       "time": "00:41:52.97"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That terminates an employee based on credible substantiated reports of unprotected--",
       "time": "00:41:55.67"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--At the time... at the time they acted.",
       "time": "00:42:41.62"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Then isn't... then isn't the bottom line of your argument that we must remand to the Seventh Circuit, because they said it doesn't matter that they didn't know when they acted.",
       "time": "00:42:44.03"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And we... wouldn't we have to say, Seventh Circuit, it does matter that they knew when they acted.",
       "time": "00:42:54.85"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, in your... in your view, what are the standards that an employer must follow in evaluating a report that there has been disruptive speech that's nonprotected--",
       "time": "00:43:20.11"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Before the employer can terminate the employee.",
       "time": "00:43:31.47"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I want you to just confine yourself to what the legal standard ought to be. We can evaluate the facts of this record.",
       "time": "00:43:59.57"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Bisbee-- --Mr.-- --Do you know how the Seventh Circuit got this notion that what they were dealing with was an employer ignorant of the nature of the employee's speech? And how did... how did... since you say that that's not what this case is about, how did they manage to think that that... that that was before them, that you can impute to the employer what comes up after, even if you accept that at the time the employer acted it was ignorant of what the content of the speech was?",
       "time": "00:45:34.14"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "I'm just asking you where did the Seventh Circuit get that notion from, that it put it in its opinion a couple of times?",
       "time": "00:46:09.66"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you never made... you never made such an argument, that it doesn't matter what they knew when they acted, it only matters what the... after the firing comes out.",
       "time": "00:46:29.26"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, Mr. Bisbee, may I ask you this I just don't know the answer to it. At the time the district court acted, and hence when you were describing to the circuit what the district court had before it... a the time the district court acted, was there an affidavit or a deposition on file by Churchill saying I was talking about nurse staffing in that conversation?",
       "time": "00:46:57.19"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "She came out and said it explicitly, okay.",
       "time": "00:47:20.41"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "These are arguments perhaps as to what the motive of the hospital was. I don't think they address the question presented in the Petition for Certiorari.",
       "time": "00:49:46.65"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the ultimate question in the case is... when we take it here... is a question of law.",
       "time": "00:50:05.05"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And that is if the employer discharges for speech without knowledge that it's protected speech, is that a violation... does that come under Mount Healthy as a violation of the First Amendment or not?",
       "time": "00:50:11.53"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And all the facts you bring up I don't think really address that.",
       "time": "00:50:24.82"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You... you've made that point for 25 minutes. Are you going to address the question of law that's presented in the Petition for Certiorari at all?",
       "time": "00:50:33.82"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Suppose we think we need to reach that decision. What should... what's the answer to it?",
       "time": "00:51:08.68"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, we didn't take this case to determine who said what in the cafeteria.",
       "time": "00:51:24.71"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "We determine this case to see what the rule of law ought to be if an employer acts on reasonable, substantiated information, but is wrong.",
       "time": "00:51:28.87"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And you did raise... you did so argue in your brief in opposition.",
       "time": "00:51:52.50"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You did so argue in the brief in opposition.",
       "time": "00:51:55.16"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But it certainly is what... it certainly is what the Seventh Circuit held. I mean, the Seventh Circuit has used language here that says it doesn't matter what the motive is.",
       "time": "00:52:08.16"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, then maybe we need to send it back, because they seem to be operating on a legal theory that even you aren't here defending.",
       "time": "00:52:24.57"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, do I... do I understand your theory to be that if the employer acts on a premise that's factually incorrect, but is nonetheless reasonable in reaching its conclusion, that a discharge of the employee... and that's in those circumstances... is not a violation of the Constitution?",
       "time": "00:52:47.30"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Sort of a negligence standard. So if an employment... if an employer is negligent about finding out what the conversation was, he's guilty of a constitutional violation?",
       "time": "00:53:25.11"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I thought negligence is what a reasonable man would not do.",
       "time": "00:53:38.32"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't see any difference between a reasonableness standard and a negligence standard.",
       "time": "00:53:43.00"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Different from negligence, you say?",
       "time": "00:54:06.05"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's different from negligence.",
       "time": "00:54:07.60"
     },
@@ -1407,7 +1407,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, Mr. Bisbee, what's the difference between your standard for liability and your standard for qualified immunity?",
       "time": "00:54:24.45"
     },
@@ -1419,7 +1419,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why... why didn't they just merge in what you said? I thought they did.",
       "time": "00:54:34.54"
     },
@@ -1431,7 +1431,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "There can be no... no... there can be no reinstatement? An employee can engaged in protected speech, it can be proven that it's protected speech, but there's no reinstatement?",
       "time": "00:54:59.74"
     },
@@ -1443,7 +1443,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "As opposed to damages?",
       "time": "00:55:10.11"
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, can we explore what the answer might be?",
       "time": "00:55:14.42"
     },
@@ -1467,7 +1467,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you think there's a distinction between employer's liability for reinstatement and the employer's liability for damages under 1983?",
       "time": "00:55:17.32"
     },
@@ -1479,7 +1479,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This model would apply across the board as far as the city is concerned? That's also a foggy question... where there's a difference between the standard for damages and the standard for judgment.",
       "time": "00:55:30.41"
     },
@@ -1491,7 +1491,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yeah, because you're suing the individuals who wouldn't have the authority to reinstate her. It would have to be the municipal unit.",
       "time": "00:55:58.78"
     },
@@ -1503,7 +1503,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Are you... by the way, did you ask for reinstatement relief or just money?",
       "time": "00:56:08.54"
     },
@@ -1515,7 +1515,7 @@
     },
     {
       "turn": 245,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Bisbee.",
       "time": "00:56:12.05"
     },
@@ -1527,7 +1527,7 @@
     },
     {
       "turn": 247,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Manson, you have 2 minutes remaining.",
       "time": "00:56:15.50"
     },
@@ -1539,7 +1539,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did the district court find that there was a reasonable belief on the part of the employer?",
       "time": "00:57:01.22"
     },
@@ -1551,7 +1551,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where did... it said that explicitly, that the belief was reasonable?",
       "time": "00:57:09.35"
     },
@@ -1563,7 +1563,7 @@
     },
     {
       "turn": 253,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you.",
       "time": "00:58:20.56"
     },
@@ -1575,7 +1575,7 @@
     },
     {
       "turn": 255,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Manson. The case is submitted.",
       "time": "00:58:22.94"
     }

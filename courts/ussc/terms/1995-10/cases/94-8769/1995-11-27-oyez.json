@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1995/94-8769/19951127a_94-8769.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "BARRY LEVENSTAM",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JAMES A. FELDMAN",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 94-8769, Tommy L. Rutledge v. United States. Mr. Levenstam.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is it the Double Jeopardy Clause in the constitutional sense, or simply a concept that's somewhat like Double Jeopardy when we're interpreting congressional intent?",
       "time": "00:00:36.98"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But do all parties concede, or at least do you agree that if Congress wanted multiple or cumulative punishments set for the two crimes, that they could constitutionally enact a provision that would secure that objective?",
       "time": "00:01:03.58"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So then we're really talking about what Congress intended, rather than double jeopardy, are we not?",
       "time": "00:01:24.50"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Which really means there isn't any constitutional question involved, if Congress can provide whatever it wants, and double jeopardy accordingly recedes whatever Congress has provided.",
       "time": "00:01:36.83"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But then if we're concerned with Congress' intent--",
       "time": "00:02:26.30"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--as you agree, then why would Congress intend to put the prosecutor at risk of having no conviction... let's say the CCE conviction gets wiped out on appeal... if the conspiracy conviction has not been entered? Why would we attribute such a will to Congress?",
       "time": "00:02:30.99"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How would that work if there is no judgment entered on the conspiracy count?",
       "time": "00:04:26.50"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The Government would have to appeal that, though, to get the vacatur reversed, wouldn't it? I mean, the defendant isn't going to say, reverse the vacatur.",
       "time": "00:04:50.60"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, merge... you've just used a word that the Second Circuit... what you describe seems to be what the Second Circuit's position is, and yet in your brief you reject that.",
       "time": "00:05:08.86"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But isn't this all just formalism if your end result is that the court on appeal could reinstate the verdict on the conspiracy count in the event that the CCE conviction were reversed on a ground peculiar to that charge?",
       "time": "00:05:42.26"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why is-- --And you think the vacatur erases, washes off that stigma? This is not formalism?",
       "time": "00:06:33.52"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He's walking around in the community with two convictions instead of one conviction and a conviction plus vacatur. That's the difference.",
       "time": "00:06:40.37"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that's not formalism.",
       "time": "00:06:48.56"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why is there any additional stigma when the second offense is essentially a lesser included... I mean, he's already got all the stigma he can get from the first one. The second is stigmatically redundant, isn't it? [Laughter]",
       "time": "00:06:50.27"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but why not?",
       "time": "00:07:07.84"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What do they know about him as a result of the second conviction that they don't know about him as a result of the first?",
       "time": "00:07:09.43"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And he... I'm sorry.",
       "time": "00:07:50.73"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, go ahead.",
       "time": "00:07:52.22"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "A district court order that the lesser offense be simply suspended, he would suspend entering judgment, I don't think that would work, because then you couldn't have both appeals.",
       "time": "00:08:06.25"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Sort of like a springing use.",
       "time": "00:08:32.92"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what do we do in the present case?",
       "time": "00:08:38.28"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Be vacated. Which one?",
       "time": "00:08:48.50"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But what... I mean, how is it supposed to work? That's what I can't figure out in this case. The judge gets a piece of paper, and the piece of paper says, judgment on 846, then there's a blank or something. I mean, normally he'd fill in, convicted, all right. Then 848, he'd fill in judgment of conviction. It's this piece of paper called a judgment, and in your opinion, how should it read? After all, I mean, it sounds very technical and very formal. If he puts the wrong one and then on appeal the other one's reversed, or something, you know, and what happens when one party thinks that they are lesser included and the other doesn't? I mean, isn't the simplest thing just say, judge, fill in both, convicted. Do that. Just fill it both in, convicted--",
       "time": "00:08:55.99"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--and the collateral consequences will take care of themselves. You say... you wouldn't be able to count it twice, like recidivism statutes, et cetera.",
       "time": "00:09:42.59"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, so now what is your approach? How would you... how would you--",
       "time": "00:09:55.04"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--But you say that. I'm the district judge, pretend, and I would say, since I haven't that much experience, I'd ask you, what do you want me to do?",
       "time": "00:10:04.39"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right.",
       "time": "00:10:16.63"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Fine, so I'd enter judgment, 848 convicted, okay, and I enter judgment on 846, I say, strike it out. Do I say, acquitted? What do I... I don't put acquitted.",
       "time": "00:10:18.39"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I just cross it out, okay. Now what happens is that you appeal, and lo and behold you discover that the money wasn't used in an enterprise or something, and so that's reversed. Now what happens?",
       "time": "00:10:28.02"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right.",
       "time": "00:10:49.88"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There was no vacatur. No judgment was ever entered on it. That's what you say was the appropriate thing. You said the district judge should convict on only one count.",
       "time": "00:10:53.22"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "You don't vacate it... the jury's verdict. You just don't enter judgment on it, right?",
       "time": "00:11:02.98"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right, so now what's supposed to happen, in your opinion?",
       "time": "00:11:15.44"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "We reverse the... in other words, the Government had to file a piece of paper called cross-appeal?",
       "time": "00:11:34.05"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Because you won't care. I mean, as far as you're concerned, you're representing your client. You won't care. So what they were supposed to do is, they're supposed to file a cross-appeal from the vacatur order, and so that then they're protected?",
       "time": "00:11:39.35"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, what if... no, but I want to know what's supposed to happen, so let me leave you alone and you'll tell me.",
       "time": "00:11:54.22"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right.",
       "time": "00:11:58.46"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I'm now an appellate court judge, and I've just reversed the 848 conviction because of the lack of that final element, and now I say to you, now please tell me, what do I do now? I'm new at this. I want to know how to do it.",
       "time": "00:12:14.82"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And they don't have to have appealed.",
       "time": "00:12:54.38"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But--",
       "time": "00:12:56.88"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But then does your client appeal again from the second judgment, so that can be reviewed for possible error?",
       "time": "00:12:58.71"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but doesn't... wouldn't your client have a right to claim some sort of error, perhaps in the instructions, in the case of the judgment that's now been entered against him? You wouldn't have been able to argue that on the previous appeal.",
       "time": "00:13:24.92"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but the... not all of the errors might have been the basis for the decision. Let's assume that on the continuing criminal enterprise count some element other than the conspiracy element was found to be insufficiently supported by evidence, and the court says, that's enough, we reverse. Then we get back to the position that you posit. The other conviction, the conspiracy conviction is brought forward. I presume at that point you would say, oh, well, I now want to appeal this because there was insufficient evidence of conspiracy.",
       "time": "00:13:44.56"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, no, but just tell me, why won't you... I mean, you're not going to concede that on behalf of your client--",
       "time": "00:14:21.71"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--and if, in fact, it was not reached by the appellate court as the grounds of its decision in the first appeal, you're going to want to reach it in the second one, because if you do, your client will walk, so of course you're going to want to appeal it, aren't you?",
       "time": "00:14:27.06"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And you will raise every issue, but in my example the appellate court says, we find one ground of error. We don't have to get into the question of the sufficiency of evidence on conspiracy. That's difficult. So we're going to decide it on the ground of the clear error, and so you will have done everything you're supposed to do, but because the court decided on the ground that it did, you will still have the conspiracy issue before you, and you're going to appeal it, aren't you?",
       "time": "00:14:49.49"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So there will be... I mean, we've got to assume that the price to be paid here is a second appeal.",
       "time": "00:15:18.05"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But what sense does it make? If you say that it doesn't have to be a retrial on the conspiracy, why have two appeals instead of just one? As long as there's not going to be additional collateral consequences, as Justice Breyer indicated, doesn't it make entire sense to let the whole case go up to the court of appeals and just ensure that there will be no more than one punishment?",
       "time": "00:15:33.18"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But if you lose on the stigma point, there are none, isn't that fair to say? If we say, look, there is no cognizable extra stigma when you have a mere lesser included offense, then you really wouldn't have an answer to Justice Ginsburg's question, would you?",
       "time": "00:16:06.11"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if it's so that under that Seventh Circuit judgment there is no greater exposure to recidivist charges because under the guidelines they would be treated the same as if there'd been only a CCE conviction, so that there is no recidivist consequence, then under the Seventh Circuit decision, when there's no longer a prison term, the only consequence is the extra stigma.",
       "time": "00:16:57.26"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Fifty dollars.",
       "time": "00:17:24.44"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Fifty dollars.",
       "time": "00:17:26.93"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Or a three-strikes-and-you're-out law in a State.",
       "time": "00:17:47.11"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I assume if there are two convictions, rather than a merged one it would count for two, is that right?",
       "time": "00:17:52.38"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Can you raise that in connection with your client? How many convictions does your client have?",
       "time": "00:18:00.66"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And there were, indeed, three life sentences, were there not?",
       "time": "00:18:10.20"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So does... the way this particular case is decided, does it have any practical consequences, given that your client has not two, but three life sentences at the moment?",
       "time": "00:18:14.07"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask kind of a basic question that will reveal my ignorance? This lesser included offense situation, where a person is charged with a greater offense and a lesser in the same proceeding, that must happen quite frequently in the State courts, doesn't it?",
       "time": "00:18:38.72"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Supposing you do have jury instructions for a greater and a lesser included offense in the same case, what does the judge do? Does he enter two judg... I mean, what does the--",
       "time": "00:19:07.17"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, why wouldn't the proper solution here be the same, have him do one or the other?",
       "time": "00:19:22.24"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I mean, it seems sort of strange to have a very special rule with lesser included offenses in the Federal court that's different from what's applied all over the country in State courts.",
       "time": "00:19:37.15"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But... but--",
       "time": "00:19:47.87"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But is this a lesser included offense case? Is this a lesser included offense case?",
       "time": "00:19:54.08"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I thought the position was that there were two different acts. One was a conspiracy, the other was a very successful conspiracy.",
       "time": "00:19:58.77"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's not necessary... the only reason it's lesser included is because there's a lesser punishment--",
       "time": "00:20:06.37"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Not a lesser... not a--",
       "time": "00:20:11.86"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--Well, yes, but we've conceded at the outset... I thought we conceded that they could be punished separately and cumulatively if Congress so intended.",
       "time": "00:20:40.53"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And that is not a paradigmatic lesser included offense.",
       "time": "00:20:49.92"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In that situation you do not have a paradigmatic lesser included offense.",
       "time": "00:20:55.90"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, but wouldn't you agree that Congress could pyramid sentences with lesser included and greater offenses?",
       "time": "00:21:14.15"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Sure. So why isn't this a para... why... I don't understand why this is not a parad... whatever the word is--",
       "time": "00:21:18.80"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--A case of... a conspiracy is always a lesser included offense of the CCE.",
       "time": "00:21:24.91"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, before you do that--",
       "time": "00:21:35.03"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I don't understand what you said about the State case. Why is it okay to send it to the jury? You say no harm is done if you... so long as there's an instruction at the end. What if, in fact, you know, the jury convicts of aggravated assault, and it turns out, on appeal, that there's not enough evidence to support the aggravation part? If the lesser included offenses have not been submitted to the jury, he walks, I assume, right?",
       "time": "00:21:37.34"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, before retrial, I'm sure... he can be retried.",
       "time": "00:22:10.05"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But why wouldn't it be better to submit both to the jury so that if the one conviction is reversed, the other one would stand, as your argument would be the case here?",
       "time": "00:22:14.87"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay.",
       "time": "00:22:27.48"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In the State court case you hypothesized, that you explained, the jury returns a verdict on only one of the two charges, not both.",
       "time": "00:22:29.43"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But here they do both, so that's different from the standard lesser included offense, now. The lesser included offense, the jury has a choice of one or the other. Here, the Government is entitled to require a jury verdict on both.",
       "time": "00:22:36.68"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In... Ball you say was lesser included? I thought that they were so close to the same offense, why would... why do you characterize those as lesser, possession as lesser included?",
       "time": "00:24:15.04"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What actually is your objection to what I take is the SG's position on our piece of paper called judgment in the district court? The district court would write, 846, conviction, 848, conviction, and then between the two he'd write the words, 846 is included as part of the, or something like that. Now, that's... or merged into, I don't know. He writes some extra words between those two pieces of paper, and that would signal to everybody... lawyers see the word conviction, they know they have to appeal, so they'd have a signal, appeal both, and the words in between those two things would apparently make clear to everybody, we'd hope, with an opinion of this Court, that the collateral consequences don't apply. Do you have an objection to that approach?",
       "time": "00:25:15.70"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's true.",
       "time": "00:26:10.34"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Levenstam. Mr. Feldman, we'll hear from you.",
       "time": "00:26:27.54"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Feldman, is that any different from any normal lesser included offense situation in which the Government gets the verdict on the greater offense and the defendant appeals and has it set aside? He walks on the entire transaction.",
       "time": "00:27:14.25"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do you have at hand authority that I could look at?",
       "time": "00:27:56.49"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Oh, Tinder.",
       "time": "00:28:11.23"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, if that's the general rule, why wouldn't that rule apply here?",
       "time": "00:28:29.79"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Just enter judgment on the greater offense.",
       "time": "00:28:35.93"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me back up just a second. Is it correct that it's common ground here that the conspiracy offense is a lesser included offense in this case?",
       "time": "00:28:49.13"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Then--",
       "time": "00:28:59.77"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But if that were true, then why wouldn't... shouldn't this be treated just like any other lesser included offense situation?",
       "time": "00:29:02.58"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but maybe it would simplify things to do it that way. That's the question I'm asking. I realize there's been a lot of confusion--",
       "time": "00:29:14.01"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--with these two statutes--",
       "time": "00:29:19.61"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But if we made it clear that one is a lesser included of the other, wouldn't that solve everything?",
       "time": "00:29:20.71"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What would be wrong with it? Just put it in harmony with all our other lesser included offense law.",
       "time": "00:29:30.50"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the reason it hasn't been done here is, there's been a debate of very realistic arguments on both sides as to whether these are, in fact, entirely separate offenses, what did Congress intend, that if we assume what everybody's been assuming in the argument up to now, that you lose on that issue, then wouldn't it make sense to just put it in the same pattern? Of course, I understand you don't want to concede that, but--",
       "time": "00:30:03.42"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Yes, because that's just like a murder is more serious than an assault, too.",
       "time": "00:30:48.35"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't it first up to us to decide what Congress' intent was, and if we agree with you, why, then they're totally separate, but if we disagree with you, then why does it make any difference that they're in separate statutes rather than in one?",
       "time": "00:31:00.49"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You see, if we agree with you that Congress intended two separate proceedings entirely, then you win, period. But if we disagree, and think that they did intend one to be a lesser included offense of the other, even though they're in separate provisions of the code, then why shouldn't they be treated just like a normal lesser included offense?",
       "time": "00:31:11.65"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what did this Court say in Ball that sheds light on this, do you think?",
       "time": "00:31:46.50"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Did Ball indicate that the conspiracy is a lesser included offense of CCE, in your view?",
       "time": "00:32:10.93"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Oh, that's right.",
       "time": "00:32:27.85"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right.",
       "time": "00:32:29.61"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was it Jeffers where we discussed--",
       "time": "00:32:35.51"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Yes, right.",
       "time": "00:32:41.47"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Right.",
       "time": "00:32:42.78"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the plurality in Jeffers assumed without deciding that there was a lesser included offense.",
       "time": "00:32:56.34"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--we should decide whether this is a lesser included offense or not.",
       "time": "00:33:38.02"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but in that case that you give, you wouldn't have a conspiracy indictment.",
       "time": "00:34:53.11"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Sure. I mean, you can have--",
       "time": "00:34:57.25"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Every assault isn't a lesser included offense of every murder. It depends on the facts of the case.",
       "time": "00:34:59.03"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But if the conspiracy is an element of the CCE, then it's always a lesser included offense.",
       "time": "00:35:04.36"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Your example doesn't disagree with that.",
       "time": "00:35:11.37"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But we deal with cases in which... the only cases we're concerned with are those in which the government has made both a conspiracy charge and a CCE charge, so it doesn't help the analysis to hypothesize CCE cases that don't involve conspiracy.",
       "time": "00:35:34.33"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How could we resolve Jeffers the way we did against the Government and not reach this issue, as you say?",
       "time": "00:35:59.85"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, isn't it very relevant to Congress' intent whether the two... whether one crime is a lesser included offense or not?",
       "time": "00:36:14.21"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Did we say in Jeffers that we were not reaching this question?",
       "time": "00:36:36.59"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It seems to me it's a very, very fine congressional intent you're asking us to posit. I don't like talking about congressional intent anyway. It seems to me you look at the statute and see what the statute reasonably means, but you say there's one class... we can discern a congressional intent not to pyramid punishments, however, to cumulate convictions. So there are three categories of statutes. You can cumulate both, and then, category two, you can pyramid punishments but not convictions, and category three, you can't pyramid either one, and we're to discern this refined congressional intent statute by statute.",
       "time": "00:37:00.81"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a real difficult task, don't you think?",
       "time": "00:37:46.59"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I think the one goes with the other. I think when Congress doesn't intend to pyramid punishments, it doesn't intend to pyramid convictions, either. That's my point. I think it's a very refined congressional intent to allow the double punishment but not allow the double conviction, or vice versa--",
       "time": "00:37:56.86"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I guess there are even more than three categories. Maybe sometimes they want to allow two convictions but not two punishments. Sometimes they want to allow two punishments but not two convictions. We re going to have to go through the whole list, aren't we?",
       "time": "00:38:14.43"
     },
@@ -1511,7 +1511,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Life is too short. We can't figure all of this out. I mean, if it's... the two are cumulated or not, and if they're cumulated, you can neither punish twice nor you can convict twice. That makes a lot of sense to me.",
       "time": "00:38:31.14"
     },
@@ -1523,7 +1523,7 @@
     },
     {
       "turn": 247,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What's the source of this refined concept of punishment that you were just talking about? Are there cases from this Court that suggest it?",
       "time": "00:39:34.80"
     },
@@ -1535,7 +1535,7 @@
     },
     {
       "turn": 249,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It isn't entirely consistent with some of our other cases, is it?",
       "time": "00:39:47.30"
     },
@@ -1547,7 +1547,7 @@
     },
     {
       "turn": 251,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:39:52.52"
     },
@@ -1559,7 +1559,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But Mr. Feldman, Chief Justice Burger said, twice in that opinion said the criminal conviction itself, and not just the sentence, is punishment, and he stated that... I'm sure you're familiar with the decision... twice as a perfectly general proposition not tied to this peculiar receipt possession.",
       "time": "00:40:19.88"
     },
@@ -1571,7 +1571,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if the Tinder case that you cited, if that's the model, then the Government is protected against what you said at the outset of your argument was your real concern.",
       "time": "00:41:29.75"
     },
@@ -1583,7 +1583,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That you'd be stuck without any conviction.",
       "time": "00:41:38.73"
     },
@@ -1595,7 +1595,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm not sure that's so, because in Tinder what happened... I've just read it... the court gave a sentence that was in excess of the authorized sentence unless they showed that the value of the items stolen from the mail had been more than $5,000. The court just made a mistake. There had been no proof the value was over $5,000, so this Court said, well, you just have to sentence for the lesser amount because it wasn't shown. That's all that was. The offense was the same. The question was whether or not the sentence could stand.",
       "time": "00:41:41.94"
     },
@@ -1607,7 +1607,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "The offense was the same offense.",
       "time": "00:42:15.02"
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "turn": 263,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "A lot of that has to be implied from Tinder, doesn't it, since it really goes from a long recitation of the facts to saying, reversed.",
       "time": "00:42:55.94"
     },
@@ -1631,7 +1631,7 @@
     },
     {
       "turn": 265,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yes.",
       "time": "00:43:08.59"
     },
@@ -1643,7 +1643,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Feldman, what light do you think that Garrett v. The United States sheds on this problem? There, the Court dealt with what, a CCE offense and a predicate offense?",
       "time": "00:43:52.93"
     },
@@ -1655,7 +1655,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You think it's a lesser punishment to say I was... I have two convictions of two crimes, than to say I have one conviction of two crimes? I mean, it seems to me the court that said in Ball that two convictions are punishment, you know, is cumulative punishment would also say that a conviction of two crimes is cumulative punishment, don't you?",
       "time": "00:45:26.90"
     },
@@ -1667,7 +1667,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You think it's stigmatically neutral, is that it?",
       "time": "00:46:12.98"
     },
@@ -1679,7 +1679,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Could you help me with something very, very basic? Assume no knowledge on my part... very basic. What happens in the absolute ordinary case in the Federal courts where you have crime A, and everyone agrees that crime A is a lesser included offense of crime B? Now, how do you instruct the jury? You instruct the jury... you instruct the jury in the ordinary Hornbook basic case that they can convict of both, or do you tell the jury you can convict of A only if you acquit of B?",
       "time": "00:46:34.69"
     },
@@ -1691,7 +1691,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The latter is the ordinary way.",
       "time": "00:47:12.32"
     },
@@ -1703,7 +1703,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So ordinarily, the basic Hornbook thing is that you'll end up with one conviction, and if that conviction is reversed on appeal, you'll have to have a new trial.",
       "time": "00:47:15.11"
     },
@@ -1715,7 +1715,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If that's--",
       "time": "00:47:25.62"
     },
@@ -1727,7 +1727,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yes, they convict for the greater offense.",
       "time": "00:47:29.38"
     },
@@ -1739,7 +1739,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, that's right.",
       "time": "00:47:34.09"
     },
@@ -1751,7 +1751,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "How could you if the jury never came in with a conviction?",
       "time": "00:47:36.38"
     },
@@ -1763,7 +1763,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Sorry. If you instruct the jury, jury, convict of B, if you convict of B you can't convict of A--",
       "time": "00:47:39.46"
     },
@@ -1775,7 +1775,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--It's just lesser included.",
       "time": "00:47:51.12"
     },
@@ -1787,7 +1787,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And now they do convict of B. On appeal, reversed. You have to have a new trial, don't you?",
       "time": "00:47:52.26"
     },
@@ -1799,7 +1799,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I see, okay.",
       "time": "00:48:09.07"
     },
@@ -1811,7 +1811,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. If that's so, fine. If that's so, why does the Government care if we adopt their position? That is, if it's a lesser-included offense, then we'd simply behave as normal. The Government must care because you're trying to save the possibility... what is it... I don't understand why--",
       "time": "00:48:11.32"
     },
@@ -1823,7 +1823,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Yes.",
       "time": "00:48:44.06"
     },
@@ -1835,7 +1835,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You've just explained to me how that's impossible. You've just explained it to me. You said--",
       "time": "00:48:53.21"
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--But that's a legal argument. I'm interested in why you care about it. That is, from what you just said, if I were to write down your very words, and it turned out you're right about how this is normally so, and it also turned out that this is a less included offense of a normal sort, you would therefore, if I wrote down your very words you just told me, have what you want, isn't that so?",
       "time": "00:49:15.19"
     },
@@ -1859,7 +1859,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes.",
       "time": "00:49:42.56"
     },
@@ -1871,7 +1871,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So then what we should say, in your view, is almost, I think, identical to what your opponent told us. We should say, this is a lesser included offense. This is how the lesser included offense works, and then say what you said.",
       "time": "00:49:45.40"
     },
@@ -1883,7 +1883,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but if we say that it's a lesser included offense, you get everything you want, don't you?",
       "time": "00:50:02.37"
     },
@@ -1895,7 +1895,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but let's... all right, let's assume we'll commit that error, and we'll say that Congress did intend these to be treated as greater and lesser included, then there's nothing else that you're worried about, is there? There's no broader point that you're concerned--",
       "time": "00:50:12.66"
     },
@@ -1907,7 +1907,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, I think that was Justice Breyer's--",
       "time": "00:50:37.33"
     },
@@ -1919,7 +1919,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--And you recognize-- --But the precedent--",
       "time": "00:50:46.50"
     },
@@ -1931,7 +1931,7 @@
     },
     {
       "turn": 315,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--No, but you're basically making the argument that Justice White accepted in Jeffers now, and eight members of the Court made the assumption to the contrary. They didn't rule it, but if we took the suggestion Justice Breyer made, we'd really have the precedent of the assumption made by eight members of the Court in Jeffers.",
       "time": "00:50:53.36"
     },
@@ -1943,7 +1943,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "No, but if Justice White was right, his is a much simply disposition of the case than the rather convoluted position of the majority.",
       "time": "00:51:24.86"
     },
@@ -1955,7 +1955,7 @@
     },
     {
       "turn": 319,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But all of this is-- --As one who joined the convoluted-- [Laughter] --I must say, when I... when the opinion says we assume something, I don't figure we're deciding it, I figure we're reserving it.",
       "time": "00:51:41.74"
     },
@@ -1967,7 +1967,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But if we were to decide the case that way, we would have... in order to reach this happy result that's been suggested to you, I think we would have to confirm the correctness of the D.C. Circuit's opinion in the Allison case, which said that without a jury verdict on the lesser included offense, the Court could order a judgment on that defense, and that that seems--",
       "time": "00:52:02.71"
     },
@@ -1979,7 +1979,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--to me to be something we have not yet decided.",
       "time": "00:52:25.41"
     },
@@ -1991,7 +1991,7 @@
     },
     {
       "turn": 325,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "To say that the court of appeals enters judgment in the court of appeals on an offense which the defendant was not convicted of by the jury because the jury very likely would have convicted him on--",
       "time": "00:52:41.49"
     },
@@ -2003,7 +2003,7 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Mr. Feldman, if we don't make what you regard as the error of treating this... these two offenses as greater and lesser, then, in fact, there would, I suppose be a further stigmatic element quite apart from the $50 in the conviction for conspiracy, since that need not be on your view assumed under CCC, and so if we read the law right, why shouldn't you lose just on straightforward analysis of cumulative effect?",
       "time": "00:53:20.44"
     },
@@ -2015,7 +2015,7 @@
     },
     {
       "turn": 329,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I see.",
       "time": "00:54:05.32"
     },
@@ -2027,7 +2027,7 @@
     },
     {
       "turn": 331,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Let me-- --Ball could be read to say just that.",
       "time": "00:54:06.08"
     },
@@ -2039,7 +2039,7 @@
     },
     {
       "turn": 333,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Ball could be read to say just that.",
       "time": "00:54:08.57"
     },
@@ -2051,7 +2051,7 @@
     },
     {
       "turn": 335,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "That the very conviction is--",
       "time": "00:54:11.02"
     },
@@ -2063,7 +2063,7 @@
     },
     {
       "turn": 337,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--an additional punishment, and one of the reasons is the stigma.",
       "time": "00:54:13.00"
     },
@@ -2075,7 +2075,7 @@
     },
     {
       "turn": 339,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you. Thank you, Mr. Feldman.",
       "time": "00:54:44.90"
     },
@@ -2087,7 +2087,7 @@
     },
     {
       "turn": 341,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Levenstam, you have 2 minutes remaining.",
       "time": "00:54:47.07"
     },
@@ -2099,7 +2099,7 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Levenstam, may I... I'm sorry, but would you address... I was going to ask Mr. Feldman this. What's the significance of the $50 here?",
       "time": "00:54:53.46"
     },
@@ -2111,7 +2111,7 @@
     },
     {
       "turn": 345,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So the $50, at least in your view, is punishment. It's not some administratively neutral user fee for being sentenced, or something like that?",
       "time": "00:55:12.47"
     },
@@ -2123,7 +2123,7 @@
     },
     {
       "turn": 347,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Levenstam, what is your position on the Tinder approach? That is, CCE, only conviction, appellate court can remand with instructions to enter a conviction on the conspiracy count?",
       "time": "00:56:19.31"
     },
@@ -2135,7 +2135,7 @@
     },
     {
       "turn": 349,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Levenstam. The case is submitted.",
       "time": "00:56:49.45"
     }

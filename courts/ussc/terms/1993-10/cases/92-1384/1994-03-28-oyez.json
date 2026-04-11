@@ -3,59 +3,63 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1993/92-1384/19940328a_92-1384.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
       },
       {
         "name": "JOANNE M. GARVEY",
-        "role": "advocate"
+        "title": "MS."
       },
       {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "JAMES P. KLEIER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "DREW S. DAYS, III",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "TIMOTHY G. LADDISH",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 92-1384, Barclays Bank, PLC v. Franchise Tax Board of California, Number 92-1839, Colgate-Palmolive Company v. Franchise Tax Board. Ms. Garvey.",
       "time": "00:00:00.00"
     },
@@ -67,7 +71,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But a preference not strong enough to be reflected in the Senate's exercise of its power, because it didn't have enough votes for the supermajority necessary.",
       "time": "00:03:11.40"
     },
@@ -79,7 +83,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Nonetheless, it is clear from the history that you recited that Congress was certainly well aware of this problem and this debate, and did nothing.",
       "time": "00:03:53.80"
     },
@@ -91,7 +95,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Although it surely could have.",
       "time": "00:04:03.77"
     },
@@ -103,7 +107,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There was in the Wardair case, as you mentioned, the use of the words, affirmatively acted, but the affirmative action was by nonaction, right, by failure to forbid the State taxes?",
       "time": "00:04:44.65"
     },
@@ -115,7 +119,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Was that argument available to the taxpayer in Container Corporation?",
       "time": "00:08:09.70"
     },
@@ -127,7 +131,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "It's from over here.",
       "time": "00:08:20.65"
     },
@@ -139,7 +143,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but were there not foreign affiliates in Container Corp.?",
       "time": "00:08:25.46"
     },
@@ -151,7 +155,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "And would not a foreign nation under your hypothesis have felt some duty to lesson the impact of the California tax on those foreign affiliates that were within its jurisdiction?",
       "time": "00:08:31.48"
     },
@@ -163,7 +167,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, to me when we say, obligation, that's simply hypothetical anyway.",
       "time": "00:08:57.08"
     },
@@ -175,7 +179,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I still don't quite understand. If an English... the English Government is concerned that one of its subsidiaries... one of its corporations, which is a subsidiary of an American company, is paying too much tax in California, then wouldn't it have the same motive to give it some amelioratory treatment as it would in the case that you have posed?",
       "time": "00:09:05.48"
     },
@@ -187,7 +191,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I don't see why it makes a difference that there is a parent in one case and a subsidiary in the other.",
       "time": "00:09:28.35"
     },
@@ -199,7 +203,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question about--",
       "time": "00:10:46.30"
     },
@@ -211,7 +215,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Isn't the assumption, if you think this very complex system really works, that all that's being taxed is income earned in California, and that one looks at the other income only for the purpose of determining what share of the total is attributable to California?",
       "time": "00:10:48.96"
     },
@@ -223,7 +227,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because you acknowledge you have a unitary business.",
       "time": "00:11:23.37"
     },
@@ -235,7 +239,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It is not challenged in this case.",
       "time": "00:11:34.26"
     },
@@ -247,7 +251,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We have to assume you are for purposes of our decision.",
       "time": "00:11:41.21"
     },
@@ -259,7 +263,7 @@
     },
     {
       "turn": 35,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right.",
       "time": "00:11:43.25"
     },
@@ -271,7 +275,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Explain that to me. Now, I ask, putting aside for one moment the extreme burden of complying, assembling information, if one assumes that the system works as it is designed to work, and I don't know whether it does or not, then is it not true that you're only taxing that proportion of the total which the business in California represents to the total?",
       "time": "00:12:12.22"
     },
@@ -283,7 +287,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And if that's true, then there's no danger of double taxation.",
       "time": "00:12:42.00"
     },
@@ -295,7 +299,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm just addressing--",
       "time": "00:12:54.63"
     },
@@ -307,7 +311,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--the one argument of multiple taxation.",
       "time": "00:12:55.71"
     },
@@ -319,7 +323,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And I must say I don't understand it.",
       "time": "00:12:57.68"
     },
@@ -331,7 +335,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is it that you mean by a jurisdiction having the primary right to tax?",
       "time": "00:14:22.07"
     },
@@ -343,7 +347,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "May I clarify what you... when you're talking about right, you say that nations in an international community agree that this is a fair way of doing things, but there is no right. There is no obligation to do it that way. You say under the international system--",
       "time": "00:14:44.33"
     },
@@ -355,7 +359,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--What retaliation might--",
       "time": "00:15:27.92"
     },
@@ -367,7 +371,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--but there is no treaty, there is no higher law that is being violated. You're bringing this case under the U.S. Constitution saying the Foreign Commerce Clause is a stopper, but there's no international law that would--",
       "time": "00:15:29.46"
     },
@@ -379,7 +383,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--stop California from doing this.",
       "time": "00:15:42.72"
     },
@@ -391,7 +395,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But they're not binding on... the United States has not subscribed to that particular treaty that would prevent California from taxing.",
       "time": "00:16:02.18"
     },
@@ -403,7 +407,7 @@
     },
     {
       "turn": 59,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, not--",
       "time": "00:16:14.50"
     },
@@ -415,7 +419,7 @@
     },
     {
       "turn": 61,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Not specifically or any other way, has it?",
       "time": "00:16:15.85"
     },
@@ -427,7 +431,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Just before we get to uniformity, and before we leave the double taxation point--",
       "time": "00:16:33.72"
     },
@@ -439,7 +443,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--that Justice Stevens raised, I take it that the double taxation is caused by the juxtaposition of the two systems.",
       "time": "00:16:38.05"
     },
@@ -451,7 +455,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So that if everybody had the worldwide reporting system, there would be no double taxation.",
       "time": "00:16:45.59"
     },
@@ -463,7 +467,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Ms. Garvey. Mr. Kleier, we'll hear from you.",
       "time": "00:17:46.25"
     },
@@ -475,7 +479,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Kleier, you say that this reaction demonstrates that the decision in Container was wrong. Would you care to spell that out?",
       "time": "00:18:57.43"
     },
@@ -487,7 +491,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you mean something that has developed since Container?",
       "time": "00:19:22.29"
     },
@@ -499,7 +503,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And it rejected that.",
       "time": "00:19:36.98"
     },
@@ -511,7 +515,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why should President Reagan's statement have anything to do with it?",
       "time": "00:19:56.61"
     },
@@ -523,7 +527,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why should the Solicitor General's statement have anything to do with it, other than advising us of the position the Federal Government takes, but surely that's not conclusive.",
       "time": "00:20:03.72"
     },
@@ -535,7 +539,7 @@
     },
     {
       "turn": 81,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And you draw from these various pieces, as you describe them, the conclusion that Container was wrong?",
       "time": "00:20:30.37"
     },
@@ -547,7 +551,7 @@
     },
     {
       "turn": 83,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if it's at the very heart of the Foreign Commerce Clause, one would think you wouldn't need statements by President Reagan or a brief from the Solicitor General to confirm it.",
       "time": "00:21:45.67"
     },
@@ -559,7 +563,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just clarify one thing? When you refer to Federal policy... earlier you talked about the position of the Federal Government. Are you actually saying the position of the executive branch of the Federal Government?",
       "time": "00:23:05.89"
     },
@@ -571,7 +575,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Commerce is in fact entrusted to Congress, foreign commerce is.",
       "time": "00:23:34.89"
     },
@@ -583,7 +587,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, whatever the rule should be for determining the foreign policy position of the United States... and this case itself shows that that's a very difficult determination to make... once this Court has spoken, as we did in Container, it seems to me then that there is a special obligation on the Congress to act affirmatively if it wishes to change our assessment of that policy--",
       "time": "00:24:06.53"
     },
@@ -595,7 +599,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--And we said as much in a domestic context in the Quill case.",
       "time": "00:24:31.99"
     },
@@ -607,7 +611,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, don't you think they might be a little bit better after we've decided the issue? [Laughter]",
       "time": "00:24:54.17"
     },
@@ -619,7 +623,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does this case involve the tax on foreign commerce?",
       "time": "00:25:18.71"
     },
@@ -631,7 +635,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I thought the tax was on California operations of subsidiaries of foreign entities.",
       "time": "00:25:33.40"
     },
@@ -643,7 +647,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Foreign commerce is a base from which the tax is calculated, but theoretically at least... and one always has to be skeptical... theoretically the tax is on domestic business.",
       "time": "00:26:03.98"
     },
@@ -655,7 +659,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Going back to Justice Kennedy's question, in the aftermath of Container, would you agree that there is at least one point on which Congress does have a particular competence, and that is the capacity in effect to change a tax rule without raising the kinds of problems of retrospectivity and refund that would be the case if we saw things your way? Congress really could do a much better job of, as it were, adjusting the balance, than we could, could it not?",
       "time": "00:26:35.10"
     },
@@ -667,7 +671,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But if it gets to it, it can do a better job of it, or at least a somewhat less fiscally messy job of it than we can do, in effect by turning tail so soon after Container.",
       "time": "00:27:19.98"
     },
@@ -679,7 +683,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I'm saying that if Congress sees it your way, the tax is going to be changed on a purely prospective basis. If we were to look... if we were to accept your argument, there would be a serious question about refund, California reliance, and so on, is that not the case?",
       "time": "00:27:34.29"
     },
@@ -691,7 +695,7 @@
     },
     {
       "turn": 107,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, but--",
       "time": "00:28:18.17"
     },
@@ -703,7 +707,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But it's acting... so far as Congress may be concerned, at least in the case of a domestic corporation, it may feel there is no need for any action because the Container Corporation says there is no violation of the Commerce Clause.",
       "time": "00:28:20.26"
     },
@@ -715,7 +719,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say, Mr. Kleier, that Congress has a great deal of difficulty getting to foreign commerce questions. Do you mean anything more by that than they simply don't agree when they do get to them?",
       "time": "00:28:36.88"
     },
@@ -727,7 +731,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but you could say that about any branch of the law, where something came up in Congress and Congress proved unable to enact any law because there were so many different opinions on the subject, and we don't generally say well, that means Congress has kind of defaulted so somebody else is going to step in.",
       "time": "00:28:57.46"
     },
@@ -739,7 +743,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why is that an overriding interest compared to crime, health care reform... any number of other things that might be before Congress where there might not be any agreement?",
       "time": "00:29:29.85"
     },
@@ -751,7 +755,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So the Constitution gave Congress the power to regulate, and whatever we say, am I right, that we are not... we would not be the final arbiter. The last word is for Congress in this area.",
       "time": "00:29:52.43"
     },
@@ -763,7 +767,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "One of the major themes running through the briefs on your side is the international community and the international custom, and yet I don't know of any other country in the world where a question like this would be referred to a Court as the decision-maker. It would be a legislative judgment.",
       "time": "00:30:10.39"
     },
@@ -775,7 +779,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Kleier, if Congress were to disapprove in the future State taxation of foreign international corporations such as the petitioner in the prior case, but not for domestic multinationals such as your client, would you be back here arguing a constitutional violation under equal protection?",
       "time": "00:31:28.26"
     },
@@ -787,7 +791,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Excuse me, what is your answer?",
       "time": "00:32:01.93"
     },
@@ -799,7 +803,7 @@
     },
     {
       "turn": 125,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You don't think Congress can do that?",
       "time": "00:32:06.22"
     },
@@ -811,7 +815,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You don't think Congress can treat the two differently?",
       "time": "00:32:07.52"
     },
@@ -823,7 +827,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you don't think that the mere fact that the domestic company is here which normally gives primary tax authority to the country in which the parent is formed would justify some difference in treatment--",
       "time": "00:32:33.79"
     },
@@ -835,7 +839,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--even legislatively.",
       "time": "00:32:53.83"
     },
@@ -847,7 +851,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, don't you think the Quill opinion has some bearing on the situation?",
       "time": "00:33:45.30"
     },
@@ -859,7 +863,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Stare decisis. The Court has dealt with this very statute in California.",
       "time": "00:33:52.59"
     },
@@ -871,7 +875,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I thought Mr. Hamilton was arguing that in support of giving Congress the power to regulate foreign commerce, I take it.",
       "time": "00:35:26.43"
     },
@@ -883,7 +887,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Kleier. General Days, we'll hear from you.",
       "time": "00:37:37.63"
     },
@@ -895,7 +899,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "General Days, do you take the position that the California tax is perfectly valid today as applied to Barclays?",
       "time": "00:38:17.63"
     },
@@ -907,7 +911,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How about September 9th?",
       "time": "00:38:54.61"
     },
@@ -919,7 +923,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Before they adopted it.",
       "time": "00:38:56.07"
     },
@@ -931,7 +935,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I'm asking you what your position is as of September 9th and before they adopted this change.",
       "time": "00:39:06.01"
     },
@@ -943,7 +947,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But not going back to the tax year in question.",
       "time": "00:39:14.86"
     },
@@ -955,7 +959,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, if the 1970 California tax were still in operation, the tax that Barclays objects to, if it were still in operation, what then would be your position as to its validity?",
       "time": "00:39:55.72"
     },
@@ -967,7 +971,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, would it be constitutional, consistent with our foreign policy interests, for California today to reinstate the worldwide reporting statute that it seeks to apply to Barclays?",
       "time": "00:41:08.69"
     },
@@ -979,7 +983,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But I take it you cannot say with assurance that under my hypothetical case the statute would be consistent with our foreign policy interests.",
       "time": "00:42:00.80"
     },
@@ -991,7 +995,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So our analysis should just turn on when the executive branch has spoken, and with what clarity, and that's what turns the tide?",
       "time": "00:42:25.17"
     },
@@ -1003,7 +1007,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Sort of a Teague rule for the Commerce Clause? [Laughter]",
       "time": "00:43:24.88"
     },
@@ -1015,7 +1019,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What about Vermont's tax that we reviewed in the Mobil case? What about all the other States? Does the fact that California changes its policy govern the entire Nation?",
       "time": "00:45:30.27"
     },
@@ -1027,7 +1031,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "You in effect--",
       "time": "00:46:58.51"
     },
@@ -1039,7 +1043,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--I'm sorry. You in effect are arguing that we should look at this the same way Congress would look at it, aren't you? Because I think you're saying that because the retaliatory effect is less with respect to an event subsequent to the tax years in question, that simply should color our judgment with respect to the tax years in question. Whatever that is, I don't suppose that's a statement of legal principle, is it?",
       "time": "00:47:00.61"
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, General Days.",
       "time": "00:47:55.87"
     },
@@ -1063,7 +1067,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Laddish, we'll hear from you.",
       "time": "00:47:57.65"
     },
@@ -1075,7 +1079,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, under your theory, I guess, or maybe it's the theory adopted by the court below that you're supporting, if Congress has a bill before it to deal with the issue of State taxation and for whatever reason doesn't pass it, then that's congressional action.",
       "time": "00:49:29.38"
     },
@@ -1087,7 +1091,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "That's it. There we are.",
       "time": "00:49:47.99"
     },
@@ -1099,7 +1103,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a sort of basic question--",
       "time": "00:51:04.88"
     },
@@ -1111,7 +1115,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Mr. Laddish. Supposing we didn't have all this history. None of this had happened, Congress had never considered, nobody had talked about it, a purely dormant Commerce Clause issue... you argue it's a nondormant. If it were a dormant Commerce Clause issue 100 percent pure and simple, would the tax be constitutional or unconstitutional?",
       "time": "00:51:06.79"
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I would think that that's part of your case.",
       "time": "00:51:28.07"
     },
@@ -1135,7 +1139,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't argue that very much.",
       "time": "00:51:29.89"
     },
@@ -1147,7 +1151,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're relying on what's, in effect, a negative implication from action which Congress took.",
       "time": "00:53:34.76"
     },
@@ -1159,7 +1163,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say that's the same thing as Wardair.",
       "time": "00:53:40.39"
     },
@@ -1171,7 +1175,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What negative implication is there from the action that Congress... what action did Congress take in the normal sense of congressional action?",
       "time": "00:53:48.40"
     },
@@ -1183,7 +1187,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But there were allied provisions that did contain a limitation, and it's just a straightforward application of an old maxim of interpretation, inclusio unius. But, you know--",
       "time": "00:54:19.75"
     },
@@ -1195,7 +1199,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--The explicit inclusion of one thing implies the exclusion of another. What is included here that implies the exclusion of the other?",
       "time": "00:54:33.01"
     },
@@ -1207,7 +1211,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but that's quite different.",
       "time": "00:54:50.89"
     },
@@ -1219,7 +1223,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean just mere congressional inaction is quite different from a situation in which the maxim inclusio unius is applicable.",
       "time": "00:54:52.19"
     },
@@ -1231,7 +1235,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Never mind the history; give me the text.",
       "time": "00:55:27.48"
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:55:29.10"
     },
@@ -1255,7 +1259,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Does the record tell us at all what the difference in money would be if California were collecting based on the arms-length method as opposed to the worldwide combined--",
       "time": "00:58:23.22"
     },
@@ -1267,7 +1271,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Does the system that California uses impact particularly because California has high property values or perhaps high wages or something, and these are part of the formula--",
       "time": "00:59:12.91"
     },
@@ -1279,7 +1283,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--But, I had thought... you indicate that they have these figures, every company has them. Wasn't there a finding that it would cost something in the range of $5 million--",
       "time": "01:01:51.23"
     },
@@ -1291,7 +1295,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--To establish this system, and then substantial sums in order to maintain it.",
       "time": "01:02:01.72"
     },
@@ -1303,7 +1307,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Are you saying that it's not burdensome because there's this approximation option?",
       "time": "01:02:10.49"
     },
@@ -1315,7 +1319,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But if the approximation option were not available, this would be a substantial burden on the taxpayer from the standpoint of accounting costs, would it not?",
       "time": "01:02:23.88"
     },
@@ -1327,7 +1331,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, but that doesn't quite square with your argument that everybody has these figures and it's easy to give the figures.",
       "time": "01:02:38.38"
     },
@@ -1339,7 +1343,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What do you say, Mr. Laddish, to the difficulty of Congress' enacting legislation in this area?",
       "time": "01:06:00.81"
     },
@@ -1351,7 +1355,7 @@
     },
     {
       "turn": 217,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But may I interrupt you--",
       "time": "01:07:12.04"
     },
@@ -1363,7 +1367,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--You say that Congress has not spoken. If you assume there can only be one voice and only one policy with this kind of tax, Federal policy is quite different from California's policy.",
       "time": "01:07:12.80"
     },
@@ -1375,7 +1379,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't that, by hypothesis, a demonstration that there are two voices out there?",
       "time": "01:07:23.24"
     },
@@ -1387,7 +1391,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "One says to use one kind of accounting, the other says use the other.",
       "time": "01:07:27.46"
     },
@@ -1399,7 +1403,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are you suggesting that any State tax on foreign commerce or had a severe impact on foreign commerce would be valid as long as Congress has not spoken?",
       "time": "01:07:46.66"
     },
@@ -1411,7 +1415,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why isn't there a violation of the one voice policy if Congress has spoken in a limited area and says when we're talking about Federal taxes, this is our voice, none of this kind of stuff.",
       "time": "01:07:59.75"
     },
@@ -1423,7 +1427,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And the State has a different policy, why isn't that two voices?",
       "time": "01:08:09.57"
     },
@@ -1435,7 +1439,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But, they have. They've said we... the Federal Government will not impose this kind of tax.",
       "time": "01:08:15.26"
     },
@@ -1447,7 +1451,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, they did more than that; they disabled themselves from using another.",
       "time": "01:08:44.78"
     },
@@ -1459,7 +1463,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They didn't enable them. They just left those alone.",
       "time": "01:08:56.92"
     },
@@ -1471,7 +1475,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The thing... I'm puzzled. It seems to me you keep vacillating between dormant and nondormant and I've been trying to get the picture in my mind of a 100 percent pure dormant Commerce Clause analysis, where--",
       "time": "01:09:05.86"
     },
@@ -1483,7 +1487,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--And it seems to me that--",
       "time": "01:09:18.08"
     },
@@ -1495,7 +1499,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Right.",
       "time": "01:09:24.34"
     },
@@ -1507,7 +1511,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "This particular issue.",
       "time": "01:09:26.86"
     },
@@ -1519,7 +1523,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But they have spoken to the international world generally that one aspect of American policy is the Federal Government will not impose this kind of tax.",
       "time": "01:09:30.32"
     },
@@ -1531,7 +1535,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you say that doesn't count as a voice.",
       "time": "01:09:39.63"
     },
@@ -1543,7 +1547,7 @@
     },
     {
       "turn": 249,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, that's--",
       "time": "01:10:03.96"
     },
@@ -1555,7 +1559,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Let me try the one voice concern again. I want to be sure I understand your position. It's not only one voice with California and the United States Government. There are 50 States out there.",
       "time": "01:10:50.14"
     },
@@ -1567,7 +1571,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You would not contend, would you, that all 50 States must apply this unitary business approach?",
       "time": "01:10:59.06"
     },
@@ -1579,7 +1583,7 @@
     },
     {
       "turn": 255,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, if half the States can use--",
       "time": "01:11:07.94"
     },
@@ -1591,7 +1595,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--If half the States can use the other kind of accounting and California... how can that be one voice?",
       "time": "01:11:10.92"
     },
@@ -1603,7 +1607,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're back... you're back to nondormant. It seems to me--",
       "time": "01:11:43.73"
     },
@@ -1615,7 +1619,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Well, I'm trying to hypothesize a case and I can't seem to get you to address it.",
       "time": "01:12:16.03"
     },
@@ -1627,7 +1631,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In which Congress had been totally silent. Nobody had ever spoken to Congress and the executive never said anything about this.",
       "time": "01:12:18.98"
     },
@@ -1639,7 +1643,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But the English company comes in and says we're entitled to have a rule of law that is the same, under the one voice principle, throughout the United States.",
       "time": "01:12:23.95"
     },
@@ -1651,7 +1655,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is your argument that the one voice principle does not apply at all, or when 50 States use 50 different programs that's still one voice?",
       "time": "01:12:31.17"
     },
@@ -1663,7 +1667,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And would you lose that or would you win?",
       "time": "01:12:50.67"
     },
@@ -1675,7 +1679,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And do you win because the one voice rule doesn't apply or because there's only--",
       "time": "01:12:52.97"
     },
@@ -1687,7 +1691,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--One voice even though 50 States all act differently?",
       "time": "01:12:56.72"
     },
@@ -1699,7 +1703,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then you're saying they don't need one voice.",
       "time": "01:13:09.23"
     },
@@ -1711,7 +1715,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "How will you ever... how will you ever be defeated on a one voice theory, then, when Congress has not acted?",
       "time": "01:13:21.35"
     },
@@ -1723,7 +1727,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Because if it hasn't acted you're going to say the one voice is that each State can do what it will.",
       "time": "01:13:29.88"
     },
@@ -1735,7 +1739,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Laddish, may I take it, then, that you're answering the question that General Days did not answer. That is, that you'd say you can go back tomorrow and do what you have been doing for years, and it would not be offensive to the Federal Constitution?",
       "time": "01:19:44.19"
     },
@@ -1747,7 +1751,7 @@
     },
     {
       "turn": 283,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Laddish. Ms. Garvey you have 4 minutes remaining.",
       "time": "01:20:31.15"
     },
@@ -1759,7 +1763,7 @@
     },
     {
       "turn": 285,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was the treaty ever ratified, Ms. Garvey?",
       "time": "01:24:04.09"
     },
@@ -1771,7 +1775,7 @@
     },
     {
       "turn": 287,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you.",
       "time": "01:24:06.52"
     },
@@ -1783,7 +1787,7 @@
     },
     {
       "turn": 289,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "01:24:08.16"
     }

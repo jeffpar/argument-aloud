@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1982/81-1843/19830330a_81-1843.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD A. DEVINE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PATRICK G. REARDON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear argument next in Illinois versus Andreas. Mr. Devine, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "In this case would your analysis be any different had it been a small suitcase?",
       "time": "00:09:31.16"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "So in this case much depends on the facts, then.",
       "time": "00:10:12.91"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That would be true, following up in Justice Blackmun's question, only so long as there were probable cause to believe that whatever had been in the container was still in it. If it had been in the guy's apartment for two days and he comes out with a container, he may just be throwing it in the trash.",
       "time": "00:11:02.68"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Counsel, while you're interrupted, you said the keys were along with the shipment papers?",
       "time": "00:11:47.73"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I don't understand that.",
       "time": "00:11:56.26"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "For anybody to open it?",
       "time": "00:12:12.39"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I see.",
       "time": "00:12:16.50"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Devine, can I ask you a question there? The question I guess that Justice Rehnquist focused on is you said it would have to be at least probable cause. How would you frame the standard of the degree of certainty that there hasn't been a changing in the contents of the container? Here you've got 30 minutes to deal with and that's the problem I guess the appellate court had, the interval.",
       "time": "00:13:14.62"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you endorse that test?",
       "time": "00:13:49.35"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I understand that, but their test, and I guess you're willing to endorse it, is quite different from merely a probable cause test. It's a higher standard, and you say on these facts you meet it.",
       "time": "00:14:35.74"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're not arguing for a probable cause standard, is what I'm really trying to find out.",
       "time": "00:14:46.56"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Once you have actual knowledge, is that all you need at any time after that, is probable cause to believe there hasn't been a change in the contents?",
       "time": "00:15:01.95"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think you responded to one question by saying that if there had been a lapse of two or three days that would make it quite a different case. From that is it correct to assume that you are saying that the observation of the officers, plus the short lapse of time, was sufficient to give them probable cause to believe that the container was in the same condition and had the same contents when it came out of the apartment as when it went in? Is that your argument?",
       "time": "00:15:29.75"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, certainly if it had been a cardboard carton, for example, and a half an hour had elapsed, it would be pretty easy, if it were not within the officer's view, to change the contents of the container, would it not?",
       "time": "00:16:33.25"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Was the container here one to which items could have been added within the half hour or so? Perhaps not possible to take out all of the contents of the table, but could other items have been added?",
       "time": "00:17:31.98"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How much did they get out of the table?",
       "time": "00:18:28.21"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "How much... what was the weight?",
       "time": "00:18:35.91"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was it all the same material?",
       "time": "00:18:42.61"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Was a drill required to get to the inside of the table?",
       "time": "00:18:47.31"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Were any drills found in Respondent's apartment?",
       "time": "00:19:09.26"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was it openable in some other way besides a drill?",
       "time": "00:19:18.47"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Do you know?",
       "time": "00:19:24.36"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What authority did they have to drill into my furniture? When you're bringing it in customs, they can take it apart and make a French Connection search, can't they?",
       "time": "00:19:28.34"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Can you give me any better, authoritative answer than a moving picture?",
       "time": "00:19:44.10"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Customs just has that broad authority, right, it's your position?",
       "time": "00:19:58.17"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But this is drilling, this is drilling.",
       "time": "00:20:17.60"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "My question is, what case or what other authority do you have to drill into a piece of furniture?",
       "time": "00:20:38.25"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But in that case the individual searched was still on the premises.",
       "time": "00:23:29.88"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why are you arguing an extended border search rather than a controlled delivery? I don't understand.",
       "time": "00:23:57.11"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You are arguing the controlled delivery?",
       "time": "00:24:31.86"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I suppose analytically one might have a controlled delivery in connection with some other valid search that wasn't based on customs.",
       "time": "00:24:43.40"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Reardon.",
       "time": "00:25:57.90"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What do you understand... at some point will you give your definition of what you think a controlled delivery is?",
       "time": "00:26:41.82"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What I was driving at is, when you use the term what do you mean by it, not what the courts meant.",
       "time": "00:26:59.28"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How do you keep control over the contents? How do you observe the contents when they're sealed?",
       "time": "00:27:25.66"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What problem, if any, do you have with the fact that they also had the keys?",
       "time": "00:28:03.60"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Did the customs... did the Government keep the keys?",
       "time": "00:28:27.17"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Reardon, would you want us to draw a bright line where there is any period of time whatsoever when the package is out of eyesight of the authorities?",
       "time": "00:29:03.19"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Well, at least that would be an easy approach, a bright line is drawn and it's easy to be enforced that way.",
       "time": "00:29:24.71"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "45 minutes?",
       "time": "00:29:40.80"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So he may open it up and empty it, and then he had to fill it up again.",
       "time": "00:31:09.56"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, later. But when it was taken... when it was searched at the police station it certainly had something in it.",
       "time": "00:31:18.96"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And there's no indication... and if there was something in it, it was either put in it in his apartment or before?",
       "time": "00:31:29.24"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, all we're talking about is probable cause. We're not talking about, I would think, the kind of chain of possession that you have for a chemist to testify at a trial. This is strictly probable cause.",
       "time": "00:31:47.85"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "More likely than not is the standard, is it not, more likely than not, as distinguished from beyond a reasonable doubt?",
       "time": "00:32:01.80"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I got an impression that you've suggested that when this man took the container out of the hall and took it into the apartment, then it achieved some new changed status or cloak of privacy.",
       "time": "00:32:32.69"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Is that your position?",
       "time": "00:32:51.53"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I think their argument is that you lose the expectation of privacy so long as there's some surveillance of it thereafter until the point that it's seized. That's how I understand the argument. And the tough part of this case is that break in time and the level of certainty that's required to be sure something hasn't been taken out or added.",
       "time": "00:33:31.05"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What level of certainty do you think the cases show has to be applied?",
       "time": "00:33:57.21"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you think if the door were closed for 30 seconds that that would somehow magically change this case?",
       "time": "00:34:14.72"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But that's the fun we have in asking questions. [Laughter] That's what we're here for, to test your arguments with hypothetical questions. Counsel, when you get a package from overseas and you are an average intelligent person, don't you assume that someplace along the line the customs agents have taken a look at it?",
       "time": "00:34:31.87"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how do you escape it here?",
       "time": "00:35:00.78"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "As of right now, with what your associate tells me, I have to also assume that somebody drilled into my furniture. Don't you have to assume that?",
       "time": "00:35:07.91"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Could there be any possible question about it?",
       "time": "00:35:34.89"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, do you raise a question?",
       "time": "00:35:41.23"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, are you aware that they sometimes take a suitcase and take the lining out? First they take the contents out, then they tear the lining out, and--",
       "time": "00:35:49.77"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Unlimited latitude.",
       "time": "00:36:00.38"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And with a person they sometimes take the people into a private area and have a physician or a nurse strip them and examine them. Now, is there any question about the right of customs to check everything they want to check?",
       "time": "00:36:15.23"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Yes.",
       "time": "00:36:34.27"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, could I return to a question I asked you a while ago. This won't be a hypothetical. I take it there was hashish found in the table at the police station?",
       "time": "00:36:55.68"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And is it a fair inference from the record that the hashish was either placed in the table in your client's house or it was... or what was found in the table, whatever it was might have been taken out, was there before it got there?",
       "time": "00:37:12.75"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Possible? I mean, aren't there only two alternatives as to where that hashish came from? It was either added in his house or it was there before it got there.",
       "time": "00:37:32.42"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, suppose it had never been out of anybody's sight, and suppose a friend of your client's who was... this is a hypothetical. Suppose a friend of your client went in the house with him and he just happened to be an informer for the police, so it was always under observation and he testifies that nothing was taken out or put in. And then it was searched at the police station.",
       "time": "00:37:47.02"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Then you would have no... then you might be in--",
       "time": "00:38:18.46"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--All that would then show is that the hashish was in there when it was delivered to him and it was never taken out. That's all it would show.",
       "time": "00:38:24.11"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now, on the facts of this case it seems to me that you are stuck with the unquestionable fact that hashish was either put there by him in the house or it was there when it was delivered.",
       "time": "00:38:34.84"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:38:54.95"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you certainly then, you certainly want to cut off a so-called controlled search, a controlled surveillance. You just want to put that aside and say that this expectation of privacy takes over as soon as the door closes and that's the end of the case.",
       "time": "00:39:27.65"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, why would you then... why would you say that you would lose the case if a friend was there with him and later testified that they never touched the table? Because as soon as the door closed there was an expectation of privacy that the police should not--",
       "time": "00:39:49.91"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, he was, he was. But nevertheless, the door was closed, and in his house an expectation of privacy should cut off the entire customs rationale excuse.",
       "time": "00:40:11.68"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, let's suppose we do adopt it. Then the question still becomes whether that break in time is sufficient to say that there isn't a controlled delivery.",
       "time": "00:40:46.84"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Might that not depend on the nature of the container and the likelihood that it could have been... something taken out or added in that interval?",
       "time": "00:41:07.86"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, why shouldn't the question be, was there an opportunity for somebody else to put in the table what was later found in the table? Why shouldn't that be the question if there's going to be a... if you're going to examine a break, you should examine it from that standpoint. They unquestionably found something later in the table, and if somebody else might have put it there that's another matter. But if you know it's always been in your client's possession--",
       "time": "00:41:34.73"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Your theory is that it's perfectly conceivable that he himself might have taken it out in his house, in the apartment, and emerged with the thing just unchanged, at any rate, from the way it had been delivered to him?",
       "time": "00:42:16.43"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it wasn't empty. It wasn't empty. It was full. Yes, but you don't find out until you search it. That's right.",
       "time": "00:42:32.88"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "None of the controlled delivery cases have required absolute certainty. That's just not an argument that's a winner. It's a question of the level of certainty you're going to require. Is it going to be probable cause, is it going to be substantial likelihood, is it going to be reasonable certainty, what is it?",
       "time": "00:42:59.74"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It's almost a chain of possession reasoning, like you have to have--",
       "time": "00:43:34.97"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--But when you're talking about probable cause... I mean, the whole gist of what you can search in the Fourth Amendment area depends on probable causes. Why should a different standard apply in this one little nook of the Fourth Amendment?",
       "time": "00:43:42.24"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you treat this as if it were simply a probable cause like they had to search the suitcase in Arkansas against Sanders. But here you have a customs search which demonstrates beyond peradventure of a doubt that at that point there's contraband in the package, and so the question is what standard of knowledge are you going to require to assume that the package is still in the condition it was in at customs some time later. I don't see why probable cause shouldn't be that standard.",
       "time": "00:44:27.58"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But certainty wouldn't have been sufficient in Arkansas against Sanders. A warrant... certainty without a warrant would have done the officers no good.",
       "time": "00:45:09.55"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're free to argue that if you want to.",
       "time": "00:45:34.30"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask you a question about your theory on the time interval? Do you think there's any relevance to the reason why the police did not apprehend him immediately upon the delivery? As I understand the facts, what they did was they did then take the time to send someone out to get a warrant and then he unexpectedly emerged from the apartment before they could get the warrant. Is that relevant at all in the analysis?",
       "time": "00:45:54.25"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, they hadn't lost control at the time they handed him the package and he said, it's not too heavy, I can handle it myself.",
       "time": "00:46:34.50"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But apparently the reason they didn't at that point in time was they decided that it would be better police procedure to get a warrant, and I certainly don't think you'd criticize them for doing that.",
       "time": "00:46:45.77"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And certainly while the table was in the house there's no way they could get in the house without a warrant. The warrant they went to get was to search the house.",
       "time": "00:46:56.75"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And you couldn't enter the house, I guess, without a warrant.",
       "time": "00:47:07.00"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Suppose they'd waited until he had taken the package out, put it in his automobile, and then started off. Given the background, given the background, would you say there was no probable cause for the officers to believe that when he was transporting that package he was transporting an unlawful drug, and that therefore if there was no probable cause to believe that, that they couldn't stop him without a warrant?",
       "time": "00:47:17.68"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But don't you read our cases as having, recent cases, as having largely, very, very largely, expanded what can be searched in the car without a warrant?",
       "time": "00:48:18.69"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Once the car has been lawfully stopped.",
       "time": "00:48:30.84"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I do.",
       "time": "00:48:32.43"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll resume there at 1:00 o'clock. You may continue, counsel.",
       "time": "00:50:27.11"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, having observed him putting some contraband drugs into the apartment in an identifiable package and then 30 minutes later seeing him take that same package out, was there reasonable grounds to believe that there might be drugs in the package that he carried out?",
       "time": "00:52:45.08"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it certainly could fit the definition of a controlled delivery under any view, couldn't it, until the arrival at the apartment?",
       "time": "00:54:12.89"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Don't you think he can rely on what customs officials told him?",
       "time": "00:54:57.87"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, what were they following him for?",
       "time": "00:55:10.46"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What were they following him for?",
       "time": "00:55:11.84"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You answered Justice O'Connor, said the customs agents never told him they had contraband in the--",
       "time": "00:55:17.02"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--The question is, why are they wasting the time and the manpower to conduct surveillance on this fellow?",
       "time": "00:55:52.32"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "This didn't trouble... the point you make did not trouble the Illinois appellate court, did it?",
       "time": "00:56:20.98"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you.",
       "time": "00:56:55.32"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:58:56.62"
     }

@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/85-2067/19870303a_85-2067.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "CHRISTOPHER J. WRIGHT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "KATHY GOUDY",
-        "role": "advocate"
+        "title": "MS."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We will hear argument next in No. 85-2067, United States versus Jose Mendoza-Lopez and Angel Landeros-Quinones. Mr. Wright, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Wright how effective is that information? Doe the attorney general grant relief in many cases?",
       "time": "00:02:55.02"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Does he ever grant relief?",
       "time": "00:03:11.53"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Wright, what would have happened if one of them had said, yes, I think I would like to appeal? Would they be deported nonetheless? Or would they remain here pending the appeal? Or what happens?",
       "time": "00:03:46.66"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So the person might have to remain in custody pending the appeal?",
       "time": "00:04:11.91"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Both respondents were given forms at the border stating that they would be subject to felony prosecution if they returned without obtaining the attorney general's permission. Respondents-- --Both of these respondents, then, Mr. Wright, did in fact leave the United States?",
       "time": "00:04:17.20"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "From where had they been deported?",
       "time": "00:04:49.03"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "From El Paso.",
       "time": "00:04:53.24"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "That was Judge Irbaum?",
       "time": "00:05:57.71"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And you have conceded that.",
       "time": "00:05:59.88"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That it was fundamentally unfair?",
       "time": "00:06:03.69"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You want us in our decision to assume it was fundamentally unfair.",
       "time": "00:06:14.80"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What does it mean to assume that it is fundamentally unfair? That is what troubles me. Are you asking us to say that so long as somebody is deported no matter what the unfairness in the hearing was? I mean, suppose two FBI agents just show up and say we are federal agents, we are going to deport you, and they have no authority whatever, and they will say, we will give you a hearing right now, and they give them a quick hearing, and they decide they are going to deport them. They take them to the border and deport them. Is that fundamental unfairness embraced in the kind of fundamental unfairness you want us to assume?",
       "time": "00:06:49.55"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What amounts to a deportation?",
       "time": "00:07:31.91"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, what if there was bias on the part of the administrative judge, the immigration judge? I mean, he was a brother of the worst enemy of one of them, and it was clearly just a rump proceeding? You would want us to assume that, too? Any kind of procedural irregularity whatever in the deportation proceeding?",
       "time": "00:08:07.49"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you wouldn't think that even a so-called gross miscarriage of justice in the course of a 1326 proceeding could be raised?",
       "time": "00:08:39.81"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How about if the right to appeal was not known by the person deported and therefore the waiver of the appeal was invalid? That can't be raised?",
       "time": "00:08:58.19"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you take the position that there are absolutely no due process limitations to the enforcement of Section 1326?",
       "time": "00:09:53.02"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Wright, there is certainly some authority that at least when you are talking about a District Court Judge, which I take it is every bit as sacrosanct as an immigration officer judgment, that if you would find actual bias on the part of the judge, that could be set aside after the judgment has become final. Would you include these within the rubric of what you are talking about?",
       "time": "00:10:06.15"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or the Immigration Board of Appeals.",
       "time": "00:10:45.00"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What direct appeal? He has been... If you assume he has been done out of his right of appeal by this biased judge who never even informs him of his right of appeal, and then he is out of the country, there is really no way he can get the matter before the court any more unless the attorney general lets him back in in his grace, right?",
       "time": "00:10:57.63"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You can do that?",
       "time": "00:11:22.11"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "As I understand the Court of Appeals opinion it was not based really on the finding that there were due process violations in the hearing. They simply said you can collaterally attack this, and then went on to say, we think the collateral attack should be sustained here. They didn't base it on any extreme denial of due process in the hearing. They just say you can collaterally attack it for any number of reasons. Isn't that correct? That's correct, and while the District Court said fundamentally unfair here, the irregularity that he identified was failure to explain adequately the requirements of suspension of deportation. Yes, and really that is all we have to decide here is whether on these facts that can be collaterally attacked.",
       "time": "00:11:57.09"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Wright, if the deportation had been at gunpoint you would still be making the same argument, wouldn't you?",
       "time": "00:13:01.34"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You require a hearing before an immigration judge of some sort?",
       "time": "00:13:18.63"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Who signs an order.",
       "time": "00:13:26.32"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is it if it is so... I mean, maybe we are playing on words. Say it is so terribly unfair, say the Judge is biased and he doesn't let any witnesses come in, and when he enters the order he pulls out a gun and takes the man across the border himself, so could it be so bad that it would be void, and therefore not a deportation? When is it a deportation and when it is not? I guess that is the issue.",
       "time": "00:13:29.36"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you preserve that, then you have to ask the question whether this was a gross miscarriage of justice, and I think you don't want us to even be asking that. Well, I am happy if you wanted to consider that, because clearly this was not a gross miscarriage of justice. But you know, you just change the facts a little, you didn't tell them about appeal, they didn't have a translator there. I mean, you can gradually move along the line, and do you get to a point where you might say that, well, this one is so bad we would admit it is \"void\" or it is not a \"deportation\" because it was so bad. I am not quite sure what your--",
       "time": "00:14:07.60"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But the really clean rule even covers the FBI agents case.",
       "time": "00:14:47.47"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, an official of the government said I am hereby deporting you, and I am signing a piece of paper that says you are deported, and then he takes him across. Why isn't that a deportation?",
       "time": "00:14:53.28"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "The procedure must be regular on its face or something like that? The procedure must be regular on its face?",
       "time": "00:15:09.18"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, after a proceeding?",
       "time": "00:15:16.92"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But anyway the statute says how you deport somebody, doesn't it?",
       "time": "00:15:24.15"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And they have the force of law, I suppose, or what? So you have to have an immigration judge and he has to sign a piece of paper. Does he have to act in accordance with the outlined procedure?",
       "time": "00:15:33.98"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if he doesn't?",
       "time": "00:15:54.67"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but if you haven't followed the procedures that the statute or the regulations say lead to a valid deportation, it isn't a deportation.",
       "time": "00:16:03.71"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What if an immigration officer simply picks up several illegal aliens in one of these sweeps or raids that they conduct occasionally and simply takes that person with that person's consent to Tlajuana or wherever else on the border. Is that a deportation?",
       "time": "00:16:50.84"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So the deportation connotes a formal order directing you to leave the country. Is that it?",
       "time": "00:17:29.07"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Mr. Wright, isn't there still the question as to... at the original time as to whether they were adequately explained the special appeal that they could have made to the attorney general? Isn't there still a question on that?",
       "time": "00:17:39.39"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I thought the trial judge in this case said so.",
       "time": "00:18:00.21"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is what I am talking about. That is what I said.",
       "time": "00:18:16.32"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is still here as to whether he did adequately explain it?",
       "time": "00:18:19.29"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But it is still here, isn't it?",
       "time": "00:18:26.47"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Wright, is it customary for the service to allow a voluntary departure if the illegal immigrant just says, you know, you got me, it is no use going through the hearing? What do they usually... because otherwise you may be giving away the store here. It would seem to me to pay every immigration who is caught to say don't try me, just let me go and I will depart quietly, and then he comes back in and you can't apply the--",
       "time": "00:18:30.13"
     },
@@ -575,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--All right.",
       "time": "00:19:01.25"
     },
@@ -587,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I see, so you can get three bites, really. That is, the first time you just don't contest the deportation, say I will leave quietly, right? The second time you are caught you do contest it because they won't let you leave quietly and they deport you. And then it is only the third time that the criminal statute would apply right?",
       "time": "00:19:28.95"
     },
@@ -599,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me just be sure I understand one thing. If he does grant voluntary departure, and the alien returns without permission, he has not violated 1326?",
       "time": "00:19:56.22"
     },
@@ -611,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "He hasn't been deported.",
       "time": "00:20:07.11"
     },
@@ -623,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There is no penalty for illegally entering the United States unless you have been previously deported?",
       "time": "00:20:41.44"
     },
@@ -635,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The first time you pick up an illegal alien all you can do is deport?",
       "time": "00:20:47.93"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I see.",
       "time": "00:21:00.74"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That would lead me to think that the FBI agent hypothetical would be covered. I just don't know how... you are willing to read something into the statute but--",
       "time": "00:22:10.81"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Once you are willing to read something into it, why aren't you willing to read as much as the respondent would?",
       "time": "00:22:21.04"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "There is a lot to argue about. Whether some other federal official acting under color of law purporting to be acting officially puts somebody on a boat, whether that is a deportation, I would think it could be called a deportation. So you acknowledge that you are willing to read something into the statute. You say no, it is not anything, it has to be pursuant to the legal formalities before an immigration law judge, so you are not really as virtuous in this thing not reading anything into the statute as you brief makes out. It is just... the quarrel is really over just how much you are going to read into it. That is all.",
       "time": "00:22:50.65"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Wright. We will hear now from you, Ms. Goudy.",
       "time": "00:28:03.45"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Of course, the government says that clients like yours have an adequate opportunity to make that sort of a challenge if they just appeal from the order of the board or the immigration officer.",
       "time": "00:29:22.55"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Wasn't there a waiver, though? What has that got to do with it?",
       "time": "00:29:40.10"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Is that denial of due process to misunderstand the conversation between a judge and a litigant?",
       "time": "00:30:13.48"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, do you say it is in this Court?",
       "time": "00:30:21.79"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So even though they are given a right to appeal, you say they have still got to have this right to collaterally attack.",
       "time": "00:30:27.89"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Even though they had the... they could have done that by appeal.",
       "time": "00:30:40.12"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I thought we took this case on the assumption that the defect below was in the failure to adequately explain the possibility of suspension by the attorney general of the deportation.",
       "time": "00:30:45.05"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It was my understanding that their right to appeal had been explained, and that no appeal was taken by those deported, by the respondents here.",
       "time": "00:31:14.56"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:31:38.70"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you think that the failure to explain the right of... the possibility of suspension rises to the level of a gross miscarriage of justice as that term has been applied by this Court in earlier cases?",
       "time": "00:31:46.12"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand. That doesn't mean that they weren't properly found to be illegal aliens. It just means that they weren't advised of the possibility of their appealing for a discretionary waiver of their deportation, right? It as entirely within the grace of the attorney general whether he would grant that, isn't it?",
       "time": "00:33:41.12"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, it isn't as though they were entitled to be kept in the country. They only thing that they weren't told about was the possibility of their asking the attorney general to let them stay in. And that is what rendered it fundamentally unfair.",
       "time": "00:34:08.71"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, it doesn't allow you to stay. It allows the attorney general to allow you to stay if he wants to, doesn't it?",
       "time": "00:34:44.12"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes. So, I mean, that is what I am having trouble with. Maybe there are some things that are fundamentally... that render a proceeding fundamentally unfair. If something happened which caused the judge to find them deportable when they really weren't deportable, that might be something else, but here really your only claim is, he should have told them that there was another avenue of discretionary relief that they might have pursued. Maybe he should have told them that, but I find it hard to say that that renders the deportation fundamentally unfair, and that is what you are arguing here. You are arguing a due process violation.",
       "time": "00:34:50.68"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you are arguing that and the fact that there was fundamental unfairness. We wouldn't even have to reach the other question if we didn't see this to be fundamental unfairness.",
       "time": "00:35:41.13"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I find that a queer use of language to say that the ability to ask for a favor is a right. I mean, you can call it you have a right to ask for a favor. Now, if you want to call that a right you can call it a right, I guess, but it doesn't sound like a right to me.",
       "time": "00:36:38.87"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Reversing the attorney general for his denial of relief under that provision?",
       "time": "00:37:26.33"
     },
@@ -911,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is your response, Ms. Goudy, to the government's argument that Congress took out the word 1326, modifying the word \"deportation\"?",
       "time": "00:38:53.48"
     },
@@ -923,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Yours isn't or theirs isn't?",
       "time": "00:39:10.30"
     },
@@ -935,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why do you need legislative history to tell you what it means when the statute at one time reads \"deportation in pursuance of law\" and then when Congress gets through amending it it no longer reads \"in pursuance of law\"? I would think that meaning is pretty clear without any legislative history.",
       "time": "00:39:40.81"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it was considered by the House committee, as I recall, to be the predecessor of it because in explaining to the full... I think it was the House, the full House what the changes being made were. They published that statute next to the new provision, so that committee at least thought that this was the one that the new provision was replacing.",
       "time": "00:40:11.27"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What case of ours do you rely on for that?",
       "time": "00:41:46.76"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You say this is a part of the rule of lenity that if Congress is going to make a criminal statute more severe that it previously had, it has to explicitly find that it it taking away something from a defendant or explicitly say so?",
       "time": "00:41:56.28"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Goudy. Mr. Wright, you have three minutes remaining.",
       "time": "00:43:24.48"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I imagine there are some people if you asked them whether an FBI agent points a gun at you and hauls you across the border, have you been deported, I think some people might say yes.",
       "time": "00:44:19.94"
     },
@@ -1019,13 +1023,13 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Wright. The case is submitted.",
       "time": "00:44:33.43"
     },
     {
       "turn": 164,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable court is now adjourned until tomorrow at ten o'clock.",
       "time": "00:44:36.41"
     }

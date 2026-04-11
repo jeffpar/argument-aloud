@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/81-2394/19831101a_81-2394.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL M. DODYK",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "PETER H. SCHIFF",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We'll hear arguments next in Westinghouse Electric against Tully. Mr. Dodyk, I think you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Dodyk, what you're saying is basically that the federal Constitution requires the credit New York extends you to be larger than it was calculated to be under the statute.",
       "time": "00:06:52.11"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I suppose you could win on that point and still be worse off financially if the case went back to the New York Court of Appeals after reversing, and the New York Court of Appeals decided that the New York legislature never would have enacted the credit at all if it knew that this was going to be the result.",
       "time": "00:07:04.79"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If you win.",
       "time": "00:07:36.24"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask right there, the shipments that originated in New York, were all of them made in interstate commerce?",
       "time": "00:08:50.83"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So then it's really not a discrimination against interstate commerce; it's a discrimination between two kinds of interstate commerce.",
       "time": "00:08:59.51"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Both owned by the same--",
       "time": "00:12:53.36"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--Both owned by the same entity?",
       "time": "00:12:56.29"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Mr. Dodyk, does that always follow? Your income tax might well go up if you ship from New York, might it not?",
       "time": "00:13:04.21"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Schiff.",
       "time": "00:20:25.14"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, isn't that upside down, though, really? If... if all of the DISC income had arisen from shipments from New York, there had been the same unitary income but the tax would... you wouldn't have had any tax on the DISC.",
       "time": "00:23:47.80"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, anyway... anyway your credit would have applied to all the DISC income, wouldn't it?",
       "time": "00:24:07.24"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's what I said. That was my hypothetical.",
       "time": "00:24:18.19"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you would have collected less tax if all of the DISC income had been from New York.",
       "time": "00:24:20.29"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Wouldn't... wouldn't you?",
       "time": "00:24:26.35"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, probably. That's the whole purpose of the credit.",
       "time": "00:24:29.66"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It sounds peculiar... it sounds peculiar that your credit is trying to identify the income attributable to New York so you can tax it, when in fact you find out the income attributable to New York, and you don't tax it. You give it a credit.",
       "time": "00:24:38.71"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, usually when you identify income as originating in the state, that's when you tax it.",
       "time": "00:24:56.91"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Oh, I understand that.",
       "time": "00:25:05.57"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "While you're pausing, is it correct that the purpose of the credit is to make the... or to provide a motive for these special export companies to have as much business originate in New York as possible?",
       "time": "00:28:07.77"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In other words, the purpose--",
       "time": "00:28:36.66"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--The purpose is to have a direct impact on the way goods are shipped overseas.",
       "time": "00:28:40.71"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, at least that the business transactions--",
       "time": "00:28:53.71"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "--Your purpose is to--",
       "time": "00:29:08.93"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "--Are you trying to escape the word \"commerce\"?",
       "time": "00:29:12.11"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That it would affect commerce?",
       "time": "00:29:16.99"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But at least those high taxes normally affect everybody the same.",
       "time": "00:29:40.25"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But this one doesn't.",
       "time": "00:29:46.28"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I don't know--",
       "time": "00:29:48.63"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--I know you pay more taxes if you ship from New Jersey than you do if you ship from New York.",
       "time": "00:29:51.98"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That... that... but in your unitary scheme you attribute all that income to the parent, and you take all that DISC income into--",
       "time": "00:30:10.69"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--So you're taxing the DISC income that originates in New Jersey at a higher rate than if it originated in New York.",
       "time": "00:30:26.47"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, isn't that so?",
       "time": "00:30:36.82"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why isn't it?",
       "time": "00:30:39.27"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you give a credit to one and not another.",
       "time": "00:30:41.00"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that isn't the point.",
       "time": "00:31:04.35"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "No. I wasn't trying to make that point. Wouldn't... wouldn't Westinghouse have paid less tax to New York if all of its shipments, all of its DISC shipments had been from New York?",
       "time": "00:31:06.64"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All of the... all of the... all of the... all of the shipments in international trade had been made from New York.",
       "time": "00:31:23.73"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If they... if they ship--",
       "time": "00:31:44.24"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--No. If they ship... if they... if instead of having a warehouse in Delaware they had one in New York and made the shipments from there, they would have paid less tax.",
       "time": "00:31:47.18"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but, Mr. Schiff, can I interrupt you again? At page 26 of your brief you say, \"The purpose of giving the tax credit is to prevent export business being driven out of New York. \" You say, \"The credit is designed to maintain export business in New York. \"",
       "time": "00:32:24.40"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then, it must... it must make a difference where the export business is.",
       "time": "00:32:42.25"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You stand by those statements, I take it.",
       "time": "00:32:49.34"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "Of course, that doesn't make it valid or invalid, does it?",
       "time": "00:34:49.40"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I didn't think that was the issue in the case. I thought--",
       "time": "00:35:13.75"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--This one. About whether you're taxing extraterritorially.",
       "time": "00:35:16.81"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If you want to get an... you might have something if you want to set up that straw man, but I thought it was a case of discrimination.",
       "time": "00:35:21.86"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What is... what is the formula upon which you include the income of the DISC within your tax?",
       "time": "00:36:41.76"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And it... but it... it's treated as being... the whole outfit is unitary, isn't it?",
       "time": "00:37:04.04"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Except you don't include... does that include DISC?",
       "time": "00:37:19.85"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, is your position basically that your formula that includes the DISC within the income that's taxed to Westinghouse is supposed to compute out only New York income?",
       "time": "00:38:16.39"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And, therefore, when you're giving credit, you ought to be able to credit only on the basis of New York income.",
       "time": "00:38:30.65"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But isn't New York in fact, even though it's calculating a total tax on all the company's business in New York, isn't New York multiplying that by the fraction of the company's total export business that's conducted in New York rather than simply the fraction of the company's New York business that's export-related?",
       "time": "00:38:44.86"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Dodyk?",
       "time": "00:41:16.80"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:42:13.12"
     }

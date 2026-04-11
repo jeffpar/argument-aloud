@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1961/396/19620403a_396.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN M. HARLAN II",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
       },
       {
         "name": "RICHARD A. FRELING",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE HARLAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JOHN B. JONES, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 396, C.J.D. Rudolph, et al., Petitioner, versus United States. Mr. Freling.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You say this is not annual. It's every year and a half?",
       "time": "00:02:36.18"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Two every three years or so?",
       "time": "00:02:41.41"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible)",
       "time": "00:03:40.11"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible)",
       "time": "00:03:43.18"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible)",
       "time": "00:03:53.20"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible)",
       "time": "00:04:21.71"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "(Inaudible)",
       "time": "00:04:26.35"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, how was the amount identified?",
       "time": "00:04:27.89"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And was each one in attendance apprised to what his portion shared to (Voice Overlap)?",
       "time": "00:04:39.81"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, how did this issue get up this way?",
       "time": "00:04:45.93"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And the taxpayer has not included this?",
       "time": "00:05:02.94"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And about the deficiency assessment?",
       "time": "00:05:06.23"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "The total was added to his appropriate need to be recorded, to be --",
       "time": "00:05:09.46"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- a filed income?",
       "time": "00:05:15.72"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was that an issue of income?",
       "time": "00:05:20.95"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "And now, this, as I understand it, is the proportion of share, the total expense, transportation, room, meals --",
       "time": "00:05:22.98"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- all of the rest.",
       "time": "00:05:30.82"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And you say --",
       "time": "00:05:31.77"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- proportionate, what does that mean?",
       "time": "00:05:32.18"
     },
@@ -291,13 +295,13 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Oh, oh, yes. I get it.",
       "time": "00:05:39.59"
     },
     {
       "turn": 42,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How do you say they qualified to attend the --",
       "time": "00:05:41.14"
     },
@@ -309,7 +313,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But when you get it around to it just both you and Mr. Jones would point out the difference of -- the analogy between something that happened to me before I came down and dispose namely, once a year there's a meeting of the Association of American Law Students, each law students sends the delegation of law professors to meetings and that was -- the expenditure was covered by the law -- this was (Inaudible) -- I don't know what happens now, was covered by the law schools, somebody, I think I'm not sure; my recollection is poor. But the -- certainly the traveling expenses were centrally taken cared of. Now, I cannot even tell you what was done or what should be done. I just want you to keep that in mind (Voice Overlap) --",
       "time": "00:05:57.14"
     },
@@ -321,7 +325,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But the Government's position is that it is arguable that in going to those Christmas time meetings, the cost of going there, the railroad expenses in those days, by hotel rooms, etcetera was part of my income.",
       "time": "00:07:13.33"
     },
@@ -333,7 +337,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, no. I don't mean that case --",
       "time": "00:07:35.89"
     },
@@ -345,7 +349,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- but that's my --",
       "time": "00:07:37.63"
     },
@@ -357,7 +361,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Alright.",
       "time": "00:07:41.96"
     },
@@ -369,7 +373,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "May I interrupt you?",
       "time": "00:09:19.34"
     },
@@ -381,7 +385,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Is your position one that it's not includable in gross income or if it is that it's deductible also as an expense or it washes out?",
       "time": "00:09:20.58"
     },
@@ -393,7 +397,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Aren't you talking about -- which fraction of this case you're talking about? I just -- I think this -- the opinion on page 79.",
       "time": "00:12:46.06"
     },
@@ -405,7 +409,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If you're talking about the deductibility of these expenses by the taxpayers that is the purpose of the taxpayers to which you look, is it not?",
       "time": "00:12:55.61"
     },
@@ -417,7 +421,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Rather than the purpose of the company?",
       "time": "00:13:04.31"
     },
@@ -429,7 +433,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it would seem to me, and you tell me if I'm wrong and if so why, that when you're talking about whether or not this is income to the taxpayer, then the purpose of the company becomes a dominant relevance. When you're talking about whether this is deductible, if income whether it's deductible by the taxpayers as a business expense. Then the purpose of the taxpayer in making the trip becomes a dominant relevance, is that correct?",
       "time": "00:13:17.98"
     },
@@ -441,7 +445,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No --",
       "time": "00:13:59.72"
     },
@@ -453,7 +457,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that --",
       "time": "00:14:05.67"
     },
@@ -465,7 +469,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- that's kind of begging the question here. That's the question, isn't it? It's the purpose of the taxpayer though that -- which is relevant --",
       "time": "00:14:06.11"
     },
@@ -477,7 +481,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- in determining whether or not this is a --",
       "time": "00:14:13.92"
     },
@@ -489,7 +493,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- business expense to the taxpayers, isn't that true? In other words, if an insurance salesman takes me to lunch, it's his purpose in taking me to lunch it's important in determining whether or not that lunch is deductible from his income for tax -- federal tax purposes.",
       "time": "00:14:15.29"
     },
@@ -501,7 +505,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Not my purpose in going with him?",
       "time": "00:14:29.86"
     },
@@ -513,7 +517,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "He takes me to lunch to sell me insurance then it's perhaps deductible.",
       "time": "00:14:32.76"
     },
@@ -525,7 +529,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Aren't you -- the deductibility of --",
       "time": "00:14:59.00"
     },
@@ -537,7 +541,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- the lunch and the bill from his income.",
       "time": "00:15:01.05"
     },
@@ -549,7 +553,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, are you getting in the third -- that's a third, that's a question not involved here I take it to be.",
       "time": "00:15:07.05"
     },
@@ -561,7 +565,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "He's not my employer.",
       "time": "00:15:13.23"
     },
@@ -573,7 +577,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "May I ask you? It's not clear to me that the relation of these convent -- what are does this call, conventions?",
       "time": "00:15:30.34"
     },
@@ -585,7 +589,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is the relation of the expenditure of the convention purposes to the employer unrelated with the problem before us? If the relation -- are we unconcerned with the bearing of the money outlay by the insurance company were these -- were the physiques by their agents at this convention, is that -- are we unconcerned with that?",
       "time": "00:15:41.92"
     },
@@ -597,7 +601,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But then --",
       "time": "00:16:39.37"
     },
@@ -609,7 +613,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- in the case of an employer, of a potential insured, sending an employee of his to talk with a fire insurance agent and you're going up -- to go with him at lunch for which the agent pays, the relation of that to his employers' activity is relevant, isn't it?",
       "time": "00:16:40.78"
     },
@@ -621,7 +625,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But there's another gain, he stayed at home, he would've had to pay for his own meal and board.",
       "time": "00:18:14.08"
     },
@@ -633,7 +637,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Is there a statutory definition of gross income?",
       "time": "00:19:21.44"
     },
@@ -645,7 +649,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Gross income is whatever gross income is --",
       "time": "00:19:27.64"
     },
@@ -657,7 +661,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- need to be.",
       "time": "00:19:30.40"
     },
@@ -669,7 +673,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "He could suggest that he doesn't want to go on a joy ride?",
       "time": "00:24:38.57"
     },
@@ -681,7 +685,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Did some of the employees not attending?",
       "time": "00:25:20.27"
     },
@@ -693,7 +697,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Does the record show?",
       "time": "00:25:24.69"
     },
@@ -705,7 +709,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "How many couples?",
       "time": "00:25:27.16"
     },
@@ -717,7 +721,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "How many were invited there?",
       "time": "00:25:34.98"
     },
@@ -729,7 +733,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That depends largely on the amount of insurance they've written the year before?",
       "time": "00:25:42.64"
     },
@@ -741,7 +745,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But why doesn't -- why doesn't it, the mode of selection show that it is -- becomes of function of reward rather than a compulsion of duty or a manifestation of requirement.",
       "time": "00:26:18.35"
     },
@@ -753,7 +757,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If it's related to how much insurance you'd written and you therefore say, \"You're a good boy. You go out to Miami or to Palm Beach.\"",
       "time": "00:26:40.85"
     },
@@ -765,7 +769,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "How many were eligible?",
       "time": "00:28:02.14"
     },
@@ -777,7 +781,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Out of the eligible --",
       "time": "00:28:05.13"
     },
@@ -789,7 +793,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- they happen to receive the invitation or --",
       "time": "00:28:08.70"
     },
@@ -801,7 +805,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "What I wanted --",
       "time": "00:28:13.09"
     },
@@ -813,7 +817,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "-- to find out is how much were eligible and how many actually were invited?",
       "time": "00:28:13.53"
     },
@@ -825,7 +829,7 @@
     },
     {
       "turn": 130,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You may. Mr. Jones.",
       "time": "00:28:34.96"
     },
@@ -837,7 +841,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well there wouldn't be any income in that case, would there?",
       "time": "00:30:20.24"
     },
@@ -849,7 +853,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I mean the ordinary -- the ordinary professional meeting a person goes and pays it on his own expense and then deducts him from his (Voice Overlap) --",
       "time": "00:30:24.04"
     },
@@ -861,7 +865,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Voice Overlap) --",
       "time": "00:30:30.76"
     },
@@ -873,7 +877,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's what I'm talking about. And most of those who go there do not participate in any formal program and most of it, if I can go on my experience, or to talk since most of it is talk in the corridors and in the bar room.",
       "time": "00:30:32.92"
     },
@@ -885,7 +889,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "But you see wha -- what -- what happens is that young ones are looking for jobs and the old ones are there to look over the (Voice Overlap) --",
       "time": "00:30:50.16"
     },
@@ -897,7 +901,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, Mr. Jones what about the judicial conflicts which Uncle Sam pays us $30 a day in expenses and transportation to go to Atlantic City which is the --",
       "time": "00:31:06.03"
     },
@@ -909,7 +913,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "$30 a day for expenses plus transportations.",
       "time": "00:31:17.92"
     },
@@ -921,7 +925,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well --",
       "time": "00:31:24.53"
     },
@@ -933,7 +937,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Do you think it's a technical words that --",
       "time": "00:31:26.24"
     },
@@ -945,7 +949,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I mean what happens there where you often as much as Justice Frankfurter described what happens if law professors --",
       "time": "00:31:32.45"
     },
@@ -957,7 +961,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What's the agenda?",
       "time": "00:31:45.84"
     },
@@ -969,7 +973,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not really. You don't really mean that you could find out to what extent, you're present inside of a big room or so, that's even more important thing (Inaudible).",
       "time": "00:32:04.96"
     },
@@ -981,25 +985,25 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I conveyed a short for you Mr. Jones if I may suggest that the statute requires attendance.",
       "time": "00:32:27.12"
     },
     {
       "turn": 157,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Oh, I don't know --",
       "time": "00:32:34.81"
     },
     {
       "turn": 158,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Judicial contract.",
       "time": "00:32:35.20"
     },
     {
       "turn": 159,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Oh, no.",
       "time": "00:32:36.95"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Don't have to go to the (Voice Overlap) --",
       "time": "00:32:37.94"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "-- judicial contract.",
       "time": "00:32:39.51"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I don't --",
       "time": "00:32:41.05"
     },
@@ -1047,13 +1051,13 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well, I don't need -- I'm not talking about what every Circuit justice by statute is supposed to attend by statute judicial conference of this Circuit, isn't that true? (Inaudible)",
       "time": "00:32:43.08"
     },
     {
       "turn": 168,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "I think Justice (Inaudible).",
       "time": "00:32:53.86"
     },
@@ -1065,7 +1069,7 @@
     },
     {
       "turn": 170,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I don't have to be --",
       "time": "00:32:58.92"
     },
@@ -1077,7 +1081,7 @@
     },
     {
       "turn": 172,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:33:01.10"
     },
@@ -1089,7 +1093,7 @@
     },
     {
       "turn": 174,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Let me see, it's not Circuit judges in a party.",
       "time": "00:33:03.38"
     },
@@ -1101,7 +1105,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why do you say it's not -- that element is not present here?",
       "time": "00:33:08.51"
     },
@@ -1113,7 +1117,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I think it was compulsory --",
       "time": "00:33:11.96"
     },
@@ -1125,7 +1129,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- for them to attend.",
       "time": "00:33:13.12"
     },
@@ -1137,7 +1141,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "This is what (Inaudible)? Would there be any difference in the statutory compulsion and the employer-employee compulsion?",
       "time": "00:33:15.67"
     },
@@ -1149,7 +1153,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well, I'm just asking if that was --",
       "time": "00:33:26.29"
     },
@@ -1161,7 +1165,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Where do you find a generous hardly company man?",
       "time": "00:34:25.93"
     },
@@ -1173,7 +1177,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "It's conformity rather than compulsion.",
       "time": "00:35:22.17"
     },
@@ -1185,7 +1189,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Don't you think it's -- don't you think it's conceivable?",
       "time": "00:35:28.55"
     },
@@ -1197,7 +1201,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Don't you think it --",
       "time": "00:35:36.90"
     },
@@ -1209,7 +1213,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Don't you think it's conceivable that a man wouldn't want to go to New York and unless he is compelled to do so?",
       "time": "00:35:40.88"
     },
@@ -1221,7 +1225,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did they have a program at this meeting which was calculated to improve that the capacity of the agents to purchase insurance?",
       "time": "00:35:57.38"
     },
@@ -1233,7 +1237,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And to inspire them to produce more insurance?",
       "time": "00:36:09.59"
     },
@@ -1245,7 +1249,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is it that -- is it a general rule that they do not allow tax -- taxing (Inaudible) will not allow deductions for things like these, for insurance companies?",
       "time": "00:36:33.47"
     },
@@ -1257,7 +1261,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Or do you decide it on the basis of what each convention was and what each one did there?",
       "time": "00:36:45.81"
     },
@@ -1269,7 +1273,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose that another insurance company might call its agent New York and I presume do, the others can do it, aren't they?",
       "time": "00:36:52.83"
     },
@@ -1281,7 +1285,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And are they given deductions in some instances?",
       "time": "00:37:02.53"
     },
@@ -1293,7 +1297,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Your suggestion a little earlier, it isn't compulsion, is it compulsion? But compulsion isn't the determining quality whether it's a proper and necessary business expense.",
       "time": "00:37:28.79"
     },
@@ -1305,7 +1309,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Why do you even introduce compulsion? In a --",
       "time": "00:37:41.94"
     },
@@ -1317,7 +1321,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "particular --",
       "time": "00:37:45.43"
     },
@@ -1329,7 +1333,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "We're comparing the sense of business practice, business pleasure and not compulsion.",
       "time": "00:37:56.62"
     },
@@ -1341,7 +1345,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Not displeasing the boss.",
       "time": "00:38:04.31"
     },
@@ -1353,7 +1357,7 @@
     },
     {
       "turn": 218,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I'm suggest -- I'm suggesting if business purposes affirms favor a strong desire that they meet together but that we'll just listen to a case, a different kind of compulsion. That exerts a force of pressure, an atmosphere which is very different from saying, \"I want to go to Miami or Florida Beach to have a good time.\"",
       "time": "00:38:28.98"
     },
@@ -1365,7 +1369,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Where do this initiate? Where do this originate? Where do the whole scheme gotten from?",
       "time": "00:39:11.53"
     },
@@ -1377,7 +1381,7 @@
     },
     {
       "turn": 222,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "No, of -- in this case --",
       "time": "00:39:18.86"
     },
@@ -1389,7 +1393,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "-- what was the moving force? Was it going also having a good time or responding to the needs expressly to the company, which was it?",
       "time": "00:39:21.45"
     },
@@ -1401,7 +1405,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Did all the claims of company interest is really the façade of the near or pretense?",
       "time": "00:39:58.50"
     },
@@ -1413,7 +1417,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "How about the other way around? The desire of the company to have their agents do something which as a consequence also, namely the people from (Inaudible) and Omaha and where not to New Jersey or New York?",
       "time": "00:40:19.64"
     },
@@ -1425,7 +1429,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "If you put it the other way around then you'd -- then it would be different, would it?",
       "time": "00:40:38.92"
     },
@@ -1437,7 +1441,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But what do you do with the suggestion that -- which purpose predominates depends on what direction of vision to give to the trier of fact?",
       "time": "00:41:22.76"
     },
@@ -1449,25 +1453,25 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But they're --",
       "time": "00:42:54.57"
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But ended --",
       "time": "00:42:54.59"
     },
     {
       "turn": 236,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- rather different.",
       "time": "00:42:54.89"
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- which way? How was it ended?",
       "time": "00:42:55.05"
     },
@@ -1479,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes.",
       "time": "00:43:01.45"
     },
@@ -1491,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, then what? If we could do that then what would follow?",
       "time": "00:43:09.17"
     },
@@ -1503,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Would be income, wouldn't it?",
       "time": "00:43:20.27"
     },
@@ -1515,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It would be income to the employees certainly --",
       "time": "00:43:22.74"
     },
@@ -1527,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, just like wages are -- wages are paid only in connection with a specific business purpose of the employee and there's certainly income to the -- of the employer, there's certainly income to the employee?",
       "time": "00:43:28.86"
     },
@@ -1539,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The business purpose would -- it would follow that there would be income to the employee.",
       "time": "00:43:45.45"
     },
@@ -1551,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And would be deductible, the expenses would be -- deduct -- deducted by the employer.",
       "time": "00:43:54.37"
     },
@@ -1563,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "No, I was --",
       "time": "00:44:03.70"
     },
@@ -1575,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I was wondering what you're trying to get at. If you could find a clear business purpose on the part of the employer then what would follow? And I still don't see.",
       "time": "00:44:04.59"
     },
@@ -1587,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is it on his wages?",
       "time": "00:44:16.11"
     },
@@ -1599,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I don't follow that all. I maybe pretty dense at the moment but I just don't follow it.",
       "time": "00:44:23.19"
     },
@@ -1611,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, let's start very simply with wages. These are paid by the employer for a clear business purpose of his own. They're received by the employee. They were -- they're deducted by the employer. They're included in the income of the employee and not deducted by the employee.",
       "time": "00:44:35.84"
     },
@@ -1623,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, let's say that a convention is put on by the employer for the employer's clear business purpose. The employer's clear business purpose for training employees --",
       "time": "00:44:56.24"
     },
@@ -1635,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I say --",
       "time": "00:45:14.89"
     },
@@ -1647,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Right.",
       "time": "00:45:27.04"
     },
@@ -1659,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Certainly often in a training program, you do compensate employees, don't you?",
       "time": "00:45:47.51"
     },
@@ -1671,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Suppose judges invited you give a Law Day address and he says he won't go unless he takes his wife so they pay expenses and the judge and his wife, make the Law Day address, Arizona or California or Missouri or Texas and they -- could that be --",
       "time": "00:45:58.71"
     },
@@ -1683,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "-- income?",
       "time": "00:46:25.16"
     },
@@ -1695,19 +1699,19 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, we're you talking about American institutions of previous case, what about the institution of marriage? You're really going to make things complicated.",
       "time": "00:47:09.26"
     },
     {
       "turn": 276,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "You told that wives are a fact of life, I was thinking about --",
       "time": "00:47:16.55"
     },
     {
       "turn": 277,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Inaudible) --",
       "time": "00:47:19.71"
     },
@@ -1719,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "You would give any Law Day addresses.",
       "time": "00:47:23.58"
     },
@@ -1731,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:47:26.39"
     },
@@ -1743,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "They what?",
       "time": "00:47:31.64"
     },
@@ -1755,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Wouldn't there be a tax on that?",
       "time": "00:47:34.04"
     },
@@ -1767,7 +1771,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Jones, I have a -- I have a greater difficulty in some of these charming questions. You indicate the circumstances under which he is living (Inaudible) expenses that you form a program and so on, is that right? If you are advising this company after a decision restraining your present submission, you wouldn't have great difficulty formulating a program that would take care of all the qualifications that you gave us, wouldn't you?",
       "time": "00:47:41.73"
     },
@@ -1779,7 +1783,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "What I mean you could lay out a program like a (Voice Overlap) --",
       "time": "00:48:24.34"
     },
@@ -1791,7 +1795,7 @@
     },
     {
       "turn": 291,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Like a law school programs. I can assure you the burden of those law school programs sit very likely on law professionals.",
       "time": "00:48:27.87"
     },
@@ -1803,7 +1807,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I would talk --",
       "time": "00:48:42.55"
     },
@@ -1815,7 +1819,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Strike out -- Mr. Stenographer strike out everything I've said that's in the (Voice Overlap) --",
       "time": "00:48:44.03"
     },
@@ -1827,7 +1831,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- (Voice Overlap) -- your test is whether it's predominant for pleasure or predominant for business. I presume in that the man went to Honolulu on a convention and -- balance should be pretty heavy against him, wouldn't it?",
       "time": "00:49:07.87"
     },
@@ -1839,7 +1843,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You can't make it turn altogether on pleasure there or of business?",
       "time": "00:49:47.74"
     },
@@ -1851,7 +1855,7 @@
     },
     {
       "turn": 301,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "(Inaudible)",
       "time": "00:50:12.25"
     },
@@ -1863,7 +1867,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "If we're -- if we're to take judicial notice, I think I could get you a list of big hotels and unattractive towns.",
       "time": "00:50:17.56"
     },
@@ -1875,7 +1879,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "How does this convention differ from thousands of other conventions, business conventions, is there anything peculiar about this?",
       "time": "00:50:34.45"
     },
@@ -1887,7 +1891,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Even just to program purpose.",
       "time": "00:50:46.20"
     },
@@ -1899,7 +1903,7 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Or anything else?",
       "time": "00:50:49.38"
     },
@@ -1911,7 +1915,7 @@
     },
     {
       "turn": 311,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Do you think he would simply use this deduction (Inaudible)?",
       "time": "00:51:52.74"
     },
@@ -1923,7 +1927,7 @@
     },
     {
       "turn": 313,
-      "name": "JUSTICE HARLAN",
+      "name": "JOHN M. HARLAN II",
       "text": "Do you think he would simply use this deduction (Inaudible)?",
       "time": "00:51:55.37"
     },
@@ -1935,7 +1939,7 @@
     },
     {
       "turn": 315,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So what's the reality of that situation to Tax Board?",
       "time": "00:53:12.50"
     },
@@ -1947,7 +1951,7 @@
     },
     {
       "turn": 317,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That the new taxable won't anything about it?",
       "time": "00:53:52.97"
     },
@@ -1959,7 +1963,7 @@
     },
     {
       "turn": 319,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "For anything --",
       "time": "00:53:58.68"
     },
@@ -1971,7 +1975,7 @@
     },
     {
       "turn": 321,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "like luncheon, (Inaudible)?",
       "time": "00:53:59.18"
     },
@@ -1983,7 +1987,7 @@
     },
     {
       "turn": 323,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Well --",
       "time": "00:54:05.10"
     },
@@ -1995,7 +1999,7 @@
     },
     {
       "turn": 325,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It involves for me whether these business whether -- a second part of the certain aspects of the case, taken you probably know about the Mediterranean Greeks, the Greeks, some are voyages in which they got a regular program of distinguished salads having the people enjoying -- to enjoy a -- rooms in the Mediterranean Greek islands, have all of the Greek islands and have some of the ablest scholars, Greek scholars lecture there. Now, they come to know any number of, not any number but several instructors or professors of Greek history would -- it would surely be a part of that. I don't see why that isn't just as important as buying books (Inaudible).",
       "time": "00:54:07.07"
     },
@@ -2007,13 +2011,13 @@
     },
     {
       "turn": 327,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "My answer would be jobs, varied jobs, the idea of that in court, going for each one of these separate things to find out how many lectures he have slept through whether in his bunk or in the chair, leaves to me to ask the courts to do more merits --",
       "time": "00:55:19.49"
     },
     {
       "turn": 328,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Jones, does the record in this case show how the company treated these expenses?",
       "time": "00:55:37.71"
     },
@@ -2025,7 +2029,7 @@
     },
     {
       "turn": 330,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, that's right the tax (Voice Overlap) --",
       "time": "00:55:45.01"
     },
@@ -2037,7 +2041,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes, yes.",
       "time": "00:55:46.99"
     },
@@ -2049,7 +2053,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's right.",
       "time": "00:55:48.99"
     },
@@ -2061,7 +2065,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's correct.",
       "time": "00:55:50.19"
     },
@@ -2073,13 +2077,13 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "A deductible as you say in either event by the employer.",
       "time": "00:56:22.14"
     },
     {
       "turn": 339,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Yes.",
       "time": "00:56:24.82"
     },
@@ -2091,7 +2095,7 @@
     },
     {
       "turn": 341,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Including the employer's taxes.",
       "time": "00:56:27.61"
     },
@@ -2103,13 +2107,13 @@
     },
     {
       "turn": 343,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Alright, I remember now.",
       "time": "00:56:30.67"
     },
     {
       "turn": 344,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Suppose he pay the tax on employees, on employees' tax?",
       "time": "00:56:30.70"
     },
@@ -2121,7 +2125,7 @@
     },
     {
       "turn": 346,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Suppose you won --",
       "time": "00:56:37.92"
     },
@@ -2133,7 +2137,7 @@
     },
     {
       "turn": 348,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Suppose you won this case and then the employer decided, \"Well, I'l pay the tax.\"",
       "time": "00:56:39.00"
     },
@@ -2145,7 +2149,7 @@
     },
     {
       "turn": 350,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "But that would be a small amount.",
       "time": "00:56:59.31"
     },
@@ -2157,7 +2161,7 @@
     },
     {
       "turn": 352,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "What made me think of that, you've said perhaps the -- on the justices' wives that they could pay the tax of the wives.",
       "time": "00:57:05.05"
     },
@@ -2169,19 +2173,19 @@
     },
     {
       "turn": 354,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Ex post facto?",
       "time": "00:57:17.97"
     },
     {
       "turn": 355,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "How far is Black's joke?",
       "time": "00:57:20.59"
     },
     {
       "turn": 356,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is that ex post facto?",
       "time": "00:57:23.12"
     },
@@ -2193,7 +2197,7 @@
     },
     {
       "turn": 358,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "I'm afraid I've never been long enough here (Inaudible). [Laughter]",
       "time": "00:57:28.32"
     },
@@ -2205,7 +2209,7 @@
     },
     {
       "turn": 360,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you just one other question? Does the evidence showed here that their wives were considered by the company as being a necessary part of the carrying on with the business for the husband? And does it show that the -- they're inquiries about their wives to find out if they had that capacity and if the company's wanted their wives to come with them on this trip were they had these conventions?",
       "time": "00:58:28.35"
     },
@@ -2217,7 +2221,7 @@
     },
     {
       "turn": 362,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Is there any finding that that's not a fact?",
       "time": "00:59:06.10"
     },
@@ -2229,7 +2233,7 @@
     },
     {
       "turn": 364,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, doesn't the Federal Government make now a conclusive presumption that half of the money earned by the president is earned by the wife?",
       "time": "00:59:17.35"
     },
@@ -2241,7 +2245,7 @@
     },
     {
       "turn": 366,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It's an option on the part of the husband and wife.",
       "time": "00:59:39.18"
     },
@@ -2253,7 +2257,7 @@
     },
     {
       "turn": 368,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Mr. Jones, would you be good enough to turn to page 100 in the record in the first two sentences, on the top of page a hundred, if -- it's your answer to what Judge Brown there says that this is a question of fact duly submitted to the trier and found by the trier? And that he's making a question of law out of all these questions of fact, is that what you would say to that?",
       "time": "00:59:45.75"
     },
@@ -2265,7 +2269,7 @@
     },
     {
       "turn": 370,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But what is involved is the right of termination under a contract granting the employer the right of termination at will if the thing is at stake.",
       "time": "01:00:20.63"
     },
@@ -2277,7 +2281,7 @@
     },
     {
       "turn": 372,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But Judge Brown's view I take it implies that the surrounding circumstances negative what you've said. You mutilate the complex of fact by saying he went to New York because he had a good time. But Brown says the whole circumstance as the nature of his employment is that if he didn't go to have a good time, he might have no time at all with this company.",
       "time": "01:00:58.79"
     },
@@ -2289,7 +2293,7 @@
     },
     {
       "turn": 374,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well. Mr. Freling, may I ask you just one question and I know you've got a very little time but suppose that the employer in this case had said, \"We want that all of these people who have written a million dollars worth of insurance last year to go to this convention.\" We're not going to pay their expenses but we order them to go just the same as -- in the la -- same language that they did in this case, would that be deductible?",
       "time": "01:01:45.28"
     },
@@ -2301,7 +2305,7 @@
     },
     {
       "turn": 376,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "There'd be no difference between that case and this one?",
       "time": "01:02:18.34"
     },
@@ -2313,7 +2317,7 @@
     },
     {
       "turn": 378,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well. That's all I have.",
       "time": "01:02:21.30"
     },

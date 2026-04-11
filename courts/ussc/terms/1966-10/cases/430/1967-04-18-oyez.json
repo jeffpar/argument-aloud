@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1966/430/19670418a_430.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "TOM C. CLARK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "FRANCIS X. BEYTAGH, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE CLARK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "PAUL O. STRAWHECKER",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- Sailors et al.versus Board of Education of the County of Kent, Mr. Beytagh --",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- you may continue your argument.",
       "time": "00:00:08.36"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How far down the line would you carry it at the (Inaudible)?",
       "time": "00:01:10.34"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Irrespective of the government (Inaudible)?",
       "time": "00:01:46.14"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Would you evaluate the purposes of a decision one of these issues? Would you evaluate the functions performed by the body? And if so, what criteria would you take into account or would you apply this for all the elected bodies regardless of what they do? For example, if they're purely advisory, number one. Number two, suppose that they're purely administrative as distinguished from exercising legislative or quasi legislative powers. And number 3, suppose a -- you exercise legislative or quasi legislative powers. You're not suggesting those three are the right categories but --",
       "time": "00:02:16.92"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- I am asking you whether you have described any importance to the function of the body?",
       "time": "00:03:04.65"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well I understand that but I was wondering whether you had given consideration to the functional problem and what's your observation would be difficult as it may be to apply it?",
       "time": "00:03:53.53"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, if that (Voice Overlap) --",
       "time": "00:04:36.52"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "That's what I was trying to get at, the position of the United States then as represented by you --",
       "time": "00:04:47.34"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- is that the function performed by the body is an irrelevance. Is that so? I don't want to question you whether --",
       "time": "00:04:53.06"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, the Sailors case for example --",
       "time": "00:05:28.06"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- presents a body with certainly with mixed functions does have within some restricted perimeter, taxing power and bonding power but its functions to include some advisory functions. I don't know how one evaluates those or ways on one against the other on which is more important but it is a mixed body.",
       "time": "00:05:31.62"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The point I gather that my Brother Fortas is suggesting, my questions is this that in Reynolds against Sims, to which you're now directing your attention, it was clear that what was there involved were representative, legislative bodies. But we're now embarking under the unchartered area, many -- an intimate drive different local units with various purposes. And take for example a conservancy district with the precise and limited powers in a certain county let us say, where it may be of utmost importance that each unit in our county be represented on the conservative -- conservancy district in order for us to -- in order for it to be able to perform its precise function of allocating the war or the -- whatever natural resource its concerned with. With -- in other words, quite a different purpose from an ordinary state legislature with broad and generalized legislative power.",
       "time": "00:06:07.24"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "You're suggesting that the same Reynolds against Sims rule should inflexibly apply all the way down the line regardless of purpose, is that --",
       "time": "00:07:14.00"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well --",
       "time": "00:07:46.63"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Inaudible) question to that, let's say that the -- it's decided that the best kind of representation on this imaginary conservancy district of mine is to have one representative from each geographical unit affected by -- for the distribution of this resource, water, regardless of how many people reside in each geographical district. Now, if that's the policy decision made, that's what's made. But you're telling us, I gather, that that would be unconstitutional.",
       "time": "00:07:48.56"
     },
@@ -239,13 +243,13 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "(Inaudible)",
       "time": "00:09:09.44"
     },
     {
       "turn": 34,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "One of the -- it's a very important question on which I hope would have the help of the United States. And you're now saying that if it's a special purpose district, as I understand you or a special purpose body elected under state law, then this Court ought to take a look at whether the method provided for selecting the members of that body has a rational basis which is a substantial modification of --",
       "time": "00:09:09.51"
     },
@@ -257,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "(Inaudible) before.",
       "time": "00:09:48.17"
     },
@@ -269,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, why wouldn't that apply to a situation let's say like Sailor? Well, let's suppose that -- let's bury the facts a little bit. And let's suppose that the county school board, I suppose is a very large county geographically. And that some of the school districts, which are small in terms of population were in remote parts of the county. And the state says that because of the difference in the problems of the school district located in the urban centers in these remote school districts, we think we ought to have one representative from each district on the county school board. Now, is it your position that we should or we should not take that --",
       "time": "00:10:41.25"
     },
@@ -281,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- into account?",
       "time": "00:11:38.13"
     },
@@ -293,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I'm telling what the state -- supposing that that's what --",
       "time": "00:11:44.86"
     },
@@ -305,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- the state says, should we then evaluate whether there is or is not a justification just as you say we should in the case of special purpose districts?",
       "time": "00:11:47.62"
     },
@@ -317,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, I don't want to press anymore on this line but I want to suggest to you that there's a difference between whether the reason is valid and whether the reason is legally relevant. And you started of with an absolute proposition with respect to something like the school district which should make reasons of a state may have for deviating from a one man, one vote formula, make those reasons irrelevant. And then it wouldn't matter whether the reasons are good, bad, or indifferent that a state had. And if the real question now -- I'm putting to use; whether there is any such thing in your judgment, your submission to us as a constitutionally acceptable reason for a state deviation from the one man, one vote rule.",
       "time": "00:13:02.43"
     },
@@ -329,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Where do you stand on the Sailor case?",
       "time": "00:14:14.76"
     },
@@ -341,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Say, reversed?",
       "time": "00:14:27.66"
     },
@@ -353,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Mr. -- was it appointed board?",
       "time": "00:14:30.29"
     },
@@ -365,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The people didn't elect this board, didn't they?",
       "time": "00:14:47.03"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I thought the school district board is elected.",
       "time": "00:14:49.82"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I thought the school district board selected one?",
       "time": "00:14:53.96"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Suppose this was an equalization board that was selected in this manner, would you rule that that was under Reynolds and Sims?",
       "time": "00:15:04.87"
     },
@@ -413,13 +417,13 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Equalization board, tax equalization board, to see if whether or not my tax isn't yours if -- they're and (Inaudible).",
       "time": "00:15:17.22"
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And each county sends their representatives to the states and the (Inaudible) equally, equalization board that this is the board who adjust taxes. Just to consider cases involving discrepancies and discriminations in Texas or whatever they have?",
       "time": "00:15:24.60"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the school districts as such claimed the protection of the Fourteenth Amendment?",
       "time": "00:16:12.57"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's what the difference, isn't it?",
       "time": "00:16:50.05"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "Legislature passes the law. Ordinarily, they're elected by the people while the tax board, I'm sure some states may elect them but I don't know any.",
       "time": "00:16:56.79"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "But I thought we get into this on a proposition that had to be an ambiguous discrimination, something that had no reason to it. And certainly it's reasonable for a dual board to be selected like this has been all over the country, isn't it right in the district?",
       "time": "00:17:35.87"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "The judges select these two boards.",
       "time": "00:17:54.85"
     },
@@ -491,13 +495,13 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE CLARK",
+      "name": "TOM C. CLARK",
       "text": "But I don't know about the Court. I still stick to that, Baker.",
       "time": "00:18:06.38"
     },
     {
       "turn": 76,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, do you insist that before Reynolds to apply, the body must have the legislative functions?",
       "time": "00:18:13.85"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, wouldn't the principle apply to election of statewide officials, let's say, treasure of the state wholly administrative offices?",
       "time": "00:18:34.16"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well he is but what if you have the unit vote system as (Inaudible)?",
       "time": "00:18:52.44"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know it takes care of it and because of -- because the Fourteenth Amendment does catch non-legislative --",
       "time": "00:19:02.42"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- bodies or functions also?",
       "time": "00:19:14.56"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "What was (Inaudible) with that system of electing judges by districts to use, the court, with statewide jurisdiction?",
       "time": "00:19:27.60"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I don't understand if you would, why you would say it does apply to bodies like the tax board as such.",
       "time": "00:19:59.63"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "00:20:10.92"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "It would not --",
       "time": "00:20:12.02"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Oh, I see.",
       "time": "00:20:13.13"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Now, what is -- what's the criteria of the judgment? That they do or do not have legislative power?",
       "time": "00:20:21.81"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "But if --",
       "time": "00:20:29.02"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, I don't follow. I don't follow, what -- what's represent -- what does representative mean if it doesn't mean having some legislative power? What does it mean?",
       "time": "00:20:38.43"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Strawhecker.",
       "time": "00:21:30.74"
     },

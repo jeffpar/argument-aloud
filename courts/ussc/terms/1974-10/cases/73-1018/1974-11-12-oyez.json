@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1974/73-1018/19741112a_73-1018.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "HARRY R. SACHSE",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "CHARLES E. HAMILTON",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "JEROME F. STATKUS",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We’ll hear arguments next in 73-1018, United States against Mazurie. Mr. Sachse, you may proceed whenever you’re ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Subsection (c) says an absence of a three-year statute. Is it -- is there any statute?",
       "time": "00:03:18.71"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Where is the regulation?",
       "time": "00:06:27.51"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Here being.",
       "time": "00:06:42.33"
     },
@@ -95,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "It was introduced at the trial.",
       "time": "00:06:49.64"
     },
@@ -107,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Sachse, did all of these untoward incidents happen during the 18-year period or just toward the end of it?",
       "time": "00:08:28.74"
     },
@@ -119,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Because I suppose Mr. Sachse, one can sympathize with the Mazuries. It had this business for 18 years and all of a sudden, they can’t have it.",
       "time": "00:16:38.55"
     },
@@ -131,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You may proceed for a minute, Mr. Sachse.",
       "time": "00:21:21.41"
     },
@@ -143,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You may develop that after lunch if you wish. [Lunch Recess] Mr. Sachse, you -- you have about eight minutes left altogether.",
       "time": "00:22:01.24"
     },
@@ -155,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Fine, we may have the questions later. Mr. Hamilton.",
       "time": "00:22:22.74"
     },
@@ -167,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Non-Indians technically, in the sense you were just talking about?",
       "time": "00:26:13.83"
     },
@@ -179,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It is including whites and the marginal group who can’t get into the club?",
       "time": "00:26:18.25"
     },
@@ -191,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "My understanding is that it varies from tribe to tribe.",
       "time": "00:27:59.39"
     },
@@ -203,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "There’s no standard federal regulation.",
       "time": "00:28:06.16"
     },
@@ -215,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Of quarter ’64.",
       "time": "00:28:11.70"
     },
@@ -227,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Could your client have come within any of the possible definitions of 1154 (c) that you mentioned a moment ago before Justice Douglas asked you the question?",
       "time": "00:28:46.66"
     },
@@ -239,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Could this establishment have been deemed within a non-Indian community under any of those tests?",
       "time": "00:29:04.87"
     },
@@ -251,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "(Voice Overlap) the defense of insanity?",
       "time": "00:29:57.57"
     },
@@ -263,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "What about in a normal criminal case in the State, frequently, the defense of insanity is the burden that is placed on the defendant?",
       "time": "00:30:00.39"
     },
@@ -275,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Excuse me, how did they offer that proof in that respect by maps and --",
       "time": "00:31:12.64"
     },
@@ -287,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Who was the judge who proved that your client’s lands would be private lands? Who proved that?",
       "time": "00:33:11.91"
     },
@@ -299,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That was stipulated.",
       "time": "00:33:20.44"
     },
@@ -311,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I’m still worried about this burden of proof.",
       "time": "00:33:58.44"
     },
@@ -323,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How are you sure it’s on the Government to show that this is on the excluded territory? That it’s not in the excluded territory.",
       "time": "00:34:02.27"
     },
@@ -335,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Providing they agreed to it.",
       "time": "00:34:36.32"
     },
@@ -347,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But why is the burden on them to prove the absence of exception rather than your burden to prove that you’re within the exception?",
       "time": "00:35:15.27"
     },
@@ -359,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Within the big boundary lines?",
       "time": "00:35:38.09"
     },
@@ -371,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "They did prove that.",
       "time": "00:35:40.24"
     },
@@ -383,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Right. They proved that.",
       "time": "00:35:42.93"
     },
@@ -395,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you say that it did say that nobody to prove whether it’s in the exception or not.",
       "time": "00:35:45.24"
     },
@@ -407,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So that, if your burden is to show that it’s within the exception, you lose.",
       "time": "00:35:51.49"
     },
@@ -419,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, I know of several criminal defenses that are affirmative defenses.",
       "time": "00:36:00.72"
     },
@@ -431,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Unless you call that an exception. And --",
       "time": "00:36:06.76"
     },
@@ -443,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You answered that this an essential element of the crime?",
       "time": "00:36:20.04"
     },
@@ -455,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The exception?",
       "time": "00:36:23.91"
     },
@@ -467,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Except for the subdivision C, is there any reference, as many references to Indian country? Is there anywhere in the statute, any reference except in C to non-Indian communities or even to an Indian community?",
       "time": "00:36:30.86"
     },
@@ -479,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It’s the only place.",
       "time": "00:36:44.15"
     },
@@ -491,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It’s the definition of Indian country but not of Indian communities and I gather the District Court found that this was Indian country right?",
       "time": "00:36:49.68"
     },
@@ -503,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But not whether or not it was an Indian community or non-Indian community.",
       "time": "00:37:00.02"
     },
@@ -515,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Which is to say what, to prove it is an Indian community?",
       "time": "00:37:16.00"
     },
@@ -527,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Mr. Hamilton.",
       "time": "00:37:38.21"
     },
@@ -539,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The district judge found, as I read the record, that the land was an Indian country. Is it your position that there was no evidence to sustain that?",
       "time": "00:37:40.23"
     },
@@ -551,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "The position --",
       "time": "00:37:54.55"
     },
@@ -563,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It must be an Indian country --",
       "time": "00:38:02.17"
     },
@@ -575,13 +579,13 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "It could be an Indian country and not a non-Indian country.",
       "time": "00:38:06.66"
     },
     {
       "turn": 90,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "On a non-Indian community",
       "time": "00:38:10.72"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Like Riverton.",
       "time": "00:38:15.72"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You mean it might be a non -- an Indian community even though (Voice Overlap) 20% of the population were Mexicans or whites or something else.",
       "time": "00:38:37.48"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "At the same -- it might be a non-Indian community although 90% were Indians right then and there.",
       "time": "00:38:45.41"
     },
@@ -629,13 +633,13 @@
     },
     {
       "turn": 98,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "But where is the guideline?",
       "time": "00:38:51.47"
     },
     {
       "turn": 99,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, if you --",
       "time": "00:38:53.50"
     },
@@ -647,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If 11 --",
       "time": "00:38:56.20"
     },
@@ -659,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If 1154 (c) provides that the term Indian country as used in the Section does not include fee-patented lands in non-Indian community and the District Court finds that this took place in Indian country, he is negating the application of that exception, isn’t he?",
       "time": "00:38:57.47"
     },
@@ -671,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Why not?",
       "time": "00:39:17.76"
     },
@@ -683,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But he doesn’t have to. All he has to do is take that definition -- this is excluded from Indian country and he says, nonetheless, this took place in Indian country. He negates the application of the exception.",
       "time": "00:39:21.26"
     },
@@ -695,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "You don’t think that was implied there despite the proof of number of families, the number of Indians in a certain square mile area, the fact that the bar was out there by itself.",
       "time": "00:39:48.43"
     },
@@ -707,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, certainly, the presence of Indian families, to the extent of what -- 244 out 260 or something like this is must some tough criterion.",
       "time": "00:40:20.87"
     },
@@ -719,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, you indicated a little while ago that eligible Indians were not permitted to be enrolled.",
       "time": "00:40:44.75"
     },
@@ -731,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, if Indian country in the 1153 Act is used in the same sense of Indian country, and see if the 1949 Act by definition does not include a non-Indian community.",
       "time": "00:40:57.61"
     },
@@ -743,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "If I understood you correctly, the District Court made no finding beyond what you had already stipulated to namely that you were in an Indian country.",
       "time": "00:41:22.36"
     },
@@ -755,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And that your position is he had to go beyond that and take the second leg of subsection (c) and make an explicit finding on that.",
       "time": "00:41:34.38"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "To do that, he’d have to define what is an Indian, wouldn’t he?",
       "time": "00:41:45.01"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "He would -- hypothetically, would he have to say an Indian includes not only Indians enrolled in the two tribes, either one of the two tribes or any person having any degree of Indian blood and then count of how many there were?",
       "time": "00:41:51.55"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Can I ask you -- let’s assume that -- either assume that this was Indian country or not or that it was a non-Indian community or it wasn’t. Let’s assume that a statute, however expressly made the Indian tribal liquor laws applicable to stores on this piece of land. Now, I suppose the federal law would govern and unless it was unconstitutional, wouldn’t it?",
       "time": "00:42:38.72"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know but let’s assume that the very statute that says -- assume that federal statute said the Indian tribal liquor law shall apply to the following described piece of property and described this piece of property precisely.",
       "time": "00:43:09.05"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But you have to follow whether the federal government has the power to do that.",
       "time": "00:43:27.45"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Under Wyoming jurisdiction, you’re saying?",
       "time": "00:43:46.28"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does this record show or could we spell out from this record in any way, how many of the people in the area where your establishment is located in this community are enrolled members of one of these tribes? Or are none of them?",
       "time": "00:44:28.27"
     },
@@ -851,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, your answer is that this record doesn’t show that.",
       "time": "00:44:50.27"
     },
@@ -863,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And your position is that it would be an essential part of the Government’s burden in this case to establish that fact.",
       "time": "00:44:58.41"
     },
@@ -875,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, is -- is your client faced within any incorporated municipality of any kind?",
       "time": "00:45:08.24"
     },
@@ -887,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Which you promote --",
       "time": "00:45:21.03"
     },
@@ -899,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Are they incorporated?",
       "time": "00:45:25.97"
     },
@@ -911,13 +915,13 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "No, then I suppose in the statute, you argued that community could well mean neighborhood, whatever that is.",
       "time": "00:45:27.76"
     },
     {
       "turn": 146,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Doesn’t -- don’t findings of fact number 10 and number 11 in the District Court’s judgment indicate at least his understanding of the meaning of a non-Indian community particularly number 11. It’s not an incorporated non-Indian community with recognized boundaries.",
       "time": "00:45:34.90"
     },
@@ -929,7 +933,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, you know what the statute says --",
       "time": "00:45:59.96"
     },
@@ -941,7 +945,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- and you said the statute is too vague to understand but at least this -- the District Court seemed to understand it in these terms. Now with incorporated non-Indian community would recognize boundaries. Finding of fact number 11 on page 34 of the Government’s brief.",
       "time": "00:46:04.87"
     },
@@ -953,7 +957,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I’m sorry, of the (Voice Overlap) brief, the petition for writ of certiorari at this time.",
       "time": "00:46:20.71"
     },
@@ -965,7 +969,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, you’re talking about Indians incorporating. This is non-Indian community with recognized boundaries.",
       "time": "00:46:44.72"
     },
@@ -977,7 +981,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Riverton is incorporated, isn’t it?",
       "time": "00:46:54.74"
     },
@@ -989,7 +993,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And a finding number 10, it’s two-and-half miles from the -- from the reservation public school and we know from the evidence introduced that a vast majority of the students or the pupils of that school are Indians.",
       "time": "00:47:05.32"
     },
@@ -1001,7 +1005,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And you seem to (Voice Overlap).",
       "time": "00:47:24.84"
     },
@@ -1013,7 +1017,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, it doesn’t say -- tribal members that say non-Indian community.",
       "time": "00:47:35.91"
     },
@@ -1025,7 +1029,7 @@
     },
     {
       "turn": 164,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, and you -- there was video of evidenced introduced on this, wasn’t there. That’s correctly summarized on page eight of the Government’s brief.",
       "time": "00:47:42.53"
     },
@@ -1037,7 +1041,7 @@
     },
     {
       "turn": 166,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The Government’s brief. Brief for the United States filed August 15th of this year. This is the first three or four sentences. You’re familiar with it, I’m sure, 212 families of which 170 and a half are Indian families, the remainder are non-Indian families.",
       "time": "00:47:54.08"
     },
@@ -1049,7 +1053,7 @@
     },
     {
       "turn": 168,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, neither the statute -- the statute doesn’t say anything about tribal members.",
       "time": "00:48:32.57"
     },
@@ -1061,7 +1065,7 @@
     },
     {
       "turn": 170,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Or what an Indian.",
       "time": "00:48:42.19"
     },
@@ -1073,7 +1077,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Does your attack in this respect go to the defects of the statute that the statute is the statute under which no crime can be established?",
       "time": "00:48:46.12"
     },
@@ -1085,7 +1089,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Apart from the proof.",
       "time": "00:48:58.51"
     },
@@ -1097,7 +1101,7 @@
     },
     {
       "turn": 176,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "In the statute, you said, they haven’t made their proof but it isn’t a good statute.",
       "time": "00:49:04.20"
     },
@@ -1109,7 +1113,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Incidentally, I know this is going to finding 11 that Fort Washakie is not an incorporated non-Indian community with recognized boundaries. Are there any incorporated non-Indian communities with recognized boundaries?",
       "time": "00:49:13.39"
     },
@@ -1121,7 +1125,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Can you have it unincorporated non-Indian community?",
       "time": "00:49:40.74"
     },
@@ -1133,7 +1137,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, you think -- do you think the statute which might otherwise be vague or nearly vague can be -- can have its law secured by construction of federal statute?",
       "time": "00:50:06.18"
     },
@@ -1145,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That’s what the judgment of the Court of Appeals did, strike it down.",
       "time": "00:50:26.98"
     },
@@ -1157,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Why shouldn’t have it construed it if they thought it was vague.",
       "time": "00:50:30.78"
     },
@@ -1169,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know they have other reason besides this --",
       "time": "00:50:51.89"
     },
@@ -1181,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How about Riverton? Riverton had a mayor?",
       "time": "00:50:58.54"
     },
@@ -1193,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And council?",
       "time": "00:51:02.17"
     },
@@ -1205,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How many Indians? Or is it only the mayor who’s Indian?",
       "time": "00:51:04.04"
     },
@@ -1217,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is anybody in the council an Indian?",
       "time": "00:51:10.91"
     },
@@ -1229,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you don’t know whether or not that’s an Indian reservation?",
       "time": "00:51:14.92"
     },
@@ -1241,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You don’t know whether it’s non-Indian?",
       "time": "00:51:19.69"
     },
@@ -1253,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "You said, you couldn’t tell whether it was non-Indian or not but now you can.",
       "time": "00:51:27.11"
     },
@@ -1265,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, more practically, are there bars in Riverton?",
       "time": "00:51:33.21"
     },
@@ -1277,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And do they get licenses from the Indian reservation, from the Indian tribe?",
       "time": "00:51:39.51"
     },
@@ -1289,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And is there any of them who have been ever prosecuted for not getting it?",
       "time": "00:51:46.18"
     },
@@ -1301,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "This isn’t a test case for Riverton, is it?",
       "time": "00:51:54.18"
     },
@@ -1313,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In other words, it seems to from your answer --",
       "time": "00:51:59.25"
     },
@@ -1325,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It seems to have been clear to everybody up to now that Riverton is a non-Indian community.",
       "time": "00:52:01.34"
     },
@@ -1337,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If that was true then none of this (Inaudible) property too for 18 years? No.",
       "time": "00:52:08.62"
     },
@@ -1349,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "No, the law was (Voice Overlap) in 1971.",
       "time": "00:52:17.91"
     },
@@ -1361,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Mr. Hamilton, does the Wind River Canyons too was beautiful as it used to be years ago?",
       "time": "00:52:32.12"
     },
@@ -1373,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We seem to have some problems here that your colleague, Mr. Statkus has used your time but that was perhaps partly attributable to Court. We’ll give you -- will five minutes help you out any?",
       "time": "00:52:49.50"
     },
@@ -1385,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, you’d be making this argument, your argument, even if there were no subsection (c) of 1154?",
       "time": "00:55:41.58"
     },
@@ -1397,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Right And that -- and when you emphasized that your state gives due process protection to before denying or withdrawing a license so you -- was your implication that the tribal people do not?",
       "time": "00:55:55.90"
     },
@@ -1409,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But in this case, he was given the hearing or full hearing?",
       "time": "00:56:59.45"
     },
@@ -1421,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Wasn’t he?",
       "time": "00:57:03.64"
     },
@@ -1433,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "He was given a hearing?",
       "time": "00:57:32.43"
     },
@@ -1445,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And you gave him a hand too, didn’t you?",
       "time": "00:58:00.00"
     },
@@ -1457,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is this denial of hearing before had argued before at the lower court? This is a criminal case, if I understand it.",
       "time": "00:58:34.88"
     },
@@ -1469,7 +1473,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What you’re arguing, was it presented to the court below?",
       "time": "00:58:45.55"
     },
@@ -1481,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "The truth is you weren’t there.",
       "time": "00:58:52.48"
     },
@@ -1493,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Denied that under this statute? Did Wyoming deny that under this statute?",
       "time": "00:59:11.18"
     },
@@ -1505,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Has Wyoming denied that under the statute? The answer is no.",
       "time": "00:59:19.08"
     },
@@ -1517,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Am I right?",
       "time": "00:59:24.51"
     },
@@ -1529,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, what are you complaining about?",
       "time": "00:59:26.44"
     },
@@ -1541,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I take it your point to be that Wyoming doesn’t have to share the powers issue of liquor licenses with anyone including the United States of America.",
       "time": "00:59:41.45"
     },
@@ -1553,7 +1557,7 @@
     },
     {
       "turn": 252,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And that somebody that you deem worthy of a license should have -- in your state should have a license?",
       "time": "00:59:53.38"
     },
@@ -1565,7 +1569,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And should not be deprived of it by an Indian tribe?",
       "time": "00:59:59.34"
     },
@@ -1577,7 +1581,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "If he’s a non-Indian operating on his own fee-patented land?",
       "time": "01:00:02.40"
     },
@@ -1589,7 +1593,7 @@
     },
     {
       "turn": 258,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Of course, it’s a very short time.",
       "time": "01:00:17.89"
     },
@@ -1601,7 +1605,7 @@
     },
     {
       "turn": 260,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you. Mr. Sachse, you have a few minutes left, do you have anything further?",
       "time": "01:00:20.41"
     },
@@ -1613,7 +1617,7 @@
     },
     {
       "turn": 262,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "You have about ten minutes now, to clear that up.[Laughter]",
       "time": "01:01:47.59"
     },
@@ -1625,7 +1629,7 @@
     },
     {
       "turn": 264,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "If it was a non-Indian community, it was an Indian community.",
       "time": "01:02:23.14"
     },
@@ -1637,7 +1641,7 @@
     },
     {
       "turn": 266,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "His only finding as I recall was that it was not an incorporated.",
       "time": "01:03:04.94"
     },
@@ -1649,7 +1653,7 @@
     },
     {
       "turn": 268,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "That might have been on the premise that he assumed that to be a non-Indian community, it had to be incorporated.",
       "time": "01:03:29.82"
     },
@@ -1661,7 +1665,7 @@
     },
     {
       "turn": 270,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But you say that -- all of you have to prove was that it happened in Indian country.",
       "time": "01:05:20.72"
     },
@@ -1673,7 +1677,7 @@
     },
     {
       "turn": 272,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "And finding 17 is, this Court holds that are those said defendants operated Blue Bull on land deeded fee such land is an Indian country and therefore subject to federal law and you say that’s a finding which excludes non-Indian country namely non-Indian community.",
       "time": "01:05:28.03"
     },
@@ -1685,13 +1689,13 @@
     },
     {
       "turn": 274,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "So, it’s really finding 17 rather than 21, isn’t it? Or at least the two together, is it?",
       "time": "01:05:54.87"
     },
     {
       "turn": 275,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What that really means to also --",
       "time": "01:06:02.13"
     },
@@ -1703,7 +1707,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I don’t know what the District Court’s standard was in judging Indian community.",
       "time": "01:06:05.24"
     },
@@ -1715,7 +1719,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even if you look at 11, you wouldn’t know or understand as well. Even if you look at it all, you don’t know what it is.",
       "time": "01:06:11.32"
     },
@@ -1727,7 +1731,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It’s not a non-Indian community.",
       "time": "01:06:28.68"
     },
@@ -1739,7 +1743,7 @@
     },
     {
       "turn": 283,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How many convictions have there been under it, do you know?",
       "time": "01:06:57.16"
     },
@@ -1751,7 +1755,7 @@
     },
     {
       "turn": 285,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there anything in the code, any annotation? Well --",
       "time": "01:07:02.55"
     },
@@ -1763,7 +1767,7 @@
     },
     {
       "turn": 287,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "When do you say this respondent first required a license?",
       "time": "01:07:13.53"
     },
@@ -1775,7 +1779,7 @@
     },
     {
       "turn": 289,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Did he get one?",
       "time": "01:07:32.38"
     },
@@ -1787,7 +1791,7 @@
     },
     {
       "turn": 291,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Was he operating for the meantime?",
       "time": "01:07:36.72"
     },
@@ -1799,7 +1803,7 @@
     },
     {
       "turn": 293,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That was in the 70’s, 1971.",
       "time": "01:07:45.87"
     },
@@ -1811,7 +1815,7 @@
     },
     {
       "turn": 295,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, you did.",
       "time": "01:07:49.62"
     },
@@ -1823,7 +1827,7 @@
     },
     {
       "turn": 297,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Right. And that was back in 19 --",
       "time": "01:08:00.54"
     },
@@ -1835,7 +1839,7 @@
     },
     {
       "turn": 299,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I think none.",
       "time": "01:08:16.67"
     },
@@ -1847,7 +1851,7 @@
     },
     {
       "turn": 301,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. The case is submitted.",
       "time": "01:08:17.89"
     }

@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1985/85-554/19860423a_85-554.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "LEWIS F. POWELL, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
       },
       {
         "name": "ALBERT G. LAUBER, JR.",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE POWELL",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "O. CLAYTON LILIENSTERN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Lauber, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, Mr. Lauber, you refer to the Court enunciating a principle, and it was just a sentence in Justice Stone's opinion, wasn't it?",
       "time": "00:01:03.53"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Lauber, can I interrupt you? Does this case just concern progressive jackpots? Why wouldn't it also concern regular jackpots, if you had a fixed amount that would be payable, predictably within--",
       "time": "00:03:55.98"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--The regular jackpots, they just do that on a cash basis, then, presumably?",
       "time": "00:04:27.03"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "You demonstrate great familiarity, Mr. Lauber.",
       "time": "00:05:07.78"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I'm told that they bring it to you and pay you at the window, not at the cashier's window but right at the machine.",
       "time": "00:05:20.00"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "So that everybody can see you and they can take pictures. [Laughter]",
       "time": "00:05:29.89"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That is what I am told. [Laughter]",
       "time": "00:05:34.92"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Lauber, how does the Internal Revenue Service treat funds that are set aside by insurance companies out of premiums to pay off potential expected claims, and is there some correlation between the rules for that and the rules applicable here?",
       "time": "00:06:30.78"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is there any other broad category of business deductions that would potentially be affected by a decision here on the application of the all events test?",
       "time": "00:07:46.88"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask just one other preliminary question. Would you not agree, and I know you would suggest it's not dispositive, but that sound accounting practices normally, for example, for disclosure for SEC purposes and the like would require setting up reserves for this kind of contingent liability?",
       "time": "00:10:15.84"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why should the identity of the eventual payee matter, as long as it's certain there will be a payee? What difference does it make that you don't know specifically who, as long as you know someone will be getting it?",
       "time": "00:11:25.93"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No, but you know that someone will, under the Nevada gaming regulations--",
       "time": "00:11:59.08"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Well, Congress has made the very same kind of a determination in its treatment for insurance reserves. There's a probability that we'll all die someday and they're going to let you set aside a certain portion of the premium. Now, why isn't this essentially equivalent to that?",
       "time": "00:12:18.83"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Supposing, Mr. Lauber, that in this case it was demonstrated beyond peradventure, so to speak, on the basis of past performance how many people come in, what the machines are set for, but there was going to be a payoff, a certain number of payoffs on this jackpot within a given year. Would your case be much different?",
       "time": "00:13:33.83"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Supposing just hypothetically that the Government, surely mistakenly in your view, had stipulated in the trial court that it was certain that this thing would happen within the year. Would you feel that you couldn't argue the same grounds then that you are arguing now?",
       "time": "00:14:16.54"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes.",
       "time": "00:14:34.95"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What happens if you don't have a jackpot for two and a half years and then you close it up and throw that machine out?",
       "time": "00:14:42.99"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What if it burns down?",
       "time": "00:15:04.81"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Then they don't pay any taxes at all?",
       "time": "00:15:10.76"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Lauber, it seems to me that the possibility that a corporation or a business will go out of business or go bankrupt or have a disaster is always present for any accrual based taxpayer, and that shouldn't defeat the accrual deduction. It just strikes me as very extreme position to argue.",
       "time": "00:15:34.27"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "As I understand it, they don't even have that obligation because they could decide to go out of business.",
       "time": "00:17:21.05"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, I'm not suggesting... or even bankrupt. Well, are there other cases where... well, let's take the bankruptcy for a minute, where a business would go bankrupt and have... of course, if it had a liability, recognized in the bankruptcy proceeding and have to be paid off, which would not be true here, that are there situations where a bankruptcy would... you could satisfy the test even though at the time of bankruptcy there would be no liability at all, which is what I understand to be the case here.",
       "time": "00:17:34.49"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It seemed to me that the issue... and I don't know that the case is answered, is whether the liability is unconditional if it can be avoided by going out of business. And, it would be avoided here by going out of business, as I understand.",
       "time": "00:18:38.39"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "It wouldn't prevent an accrual if you had a liability?",
       "time": "00:19:02.83"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "We don't have any real possibility of casinos going out of business or going bankrupt.",
       "time": "00:19:16.33"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "When last did you hear of one?",
       "time": "00:19:26.65"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I suppose somebody could burn the place down. That's happened to more than one place.",
       "time": "00:19:32.48"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "That's right.",
       "time": "00:20:18.10"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "In that Code case though, that this thing arose from, where the American Code... where the question was the First World War tax liability, now they said you could accrue that.",
       "time": "00:23:25.62"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Anderson, yes.",
       "time": "00:23:43.07"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You have the Anderson case. They said you could accrue that, and these people certainly haven't transferred anything on their books, I don't think.",
       "time": "00:23:44.56"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then it must be that the transfer of money on your books... or from your books to somewhere else, is not one of the events?",
       "time": "00:24:30.21"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But for accrual taxpayers, it surely doesn't make any difference that the taxpayer has the use of the money in the meantime?",
       "time": "00:24:43.91"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But then, why could your example about the escrow make it all that much different?",
       "time": "00:25:01.60"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "May I just ask a rather simplistic question, and probably never get a simplistic answer. Let's assume a taxpayer who agreed at the end of the year that it owed me $1,000, and then assume further, I just disappeared somewhere and he never had a chance to pay me. Would that liability have accrued?",
       "time": "00:25:30.98"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Let's say it's a contract obligation.",
       "time": "00:25:57.57"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "What would be the tax consequences? Would the taxes be paid on the basis of the year in which that liability accrued, or would it be paid in some future speculative year on the assumption that maybe I'd disappeared for--",
       "time": "00:26:07.47"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--Where would I get the deduction? When would the taxpayer get the deduction?",
       "time": "00:26:40.90"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "But is there any question about the fact that the obligation on accrued by the end of the year, in this case?",
       "time": "00:26:48.03"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "But so far as the casino is concerned, it owes that money to whoever identifies himself or herself at some later date.",
       "time": "00:27:14.02"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--I sort of like my example of disappearing. Normally, of course, you take a deduction the same year you have the income, in other words, you charge your expenses against the income.",
       "time": "00:27:34.60"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "How does the government benefit from your position?",
       "time": "00:27:50.88"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "So, the government gets the use of the money until--",
       "time": "00:28:07.96"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "--But if in a future year the taxpayer has no money, it loses the benefit of the liability?",
       "time": "00:28:23.37"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "Some year an individual will come along and pull a jackpot. Then that year happened to be a year in which the casino lost money.",
       "time": "00:28:33.63"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE POWELL",
+      "name": "LEWIS F. POWELL, JR.",
       "text": "It wouldn't have any income to charge it off against.",
       "time": "00:28:47.80"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Lilienstern.",
       "time": "00:30:01.85"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What kind of transactions would these 20-year deferrals be?",
       "time": "00:31:04.97"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What kind of transactions would these--",
       "time": "00:31:11.35"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--That isn't a very common transaction, is it?",
       "time": "00:31:45.97"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Is that money that's taken from these machines every night, is that put in the pool with all the other money, or is that segregated?",
       "time": "00:32:04.04"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where do we find that?",
       "time": "00:33:39.27"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Before you leave that, I want to be sure I follow you.",
       "time": "00:34:14.94"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You referred as to page 42 which is Plaintiff's Memorandum of Contentions of Fact and Law, Contentions of Fact... this is a government document, is it?",
       "time": "00:34:17.02"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, that the defendant relies on that?",
       "time": "00:34:51.69"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "And that's the government's--",
       "time": "00:34:54.93"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--But it says it's a fixed liability which cannot be avoided. That simply isn't correct, because if you went out of business it would be avoided.",
       "time": "00:35:09.40"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Isn't that right?",
       "time": "00:35:17.14"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Stick to my question.",
       "time": "00:35:27.43"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you went out of business, say the place burned down and you totally terminated business, would the liability have to be paid or not?",
       "time": "00:35:29.22"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That's quite a different point.",
       "time": "00:35:40.89"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So, it is not correct that there is a fixed liability which cannot be avoided. It would be avoided by going out of business.",
       "time": "00:35:42.71"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "They may not disagree with you, but you have just acknowledged to me that it is not correct, that this is a fixed liability which cannot be avoided, because it would be avoided by going out of business.",
       "time": "00:36:13.35"
     },
@@ -819,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, can you give me another example of a proper accrual under the all events test in which the liability would be avoided by going out of business or going into bankruptcy? I'm not saying, not have to pay the liability, but the existence of the liability would he terminated by terminating the business.",
       "time": "00:36:51.61"
     },
@@ -831,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "If you went out of business, to whom would the liability be owed?",
       "time": "00:37:14.92"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "To whom would it be owed?",
       "time": "00:37:23.17"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Would it be owed to anyone at the time you went out of business?",
       "time": "00:37:32.05"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But you say, in any situation. But I asked you if you could Give me a case in which the all events test was satisfied, even though the taxpayer could have avoided the creation of the liability by terminating voluntarily his business entirely, and I haven't heard you cite a case.",
       "time": "00:38:30.66"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I'm not talking about satisfying the liability. I'm talking about whether there would be a liability on the statement of assets and liabilities filed in the bankruptcy court, or whatever it might be. If he burns down his business voluntarily, says, \"I want to retire, I'm 85 years old, I don't want to run a gambling place any more. \" He burns down his business. In that situation is there any case... and he has no liability when he does it... is there any case you can cite me which says that the all events test is satisfied?",
       "time": "00:38:54.83"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose an accrual basis taxpayer signs a promissory note that, in one year that's payable, six months later in another year. Does he accrue that, the first year?",
       "time": "00:44:44.39"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what if at the time the payment comes along and he claims that it was a fraud, and it's determined that he never did owe the money, he's relieved of his obligation?",
       "time": "00:45:00.12"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What it means is that it is void ab initio, he never had an obligation?",
       "time": "00:45:21.03"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, I know, but I would think in that case, and according to their argument, that you would never be able to accrue that liability because of the possibility that it might be a fraudulent transaction and he never had an obligation.",
       "time": "00:45:29.45"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Wouldn't that be their argument?",
       "time": "00:45:45.32"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, there's another one. What happens if the machine breaks completely, I mean, just breaks down and has to be replaced?",
       "time": "00:46:00.26"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "That's not my question. It's broken permanently.",
       "time": "00:46:16.41"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "How could someone determine that that is carried out? Who determines that they do make the transfer?",
       "time": "00:46:38.48"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I don't know that your case is so much different than Brown on that percentage, because they have a stipulated percentage in Brown of 23 percent on the basis of past experience. And, isn't that pretty much what your probability is?",
       "time": "00:48:51.39"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But it's an estimate as to when you will pay them?",
       "time": "00:49:18.06"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, but supposing it came out that the retrospective calculation showed 14 months. Certainly, you couldn't deduct it in the next year.",
       "time": "00:49:30.23"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, supposing this thing had showed 26 months. Could you still have deducted it?",
       "time": "00:49:43.14"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But only the amount that's shown at the end of year one?",
       "time": "00:49:50.53"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Lilienstern, as I understand it the Internal Revenue Service has regulatory authority to determine whether the accrual of counting system is properly reflecting income.",
       "time": "00:50:54.81"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "How does that authority fit into this question?",
       "time": "00:51:10.43"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what if a casino does lose its license for some other transgression? What about this supposed liability?",
       "time": "00:53:50.56"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And then what happens?",
       "time": "00:54:19.50"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But... this may never happen, but if a casino just decided... a corporate entity owning a casino just wanted to liquidate and they just decided to sell all assets and liquidate, what about the machines?",
       "time": "00:54:34.17"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Say they put the machines right on the auction block and they're bought. Does anybody then assume the liability on that machine?",
       "time": "00:54:57.46"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what if a casino buys a bunch of slot machines and they don't pay for them. They're going to... they have an installment payment contract and they default, and then purchaser... or the seller just comes along and repossesses them?",
       "time": "00:55:20.43"
     },
@@ -1131,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes.",
       "time": "00:55:36.78"
     },
@@ -1143,7 +1143,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, there's no... there's certainly... why should you accrue in those situations?",
       "time": "00:55:39.80"
     },
@@ -1155,7 +1155,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I mean, just--",
       "time": "00:55:48.60"
     },
@@ -1167,7 +1167,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, the liability, as Justice Stevens pointed out to you, what's really contingent is the liability.",
       "time": "00:55:57.40"
     },
@@ -1179,7 +1179,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You think it's fixed because the state law says that, look, George, you must accrue this money and pay it out if and when somebody ever wins it?",
       "time": "00:56:16.67"
     },
@@ -1191,7 +1191,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If certain events happen, nobody is ever going to win it.",
       "time": "00:56:31.67"
     },
@@ -1203,7 +1203,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it affects... surely it affects both?",
       "time": "00:56:41.05"
     },
@@ -1215,7 +1215,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, except that you... except your statement shows that it is. You say, pay your liabilities.",
       "time": "00:56:53.02"
     },
@@ -1227,7 +1227,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But everybody agrees there was a liability?",
       "time": "00:57:14.64"
     },
@@ -1239,7 +1239,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, not here.",
       "time": "00:57:18.01"
     },
@@ -1251,7 +1251,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's the question in the case.",
       "time": "00:57:20.18"
     },
@@ -1263,7 +1263,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So, a casino operator could say, \"I'm just dissatisfied with these newfangled progressive slot machines. \" \"I just want to get rid of them and go back to the old style. \" And he goes to his next-door neighbor, \"Would you like to buy my progressive slot machines? \" And the fellow says, \"Yes, I like these devices. \" And so they just sell them.",
       "time": "00:57:57.08"
     },
@@ -1275,7 +1275,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I know, but he wouldn't be liable. He wouldn't have to pay that.",
       "time": "00:58:22.91"
     },
@@ -1287,7 +1287,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "He wouldn't have to pay the accrual.",
       "time": "00:58:26.80"
     },
@@ -1299,7 +1299,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I agree with that, but I can imagine that they'd want to sell their slot machines. If they sold them to an operator in New Jersey, what liability would remain if they took their--",
       "time": "00:58:50.79"
     },
@@ -1311,7 +1311,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--They couldn't sell them to a casino in New Jersey?",
       "time": "00:59:18.48"
     },
@@ -1323,7 +1323,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, how would you find out who's going to win?",
       "time": "00:59:23.85"
     },
@@ -1335,7 +1335,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How are you going to find out who's going to win? You said you have to pay off. Who do you pay it to?",
       "time": "00:59:29.18"
     },
@@ -1347,7 +1347,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "No, nobody has won.",
       "time": "00:59:37.32"
     },
@@ -1359,7 +1359,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I thought you said that they can sell them to Atlantic City?",
       "time": "00:59:41.80"
     },
@@ -1371,7 +1371,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What do they do then on their federal taxes?",
       "time": "00:59:47.84"
     },
@@ -1383,7 +1383,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "How are they going to do that?",
       "time": "01:00:02.70"
     },
@@ -1395,7 +1395,7 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "01:00:11.76"
     }

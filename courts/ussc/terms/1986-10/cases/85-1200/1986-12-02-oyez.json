@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1986/85-1200/19861202a_85-1200.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "LINUS MASOUREDIS",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "BARBARA R. BANKE",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MS."
       },
       {
         "name": "JEFFREY P. MINEAR",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Masouredis, you may proceed whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is this being done apart from the CZMA program?",
       "time": "00:03:55.45"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it may not be the same program, but it is certainly the same sort of coastal zone management scheme, as opposed to a separate environmental statute dealing with one or another type of environmental damage.",
       "time": "00:04:26.47"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But if the states can do the same thing by a coastal zone, a state coastal zone management program that is not part of the federal program, what possible purpose does the exclusion of the federal lands from the federal coastal zone management program achieve?",
       "time": "00:05:44.15"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, this case really comes to us in quite an abstract position. Just what sort of, if it's possible to say from the record, what sort of questions is California going to ask in this permit proceeding? What sort of restrictions or conditions would it put on the permit that was given to the respondent?",
       "time": "00:07:34.79"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Danger of runoff from the federal land to the other lands not owned by the federal government?",
       "time": "00:08:16.29"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In principle you, as I understand your argument, in principle you would say that damage to the federally owned land itself would justify the state environmental regulation, even though no non-federally owned land is affected by that damage?",
       "time": "00:08:41.23"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But how many citizens of California want to visit a mining operation that's mining limestone or something?",
       "time": "00:09:05.99"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And so you think it's permissible under this scheme that we're talking about here for the state to say that, we want this federal piece of land to be kept up to snuff and appealing to visitors, in keeping with the Big Sur countryside?",
       "time": "00:09:36.50"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, of course, to the extent that the Forest Service incorporates state regulations the state doesn't have to worry about it, I suppose.",
       "time": "00:10:37.75"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "To avoid the preemption by the Coastal Zone Management Act, you really have to rely heavily on the distinction you were drawing earlier between land use restrictions and environmental restrictions. Is that a realistic distinction? I mean, suppose... prohibition of strip mining, is that a land use restriction or an environmental restriction?",
       "time": "00:11:35.43"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Without regard to environmental impacts? But you make that determination usually on the basis of environmental impact, don't you?",
       "time": "00:12:22.73"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "On what basis do you zone?",
       "time": "00:12:36.89"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "\"To-mae-to, tom-mat-to\". You call them amenities, I call them environmental impacts. Aren't they the same thing you're talking about?",
       "time": "00:12:42.87"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I suppose you can say, yes, you can't break the surface of the land. That's an environmental regulation, right? But if you said no strip mining, that would be a land use regulation; is that the distinction you want us to adopt?",
       "time": "00:13:04.12"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It seems to be they're both directed to precisely the same thing. You restrict the land use because of the environmental considerations, and to try to sever environmental laws from land use laws seems to me very artificial.",
       "time": "00:13:41.83"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Could it prohibit strip mining?",
       "time": "00:14:08.40"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It could prohibit strip mining, but not mining?",
       "time": "00:14:11.65"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not saying... it isn't prohibiting all mining; it's just prohibiting strip mining. You can mine so long as you do it by, you know, by subterranean methods, the breaking of the surface. Now, that's not prohibiting mining.",
       "time": "00:14:19.79"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So the state could prohibit strip mining?",
       "time": "00:14:36.83"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That could substantially modify the value of the land use classification given by the Forest Service. If the Forest Service says you can prospect or mine limestone on this claim and the state of California can come along and say, well, you can't mine limestone in a particular manner, is that... do you go that far?",
       "time": "00:14:47.10"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But do you really think there is that air-tight compartment... I think Justice Scalia suggested to you this in his question... between designating the use of the land on the one hand and designating the environmental aspects of the use or whatever you want to call it?",
       "time": "00:15:23.90"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, we really have nothing before us here to tell us how demanding the California Coastal Commission would be that has jurisdiction, isn't that right?",
       "time": "00:16:11.38"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What do you think the purpose of the consistency review provisions in CZMA are if the state has this independent power to regulate that you assert?",
       "time": "00:16:22.47"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Did I understand you correctly to concede that the land at issue here held under the mining claim of Granite Pock fits within the definition of CZMA which excludes lands subject to the discretion of the federal government or held in trust by the federal government?",
       "time": "00:17:41.85"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you are willing to concede that they are in that definition?",
       "time": "00:18:25.76"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course, if you construed the language in light of the legislative history as Congressional... a statement of Congressional intent to exclude any state regulation, the case would be over, wouldn't it?",
       "time": "00:18:40.60"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well then, you don't concede for this case that these lands here have been excluded under the CZMA?",
       "time": "00:19:07.25"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, it could if Congress intended it to?",
       "time": "00:19:27.07"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, who puts out the regulations you're talking to?",
       "time": "00:19:38.27"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that in the Department of Commerce?",
       "time": "00:19:45.21"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the United States... and I suppose it's representing the Commerce Department... says you're wrong.",
       "time": "00:20:01.56"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, their argument is a preemption argument.",
       "time": "00:20:21.72"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of course it is.",
       "time": "00:20:28.39"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, when this action was brought in the district court by your opponents to enjoin you from exacting any sort of a permit requirement, neither the district court nor the Court of Appeals really went into what that permit requirement required, did they?",
       "time": "00:20:32.89"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So in a sense, I suppose you're entitled to prevail if any sort of permit requirements that might reasonably be conceived of would not be entirely preempted.",
       "time": "00:20:49.67"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So in your view, if California could impose any sort of requirement at all as a condition of its permit, you want to prevail here, because that was really the only issue before the courts below?",
       "time": "00:21:25.26"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Permitting, to go back to the distinction you seek to draw, the validity of which I'm not so sure about, the permitting is a permitting of use, right? You cannot use the land for mining without getting the California permit.",
       "time": "00:21:38.83"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it may be a vehicle for that, but what you permit is the use.",
       "time": "00:21:55.69"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But of course you can deny a permit. What's the purpose of a permitting program unless you can deny a permit? You mean every application for a permit has to be granted?",
       "time": "00:22:07.34"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But when you deny a permit you are denying a particular use. You're saying no mining, aren't you?",
       "time": "00:22:21.35"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think we're saying the same thing. You can deny them a permit until they shape up their environmental operation.",
       "time": "00:22:43.43"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What was it that expired?",
       "time": "00:23:56.95"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could I go back to that point. Is the company now mining?",
       "time": "00:24:42.60"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "To the Forest Service?",
       "time": "00:24:55.31"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So this controversy isn't dead, you say, and if this particular one is it's going to recur very soon?",
       "time": "00:25:05.16"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Masouredis. We will hear now from you, Ms. Banke.",
       "time": "00:26:28.34"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Now, your opponent I don't think agrees with you, Ms. Banke. He says that he agrees they don't have the right to say you can't mine. He says that they may want to attach conditions relating to the environment to the mining operation.",
       "time": "00:27:19.54"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me. Is this just as a matter of grace or you think the Forest Service has to apply state environmental regulations?",
       "time": "00:28:09.62"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That's not what I asked. I know the regulations state that. Must they state that?",
       "time": "00:28:22.44"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Do those state laws apply ex proprio vigore, as we say?",
       "time": "00:28:26.68"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm not sure. You say that they apply of their own force, unless they unduly inhibit the what?",
       "time": "00:28:46.14"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Unless they unduly inhibit the use of the federal lands.",
       "time": "00:28:57.70"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So basically, as far as the application of the state environmental laws are concerned, you don't disagree with the state of California? You're just quibbling over whether this is an environmental law, that's all. That's all you're talking about.",
       "time": "00:29:00.68"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Right, okay.",
       "time": "00:29:18.86"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "If they did this by ordinary application of their environmental laws and moved in on the mining company on the basis of some other statute than this particular one, you'd say exactly what the state of California says, that they can do it so long as it doesn't unduly inhibit mining, whatever that means?",
       "time": "00:29:20.71"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's a very small dispute we have before us, then, isn't it?",
       "time": "00:29:44.76"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, why was it that stark? As I read the last paragraph... we're talking about the letter of October 17th, 1983?",
       "time": "00:30:25.61"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "\"Granite Rock is hereby notified of its obligation to submit for Coastal Commission review and approval a certification of consistency with the state's coastal management program and for any future plan of operations. \" Is it your view that you simply could not have submitted any such certificate?",
       "time": "00:30:33.68"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So it's just a permit, and we don't know from this record what sort of conditions the Commission might have imposed in exchange for a permit?",
       "time": "00:31:30.68"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "No consistency review was sought, was there?",
       "time": "00:32:24.48"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "I should ask your opponent. Do you know why none was sought?",
       "time": "00:32:36.54"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Let's assume that we agree that California can impose its environmental laws, but cannot impose a permit. How does it administer its environmental laws? Are you giving the state something that's of no value whatever? How does it administer its environmental laws without a permitting system?",
       "time": "00:32:48.80"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that's discretionary with the federal government. I mean, the Forest Service can say, we disagree with you that this is inconsistent and we're going to go ahead and allow the plan this way. You're saying the state has its own sovereign power to apply its environmental laws. So it says, we want this in consistency review. The Forest Service says, we won't give it to you. Now the state wants to apply its environmental laws. How does it do that?",
       "time": "00:33:35.68"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Let's assume that the state has given its input and the plan of action or of operation wholly satisfies the state as it is issued. But does the state then have some independent power to enforce the terms of the federal permit?",
       "time": "00:34:09.52"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose that they send an inspector out there and your client just isn't living up to the permit, the federal permit. Can they go to court?",
       "time": "00:34:29.91"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And enforce their standards?",
       "time": "00:34:42.55"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And what if the Forest Service says, you're all wrong, Mr. Inspector, they're completely complying with? Then there's a case or controversy, I suppose. Can California then go to court and allege that and try out whether the company is complying?",
       "time": "00:34:47.62"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even though the federal government, as I understood Justice White's question, the federal government says they're complying, but the state thinks that they're not?",
       "time": "00:35:14.53"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You mean a judge wouldn't? A judge wouldn't have the last word?",
       "time": "00:35:29.03"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "All the United States has to do is to go in and move to dismiss the action, saying: They're just wrong; they are in compliance?",
       "time": "00:35:34.37"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, who decides?",
       "time": "00:35:47.08"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what if there is a trial and the government says they're complying, your client says they are not? And then the judge decides?",
       "time": "00:35:52.82"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the judge could then rule and say, Mr. Forest Service, you're dead wrong, Granite Rock is not complying?",
       "time": "00:36:05.12"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, who decides?",
       "time": "00:36:18.78"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, is there any allegation here that the plan of operation that was issued did not contain the state standards?",
       "time": "00:36:34.23"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is there agreement that it did?",
       "time": "00:36:45.18"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And even so, the state wants a permit?",
       "time": "00:36:59.91"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Just so they could enforce the... why would they need... they wouldn't need a permit to enforce those standards, I gather you say?",
       "time": "00:37:05.01"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, aren't there other environmental considerations besides air and water quality?",
       "time": "00:37:16.24"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I mean, such as, you know, removing a whole hillside that's there on the Big Sur? That's not a nice thing to do. Couldn't the state consider that an environmental concern?",
       "time": "00:37:20.47"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Shall be considered or shall be applied?",
       "time": "00:37:42.12"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or shall apply? Shall apply automatically?",
       "time": "00:37:44.32"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But does that mean that if the state during the existence of a permit, after you've been mining for a couple of years, decided to make the standards a little more strict, would you have to comply with the more strict standard or only those that applied at the time you got the permit?",
       "time": "00:37:55.18"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So that the state could not change the standard?",
       "time": "00:38:13.56"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I am really confused. I thought you said earlier that you do not contest the state's power on its own to apply its own environmental laws. But now you seem to be saying, in response to the more recent questions, that they can't, that they can't go beyond what they succeeded in getting the Forest Service to put in the Forest Service regulations, or in the permit.",
       "time": "00:38:18.88"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It's the latter, okay.",
       "time": "00:38:43.78"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Are the mining regulations such that these people could ultimately patent this claim?",
       "time": "00:39:13.71"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And now they have a right of occupancy and a right to pursue their mining activities?",
       "time": "00:39:36.64"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Suppose there was no federal coastal act and no plan of operation at all. There was just a mining claim under which the company was occupying the claim and mining. And the state came in and said: By the way, you're dirtying up this river; we want you to stop it; you have to comply with our state law; let's read it. And the company says: Yes, we are, if that law applies, we're violating it. Would you say that the state was exceeding its power there?",
       "time": "00:40:23.36"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And even though as far as the federal government was concerned it was mining and it was doing a permissible job of mining?",
       "time": "00:41:10.30"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you... take it then you say it's the federal coastal zone act that does the preempting.",
       "time": "00:41:25.25"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the mining law by itself wouldn't. The mining law by itself wouldn't.",
       "time": "00:41:39.07"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You just said it wouldn't.",
       "time": "00:41:42.49"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Suppose they weren't polluting a state waterway. That makes it too easy, because the waterway normally would go off of the federal lands onto the state lands. Suppose all they do is they strip mine and do not reclaim by reseeding what they have stripped, and the state has a law requiring reclamation of the stripped land. Would that law be binding?",
       "time": "00:42:04.62"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I was adopting Justice White's forest primeval hypothesis. You know, we have the federal mining law, but there is no federal environmental regulation whatever. None exists. There's no coastal zone mining act. No coastal zone mining act, no federal laws at all. There is nothing out there to control people unless the state law applies.",
       "time": "00:42:33.47"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So it really is the Act and the regulations that do the preempting primarily.",
       "time": "00:43:01.56"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "So federal lands in the coastal zone are less subject to state regulation that federal lands outside the coastal zone?",
       "time": "00:43:22.47"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Ms. Banke, what do you do about the regulations that, as I recall, they require that the mining company have obtained all necessary permits, which seems to refer to state permits?",
       "time": "00:44:36.92"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "In the plan.",
       "time": "00:45:00.25"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What permit wouldn't be preempted? I mean, I thought your argument was that the states have no power to require a permit, period, of mining; that the federal government has authorized mining and you don't need a state permit. But here is a plan that says you have to have all necessary permits, and I think it's conceded that that includes state permits.",
       "time": "00:45:15.11"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Ms. Banke. We will hear now from you, Mr. Minear.",
       "time": "00:46:04.61"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if it weren't California coastal zone management program? Do you agree with Mr. Masouredis that this would be a different matter?",
       "time": "00:47:05.08"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay. Now, just on the chance that we don't all agree with you on that, what if California has a separate environmental law?",
       "time": "00:47:36.25"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Even though they bear upon mining use and even though they require a preliminary permit?",
       "time": "00:48:00.42"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So California could essentially achieve what it wanted to do here by just putting in a different statute?",
       "time": "00:48:27.07"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you seem to know a good deal more about what the California Coastal Commission might require as a condition of this permit than a lot of other people in the case. Can you be that confident that nothing it might require would be permissible?",
       "time": "00:48:44.78"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that's been waived in this case, hasn't it? The consistency check?",
       "time": "00:49:24.57"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You do not confront the problem of having inland states more restricted than coastal states by reason of the Coastal Zone Management Act. What you say is that both inland and coastal states can apply their environmental laws; the only thing is that coastal zone acts, which are coastal zone programs, can't conflict with the federal one or augment the federal one?",
       "time": "00:51:09.34"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Minear, the Court of Appeals opinion of course didn't go off on the CZMA ground at all.",
       "time": "00:52:07.68"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And I take it you are urging that we decide the case on a ground not decided or discussed in the Ninth Circuit opinion?",
       "time": "00:52:15.70"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Minear, has California attempted to engage in a so-called consistency review process to make its coastal zone management provisions applicable to federal lands such as this?",
       "time": "00:53:44.84"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Did they make that effort through the consistency review process?",
       "time": "00:53:59.60"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Under the Coastal Zone Act, I suppose California could have required a permit for this mining development?",
       "time": "00:55:10.53"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Mienar. Mr. Masouredis, do you have anything more? You have four minutes remaining.",
       "time": "00:55:43.86"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is that regulation in your brief?",
       "time": "00:58:48.20"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Masouredis. The case is submitted.",
       "time": "00:59:28.71"
     }

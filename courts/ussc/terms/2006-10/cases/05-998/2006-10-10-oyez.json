@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2006/05-998/20061010a_05-998.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE ROBERTS",
-        "role": "justice"
+        "name": "JOHN G. ROBERTS, JR.",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SAMUEL A. ALITO, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "MICHAEL R. DREEBEN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE ALITO",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ATMORE BAGGOT",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "We'll hear argument first this morning in United States versus Resendiz-Ponce. Mr. Dreeben.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm not quite sure if this works, but at the trial before a petit jury there's an opportunity for counsel to object. There isn't an opportunity to object when the grand jury indictment comes down. Now, I guess you could move to quash.",
       "time": "00:00:48.58"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Isn't the problem that the motion to quash is going to be made, if counsel is on his toes, is going to be made at the beginning of the trial? And we want to induce the court to look very carefully at it at that point, because if the court is wrong, somebody has to go through an entire trial as a result of it. And the way to induce the court to be very careful at the beginning is to say, this is not harmless error, and you've got to take this very seriously and you can't take any chance on the, in effect, the evidence saving you in harmless error analysis later.",
       "time": "00:01:58.89"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, I'm sure that's right. But that simply reinforces my point.",
       "time": "00:02:48.74"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you concede that the error would always be harmless if you have a trial before a petit jury, and all of the elements are instructed to be found by the jury?",
       "time": "00:03:06.28"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "That doesn't necessarily make sense. You can imagine a situation where the probable cause and the eventual evidence that supports guilt is adduced after the indictment and the prosecutor says, you know, we're going to find that evidence once we get into it, we don't have it now, but indict anyway without it. In other words, what's your response to the situation where there's no probable cause on an element at the time of the indictment, but that evidence is later adduced and is a sufficient basis to convict?",
       "time": "00:03:20.21"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, you mean you can never decide this question until after the trial is completed and you see whether the jury convicts beyond a reasonable doubt?",
       "time": "00:04:44.97"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Did the U.S. Attorney in this case oppose the motion to quash the indictment?",
       "time": "00:05:12.57"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes.",
       "time": "00:05:20.75"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Mr. Dreeben, this touches on what troubles me about this. I wonder whether we can answer the generic question that you presented, whether the omission of an element of a criminal offense from the indictment can constitute harmless error, without considering the nature of the alleged defect here. I don't know how you can answer... if you look at whether the alleged defect here is susceptible to harmless error analysis, or whether if we were to agree with you, in fact, it is harmless, how you can answer those questions without reaching a conclusion about whether there was any defect in the indictment in the first place.",
       "time": "00:05:45.77"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And it doesn't seem to me that there's any defect in this indictment. It charges... it recites the language of the statute, it uses the word \"attempt\" which has a very well-settled meaning in the law. Any lawyer would understand exactly what is required for an attempt. It sets out the factual basis of the charge. So I don't know how you would get to the... how you can answer the second question without getting into the first question.",
       "time": "00:06:21.50"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I have the same problem. It's such a difficult requirement to get a hold of. I mean, he drives the car, he walks, he breathes. I mean, all of these things enable him to get into the country. I just don't understand the basis for the rule.",
       "time": "00:07:03.96"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "He wasn't forced to go over. He did it on his own. It seems to me that's--",
       "time": "00:07:21.37"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--What would that be here? That he drove the car to the border? That he got out of the car? That he presented a document? What... if you could do it over again, what would the indictment say?",
       "time": "00:07:50.92"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If you went back to the... if you went back to the very demanding nineteenth century criminal pleading laws, criminal pleading laws, they would say that where you use a legal term that has a well-0established meaning such as attempt, you don't need to spell out the definition of that, of that concept. It's enough to use the term. So what the Ninth Circuit has done is to resurrect, you know, to go back to something that's more demanding than would have been required in a nineteenth century indictment and frame that as a violation of the Fifth Amendment.",
       "time": "00:08:16.97"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "As to the element, I thought that what the Ninth Circuit talked about was overt act. They didn't use the words \"overt act\".",
       "time": "00:09:19.98"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, all right. I thought that comes out of conspiracy law; it doesn't even out of attempt law. Then I thought it's unlikely... but here you can correct me. The U.S. Code is filled with the word \"attempt\". Just opening it at random, there are attempts to assault and steal mail matter, there are attempts to steal the mail matter, there are attempts to rob a bank, attempts here, attempts there. Is it the Government's practice whenever they charge a violation of any of these provisions to not just use the word \"attempt\", but to use the words \"substantial step\"?",
       "time": "00:09:31.45"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I would have thought the answer was no. And therefore, this isn't just a small error of a technical sort. The Ninth Circuit is completely wrong and not even close. And therefore, if they're not even close, can the Government come up here where there's an obvious error and they decide, the Government, that it would like to have a declaration by this Court on a matter that they think is quite interesting and important to them in a lot of other cases where they can't win the cases easily? That's, I'm putting it a little pejoratively because I'm trying to get you to see what I'm driving at. It's like a hoked-up case. Why not? I'm using it pejoratively only so that you can see what I'm worried about.",
       "time": "00:10:06.71"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But you're making the concession only for purposes of this case. That is, in another case you would be free to say the word \"attempt\" is good enough; you don't have to spell out in the indictment a particular overt act.",
       "time": "00:11:05.28"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We've done it before, there's no doubt about it. But the better practice usually is to have a case in which the issue really presents the hard question. And you're asking us to make a ruling in this case that would govern failure to allege an aggravating circumstance in a death case, for example, which has a different atmosphere to the whole case when you're facing that kind of an issue.",
       "time": "00:12:17.45"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "A judge's reaction to a case is often affected by just exactly what's involved. And here it's just hard to see how anyone could claim any particular prejudice out of the error in this particular case or, really, it's arguable that there's no defect in the indictment at all because it was adequate notice to the defendant of what he's charged with. This is much like a case in the State systems where you have notice pleading. It doesn't seem very prejudicial. But you put it in a different context, you might have a different reaction to the case.",
       "time": "00:12:44.42"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Does this come up very often? I think the case... the issue you want to raise, because I would think normally there's a motion before the trial, well before the jury is empanelled. The defendant says: I want you to dismiss this; the indictment's inadequate. And if that's even close, I would think normally the prosecutor would go back and say: Fine, I'll get a superseding indictment, and that would end the problem. And it seems to me so likely to happen that the chances of the judge wrongly ruling against the defendant and then it goes through a whole trial almost never happens.",
       "time": "00:13:54.23"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Well, it sits to decide whether people should be indicted, and yes, they're supposed to determine whether there's probable cause, but historically a significant role for the grand jury has been not to indict people even though the Government had the evidence to indict them.",
       "time": "00:15:51.23"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "The trouble with your a fortiori argument it seems to me is this: If we accept your argument, then whenever a judge is asked to rule on a motion to quash, if the judge is in any doubt, the judge is going to be induced by your rule to deny the motion to quash and wait and see what happens at trial. And if in fact they get to trial and they don't prove the element, then it can either be thrown out because an element has not been proven or he can go back and revive the motion to quash. If on the other hand the Government gets its act together at that point and does put in evidence on the element, it's going to be harmless error. And so the price of, it seems to me, of your rule is that someone will always be put to trial if there is any question about how the judge should rule on the motion to quash, whereas if we go the other way the judge will grant the motion to quash and the Government can go back to the grand jury and get another indictment. It seems to me that something is seriously lost in that situation if we go your way.",
       "time": "00:16:45.29"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I'm sure they do grant them. But I'm concerned about the, we'll say, the doubtful case or the judge who can't make up his mind. Under your rule the price of that uncertainty is always going to be to subject somebody to trial.",
       "time": "00:18:09.72"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And it seems to me that the prejudice to the defendant in the two... as between the two situations simply is not comparable. In Mechanik you had a situation in which two witnesses putting in whatever evidence they were putting in were in the jury room and, yes, one could influence the other, et cetera. Here, we're talking about a situation in which it may very well be that the defendant should never be put to trial at all. And your rule says if there's any question about it, put him to trial, judge.",
       "time": "00:18:43.37"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do we know... do we have the grand jury transcripts, so do we know that, in fact, evidence was put before the grand jury that false identifications were presented at the border?",
       "time": "00:19:26.63"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "How far would you go with the Mechanik logic? Suppose that someone is charged by information with a felony without the person's consent and for some reason the trial judge refuses to dismiss the information and then the person is convicted. Would you say that because the petit jury returned a verdict that the fact that the person was charged with a felony by information calls for no remedy?",
       "time": "00:20:22.80"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So it's just a metaphysical inquiry, when is an indictment not an indictment? It's not some other standard of what's fundamentally unfair or, from the Sixth amendment, whether or not there's notice?",
       "time": "00:21:55.89"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You say poetic, I said metaphysical. When is an indictment not an indictment?",
       "time": "00:22:17.66"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now why would there be any difference then? That's a question I was about to put to you. What if there is no indictment at all? Why couldn't you say the same thing? Well, you know, the only purpose of getting it is to see if there was probable cause and you now have a conviction beyond a reasonable doubt.",
       "time": "00:22:23.30"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't think it's pushing it, I think it's there.",
       "time": "00:22:42.54"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Doesn't an indictment have as its purpose in part to tell the defendant what crime he's being accused of committing? Isn't that... so that's why I thought it would be quite clear, wouldn't it, or helpful to say that to the Ninth Circuit? And so an error is when it doesn't do that? And an error is when it leaves out an element, and he doesn't know what crime is being committed, he's accused of. So suppose you had an indictment that really did that. Now he doesn't know what crime he's accused of. And then you go to the trial and so forth and now we have to go into at what point did he work out what crime he was being accused of, rather hard to say.",
       "time": "00:23:05.56"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, yes, of course the chances are. But there's a possibility he didn't.",
       "time": "00:23:47.73"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So if he didn't and therefore the indictment was faulty in that respect, then what? Are you going to say we have to track down... I mean what it's reminding me of is like trying to say whether he got an adequate lawyer, didn't get an adequate lawyer, who knows, that kind of problem.",
       "time": "00:23:51.90"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--me until halfway through the trial that it was robbery I was being accused of because they left robbery out of the indictment.",
       "time": "00:24:35.38"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm still not sure of your test. It's whether or not it's fundamentally unfair, whether or not there's notice, which sounds like more Sixth Amendment than Fifth. Or whether it's not an indictment, a rose is a rose type of thing.",
       "time": "00:25:46.73"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Dreeben, if we disagree with you here, could this defendant be retried? Could he be reindicted?",
       "time": "00:26:35.54"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Dreeben.",
       "time": "00:26:51.62"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Baggot.",
       "time": "00:26:54.67"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "You could say the same thing about a petit jury. And in Neder we use the harmless error standard.",
       "time": "00:27:25.39"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Suppose... suppose we found out. Somebody told what happened, and it was a crime of bank robbery or it's an assault of a mailman, a postman. And you know, it turns out they didn't present one word of evidence, not a word that says that this individual who was assaulted had anything to do with the mail. There's complete absence of any evidence whatsoever on a major element of the offense. And now, suppose we get finished with the trial. Plenty of evidence. Conviction. Can you go back and raise that?",
       "time": "00:28:17.06"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. I mean can you win.",
       "time": "00:29:03.02"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah.",
       "time": "00:29:05.25"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, you see, I'm saying is that error? Is that correctible error? I'm saying there is an absolute error. It is far worse than here. We know for a certainty there was no evidence whatsoever presented to the grand jury on a major element of the crime.",
       "time": "00:29:06.55"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, I assume we know that. Take that as a given. We know.",
       "time": "00:29:27.16"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah, we know.",
       "time": "00:29:30.95"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes. Zero.",
       "time": "00:29:33.99"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, but what is the answer to my question, yes or no? I'm saying after the--",
       "time": "00:29:41.91"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--That's right. So the answer is no?",
       "time": "00:29:49.41"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And if you can't raise that, which is a major area because there's a harmless error is what it really amounts to, why isn't the same true here where the error is far more likely to be simply technical and make no difference given the adequacy of the evidence?",
       "time": "00:29:51.68"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It does as well in my case.",
       "time": "00:30:16.33"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "What if it's perfectly--",
       "time": "00:30:26.30"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "--I'm sorry. What if it's perfectly clear that the error is simply a clerical error? Let's take a case where somebody is charged with possession of a firearm by a convicted felon. And before the grand jury, we look at the transcript, we see that the prosecutor introduced evidence of five judgments of convictions for felony offenses. And the jury is properly charged that they have to find that this individual was a convicted felon. And there's simply... and then when the case is tried at, when the case is tried the defense even stipulates that the person is a convicted felon. But there's a clerical mistake in preparing the indictment. And it doesn't recite the fact that the defendant was previously convicted of a felony. It's your position that there must be a reversal there?",
       "time": "00:30:28.42"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But what if it comes up on appeal? Nothing is done until it comes up on appeal.",
       "time": "00:31:34.75"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "Which is exactly in the posture of this case.",
       "time": "00:31:39.13"
     },
@@ -719,13 +719,13 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How do you distinguish the mail... the letter carrier case that Justice Breyer posed, because there you said even though there was no evidence at all of what this person was, if the petit jury found it, that would not be subject to review. I don't think you answered Justice Breyer and he said if you concede that, the failure to introduce any evidence that this person was a letter carrier.",
       "time": "00:31:55.99"
     },
     {
       "turn": 114,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I would like to even sharpen Justice Breyer's hypothetical. Let's assume that the indictment did set forth what the overt act was. It did. But there was no evidence of that overt act introduced before the grand jury. What would the result of that be?",
       "time": "00:32:24.18"
     },
@@ -737,7 +737,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Then the trial occurs--",
       "time": "00:32:45.21"
     },
@@ -749,7 +749,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--He's convicted. And I think you're going... your position is that conviction would stand.",
       "time": "00:32:47.31"
     },
@@ -761,7 +761,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "That doesn't seem to me to make a lot of sense.",
       "time": "00:32:54.96"
     },
@@ -773,7 +773,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can't you ask for a bill of particulars?",
       "time": "00:34:37.93"
     },
@@ -785,7 +785,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, then you would have had no problem.",
       "time": "00:34:41.31"
     },
@@ -797,7 +797,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Were you, were you surprised at trial by the evidence that the defendant had submitted two false identifications? Was the first time you heard about that at trial?",
       "time": "00:34:51.02"
     },
@@ -809,7 +809,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But were you, was there any element of surprise in this trial? Did you not know beforehand that the Government was going to present evidence of two false identifications?",
       "time": "00:35:15.45"
     },
@@ -821,7 +821,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So there was no lack of notice; there was no surprise.",
       "time": "00:35:30.96"
     },
@@ -833,7 +833,7 @@
     },
     {
       "turn": 132,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, surely submitting false identification could be a overt act.",
       "time": "00:35:54.06"
     },
@@ -845,7 +845,7 @@
     },
     {
       "turn": 134,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Is there any doubt about that?",
       "time": "00:35:59.78"
     },
@@ -857,7 +857,7 @@
     },
     {
       "turn": 136,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Yes, but you knew that... you had the file. You knew the Government was going to prove this. And you also knew it was an overt act.",
       "time": "00:36:08.23"
     },
@@ -869,7 +869,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But your point is not that there was any prejudice here. Your point is that he was entitled to a grand jury?",
       "time": "00:36:17.44"
     },
@@ -881,7 +881,7 @@
     },
     {
       "turn": 140,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "You don't have any... you're not suggesting to us that the grand jury that indicted him for intentionally attempting to enter the United States at or near San Luis would not have indicted him if the indictment had gone further and said, and he submitted false IDs?",
       "time": "00:36:44.16"
     },
@@ -893,7 +893,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "You think that the... that the indictment had to specify which of the many things that he did, or the several things that he did when he approached the border constituted the overt act that the Ninth Circuit... he walked up to the border and he did a number of things to try to get into the United States.",
       "time": "00:37:05.84"
     },
@@ -905,7 +905,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And you think that the indictment has to specify that walking up wasn't a substantial step, but presenting the documents might have been, whether it was walking up, presenting the documents, lying to the agent? You have to go into that level of detail in order to satisfy the Fifth Amendment?",
       "time": "00:37:24.70"
     },
@@ -917,7 +917,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's a separate requirement. I don't know if it's constitutional or not constitutional, but I didn't think that requirement was at issue here. The requirement of stating the facts is not the requirement of setting out the elements of the law. At least that's my understanding. Now, you can correct me if I'm wrong.",
       "time": "00:38:15.70"
     },
@@ -929,7 +929,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, I'm not denying that. I just didn't think that had anything to do with this case. I mean, I thought that the object of the indictment initially was to set forth what crime the person was accused of and inform him of that. You are saying, and then there is another requirement, which seems a little vague. It's been hard for me to find out, to pin this down, and it's the one you state, which is that it says in addition in the rule you have to have facts. I don't know if those are the same. I thought they were two separate things.",
       "time": "00:38:46.84"
     },
@@ -941,7 +941,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Does the Government have to pick one overt act and say that's it, when it introduces evidence of a whole string of them?",
       "time": "00:39:49.07"
     },
@@ -953,7 +953,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, can't you allege that the means by which it was done are unknown, but that it was by one or more of the following?",
       "time": "00:40:07.93"
     },
@@ -965,7 +965,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That's exactly what I... I tried to read some treatises on this, and the more I read, the more confused I got. I started out thinking, well, it's sufficient if you have bank robbery you say on October 14, 2004, in the city of such and such, at the corner of such and such, where there is a bank, the defendant walked into the bank and he, he attempted or he did by force or threat of force, take property belonging to someone else, or whatever it is, and that that would be sufficient. And that you don't have to say, and in addition he, you know, what the force consisted of, did it consist of a knife, or a gun, or a fist. Can you give me some enlightenment, at least if you think that's relevant here?",
       "time": "00:40:19.33"
     },
@@ -977,7 +977,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "If it's excessive detail, the central fact, then why isn't on such and such a date at such and such a time he attempted to?",
       "time": "00:41:18.65"
     },
@@ -989,7 +989,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Then why, if that's so, why wouldn't that apply as well if they said he attempted to and committed an overt act in... that is a substantial step. And then you're saying in addition, they have to list the particular facts.",
       "time": "00:41:37.36"
     },
@@ -1001,7 +1001,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I couldn't find any case in this Court that said that. I mean, I found in Hamling a case that went the other way, a general statement. They said all you have to do is say obscenity, you don't have to say how obscene or in what way it's obscene, et cetera.",
       "time": "00:41:52.65"
     },
@@ -1013,13 +1013,13 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah. And then Russell seems lost from sight for quite a while, or isn't followed a lot.",
       "time": "00:42:17.57"
     },
     {
       "turn": 163,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But you come back and you tell Justice Breyer, well, that's because we had no notice. But that's a different argument than the fact that there was no indictment. Notice can be cured by a bill of particulars, by the fact that you've had a chance to contest the evidence at trial, that there was no error. That's a quite different rationale than saying that this is not an indictment.",
       "time": "00:42:22.56"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But that, it seems to me, is your argument, not lack of notice.",
       "time": "00:42:47.11"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask this question. Should the test for the missing element be different for the test for the wrong element? In other words, suppose the indictment alleged he walked up to the border and the evidence showed he rode a bicycle. There's a variance. Would that present a different legal issue than if they just leave the overt act entirely out?",
       "time": "00:42:59.93"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Why should the test for judging the two be different?",
       "time": "00:43:29.23"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Between a variance and an omission?",
       "time": "00:43:35.09"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, it's clearly different. He rode a bicycle instead of walking.",
       "time": "00:43:43.78"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So here you've got notice he made an attempt, but you didn't tell us whether he rode the bicycle or he walked.",
       "time": "00:43:52.11"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "See, the problem I'm trying to think through is why should there be a different rule between those two situations. It seems to me they're equally likely to produce prejudice or lack of notice and a failure to comply with the letter of the Constitution.",
       "time": "00:44:03.67"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But why isn't your answer to Justice Stevens that in the case in which there is no allegation of an element at all there isn't a sufficient indictment to charge him for anything, whereas in the case of the variance on your theory, as I understand it, there is an indictment and the question is simply whether he was misled by the variance and prejudiced?",
       "time": "00:44:29.91"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So why isn't the answer is in one case there's an indictment, and in the other case there isn't?",
       "time": "00:44:54.55"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but why isn't your answer to him that in the case in which there is a variance you have an indictment; in the case that you're talking about there is none? And the reason I press you on that is that I thought the essence of your case was that there is no indictment here, i.e., the grand jury function has not been performed and he is entitled to the grand jury function before he goes to trial.",
       "time": "00:45:05.91"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "And if that is the nub of your position, then I would have thought your answer to Justice Stevens was what I suggested. If that's not your answer to Justice Stevens, then I'm not sure that I understand your case.",
       "time": "00:45:31.41"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "What is the result of what went wrong? How do you characterize the grand jury product in the case in which, as you put it, something goes wrong?",
       "time": "00:45:55.68"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "An insufficient... in other words, there is no indictment charging a crime? Is that--",
       "time": "00:46:11.87"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "But that's not an element. You talk about essential facts and material... I mean, the statute makes it a crime to intentionally attempt to enter the United States having previously been deported and all that. It doesn't say anything about presenting false identification. So why are those essential facts when they're not part of what the statute prohibits?",
       "time": "00:46:25.11"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Suppose this indictment charged not an attempt to enter, but unlawful entry. Then the indictment would be sufficient, right? There wouldn't be any problem with it?",
       "time": "00:47:03.76"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "It charged, not an attempt, but an unlawful entry. Anything missing from the indictment?",
       "time": "00:47:18.26"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "And the defendant could be convicted of an attempt under such an indictment, could he not?",
       "time": "00:47:34.42"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "But in that situation, you wouldn't know what the substantial step was, would you?",
       "time": "00:48:07.41"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "The indictment wouldn't tell you what the substantial step was.",
       "time": "00:48:12.55"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE ALITO",
+      "name": "SAMUEL A. ALITO, JR.",
       "text": "If the defendant was convicted of the lesser included offense of attempt under an indictment charging the completed offense?",
       "time": "00:48:18.45"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I don't understand that. You're saying it's a separate offense, but a lesser included offense is a separate offense. It just happens to be embraced within some other offense.",
       "time": "00:48:45.69"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What does that mean, if you're tried for illegal entry and the Government doesn't prove the illegal entry because you're under supervision when you get in, the jury could not convict of attempt?",
       "time": "00:49:14.44"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And that would be okay, just charge with attempt without setting forth the overt acts for the attempt?",
       "time": "00:49:35.15"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Suppose that it's an assault and the indictment says on such and such a day, at such and such a time, he assaulted the postman, right? You also have to say what, that he waved his fist or that he had a knife? You have to say that in the indictment?",
       "time": "00:49:47.06"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No. All right. So I thought normally essential facts means simply the facts... you can state the essential facts by writing the statute and normally that tells you. Now, is that true? One case that seems to go the other way is Russell.",
       "time": "00:50:03.52"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Normally, yes.",
       "time": "00:50:21.00"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why more than any other word in the statute? \"Attempt\", people know what that means.",
       "time": "00:50:32.60"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And they also know what \"assault\" means. And if you tried, you could spell out \"assault\". They know what \"robbery\" means, but you could spell it out. So why does the Ninth Circuit think this one you have to spell out, but all the other words you don't have to?",
       "time": "00:50:39.36"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Baggot, could I come back to your answer to my earlier question. You said you could only be convicted of the lesser included offense if the lesser included offense is set forth explicitly in the indictment. Are you sure of that?",
       "time": "00:51:14.70"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Are you sure that's the law?",
       "time": "00:51:27.79"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "As I said in my previous question, every lesser included offense is itself a substantive offense. That doesn't distinguish attempt from anything else. And my understanding is if you're charged with a greater offense, the lesser can be a subject of conviction even though it's not explicitly set forth in the indictment.",
       "time": "00:51:37.81"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And if that is the case here, then it seems to me he could have been convicted of attempt without ever having had set forth in the indictment the overt act that you demand.",
       "time": "00:52:03.20"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But substantive offense is one thing. Lesser included, I think you said earlier it couldn't be a lesser included because it's subject to the same punishment. So it is not lesser?",
       "time": "00:52:32.38"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Baggot.",
       "time": "00:53:34.64"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Mr. Dreeben, you have three minutes.",
       "time": "00:53:36.22"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Dreeben, is attempt a lesser included offense of the substantive offense of illegal reentry?",
       "time": "00:53:40.89"
     },
@@ -1463,7 +1463,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But Mr. Dreeben, isn't the point that the tremendous cost that you refer to is a tremendous cost that the Government pays by its choice to go to trial, as opposed to going back to the grand jury and making sure that it has an adequate indictment?",
       "time": "00:54:58.72"
     },
@@ -1475,7 +1475,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "If you concede there was an error, is there anything to prevent us from saying we don't accept that concession, and have you rebrief and argue the question of whether or not an overt act is required?",
       "time": "00:56:10.01"
     },
@@ -1487,7 +1487,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But can we do that in the face of your concession without having reargument?",
       "time": "00:56:34.80"
     },
@@ -1499,7 +1499,7 @@
     },
     {
       "turn": 243,
-      "name": "CHIEF JUSTICE ROBERTS",
+      "name": "JOHN G. ROBERTS, JR.",
       "text": "Thank you, Mr. Dreeben. The case is submitted.",
       "time": "00:57:00.11"
     },

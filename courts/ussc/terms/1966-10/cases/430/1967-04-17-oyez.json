@@ -3,55 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1966/430/19670417a_430.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
       },
       {
         "name": "WENDELL A. MILES",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "PAUL O. STRAWHECKER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "FRANCIS X. BEYTAGH, JR.",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 430, James Sailors et al., versus Board of Education of the County of Kent et al. Mr. Strawhecker or Mr. Mi -- Mr. Miles first.",
       "time": "00:00:00.00"
     },
@@ -63,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Does the popular vote ends with the election of the local school district?",
       "time": "00:05:50.36"
     },
@@ -75,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Does the first board have proportionate representation?",
       "time": "00:06:27.92"
     },
@@ -87,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "At large in the county?",
       "time": "00:06:42.20"
     },
@@ -99,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In school districts.",
       "time": "00:06:45.97"
     },
@@ -111,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I didn't quite understand what you said after it has the power to tax, you then said it had the power to do something else. I didn't understand whether it was to borrow or to buy, which did you say?",
       "time": "00:12:42.21"
     },
@@ -123,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Bond.",
       "time": "00:13:04.67"
     },
@@ -135,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Oh yes.",
       "time": "00:13:06.22"
     },
@@ -147,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- that's borrowing a little too.",
       "time": "00:13:09.94"
     },
@@ -159,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes, bond.",
       "time": "00:13:14.91"
     },
@@ -171,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Bond the whole county.",
       "time": "00:13:20.05"
     },
@@ -183,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Does it make any difference to you what the actual result in this case was in terms of where the five men -- men -- five men board came from? Was the election held?",
       "time": "00:14:49.64"
     },
@@ -195,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Whether the four of five come from Grand Rapids?",
       "time": "00:15:04.36"
     },
@@ -207,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But where did they come from in this case?",
       "time": "00:15:14.05"
     },
@@ -219,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "What if the Michigan law provided for appointment of county school boards by the governor? And the governor made the same appointments to the -- this particular county school board that it -- that -- that the same people from the same places and Grand Rapids would feel like they've been left out with only one out of five men. Would they have any complaint under Reynolds against Sims?",
       "time": "00:16:38.15"
     },
@@ -231,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what if the Court -- what if the Court disagreed with you on that because the governor could appoint whoever he wanted to as far as the Constitution is concerned that would that also determine this case?",
       "time": "00:17:46.62"
     },
@@ -243,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How many school districts are there in Kent County, Mr. Miles?",
       "time": "00:20:50.42"
     },
@@ -255,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Yes",
       "time": "00:20:54.60"
     },
@@ -267,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And did each one of those school districts have the same number of members on its local district school board?",
       "time": "00:21:00.24"
     },
@@ -279,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Okay.",
       "time": "00:21:07.89"
     },
@@ -291,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- at large by the dis -- by the --",
       "time": "00:21:20.42"
     },
@@ -303,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- people in the district.",
       "time": "00:21:22.28"
     },
@@ -315,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "By the people in the district.",
       "time": "00:21:23.50"
     },
@@ -327,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And -- and how many members are there? Would it range from about three to around nine or what is it?",
       "time": "00:21:25.30"
     },
@@ -339,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Five to nine. And then one of those five to nine goes every two years to a biannual meeting to elect five members of the county school board.",
       "time": "00:21:30.86"
     },
@@ -351,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How is that one selected? How is that one representative of each school district --",
       "time": "00:21:42.27"
     },
@@ -363,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "By the District Court.",
       "time": "00:21:48.67"
     },
@@ -375,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It elects one of its members to go --",
       "time": "00:21:52.04"
     },
@@ -387,19 +391,19 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- as a representative of that school district.",
       "time": "00:21:54.20"
     },
     {
       "turn": 58,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes sir.",
       "time": "00:21:56.32"
     },
     {
       "turn": 59,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the -- then the election of the five members of the county school board I realized there's staggard terms of which I think I had just on that.",
       "time": "00:21:57.09"
     },
@@ -411,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Two at a time.",
       "time": "00:22:07.41"
     },
@@ -423,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But tho -- that membership is elected by the deputies at this biannual meeting from among their members, from among themselves they elect?",
       "time": "00:22:08.79"
     },
@@ -435,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "To election as a member of the county school board.",
       "time": "00:22:46.88"
     },
@@ -447,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And he can be a stranger, he can be a nonmember of any district school board, can't he?",
       "time": "00:22:49.39"
     },
@@ -459,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But he -- but he usually is a member of one of the district school board, is he?",
       "time": "00:22:55.91"
     },
@@ -471,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Anyone from Nelson Center, you've been telling us a lot about Nelson Center.",
       "time": "00:23:15.28"
     },
@@ -483,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "The county school board has the power to impose taxes?",
       "time": "00:24:15.50"
     },
@@ -495,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Up to a certain limitation I suppose.",
       "time": "00:24:19.80"
     },
@@ -507,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And the --",
       "time": "00:24:26.01"
     },
@@ -519,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And has the power to make policy decisions with respect --",
       "time": "00:24:41.34"
     },
@@ -531,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "With respect to these special schools and the truck system and various others --",
       "time": "00:24:44.51"
     },
@@ -543,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now what -- what power as to the local school, the 21 school districts have? What powers do they have --",
       "time": "00:25:33.83"
     },
@@ -555,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- within the school districts?",
       "time": "00:25:42.17"
     },
@@ -567,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "To any power they must have, I suppose they have some policymaking functions don't they?",
       "time": "00:25:45.48"
     },
@@ -579,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Or am I wrong?",
       "time": "00:25:49.73"
     },
@@ -591,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Do they have any taxing power within the distrcit?",
       "time": "00:26:07.08"
     },
@@ -603,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Within their district?",
       "time": "00:26:10.27"
     },
@@ -615,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "To the county board.",
       "time": "00:26:31.55"
     },
@@ -627,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Now, the school district, the Grand Rapids School District as you told me, as I understand it, itself has power to impose taxes within its district, --",
       "time": "00:27:17.58"
     },
@@ -639,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- has power to make policy within its district.",
       "time": "00:27:26.95"
     },
@@ -651,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Then can a county school board reverse or veto any of those decisions by the district?",
       "time": "00:27:30.86"
     },
@@ -663,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Supplemental and they can't -- they can't take away anything --",
       "time": "00:27:40.87"
     },
@@ -675,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Or overrule anything that the Grand Rapids District has decided to do.",
       "time": "00:27:44.91"
     },
@@ -687,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But it's conflicting power and policy that the county board will establish?",
       "time": "00:27:58.44"
     },
@@ -699,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, why (Inaudible) the county board has the power over these board policies?",
       "time": "00:28:20.68"
     },
@@ -711,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, suppose you say then that they want to set one policy (Inaudible).",
       "time": "00:29:09.66"
     },
@@ -723,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "00:30:02.80"
     },
@@ -735,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "00:30:14.44"
     },
@@ -747,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible)",
       "time": "00:30:22.51"
     },
@@ -759,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Strawhecker.",
       "time": "00:31:07.92"
     },
@@ -771,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Is political picket a constitutional phrase.",
       "time": "00:32:15.99"
     },
@@ -783,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I think we need to hold what is political picketing.",
       "time": "00:32:26.25"
     },
@@ -795,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "To the better or worse.",
       "time": "00:32:38.02"
     },
@@ -807,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But is it your position that the principle cannot apply to any local government?Is that the position that you are taking?",
       "time": "00:32:56.78"
     },
@@ -819,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, you don't need to take any such broad position.",
       "time": "00:33:14.26"
     },
@@ -831,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "-- to ta -- take by representing the Kent Board --",
       "time": "00:33:17.39"
     },
@@ -843,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Exactly, you're talking about one board of education and one state with a particular and specific organizational set up.",
       "time": "00:33:22.88"
     },
@@ -855,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, that the state could I assume abolish its legislature, couldn't it?",
       "time": "00:34:22.14"
     },
@@ -867,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "People are thinking they can abolish their legislature, wouldn't it?",
       "time": "00:34:27.49"
     },
@@ -879,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well as I understand it, in Pakistan they -- at the local level they -- everybody votes, and they elect one person who goes to a consitutuent assembly. And that person votes the delegates to the next constituent assembly on up to the top.",
       "time": "00:35:03.16"
     },
@@ -891,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "No, but I say is that -- could that be done by -- by this union?",
       "time": "00:35:21.22"
     },
@@ -903,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "By a constitutional ammendment?",
       "time": "00:35:26.86"
     },
@@ -915,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, that's something else. I'm talking about a constitution of a state drawn along those lines. Would that be constitutional?",
       "time": "00:35:32.24"
     },
@@ -927,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Well, I asked you if there is which is that could one be drawn along those lines.",
       "time": "00:35:42.37"
     },
@@ -939,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Would that be possible then what you're talking about is that also being possible by a constitutional amendment.",
       "time": "00:35:57.30"
     },
@@ -951,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No matter how inequitable it might be?",
       "time": "00:37:40.57"
     },
@@ -963,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Strawhecker, let's assume that the Michigan law provided for the direct election of this county -- county school board by the people. And that the two parties or the three parties or how many have put up candidates for all five positions and they are all elected every two years. And they are elected by districts. Would -- I suppose your position is that Reynolds against Sims wouldn't catch that situation either because it's a local governmental unit.",
       "time": "00:43:26.71"
     },
@@ -975,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now let's assume that you are wrong on that.",
       "time": "00:43:58.94"
     },
@@ -987,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And assume -- and assume that -- assume that Reynold against Sims would re -- would require that those districts for the election county school board members had to be of equal sides, population-wise.",
       "time": "00:44:04.76"
     },
@@ -999,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes but -- I --",
       "time": "00:44:37.94"
     },
@@ -1011,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If you would --",
       "time": "00:44:40.92"
     },
@@ -1023,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would say then that if Reynolds against Sims applied to my example of the direct election by districts of the county school board, you would say automatically then that Reynolds against Sims has to apply to these situations that you have in this case and that this case has to satisfy Reynolds against Sims?",
       "time": "00:44:42.90"
     },
@@ -1035,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what -- what would keep Reynolds against Sims from applying to this case if it applies to the direct election?",
       "time": "00:45:04.03"
     },
@@ -1047,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And the majority --",
       "time": "00:45:33.63"
     },
@@ -1059,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So your Michigan laws provide for election of school board all over the state?",
       "time": "00:46:32.92"
     },
@@ -1071,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Elected by?",
       "time": "00:46:52.19"
     },
@@ -1083,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They could not --",
       "time": "00:47:39.54"
     },
@@ -1095,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I assume you would say that the Constitution of the United States would not compel them to have this election.",
       "time": "00:48:08.07"
     },
@@ -1107,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That seems to be the basis of your argument but supposedly it has the election. Suppose the law, stick to the same election then it can be discriminated against the voters on the ground of equal protection.",
       "time": "00:48:19.07"
     },
@@ -1119,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's protected, isn't it?",
       "time": "00:48:33.66"
     },
@@ -1131,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Does that make any difference in the consitutional question here involved?",
       "time": "00:49:30.18"
     },
@@ -1143,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But then they're not Equal Protection Clause.",
       "time": "00:49:35.17"
     },
@@ -1155,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why is there any election in the law?",
       "time": "00:49:38.37"
     },
@@ -1167,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That it held voting people.",
       "time": "00:49:42.61"
     },
@@ -1179,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well if there's no federal constitutional right to vote, duty to vote, --",
       "time": "00:50:21.70"
     },
@@ -1191,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- that is not protected.",
       "time": "00:50:25.76"
     },
@@ -1203,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well I suppose there's no federal constitutional right vote but the state thinks this is an election, what then about the requirements have you considered?",
       "time": "00:50:32.37"
     },
@@ -1215,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, the apportionment cases wouldn't cover that, would they, provided that they were appointed by the governor?",
       "time": "00:51:42.83"
     },
@@ -1227,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Would you mind if I --",
       "time": "00:54:35.94"
     },
@@ -1239,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you mind telling us what the powers of this board are, as you will?",
       "time": "00:54:40.67"
     },
@@ -1251,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well I -- you're getting around in response to Chief Justice's question. What I wanted to ask you, it seems to me, that there maybe two lines of inquiry here.One is, how was this Board selected and the other is its powers. Now, this Board has selected as I understand it by a vote of the members of the -- of representatives of the 39 separate district boards of education -- 21.",
       "time": "00:56:59.26"
     },
@@ -1263,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright 21, and they get together and they -- they elect this five-man board. Is it five-man?",
       "time": "00:57:34.50"
     },
@@ -1275,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright, that's good enough. Now, second on the question of the, what this board does, what kind of governmental function does it exercise? As I undertand it now, it has not -- it does not generally -- have general jurisdiction over the education in the county.",
       "time": "00:57:43.27"
     },
@@ -1287,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright, it has jurisdiction first with respect to certain specialized facilites for retarded children or whatver it is etcetera. And then or is it the fact that its taxing power and bonding power are limited to the raising of funds for those purposes?",
       "time": "00:58:07.04"
     },
@@ -1299,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now --",
       "time": "00:58:32.36"
     },
@@ -1311,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright, now it does not -- it is not the agency charged if I correctly understand this with raising money by taxes or by the issuance of bonds for the general schools.",
       "time": "00:58:39.30"
     },
@@ -1323,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And in additon to those specialized functions, I take it that the reading of these briefs that its powers are auxiliary and in aid of the educational functions of the district boards of education, is that correct?",
       "time": "00:58:56.82"
     },
@@ -1335,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Alright, now one further question. I take it that this specific controversy arose out of still another power of this county board. And that has the power to transfer geographical areas from one school district to another, is that correct?",
       "time": "00:59:35.33"
     },
@@ -1347,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now, are there any other significant powers that I have not stated?",
       "time": "00:59:53.97"
     },
@@ -1359,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, does -- in line of Mr. Justice Fortas question does the county board have anything to do with consolidation?",
       "time": "01:00:18.20"
     },
@@ -1371,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But the number of scho --",
       "time": "01:00:51.05"
     },
@@ -1383,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- the number of school districts have declined fro 40 or 50 down to 21, is that by consolidation?",
       "time": "01:00:52.13"
     },
@@ -1395,31 +1399,31 @@
     },
     {
       "turn": 225,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well. Number 624, Moody versus Flowers. At the --",
       "time": "01:01:03.58"
     },
     {
       "turn": 226,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Mr. Chief Justice, I was to move the admission of Mr. Francis Beytagh of the Ohio Bar to argue on behalf of United States amicus curiae. This case which the Court has just carried and the three immediately succeeding cases had so moved.",
       "time": "01:01:21.49"
     },
     {
       "turn": 227,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The motion is granted.",
       "time": "01:01:37.83"
     },
     {
       "turn": 228,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Thank you.",
       "time": "01:01:39.12"
     },
     {
       "turn": 229,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Beytagh.",
       "time": "01:01:49.98"
     },
@@ -1431,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And it -- as I understand it, all 11 are elected by the entire electorate of the new and large city of Virginia Beach.",
       "time": "01:06:55.14"
     },
@@ -1443,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "At large by the --",
       "time": "01:07:03.64"
     },
@@ -1455,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "For within the old city.",
       "time": "01:07:14.37"
     },
@@ -1467,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And all the borders of the new city elect wholly at large.",
       "time": "01:07:18.45"
     },
@@ -1479,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You presented there any jurisdictional bond in these cases?",
       "time": "01:07:58.45"
     },
@@ -1491,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well on your brief, I guess you had the -- you think only 724 is properly here?",
       "time": "01:11:32.94"
     },
@@ -1503,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Because that was the statewide --",
       "time": "01:11:44.34"
     },
@@ -1515,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "How would you do it then? Some or all of the various proposals of taking back in the early years of this century by -- to improve the -- to improve the more simplistic former electoral process such proposal is the Hair system of proportional representation or the list system or some variant evidence found in the - by Weimar Republic or the Third Republic in France. Are those all out or are they in or what?",
       "time": "01:12:39.50"
     },
@@ -1527,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Well, but they -- but these -- these systems are utilized in some communities in our country have been certainly.",
       "time": "01:13:20.58"
     },
@@ -1539,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But certainly entirely contrary to what you said the Constitution seems to say the Constitution requires in your brief?",
       "time": "01:13:36.30"
     },
@@ -1551,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Under the -- the Hair system of proportional representation is suppose to guarantee minority representation. And Reynolds against Sims requires a majority move.",
       "time": "01:13:45.44"
     },
@@ -1563,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Guarantee representatives of identifiable or people who choose to coalesce ideologically rather than geographically within a -- in a constituency.",
       "time": "01:14:22.66"
     },
@@ -1575,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It seems to me that the reasoning of your -- they aren't difficult. They're difficult for me as one reason I ask you but it seems to me the reasoning of your brief would just make impossible any such supposedly a progressive and lightened experimentation along those lines. Such systems as would guarantee for example a party, a minority party representation in the city council or a school board by providing that not more than six out of nine should be from a certain political party. All those are completely made unconstitutional under the argument that I gather.",
       "time": "01:15:09.28"
     },
@@ -1587,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That's why you've pushed it all away and you pushed all those things off the Board.I wondered if I misunderstood you.",
       "time": "01:15:52.34"
     },
@@ -1599,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Isn't it that -- doesn't it -- depends upon the -- among the infinite variety of arrangements that -- that undoubtedly exist in the county, certainly the thousands of various local governmental units in the 50 states of this nation. Doesn't it depend? Doesn't the equal protection answer depend upon the particular ratio that -- that you have. Isn't it too Justice Fortas suggested earlier, how is it selected, elected, or appointed?What powers does it have? Is there -- is it proper actually to say no matter what the arrangement, no matter what the history, no matter what the function, no matter how presently selected or what the purposes are in the present selection, whether they guarantee minority representation, or what, these all go out, these all have to come under this mathematical formula. The Equal Protection Clause permits, allows, no variation from this mathematical scheme. That's what currently bothered me about your -- about your brief.",
       "time": "01:16:40.61"
     },
@@ -1611,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand your brief exactly will be based on what you -- Reynolds to say. There's no margin to variation taking account the consideration that my Brother Stewart had just mentioned, the local orders of the government and in more than there is -- that the statement",
       "time": "01:18:14.70"
     },
@@ -1623,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Suppose that these laws of the states very briefly with respect to how a city in the next territory, the one I'm familiar with is one in which the resident freeholders and the territory proposed to be annexed, have to vote in favor of annexation which makes annexation of course extremely difficult. And I suppose this Virginia Beach situation probably would reflect some current in other words to -- to persuade the people to be annexed -- to be annexed to the municipality where --",
       "time": "01:19:47.49"
     },
@@ -1635,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Are you sure that they would be -- they -- their voices will be heard in the -- in the city government?",
       "time": "01:20:24.02"
     },
@@ -1647,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I'm thinking -- or of course, city is surrounded by as many in Ohio are you know, by -- by satellite municipalities in order to get those municipalities, those people with their tax base and with their leadership, and so on to join the city, you have to. They don't want to be swallowed up.",
       "time": "01:20:38.05"
     },
@@ -1659,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "We'll recess now.",
       "time": "01:22:16.56"
     }

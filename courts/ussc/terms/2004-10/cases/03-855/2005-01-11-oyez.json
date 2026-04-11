@@ -3,55 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/2004/03-855/20050111a_03-855.delivery.mp3",
     "speakers": [
       {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
       },
       {
         "name": "IRA S. SACKS",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CAITLIN J. HALLIGAN",
-        "role": "advocate"
+        "title": "MS."
       },
       {
         "name": "MICHAEL R. SMITH",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "MALCOLM L. STEWART",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We will now hear argument in case of City of Sherrill, New York against the Oneida Indian Nation of New York. Mr. Sacks, whenever you're ready.",
       "time": "00:00:00.00"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, is it your position that whenever an Indian transfers land in violation of the Nonintercourse Act, that that's a valid transfer? And if not, why is this different?",
       "time": "00:01:19.62"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why does not having a possessory right mean that the city could tax them or the state?",
       "time": "00:02:55.68"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, I'm just thinking, suppose you have a reservation but the tribel doesn't have a possessory right because in the middle of the reservation, there is some kind of long term lease or sale to a house that's owned by somebody else who is not a member of the tribe. I would think... am I right that the city or the county in which that reservation sits can't tax it anyway?",
       "time": "00:03:38.45"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All right. So if you were to say the tribe does not have a possessory right, they can't go and eject all the people who are living there and built houses over the last 192 years. That doesn't mean still that you could tax them.",
       "time": "00:04:00.74"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It couldn't be enforced against certain innocent purchases but when the land is reacquired, then it seems to me we have to ask whether there was an extinction of aboriginal title and whether the reservation was at some point subsequently disestablished by federal act. If we hold against you on the ground that there was no extinction of aboriginal title and there was no disestablishment of the reservation, then it seems to me that when they reacquire, we get to exactly the point that Justice Breyer raised and that is, once they reacquire the land, why does it become taxable? Why does its nontaxable status not simply reassert itself?",
       "time": "00:04:35.23"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So you're saying if the original establishment of the reservation was simply a continuation, was literally a reservation from a transfer of land to the state of New York and that the Indian title was a purely aboriginal title, not a title conferred by a federal act creating reservations but it cannot be Indian country, is that correct?",
       "time": "00:05:35.98"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Let's assume the title is aboriginal. Nothing in an act of the United States says we're giving you this land to the Indians, e.g., in the Kansas situation. It's simply aboriginal title and it was never extinguished. Are you saying that if that is the source of the title as opposed to a federal act saying we give this to you, that it cannot be Indian country?",
       "time": "00:06:08.96"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So this part of your argument depends on our accepting your position of the treaty of Fort Schuyler as being a conveyance of all property and a later retrocession, is that correct? Because otherwise, I don't see what extinguished the aboriginal title.",
       "time": "00:06:52.92"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I know that but I mean it seems to me one thing that Oneida establishes is that the whole title doesn't just disappear if nothing else happens simply because of the passage of time.",
       "time": "00:08:11.89"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And we agree with that or I hypothetically agree with that. They can't come in and eject people. But then I'm back to my first question because I take it that the refusal in Oneida to the suggestion that they can't go, say, to Buffalo, New York or wherever or some town and throw everybody out of the house, that that, of course, does reflect the passage of time. But for a city or state to tax the land, that doesn't involve the same kind of interference with people's expectations of living in the houses that they bought, that throwing someone out of his house would involve.",
       "time": "00:08:31.94"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It is a matter, is it not, of whether the tribe now has sovereignty over this parcel of land, is that's what's at the bottom of the question?",
       "time": "00:09:55.10"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "If the tribe has sovereignty status with regard to this property, then presumably this city can't tax it. So we have to decide that, do we?",
       "time": "00:10:14.48"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What do we do with the Oneida II case decided in 1985?",
       "time": "00:10:29.04"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why not? I mean, is every decision we make up for review when the interested parties fail to cite what they now assert are the dispositive acts?",
       "time": "00:11:11.82"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But that wouldn't have been a violation of federal law if this were not Indian country, if this were not an Oneida reservation when the transfer occurred.",
       "time": "00:12:01.37"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that the application of the Nonintercourse Act? Because I assume it was only the federal act reservation.",
       "time": "00:12:43.46"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "How does it read? What does it say? I didn't mean to interrupt you.",
       "time": "00:12:54.19"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Unless made by treaty or convention entered into pursuant to the constitution.",
       "time": "00:13:23.39"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the idea of precisely what's at stake within the Oneida litigation, as I understand it, the counties and the municipalities in the City of Sherrill would not be left in the end having to pay, New York would.",
       "time": "00:13:31.57"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "From the county's point of view, I'm asking who pays at the end of the month and it seems, in the Oneida case, it's the state. Is it different here? And what taxes are we talking about precisely?",
       "time": "00:13:52.98"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What goes with the taxes? You said that the other effect would be that whenever the Oneidas buy a piece of property that is within this former reservation and of which only 1 percent is now owned by Indians, whenever they buy a piece of property, that property is taken off the tax rolls.",
       "time": "00:14:18.53"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Which, of course, makes it a lot easier for them to buy it because it's much less expensive for them to hold that land. What else happens? The town can't regulate it.",
       "time": "00:14:41.46"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And I assume that also means that that land cannot be repurchased by non Indians?",
       "time": "00:15:03.59"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You're a good lawyer that they hired and the Oneidas may not have hired as good a lawyer. I don't think this was done around the campfire, do you?",
       "time": "00:17:19.94"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "When you say terminated the title, you mean by the conveyance of all lands?",
       "time": "00:17:55.73"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Was there ever any federal superintendent of the land?",
       "time": "00:18:59.68"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Isn't the FBI that keeps peace on other reservations. Isn't it quite standard for state law enforcement to function?",
       "time": "00:19:52.96"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Sacks. Ms. Halligan?",
       "time": "00:20:19.09"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Is sovereignty something that the tribes can lose by inaction over a period of time?",
       "time": "00:20:55.75"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "What you seem to be asking is to infer from that treaty that the prior unlawful land sales of the Oneida's New York reservations were somehow ratified.",
       "time": "00:21:36.32"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But if you're right about Buffalo Creek, it would mean that the effect of the government's decision to repossess something in Kansas was to leave the Oneidas without any land.",
       "time": "00:22:07.23"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It certainly wasn't that clear from it. It appeared to be the assumption that the Oneidas did not have to go to Kansas, if they chose not to do it. It was dependent on making suitable arrangements.",
       "time": "00:22:19.63"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Sure it can. One way to pursue that policy is to offer them lands in the west if they want to go there. That would certainly pursue the government's policy of removing them.",
       "time": "00:23:14.05"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you're saying there is no consideration if they simply agree to remove if they want to remove. If they chose to ignore it, they want to ignore it.",
       "time": "00:23:39.53"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They gave none, I'm talking about.",
       "time": "00:23:48.17"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The Indians. You're saying they gave no promise in exchange, if they simply promised to remove if they felt like it.",
       "time": "00:23:51.46"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I'm trying to help you here.",
       "time": "00:23:58.59"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I thought that perhaps the Treaty of Buffalo Creek is thinking of 50,000 acres where these particular Indian tribe members have their homes or at least arguably. Just no one was thinking about the remaining 300,000 because they had long left those. It had nothing to do with them.",
       "time": "00:24:51.88"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, It means that that's what was intended but what do you make of all of the testimony about the representations made by... I forget the man's name, the government's representative, to the effect you don't have to leave.",
       "time": "00:25:39.24"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "I guess I just want to get to the point. Doesn't that negate your argument that the treaty as such disestablished the reservation?",
       "time": "00:25:59.85"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What is the precise language that you think relinquished changed the sovereignty?",
       "time": "00:27:28.34"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "There are implications from Oneida to case that the Indians can reacquire land and assert some kind of possessory right.",
       "time": "00:28:33.19"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Ms. Halligan. Mr. Smith, we'll hear from you, please.",
       "time": "00:30:06.82"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So you're saying your position was and is that it's not inalienable without the approval of Defense?",
       "time": "00:30:57.91"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the portion within the reservation you claim is alienable so long as it's not owned by an Oneida. Current owners can sell it to somebody else, right?",
       "time": "00:31:20.46"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Like it was strange?",
       "time": "00:31:36.15"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, if you prevail in this case, then could suits be brought by the tribe to evict current owners of land on this historical Oneida 300,000-acre reservation?",
       "time": "00:32:10.06"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But if it's owned by the state of New York, if it's been acquired somehow by the state, then what?",
       "time": "00:32:36.53"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What happens about... suppose... I just want to follow this. Suppose you don't evict the people who are there but it's 22 square miles in the center of New York state. That's a lot of land. And maybe that's worth a trillion dollars, I don't know. So does that mean that the Indian tribe would have... would it mean that it would have the right to, let's say, hundreds of billions of dollars, the value of that property and it could sue someone for it, the state of New York or the Federal Government? I guess the state of New York?",
       "time": "00:33:06.20"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What was the acreage there?",
       "time": "00:33:54.88"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That may not be worth as much. Maybe this includes several cities and towns? What do you think it is? In other words, the answer to my question is in principle, yes. In principle, if the Indian tribes own 22 square miles, even if they can't get possession, they're entitled to the value of it, in your opinion?",
       "time": "00:34:00.35"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, of course the people who are there have it, maybe it's not Buffalo. I don't know, maybe it's all of Buffalo, New York, or maybe it's a town. I'm not saying that that's the law but I just wanted your view of that. And then I wanted to know this. On the legal part, I would like your response to the... I take it your answer is yes, they're entitled to the value of it, which I'm right about that, that is your answer?",
       "time": "00:34:30.65"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "On the whole 300,000?",
       "time": "00:35:05.23"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Do the Oneidas have a claim to tax the current property owners?",
       "time": "00:35:32.68"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Why not?",
       "time": "00:35:39.57"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Smith, isn't there any principal of laches that comes into effect here. I mean, what you're asking the Court to do is to sanction a very odd checkerboard system of jurisdiction in the middle of New York state. Some parcels are the ones the Indians choose to buy and are able to buy are called Indian territory and everything else is governed by New York state, isn't it? It's just a terrible situation as far as governance is concerned and part of the blame for the situation we're in is that the Oneidas did not claim about this for 170 years.",
       "time": "00:36:26.19"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The case also held that because of the passage of time and the reliance interest that has developed, we are not going to give you possession. Now, why doesn't the same principle apply to giving you jurisdiction? Because of the passage of time, you can get damages for trespass. Maybe even you can even get the value of the land. It would just create a chaotic situation if we say that you have jurisdiction in the middle of New York state over any pieces of land that you can buy.",
       "time": "00:37:42.42"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Smith, at first, would you clarify how much land is now claimed as Indian... within the tribe's aboriginal right? It's not... one thing clarify while you are not claiming the entire 6 million. Didn't they have 6 million acres to start with?",
       "time": "00:39:22.25"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Some of that you said was taken up by an approved transfer in 1798?",
       "time": "00:40:11.36"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But something around 275?",
       "time": "00:40:24.58"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And the figure, the 250 million is for the rental... what is that... what is that for?",
       "time": "00:40:28.99"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Which New York State paid, and that's the end of it.",
       "time": "00:41:33.75"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Wall, that's not the end of it. From what you're saying, I gather that you believe, in that case, once they purchase the land, it becomes tribal.",
       "time": "00:41:42.72"
     },
@@ -819,19 +819,19 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What do you say are the merits, then, to the claim that there were 300,000 of these acres in 1838 or with the Treaty of Buffalo Creek... there were 300,000 acres that nobody was paying any attention to because there were no tribe members that lived there, so that when you have language in the treaty, under those circumstances, that says their home is now... where was it? Illinois or--",
       "time": "00:42:06.48"
     },
     {
       "turn": 130,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Kansas.",
       "time": "00:42:30.54"
     },
     {
       "turn": 131,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Kansas. Their home is now Kansas. That's the nation. That's the place. And that... you've heard the language cited. And even though a person says, \"You can live here as long as you want. \" that just means they can live there as long as they want; that doesn't mean it's the reservation. The reservation's sovereignty may have gone to Kansas, though, of course, nobody had to move, unless he struck a fair bargain that he agreed to with the State of New York. I take it that's their argument. I just want to hear your response.",
       "time": "00:42:32.02"
     },
@@ -843,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yeah.",
       "time": "00:43:05.00"
     },
@@ -855,7 +855,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Would not it be odd to have a... to give assurance that you could buy back what you've lost? Does it... would that... that's a very strange construction of the representations intendant upon Buffalo Creek. I understand what you're talking about with the 5,000 acres--",
       "time": "00:44:17.63"
     },
@@ -867,7 +867,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Steward, your time is beginning to come up, and there is one thing we haven't talked about that I'd really like to get your view on, and that is the 1788 Treaty... what was that, Fort Schuyler... Treaty of Fort Schuyler?",
       "time": "00:45:31.44"
     },
@@ -879,7 +879,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--between New York State and the Oneidas. Now, that contained language which said the Oneidas cede and grant all their lands to the people of the state of New York. That was the operative provision. Later on, it... Article 2 says, \"Of the ceded lands\"... the ceded lands, lands that have been ceded... \"a tract described by metes and bounds is reserved to the Oneidas to hold to themselves in their posterity forever. \" Now, I would normally interpret that too mean that the Oneidas gave up all of their sovereignty over the lands and were given back, by the State of New York, the right over this tract designated by metes and bounds. Now, I'm saying I would normally interpret that, except in a treaty with the Indians. In a treaty with the Indians, you say, \"Well\"... and we have cases which have language somewhat like this, and they say, \"Well, they really didn't cede the part that they reserved. \" That may be the case in... ordinarily. But it seems to me, a basic principle of contract law... of treaty law, of any law... that where there is an ambiguous phrase or provision, you interpret it the way the parties themselves have interpreted it. And it seems to me that the subsequent history, after 1788, indicates that the Oneidas believed that New York State had jurisdiction over that land.",
       "time": "00:45:43.86"
     },
@@ -891,7 +891,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The New York State Police were in there. New York State managed the lands.",
       "time": "00:47:13.07"
     },
@@ -903,7 +903,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Smith. Mr. Stewart?",
       "time": "00:50:18.68"
     },
@@ -915,7 +915,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't... I don't understand that argument at all. I mean, it's just a general rule that, where you've been wrong, you have to come forward, in a timely fashion, to get the wrong righted. And what difference does it make what the nature of the wrong is, whether it's dispossession or not?",
       "time": "00:51:12.31"
     },
@@ -927,7 +927,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, do you say that a tribe can never lose its sovereign rights to land? Can it acquiesce in the loss of those rights?",
       "time": "00:52:02.06"
     },
@@ -939,7 +939,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:52:18.96"
     },
@@ -951,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, and we have held that a state can abandon sovereignty, as in Massachusetts versus New York.",
       "time": "00:52:19.48"
     },
@@ -963,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, that might give them a right to some kind of damages for a violation, but what does that do to the sovereign claims of the tribe?",
       "time": "00:52:50.03"
     },
@@ -975,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What is it? You said \"extremely limited\". This is the first I heard that the tribe might have some authority over part of that, what, the 275... 275,000 acres, even though it hadn't repurchased the costs.",
       "time": "00:53:21.66"
     },
@@ -987,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But now we're talking about land that... where there are no tribe members... as I understand it, this area is predominantly non tribal members.",
       "time": "00:54:03.55"
     },
@@ -999,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, that may be true, but that's why I wondered about the damage part of it. I'm still thinking that a trespass action for trespasses that occurred in 1850 or 1700 is worth millions today, even if it's tiny, because of the interest, passage of time, et cetera. When you add that to the value of the land, I'm thinking of numbers that are astronomical. And yet that hasn't happened. And so, what actually, as a... and that's why I'm thinking, isn't a damage action far more serious than simply taking property off the tax rolls?",
       "time": "00:54:46.31"
     },
@@ -1011,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And that's why I want to know how, in practice, this works out. Does Congress have the power, for example, to deal with it? Is what we're considering in this case simply a negotiating position and strengthening people's hands, vis a vis legislation? What's going on?",
       "time": "00:55:23.79"
     },
@@ -1023,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, Congress has done nothing about this, has it? Can... has the tribe asked, administratively, for the Bureau of Indians Affairs to recognize it now as a tribe?",
       "time": "00:55:49.06"
     },
@@ -1035,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "What tax... what taxes are we talking about? Is this property tax? Are we also talking about sales tax?",
       "time": "00:56:52.89"
     },
@@ -1047,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it isn't just taxes we're talking about. It's jurisdiction over these parcels of land. It... I mean, taxes... that's just one aspect of saying that this land no longer belongs to New York State.",
       "time": "00:57:14.41"
     },
@@ -1059,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Stuart, I have one question about, Buffalo Creek. If we hold that Buffalo Creek didn't disestablish the reservation, then doesn't the New York Indian case rest on a false premise because that case gave $2 million for failure to give the Kansas lands?",
       "time": "00:57:58.67"
     },
@@ -1071,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Was there any positive indication... I just don't remember this... in the New York case, that they would... that they, in fact, had ceded anything of New... of their interest in New York? As distinct from the Wisconsin land.",
       "time": "00:58:43.03"
     },
@@ -1083,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "That's entering into the treaty. But when it came to compensation, was there an indication that they were being compensated for anything other than Kansas land, which they had obtained as a result of ceding their Wisconsin land?",
       "time": "00:59:03.63"
     },
@@ -1095,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay.",
       "time": "00:59:17.69"
     },
@@ -1107,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But there was no indication that they got Kansas for anything other than Wisconsin, is that correct?",
       "time": "00:59:21.96"
     },
@@ -1119,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But there was no indication that they had ceded anything with respect to title in New York, was there?",
       "time": "00:59:37.93"
     },
@@ -1131,13 +1131,13 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Okay,--",
       "time": "00:59:43.90"
     },
     {
       "turn": 182,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it rested upon the session in Wisconsin?",
       "time": "00:59:44.12"
     },
@@ -1149,7 +1149,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Thank you, Mr. Stewart. The case is submitted.",
       "time": "01:00:42.15"
     }

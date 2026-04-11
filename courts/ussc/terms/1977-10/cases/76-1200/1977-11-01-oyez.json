@@ -3,51 +3,55 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1977/76-1200/19771101a_76-1200.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "THURGOOD MARSHALL",
+        "title": "JUSTICE"
       },
       {
         "name": "ROBERT S. KELLER",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "W. WILLIAM LEAPHART",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE MARSHALL",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "CHARLES S. MOSES",
-        "role": "advocate"
+        "title": "MR."
+      },
+      {
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "We will hear arguments first this morning in 76-1200, Crist against Cline and Bretz. Mr. Keller, you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -59,7 +63,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Keller, we postponed the question of whether or not we have a appellate jurisdiction over this case until the argument in the matter rather than noting probable jurisdiction.",
       "time": "00:03:11.71"
     },
@@ -71,7 +75,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "I gather that your opponent, the appellee does now concedes that there is an appellate jurisdiction, a new kind of thing so you do not discuss it in your brief.(Voice Overlap)",
       "time": "00:03:24.05"
     },
@@ -83,7 +87,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Because the Court of Appeals has held invalid the statute at the state of Montana?",
       "time": "00:04:03.87"
     },
@@ -95,13 +99,13 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But it is a sufficiently clear holding that your statute is unconstitutional?",
       "time": "00:04:38.35"
     },
     {
       "turn": 10,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Keller, your statute does not say there can be a trial up till the time the witness is worn. It says there shall not be a trial after the witness is sworn?",
       "time": "00:04:42.29"
     },
@@ -113,7 +117,7 @@
     },
     {
       "turn": 12,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "So the statute literally, it does not do that it is not unconstitutional, is it?",
       "time": "00:04:50.97"
     },
@@ -125,7 +129,7 @@
     },
     {
       "turn": 14,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Do you think it is then the statute that permits it. Well, I still have some difficulty. I can understand that is the rule in Montana, but I am not quite sure that there is a statute that is unconstitutional?",
       "time": "00:05:15.10"
     },
@@ -137,7 +141,7 @@
     },
     {
       "turn": 16,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "What I am trying to suggest is that perhaps the legislature could have repealed the statute, so you did not have a statute on the books and the Montana Supreme Court might nevertheless had made precisely the same holding, then there would not be any – just say it is a matter of Montana law, jeopardy does not attach till the witness is sworn. I do not think you would have an unconstitutional statute then.",
       "time": "00:06:01.19"
     },
@@ -149,7 +153,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You have to argue that by implication when the Montana statute says retrial may be had -- may not be had under certain circumstances, yet impliedly authorizes retrial under the circumstances where it does not prohibit it?",
       "time": "00:06:19.00"
     },
@@ -161,7 +165,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "So that is the meaning of your statute as authoritatively construed by the highest Court of your state?",
       "time": "00:06:57.20"
     },
@@ -173,7 +177,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Alright.",
       "time": "00:07:03.06"
     },
@@ -185,7 +189,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Keller, let me, before you get too deeply into this, do I understand that Cline has wanted a reversal of his conviction?",
       "time": "00:07:36.58"
     },
@@ -197,7 +201,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is not the case moot as to him then?",
       "time": "00:07:46.10"
     },
@@ -209,7 +213,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "(Inaudible) they are not going to dismiss it?",
       "time": "00:08:20.15"
     },
@@ -221,7 +225,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It seems to me he wants everything in the state appeal that he could possibly get in habeas?",
       "time": "00:08:24.80"
     },
@@ -233,7 +237,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Of course it was not until 1969 that this question could have possibly risen, it was not until then in the Benton case where the double jeopardy protection after the (Voice Overlap) goes to the states.",
       "time": "00:12:01.12"
     },
@@ -245,7 +249,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Mr. Keller, you said you made an effort to find the origin and history of the federal rule of point being when the jury is empaneled and sworn, what is the history of your statute in your state, do you know?",
       "time": "00:12:44.23"
     },
@@ -257,7 +261,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Do you know what other states or how many other states if any?",
       "time": "00:13:26.88"
     },
@@ -269,7 +273,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "If we were to follow or adopt your reasoning on this point, it would not change the rule in the Federal system, would it?",
       "time": "00:17:37.95"
     },
@@ -281,7 +285,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You are saying that as a matter of constitutional law, your concept of jeopardy is part of the bill of rights and incorporates the double jeopardy clause and that it would be applicable both in the federal and the state system?",
       "time": "00:17:49.61"
     },
@@ -293,7 +297,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But you would also be assuming, would you not that when Benton v. Maryland said that double jeopardy was incorporated into the Fourteenth Amendment, it meant all the bag and baggage of the federal prohibition rather than just the general outline of it?",
       "time": "00:18:41.08"
     },
@@ -305,7 +309,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Therefore, it is conceivable at least is it not in line with my brother Rehnquist's question that the Court might hold that the constitution tolerates the Montana rule without at the same time holding that it requires the federal rule to be the same.",
       "time": "00:19:31.52"
     },
@@ -317,7 +321,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "In other words, the Court has held that the guarantee of a jury trial under the federal constitution guarantees a 12 member jury in federal cases, but tolerates a smaller jury in state cases, state criminal cases?",
       "time": "00:19:52.81"
     },
@@ -329,7 +333,7 @@
     },
     {
       "turn": 48,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What do you suggest happens significantly between the empaneling of the jury and the swearing of the first witness?",
       "time": "00:20:29.53"
     },
@@ -341,7 +345,7 @@
     },
     {
       "turn": 50,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What about the opening statement to the prosecution?",
       "time": "00:21:11.74"
     },
@@ -353,7 +357,7 @@
     },
     {
       "turn": 52,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "My question to your point is that nothing happens?",
       "time": "00:21:20.82"
     },
@@ -365,7 +369,7 @@
     },
     {
       "turn": 54,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Could between opening statement -- that an opening statement may have an impact?",
       "time": "00:21:27.34"
     },
@@ -377,7 +381,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Is that a fair statement of their argument, could you not have phrased it just the other way that the defendant might be convinced that he has a good and impartial fair jury, but the prosecutor wants to have 12 more preemptory channels so he dismisses the prosecutor's, let us try and get a better jury from the prosecutor’s standpoint?",
       "time": "00:23:42.96"
     },
@@ -389,7 +393,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Immediately before the jury is sworn and you know who the jurors will be?",
       "time": "00:24:42.34"
     },
@@ -401,7 +405,7 @@
     },
     {
       "turn": 60,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let me ask you before you sit down, you in your brief seem have to abandoned the notion, the argument on manifest necessity.",
       "time": "00:25:51.75"
     },
@@ -413,7 +417,7 @@
     },
     {
       "turn": 62,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Let us assume you are wrong on your thought that it is not properly here. It is not properly subject to appellate jurisdiction here. Assume you are wrong on that, do you mean -- would you mean to abandon it or not?",
       "time": "00:26:02.81"
     },
@@ -425,7 +429,7 @@
     },
     {
       "turn": 64,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Under what, under what case?",
       "time": "00:26:21.48"
     },
@@ -437,7 +441,7 @@
     },
     {
       "turn": 66,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Why do you abandon it?",
       "time": "00:26:24.89"
     },
@@ -449,7 +453,7 @@
     },
     {
       "turn": 68,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you do not think it has ever been presented to the Montana Supreme Court?",
       "time": "00:26:48.74"
     },
@@ -461,7 +465,7 @@
     },
     {
       "turn": 70,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So there has been no or is there any necessity for that?",
       "time": "00:26:53.11"
     },
@@ -473,7 +477,7 @@
     },
     {
       "turn": 72,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "In a federal habeas corpus proceeding, is there any necessity for you to in order to argue manifest necessity to have it gone through the state system? There is a requirement for exhaustion on the state, is it not?",
       "time": "00:27:02.73"
     },
@@ -485,7 +489,7 @@
     },
     {
       "turn": 74,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well then why do you say that the manifest necessity is not properly here?",
       "time": "00:27:18.77"
     },
@@ -497,7 +501,7 @@
     },
     {
       "turn": 76,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Well, if you just did not want to raise it, that may be so, but what if you lose on the statute?",
       "time": "00:27:32.84"
     },
@@ -509,7 +513,7 @@
     },
     {
       "turn": 78,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And you do not want us to consider? You do not want that issue of manifest necessity adjudicated here, is that it?",
       "time": "00:27:42.14"
     },
@@ -521,7 +525,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Because that is ultimately a decision for this Court, not for you?",
       "time": "00:27:54.75"
     },
@@ -533,7 +537,7 @@
     },
     {
       "turn": 82,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "So you do not think it is worth anything under Lee, did you read the Lee case?",
       "time": "00:28:02.48"
     },
@@ -545,7 +549,7 @@
     },
     {
       "turn": 84,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You do not think it is worth anything under Lee?",
       "time": "00:28:07.19"
     },
@@ -557,7 +561,7 @@
     },
     {
       "turn": 86,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "He does not seem to agree with you it is such a weak point?",
       "time": "00:28:44.78"
     },
@@ -569,7 +573,7 @@
     },
     {
       "turn": 88,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Because he would sustain – he would think that there was manifest necessity if the merits are reached here?",
       "time": "00:28:54.20"
     },
@@ -581,7 +585,7 @@
     },
     {
       "turn": 90,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "We have got enough issues without reaching for one?",
       "time": "00:29:11.31"
     },
@@ -593,7 +597,7 @@
     },
     {
       "turn": 92,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Leaphart?",
       "time": "00:29:18.36"
     },
@@ -605,7 +609,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In the court after that I think you left out one point, the Court not only reversed, but also dismissed the charges?",
       "time": "00:30:14.89"
     },
@@ -617,7 +621,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "It is a little different from just a reversal?",
       "time": "00:30:28.23"
     },
@@ -629,7 +633,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What can the State do after that, under this non kind of State Law?",
       "time": "00:30:35.60"
     },
@@ -641,7 +645,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "What can Montana do as to these charges against this man after the Supreme Court of Montana dismisses them?",
       "time": "00:30:44.69"
     },
@@ -653,7 +657,7 @@
     },
     {
       "turn": 102,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Even if they cannot try them again, even if they do not try him again?",
       "time": "00:31:24.03"
     },
@@ -665,7 +669,7 @@
     },
     {
       "turn": 104,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But you still have not told me how they can?",
       "time": "00:31:47.76"
     },
@@ -677,7 +681,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So the conviction is only reversed on two counts?",
       "time": "00:32:06.33"
     },
@@ -689,7 +693,7 @@
     },
     {
       "turn": 108,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But as it stands right now, he is clean with the State and there is no charges pending against him?",
       "time": "00:32:14.26"
     },
@@ -701,7 +705,7 @@
     },
     {
       "turn": 110,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "And there is no lingering consequences from his conviction?",
       "time": "00:32:22.35"
     },
@@ -713,7 +717,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "And I thought you said the charges were dismissed by the Court?",
       "time": "00:32:27.05"
     },
@@ -725,7 +729,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, can they be retried?",
       "time": "00:32:32.17"
     },
@@ -737,7 +741,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, where are these counts that they can retry?",
       "time": "00:32:34.88"
     },
@@ -749,13 +753,13 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, is that all -- it is all there is?",
       "time": "00:32:55.58"
     },
     {
       "turn": 119,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "There is no bar for – is there any – there is no bar under Montana Law for the refilling of those recounts?",
       "time": "00:32:59.17"
     },
@@ -767,7 +771,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, the ones they dismissed.",
       "time": "00:33:06.92"
     },
@@ -779,7 +783,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The ones the prosecution dismissed, those --",
       "time": "00:33:08.83"
     },
@@ -791,7 +795,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Well, they could try and file without filing at all. Under Montana Law charges that are dismissed by a Court can be retried?",
       "time": "00:33:16.65"
     },
@@ -803,7 +807,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Dismissed by the prosecutor?",
       "time": "00:33:33.31"
     },
@@ -815,7 +819,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "And has the statute of limitations run by now?",
       "time": "00:33:35.63"
     },
@@ -827,7 +831,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Under the Ninth Circuit's ruling in effect you get a complete immunity on all nine counts or you just say you are uncertain with respect to the result if it is just depends on the decisions of Supreme --",
       "time": "00:33:42.11"
     },
@@ -839,7 +843,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And you say that is enough to justify habeas?",
       "time": "00:33:57.57"
     },
@@ -851,13 +855,13 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Where is a standard trial twice here?",
       "time": "00:34:31.43"
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And I suppose you do not know yet is not that your point? You do not know that he may be charged again?",
       "time": "00:34:37.30"
     },
@@ -869,7 +873,7 @@
     },
     {
       "turn": 138,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That is what is the concern?",
       "time": "00:34:43.44"
     },
@@ -881,7 +885,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "There is no threat of that at all?",
       "time": "00:35:05.41"
     },
@@ -893,7 +897,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "In addition we have the statement from the Attorney General that he will not do it.",
       "time": "00:35:08.93"
     },
@@ -905,7 +909,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "Now, where is the threat that the next Attorney General might do it or his grandson might do it?",
       "time": "00:35:13.39"
     },
@@ -917,7 +921,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "I do not think that both of you by agreeing with again was jurisdiction, if it is not here?",
       "time": "00:35:29.07"
     },
@@ -929,13 +933,13 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE MARSHALL",
+      "name": "THURGOOD MARSHALL",
       "text": "But as of now he is not in custody, he is not subject to trial --",
       "time": "00:35:44.05"
     },
     {
       "turn": 149,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "Can I ask the similar question much the same way I suppose, but habeas corpus is a collateral attack on the judgment?",
       "time": "00:35:52.86"
     },
@@ -947,7 +951,7 @@
     },
     {
       "turn": 151,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, what judgment is outstanding of being collaterally attacked by your client?",
       "time": "00:36:00.12"
     },
@@ -959,7 +963,7 @@
     },
     {
       "turn": 153,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "It had attached as to a judgment which has now been set aside?",
       "time": "00:36:13.03"
     },
@@ -971,7 +975,7 @@
     },
     {
       "turn": 155,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Now, these five other counts have never been reduced to judgment, have they?",
       "time": "00:36:16.91"
     },
@@ -983,7 +987,7 @@
     },
     {
       "turn": 157,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "How can they provide this basis for collateral attack?",
       "time": "00:36:20.97"
     },
@@ -995,7 +999,7 @@
     },
     {
       "turn": 159,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "I understand that case. There was a judgment outstanding that was involved in the appeal. The judgment survived the service of a sentence, but that does not hold that you can attack a non existent judgment, the judgment entered by a Court?",
       "time": "00:36:33.71"
     },
@@ -1007,7 +1011,7 @@
     },
     {
       "turn": 161,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "May be items for related offense to what you would say, well, that is really encompass within what you have been acquitted over something like that. There is always a possibility of somebody indicting you and you are making a plea and abatement or claiming bar, claiming double jeopardy. The Court is never found at a basis for collateral attack that I know off?",
       "time": "00:36:52.13"
     },
@@ -1019,7 +1023,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And in any event that basic issue will be presented by the other case or resolution that support --",
       "time": "00:37:22.95"
     },
@@ -1031,7 +1035,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Apart from your client's interest the basic issue will be decided in the other case?",
       "time": "00:37:31.26"
     },
@@ -1043,7 +1047,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, of course there is still the factor of the sound judicial discretion of the trial judge as to whether to grant that protection?",
       "time": "00:39:35.39"
     },
@@ -1055,7 +1059,7 @@
     },
     {
       "turn": 169,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Are you saying that there is some really imperative need, I am not sure what manifest necessity means, but that there is some significant element of the administration of justice that requires the federal and the state time frame to be the same?",
       "time": "00:39:53.15"
     },
@@ -1067,7 +1071,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, I am not arguing or suggesting or intimating that one or the other is better. I am simply saying is there any need that the federal rule bind all the 50 states as to this time factor?",
       "time": "00:40:51.78"
     },
@@ -1079,7 +1083,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That was a federal case, was it not, Jorn?",
       "time": "00:41:46.43"
     },
@@ -1091,7 +1095,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Was Jorn a Court opinion or was it just a plurality opinion?",
       "time": "00:41:50.82"
     },
@@ -1103,7 +1107,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "It is clear is, it not, that in the federal system, in a non jury trial jeopardy attaches -- does not attach until after the first witness is sworn?",
       "time": "00:42:11.73"
     },
@@ -1115,7 +1119,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That is clear?",
       "time": "00:42:24.97"
     },
@@ -1127,7 +1131,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "That is really not necessarily so in many cases?",
       "time": "00:42:43.78"
     },
@@ -1139,13 +1143,13 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Without question.",
       "time": "00:43:00.69"
     },
     {
       "turn": 184,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "In Montana, does the judge impose a sentence?",
       "time": "00:43:01.53"
     },
@@ -1157,7 +1161,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, then some of your double jeopardy considerations then apply even to a bench trial, I am thinking of the opening statement, stress and anxiety and the possible impression upon the trier of the fact?",
       "time": "00:43:06.97"
     },
@@ -1169,7 +1173,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would not all of those considerations kind of exempt the rule that jeopardy attaches before the first witness is sworn?",
       "time": "00:43:29.31"
     },
@@ -1181,7 +1185,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I am just not following you in trying to draw the distinction between the two?",
       "time": "00:43:46.64"
     },
@@ -1193,7 +1197,7 @@
     },
     {
       "turn": 192,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Go ahead and respond, we will extend your time two minutes.",
       "time": "00:43:59.20"
     },
@@ -1205,7 +1209,7 @@
     },
     {
       "turn": 194,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Or damaging statements made during the jury selection process unless you have a trial judge who is going to protect the case are beyond the reach of --",
       "time": "00:44:47.86"
     },
@@ -1217,7 +1221,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How about pretrial publicity that occurs a month before the case is set for trial? That can have some influence on the jurors. Surely you would not argue that jeopardy attaches a month before the case is set for trial?",
       "time": "00:45:22.50"
     },
@@ -1229,7 +1233,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "In this case, in the opening statement had not been there, had it?",
       "time": "00:45:50.48"
     },
@@ -1241,7 +1245,7 @@
     },
     {
       "turn": 200,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "By the counsel for defendant, made immediately after the swearing of the jury, as I understand it?",
       "time": "00:45:57.21"
     },
@@ -1253,7 +1257,7 @@
     },
     {
       "turn": 202,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Moses?",
       "time": "00:46:13.59"
     },
@@ -1265,7 +1269,7 @@
     },
     {
       "turn": 204,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "I thought all statutes were presumed constitutional, counsel?",
       "time": "00:48:46.13"
     },
@@ -1277,7 +1281,7 @@
     },
     {
       "turn": 206,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well certainly, no one suggests it is a conclusive presumption. 180 years of decision of this Court show otherwise, but you are talking about who the burden of proof should be on as to unconstitutionality?",
       "time": "00:49:31.12"
     },
@@ -1289,7 +1293,7 @@
     },
     {
       "turn": 208,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you have to -- I would think if you are going to depart from the constitution no showing would justify it.",
       "time": "00:50:05.34"
     },
@@ -1301,7 +1305,7 @@
     },
     {
       "turn": 210,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Moses from that point of the preemptory challenge to the entire panel which concerned me before, under Montana Law does the prosecutor have a right to have the prosecution dismissed after the jury is sworn, but before the first witness is sworn or is it subject to permission by the Trial Court?",
       "time": "00:52:37.54"
     },
@@ -1313,7 +1317,7 @@
     },
     {
       "turn": 212,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, then his argument, and I did mention your response to that, his argument is that if you have a prosecutor who seeks to manipulate by dismissing the panel, he can do it equally before the swearing and then equally as well before the jury is sworn as immediately thereafter.",
       "time": "00:53:01.29"
     },
@@ -1325,7 +1329,7 @@
     },
     {
       "turn": 214,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I suppose the countervailing consideration, I am just trying to think it through is that before you really start questioning witnesses and the like, you do need a point in the procedure, proceedings where there is kind of a cleanup of all outstanding motions and odds and ends before, whereas which might have involve a dismissal or retrial or change in the date of indictment or something like that and is not there some sense to saying that an orderly procedure would have that come right before you put the witness on or before you make your opening statements rather than right in the midst of the jury selection processes and before the jury. Just in terms of an orderly way to get the trial going is not there something that favor his argument here?",
       "time": "00:53:36.58"
     },
@@ -1337,7 +1341,7 @@
     },
     {
       "turn": 216,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "But is it not true that in this case they waited until after the jury was sworn before they presented some motion which the judge regarded as timely?",
       "time": "00:54:35.18"
     },
@@ -1349,7 +1353,7 @@
     },
     {
       "turn": 218,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Mr. Moses, may I interrupt a minute. Did you make this motion before the jury had been sworn? Did you make the motion to restrict the States evidence?",
       "time": "00:55:50.03"
     },
@@ -1361,7 +1365,7 @@
     },
     {
       "turn": 220,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Could you have made it under Montana Law prior to the swearing of the jury?",
       "time": "00:56:03.80"
     },
@@ -1373,7 +1377,7 @@
     },
     {
       "turn": 222,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is there anything in Montana law that would have prevented you making it?",
       "time": "00:56:12.92"
     },
@@ -1385,7 +1389,7 @@
     },
     {
       "turn": 224,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The information was defective because of this typographical error on its face?",
       "time": "00:56:26.32"
     },
@@ -1397,7 +1401,7 @@
     },
     {
       "turn": 226,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What was your motion then?",
       "time": "00:56:32.20"
     },
@@ -1409,7 +1413,7 @@
     },
     {
       "turn": 228,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the jury had been sworn?",
       "time": "00:56:47.19"
     },
@@ -1421,7 +1425,7 @@
     },
     {
       "turn": 230,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "But the motion that precipitated the controversy that is here today was to restrict evidence to the dates in the information as I understand it --",
       "time": "00:57:42.87"
     },
@@ -1433,7 +1437,7 @@
     },
     {
       "turn": 232,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The effect of your motion was to bring about a dismissal of the information?",
       "time": "00:58:26.34"
     },
@@ -1445,7 +1449,7 @@
     },
     {
       "turn": 234,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Yes, in practical effect your motion was to dismiss because the state had no evidence of the offense that was charged?",
       "time": "00:58:33.74"
     },
@@ -1457,7 +1461,7 @@
     },
     {
       "turn": 236,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Is your motion in the appendix, I do not recall? I do not think it is in --",
       "time": "00:59:10.72"
     },
@@ -1469,7 +1473,7 @@
     },
     {
       "turn": 238,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you Mr. Moses. Mr. Keller before you begin. Let me put this question for you, relating to some questions I put earlier. After the swearing of the jury, in Montana and I take it the prosecutor is permitted to make the first opening statement, if he elects to do so, is that correct?",
       "time": "01:01:15.74"
     },
@@ -1481,7 +1485,7 @@
     },
     {
       "turn": 240,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "I am addressing myself now to the possible damage or injury to the defendant that can occur from the opening statement. If an opening statement is let us assume one that is outrageously bad and misrepresentation by the prosecutor. Of course the prosecutor is not going to move for a mistrial on that ground, but the defense might do so and I suppose under Montana procedure and practice, if the opening statements have been excessively bad, the Court could grant that motion?",
       "time": "01:01:48.95"
     },
@@ -1493,7 +1497,7 @@
     },
     {
       "turn": 242,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Then there would be no double jeopardy problem?",
       "time": "01:02:27.38"
     },
@@ -1505,7 +1509,7 @@
     },
     {
       "turn": 244,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, if (Voice Overlap) that motion at the request of the defendant, the defendant would be in rather a difficult position to raise --",
       "time": "01:02:35.02"
     },
@@ -1517,7 +1521,7 @@
     },
     {
       "turn": 246,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Presumably if the Court granted a mistrial of its own motion, a double jeopardy question could well be preserved. It would be much less likely if the defendant moved for it and of course we could assume that the prosecution is not going to move for it?",
       "time": "01:03:11.54"
     },
@@ -1529,7 +1533,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Unless a senior officer happened to walk in the courtroom and wanted to avoid the problem, well, go ahead.",
       "time": "01:03:30.00"
     },
@@ -1541,7 +1545,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you gentlemen. You have all been most helpful. The case is submitted.",
       "time": "01:07:12.74"
     }

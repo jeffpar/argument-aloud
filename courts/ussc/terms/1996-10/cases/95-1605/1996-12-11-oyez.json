@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1996/95-1605/19961211a_95-1605.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
       },
       {
         "name": "MIGUEL A. ESTRADA",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "EDWARD O. BUSTAMANTE",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument now in Number 95-1605, United States v. Miguel Gonzalez. Mr. Estrada.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Estrada, do you take the position that section 924(c) requires the separate sentence given for that violation to run before any other sentence, or could it be required after any other sentence? Just, what the statute refers to is running sentences concurrently, so is it okay to order its service after the expiration of a State court penalty?",
       "time": "00:01:14.29"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And you don't take the position that it has to always be first?",
       "time": "00:02:00.32"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Right. Okay.",
       "time": "00:02:09.80"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Do the States have to go along with that? I suppose this can get very complicated as to which is first. In the... Number 1, can the Bureau of Prisons tell the States when their sentence is going to run in relation to the Federal sentence?",
       "time": "00:03:28.58"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Or is there some control on that discretion?",
       "time": "00:03:42.60"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "My question was, does the Bureau of Prisons have discretion to say in a particular case to the State, we're going to allow all the Federal sentences to run first, and then you can do whatever you want, or, we're going to require that part of our sentence be served, then part of your sentence served, then the remaining part of ours, or can... is there... does... is there some supremacy principle where the Federal Government can direct this if the States object?",
       "time": "00:04:00.73"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Estrada, I can agree with your... with the Government's position that the statute as written does not compel the States to make their sentences nonconcurrent, but why is it not the case that, after you've had the Federal sentence imposed and then a State sentence is imposed and the State says, well, we're not bound by this Federal statute, we will have this run concurrently with the Federal sentence, why does not the Federal sentence at that point become in violation of the statute, because it is now a sentence that is being served concurrently with another sentence.",
       "time": "00:04:59.79"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then everything's going to turn on whose sentence is first. That's right.",
       "time": "00:06:44.13"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Then everything... then the result is simply going to turn on whose sentence is first. If they do a State sentence first, then, in effect, you get the policy carried out when the Federal sentencing follows it. If the Feds sentence first, in effect the State can negate the policy by saying everything we impose is going to run concurrent, including the premium, yes.",
       "time": "00:06:46.19"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So I guess you would say that the State could... let's... it imposes its sentence first. The Federal sentence comes up second, and the sentencing judge says, well, this cannot run concurrent, so it will be consecutive, and then he goes back to the State court and says, in light of, you know, what the Feds have done, please make my State sentence run concurrent with the Federal sentence, and the State says, that's fine.",
       "time": "00:07:58.15"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So the State could in effect frustrate this by--",
       "time": "00:08:20.14"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--By State law it would be all right.",
       "time": "00:08:24.82"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Mr. Estrada, that's certainly a reasonable interpretation, but it's not what the statute says. Do you think... you say that's a literal reading, or are you just making a very sensible construction of the statute?",
       "time": "00:09:06.38"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Because it says... it's a flat prohibition, as Justice Scalia pointed out.",
       "time": "00:09:18.75"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "That it should be read that way.",
       "time": "00:09:30.89"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It doesn't say that. If it said, nor shall a concurrent sentence be imposed... it uses... almost goes out of its way to use different language. It says, nor shall the term of imprisonment imposed under this subsection run concurrently with any other term of imprisonment, and so as soon as the State decides later to have a concurrent State sentence, this term, the term imposed under this section, will begin to run concurrently with the State sentence. I mean, literally, it--",
       "time": "00:10:07.98"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "--Before you go to the second, and I want you to get there, what is it earlier in the statute that's inconsistent with that sentence? That's what I didn't quite follow.",
       "time": "00:10:53.64"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes, but that doesn't cut any ice, because this last sentence clearly contemplates, not concurrent with State or Federal sentences.",
       "time": "00:11:12.10"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Right.",
       "time": "00:11:23.67"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, and then the first part of the sentence it says, we're just talking about a sentence for Federal crimes. That doesn't undermine the literal reading of the last sentence.",
       "time": "00:11:26.61"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You have another point, I know, yes.",
       "time": "00:11:36.95"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "He keeps thinking of more as we-- [Laughter] Yes.",
       "time": "00:11:41.74"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you-- --I say, you keep thinking of more points as-- --No, he had a second point based on the language of the statute--",
       "time": "00:11:45.11"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--that preceded it.",
       "time": "00:11:50.49"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes.",
       "time": "00:11:52.00"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, and--",
       "time": "00:12:14.63"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--I mean, anyway, most sentencing statutes are phrased in the passive voice or refer to the defendant. They don't say, the judge shall do this.",
       "time": "00:12:17.21"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "And so I take it your point is, like all other sentencing statutes this is meant to talk about the obligation of the judge.",
       "time": "00:12:26.60"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But this one is phrased that way. But that cuts the other way because the first part of the sentence talks about what the court may do-- --In the active voice. --and then the second part is broader. Just one at a time. Yes... right. Give him a chance.",
       "time": "00:12:32.74"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What principle says that you must infer a subject for a sentence in the passive voice?",
       "time": "00:13:05.33"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Is that a principle of grammar, or something? If it's in the passive voice it simply means the term of imprisonment imposed shall not run concurrently.",
       "time": "00:13:12.30"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You don't need a subject for it.",
       "time": "00:13:20.19"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You still have the second point. The first point, you're assuming that the words, the term of imprisonment, are not the subject, aren't you?",
       "time": "00:14:12.79"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:14:19.49"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Some grammarians might disagree.",
       "time": "00:14:22.80"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "It seems to me that your argument here is really being generous to the defendant. Even if you conceded the point that Justice Stevens and I have been pressing, you would not have to concede the point that therefore the statute does... therefore the statute does not take into account State sentences. All you would have to concede is that the Federal... or that the statute controls State courts. All you would have to concede is that the statute continues to control only Federal sentencing, but when the Federal sentencing has been made by a State courts action to run concurrently with the State sentence, the Federal sentence must be altered to be... you know, to run sequentially, or, in other words, the sentence that's imposed has to be conditional.",
       "time": "00:15:27.00"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Estrada, do you know of any Federal criminal sentencing statute that controls State courts without saying so? To affect the State's criminal process one would expect Congress at least to speak with a clear voice that it is attempting to control what the State does.",
       "time": "00:16:26.18"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Estrada, can I clarify one thing about this case? What was the State prosecution for? It wasn't brought under 18 U.S. Code 924 (c).",
       "time": "00:18:04.34"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the State had already imposed a sentence for that crime?",
       "time": "00:18:18.68"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Before the Federal court--",
       "time": "00:18:23.47"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--tried the defendant for this.",
       "time": "00:18:26.04"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It had already occurred--",
       "time": "00:18:27.79"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--and in fact all the Federal Court of Appeals decisions dealing with this situation as I understand it have involved sentences by State courts that had already been imposed before the succeeding Federal prosecution under 924(c).",
       "time": "00:18:29.63"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes, and so you're saying, in that circumstance, which was also the circumstance here, that the Federal court is governed in its sentencing and must make it run at least consecutively--",
       "time": "00:18:49.88"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--to the State sentence.",
       "time": "00:19:01.26"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:19:07.10"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:19:09.56"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes. I guess on that the hardest point is that the State sentence involved an additional year actually served as a mandatory additional year under State law for the very possession of the firearm that is also the subject of the extra 5 years under Federal law, and I suppose that, if you apply the extra 5 years under Federal law into Federal cases, that will never arise. It would never happen that the extra 5 years would be imposed consecutively to an additional sentence that had as its base solely the possession of that very gun--",
       "time": "00:19:10.71"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--but it could happen in this case under State law.",
       "time": "00:19:53.57"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Oh, I know... under a statute, how could it happen, because the only provision that poses an extra 5 years mandatory for possession of a gun during a crime of violence is this very statute, isn't it?",
       "time": "00:19:58.68"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So you think that this statute means when a person is accused of that crime through violence... let's say it's an armed bank robbery with a gun... he gets 10 extra years for the gun?",
       "time": "00:20:36.34"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Including the firearm. Not may, but must, you mean?",
       "time": "00:21:23.25"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Thank you.",
       "time": "00:21:47.18"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I didn't understand that that included the extra gun enhancement part, but it does. I see what you're saying.",
       "time": "00:22:07.70"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Mr. Estrada, you answered some of the questions from Justice Scalia or Justice Stevens about the scope of the nor shall clause by saying it occurs in a sentence which is addressed to Federal sentences, and that provides the context. Why should we confine our contextual reference to sentences? Why don't we approach this case with a... sort of a section-based contextualism, and the principle address of the section, I suppose, is to Federal sentencing and the relationships of Federal sentences, so if we're going to look at context, why don't we look at it more broadly than you would and find that a reason not to apply the any sentence reference to State sentences?",
       "time": "00:22:22.00"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but your--",
       "time": "00:23:51.93"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Oh, I grant you that, but I thought your answer to the question about the nor shall clause was not that it could not be addressed or effectively be enforced against a State court. That's a separate issue. We'll leave that aside. Your answer was in the context we can infer that it's not being addressed, and don't we have sort of no more or less ambiguity when we get to the reference to any sentence being served?",
       "time": "00:23:59.14"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, that gives that--",
       "time": "00:24:50.87"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Well, I think your answer is a fair answer, but I guess I have one follow-up question to it, and that is, if there is any question about whether your answer is sort of dispositive, isn't it fair to look to the point that was brought out earlier, and that is that on your theory there's sort of a game of chance going on, because if the... in this case, for example, if the State sentence had not been imposed first, the result would be different here, and rather than allow this statute to be administered in a way that is going to turn it into a game of chance, which sentence... depending on which sentencer gets there first, why isn't it more reasonable to interpret it the way the respondents claim?",
       "time": "00:25:41.36"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Estrada, is... before you... is consecutivity a word?",
       "time": "00:27:10.58"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Very well, Mr. Estrada. Mr. Bustamante. Am I pronouncing your last name correctly?",
       "time": "00:27:32.83"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Bustamante. Thank you.",
       "time": "00:27:39.29"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Bustamante, the Tenth Circuit in its opinion relied on the case of the Church of Holy Trinity v. The United States, which to me has always meant we're going to legislate a little. It means that you can't really get the meaning you want out of the statute. Do you think the court of appeals went that far here, or do you think its interpretation is absolutely defensible just as the statute is written?",
       "time": "00:28:17.67"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Bustamante, what is your response to Mr. Estrada's point about 3584(a)? I mean, I understand that your only concern is your client, but if we agree with you in this case with regard to defendants in general we would be doing them more harm than good, because if this provision doesn't apply to State sentences, I don't see how you can distinguish 3584(a), which also would not apply to State sentences, which would mean that a Federal court could not make a Federal sentence concurrent with a State sentence.",
       "time": "00:29:00.95"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Oh, you just lost me. Do you have anything about the text that would distinguish the two?",
       "time": "00:29:44.75"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But the Government would not take that discretion away from State courts.",
       "time": "00:30:27.02"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "What's the odd result? The court of appeals said that if you took concurrently to mean concurrently, it would produce an odd result.",
       "time": "00:30:36.99"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "It's true of the Federal, too. If... I mean, you could split the Federal trial, too.",
       "time": "00:31:10.18"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "I mean, I thought the odd result was what I said before, and he explained no, that's not an odd result, the same thing's true federally, and so I'm sort of stuck now. So I asked you, what's the odd result?",
       "time": "00:31:17.51"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Excuse me, that this does not... I didn't under--",
       "time": "00:31:56.51"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Shall not run concurrent to any sentence.",
       "time": "00:32:03.86"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that really is quite consistent with the Government's oral presentation here, that the section speaks to Federal sentencing judges and Federal proceedings. It doesn't purport to speak to State court judges.",
       "time": "00:32:20.14"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "That doesn't... isn't odd particularly, because all kinds of things can depend on that, whether... if you're... you know, if the State court convicts somebody first, then they have a conviction on the record. When they have a conviction on the record their sentence is bumped up because of the guidelines, and if that trial hasn't take place yet, it isn't. I mean, lots of things turn on timing. Now, is that--",
       "time": "00:32:42.17"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--Fine.",
       "time": "00:33:26.81"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Fine. So what's wrong? I mean--",
       "time": "00:33:27.83"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Isn't that what you could do here? Isn't that your remedy, then? As you say, Mr. Estrada has said this is a rule of sentencing for Federal judges only, and he recognized that if the order had come up with the State court second the State court could do what it will.",
       "time": "00:33:31.95"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, another way to eliminate all the chance, and the Government generously has not asserted this, but it would be quite possible to interpret this to speak only of the Federal courts, but to allow the Federal... to require the Federal sentences to be made consecutive whenever a State court says that the State sentence shall run concurrently. And I guess you could have games being played back and forth, and the State court revises its sentence and the Federal court revises its sentence, but you could eliminate all of that inconsistency by simply saying if a State court after the Federal sentence imposes a concurrent State sentence, the Federal sentence, pursuant to the precise language of this, the term of imprisonment imposed shall not run concurrently with that State sentence, so it thereupon becomes consecutive.",
       "time": "00:34:00.62"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You wouldn't want that.",
       "time": "00:34:49.54"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But it doesn't preempt State law, because you just, I think, recognized that you could go back to State court and say, based on something that happened after, and based on the way the Government, U.S. Government reads this statute, the ball ends up in your court, State, and your law isn't being preempted. You favor concurrency, so reduce the sentence.",
       "time": "00:35:22.85"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But that's not the position that Mr. Estrada says that the Government... that's not how the Government is reading this Federal statute, so maybe you're... you've come to the wrong court for the remedy you're seeking.",
       "time": "00:35:59.70"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where do we find 3584(a), which you... that's the one you just referred to, I believe.",
       "time": "00:37:18.11"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where is that set out?",
       "time": "00:37:25.59"
     },
@@ -1043,7 +1043,7 @@
     },
     {
       "turn": 167,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Where is that set out?",
       "time": "00:37:27.50"
     },
@@ -1055,7 +1055,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Page 4 of the Government's reply brief, footnote 2. Thank you.",
       "time": "00:37:30.79"
     },
@@ -1067,7 +1067,7 @@
     },
     {
       "turn": 171,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "38... 3584(a), which you're... says a sentence may be made to run either concurrently or consecutively, and then 924(c) says that in certain circumstances it shall not be made to run concurrently, so you can construe those sections consistently, can you not?",
       "time": "00:38:50.06"
     },
@@ -1079,7 +1079,7 @@
     },
     {
       "turn": 173,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But one rule says... and I take it 3854, whatever the 30 one is, is a general principle of sentencing. It can run either concurrently or consecutively. Then you have a far more specific one in section 924. It says, shall not run concurrently. I don't see how there's necessarily any inconsistency between those.",
       "time": "00:39:23.76"
     },
@@ -1091,7 +1091,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I just be sure I understand one of your points? Do you think 3584(a) applies only to Federal sentences also?",
       "time": "00:39:52.82"
     },
@@ -1103,7 +1103,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How does that differ from 3146(b)(2), in... the bail-jumping statute says shall be consecutive.",
       "time": "00:40:45.51"
     },
@@ -1115,7 +1115,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But if the guideline didn't take that position it wouldn't matter, because the statute says shall be consecutive. The guideline couldn't take a position inconsistent with the statute.",
       "time": "00:41:16.15"
     },
@@ -1127,7 +1127,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Could you go back, please, to the Chief Justice's question, because I didn't understand either what the inconsistency is supposed to be if we assume that both statutes apply to the State. I mean, assume that 9... that... I thought the question was, if 3584(a) applies both to State and Federal sentences, which I agree with you, I think it does, and then if the section before us also applies to both State and Federal, as the Government but not you argues, I thought you were saying that that would produce an inconsistency, but I didn't understand the inconsistency so I thought I'd ask you so you could explain.",
       "time": "00:41:42.02"
     },
@@ -1139,7 +1139,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, the fact that it's much more specific is what is hurting you here, because I think you may be right that there is an incompatibility between 3584(a) and the section at issue here. 3584(a) says that the terms may run concurrently or consecutively, and 924(c) says that they may not run concurrently, that they must run consecutively.",
       "time": "00:42:50.51"
     },
@@ -1151,7 +1151,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "So there is an inconsistency but, as you say, the more specific statute is 924(c)--",
       "time": "00:43:16.84"
     },
@@ -1163,7 +1163,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--and the rule is you apply the more specific one, don't you?",
       "time": "00:43:22.04"
     },
@@ -1175,7 +1175,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "No, I understand that, but it doesn't seem to me that you can argue that this must apply only to Federal sentences and not to State sentences somehow on the basis that there would otherwise be inconsistency between those two. There's... and in fact, there's going to be inconsistency whether you apply it Federal or State, isn't there? I mean, that's a xx--",
       "time": "00:43:44.70"
     },
@@ -1187,7 +1187,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Section 5... I... what's the section 5 you're referring to?",
       "time": "00:45:29.39"
     },
@@ -1199,7 +1199,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Okay, Sentence 5. I thought you said section 5.",
       "time": "00:45:36.57"
     },
@@ -1211,7 +1211,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Gotcha.",
       "time": "00:45:42.92"
     },
@@ -1223,7 +1223,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, I don't really see how it does affect State law under the Government's argument. Indeed, I suppose there are many situations where there's a Federal offense, not 924 involved, but some Federal offense, and some State court... some State law will mandate that any State sentence for a State offense based on similar conduct has to run consecutively, or not concurrently. I mean, you could have it in reverse, and I don't see that these schemes prohibit that, these Federal laws. We face that often, don't we?",
       "time": "00:48:59.18"
     },
@@ -1235,7 +1235,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "So that a State itself might be in the position of, look, your Federal requirements are what they are, but we're going to make our sentence anyway not serve concurrently with the Federal.",
       "time": "00:49:41.75"
     },
@@ -1247,7 +1247,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And the Federal Government says, and vice versa, the Federal Government, the Congress can pass a law making some particular sentence for a particular Federal crime not serve concurrently, and their argument is that Congress has done here, so it seems to me just the opposite side of the same coin.",
       "time": "00:50:03.60"
     },
@@ -1259,7 +1259,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "No, no. Maybe you misunderstood my question. I wasn't proposing that the Federal Government was here telling the State what to do. They're not, and that's not the Government's position.",
       "time": "00:50:31.79"
     },
@@ -1271,7 +1271,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, it certainly isn't their position as I've heard it explained today.",
       "time": "00:50:52.30"
     },
@@ -1283,7 +1283,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I heard Mr. Estrada say the State could do that.",
       "time": "00:51:08.56"
     },
@@ -1295,7 +1295,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It's not ambiguous if you say it only applies... 924(c) applies to sentences imposed by Federal courts. That's not ambiguous, is it?",
       "time": "00:51:23.24"
     },
@@ -1307,7 +1307,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "The Government isn't here saying that these statutes affect the State sentence. It's saying it affects the Federal court sentence.",
       "time": "00:51:58.56"
     },
@@ -1319,7 +1319,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You mean that one sentence in some committee report?",
       "time": "00:52:32.61"
     },
@@ -1331,7 +1331,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I... this Court has never felt that it was bound by that kind of a--",
       "time": "00:52:37.41"
     },
@@ -1343,7 +1343,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--little snippet from a legislative committee report.",
       "time": "00:52:42.27"
     },
@@ -1355,7 +1355,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Why? I didn't think 924(c) applied to anything but the offense described in 924.",
       "time": "00:53:12.34"
     },
@@ -1367,7 +1367,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So in this circumstance we'd simply have to say, look, that committee report doesn't govern this circumstance, that the judge is perfectly free to let the rest of the sentence run concurrently with the State, but he isn't free to let this part run with the State because this part says it's supposed to run consecutively with any preceding sentence. Would that work?",
       "time": "00:53:37.51"
     },
@@ -1379,7 +1379,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, just run it... if he doesn't want to, say run the 920... run the substantive Federal crime other than the 924(c) consecutively with the State crime. Do that, and then when they're finished that, run this 5 years. That would seem... I mean, I'm looking for a flaw in that. That would seem to solve the problem that you raised.",
       "time": "00:54:19.57"
     },
@@ -1391,7 +1391,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "The supervised release would have to take... they'd have to split the supervised release from the first part, that's true.",
       "time": "00:55:04.45"
     },
@@ -1403,7 +1403,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I guess you could do that. Why couldn't you... would that require a departure? I'm not sure.",
       "time": "00:55:09.80"
     },
@@ -1415,7 +1415,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "No, no, I agree with that, absolutely. What you'd have to do is the other stuff comes first, consecutively, then the 5 years, then supervised release insofar as it's appropriate.",
       "time": "00:55:24.10"
     },
@@ -1427,7 +1427,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "But I think that would work. I can't think of anything that stands in the way of that, off-hand.",
       "time": "00:55:32.64"
     },
@@ -1439,7 +1439,7 @@
     },
     {
       "turn": 233,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Bustamante. Mr. Estrada, you have a minute remaining.",
       "time": "00:55:45.37"
     },
@@ -1451,7 +1451,7 @@
     },
     {
       "turn": 235,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "The case is submitted.",
       "time": "00:55:54.44"
     }

@@ -3,51 +3,51 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1959/389/19600302a_389_part2.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "POTTER STEWART",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "FELIX FRANKFURTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "CHARLES E. WHITTAKER",
+        "title": "JUSTICE"
       },
       {
         "name": "EDGAR E. BARTON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE STEWART",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FRANKFURTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "PHILIP ELMAN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE WHITTAKER",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "-- you may proceed.",
       "time": "00:00:00.00"
     },
@@ -59,7 +59,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is all the beer actually brewed in St Louis, or do you have breweries around country?",
       "time": "00:02:23.53"
     },
@@ -71,7 +71,7 @@
     },
     {
       "turn": 5,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "Where is that order found?",
       "time": "00:05:49.27"
     },
@@ -83,7 +83,7 @@
     },
     {
       "turn": 7,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "2849 the same words there is where the reference is made.",
       "time": "00:05:56.49"
     },
@@ -95,7 +95,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Is that the only issue before us?",
       "time": "00:12:19.88"
     },
@@ -107,7 +107,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "(Voice overlap)",
       "time": "00:12:22.39"
     },
@@ -119,7 +119,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But on that the Government disagrees with you I think.",
       "time": "00:12:40.46"
     },
@@ -131,7 +131,7 @@
     },
     {
       "turn": 15,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you mean we should decide all of those questions that were left undecided?",
       "time": "00:12:50.19"
     },
@@ -143,7 +143,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How large is directed in this case, is it a very voluminous one?",
       "time": "00:13:01.44"
     },
@@ -155,7 +155,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No -- no I mean the unprinted record.",
       "time": "00:13:06.47"
     },
@@ -167,7 +167,7 @@
     },
     {
       "turn": 21,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I see.",
       "time": "00:13:15.02"
     },
@@ -179,7 +179,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Did I misunderstand the argument, I'm wondering, I -- I understood the argument to be that the statute defined its own invidiousness, that's what I thought he was arguing.",
       "time": "00:17:19.04"
     },
@@ -191,7 +191,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I thought difference but there -- there's some standard set out in there as I understood him to argue it.",
       "time": "00:17:44.67"
     },
@@ -203,7 +203,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That was justified by difference in cause, what about that?",
       "time": "00:18:01.86"
     },
@@ -215,7 +215,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well if it's a defense it would mean but -- whatever -- whatever attitude (Inaudible) the parties have to present it. It would show that all differences are not discrimination within the meaning of the statute.",
       "time": "00:18:11.93"
     },
@@ -227,7 +227,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would -- what would you say would have to be proven with invidiousness of --",
       "time": "00:19:08.80"
     },
@@ -239,7 +239,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Why do they have to be below cost?",
       "time": "00:19:39.80"
     },
@@ -251,7 +251,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I thought it was to protect the purchaser from different prices, am I wrong in that?",
       "time": "00:19:51.71"
     },
@@ -263,7 +263,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Now if I understand your argument on the territories, I don't know whether I'm part of that yesterday.",
       "time": "00:20:48.35"
     },
@@ -275,7 +275,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I can't say what part it is. As I understand it if you say that this company or any other that does a national business is free under this Act, may be he is, fixed prices differently in each city in the country if he wants to do so without violating the Act so long as it's not something invidious or some evil purpose connected with it?",
       "time": "00:20:53.48"
     },
@@ -287,7 +287,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's rather --",
       "time": "00:21:16.67"
     },
@@ -299,7 +299,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "Doesn't the -- doesn't the Commission concede that?",
       "time": "00:21:19.24"
     },
@@ -311,7 +311,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Could the Federal Trade Commission make an explicit finding that the price was lowered not below cost but was lowered so drastically in order to bludgeon or refuse the word to bludgeon a rival competitor out of existence?",
       "time": "00:21:45.77"
     },
@@ -323,7 +323,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I understood -- I may have misunderstood, but I understood the word bludgeon wasn't used, more delicate language was used but is -- wasn't it – isn't that government's case?",
       "time": "00:22:08.53"
     },
@@ -335,7 +335,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I am not saying that there was because that involves your colloquy with the Chief Justice as to what findings were incorporated in the Commission's determination.",
       "time": "00:22:31.29"
     },
@@ -347,7 +347,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But I just wondered as to whether you would agree that there could be discrimination in the center of price lowering which is not so obviously, say what you call unfair namely that it's -- it doesn't even cover the out-of-pocket expenses, you would agree to that?",
       "time": "00:22:41.73"
     },
@@ -359,7 +359,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "And that rests on -- on facts?",
       "time": "00:23:03.02"
     },
@@ -371,7 +371,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "But your argument really is that this Court hasn't before it the finding or determination by the Federal Trade Commission that this was punitive move by Anjeuser-Busch.",
       "time": "00:24:37.83"
     },
@@ -383,7 +383,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "That's a -- that's not a legal question, that's -- that's reading the record and finding out what really is before us?",
       "time": "00:24:50.94"
     },
@@ -395,7 +395,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I didn't say that isn't illegal. That's also illegal.",
       "time": "00:25:00.83"
     },
@@ -407,7 +407,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "As I -- as I've followed the -- the Governmental view correctly I judge that you are substantive and in agreement but on a very narrow decision here in the Court of Appeals, Court of Appeals was wrong and --",
       "time": "00:25:03.93"
     },
@@ -419,7 +419,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- not the question what not to favor long and decided in your favor by all those grounds but then that the real issue is whether this discrimination that he finds had the invidious purpose that was attributed to it by the Commission. It -- isn't the real controversy here?",
       "time": "00:25:20.86"
     },
@@ -431,7 +431,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "But just to follow up --",
       "time": "00:27:01.91"
     },
@@ -443,7 +443,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- my question --",
       "time": "00:27:03.79"
     },
@@ -455,7 +455,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "-- with you. If there were a case on all force with this plus the clear cut admitted finding that the reduction in -- in St. Louis or the pertinent question was made for the purpose of using against it as a club over that these competitors in other markets, would you concede that would be covered by 2 (a)?",
       "time": "00:27:04.52"
     },
@@ -467,7 +467,7 @@
     },
     {
       "turn": 71,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What more could you prove?",
       "time": "00:27:45.27"
     },
@@ -479,7 +479,7 @@
     },
     {
       "turn": 73,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What more would you have to prove --",
       "time": "00:27:47.53"
     },
@@ -491,7 +491,7 @@
     },
     {
       "turn": 75,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "-- Justice Douglas puts to you? I don't understand why you say that wouldn't be a 2 (a) discrimination?",
       "time": "00:27:50.47"
     },
@@ -503,7 +503,7 @@
     },
     {
       "turn": 77,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "You'd have to assume that much.",
       "time": "00:28:00.82"
     },
@@ -515,7 +515,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But it's at least arguable.",
       "time": "00:28:04.48"
     },
@@ -527,7 +527,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "As a the matter of statutory construction if there has to be competition, there has to be differential -- differentiations made in price among competing purchasers or purchasers within a relationship to each other for this statute 2 (a) to be applicable.",
       "time": "00:28:06.65"
     },
@@ -539,7 +539,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Was cutting -- was cutting below the normal profit, whatever that is, I know that it specially is termed but cutting very, very below the normal profit which the cutter could well stand for long period but his rivals can't, could that be found, if not would it not be fairly be would that be found -- could that be found by the Commission to have punitive purpose?",
       "time": "00:34:08.50"
     },
@@ -551,7 +551,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Suppose it is below cost --",
       "time": "00:34:33.04"
     },
@@ -563,7 +563,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I understand that.",
       "time": "00:34:44.61"
     },
@@ -575,7 +575,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE STEWART",
+      "name": "POTTER STEWART",
       "text": "But is it at the fact here that their -- their actual profits were not from -- in St. Louis from the St. Louis business?",
       "time": "00:34:48.91"
     },
@@ -587,7 +587,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "Are you -- are you or have you argued, if so I missed it, but are you arguing that if the record should be interpreted to disclose those findings by the Commission that this is a punitive foray or punitive movement are you arguing that the -- that your evidence before the Commission did not warrant such argument?",
       "time": "00:36:04.80"
     },
@@ -599,7 +599,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I mean are you – (Inaudible)",
       "time": "00:36:28.85"
     },
@@ -611,7 +611,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "It's no use for them to argue about that.",
       "time": "00:36:30.50"
     },
@@ -623,7 +623,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "(Inaudible)",
       "time": "00:36:32.44"
     },
@@ -635,7 +635,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE FRANKFURTER",
+      "name": "FELIX FRANKFURTER",
       "text": "I -- I thought of it.",
       "time": "00:36:41.57"
     },
@@ -647,7 +647,7 @@
     },
     {
       "turn": 101,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Does the testimony Mr. Busch that -- that Mr. -- having read the -- reflect anything on that?",
       "time": "00:37:03.11"
     },
@@ -659,7 +659,7 @@
     },
     {
       "turn": 103,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I didn't think that was the statement he read. I thought the statement he read was to the effect that that if they had -- if they had raised their prices too, there wouldn't have been any reduction on the part of -- of AB.",
       "time": "00:37:56.17"
     },
@@ -671,7 +671,7 @@
     },
     {
       "turn": 105,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Am I wrong in that?",
       "time": "00:38:11.52"
     },
@@ -683,7 +683,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And I thought he said also that if that hadn't been -- hadn't been for the fact that they didn't raise their prices, then it wouldn't have been done.",
       "time": "00:38:22.81"
     },
@@ -695,7 +695,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Do you mean by that as a pattern of what he was saying in effect to us at the regional and the local rate made increases outside of St. Louis that normally and apparently had been the fact then that AB would not have suffered the loss of the markets outside of Saint Louis which made it necessary to indulge in this experiment in St. Louis?",
       "time": "00:38:44.48"
     },
@@ -707,7 +707,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But that's what the 2(a) does, isn't it? That it does --",
       "time": "00:42:15.48"
     },
@@ -719,7 +719,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- it does restrict competition.",
       "time": "00:42:21.98"
     },
@@ -731,7 +731,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What was the difference in price that they made among testimony of Saint Louis?",
       "time": "00:43:11.55"
     },
@@ -743,7 +743,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "So really it's a question of how far it reaches.",
       "time": "00:43:20.66"
     },
@@ -755,7 +755,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "(Inaudible)",
       "time": "00:43:43.37"
     },
@@ -767,7 +767,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Mr. Elman made the observation I think that throughout the hearing, the examiner tried to get from AB an answer the question why did you pick St. Louis? If you were suffering lost sales outside of Saint Louis when the regionals didn't go though when you went up why didn't go out to try your experiment somewhere else?",
       "time": "00:43:44.84"
     },
@@ -779,7 +779,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Well, that's what I wanted. What was the answer?",
       "time": "00:44:06.82"
     },
@@ -791,7 +791,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Whether that you -- you're arguing I suppose that the injury to competitors by the verdict is their business, this is not an injury to competition.",
       "time": "00:48:26.64"
     },
@@ -803,7 +803,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well If it takes their business -- if I read now the current posture that is I understand is that the basic charge the Commission made according to it's charge, and I think you've made the adjoining issue on it right there where they said it is charged, they said your step was so good and respondent discriminated in price between different purchasers (Inaudible) rate and quality with the effect among other things that the verdict substantial business from respondent to competitor to the respondent.",
       "time": "00:48:39.95"
     },
@@ -815,7 +815,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I'm sure that's not enough injury to competition.",
       "time": "00:49:17.02"
     },
@@ -827,7 +827,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "They are taking the position as I understand it that the change in or difference in price in anyone place it that it affects diversion of business from competitors of that place for national policy is a violation of 2 (a).",
       "time": "00:49:21.25"
     },
@@ -839,7 +839,7 @@
     },
     {
       "turn": 133,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Elman.",
       "time": "00:49:42.85"
     },
@@ -851,7 +851,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Go ahead and finish this afternoon.",
       "time": "00:54:01.77"
     },
@@ -863,7 +863,7 @@
     },
     {
       "turn": 137,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I would like to ask you one question just to clearing my mind (Inaudible). Suppose in California, Mississippi, and North Carolina, they were selling this beer at a low cost or at high prices as they were in St. Louis, your injury shown was nothing more as far as St. Louis is concerned than the diversion of business from Anheuser-Busch's competitors in St. Louis, is that the Government position that territorially speaking they have -- the price has to be the same in all those places?",
       "time": "00:55:53.46"
     },
@@ -875,7 +875,7 @@
     },
     {
       "turn": 139,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What is the -- what is the standard then --",
       "time": "00:56:58.18"
     },
@@ -887,7 +887,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "In St. Louis.",
       "time": "00:57:02.81"
     },
@@ -899,7 +899,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But those were -- there were -- what I want to get at is that so far as here when I read the -- in Commission's opinion at the beginning they -- what it is they charged, they indicate that diversion of business of Anheuser-Busch's competitors in St. Louis by reason of a price different, lower than -- than it is outside of St. Louis is enough to violate the Act.",
       "time": "00:57:56.34"
     },
@@ -911,7 +911,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I said that was the impression I said -- (Voice overlap)",
       "time": "00:58:32.01"
     },
@@ -923,7 +923,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Do you have -- do I understand you to say it has to be --",
       "time": "00:59:23.67"
     },
@@ -935,7 +935,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "-- predatory is that word or what is it? Does it have to be predatory or does is it have to be doing it to injure --",
       "time": "00:59:26.88"
     },
@@ -947,7 +947,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "(Voice Overlap) somebody as the word was used or hold the trouble with the head?",
       "time": "00:59:35.54"
     },
@@ -959,7 +959,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well that's struck to mean it's our --",
       "time": "01:00:43.65"
     },
@@ -971,7 +971,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "I understand that but I'm -- I'm trying to find out, do you say that there has to be some purpose shown to do evil or to injure competition?",
       "time": "01:00:46.34"
     },
@@ -983,7 +983,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "But -- but the finding does have to supported by evidence?",
       "time": "01:01:22.65"
     },
@@ -995,7 +995,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Now I would like to ask you if I may please just this, addressing my attention first to the competition between sellers, is it your position that because Anheuser-Busch reduced prices, but never too less than Falstaff and Griesedieck in the St Louis area, it's legally possible that a finding of discrimination is yet sustainable on the record.",
       "time": "01:01:34.62"
     },
@@ -1007,7 +1007,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Alright now then number two, is it your position that because Anheuser-Busch sells beer at $3.15 per case in Philadelphia, a thousand miles in North from St. Louis and at the same time sold it in St. Louis at $2.93 a case that there is a discrimination between purchasers which may tend to the lessen competition at either market?",
       "time": "01:02:09.75"
     },
@@ -1019,7 +1019,7 @@
     },
     {
       "turn": 163,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Well I -- as I understand the statute. It makes in one package a discrimination between purchasers unlawful where the effect is to substantially lessen competition or tend to create a monopoly. So --",
       "time": "01:03:26.09"
     },
@@ -1031,7 +1031,7 @@
     },
     {
       "turn": 165,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Yes I know it, but the discrimination is not simply because there is a difference unlawful unless it's in the case were the effect is the condemned one, isn't that true?",
       "time": "01:03:48.07"
     },
@@ -1043,13 +1043,13 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE WHITTAKER",
+      "name": "CHARLES E. WHITTAKER",
       "text": "Alright.",
       "time": "01:04:12.27"
     },
     {
       "turn": 168,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Elman before you sit down would you -- would you state the Government's position on whether this Court or the Court of Appeals should review this record to -- to determine the other issues that are involved?",
       "time": "01:04:13.12"
     },

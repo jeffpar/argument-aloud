@@ -3,59 +3,59 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1994/94-5707/19950328a_94-5707.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE REHNQUIST",
-        "role": "justice"
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "ANTONIN SCALIA",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ANTHONY M. KENNEDY",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "RUTH BADER GINSBURG",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "DAVID H. SOUTER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "STEPHEN G. BREYER",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "JOHN WESLEY HALL, JR.",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE SCALIA",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE KENNEDY",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE GINSBURG",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE SOUTER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BREYER",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "J. WINSTON BRYANT",
-        "role": "advocate"
+        "title": "MR."
       },
       {
         "name": "MICHAEL R. DREEBEN",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "UNKNOWN",
-        "role": "advocate"
+        "name": "UNKNOWN SPEAKER",
+        "title": ""
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "We'll hear argument next in Number 94-5707, Sharlene Wilson v. Arkansas. Mr. Hall--",
       "time": "00:00:00.00"
     },
@@ -67,7 +67,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well wait. As to the three who were totally innocent, they would have been subjected to a search that they didn't deserve even if there had been a knock-and-announce.",
       "time": "00:02:18.23"
     },
@@ -79,7 +79,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "They got a warrant based on something that the fourth occupant was doing, and the other three had to be subjected to that, so that doesn't really carry a whole lot of weight, it seems to me.",
       "time": "00:02:25.63"
     },
@@ -91,7 +91,7 @@
     },
     {
       "turn": 7,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did the three live in the home?",
       "time": "00:02:43.48"
     },
@@ -103,7 +103,7 @@
     },
     {
       "turn": 9,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did the others you're referring to live in the home?",
       "time": "00:02:49.96"
     },
@@ -115,7 +115,7 @@
     },
     {
       "turn": 11,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Then do you think they had the same rights as a dweller in the house?",
       "time": "00:02:52.37"
     },
@@ -127,7 +127,7 @@
     },
     {
       "turn": 13,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "That was an overnight guest, wasn't it?",
       "time": "00:03:01.96"
     },
@@ -139,7 +139,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well--",
       "time": "00:03:08.94"
     },
@@ -151,7 +151,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--I think you're making some generalizations that perhaps require a little more refinement than you're giving them. Surely your position doesn't depend upon the presence or the absence of other people who... persons other than are named in the warrant.",
       "time": "00:03:09.97"
     },
@@ -163,7 +163,7 @@
     },
     {
       "turn": 19,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Your position is exactly the same if your client were the only person in the house, isn't that correct?",
       "time": "00:03:23.32"
     },
@@ -175,7 +175,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Do you suppose the inevitable discovery doctrine is applicable in these situations, so that evidence, in any event, wouldn't be excluded. Go back to the empty house. You say the Constitution requires knock and announce, and if the police don't do it and the house is empty, but the drugs are there and they have a search warrant for the house, they go in, they get the drugs, the evidence would have to be excluded, or would the inevitable discovery doctrine--",
       "time": "00:04:09.21"
     },
@@ -187,7 +187,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--make it admissible?",
       "time": "00:04:41.12"
     },
@@ -199,7 +199,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, presumably it would be open to the Court if it had to go back.",
       "time": "00:04:50.96"
     },
@@ -211,7 +211,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:05:00.22"
     },
@@ -223,7 +223,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Yes.",
       "time": "00:05:06.25"
     },
@@ -235,7 +235,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Why... that is-- --What proof is needed? What proof is needed? What they found would have been found with a knock, unless, of course, it had been, you know, chucked down a commode, but that would be an unlawful act, to destroy evidence like that, wouldn't it? Are you saying that that's a valid exception to the inevitable discovery rule? It might not have been discovered because somebody would have performed a criminal act that would have prevented its discovery. You wouldn't use that as an excuse, surely.",
       "time": "00:05:26.88"
     },
@@ -247,7 +247,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, but that isn't the point. The point is whether it is a defense to the inevitable discovery rule.",
       "time": "00:06:02.81"
     },
@@ -259,7 +259,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't see how you... how the unlawful destruction of contraband, unlawful destruction could possibly be a defense to the inevitable discovery principle.",
       "time": "00:06:08.09"
     },
@@ -271,7 +271,7 @@
     },
     {
       "turn": 37,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But what's your position on the question? Is the destruction of evidence, or the potential thereof, an exception to the inevitable discovery rule were we to adopt one?",
       "time": "00:06:22.07"
     },
@@ -283,7 +283,7 @@
     },
     {
       "turn": 39,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Mr. Hall, does it make a difference that in this case the police went through a screen door that was closed but not locked? Would there be... is there a constitutionally relevant distinction between that and ramming the door open?",
       "time": "00:06:54.35"
     },
@@ -295,7 +295,7 @@
     },
     {
       "turn": 41,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, in this case, as entries go, this was rather mild, was it not? The screen door that was shut but not locked, the police as they entered said... identified themselves--",
       "time": "00:07:22.93"
     },
@@ -307,7 +307,7 @@
     },
     {
       "turn": 43,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--Your position is, I take it, that there is a general rule that the search is unreasonable, prima facie unreasonable, if they enter without knocking and announce, in the absence of some exceptions which are not before us. Is that in a nutshell--",
       "time": "00:07:59.93"
     },
@@ -319,7 +319,7 @@
     },
     {
       "turn": 45,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "--So that's why that covers this case. This case may be on the fringes if we did not have a general rule, but if we have a general rule, this case falls within it, and that's the end of the case.",
       "time": "00:08:15.82"
     },
@@ -331,7 +331,7 @@
     },
     {
       "turn": 47,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "How much difference is there between the knock-and-announce rule as a part of the Fourth Amendment with some exceptions to it, which I gather is your position, and the position taken by the Solicitor General that the knock-and-announce rule is a factor to be considered in determining overall reasonableness?",
       "time": "00:08:52.38"
     },
@@ -343,7 +343,7 @@
     },
     {
       "turn": 49,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, so what difference does it make, say, in a typical case if you apply one rule or the other?",
       "time": "00:09:22.52"
     },
@@ -355,7 +355,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Can I ask about that? This is just a technical question, but you've been talking about what was in the suppression hearing. I don't know... legally, does it matter if the evidence was in the suppression hearing or at the trial? That's one question. The other is, I have in my transcript here which... you know, in the record here, a lot of evidence on page 39 and so forth that's titled \"Suppression Hearing\". Isn't that the suppression hearing?",
       "time": "00:09:45.22"
     },
@@ -367,7 +367,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, there they say, you know, was she in the bathroom, say I didn't see weapons drawn, but he says, I went straight to the bathroom where Mrs. Wilson was. Why? Apparently she'd run to the bathroom. Now, we know she'd run to the bathroom to flush the drugs down the toilet, and so why would you have to... and you say in your brief that it's a common law exception, destruction of evidence, because you say possible destruction of evidence, so why isn't it right there in the suppression hearing that she ran to the bathroom to flush the... you know, you have to draw the inference she ran there to flush the drugs down the toilet.",
       "time": "00:10:12.27"
     },
@@ -379,7 +379,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well, what is the evidence where he says because she'd run to the bathroom? Why isn't that evidence?",
       "time": "00:10:48.02"
     },
@@ -391,7 +391,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "So?",
       "time": "00:11:01.15"
     },
@@ -403,7 +403,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Yes, well, why isn't all that evidence?",
       "time": "00:11:03.25"
     },
@@ -415,7 +415,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Right.",
       "time": "00:11:08.61"
     },
@@ -427,7 +427,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right. Okay, so it's evidence. There also... wasn't it introduced in the suppression hearing, the warrant itself, and wasn't there an affidavit attached to the warrant which said that she only a few days earlier had had a chrome-handled pistol that she had used to threaten with serious physical harm the confidential informant? Wasn't that in the suppression--",
       "time": "00:11:15.98"
     },
@@ -439,7 +439,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--And wouldn't that have been part of the evidence at the suppression hearing, because they must have introduced the warrant?",
       "time": "00:11:38.31"
     },
@@ -451,7 +451,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "All right, but I mean, was it... the question is... my question--",
       "time": "00:11:45.89"
     },
@@ -463,7 +463,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "--wasn't that there in the suppression hearing, and if it was, isn't that evidence of what you call peril?",
       "time": "00:11:48.59"
     },
@@ -475,7 +475,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Well then, why would we have to send this back?",
       "time": "00:11:54.74"
     },
@@ -487,7 +487,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, we can do it. We can do it, but I think our normal rule is that any judgment can be defended on any basis, whether we granted cert particularly on that or not, and--",
       "time": "00:12:13.89"
     },
@@ -499,7 +499,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--We need not allow it, but we certainly may allow it. And we say... the question presented is whether the knock-and-announce rule of the common law is constitutionally mandated under the Fourth Amendment. Now, if we were to conclude that the common rule law knock-and-announce rule is not constitutionally mandated under the Fourth Amendment, but that it is factor to be considered, then surely we can decide on these facts whether the factoring was done properly, if we choose to do so.",
       "time": "00:12:26.97"
     },
@@ -511,7 +511,7 @@
     },
     {
       "turn": 77,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Counsel, suppose the police don't have any knowledge that there was a gun in the possession of a drug dealer but he is a drug dealer, is it unreasonable for the police to assume that he probably has a gun?",
       "time": "00:13:14.73"
     },
@@ -523,7 +523,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm asking what the police officers can assume when they begin to make their arrest. Is it unreasonable for them to assume that the dealer might have a gun?",
       "time": "00:13:36.51"
     },
@@ -535,7 +535,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Is it unreasonable for the police to assume that in the case of easily disposable contraband that there is a strong probability, or a significant probability, that the contraband will be... that there will be an attempt to dispose of it by flushing it down the drain? Is that an unreasonable assumption?",
       "time": "00:13:59.38"
     },
@@ -547,7 +547,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you don't necessarily concede, do you, that destruction of the evidence is an adequate excuse for dispensing with knock-and-announce, or do you concede that?",
       "time": "00:14:55.45"
     },
@@ -559,7 +559,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I think we--",
       "time": "00:15:26.75"
     },
@@ -571,7 +571,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--I think we generally take these things crime by crime. I really don't think-- [Laughter]",
       "time": "00:15:29.25"
     },
@@ -583,7 +583,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I'm aware of no authority that requires the police to make a judgment as to whether or not there are some other crimes for which they might have evidence that would excuse them ignoring an ongoing crime. Well, and this was a search warrant, not an arrest warrant. I mean, that is a most improbable basis to ask us to base an opinion of this Court on.",
       "time": "00:15:37.01"
     },
@@ -595,7 +595,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "With respect to water, Mr. Hall, is the advent of the indoor toilet relevant to the Fourth Amendment analysis?",
       "time": "00:16:16.34"
     },
@@ -607,7 +607,7 @@
     },
     {
       "turn": 93,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "The disappearance of the indoor fireplace is a counterdevelopment-- [Laughter] --that may neutralize the whole thing, right?",
       "time": "00:16:35.62"
     },
@@ -619,7 +619,7 @@
     },
     {
       "turn": 95,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Let me ask you this. There was... you concede that the police did have a valid search warrant--",
       "time": "00:16:47.64"
     },
@@ -631,7 +631,7 @@
     },
     {
       "turn": 97,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--for the house. Did they have an arrest warrant as well--",
       "time": "00:16:56.44"
     },
@@ -643,7 +643,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "--Okay.",
       "time": "00:17:05.53"
     },
@@ -655,7 +655,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Now, if there is, indeed, an inevitable discovery doctrine that is applicable here, perhaps it isn't necessary that the case be remanded to determine what the risk of guns was, or anything of that kind, because presumably the evidence wouldn't be suppressed in any event if the inevitable discovery rule applies.",
       "time": "00:17:06.15"
     },
@@ -667,7 +667,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "There wouldn't be a factual determination to make, right?",
       "time": "00:17:33.70"
     },
@@ -679,7 +679,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But it's a pure legal question. It doesn't require further fact-finding to decide whether the inevitable discovery rule applies.",
       "time": "00:17:47.96"
     },
@@ -691,7 +691,7 @@
     },
     {
       "turn": 107,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Does Arkansas have an inevitable discovery rule?",
       "time": "00:17:57.47"
     },
@@ -703,7 +703,7 @@
     },
     {
       "turn": 109,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "I understand. Why did they adopt it reluctantly? Who made them do it?",
       "time": "00:18:22.90"
     },
@@ -715,7 +715,7 @@
     },
     {
       "turn": 111,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Oh.",
       "time": "00:18:29.09"
     },
@@ -727,7 +727,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How would it apply in Arkansas? Suppose the police came in in the middle of the night, they broke down the door, they were brutal to the inhabitants, but they did have a warrant, and it identified what they found. Would the inevitable discovery rule, as Arkansas has it, apply nonetheless?",
       "time": "00:18:29.98"
     },
@@ -739,7 +739,7 @@
     },
     {
       "turn": 115,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But doesn't that... under the inevitable discovery rule, isn't that all beside the point? They had a valid warrant. If they had been well-behaved, they could have gone in and found all those things. In fact, they wrecked the place, they were brutal--",
       "time": "00:18:58.90"
     },
@@ -751,7 +751,7 @@
     },
     {
       "turn": 117,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--How does the inevitable discovery rule work in those two different settings?",
       "time": "00:19:15.14"
     },
@@ -763,7 +763,7 @@
     },
     {
       "turn": 119,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Exclude the evidence that would have been found anyway, even if they had entered properly?",
       "time": "00:19:43.19"
     },
@@ -775,7 +775,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What if a State imposes an outrageous tax, I mean, you know, maybe an improper penalty for an outrageous collection of a tax as well? I mean, that also has nothing to do with whether the evidence would have been found or not.",
       "time": "00:19:51.10"
     },
@@ -787,7 +787,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I see. You're only going to punish them for those irrelevant things that occur in some proximity to the entry?",
       "time": "00:20:07.23"
     },
@@ -799,7 +799,7 @@
     },
     {
       "turn": 125,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, it's irrelevant to whether the drugs would have been found or not.",
       "time": "00:20:18.15"
     },
@@ -811,7 +811,7 @@
     },
     {
       "turn": 127,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, you have a lawsuit, don't you, under 1983? Presumably if the police are abusive, the victims have a valid civil lawsuit, do they not?",
       "time": "00:20:33.57"
     },
@@ -823,7 +823,7 @@
     },
     {
       "turn": 129,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Sure.",
       "time": "00:20:46.30"
     },
@@ -835,7 +835,7 @@
     },
     {
       "turn": 131,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But that's not the legal burden of proof.",
       "time": "00:21:06.43"
     },
@@ -847,7 +847,7 @@
     },
     {
       "turn": 133,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "You're just talking practicalities.",
       "time": "00:21:11.19"
     },
@@ -859,7 +859,7 @@
     },
     {
       "turn": 135,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what if in the course of a very rough search the authorities physically beat up on someone who was never then charged with anything? Does that mean that the people who are charged with something and for whom they had a warrant and stuff was found in the house, that they can rely on the beating up of a person who had... who was not charged?",
       "time": "00:22:04.72"
     },
@@ -871,7 +871,7 @@
     },
     {
       "turn": 137,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, when you say overall reasonableness, supposing you've got three police coming into this house, and one of them is a maverick, and he simply sees the first person inside the house and just hits them with his billy, or whatever they take on these raids. The other two policemen go about their business just the way they should, find the evidence and the two people against whom the evidence they found are charged. The person who is hit with the billy club is not charged. What result there?",
       "time": "00:22:45.59"
     },
@@ -883,7 +883,7 @@
     },
     {
       "turn": 139,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But could the two who are... against whom charges are made try to suppress the evidence found in the house on the basis of this one maverick officer's beating up of someone who is not charged?",
       "time": "00:23:19.94"
     },
@@ -895,7 +895,7 @@
     },
     {
       "turn": 141,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, you let the police officer calculate those odds. You may be right, but I assume that's something the police officer takes into account when he goes crashing in.",
       "time": "00:26:16.43"
     },
@@ -907,7 +907,7 @@
     },
     {
       "turn": 143,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well, I mean, you're asking us... I don't find... you have some good arguments, but I don't think that's one of them, that we should exercise the judgment of whether it's a wise thing for the policeman to go crashing in or not, from his standpoint.",
       "time": "00:26:35.75"
     },
@@ -919,7 +919,7 @@
     },
     {
       "turn": 145,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "How about reasonable suspicion that evidence will be destroyed?",
       "time": "00:27:27.41"
     },
@@ -931,7 +931,7 @@
     },
     {
       "turn": 147,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Isn't that--",
       "time": "00:27:32.35"
     },
@@ -943,7 +943,7 @@
     },
     {
       "turn": 149,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--Wouldn't that be so in so many of these narcotics cases?",
       "time": "00:27:34.05"
     },
@@ -955,7 +955,7 @@
     },
     {
       "turn": 151,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, why doesn't knowledge that there's a gun in the house give rise to the safety of the officer concerned and the presence of marijuana in a place with indoor plumbing to the destruction of evidence? What more would you need to come within even the traditional exceptions?",
       "time": "00:27:49.19"
     },
@@ -967,7 +967,7 @@
     },
     {
       "turn": 153,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "No, not a blanket exception without any belief in the facts, these facts.",
       "time": "00:28:13.46"
     },
@@ -979,7 +979,7 @@
     },
     {
       "turn": 155,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "There's a gun in that house. We know that. There's a warrant to search for narcotics.",
       "time": "00:28:17.72"
     },
@@ -991,7 +991,7 @@
     },
     {
       "turn": 157,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Well, what would be enough to have a concern about the safety of the officer? You say the presence of a gun, even a gun named in the warrant, is not enough. What would it have to be?",
       "time": "00:28:41.81"
     },
@@ -1003,7 +1003,7 @@
     },
     {
       "turn": 159,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "A gun plus someone who is reasonably suspected of being a violent person willing to use that gun.",
       "time": "00:29:10.54"
     },
@@ -1015,7 +1015,7 @@
     },
     {
       "turn": 161,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Yes.",
       "time": "00:29:22.43"
     },
@@ -1027,7 +1027,7 @@
     },
     {
       "turn": 163,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you--",
       "time": "00:29:41.31"
     },
@@ -1039,7 +1039,7 @@
     },
     {
       "turn": 165,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "--Thank you, Mr. Hall. General Bryant, we'll hear from you.",
       "time": "00:29:42.64"
     },
@@ -1051,7 +1051,7 @@
     },
     {
       "turn": 167,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "General Bryant, do you deny that it is a relevant consideration in determining whether the entry was, and the search was reasonable?",
       "time": "00:30:31.82"
     },
@@ -1063,7 +1063,7 @@
     },
     {
       "turn": 169,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Do you deny it, or do you agree that it is a relevant consideration?",
       "time": "00:30:42.23"
     },
@@ -1075,7 +1075,7 @@
     },
     {
       "turn": 171,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "No, but my question is, is it a relevant consideration in determining whether a search is reasonable or not? May they consider the fact that there either was a knock and announce, or there was not a knock and announce?",
       "time": "00:30:56.10"
     },
@@ -1087,7 +1087,7 @@
     },
     {
       "turn": 173,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So then under your view the State routinely could use a battering ram to knock down every door.",
       "time": "00:31:15.98"
     },
@@ -1099,7 +1099,7 @@
     },
     {
       "turn": 175,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "So then the way entry is affected is a component of reasonableness.",
       "time": "00:31:24.44"
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "turn": 177,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "How about kicking?",
       "time": "00:31:35.61"
     },
@@ -1123,7 +1123,7 @@
     },
     {
       "turn": 179,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "How about using a skeleton key?",
       "time": "00:31:45.95"
     },
@@ -1135,7 +1135,7 @@
     },
     {
       "turn": 181,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All of this is without knocking, obviously.",
       "time": "00:31:50.98"
     },
@@ -1147,7 +1147,7 @@
     },
     {
       "turn": 183,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "All of these hypotheticals I've given to you constitute reasonable entry in all cases?",
       "time": "00:31:58.63"
     },
@@ -1159,7 +1159,7 @@
     },
     {
       "turn": 185,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, that's what we're testing, is the State's--",
       "time": "00:32:09.25"
     },
@@ -1171,7 +1171,7 @@
     },
     {
       "turn": 187,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "--first theory.",
       "time": "00:32:12.10"
     },
@@ -1183,7 +1183,7 @@
     },
     {
       "turn": 189,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I think the answer to each of my questions under your first theory is that there is no illegality in the entry.",
       "time": "00:32:13.35"
     },
@@ -1195,7 +1195,7 @@
     },
     {
       "turn": 191,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Well, I... I'd like... we have to write the opinion. I want to know what the consequences of my opinion are, and I'm asking you whether or not the manner of entry is ever relevant as to reasonableness, the same question Justice Souter's question asked.",
       "time": "00:32:27.31"
     },
@@ -1207,7 +1207,7 @@
     },
     {
       "turn": 193,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "I want to know if it's an element in considering the reasonableness of the search.",
       "time": "00:32:54.00"
     },
@@ -1219,7 +1219,7 @@
     },
     {
       "turn": 195,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "So literally, if the State presented evidence and said, we knocked on the door and started to say we're police officers and there's an objection, the judge would say, strike that, that is totally irrelevant evidence? I mean, you're really going that far?",
       "time": "00:33:00.83"
     },
@@ -1231,7 +1231,7 @@
     },
     {
       "turn": 197,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "General Bryant, what is the purpose and effect of the Arkansas statute that says to make an arrest an officer may break open a door after having demanded admittance and explain the purpose for which admittance is desired?",
       "time": "00:34:47.61"
     },
@@ -1243,7 +1243,7 @@
     },
     {
       "turn": 199,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "But what is the court's rule in--",
       "time": "00:35:25.50"
     },
@@ -1255,7 +1255,7 @@
     },
     {
       "turn": 201,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--But there's--",
       "time": "00:35:33.16"
     },
@@ -1267,7 +1267,7 @@
     },
     {
       "turn": 203,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "--As I understand it, the rules are silent. I could see if a rule said, you can arrest without knocking and announcing, but there is no such rule. There's a statute, and there's no rule.",
       "time": "00:35:34.20"
     },
@@ -1279,7 +1279,7 @@
     },
     {
       "turn": 205,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "This doesn't address warrants. This addresses arrest itself. To make an arrest, an officer, et cetera. What rule addresses the officer's conduct in making the arrest that conflicts with this statute?",
       "time": "00:35:52.76"
     },
@@ -1291,7 +1291,7 @@
     },
     {
       "turn": 207,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "And what does that rule say about how the officer is to make an arrest?",
       "time": "00:36:19.86"
     },
@@ -1303,7 +1303,7 @@
     },
     {
       "turn": 209,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "So then we have a silent... we have a statute that says one thing. We have a rule that says nothing to the contrary.",
       "time": "00:36:31.11"
     },
@@ -1315,7 +1315,7 @@
     },
     {
       "turn": 211,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "General Bryant, I'm going to decide this case on the basis of whether I think there was a knock-and-announce rule at common law when the Fourth Amendment was adopted, and that it was assumed that part of the reasonableness of a search was that element. Now, do you dispute the fact that there was at common law a general rule that you had to knock and announce in executing a warrant for a home?",
       "time": "00:36:49.37"
     },
@@ -1327,7 +1327,7 @@
     },
     {
       "turn": 213,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "You do dispute that?",
       "time": "00:37:21.24"
     },
@@ -1339,7 +1339,7 @@
     },
     {
       "turn": 215,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's your best case showing that such a rule did not exist?",
       "time": "00:37:23.74"
     },
@@ -1351,7 +1351,7 @@
     },
     {
       "turn": 217,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Where are they in your brief, and how old are they?",
       "time": "00:38:02.89"
     },
@@ -1363,7 +1363,7 @@
     },
     {
       "turn": 219,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Page 22 of your brief, is that it?",
       "time": "00:38:15.79"
     },
@@ -1375,7 +1375,7 @@
     },
     {
       "turn": 221,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Well--",
       "time": "00:38:58.03"
     },
@@ -1387,7 +1387,7 @@
     },
     {
       "turn": 223,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "--Now, it depends on what you mean by the knock-and-announce rule. I don't read those two cases as saying that there is no general requirement of knock and announce. It seems to me it's possible to read them entirely to be quite consistent with other cases of the period, that there is a general requirement, but we will not say that it is always applicable in the case of felonies, which would mean there's a general rule, but of course there are exceptions such as the petitioner here is perfectly willing to admit. There's a general rule, but there's an exception for a case in which a felon is inside the house and believed to be armed. Perhaps there's an exception for destruction of evidence. But you say there is no general principle at all. Isn't that what you say?",
       "time": "00:39:03.61"
     },
@@ -1399,7 +1399,7 @@
     },
     {
       "turn": 225,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What do you do about all the cases that seem to announce such a general principle?",
       "time": "00:40:00.47"
     },
@@ -1411,7 +1411,7 @@
     },
     {
       "turn": 227,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Many cite it in the brief for petition.",
       "time": "00:40:05.97"
     },
@@ -1423,7 +1423,7 @@
     },
     {
       "turn": 229,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "And for the Government.",
       "time": "00:40:09.56"
     },
@@ -1435,7 +1435,7 @@
     },
     {
       "turn": 231,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "Why isn't it reasonable... you don't have to go... they go back to Edward I. I didn't even know whether he invaded Scotland, or whatever, but they trace it back to Edward I, and even today, isn't it still a reasonable thing that you shouldn't knock down the door of somebody's house where you're not afraid of any harm, and you don't have any reason to think somebody's going to destroy evidence? I mean, why isn't that a reasonable thing, in that instance, even if it weren't going back to Edward I, and if you are, well, so much the stronger?",
       "time": "00:40:39.42"
     },
@@ -1447,7 +1447,7 @@
     },
     {
       "turn": 233,
-      "name": "JUSTICE BREYER",
+      "name": "STEPHEN G. BREYER",
       "text": "You know that they'd require... you'd require it because it's reasonable, and unreasonable not to knock and announce where they're not going to destroy any evidence, you have no reason for thinking so, you have no reason for thinking there's any danger, and there's this pedigree in history saying that it's unreasonable under those circumstances. What's the answer to that?",
       "time": "00:41:29.20"
     },
@@ -1459,7 +1459,7 @@
     },
     {
       "turn": 235,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, what's the matter with the proposal of the Solicitor General, that would certainly take into account the long common law tradition? I, for one, can't buy your proposal at all. You have no comment on what the Solicitor General proposes?",
       "time": "00:43:15.47"
     },
@@ -1471,7 +1471,7 @@
     },
     {
       "turn": 237,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And there's a very long tradition here that has to be taken into account, and the fact that the officers don't knock and announce certainly at a minimum ought to be a factor in what's reasonable.",
       "time": "00:43:30.52"
     },
@@ -1483,7 +1483,7 @@
     },
     {
       "turn": 239,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Time to fall back, General Bryant, I think. Thank you, General Bryant. Mr. Dreeben, we'll hear from you.",
       "time": "00:44:08.32"
     },
@@ -1495,7 +1495,7 @@
     },
     {
       "turn": 241,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "Mr. Dreeben, I have the same question that the Chief Justice asked at the outset of the argument. Is there any significant difference between saying that there is a knock-and-announce rule with exigent circumstances or exceptions on the one hand, or the rule as you just phrased it, that there is a reasonableness requirement and that knocking is a component of that. Is there any significant difference for us?",
       "time": "00:44:34.39"
     },
@@ -1507,7 +1507,7 @@
     },
     {
       "turn": 243,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Mr. Dreeben, what do you want us to do in this case, just say that there is some such general requirement? You want us to affirm the decision below?",
       "time": "00:45:38.22"
     },
@@ -1519,7 +1519,7 @@
     },
     {
       "turn": 245,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Are there findings that support that conclusion?",
       "time": "00:46:04.18"
     },
@@ -1531,7 +1531,7 @@
     },
     {
       "turn": 247,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We should make the findings de novo ourselves?",
       "time": "00:46:08.08"
     },
@@ -1543,7 +1543,7 @@
     },
     {
       "turn": 249,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "We would at least have to read the record in full, I suppose.",
       "time": "00:46:21.11"
     },
@@ -1555,7 +1555,7 @@
     },
     {
       "turn": 251,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Yes.",
       "time": "00:46:27.61"
     },
@@ -1567,7 +1567,7 @@
     },
     {
       "turn": 253,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "What's your best case for that? What's your best case, in fact your best two cases, for saying that the destruction of evidence is an exception from the general common law requirement that you knock and announce?",
       "time": "00:46:44.69"
     },
@@ -1579,7 +1579,7 @@
     },
     {
       "turn": 255,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Sure.",
       "time": "00:47:28.22"
     },
@@ -1591,7 +1591,7 @@
     },
     {
       "turn": 257,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "But they still knock and announce, warrant or not.",
       "time": "00:47:30.21"
     },
@@ -1603,7 +1603,7 @@
     },
     {
       "turn": 259,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I don't understand what you're saying. You mean, they didn't search homes before the Revolution? They did it without a warrant.",
       "time": "00:47:41.95"
     },
@@ -1615,7 +1615,7 @@
     },
     {
       "turn": 261,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Except for the fireplace-- --The fireplace. --or the hot stove.",
       "time": "00:48:25.92"
     },
@@ -1627,7 +1627,7 @@
     },
     {
       "turn": 263,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "They could just toss it right in. You could destroy papers better in a fireplace than in the commode.",
       "time": "00:48:28.39"
     },
@@ -1639,7 +1639,7 @@
     },
     {
       "turn": 265,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Dreeben, what about the inevitable discovery notion. Do you think that that doctrine is applicable here, so that the evidence would not be suppressed in any event?",
       "time": "00:48:38.71"
     },
@@ -1651,7 +1651,7 @@
     },
     {
       "turn": 267,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, then, what's the point of trying to decide some factual issue where there are no findings below?",
       "time": "00:49:12.76"
     },
@@ -1663,7 +1663,7 @@
     },
     {
       "turn": 269,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "I mean, it would be certainly much simpler to deal with it on the inevitable discovery theory.",
       "time": "00:49:19.13"
     },
@@ -1675,7 +1675,7 @@
     },
     {
       "turn": 271,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "But as I understood your brief in the case of drug dealers, there is a presumption that they have an arm and a weapon, and that they may dispose of the contraband. Do I misinterpret your brief?",
       "time": "00:49:48.48"
     },
@@ -1687,7 +1687,7 @@
     },
     {
       "turn": 273,
-      "name": "JUSTICE KENNEDY",
+      "name": "ANTHONY M. KENNEDY",
       "text": "In my colloquy with the defense counsel you said, well, this is a low level drug dealer. Can you give me any assistance with that? Anybody that sold drugs is a drug dealer for this purpose?",
       "time": "00:50:10.64"
     },
@@ -1699,7 +1699,7 @@
     },
     {
       "turn": 275,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Or almost anything else. Why just narcotics? I mean, it seems to me you're... once you say that a valid exception to the rule is the destruction of evidence, the possible destruction of evidence, it seems to me in the average search, whether it's for narcotics or not, you could assume that once the person hears a knock... you know, I'm a policeman here with a search warrant... whatever you're looking for, with few exceptions, bales of marijuana, but if it's, you know, stolen jewelry, chuck it down the toilet, whatever. It seems to me you're making an exception that swallows up the general rule.",
       "time": "00:50:55.39"
     },
@@ -1711,7 +1711,7 @@
     },
     {
       "turn": 277,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I just wonder whether that's a good enough exception to come in without knocking into a house, especially as you tell me that in common law you couldn't go in for evidence anyway, at all, even with knock and announce.",
       "time": "00:51:59.13"
     },
@@ -1723,7 +1723,7 @@
     },
     {
       "turn": 279,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "Now you're saying you can not only go in to get evidence, but you can do it without knocking and announcing.",
       "time": "00:52:12.31"
     },
@@ -1735,7 +1735,7 @@
     },
     {
       "turn": 281,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "In that respect, do you make a difference between what the statute requires of Federal officers and what the Fourth Amendment requires of all officers? Is there something more because there's a Federal statute?",
       "time": "00:52:32.23"
     },
@@ -1747,7 +1747,7 @@
     },
     {
       "turn": 283,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "May I ask a broader question based on that statement? Is it the Government's position that the Fourth Amendment rule for which you advocate would be precisely the same as this Court's construction of section 3109 insofar as we've decided 3109 cases?",
       "time": "00:53:14.30"
     },
@@ -1759,7 +1759,7 @@
     },
     {
       "turn": 285,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Apart from the question of remedy, in terms of the scope of whether there's a violation of the Fourth Amendment, would you say the law would be the same as whether there's a violation of 3109?",
       "time": "00:54:02.02"
     },
@@ -1771,7 +1771,7 @@
     },
     {
       "turn": 287,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Well, let me ask you in a different way, then. If we have a... two cases of identical facts, one under 3109 in the Federal case, and another State case like this, do you think we would apply the same rules to determine whether the Fourth Amendment was violated in the one case and 3109 was violated in another? Is there a difference in the approach?",
       "time": "00:54:23.31"
     },
@@ -1783,7 +1783,7 @@
     },
     {
       "turn": 289,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "As the Fourth Amendment.",
       "time": "00:54:48.78"
     },
@@ -1795,7 +1795,7 @@
     },
     {
       "turn": 291,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Mr. Dreeben, I take it that in our decision in Warden v. Hayden, which I guess was the late sixties, we have already departed from the common law in construing the Fourth Amendment, since we there held that you could search for evidence and the common law didn't permit it.",
       "time": "00:54:50.55"
     },
@@ -1807,7 +1807,7 @@
     },
     {
       "turn": 293,
-      "name": "JUSTICE SCALIA",
+      "name": "ANTONIN SCALIA",
       "text": "I understand that, but that's... but it's a further question to say not only are we going to let you go in to look for evidence when you couldn't do it before, but the obtaining of that evidence we are also going to allow to dispense with the common law requirement of knock and announce. That's a big additional step, it seems to me, and I'm not sure that simply to say you can get it means that you also have to say, moreover, when... if knocking and announce wouldn't permit you to get it, you can dispense with knock and announce. That seems to me quite an additional step.",
       "time": "00:55:27.25"
     },
@@ -1819,7 +1819,7 @@
     },
     {
       "turn": 295,
-      "name": "JUSTICE GINSBURG",
+      "name": "RUTH BADER GINSBURG",
       "text": "Do I understand you to be saying, though, that this is largely an academic discussion, because if you have a warrant, then you can break the door down, you can be brutal, it doesn't matter because of the inevitable discovery rule.",
       "time": "00:56:21.35"
     },
@@ -1831,7 +1831,7 @@
     },
     {
       "turn": 297,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, why isn't the same reasoning, then, sufficient whenever there's a search without a warrant, where a warrant would be required by general rules? You would simply argue, well, if they had done what they should have done and gotten the warrant, they would have found the evidence anyway. Isn't the structure of the argument the same in each case?",
       "time": "00:56:39.78"
     },
@@ -1843,7 +1843,7 @@
     },
     {
       "turn": 299,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Is it any more bizarre than saying that if they had knocked and announced they would have done the right thing and they just didn't happen to knock and announce? In each case, we... the assumption of the question is, they could have done what the Fourth Amendment requires. They didn't do it. But the argument in each case seems to be, or the argument in the inevitable discovery application that you're arguing for is, if they had done the right thing, they would have gotten the same evidence they got by doing the wrong thing.",
       "time": "00:57:07.35"
     },
@@ -1855,7 +1855,7 @@
     },
     {
       "turn": 301,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes, but that begs the question whether it authorized them to go in in a manner which under a general rule, or a rule that takes into consideration knock and announce, was unreasonable. It didn't authorize them to make an unreasonable search.",
       "time": "00:57:47.52"
     },
@@ -1867,7 +1867,7 @@
     },
     {
       "turn": 303,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "It got them to the threshold, is what I'm saying. It didn't necessarily get them over the threshold.",
       "time": "00:58:04.39"
     },
@@ -1879,7 +1879,7 @@
     },
     {
       "turn": 305,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Well, if that's the case, then I don't know why we're arguing about knock and announce, because the evidence is always going to be inside if they arrived with a warrant, and it's going to be there whether they knocked or whether they didn't knock.",
       "time": "00:58:37.64"
     },
@@ -1891,7 +1891,7 @@
     },
     {
       "turn": 307,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "But I was going to say, that's not what you're arguing would be inevitably discovered.",
       "time": "00:59:01.44"
     },
@@ -1903,19 +1903,19 @@
     },
     {
       "turn": 309,
-      "name": "JUSTICE SOUTER",
+      "name": "DAVID H. SOUTER",
       "text": "Yes.",
       "time": "00:59:05.36"
     },
     {
       "turn": 310,
-      "name": "CHIEF JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Thank you, Mr. Dreeben. The case is submitted.",
       "time": "00:59:05.74"
     },
     {
       "turn": 311,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN SPEAKER",
       "text": "The honorable Court is now adjourned until Monday morning at 10 o'clock.",
       "time": "00:59:07.88"
     }

@@ -3,47 +3,47 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1967/66/19671019a_66.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE WARREN",
-        "role": "justice"
+        "name": "EARL WARREN",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "ABE FORTAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HUGO L. BLACK",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM O. DOUGLAS",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "WILLIAM J. BRENNAN, JR.",
+        "title": "JUSTICE"
       },
       {
         "name": "WILLIAM H. HENDERSON",
-        "role": "advocate"
+        "title": "MR."
       },
       {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE FORTAS",
-        "role": "justice"
-      },
-      {
-        "name": "UNKNOWN",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE BLACK",
-        "role": "justice"
+        "name": "UNKNOWN JUSTICE",
+        "title": "JUSTICE"
       },
       {
         "name": "SETH M. HUFSTEDLER",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE DOUGLAS",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BRENNAN",
-        "role": "justice"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Number 66, Case-Swayne Company Incorporated, petitioner versus Sunkist Growers Incorporated. Mr. Henderson, you may proceed with your argument.",
       "time": "00:00:00.00"
     },
@@ -55,25 +55,25 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "If you just --",
       "time": "00:02:01.25"
     },
     {
       "turn": 4,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I assume --",
       "time": "00:02:01.56"
     },
     {
       "turn": 5,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Go head.",
       "time": "00:02:03.44"
     },
     {
       "turn": 6,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I assume that you will address yourself at some point to the question of whether they are mere agents or they are growers?",
       "time": "00:02:04.86"
     },
@@ -85,7 +85,7 @@
     },
     {
       "turn": 8,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Who owns the packing houses?",
       "time": "00:02:18.30"
     },
@@ -97,7 +97,7 @@
     },
     {
       "turn": 10,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Profit making corporations?",
       "time": "00:02:24.85"
     },
@@ -109,7 +109,7 @@
     },
     {
       "turn": 12,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Had to be what?",
       "time": "00:04:58.64"
     },
@@ -121,7 +121,7 @@
     },
     {
       "turn": 14,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "What's the governing body -- is it the Board of Directors?",
       "time": "00:10:48.51"
     },
@@ -133,7 +133,7 @@
     },
     {
       "turn": 16,
-      "name": "UNKNOWN",
+      "name": "UNKNOWN JUSTICE",
       "text": "The packers are represented on the board of directors?",
       "time": "00:10:56.83"
     },
@@ -145,7 +145,7 @@
     },
     {
       "turn": 18,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well suppose, suppose the commercial packing houses are eliminated as members of Sunkist, what practical effect would that have, perhaps I shouldn't ask you that question?",
       "time": "00:18:19.98"
     },
@@ -157,7 +157,7 @@
     },
     {
       "turn": 20,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Or couldn't Sunkist buy them, buy the oranges anyway from the packing houses or make a contract with the packing houses by which the packing houses would agree to sell to Sunkist all of their oranges that they process for the growers? Would there be anything wrong with that under Capper-Volstead?",
       "time": "00:18:56.49"
     },
@@ -169,7 +169,7 @@
     },
     {
       "turn": 22,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Isn't that really the point, as long as they were doing something with these people inside as members which they could do by contract with outsiders? Isn't that Justice Fortas [Voice Overlap] it really doesn't make any difference? You may still have a completely other rather sterile argument on at least --",
       "time": "00:19:48.45"
     },
@@ -181,7 +181,7 @@
     },
     {
       "turn": 24,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "They certainly have control in the sense that their cost gets too high, they're not going to --",
       "time": "00:21:07.93"
     },
@@ -193,7 +193,7 @@
     },
     {
       "turn": 26,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now have you -- could you just clear me up for a moment because I think it's relevant what we're talking about, was the Section 1 charge in this case dismiss the during the trial or before trial?",
       "time": "00:21:25.85"
     },
@@ -205,7 +205,7 @@
     },
     {
       "turn": 28,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Was the Section 1 charge dismissed before trial or during trial or after evidence of it?",
       "time": "00:21:44.65"
     },
@@ -217,7 +217,7 @@
     },
     {
       "turn": 30,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So it's dismissed -- is it dismissed on the assumption that that no matter what is alleged about the dealings with this member, this Capper-Volstead Association is exempt.",
       "time": "00:21:59.21"
     },
@@ -229,7 +229,7 @@
     },
     {
       "turn": 32,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So do we take -- in assessing this do we take the allegations in the complaint as true?",
       "time": "00:22:18.15"
     },
@@ -241,7 +241,7 @@
     },
     {
       "turn": 34,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The charge was dismissed, wasn't it?",
       "time": "00:22:28.21"
     },
@@ -253,7 +253,7 @@
     },
     {
       "turn": 36,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well you got -- there's certainly a whole series of allegations, there's complaint which were dismiss before trial?",
       "time": "00:22:33.76"
     },
@@ -265,7 +265,7 @@
     },
     {
       "turn": 38,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's what I mean, it was dismissed before trial?",
       "time": "00:22:45.03"
     },
@@ -277,7 +277,7 @@
     },
     {
       "turn": 40,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "[Voice Overlap]",
       "time": "00:22:48.90"
     },
@@ -289,7 +289,7 @@
     },
     {
       "turn": 42,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yeah, on a motion to dismiss I suppose?",
       "time": "00:22:51.74"
     },
@@ -301,7 +301,7 @@
     },
     {
       "turn": 44,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, in any event the Court must have said that without having a trial on these issues, even assuming everything you say is true in this complaint, I nevertheless dismiss it because this association is exempt under Section 1 of Sherman Act Charge, is that right?",
       "time": "00:23:03.11"
     },
@@ -313,7 +313,7 @@
     },
     {
       "turn": 46,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well --",
       "time": "00:23:55.06"
     },
@@ -325,7 +325,7 @@
     },
     {
       "turn": 48,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it, alright go ahead.",
       "time": "00:23:57.87"
     },
@@ -337,7 +337,7 @@
     },
     {
       "turn": 50,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, I understand that, but as far as the Section 1 charge is concerned the Court rule that no matter what was alleged in the complaint, and no matter what your fruit might be under Section 1 that the association was exempt.",
       "time": "00:24:07.55"
     },
@@ -349,7 +349,7 @@
     },
     {
       "turn": 52,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So that if you're saying that anything -- that the association could do anything they wanted to inside the association as long as that profit making entity was a member.",
       "time": "00:24:25.51"
     },
@@ -361,7 +361,7 @@
     },
     {
       "turn": 54,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even though it might be some things that if it was a nonmember, it obviously couldn't do.",
       "time": "00:24:44.11"
     },
@@ -373,7 +373,7 @@
     },
     {
       "turn": 56,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Mr. Justice Fortas asked you about what difference does it make, if what they're doing with this packer as a member, they could do with that packer as a nonmember and the other side of the coin is what if some of the things that you alleged they were doing as a member, they could not do if the packer was a nonmember and at least the Court --",
       "time": "00:24:58.34"
     },
@@ -385,7 +385,7 @@
     },
     {
       "turn": 58,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "At least the Court ruled that that no matter what, no matter what is alleged about the dealings with that member packer, that the association is exempt under Section 1 charge.",
       "time": "00:25:30.93"
     },
@@ -397,7 +397,7 @@
     },
     {
       "turn": 60,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "The Court of Appeals didn't follow that brief now, did it? The Court of Appeals said that if it wasn't for the exemption you would have justiciable --",
       "time": "00:25:50.02"
     },
@@ -409,7 +409,7 @@
     },
     {
       "turn": 62,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well, I don't know that it's important, not even sure not relevant but I notice Article 4 of the Exhibit B, the agreement between the grower and the packing house and that does provide that mechanism by which the grower might be able to sell his crop in bulk that they grow, if he can get a higher price for it. I notice that it says if the packing house agrees that the price is higher than you are likely to get from the packing house operation, but in any event the theory that at least the contract would make it possible for your client to outbid the packing the house for the fruit of grower, of growers.",
       "time": "00:28:33.86"
     },
@@ -421,7 +421,7 @@
     },
     {
       "turn": 64,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well I understand that, but the problem of your complaint is that the arrangement is not merely technical and vulnerable, but then it also, I shouldn't say the government, you complaint as I understand it, you are saying that you are making to us not merely a technical point, but a point that has some functional substance?",
       "time": "00:29:52.59"
     },
@@ -433,7 +433,7 @@
     },
     {
       "turn": 66,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well I thought you are perhaps inadvertently over stated, didn't you?",
       "time": "00:30:59.84"
     },
@@ -445,7 +445,7 @@
     },
     {
       "turn": 68,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well I thought you had perhaps inadvertently overstated the extent to which the grower is tied into the packing house contract, there is an escape clause for what its worth?",
       "time": "00:31:04.59"
     },
@@ -457,7 +457,7 @@
     },
     {
       "turn": 70,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I know but that --",
       "time": "00:31:27.75"
     },
@@ -469,7 +469,7 @@
     },
     {
       "turn": 72,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "In fact there is in an escape clause.",
       "time": "00:31:33.62"
     },
@@ -481,7 +481,7 @@
     },
     {
       "turn": 74,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Now wait a minute the penalty is $2.50 not per box but per ton?",
       "time": "00:32:25.03"
     },
@@ -493,7 +493,7 @@
     },
     {
       "turn": 76,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "$2.50 but --",
       "time": "00:32:36.10"
     },
@@ -505,7 +505,7 @@
     },
     {
       "turn": 78,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "If the farmer's cooperative and can be controlled of the farmers plus 15% of all the package, why couldn't it be controlled within the farm plus all the packaging? What would be the --",
       "time": "00:32:43.06"
     },
@@ -517,7 +517,7 @@
     },
     {
       "turn": 80,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "And that's what I asked you.",
       "time": "00:33:08.46"
     },
@@ -529,7 +529,7 @@
     },
     {
       "turn": 82,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Logic would be against you. What you are arguing here is that Congress intended to provide special privileges for cooperating farmers.",
       "time": "00:33:11.44"
     },
@@ -541,7 +541,7 @@
     },
     {
       "turn": 84,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Maybe something like Sherman Anti-trust law cannot be violated by common and Labor [Inaudible] now it can be violated by Labor union joining with industries to create a monopoly.",
       "time": "00:33:22.06"
     },
@@ -553,7 +553,7 @@
     },
     {
       "turn": 86,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would have been the reasons for passage in the law had that not been referred?",
       "time": "00:34:26.05"
     },
@@ -565,7 +565,7 @@
     },
     {
       "turn": 88,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "What would have been the reason for the passage of the law had that not been referred?",
       "time": "00:34:31.07"
     },
@@ -577,7 +577,7 @@
     },
     {
       "turn": 90,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Suppose it's a large corporate farm and suppose that it also holds and operates packing house, will that in your judgment disqualify from membership in Capper-Volstead in the Association?",
       "time": "00:35:21.71"
     },
@@ -589,7 +589,7 @@
     },
     {
       "turn": 92,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "It is a large corporate operation that actually grows oranges or whatever and suppose that also owns and operates a packing house.",
       "time": "00:35:48.30"
     },
@@ -601,7 +601,7 @@
     },
     {
       "turn": 94,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Are there any of them that do grow fruit?",
       "time": "00:36:31.12"
     },
@@ -613,7 +613,7 @@
     },
     {
       "turn": 96,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well is it your submission that those operations which grow fruit and also operate packing houses are not qualified for membership?",
       "time": "00:36:47.56"
     },
@@ -625,7 +625,7 @@
     },
     {
       "turn": 98,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What does that mean, does that mean that you are talking about a 11%?",
       "time": "00:37:20.33"
     },
@@ -637,7 +637,7 @@
     },
     {
       "turn": 100,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "In addition.",
       "time": "00:37:40.76"
     },
@@ -649,7 +649,7 @@
     },
     {
       "turn": 102,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I see.",
       "time": "00:37:42.66"
     },
@@ -661,7 +661,7 @@
     },
     {
       "turn": 104,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "M. Hufstedler.",
       "time": "00:38:07.49"
     },
@@ -673,7 +673,7 @@
     },
     {
       "turn": 106,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "But it does make a profit?",
       "time": "00:41:38.01"
     },
@@ -685,7 +685,7 @@
     },
     {
       "turn": 108,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It inherits the benefit of his shareholders?",
       "time": "00:41:40.66"
     },
@@ -697,7 +697,7 @@
     },
     {
       "turn": 110,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Is that a contract for each grower or with Sunkist?",
       "time": "00:41:51.43"
     },
@@ -709,7 +709,7 @@
     },
     {
       "turn": 112,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "These packing houses, they do the actual picking, do they?",
       "time": "00:42:03.50"
     },
@@ -721,7 +721,7 @@
     },
     {
       "turn": 114,
-      "name": "JUSTICE DOUGLAS",
+      "name": "WILLIAM O. DOUGLAS",
       "text": "Do they do the spraying also?",
       "time": "00:42:08.61"
     },
@@ -733,7 +733,7 @@
     },
     {
       "turn": 116,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "May I ask you whether, is there's any difference between you and your brother, with reference to the point he stressed most vigorously, that is that your clients are not growers and that they do constitute -- do business on 15% of the oranges grown.",
       "time": "00:42:38.88"
     },
@@ -745,7 +745,7 @@
     },
     {
       "turn": 118,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "But are they growers at all?",
       "time": "00:43:23.15"
     },
@@ -757,7 +757,7 @@
     },
     {
       "turn": 120,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Is this 15%? I thought -- as I understood it, it was 15% of the membership?",
       "time": "00:43:35.74"
     },
@@ -769,7 +769,7 @@
     },
     {
       "turn": 122,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Well it does -- the issue is kind of presented than is it not that he is trying to present.",
       "time": "00:44:45.19"
     },
@@ -781,7 +781,7 @@
     },
     {
       "turn": 124,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Whether the association, cooperative associating can be composed in the part of people who are not growers.",
       "time": "00:44:50.80"
     },
@@ -793,7 +793,7 @@
     },
     {
       "turn": 126,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Excuse me sir.",
       "time": "00:50:27.78"
     },
@@ -805,7 +805,7 @@
     },
     {
       "turn": 128,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Does that description apply equally to the cooperative packing houses and to the agency association?",
       "time": "00:50:29.80"
     },
@@ -817,7 +817,7 @@
     },
     {
       "turn": 130,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And the distribution of proceeds?",
       "time": "00:50:41.89"
     },
@@ -829,7 +829,7 @@
     },
     {
       "turn": 132,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "May I ask you, the whole territory that Sunkist serves is compact to that?",
       "time": "00:54:28.26"
     },
@@ -841,7 +841,7 @@
     },
     {
       "turn": 134,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How about in Arizona?",
       "time": "00:55:18.48"
     },
@@ -853,7 +853,7 @@
     },
     {
       "turn": 136,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "And then the district exchange has what relation to Sunkist?",
       "time": "00:56:07.90"
     },
@@ -865,7 +865,7 @@
     },
     {
       "turn": 138,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Let me see if I understand this.",
       "time": "00:57:06.09"
     },
@@ -877,7 +877,7 @@
     },
     {
       "turn": 140,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Are you saying that during the first half of the period covered by this lawsuit the only members of Sunkist were the exchanges, district exchanges?",
       "time": "00:57:08.40"
     },
@@ -889,7 +889,7 @@
     },
     {
       "turn": 142,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "So that the growers were not themselves were not members?",
       "time": "00:57:20.09"
     },
@@ -901,7 +901,7 @@
     },
     {
       "turn": 144,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And still they are not.",
       "time": "00:57:25.77"
     },
@@ -913,7 +913,7 @@
     },
     {
       "turn": 146,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "They are only members of Sunkist via the district exchanges and the agencies, is that right?",
       "time": "00:57:28.21"
     },
@@ -925,7 +925,7 @@
     },
     {
       "turn": 148,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well the individuals were -- the individual nominated by the district exchanges --",
       "time": "00:57:42.66"
     },
@@ -937,7 +937,7 @@
     },
     {
       "turn": 150,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Were the members?",
       "time": "00:57:48.81"
     },
@@ -949,7 +949,7 @@
     },
     {
       "turn": 152,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And those -- some of those members I suppose were not themselves growers?",
       "time": "00:58:00.98"
     },
@@ -961,7 +961,7 @@
     },
     {
       "turn": 154,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "How do you reconcile that with the [Inaudible] anticipate, but I assume --",
       "time": "00:58:12.00"
     },
@@ -973,7 +973,7 @@
     },
     {
       "turn": 156,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Before [Inaudible]",
       "time": "00:58:22.43"
     },
@@ -985,7 +985,7 @@
     },
     {
       "turn": 158,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "[Inaudible]",
       "time": "00:58:25.12"
     },
@@ -997,7 +997,7 @@
     },
     {
       "turn": 160,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "They were not limited to the agency.",
       "time": "00:58:33.82"
     },
@@ -1009,7 +1009,7 @@
     },
     {
       "turn": 162,
-      "name": "JUSTICE BRENNAN",
+      "name": "WILLIAM J. BRENNAN, JR.",
       "text": "Whether a cooperative or an agency?",
       "time": "00:58:41.51"
     },
@@ -1021,7 +1021,7 @@
     },
     {
       "turn": 164,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would this be oversimplifying to say that the entire -- under the Capper-Volstead Act that the entire membership of the organization could be corporations for profit on the same basis that these packing concerns are and that there were no growers in it at all. But still according to the method of organization the present time, the profits all went to growers, do you think that could be all?",
       "time": "01:01:40.70"
     },
@@ -1033,7 +1033,7 @@
     },
     {
       "turn": 166,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But isn't there some language right after that that might bear upon its construction?",
       "time": "01:03:01.72"
     },
@@ -1045,7 +1045,7 @@
     },
     {
       "turn": 168,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you read that?",
       "time": "01:03:07.58"
     },
@@ -1057,7 +1057,7 @@
     },
     {
       "turn": 170,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Would you read the rest of the language, so that connects that all up so we won't have to detach?",
       "time": "01:03:43.51"
     },
@@ -1069,7 +1069,7 @@
     },
     {
       "turn": 172,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "As such producers.",
       "time": "01:04:00.93"
     },
@@ -1081,7 +1081,7 @@
     },
     {
       "turn": 174,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Then what?",
       "time": "01:04:39.96"
     },
@@ -1093,7 +1093,7 @@
     },
     {
       "turn": 176,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well could you agree would they accept an outsider that you wouldn't sell to anybody else in any time?",
       "time": "01:05:37.60"
     },
@@ -1105,7 +1105,7 @@
     },
     {
       "turn": 178,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Could you agree -- but he may ask you to agree not to sell any oranges to anybody else?",
       "time": "01:05:50.68"
     },
@@ -1117,7 +1117,7 @@
     },
     {
       "turn": 180,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Or would you say that if he wasn't -- that if he was -- if this independent suddenly was made a member, do you think he could do either one of those two things?",
       "time": "01:06:01.51"
     },
@@ -1129,7 +1129,7 @@
     },
     {
       "turn": 182,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Just because he became a member?",
       "time": "01:06:14.09"
     },
@@ -1141,7 +1141,7 @@
     },
     {
       "turn": 184,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "This is what I just asked about.",
       "time": "01:06:21.44"
     },
@@ -1153,7 +1153,7 @@
     },
     {
       "turn": 186,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "The member is the one we would just, that you ask those other -- those other questions about, the independent factor outside you said we could make these same arrangements with this particular member who suddenly becomes a non-member?",
       "time": "01:06:28.69"
     },
@@ -1165,7 +1165,7 @@
     },
     {
       "turn": 188,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "About what?",
       "time": "01:06:47.09"
     },
@@ -1177,7 +1177,7 @@
     },
     {
       "turn": 190,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now because you also, if you became a non-member, could you also say to him, don't you deal with anybody else. Could he say to you don't you deal with anybody else, could you both agree to that?",
       "time": "01:07:00.71"
     },
@@ -1189,7 +1189,7 @@
     },
     {
       "turn": 192,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even if he's an outsider?",
       "time": "01:07:15.80"
     },
@@ -1201,7 +1201,7 @@
     },
     {
       "turn": 194,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yes, but doesn't the Section 1 of the act contemplates that the growers would be the members and isn't that the purpose of defining that no member should have more than one vote?",
       "time": "01:08:27.87"
     },
@@ -1213,7 +1213,7 @@
     },
     {
       "turn": 196,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What do you do with the language of --?",
       "time": "01:08:46.58"
     },
@@ -1225,7 +1225,7 @@
     },
     {
       "turn": 198,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I don't understand that.",
       "time": "01:09:00.35"
     },
@@ -1237,7 +1237,7 @@
     },
     {
       "turn": 200,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Hufstedler, may I ask you this question, what control have the growers themselves in your Sunkist system for determining what the cost and fixed fee are to be in this relationship?",
       "time": "01:11:16.28"
     },
@@ -1249,7 +1249,7 @@
     },
     {
       "turn": 202,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But what organization bargains with the agency?",
       "time": "01:11:49.01"
     },
@@ -1261,7 +1261,7 @@
     },
     {
       "turn": 204,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Being a two and three acre farmer?",
       "time": "01:12:02.25"
     },
@@ -1273,7 +1273,7 @@
     },
     {
       "turn": 206,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "As I understood it the organization that determines the policies for Sunkist is composed of these agencies and they are the ones who would govern I presume in determining whether they were being given a fair price or were being charged to fair price by the agencies for the services they performed.",
       "time": "01:12:36.65"
     },
@@ -1285,7 +1285,7 @@
     },
     {
       "turn": 208,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Haven't you got the agencies setting in two positions, they're on these negotiations, they're affecting the price for themselves as agencies and then they are determining whether that's a fair price on behalf of the growers.",
       "time": "01:13:08.84"
     },
@@ -1297,7 +1297,7 @@
     },
     {
       "turn": 210,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But how is it a man who has two acres or three acres of oranges as lot of them do, going to be able to bargain with a lot of these big packing houses as to how much they will charge for processing his fruit.",
       "time": "01:13:50.50"
     },
@@ -1309,7 +1309,7 @@
     },
     {
       "turn": 212,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But I thought you said he must do it individually.",
       "time": "01:14:08.86"
     },
@@ -1321,7 +1321,7 @@
     },
     {
       "turn": 214,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, there maybe two answers to that one of them I see that he is in the community where there's only one packing house and you yourself said a little while ago that in some parts of California and Arizona that would probably be true, but we don't take -- maybe we shouldn't the concentrated area like Orange County and San Bernardino County where there are so many of them. But the other answer might be this, I wonder if it is that 15% of these packing houses are now in Sunkist. Suppose that Sunkist incorporated 50% more of the packing houses into it's agency or organization having 65% of all oranges in the district. And by that time the packing houses were in a clearly dominant position in the industry and suppose they chose to raise the cost of processing to the grower and the growers didn't like it, but they couldn't do anything about it. Wouldn't that tend towards monopoly?",
       "time": "01:14:37.52"
     },
@@ -1333,7 +1333,7 @@
     },
     {
       "turn": 216,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Beg your pardon?",
       "time": "01:16:04.98"
     },
@@ -1345,7 +1345,7 @@
     },
     {
       "turn": 218,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well why couldn't it?",
       "time": "01:16:07.53"
     },
@@ -1357,7 +1357,7 @@
     },
     {
       "turn": 220,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "No, it isn't but --",
       "time": "01:16:11.06"
     },
@@ -1369,7 +1369,7 @@
     },
     {
       "turn": 222,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yes.",
       "time": "01:16:15.84"
     },
@@ -1381,7 +1381,7 @@
     },
     {
       "turn": 224,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well, if there's only -- if it gets to a dominant position what choice has he got?",
       "time": "01:16:27.30"
     },
@@ -1393,7 +1393,7 @@
     },
     {
       "turn": 226,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How many orange growers are there in Southern California?",
       "time": "01:16:51.38"
     },
@@ -1405,7 +1405,7 @@
     },
     {
       "turn": 228,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "You must have some idea.",
       "time": "01:16:57.32"
     },
@@ -1417,7 +1417,7 @@
     },
     {
       "turn": 230,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "That's because the orange growers going out of the existence or housing I suppose.",
       "time": "01:17:21.39"
     },
@@ -1429,7 +1429,7 @@
     },
     {
       "turn": 232,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "What do you mean when you say Sunkist has 9,000 members.",
       "time": "01:17:31.94"
     },
@@ -1441,7 +1441,7 @@
     },
     {
       "turn": 234,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "It gets to the heart of our problem --",
       "time": "01:17:42.25"
     },
@@ -1453,7 +1453,7 @@
     },
     {
       "turn": 236,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "You're saying they have 9,000 members and it's very different when you say that 9,000 growers just in terms of the statute, I am not talking about the for the price, I am talking about the statute. Now, how many members has Sunkist got, members?",
       "time": "01:17:47.00"
     },
@@ -1465,7 +1465,7 @@
     },
     {
       "turn": 238,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "119 members?",
       "time": "01:18:11.30"
     },
@@ -1477,7 +1477,7 @@
     },
     {
       "turn": 240,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "And you service about 9,000 growers.",
       "time": "01:18:13.29"
     },
@@ -1489,7 +1489,7 @@
     },
     {
       "turn": 242,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How many growers, are there any growers in that 119?",
       "time": "01:18:19.56"
     },
@@ -1501,7 +1501,7 @@
     },
     {
       "turn": 244,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How many would you say?",
       "time": "01:18:25.24"
     },
@@ -1513,7 +1513,7 @@
     },
     {
       "turn": 246,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Of growers?",
       "time": "01:18:34.86"
     },
@@ -1525,7 +1525,7 @@
     },
     {
       "turn": 248,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Those are the 4% of the growers?",
       "time": "01:18:39.08"
     },
@@ -1537,7 +1537,7 @@
     },
     {
       "turn": 250,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Beg your pardon?",
       "time": "01:18:41.88"
     },
@@ -1549,7 +1549,7 @@
     },
     {
       "turn": 252,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "80%?",
       "time": "01:18:44.10"
     },
@@ -1561,7 +1561,7 @@
     },
     {
       "turn": 254,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That 80% is covered by Winckler?",
       "time": "01:18:51.04"
     },
@@ -1573,7 +1573,7 @@
     },
     {
       "turn": 256,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I mean that this can be, Sunkist can be an association of cooperative?",
       "time": "01:18:55.18"
     },
@@ -1585,7 +1585,7 @@
     },
     {
       "turn": 258,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Do you think it's essential to define growers that way that is say, that is to say --",
       "time": "01:20:19.43"
     },
@@ -1597,7 +1597,7 @@
     },
     {
       "turn": 260,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "-- the growers, that if you are going to -- that any definition of growers would have to admit into that select company?",
       "time": "01:20:24.91"
     },
@@ -1609,7 +1609,7 @@
     },
     {
       "turn": 262,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Who owns a couple of acres even though he may have an investment of $100 million in packing plant --",
       "time": "01:20:34.57"
     },
@@ -1621,7 +1621,7 @@
     },
     {
       "turn": 264,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well that's the law from the -- is a classical phrase.",
       "time": "01:20:49.15"
     },
@@ -1633,7 +1633,7 @@
     },
     {
       "turn": 266,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Well I would like to know one thing more before you get to that. About 15% of these packing houses now are in Sunkist. Suppose the figured were just reverse 85% of them were in the Sunkist and the other 15% out, would that change your position any here?",
       "time": "01:21:00.99"
     },
@@ -1645,7 +1645,7 @@
     },
     {
       "turn": 268,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "In this situation -- I mean with the organizational system just as it is, would it make any difference in your argument if the figures were reversed and 85% of the product were agency and agency controlled and 15% without?",
       "time": "01:21:34.29"
     },
@@ -1657,7 +1657,7 @@
     },
     {
       "turn": 270,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But to answer that, couldn't they say well -- but you wouldn't have rights through our Board of Directors to determine the policy of the organization and at the same time have the right as a packing house to fix your price for dealing with us at any level which you wish.",
       "time": "01:23:42.60"
     },
@@ -1669,7 +1669,7 @@
     },
     {
       "turn": 272,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "How many houses?",
       "time": "01:24:46.77"
     },
@@ -1681,7 +1681,7 @@
     },
     {
       "turn": 274,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "But they are association of packing houses?",
       "time": "01:24:56.12"
     },
@@ -1693,7 +1693,7 @@
     },
     {
       "turn": 276,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "What do you mean unfair? Who reviews it, the Board of Directors?",
       "time": "01:26:19.65"
     },
@@ -1705,7 +1705,7 @@
     },
     {
       "turn": 278,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Yeah and those are the packing houses themselves, aren't they?",
       "time": "01:26:27.27"
     },
@@ -1717,7 +1717,7 @@
     },
     {
       "turn": 280,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "If they are passing upon how much they are going to get for their services as packing houses and on the other hand between the right of the grower to get the profits that result of this system which you speak of, what interest do you think they would favor?",
       "time": "01:26:36.78"
     },
@@ -1729,7 +1729,7 @@
     },
     {
       "turn": 282,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "I know but you just told me it wouldn't make any difference whether there are 85% of these --",
       "time": "01:27:32.53"
     },
@@ -1741,7 +1741,7 @@
     },
     {
       "turn": 284,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Now the other 15%.",
       "time": "01:27:38.58"
     },
@@ -1753,7 +1753,7 @@
     },
     {
       "turn": 286,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "You don't want the grower to be in the same predicament as the citizen here, if we got to move to another Congressional district, it's a different problem.",
       "time": "01:28:08.78"
     },
@@ -1765,7 +1765,7 @@
     },
     {
       "turn": 288,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Well isn't that something like saying that the farmer has a great deal of control over [Inaudible] of California Packing Corporation, the price he gets because if he didn't, they don't pay him what he thinks he is entailed to, you sell it to somebody else, it's about what your are saying.",
       "time": "01:28:50.27"
     },
@@ -1777,7 +1777,7 @@
     },
     {
       "turn": 290,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Isn't difficulty here is that Sunkist has a sort of vast market powers?",
       "time": "01:29:11.79"
     },
@@ -1789,7 +1789,7 @@
     },
     {
       "turn": 292,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "Yeah may I address a moment and ask you whether there have been attempts in the Congress to obtain legislative clarification to this problem?",
       "time": "01:29:46.96"
     },
@@ -1801,7 +1801,7 @@
     },
     {
       "turn": 294,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "When it comes to [Inaudible] of the Congress from time to time?",
       "time": "01:29:59.16"
     },
@@ -1813,7 +1813,7 @@
     },
     {
       "turn": 296,
-      "name": "JUSTICE FORTAS",
+      "name": "ABE FORTAS",
       "text": "I am not talk about cooperatives, I am talking about [Inaudible] Congress in some years to clarify this problem of what are membership requirements of the Capper-Volstead Act?",
       "time": "01:30:14.42"
     },
@@ -1825,7 +1825,7 @@
     },
     {
       "turn": 298,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "Let us say that in your collision with Chief Justice, it's been rather to me before you constantly said that that is not the case now. Those are not the facts now. But isn't one of the objects of the Anti Trust Act to prevent the same in that [Inaudible] so that they will not move over to a situation where they would [Inaudible] proscribed results?",
       "time": "01:30:37.90"
     },
@@ -1837,7 +1837,7 @@
     },
     {
       "turn": 300,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That if it be proved that the ownership or whatever the relationship is, a 15% of those who are non-growers might tend to do what the chief apprehends, would that not be a reason for stopping it in its infancy?",
       "time": "01:31:16.13"
     },
@@ -1849,7 +1849,7 @@
     },
     {
       "turn": 302,
-      "name": "JUSTICE BLACK",
+      "name": "HUGO L. BLACK",
       "text": "That's saying that it doesn't have that tendency?",
       "time": "01:31:51.16"
     },
@@ -1861,7 +1861,7 @@
     },
     {
       "turn": 304,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes, but the only problem you're going to try are those which arise under Section 2, as far as I can see section 1 is out of the case.",
       "time": "01:34:41.43"
     },
@@ -1873,7 +1873,7 @@
     },
     {
       "turn": 306,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Isn't that what the part of the deal decided that, isn't -- that Sunkist was immune by reason of Capper-Volstead for any liability under Section 1 of the Sherman Act?",
       "time": "01:35:01.47"
     },
@@ -1885,7 +1885,7 @@
     },
     {
       "turn": 308,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you explain then what is it that, what practices there are that you want shielded by an exemption and what difference, you apparently are arguing to some extent you start violating the anti trust laws?",
       "time": "01:36:07.09"
     },
@@ -1897,7 +1897,7 @@
     },
     {
       "turn": 310,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Whether you have an exemption or not?",
       "time": "01:36:36.07"
     },
@@ -1909,7 +1909,7 @@
     },
     {
       "turn": 312,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "This case only concerns Sunkist, isn't it?",
       "time": "01:37:10.82"
     },
@@ -1921,7 +1921,7 @@
     },
     {
       "turn": 314,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And even if Sunkist were held unqualified it wouldn't mean that the underlying cooperatives --",
       "time": "01:37:14.53"
     },
@@ -1933,7 +1933,7 @@
     },
     {
       "turn": 316,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That's right.",
       "time": "01:37:27.81"
     },
@@ -1945,7 +1945,7 @@
     },
     {
       "turn": 318,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That question might be raised but it wouldn't be decided by the Sunkist decision?",
       "time": "01:37:36.10"
     },
@@ -1957,7 +1957,7 @@
     },
     {
       "turn": 320,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I guess what you -- I take at your position is it if Sunkist is qualified that there are no transactions among the members of Sunkist or any of its subsidiary organizations which would violation of the anti trust laws?",
       "time": "01:37:56.11"
     },
@@ -1969,7 +1969,7 @@
     },
     {
       "turn": 322,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "As an organization you are exempt under anti trust law?",
       "time": "01:38:12.22"
     },
@@ -1981,7 +1981,7 @@
     },
     {
       "turn": 324,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Inside the organization?",
       "time": "01:38:26.61"
     },
@@ -1993,7 +1993,7 @@
     },
     {
       "turn": 326,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Would you still concede that there --",
       "time": "01:38:30.19"
     },
@@ -2005,7 +2005,7 @@
     },
     {
       "turn": 328,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "You would say that there is nothing you could do to each other inside the association without dealing with outsider, that would violate the anti trust law?",
       "time": "01:38:37.67"
     },
@@ -2017,7 +2017,7 @@
     },
     {
       "turn": 330,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Mr. Henderson.",
       "time": "01:38:54.99"
     },
@@ -2029,7 +2029,7 @@
     },
     {
       "turn": 332,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well when the packing house became a member as you say --",
       "time": "01:43:03.32"
     },
@@ -2041,7 +2041,7 @@
     },
     {
       "turn": 334,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "-- that's all they did. They just become a member. It still retained it's same corporate structure, isn't it?",
       "time": "01:43:08.21"
     },
@@ -2053,7 +2053,7 @@
     },
     {
       "turn": 336,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "And it was just a separate corporation which was members of Sunkist?",
       "time": "01:43:15.99"
     },
@@ -2065,7 +2065,7 @@
     },
     {
       "turn": 338,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Now has something else happened since then?",
       "time": "01:43:59.77"
     },
@@ -2077,7 +2077,7 @@
     },
     {
       "turn": 340,
-      "name": "CHIEF JUSTICE WARREN",
+      "name": "EARL WARREN",
       "text": "Very well.",
       "time": "01:49:04.59"
     }

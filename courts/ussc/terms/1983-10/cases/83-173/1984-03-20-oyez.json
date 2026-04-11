@@ -3,43 +3,43 @@
     "url": "https://s3.amazonaws.com/oyez.case-media.mp3/case_data/1983/83-173/19840320a_83-173.delivery.mp3",
     "speakers": [
       {
-        "name": "CHIEF JUSTICE BURGER",
-        "role": "justice"
+        "name": "WARREN E. BURGER",
+        "title": "CHIEF JUSTICE"
+      },
+      {
+        "name": "WILLIAM H. REHNQUIST",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "SANDRA DAY O'CONNOR",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "HARRY A. BLACKMUN",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "BYRON R. WHITE",
+        "title": "JUSTICE"
+      },
+      {
+        "name": "JOHN PAUL STEVENS",
+        "title": "JUSTICE"
       },
       {
         "name": "JAY R. MOSKOWITZ",
-        "role": "advocate"
-      },
-      {
-        "name": "JUSTICE REHNQUIST",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE O'CONNOR",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE BLACKMUN",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE WHITE",
-        "role": "justice"
-      },
-      {
-        "name": "JUSTICE STEVENS",
-        "role": "justice"
+        "title": "MR."
       },
       {
         "name": "ALAN I. HOROWITZ",
-        "role": "advocate"
+        "title": "MR."
       }
     ]
   },
   "turns": [
     {
       "turn": 1,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Mr. Moskowitz, I think you may proceed whenever you are ready.",
       "time": "00:00:00.00"
     },
@@ -51,7 +51,7 @@
     },
     {
       "turn": 3,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Did your client request that kind of consideration from Judge Roettger?",
       "time": "00:04:31.46"
     },
@@ -63,7 +63,7 @@
     },
     {
       "turn": 5,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "And in your view that was not improper?",
       "time": "00:05:25.21"
     },
@@ -75,7 +75,7 @@
     },
     {
       "turn": 7,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "For the judge not to consider it?",
       "time": "00:05:31.70"
     },
@@ -87,7 +87,7 @@
     },
     {
       "turn": 9,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "But you concede that he could have considered it?",
       "time": "00:05:47.54"
     },
@@ -99,7 +99,7 @@
     },
     {
       "turn": 11,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "A pending charge or the facts behind the pending charge?",
       "time": "00:05:53.11"
     },
@@ -111,7 +111,7 @@
     },
     {
       "turn": 13,
-      "name": "JUSTICE BLACKMUN",
+      "name": "HARRY A. BLACKMUN",
       "text": "And if he had would this case be a different case?",
       "time": "00:05:59.60"
     },
@@ -123,7 +123,7 @@
     },
     {
       "turn": 15,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you see something illogical about that?",
       "time": "00:06:31.24"
     },
@@ -135,7 +135,7 @@
     },
     {
       "turn": 17,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "That the first time, since it's only a charge, why the sentencing judge will not consider it. Now, after the second trial, it is no longer just a change; it is a conviction. Therefore, I will take it into account. Is that logical or illogical?",
       "time": "00:06:36.91"
     },
@@ -147,7 +147,7 @@
     },
     {
       "turn": 19,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It's not?",
       "time": "00:06:58.40"
     },
@@ -159,7 +159,7 @@
     },
     {
       "turn": 21,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, you're saying in effect that the judge only gets one bite at the apple. If the judge who is sentencing the person for the substantive conviction takes the substantive conviction into account, then another judge before whom he is found guilty of another charge can't take into account the alternate substantive conviction because he's already been sentenced on that.",
       "time": "00:08:25.61"
     },
@@ -171,7 +171,7 @@
     },
     {
       "turn": 23,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, what, then, is the inference that you want us to draw from saying that Judge Davis had already taken the mail fraud into consideration. He'd taken it into consideration in sentencing him for the mail fraud, hadn't he?",
       "time": "00:08:53.43"
     },
@@ -183,7 +183,7 @@
     },
     {
       "turn": 25,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that would be true of every single conviction that there ever was, I would think, for which a person was sentenced to anything, that the judge would have taken into consideration the nature of the charges upon which the jury returned a guilty verdict.",
       "time": "00:09:13.98"
     },
@@ -195,7 +195,7 @@
     },
     {
       "turn": 27,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "And you're saying that that having happened another judge trying him for an independent offense cannot take into consideration the fact that he was convicted of a wholly independent charge in setting the sentence.",
       "time": "00:09:31.46"
     },
@@ -207,7 +207,7 @@
     },
     {
       "turn": 29,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, the Pearce rule may be one thing. But I thought you were arguing that it really... that the \"have your cake and eat it, too. \" argument didn't make any sense here because Judge Davis had taken into consideration the mail fraud conviction.",
       "time": "00:10:07.66"
     },
@@ -219,7 +219,7 @@
     },
     {
       "turn": 31,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But that doesn't answer the argument, I think, of whether in the passport violation charge at some point the... either the pending charge or the conviction for the mail fraud misdemeanor should be considered by the judge sentencing for the passport fraud. To say that the judge sentencing for the misdemeanor took into consideration the misdemeanor is no answer to the other charge.",
       "time": "00:10:51.26"
     },
@@ -231,7 +231,7 @@
     },
     {
       "turn": 33,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "No, I don't read Judge Markey's language in the Court of Appeals as suggesting that the defendant was complaining or that the state was complaining that the mail fraud would never be considered on the substance, but that so far as augmenting is concerned, first it was too early and then it was too late. And I don't think the fact that Judge Davis considered the charge in sentencing him really is an answer to that.",
       "time": "00:11:37.29"
     },
@@ -243,7 +243,7 @@
     },
     {
       "turn": 35,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're entitled to differ, obviously.",
       "time": "00:12:08.17"
     },
@@ -255,7 +255,7 @@
     },
     {
       "turn": 37,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Because it was not--",
       "time": "00:12:26.82"
     },
@@ -267,7 +267,7 @@
     },
     {
       "turn": 39,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "--In other words, he was giving the man the full benefit of the presumption of innocence, wasn't he?",
       "time": "00:12:34.62"
     },
@@ -279,7 +279,7 @@
     },
     {
       "turn": 41,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But you then say later on he cannot take the conviction into account when the presumption of innocence has been merged and washed out by the conviction.",
       "time": "00:12:42.24"
     },
@@ -291,7 +291,7 @@
     },
     {
       "turn": 43,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What vindictiveness do you spell out here? Pearce indeed was a state of mind holding, wasn't it... a state of mind of vindictiveness on the part of the judge?",
       "time": "00:13:34.03"
     },
@@ -303,7 +303,7 @@
     },
     {
       "turn": 45,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Where do you see the vindictiveness here?",
       "time": "00:14:11.99"
     },
@@ -315,7 +315,7 @@
     },
     {
       "turn": 47,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So you think that the prophylactic nature of the Pearce rule is such that if at the initial trial the trial judge takes into effect those prior convictions shown on the rap sheet, he's got two, say, he's got two and he takes those into account. But the judgment is reversed. There is a retrial and he comes to the sentencing phase again and it turns out that he's now got a rap sheet that the first one was just wrong. He's been convicted five times, six times. Must he ignore those other three or four convictions in sentencing the second time? I would think you would say he has to.",
       "time": "00:14:41.26"
     },
@@ -327,7 +327,7 @@
     },
     {
       "turn": 49,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, what could it depend on?",
       "time": "00:15:34.56"
     },
@@ -339,7 +339,7 @@
     },
     {
       "turn": 51,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, the conduct has all happened before... all those convictions happened before his first conviction?",
       "time": "00:15:38.59"
     },
@@ -351,7 +351,7 @@
     },
     {
       "turn": 53,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "So he may never, ever then have a sentence at the second trial that takes into account all of what would have been valid considerations at the first; is that--",
       "time": "00:15:49.57"
     },
@@ -363,7 +363,7 @@
     },
     {
       "turn": 55,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Well, he's escaping the punishment that could have validly been imposed on him at the first trial, except for some other trial error.",
       "time": "00:16:11.40"
     },
@@ -375,7 +375,7 @@
     },
     {
       "turn": 57,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Yes. Well, I take it you think the prophylactic--",
       "time": "00:16:23.09"
     },
@@ -387,7 +387,7 @@
     },
     {
       "turn": 59,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "--Forbids at the second trial taking into account things that could have been taken into at the first trial but were erroneously excluded.",
       "time": "00:16:30.73"
     },
@@ -399,7 +399,7 @@
     },
     {
       "turn": 61,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Mr. Moskowitz, what is some event occurs after the first trial that's favorable to the defendant, for instance a prior conviction is reversed and set aside by an appellate court and so by the time of the retrial in your situation the sentencing judge after the retrial, can he consider the fact that now there is one less prior conviction?",
       "time": "00:16:41.40"
     },
@@ -411,7 +411,7 @@
     },
     {
       "turn": 63,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "It helps the defendant, doesn't it?",
       "time": "00:17:10.64"
     },
@@ -423,7 +423,7 @@
     },
     {
       "turn": 65,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, then why isn't the reverse true, too? Why shouldn't the judge be able to consider it either way?",
       "time": "00:17:13.40"
     },
@@ -435,7 +435,7 @@
     },
     {
       "turn": 67,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "Well, he ought to be able to be at peace with the knowledge that whatever happens afterwards the court can consider it, whether it helps him or hurts him... any event.",
       "time": "00:17:38.46"
     },
@@ -447,7 +447,7 @@
     },
     {
       "turn": 69,
-      "name": "JUSTICE O'CONNOR",
+      "name": "SANDRA DAY O'CONNOR",
       "text": "In any event.",
       "time": "00:17:51.43"
     },
@@ -459,7 +459,7 @@
     },
     {
       "turn": 71,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, of course, literally read in this case what was taken into account was something that happened after his first conviction. Literally read, he pled guilty or nolo to a charge, and that certainly is... that is not a non-event, is it?",
       "time": "00:18:21.45"
     },
@@ -471,7 +471,7 @@
     },
     {
       "turn": 73,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "It is conduct on his part.",
       "time": "00:18:52.42"
     },
@@ -483,7 +483,7 @@
     },
     {
       "turn": 75,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Isn't it?",
       "time": "00:18:58.07"
     },
@@ -495,7 +495,7 @@
     },
     {
       "turn": 77,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But if you read Pearce as trying to set up barriers to vindictiveness, how can you spell out any vindictiveness on the part of the judge here, possible vindictiveness?",
       "time": "00:19:01.78"
     },
@@ -507,7 +507,7 @@
     },
     {
       "turn": 79,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I take it you then would also say Pearce would prevent the trial judge taking into account another conviction that occurred while the case was on appeal, based on conduct that was never known at all until after his first conviction?",
       "time": "00:19:55.66"
     },
@@ -519,7 +519,7 @@
     },
     {
       "turn": 81,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Based on conduct that occurred prior to his first conviction but nobody'd ever heard of it when he was first convicted. It turns out that he made some statements that led to other indictments.",
       "time": "00:20:15.96"
     },
@@ -531,7 +531,7 @@
     },
     {
       "turn": 83,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "That may be barred by some principle, but not by Pearce.",
       "time": "00:21:26.52"
     },
@@ -543,7 +543,7 @@
     },
     {
       "turn": 85,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "You're saying in effect that if your client, Mr. Wasman, is convicted of robbery in one court and a false impersonation in another court and the two cases go on pari passu and the jury returns a verdict of conviction on each count on the same day... let's assume that he was able to go to one court in the morning and one court in the afternoon and the court could schedule it that way... then neither judge or at least both judges could not take into consideration both the fact of the conviction returned in their court and augment it by taking into consideration the fact that another conviction against the man was returned in another court.",
       "time": "00:21:37.64"
     },
@@ -555,7 +555,7 @@
     },
     {
       "turn": 87,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Well, that isn't Pearce, though, is it? You say they could or they couldn't?",
       "time": "00:22:20.12"
     },
@@ -567,7 +567,7 @@
     },
     {
       "turn": 89,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "Well, then what's your objection? It seems to me your objection here that Judge Davis had already taken into account something doesn't wash.",
       "time": "00:22:25.44"
     },
@@ -579,7 +579,7 @@
     },
     {
       "turn": 91,
-      "name": "JUSTICE REHNQUIST",
+      "name": "WILLIAM H. REHNQUIST",
       "text": "But the have your cake and eat it, too, argument is that in respect to this particular passport conviction that it shouldn't be allowed a defendant to say first it's too early to consider this charge because it hasn't ripened into a conviction, and then it comes around again now it's too late to consider it because you could have considered it before.",
       "time": "00:23:28.70"
     },
@@ -591,7 +591,7 @@
     },
     {
       "turn": 93,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "But up to that time, the very instant of the nolo plea, he was clothed with the presumption of innocence, wasn't he?",
       "time": "00:25:47.27"
     },
@@ -603,7 +603,7 @@
     },
     {
       "turn": 95,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "And that disappeared somewhat by the nolo plea.",
       "time": "00:25:59.25"
     },
@@ -615,7 +615,7 @@
     },
     {
       "turn": 97,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "On the contrary, his position, the judge's position, that he would not take it into account when it was only a charge, an indictment as distinguished from a conviction, suggests that he wasn't a judge that harbored vindictiveness, does it not?",
       "time": "00:26:58.05"
     },
@@ -627,7 +627,7 @@
     },
     {
       "turn": 99,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "Let me ask this one question. Is your position at all... would your position be any different if it were a guilty plea rather than a nolo plea in the other case?",
       "time": "00:28:15.79"
     },
@@ -639,7 +639,7 @@
     },
     {
       "turn": 101,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You don't attach any significance to the fact that it was just a nolo plea? I don't think you've argued it so far.",
       "time": "00:28:25.04"
     },
@@ -651,7 +651,7 @@
     },
     {
       "turn": 103,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You'd make the same argument for a guilty plea?",
       "time": "00:28:55.16"
     },
@@ -663,7 +663,7 @@
     },
     {
       "turn": 105,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "I asked you a while ago, and you did make the same argument based on a guilty plea.",
       "time": "00:28:58.31"
     },
@@ -675,7 +675,7 @@
     },
     {
       "turn": 107,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Or a conviction?",
       "time": "00:29:10.46"
     },
@@ -687,7 +687,7 @@
     },
     {
       "turn": 109,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Very well. Mr. Horowitz.",
       "time": "00:29:21.60"
     },
@@ -699,7 +699,7 @@
     },
     {
       "turn": 111,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "The term was \"events\".",
       "time": "00:33:49.07"
     },
@@ -711,7 +711,7 @@
     },
     {
       "turn": 113,
-      "name": "JUSTICE WHITE",
+      "name": "BYRON R. WHITE",
       "text": "Even though the... after that decision defendants might have a realistic fear of being sentenced to a longer sentence after appeal.",
       "time": "00:35:55.70"
     },
@@ -723,7 +723,7 @@
     },
     {
       "turn": 115,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Well, logically it's events and information not previously available that must have been in the minds of the Court in Pearce.",
       "time": "00:42:28.91"
     },
@@ -735,7 +735,7 @@
     },
     {
       "turn": 117,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "It wasn't intended to be a mechanical rule where you just touch a computer. If the court didn't have the information at one point but had information, adverse information, that was relevant to a sentence, Pearce... I do not read Pearce as precluding the use of that.",
       "time": "00:42:44.82"
     },
@@ -747,7 +747,7 @@
     },
     {
       "turn": 119,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Some each way. There's some language each way in that respect.",
       "time": "00:43:13.52"
     },
@@ -759,7 +759,7 @@
     },
     {
       "turn": 121,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "This third situation you're really asking just for an advisory opinion, I take it.",
       "time": "00:43:34.45"
     },
@@ -771,7 +771,7 @@
     },
     {
       "turn": 123,
-      "name": "JUSTICE STEVENS",
+      "name": "JOHN PAUL STEVENS",
       "text": "You're saying that our prior advice was unreliable?",
       "time": "00:43:46.16"
     },
@@ -783,7 +783,7 @@
     },
     {
       "turn": 125,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "What you really want us to do is construe Pearce and the cases that have come since then as not providing for any relief for the petitioner here; isn't that the net of it?",
       "time": "00:43:53.76"
     },
@@ -795,7 +795,7 @@
     },
     {
       "turn": 127,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Do you have anything further, Mr. Moskowitz?",
       "time": "00:44:24.71"
     },
@@ -807,7 +807,7 @@
     },
     {
       "turn": 129,
-      "name": "CHIEF JUSTICE BURGER",
+      "name": "WARREN E. BURGER",
       "text": "Thank you, gentlemen. The case is submitted.",
       "time": "00:48:01.06"
     }
