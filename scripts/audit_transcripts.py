@@ -23,12 +23,8 @@ from pathlib import Path
 
 REPO_ROOT       = Path(__file__).resolve().parent.parent
 TERMS_DIR       = REPO_ROOT / "courts" / "ussc" / "terms"
-TRANSCRIPTS_DIR = REPO_ROOT / "courts" / "ussc" / "transcripts"
-LONEDISSENT_DIR = (
-    Path.home()
-    / "Sites" / "loners" / "lonedissent"
-    / "sources" / "scotus" / "transcripts" / "arguments"
-)
+PDFS_DIR        = REPO_ROOT / "courts" / "ussc" / "transcripts" / "pdfs"
+TEXT_DIR        = REPO_ROOT / "courts" / "ussc" / "transcripts" / "text"
 
 # Matches the trailing _MM-DD-YYYY.pdf in a URL basename
 _DATE_RE = re.compile(r'_(\d{2})-(\d{2})-(\d{4})\.pdf$', re.IGNORECASE)
@@ -157,8 +153,8 @@ def url_to_expected(
 
 
 def main(verbose: bool = False, download: bool = False) -> None:
-    if not LONEDISSENT_DIR.is_dir():
-        print(f"ERROR: lonedissent directory not found: {LONEDISSENT_DIR}", file=sys.stderr)
+    if not PDFS_DIR.is_dir():
+        print(f"ERROR: PDFs directory not found: {PDFS_DIR}", file=sys.stderr)
         sys.exit(1)
 
     term_dirs = sorted(
@@ -210,7 +206,7 @@ def main(verbose: bool = False, download: bool = False) -> None:
 
                 candidates = result if isinstance(result, list) else [result]
                 matched = next(
-                    (f for f in candidates if (LONEDISSENT_DIR / year / f).exists()),
+                    (f for f in candidates if (PDFS_DIR / year / f).exists()),
                     None,
                 )
                 if matched is not None:
@@ -219,7 +215,7 @@ def main(verbose: bool = False, download: bool = False) -> None:
                         print(f"OK            [{term}  {number}]  {matched}")
                 else:
                     missing += 1
-                    dest = LONEDISSENT_DIR / year / candidates[0]
+                    dest = PDFS_DIR / year / candidates[0]
                     if download:
                         dest.parent.mkdir(parents=True, exist_ok=True)
                         print(f"DOWNLOADING   [{term}  {number}]  {candidates[0]}")
@@ -250,18 +246,18 @@ def main(verbose: bool = False, download: bool = False) -> None:
 
 
 def extract() -> None:
-    """Extract text from every PDF in the lonedissent tree via pdftotext.
+    """Extract text from every PDF in the pdfs tree via pdftotext.
 
-    For each YYYY/ subdirectory in LONEDISSENT_DIR, creates a matching
-    directory under courts/ussc/transcripts/YYYY/ and runs:
+    For each YYYY/ subdirectory in PDFS_DIR, creates a matching
+    directory under courts/ussc/transcripts/text/YYYY/ and runs:
         pdftotext -layout <src>.pdf <dest>.txt
     Skips PDFs whose .txt counterpart already exists.
     """
-    if not LONEDISSENT_DIR.is_dir():
-        print(f"ERROR: lonedissent directory not found: {LONEDISSENT_DIR}", file=sys.stderr)
+    if not PDFS_DIR.is_dir():
+        print(f"ERROR: PDFs directory not found: {PDFS_DIR}", file=sys.stderr)
         sys.exit(1)
 
-    year_dirs = sorted(p for p in LONEDISSENT_DIR.iterdir() if p.is_dir())
+    year_dirs = sorted(p for p in PDFS_DIR.iterdir() if p.is_dir())
     if not year_dirs:
         print("No year directories found.", file=sys.stderr)
         sys.exit(1)
@@ -271,7 +267,7 @@ def extract() -> None:
         pdfs = sorted(year_dir.glob("*.pdf"))
         if not pdfs:
             continue
-        out_dir = TRANSCRIPTS_DIR / year_dir.name
+        out_dir = TEXT_DIR / year_dir.name
         out_dir.mkdir(parents=True, exist_ok=True)
         for pdf in pdfs:
             txt = out_dir / (pdf.stem + ".txt")
