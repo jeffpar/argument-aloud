@@ -35,6 +35,13 @@ WOMEN_CSV = REPO_ROOT / "courts" / "ussc" / "people" / "women.csv"
 # Terms whose advocates get an empty title (CSV not yet current)
 NO_TITLE_TERMS = {"2025-10"}
 
+# Matches title prefixes that appear in turn names but not as processed speaker titles.
+# e.g. "MR. BIBAS", "MS. SAHARSKY", "GENERAL VERRILLI"
+TITLE_PREFIX_RE = re.compile(
+    r'^(MR\.|MRS\.|MISS|MS\.|GENERAL)\s+(.+)$',
+    re.IGNORECASE,
+)
+
 
 # ---------------------------------------------------------------------------
 # Speakermap
@@ -158,15 +165,32 @@ def is_woman(name: str, exact: set, first_last: set) -> bool:
 # Helpers
 # ---------------------------------------------------------------------------
 
-def case_folder_number(number_str: str) -> str:
-    return number_str.split(",")[0].strip()
+def case_folder_number(number_str: str, term_dir: Path | None = None) -> str:
+    """Return the case folder name for a (possibly comma-separated) case number.
+
+    When a term_dir is supplied, tries each comma-separated part in order and
+    returns the first one whose cases/ subdirectory actually exists on disk.
+    Falls back to the first part when no folder is found.
+    """
+    parts = [p.strip() for p in number_str.split(",")]
+    if term_dir is not None:
+        for part in parts:
+            if (term_dir / "cases" / part).exists():
+                return part
+    return parts[0]
 
 
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
-def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False) -> None:
+def main(
+    dry_run: bool = False,
+    verbose: bool = False,
+    show_women: bool = False,
+    filter_term: str | None = None,
+    filter_case: str | None = None,
+) -> None:
     if not SPEAKERMAP.exists():
         print(f"ERROR: speakermap not found: {SPEAKERMAP}", file=sys.stderr)
         sys.exit(1)
@@ -181,7 +205,8 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
 
     term_dirs = sorted(
         p for p in TERMS_DIR.iterdir()
-        if p.is_dir() and p.name[:4] >= "1968"
+        if p.is_dir()
+        and (filter_term is None or p.name == filter_term)
     )
 
     updated = 0
@@ -206,7 +231,9 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
             continue
 
         for case in cases:
-            folder_num = case_folder_number(case.get("number", ""))
+            folder_num = case_folder_number(case.get("number", ""), term_dir)
+            if filter_case is not None and folder_num != filter_case:
+                continue
             for audio in case.get("audio", []):
                 text_href = audio.get("text_href")
                 if not text_href:
@@ -239,11 +266,20 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
                     return re.sub(r'\s+', ' ', s.get("name", "")).rstrip(':').upper()
 
                 # Skip if already processed: no "role" fields remain AND
-                # no TYPO/TITLE correction applies to any current speaker name.
+                # no TYPO/TITLE/UNKNOWN correction applies to any current speaker.
                 def _needs_work(s: dict) -> bool:
                     if "role" in s:
                         return True
                     k = _norm_key(s)
+                    # Canonical UNKNOWN names are fully normalised — no work needed.
+                    if k in {"UNKNOWN JUSTICE", "UNKNOWN SPEAKER"}:
+                        return False
+                    # Any other UNKNOWN name needs normalisation.
+                    if "UNKNOWN" in k:
+                        return True
+                    # Speaker name still has a title prefix (e.g. "MR. BIBAS").
+                    if "title" not in s and TITLE_PREFIX_RE.match(s.get("name", "")):
+                        return True
                     if s.get("title") in {"JUSTICE", "CHIEF JUSTICE"}:
                         corrected = typomap.get(k, s.get("name", ""))
                         corrected_key = re.sub(r'\s+', ' ', corrected).rstrip(':').upper()
@@ -251,7 +287,15 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
                             return True
                     return False
 
-                if not any(_needs_work(s) for s in speakers):
+                def _has_prefixed_turns() -> bool:
+                    current_names = {s.get("name", "") for s in speakers}
+                    for turn in transcript.get("turns", []):
+                        tname = turn.get("name", "")
+                        if TITLE_PREFIX_RE.match(tname) and tname not in current_names:
+                            return True
+                    return False
+
+                if not any(_needs_work(s) for s in speakers) and not _has_prefixed_turns():
                     already_done += 1
                     continue
 
@@ -259,6 +303,8 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
                 advocate_out = []
                 other_out = []
                 changed = False
+                rename_map: dict[str, str] = {}
+                valid_new_names: set[str] = set()
 
                 for speaker in speakers:
                     role = speaker.get("role")
@@ -286,6 +332,14 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
                     )
 
                     if is_justice:
+                        # Normalise "UNKNOWN JUSTICE" to canonical "UNKNOWN".
+                        # Normalise any UNKNOWN variant to the canonical name
+                        # used in the speakers array.  The context-detection pass
+                        # below may later rename this to "UNKNOWN JUSTICE" if the
+                        # turn is sandwiched between non-justice turns.
+                        name_upper = re.sub(r'\s+', ' ', name).upper()
+                        if "UNKNOWN" in name_upper:
+                            name = "UNKNOWN JUSTICE"
                         # Normalise OCR artefacts: collapse runs of spaces, strip
                         # stray trailing punctuation before lookup.
                         display_key = re.sub(r'\s+', ' ', name).rstrip(':').upper()
@@ -301,8 +355,9 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
                         else:
                             # Only warn when there was active work to do.
                             # Already-processed speakers that need no change
-                            # are silently preserved.
-                            if role == "justice" or typo_match is not None:
+                            # are silently preserved.  UNKNOWN JUSTICE is expected.
+                            if (role == "justice" or typo_match is not None) \
+                                    and "UNKNOWN" not in name.upper():
                                 print(
                                     f"  WARN: unknown justice {name} in "
                                     f"{transcript_path.relative_to(REPO_ROOT)}",
@@ -322,6 +377,9 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
                             "title": speaker.get("title"),
                         }:
                             changed = True
+                        if speaker["name"] != new_speaker["name"]:
+                            rename_map[speaker["name"].upper()] = new_speaker["name"]
+                        valid_new_names.add(new_speaker["name"])
                         justice_out.append(new_speaker)
                         justice_names.add(new_speaker["name"])
 
@@ -341,6 +399,9 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
                             )
                         advocate_out.append({"name": name, "title": title})
                         changed = True
+                        if speaker["name"] != name:
+                            rename_map[speaker["name"].upper()] = name
+                        valid_new_names.add(name)
                         if title == "MS.":
                             women_names.add(name)
                         elif title == "MR.":
@@ -349,25 +410,35 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
                     else:
                         # Already processed or unknown — preserve as-is
                         other_out.append(speaker)
-
-                if not changed:
-                    already_done += 1
-                    continue
+                        valid_new_names.add(speaker.get("name", ""))
 
                 # Justices first, then any already-processed, then advocates
                 new_speakers = justice_out + other_out + advocate_out
                 media["speakers"] = new_speakers
 
-                # Build a rename map: old display name (upper) → new full name.
-                # Also build the set of valid new names for turn-name validation.
-                rename_map: dict[str, str] = {}
-                valid_new_names: set[str] = set()
-                for orig, new_sp in zip(speakers, new_speakers):
-                    old_name = orig.get("name", "")
-                    new_name = new_sp["name"]
-                    if old_name != new_name:
-                        rename_map[old_name.upper()] = new_name
-                    valid_new_names.add(new_name)
+                # Strip title prefixes from speaker names that landed in
+                # other_out without a title key (e.g. from a prior partial run
+                # that wrote {"name": "MR. BIBAS"} without splitting it).
+                for spk in new_speakers:
+                    if "title" in spk:
+                        continue
+                    m = TITLE_PREFIX_RE.match(spk.get("name", ""))
+                    if not m:
+                        continue
+                    raw_prefix = m.group(1).upper()
+                    prefix = "MS." if raw_prefix in {"MRS.", "MISS"} else raw_prefix
+                    rest = m.group(2).strip()
+                    old_spk_name = spk["name"]
+                    spk["name"] = rest
+                    spk["title"] = "" if no_advocate_title else prefix
+                    rename_map[old_spk_name.upper()] = rest
+                    valid_new_names.discard(old_spk_name)
+                    valid_new_names.add(rest)
+                    if spk["title"] == "MS.":
+                        women_names.add(rest)
+                    elif spk["title"] == "MR.":
+                        men_names.add(rest)
+                    changed = True
 
                 # Update turn names and warn on any that don't match a speaker.
                 turns = transcript.get("turns", [])
@@ -385,6 +456,125 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
                             file=sys.stderr,
                         )
                         warn_count += 1
+
+                # Context detection: an UNKNOWN non-justice turn sandwiched
+                # between two non-justice turns is likely an unknown justice
+                # (advocates and justices typically alternate).
+                JUSTICE_TITLES = {"JUSTICE", "CHIEF JUSTICE"}
+                title_lookup = {s["name"]: s.get("title", "") for s in new_speakers}
+
+                def _neighbor_is_non_justice(turns, start, step):
+                    for j in range(start, len(turns) if step > 0 else -1, step):
+                        nb = turns[j].get("name", "")
+                        if nb and "UNKNOWN" not in nb.upper():
+                            return title_lookup.get(nb, "") not in JUSTICE_TITLES
+                    return False
+
+                for i, turn in enumerate(turns):
+                    tname = turn.get("name", "")
+                    if not tname or "UNKNOWN" not in tname.upper():
+                        continue
+                    if title_lookup.get(tname, "") in JUSTICE_TITLES:
+                        continue  # already a justice
+                    if _neighbor_is_non_justice(turns, i - 1, -1) \
+                            and _neighbor_is_non_justice(turns, i + 1, 1):
+                        for s in new_speakers:
+                            if s["name"] == tname:
+                                old_name = s["name"]
+                                s["name"] = "UNKNOWN JUSTICE"
+                                s["title"] = "JUSTICE"
+                                title_lookup["UNKNOWN JUSTICE"] = "JUSTICE"
+                                title_lookup.pop(old_name, None)
+                                valid_new_names.add("UNKNOWN JUSTICE")
+                                justice_names.add("UNKNOWN JUSTICE")
+                                changed = True
+                                break
+                        # Rename the affected turn immediately so subsequent
+                        # neighbor checks use the updated name.
+                        turn["name"] = "UNKNOWN JUSTICE"
+
+                # Normalise any remaining UNKNOWN speakers (not promoted to
+                # UNKNOWN JUSTICE above) to "UNKNOWN SPEAKER" with no title.
+                for s in new_speakers:
+                    if "UNKNOWN" in s.get("name", "").upper() \
+                            and s["name"] != "UNKNOWN JUSTICE":
+                        old_name = s["name"]
+                        s["name"] = "UNKNOWN SPEAKER"
+                        s["title"] = ""
+                        title_lookup.pop(old_name, None)
+                        title_lookup["UNKNOWN SPEAKER"] = ""
+                        if old_name.upper() != "UNKNOWN SPEAKER":
+                            rename_map[old_name.upper()] = "UNKNOWN SPEAKER"
+                        valid_new_names.add("UNKNOWN SPEAKER")
+                        changed = True
+
+                # Apply the updated rename_map to any turns not yet renamed,
+                # and do a final sweep to catch any residual UNKNOWN turn names.
+                needs_unknown_speaker = False
+                for turn in turns:
+                    tname = turn.get("name", "")
+                    if not tname:
+                        continue
+                    # Apply rename_map for non-UNKNOWN renames (UNKNOWN turns
+                    # are handled separately below to avoid clobbering the
+                    # UNKNOWN JUSTICE promotions done above).
+                    tname_key = tname.upper()
+                    if tname_key in rename_map and "UNKNOWN" not in tname_key \
+                            and turn["name"] != rename_map[tname_key]:
+                        turn["name"] = rename_map[tname_key]
+                    # Any turn still containing "UNKNOWN" that was not promoted
+                    # to "UNKNOWN JUSTICE" above becomes "UNKNOWN SPEAKER".
+                    if "UNKNOWN" in turn.get("name", "").upper() \
+                            and turn["name"] != "UNKNOWN JUSTICE":
+                        turn["name"] = "UNKNOWN SPEAKER"
+                        needs_unknown_speaker = True
+                        changed = True
+
+                # Ensure "UNKNOWN SPEAKER" exists in the speakers array if any
+                # turns now reference it.
+                if needs_unknown_speaker and not any(
+                    s.get("name") == "UNKNOWN SPEAKER" for s in new_speakers
+                ):
+                    new_speakers.append({"name": "UNKNOWN SPEAKER", "title": ""})
+                    valid_new_names.add("UNKNOWN SPEAKER")
+                    changed = True
+
+                # Strip title prefixes from turn names not already in the
+                # speakers array: e.g. "MR. BIBAS" → name="BIBAS", title="MR."
+                # MRS./MISS are normalised to MS.
+                prefixed_rename: dict[str, str] = {}
+                for turn in turns:
+                    tname = turn.get("name", "")
+                    if not tname or tname in valid_new_names:
+                        continue
+                    m = TITLE_PREFIX_RE.match(tname)
+                    if not m:
+                        continue
+                    raw_prefix = m.group(1).upper()
+                    prefix = "MS." if raw_prefix in {"MRS.", "MISS"} else raw_prefix
+                    rest = m.group(2).strip()
+                    prefixed_rename[tname.upper()] = rest
+                    if rest not in valid_new_names:
+                        title = "" if no_advocate_title else prefix
+                        new_sp: dict = {"name": rest, "title": title}
+                        new_speakers.append(new_sp)
+                        valid_new_names.add(rest)
+                        if title == "MS.":
+                            women_names.add(rest)
+                        elif title == "MR.":
+                            men_names.add(rest)
+                        changed = True
+
+                for turn in turns:
+                    tname = turn.get("name", "")
+                    new_tname = prefixed_rename.get(tname.upper())
+                    if new_tname is not None and turn["name"] != new_tname:
+                        turn["name"] = new_tname
+                        changed = True
+
+                if not changed:
+                    already_done += 1
+                    continue
 
                 if not dry_run:
                     transcript_path.write_text(
@@ -406,4 +596,20 @@ def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False)
 
 
 if __name__ == "__main__":
-    main(dry_run="--dry-run" in sys.argv, verbose="--verbose" in sys.argv, show_women="--women" in sys.argv)
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("term", nargs="?", default=None, metavar="TERM",
+                    help="Limit to this term (e.g. 2012-10)")
+    ap.add_argument("case", nargs="?", default=None, metavar="CASE",
+                    help="Limit to this case number (e.g. 12-126)")
+    ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--verbose", action="store_true")
+    ap.add_argument("--women", action="store_true")
+    args = ap.parse_args()
+    main(
+        dry_run=args.dry_run,
+        verbose=args.verbose,
+        show_women=args.women,
+        filter_term=args.term,
+        filter_case=args.case,
+    )

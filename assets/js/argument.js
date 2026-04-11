@@ -37,16 +37,6 @@ function termDisplayName(term) {
   return (months[parseInt(month, 10) - 1] || month) + '\u00a0Term\u00a0' + year;
 }
 
-function formatSpeaker(name) {
-  if (name.startsWith('CHIEF JUSTICE ')) {
-    return 'C.J.\u00a0' + toTitleCase(name.split(' ').pop());
-  }
-  if (name.startsWith('JUSTICE ')) {
-    return 'J.\u00a0' + toTitleCase(name.split(' ').pop());
-  }
-  return name.split(' ').map(toTitleCase).join(' ').replace('General ', 'Gen. ');
-}
-
 function decisionTooltip(term, caseEntry, decision) {
   const months = ['January','February','March','April','May','June',
                   'July','August','September','October','November','December'];
@@ -83,7 +73,37 @@ function toTitleCase(s) {
   return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
 }
 
-function speakerClass(name) {
+function lastName(name) {
+  const stripped = name.replace(/,\s*(JR\.|SR\.|[IV]+)\s*$/i, '').trim();
+  return stripped.split(/\s+/).pop() || name;
+}
+
+// Accepts a speaker object {name, title} (new format) or a plain name string
+// (old format, derived from display names like "CHIEF JUSTICE ROBERTS").
+function formatSpeaker(speaker) {
+  const name  = typeof speaker === 'string' ? speaker : speaker.name;
+  const title = typeof speaker === 'object' ? speaker.title : undefined;
+  if (name === 'UNKNOWN JUSTICE') return 'J.\u00a0Unknown';
+  if (name === 'UNKNOWN SPEAKER') return 'Unknown';
+  if (title !== undefined) {
+    if (title === 'CHIEF JUSTICE') return 'C.J.\u00a0' + lastName(name);
+    if (title === 'JUSTICE')       return 'J.\u00a0'   + lastName(name);
+    if (title)                     return title + '\u00a0' + lastName(name);
+    return name; // empty title — show full name as-is
+  }
+  // Old format: derive from name prefix
+  if (name.startsWith('CHIEF JUSTICE ')) return 'C.J.\u00a0' + toTitleCase(name.split(' ').pop());
+  if (name.startsWith('JUSTICE '))       return 'J.\u00a0'   + toTitleCase(name.split(' ').pop());
+  return name.split(' ').map(toTitleCase).join(' ').replace('General ', 'Gen. ');
+}
+
+function speakerClass(speaker) {
+  const title = typeof speaker === 'object' ? speaker.title : undefined;
+  const name  = typeof speaker === 'string' ? speaker : speaker.name;
+  if (title === 'CHIEF JUSTICE') return 'chief-justice';
+  if (title === 'JUSTICE')       return 'justice';
+  if (title !== undefined)       return 'counsel';
+  // Old format fallback
   if (name.startsWith('CHIEF JUSTICE')) return 'chief-justice';
   if (name.startsWith('JUSTICE'))       return 'justice';
   return 'counsel';
@@ -1644,15 +1664,17 @@ async function loadCase(term, caseEntry, audioIdx = 0) {
 
 function renderTranscript() {
   const frag = document.createDocumentFragment();
+  const speakerMap = new Map(caseSpeakers.map(s => [s.name, s]));
   turns.forEach((turn, idx) => {
     const div = document.createElement('div');
-    div.className = 'turn ' + speakerClass(turn.name);
+    const spkr = speakerMap.get(turn.name) || turn.name;
+    div.className = 'turn ' + speakerClass(spkr);
     div.id = 'turn-' + idx;
     div.setAttribute('role', 'listitem');
 
     const sp = document.createElement('span');
     sp.className = 'speaker';
-    sp.textContent = formatSpeaker(turn.name);
+    sp.textContent = formatSpeaker(spkr);
 
     const tx = document.createElement('span');
     tx.className = 'turn-text';
@@ -2099,14 +2121,18 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
     // Populate speaker dropdown
     speakerSelect.innerHTML = '<option value="">All Speakers</option>';
     if (caseSpeakers.length) {
-      const roleOrder = r => r === 'justice' ? 0 : 1;
+      const titleOrder = t => (t === 'JUSTICE' || t === 'CHIEF JUSTICE') ? 0 : 1;
       [...caseSpeakers]
-        .sort((a, b) => roleOrder(a.role) - roleOrder(b.role) || a.name.localeCompare(b.name))
-        .forEach(({ name }) => {
+        .sort((a, b) => {
+          const aTitle = a.title ?? (a.role === 'justice' ? 'JUSTICE' : '');
+          const bTitle = b.title ?? (b.role === 'justice' ? 'JUSTICE' : '');
+          return titleOrder(aTitle) - titleOrder(bTitle) || a.name.localeCompare(b.name);
+        })
+        .forEach(speaker => {
         const opt = document.createElement('option');
-        opt.value = name;
-        opt.textContent = formatSpeaker(name);
-        opt.title = name;
+        opt.value = speaker.name;
+        opt.textContent = formatSpeaker(speaker);
+        opt.title = speaker.name;
         speakerSelect.appendChild(opt);
       });
       speakersRow.classList.add('has-speakers');
