@@ -203,6 +203,137 @@ def case_folder_number(number_str: str, term_dir: Path | None = None) -> str:
 
 
 # ---------------------------------------------------------------------------
+# Scan helper
+# ---------------------------------------------------------------------------
+
+_JUSTICE_TITLES = {"JUSTICE", "CHIEF JUSTICE"}
+# Gendered-title set and female-only subset used by merge_title().
+GENDERED_TITLES = {"MR.", "MRS.", "MS.", "MISS"}
+_FEMALE_TITLES  = {"MRS.", "MS.", "MISS"}
+
+
+def merge_title(current: str, inferred: str) -> str | None:
+    """Merge an inferred title into a (possibly compound) current title string.
+
+    Titles are stored as comma-separated values, e.g. "MS., GENERAL".  Returns
+    the updated string, or None when no change is needed.
+
+    Rules:
+    - If inferred already appears in the current set, return None (no change).
+    - If current contains a female title (MRS./MS./MISS) and inferred is MR.,
+      ignore — the original is more likely correct.
+    - If inferred is GENERAL: append after any existing gendered title.
+    - If inferred is a gendered title: insert before GENERAL (replacing any
+      conflicting gendered title), so gendered titles always come first.
+    - At most one gendered title per speaker.
+    """
+    current_parts = [p.strip() for p in current.split(",") if p.strip()]
+    current_set   = set(current_parts)
+
+    if inferred in current_set:
+        return None
+
+    # Inferred MR. when a female-specific title is present — trust the original.
+    if inferred == "MR." and current_set & _FEMALE_TITLES:
+        return None
+
+    if inferred == "GENERAL":
+        # Keep existing gendered title(s) first, then append GENERAL.
+        gendered = [p for p in current_parts if p in GENDERED_TITLES]
+        others   = [p for p in current_parts if p not in GENDERED_TITLES and p != "GENERAL"]
+        return ",".join(gendered + others + ["GENERAL"])
+
+    if inferred in GENDERED_TITLES:
+        # Put gendered title first; keep GENERAL (and any other parts) after.
+        non_gendered = [p for p in current_parts if p not in GENDERED_TITLES]
+        return ",".join([inferred] + non_gendered)
+
+    return None  # unknown title type — leave unchanged
+
+
+def _scan_transcript(
+    speakers: list,
+    turns: list,
+    transcript_path: Path,
+    *,
+    dry_run: bool = False,
+) -> bool:
+    """Check every non-justice speaker: if turn text implies a title, reconcile.
+
+    Prints a SCAN warning for each title that differs from the speakers array.
+    If not dry_run, mutates speaker dicts in place with the merged title.
+    Returns True if any changes were (or would be) made.
+    """
+    changed = False
+    messages: list[str] = []
+    for spk in speakers:
+        if spk.get("title", "") in _JUSTICE_TITLES:
+            continue
+        spk_last = spk["name"].split()[-1] if spk.get("name") else ""
+        if not spk_last:
+            continue
+        inferred = infer_title_from_turns(spk_last, turns)
+        if inferred is None:
+            continue
+        current   = spk.get("title", "")
+        new_title = merge_title(current, inferred)
+        if new_title is None:
+            continue
+        changed = True
+        action  = "(dry)" if dry_run else "updated"
+        messages.append(
+            f"    {action} '{spk['name']}': {current!r} \u2192 {new_title!r} (turns imply {inferred!r})"
+        )
+        if not dry_run:
+            spk["title"] = new_title
+    if messages:
+        print(f"SCAN {transcript_path.relative_to(REPO_ROOT)}:", file=sys.stderr)
+        for m in messages:
+            print(m, file=sys.stderr)
+    return changed
+
+
+def _dedup_speakers(
+    speakers: list,
+    transcript_path: Path,
+    *,
+    dry_run: bool = False,
+) -> bool:
+    """Warn on duplicate speaker names; remove exact duplicates (same name+title)
+    unless dry_run.  Returns True if any duplicates were removed."""
+    seen: dict[str, dict] = {}  # name → first occurrence
+    to_remove: list[int] = []
+    for i, spk in enumerate(speakers):
+        name = spk.get("name", "")
+        if name not in seen:
+            seen[name] = spk
+            continue
+        # Duplicate name found.
+        first = seen[name]
+        if spk.get("title") == first.get("title"):
+            action = "(dry) would remove" if dry_run else "removed"
+            print(
+                f"  DEDUP {action} duplicate speaker '{name}' "
+                f"(title={spk.get('title')!r}) in "
+                f"{transcript_path.relative_to(REPO_ROOT)}",
+                file=sys.stderr,
+            )
+            to_remove.append(i)
+        else:
+            print(
+                f"  WARN duplicate speaker '{name}' with differing titles "
+                f"({first.get('title')!r} vs {spk.get('title')!r}) in "
+                f"{transcript_path.relative_to(REPO_ROOT)}",
+                file=sys.stderr,
+            )
+    if to_remove and not dry_run:
+        for i in reversed(to_remove):
+            speakers.pop(i)
+        return True
+    return bool(to_remove) and dry_run  # True only in dry-run so caller can count it
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -210,6 +341,7 @@ def main(
     dry_run: bool = False,
     verbose: bool = False,
     show_women: bool = False,
+    scan: bool = False,
     filter_term: str | None = None,
     filter_case: str | None = None,
 ) -> None:
@@ -284,6 +416,15 @@ def main(
                 if not speakers:
                     continue
 
+                # Validate: detect and remove exact duplicate speakers.
+                dup_changed = _dedup_speakers(speakers, transcript_path, dry_run=dry_run)
+                if dup_changed and not dry_run:
+                    transcript_path.write_text(
+                        json.dumps(transcript, indent=2, ensure_ascii=False) + "\n",
+                        encoding="utf-8",
+                    )
+                    updated += 1
+
                 def _norm_key(s: dict) -> str:
                     return re.sub(r'\s+', ' ', s.get("name", "")).rstrip(':').upper()
 
@@ -318,7 +459,23 @@ def main(
                     return False
 
                 if not any(_needs_work(s) for s in speakers) and not _has_prefixed_turns():
-                    already_done += 1
+                    if scan:
+                        scan_changed = _scan_transcript(
+                            speakers,
+                            transcript.get("turns", []),
+                            transcript_path,
+                            dry_run=dry_run,
+                        )
+                        if scan_changed and not dry_run:
+                            transcript_path.write_text(
+                                json.dumps(transcript, indent=2, ensure_ascii=False) + "\n",
+                                encoding="utf-8",
+                            )
+                            updated += 1
+                        else:
+                            already_done += 1
+                    else:
+                        already_done += 1
                     continue
 
                 justice_out = []
@@ -621,7 +778,14 @@ def main(
                             elif inferred == "MR.":
                                 men_names.add(spk["name"])
 
-                if not changed:
+                # ── Scan: check inferred titles against speaker array ─────
+                scan_changed = False
+                if scan:
+                    scan_changed = _scan_transcript(
+                        new_speakers, turns, transcript_path, dry_run=dry_run
+                    )
+
+                if not changed and not scan_changed:
                     already_done += 1
                     continue
 
@@ -654,11 +818,14 @@ if __name__ == "__main__":
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--verbose", action="store_true")
     ap.add_argument("--women", action="store_true")
+    ap.add_argument("--scan", action="store_true",
+                    help="Check all transcripts: warn when turn text implies a different title than the speakers array")
     args = ap.parse_args()
     main(
         dry_run=args.dry_run,
         verbose=args.verbose,
         show_women=args.women,
+        scan=args.scan,
         filter_term=args.term,
         filter_case=args.case,
     )
