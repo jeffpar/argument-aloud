@@ -83,7 +83,7 @@ function lastName(name) {
 function formatSpeaker(speaker) {
   const name  = typeof speaker === 'string' ? speaker : speaker.name;
   const title = typeof speaker === 'object' ? speaker.title : undefined;
-  if (name === 'UNKNOWN JUSTICE') return 'J.\u00a0Unknown';
+  if (name === 'UNKNOWN JUSTICE') return 'J.\u00a0UNKNOWN';
   if (name === 'UNKNOWN SPEAKER') return 'Unknown';
   if (title !== undefined) {
     if (title === 'CHIEF JUSTICE') return 'C.J.\u00a0' + lastName(name);
@@ -517,7 +517,7 @@ function showDocViewer(link, { autoScroll = false, matchedRef = null, page = nul
 // Canonical identifier for the URL 'case' param and nav data-case-key.
 // Falls back to 'id' for historical cases that have no docket number.
 function caseId(caseEntry) {
-  return caseEntry.id || caseEntry.number || '';
+  return caseEntry.number || caseEntry.id || '';
 }
 
 // Directory name for the case on the filesystem — uses number first since
@@ -2126,7 +2126,8 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
         .sort((a, b) => {
           const aTitle = a.title ?? (a.role === 'justice' ? 'JUSTICE' : '');
           const bTitle = b.title ?? (b.role === 'justice' ? 'JUSTICE' : '');
-          return titleOrder(aTitle) - titleOrder(bTitle) || a.name.localeCompare(b.name);
+          return titleOrder(aTitle) - titleOrder(bTitle)
+            || formatSpeaker(a).localeCompare(formatSpeaker(b));
         })
         .forEach(speaker => {
         const opt = document.createElement('option');

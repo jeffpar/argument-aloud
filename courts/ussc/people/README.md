@@ -6,4 +6,4 @@ The [Women Advocates CSV](women.csv) comes from the [Lone Dissent](https://githu
 
 ## Issues
 
-  - Why is Ms. Barrett not listed in [Women Advocates CSV](women.csv)?
+  - Why is Ms. Jarrett, from [Case 89-839](https://argumentaloud.org/courts/ussc/?term=1990-10&case=89-839) not listed in [Women Advocates CSV](women.csv)?

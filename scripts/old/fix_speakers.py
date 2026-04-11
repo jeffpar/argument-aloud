@@ -161,6 +161,28 @@ def is_woman(name: str, exact: set, first_last: set) -> bool:
     return len(parts) >= 2 and (parts[0], parts[-1]) in first_last
 
 
+_TITLE_INFER_RE = re.compile(
+    r'\b(Mr\.|Mrs\.|Miss|Ms\.|General)\s+(?P<last>[A-Z][A-Za-z\'\-]+)',
+    re.IGNORECASE,
+)
+
+
+def infer_title_from_turns(last_name: str, turns: list) -> str | None:
+    """Scan turn text fields for 'Mr./Ms./General <last_name>' and return the
+    canonical title ("MR.", "MS.", or "GENERAL"), or None if not found."""
+    upper_last = last_name.upper()
+    for turn in turns:
+        for m in _TITLE_INFER_RE.finditer(turn.get('text', '')):
+            if m.group('last').upper() == upper_last:
+                prefix = m.group(1).upper()
+                if prefix in {'MRS.', 'MISS', 'MS.'}:
+                    return 'MS.'
+                if prefix == 'GENERAL':
+                    return 'GENERAL'
+                return 'MR.'
+    return None
+
+
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
@@ -571,6 +593,33 @@ def main(
                     if new_tname is not None and turn["name"] != new_tname:
                         turn["name"] = new_tname
                         changed = True
+
+                # For NO_TITLE_TERMS: infer title from turn text for non-justice
+                # speakers whose title is still blank, by scanning for patterns
+                # like "Mr. Stewart", "Ms. Prelogar", "General Verrilli".
+                if no_advocate_title:
+                    JUSTICE_TITLES_SET = {"JUSTICE", "CHIEF JUSTICE"}
+                    for spk in new_speakers:
+                        if spk.get("title") != "":
+                            continue
+                        if spk.get("title") in JUSTICE_TITLES_SET:
+                            continue
+                        spk_last = spk["name"].split()[-1] if spk.get("name") else ""
+                        if not spk_last:
+                            continue
+                        inferred = infer_title_from_turns(spk_last, turns)
+                        if inferred:
+                            spk["title"] = inferred
+                            changed = True
+                            if show_women and inferred == "MS.":
+                                print(
+                                    f"  MS. {spk['name']} (inferred) in "
+                                    f"{transcript_path.relative_to(REPO_ROOT)}"
+                                )
+                            if inferred == "MS.":
+                                women_names.add(spk["name"])
+                            elif inferred == "MR.":
+                                men_names.add(spk["name"])
 
                 if not changed:
                     already_done += 1
