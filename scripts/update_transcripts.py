@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-"""Audit transcript_href entries against the lonedissent PDF tree.
+"""Check transcript_href entries against the set of PDF files.
 
 For every case in every term from 1968 onward, checks that each audio
 entry's transcript_href corresponds to an actual PDF file under:
-    ~/Sites/loners/lonedissent/sources/scotus/transcripts/arguments/YYYY/
 
-URL basenames use date format MM-DD-YYYY; the lonedissent tree uses
+    courts/ussc/transcripts/pdfs/YYYY/
+
+URL basenames use date format MM-DD-YYYY; the target location uses
 YYYY-MM-DD.  Secondary consolidated case numbers (e.g. the "83-1373" in
 "83-1013_83-1373_11-06-1984.pdf") are stripped; non-numeric qualifiers
 (e.g. "Orig") are retained and joined with hyphens.
 
 Usage:
-    python3 scripts/audit_transcripts.py [--verbose] [--download] [--extract]
+    python3 scripts/update_transcripts.py [--verbose] [--download] [--extract]
 """
 
 import json
@@ -222,7 +223,7 @@ def main(verbose: bool = False, download: bool = False) -> None:
                         try:
                             req = urllib.request.Request(
                                 href,
-                                headers={"User-Agent": "Mozilla/5.0 audit_transcripts.py"},
+                                headers={"User-Agent": "Mozilla/5.0 update_transcripts.py"},
                             )
                             with urllib.request.urlopen(req) as resp:
                                 dest.write_bytes(resp.read())
