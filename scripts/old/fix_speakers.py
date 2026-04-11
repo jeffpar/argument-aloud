@@ -133,7 +133,7 @@ def parse_women_advocates(path: Path) -> tuple[set, set]:
     first_last: set[tuple[str, str]] = set()
     if not path.exists():
         return exact, first_last
-    with path.open(encoding="utf-8", newline="") as f:
+    with path.open(encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
         for row in reader:
             name = row.get("nameAdvocate", "").strip()
@@ -166,7 +166,7 @@ def case_folder_number(number_str: str) -> str:
 # Main
 # ---------------------------------------------------------------------------
 
-def main(dry_run: bool = False, verbose: bool = False) -> None:
+def main(dry_run: bool = False, verbose: bool = False, show_women: bool = False) -> None:
     if not SPEAKERMAP.exists():
         print(f"ERROR: speakermap not found: {SPEAKERMAP}", file=sys.stderr)
         sys.exit(1)
@@ -187,6 +187,9 @@ def main(dry_run: bool = False, verbose: bool = False) -> None:
     updated = 0
     already_done = 0
     warn_count = 0
+    justice_names: set[str] = set()
+    men_names: set[str] = set()
+    women_names: set[str] = set()
 
     for term_dir in term_dirs:
         term = term_dir.name
@@ -301,7 +304,7 @@ def main(dry_run: bool = False, verbose: bool = False) -> None:
                             # are silently preserved.
                             if role == "justice" or typo_match is not None:
                                 print(
-                                    f"  WARN: unknown justice {name!r} in "
+                                    f"  WARN: unknown justice {name} in "
                                     f"{transcript_path.relative_to(REPO_ROOT)}",
                                     file=sys.stderr,
                                 )
@@ -320,6 +323,7 @@ def main(dry_run: bool = False, verbose: bool = False) -> None:
                         }:
                             changed = True
                         justice_out.append(new_speaker)
+                        justice_names.add(new_speaker["name"])
 
                     elif role == "advocate":
                         if no_advocate_title:
@@ -330,8 +334,17 @@ def main(dry_run: bool = False, verbose: bool = False) -> None:
                             title = "MS."
                         else:
                             title = "MR."
+                        if show_women and title == "MS.":
+                            print(
+                                f"  MS. {name} in "
+                                f"{transcript_path.relative_to(REPO_ROOT)}"
+                            )
                         advocate_out.append({"name": name, "title": title})
                         changed = True
+                        if title == "MS.":
+                            women_names.add(name)
+                        elif title == "MR.":
+                            men_names.add(name)
 
                     else:
                         # Already processed or unknown — preserve as-is
@@ -342,7 +355,36 @@ def main(dry_run: bool = False, verbose: bool = False) -> None:
                     continue
 
                 # Justices first, then any already-processed, then advocates
-                media["speakers"] = justice_out + other_out + advocate_out
+                new_speakers = justice_out + other_out + advocate_out
+                media["speakers"] = new_speakers
+
+                # Build a rename map: old display name (upper) → new full name.
+                # Also build the set of valid new names for turn-name validation.
+                rename_map: dict[str, str] = {}
+                valid_new_names: set[str] = set()
+                for orig, new_sp in zip(speakers, new_speakers):
+                    old_name = orig.get("name", "")
+                    new_name = new_sp["name"]
+                    if old_name != new_name:
+                        rename_map[old_name.upper()] = new_name
+                    valid_new_names.add(new_name)
+
+                # Update turn names and warn on any that don't match a speaker.
+                turns = transcript.get("turns", [])
+                for turn in turns:
+                    tname = turn.get("name", "")
+                    if not tname:
+                        continue
+                    tname_key = tname.upper()
+                    if tname_key in rename_map:
+                        turn["name"] = rename_map[tname_key]
+                    elif turn["name"] not in valid_new_names:
+                        print(
+                            f"  WARN: turn name {turn['name']} not in speakers "
+                            f"in {transcript_path.relative_to(REPO_ROOT)}",
+                            file=sys.stderr,
+                        )
+                        warn_count += 1
 
                 if not dry_run:
                     transcript_path.write_text(
@@ -359,8 +401,9 @@ def main(dry_run: bool = False, verbose: bool = False) -> None:
     summary = f"\n{updated} transcripts updated, {already_done} already processed"
     if warn_count:
         summary += f", {warn_count} unrecognised justice names"
+    summary += f"\n{len(justice_names)} unique justices, {len(men_names)} unique men, {len(women_names)} unique women"
     print(summary)
 
 
 if __name__ == "__main__":
-    main(dry_run="--dry-run" in sys.argv, verbose="--verbose" in sys.argv)
+    main(dry_run="--dry-run" in sys.argv, verbose="--verbose" in sys.argv, show_women="--women" in sys.argv)
