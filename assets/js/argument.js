@@ -83,12 +83,18 @@ function lastName(name) {
 function formatSpeaker(speaker) {
   const name  = typeof speaker === 'string' ? speaker : speaker.name;
   const title = typeof speaker === 'object' ? speaker.title : undefined;
-  if (name === 'UNKNOWN JUSTICE') return 'J.\u00a0UNKNOWN';
-  if (name === 'UNKNOWN SPEAKER') return 'Unknown';
+  if (name === 'UNKNOWN JUSTICE') return 'UNKNOWN';
+  if (name === 'UNKNOWN SPEAKER') return 'UNKNOWN';
   if (title !== undefined) {
     if (title === 'CHIEF JUSTICE') return 'C.J.\u00a0' + lastName(name);
     if (title === 'JUSTICE')       return 'J.\u00a0'   + lastName(name);
-    if (title)                     return title + '\u00a0' + lastName(name);
+    if (title) {
+      // Support compound titles like "MS.,GENERAL" — use the last part for display.
+      const parts = title.split(',').map(t => t.trim()).filter(Boolean);
+      const last  = parts[parts.length - 1];
+      if (last === 'GENERAL') return 'G.\u00a0' + lastName(name);
+      return last + '\u00a0' + lastName(name);
+    }
     return name; // empty title — show full name as-is
   }
   // Old format: derive from name prefix
