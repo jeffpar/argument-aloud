@@ -766,15 +766,20 @@ function buildTermCases(term, cases, ul) {
               const fi = document.createElement('li');
               fi.className = 'file-item';
               if (f.file != null) fi.dataset.fileId = f.file;
+              if (f.href)        fi.dataset.fileHref = f.href;
               fi.textContent = f.title;
               fi.addEventListener('click', e => {
                 e.stopPropagation();
                 document.querySelectorAll('.file-item, .file-type-header').forEach(el => el.classList.remove('active'));
                 fi.classList.add('active');
-                if (f.file != null) {
-                  const url = new URL(location.href);
-                  url.searchParams.set('file', f.file);
-                  history.replaceState(null, '', url);
+                {
+                  const fileKey = f.file != null ? String(f.file)
+                    : f.href ? f.href.split('/').pop() : null;
+                  if (fileKey) {
+                    const url = new URL(location.href);
+                    url.searchParams.set('file', fileKey);
+                    history.replaceState(null, '', url);
+                  }
                 }
                 // No-audio cases have no transcript pane, so expand the doc viewer full-height.
                 const savedHeight = docViewerOpenHeight;
@@ -854,7 +859,7 @@ function buildTermCases(term, cases, ul) {
           // For no-audio cases, transcriptloaded never fires; restore file selection here,
           // after ensureFilesLoaded() has finished building the file list DOM.
           if (fileRestore != null && !caseEntry.audio?.length) {
-            const fileEl = document.querySelector(`.file-item[data-file-id="${fileRestore}"]`);
+            const fileEl = findFileItem(fileRestore);
             if (fileEl) {
               fileEl.closest('.file-type-group')?.classList.add('open');
               fileEl.click();
@@ -2199,6 +2204,18 @@ document.getElementById('doc-viewer-header').addEventListener('click', () => {
   });
 })();
 
+// Find a rendered file-item element by the URL 'file' param value.
+// Supports both numeric IDs (data-file-id) and href-basename strings (data-file-href).
+function findFileItem(param) {
+  if (param == null) return null;
+  const s = String(param);
+  // Numeric ID — existing files.json entries
+  if (/^\d+$/.test(s)) return document.querySelector(`.file-item[data-file-id="${CSS.escape(s)}"]`);
+  // Href filename — virtual/injected files: match data-file-href ending with the param
+  return document.querySelector(`.file-item[data-file-href$="${CSS.escape('/' + s)}"]`)
+      || document.querySelector(`.file-item[data-file-href="${CSS.escape(s)}"]`);
+}
+
 // ── Nav case search ───────────────────────────────────────────────────────────
 (function () {
   const navSearchBtn   = document.getElementById('nav-search-btn');
@@ -2312,7 +2329,7 @@ async function init() {
   const collectionParam = params.get('collection');
   const entryParam      = params.get('entry') != null ? parseInt(params.get('entry'), 10) : null;
   const audioParam = params.get('audio') != null ? Math.max(0, parseInt(params.get('audio'), 10) - 1) : null; // convert 1-based → 0-based
-  const fileParam  = params.get('file') != null ? parseInt(params.get('file'), 10) : null;
+  const fileParam  = params.get('file') ?? null;  // string: numeric id or href filename
   const turnParam  = params.get('turn') != null ? parseInt(params.get('turn'), 10) : null;
 
   // ── Collection restore ───────────────────────────────────────────────────
@@ -2368,7 +2385,7 @@ async function init() {
               }
             }
             if (fileParam != null) {
-              const fileEl = document.querySelector(`.file-item[data-file-id="${fileParam}"]`);
+              const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');
                 requestAnimationFrame(() => fileEl.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
@@ -2439,7 +2456,7 @@ async function init() {
               }
             }
             if (fileParam != null) {
-              const fileEl = document.querySelector(`.file-item[data-file-id="${fileParam}"]`);
+              const fileEl = findFileItem(fileParam);
               if (fileEl) {
                 fileEl.closest('.file-type-group')?.classList.add('open');
                 requestAnimationFrame(() => fileEl.scrollIntoView({ behavior: 'instant', block: 'nearest' }));
@@ -2460,7 +2477,7 @@ async function init() {
         if (titleEl) titleEl.dispatchEvent(Object.assign(new MouseEvent('click'), {
           fromRestore: true,
           audioIdx: audioParam ?? 0,
-          fileRestore: (fileParam != null && matchedCase && !matchedCase.audio?.length) ? fileParam : null,
+          fileRestore: (fileParam != null && matchedCase && !matchedCase.audio?.length) ? String(fileParam) : null,
         }));
         // For no-audio cases, file restore is handled inside the title click handler
         // (after ensureFilesLoaded). For audio cases it fires on transcriptloaded above.
